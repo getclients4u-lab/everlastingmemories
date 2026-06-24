@@ -75,4 +75,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  /* ---- Form success message ---- */
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('submitted') === 'true') {
+    const successMsg = document.getElementById('formSuccess');
+    if (successMsg) successMsg.style.display = 'block';
+    window.history.replaceState({}, document.title, window.location.pathname);
+  }
+
 });
