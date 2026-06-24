@@ -83,4 +83,49 @@ document.addEventListener('DOMContentLoaded', () => {
     window.history.replaceState({}, document.title, window.location.pathname);
   }
 
+  /* ---- Google Sheets form submission ---- */
+  const GOOGLE_SCRIPT_URL = ''; // PASTE YOUR GOOGLE APPS SCRIPT WEB APP URL HERE
+  const quoteForm = document.getElementById('quoteForm');
+  if (quoteForm && GOOGLE_SCRIPT_URL) {
+    quoteForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = quoteForm.querySelector('button[type="submit"]');
+      const originalText = btn.textContent;
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      const data = {
+        name: quoteForm.querySelector('[name="name"]').value,
+        email: quoteForm.querySelector('[name="email"]').value,
+        phone: quoteForm.querySelector('[name="phone"]').value,
+        event_type: quoteForm.querySelector('[name="event_type"]').value,
+        event_date: quoteForm.querySelector('[name="event_date"]').value,
+        message: quoteForm.querySelector('[name="message"]').value
+      };
+
+      try {
+        const res = await fetch(GOOGLE_SCRIPT_URL, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(data)
+        });
+        const result = await res.json();
+        if (result.result === 'success') {
+          document.getElementById('formSuccess').style.display = 'block';
+          document.getElementById('formError').style.display = 'none';
+          quoteForm.reset();
+        } else {
+          throw new Error(result.message);
+        }
+      } catch (err) {
+        document.getElementById('formError').style.display = 'block';
+        document.getElementById('formSuccess').style.display = 'none';
+        console.error('Form error:', err);
+      } finally {
+        btn.textContent = originalText;
+        btn.disabled = false;
+      }
+    });
+  }
+
 });
