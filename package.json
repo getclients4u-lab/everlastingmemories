@@ -1,0 +1,8 @@
+{
+  "name": "everlasting-memories",
+  "version": "1.0.0",
+  "description": "GEO-optimized static site for Everlasting Memories balloon art & event decor",
+  "scripts": {
+    "build": "echo 'Static site - no build needed'"
+  }
+}

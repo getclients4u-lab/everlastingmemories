@@ -1,0 +1,11 @@
+{
+  "framework": null,
+  "outputDirectory": ".",
+  "routes": [
+    { "src": "/services", "dest": "/services.html" },
+    { "src": "/gallery", "dest": "/gallery.html" },
+    { "src": "/about", "dest": "/about.html" },
+    { "src": "/faq", "dest": "/faq.html" },
+    { "src": "/contact", "dest": "/contact.html" }
+  ]
+}
