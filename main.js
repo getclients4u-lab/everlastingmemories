@@ -187,7 +187,7 @@
   }
 
   // ---- Contact Form Handling ----
-  const contactForm = document.getElementById('contactForm');
+  const contactForm = document.getElementById('contactForm') || document.getElementById('quoteForm');
   if (contactForm) {
     contactForm.addEventListener('submit', async function(e) {
       e.preventDefault();
@@ -202,6 +202,22 @@
       try {
         const formData = new FormData(contactForm);
         const data = Object.fromEntries(formData.entries());
+        
+        // Store lead in localStorage for admin dashboard
+        if (contactForm.hasAttribute('data-store-lead')) {
+          const leads = JSON.parse(localStorage.getItem('em_leads') || '[]');
+          leads.unshift({
+            name: data.name,
+            email: data.email,
+            phone: data.phone || '',
+            eventType: data.eventType || data.event_type || '',
+            eventDate: data.eventDate || '',
+            message: data.message,
+            date: new Date().toISOString(),
+            status: 'new'
+          });
+          localStorage.setItem('em_leads', JSON.stringify(leads));
+        }
         
         // Simulate form submission (replace with actual endpoint)
         await new Promise(resolve => setTimeout(resolve, 1500));
