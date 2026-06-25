@@ -6,6 +6,10 @@
 <title>Everlasting Memories | Balloon Art & Event Decor in Connecticut</title>
 <meta name="description" content="Everlasting Memories creates custom balloon garlands, bouquets, backdrops & event decorations. Over 200 events decorated. Serving Connecticut since 2019. Book Isabella Garcia.">
 <meta name="keywords" content="balloon artist, event decorator, balloon garlands, balloon bouquets, backdrops, Connecticut events, party decorations, wedding decor, birthday balloons">
+<meta name="theme-color" content="#FAF8F5">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<link rel="apple-touch-icon" href="logo.jpg">
 
 <!-- OpenGraph -->
 <meta property="og:title" content="Everlasting Memories | Balloon Art & Event Decor">
@@ -26,6 +30,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" as="style">
+<link rel="preload" href="hero.jpg" as="image">
 
 <!-- Schema.org: Organization + WebSite + LocalBusiness -->
 <script type="application/ld+json">
@@ -123,17 +129,17 @@
 </div>
 
 <!-- Hero -->
-<header class="hero">
+<header class="hero" role="banner">
   <div class="container hero-inner">
-    <div class="hero-text">
+    <div class="hero-text" style="will-change:transform, opacity;">
       <h1 class="fade-up">Turning Moments Into <span class="accent">Everlasting Memories</span></h1>
       <p class="fade-up">Custom balloon art and event decorations that transform ordinary spaces into extraordinary experiences. Based in Connecticut, serving celebrations of every kind.</p>
       <div class="hero-btns fade-up">
-        <a href="contact.html" class="btn btn-primary">Book a Consultation</a>
-        <a href="services.html" class="btn btn-secondary">Explore Services</a>
+        <a href="contact.html" class="btn btn-primary" aria-label="Book a free consultation">Book a Consultation</a>
+        <a href="services.html" class="btn btn-secondary" aria-label="Explore our services">Explore Services</a>
       </div>
     </div>
-    <div class="hero-visual fade-up">
+    <div class="hero-visual fade-up" style="will-change:transform, opacity;">
       <img src="hero.jpg" alt="Elegant white and clear balloon display for a celebration">
     </div>
   </div>
@@ -164,32 +170,32 @@
 </section>
 
 <!-- Services -->
-<section class="section section-alt" id="services">
+<section class="section section-alt" id="services" aria-label="Services overview">
   <div class="container">
     <div class="section-header fade-up">
       <h2>What We Create</h2>
       <p>From intimate gatherings to grand celebrations, every design is handcrafted to match your vision and venue.</p>
     </div>
-    <div class="services-grid">
-      <article class="service-card fade-up">
+    <div class="services-grid" role="list">
+      <article class="service-card fade-up" role="listitem" tabindex="0">
         <div class="service-icon">&#127880;</div>
         <h3>Balloon Garlands</h3>
         <p>Organic or structured garlands in custom color palettes. Perfect for entryways, dessert tables, photo walls, and stage backdrops.</p>
         <a href="services.html#garlands" style="font-size:0.85rem; font-weight:500;">Learn more &rarr;</a>
       </article>
-      <article class="service-card fade-up">
+      <article class="service-card fade-up" role="listitem" tabindex="0">
         <div class="service-icon">&#127873;</div>
         <h3>Balloon Bouquets</h3>
         <p>Elegant tabletop and floor-standing bouquets for birthdays, anniversaries, corporate events, and surprise deliveries.</p>
         <a href="services.html#bouquets" style="font-size:0.85rem; font-weight:500;">Learn more &rarr;</a>
       </article>
-      <article class="service-card fade-up">
+      <article class="service-card fade-up" role="listitem" tabindex="0">
         <div class="service-icon">&#127912;</div>
         <h3>Backdrops</h3>
         <p>Statement backdrops combining balloons, fabric, florals, and custom signage for Instagram-worthy photo moments.</p>
         <a href="services.html#backdrops" style="font-size:0.85rem; font-weight:500;">Learn more &rarr;</a>
       </article>
-      <article class="service-card fade-up">
+      <article class="service-card fade-up" role="listitem" tabindex="0">
         <div class="service-icon">&#127881;</div>
         <h3>Event Decorations</h3>
         <p>Full venue transformation including ceiling installations, table centerpieces, entrance arches, and themed environments.</p>
@@ -213,26 +219,26 @@
 </section>
 
 <!-- Testimonials -->
-<section class="section section-alt">
+<section class="section section-alt" aria-label="Client testimonials">
   <div class="container">
     <div class="section-header fade-up">
       <h2>What Clients Say</h2>
       <p>Real feedback from real celebrations across Connecticut.</p>
     </div>
-    <div class="testimonials-grid">
-      <article class="testimonial-card fade-up">
-        <p>"Isabella transformed our baby shower into something magical. The neutral-toned garland matched our nursery perfectly. Our guests couldn't stop taking photos."</p>
-        <div class="author">Sarah M.</div>
+    <div class="testimonials-grid" role="list">
+      <article class="testimonial-card fade-up" role="listitem" itemscope itemtype="https://schema.org/Review">
+        <p itemprop="reviewBody">"Isabella transformed our baby shower into something magical. The neutral-toned garland matched our nursery perfectly. Our guests couldn't stop taking photos."</p>
+        <div class="author" itemprop="author">Sarah M.</div>
         <div class="event">Baby Shower, Stamford CT</div>
       </article>
-      <article class="testimonial-card fade-up">
-        <p>"We've used Everlasting Memories for three corporate events now. Professional, punctual, and the designs always exceed expectations. Highly recommended."</p>
-        <div class="author">David K.</div>
+      <article class="testimonial-card fade-up" role="listitem" itemscope itemtype="https://schema.org/Review">
+        <p itemprop="reviewBody">"We've used Everlasting Memories for three corporate events now. Professional, punctual, and the designs always exceed expectations. Highly recommended."</p>
+        <div class="author" itemprop="author">David K.</div>
         <div class="event">Corporate Gala, Hartford CT</div>
       </article>
-      <article class="testimonial-card fade-up">
-        <p>"The backdrop she created for our wedding was the highlight of our reception. It looked like something out of a magazine. Worth every penny."</p>
-        <div class="author">Elena & James R.</div>
+      <article class="testimonial-card fade-up" role="listitem" itemscope itemtype="https://schema.org/Review">
+        <p itemprop="reviewBody">"The backdrop she created for our wedding was the highlight of our reception. It looked like something out of a magazine. Worth every penny."</p>
+        <div class="author" itemprop="author">Elena & James R.</div>
         <div class="event">Wedding Reception, New Haven CT</div>
       </article>
     </div>
@@ -240,20 +246,20 @@
 </section>
 
 <!-- Author Bio (GEO) -->
-<section class="section">
+<section class="section" aria-label="About the artist">
   <div class="container">
-    <div class="about-grid">
+    <div class="about-grid" itemscope itemtype="https://schema.org/Person">
       <div class="about-img fade-up">
         <img src="dessert-table.jpg" alt="Dessert table decorated with white balloons and clear bubble accents">
       </div>
-      <div class="about-text fade-up">
+      <div class="about-text fade-up" itemprop="description">
         <h2>Meet Isabella Garcia</h2>
         <p>With over 5 years of hands-on experience and 200+ events decorated across Connecticut, Isabella Garcia brings artistic precision and creative vision to every project. From intimate baby showers to 500-guest corporate galas, her work has earned a <strong>97% client satisfaction rate</strong> and a growing base of 50+ repeat clients.</p>
         <p>Specializing in neutral, earthy, and blush-toned palettes, Isabella's designs blend organic textures with structured elegance—creating backdrops and installations that feel both timeless and on-trend.</p>
-        <div class="bio-card">
+        <div class="bio-card" itemscope itemtype="https://schema.org/Person">
           <h4>About the Artist</h4>
-          <div class="author-name">Isabella Garcia</div>
-          <div class="author-creds">Balloon Artist & Event Decorator · 5+ Years Experience · 200+ Events · Connecticut</div>
+          <div class="author-name" itemprop="name">Isabella Garcia</div>
+          <div class="author-creds" itemprop="jobTitle">Balloon Artist & Event Decorator · 5+ Years Experience · 200+ Events · Connecticut</div>
         </div>
       </div>
     </div>
@@ -261,11 +267,11 @@
 </section>
 
 <!-- CTA -->
-<section class="cta-section">
+<section class="cta-section" aria-label="Call to action">
   <div class="container fade-up">
     <h2>Ready to Create Something Beautiful?</h2>
     <p>Book a free consultation and let's design the perfect decor for your next celebration.</p>
-    <a href="contact.html" class="btn btn-primary" style="background:var(--cream); color:var(--black);">Get a Free Quote</a>
+    <a href="contact.html" class="btn btn-primary" style="background:var(--cream); color:var(--black);" aria-label="Get a free quote for your event">Get a Free Quote</a>
   </div>
 </section>
 
@@ -307,6 +313,6 @@
 
 <button class="back-to-top" id="backToTop" aria-label="Back to top">&#8593;</button>
 
-<script src="main.js"></script>
+<script src="main.js" defer></script>
 </body>
 </html>

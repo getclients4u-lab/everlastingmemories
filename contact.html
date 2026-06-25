@@ -14,6 +14,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<meta name="theme-color" content="#FAF8F5">
+<link rel="apple-touch-icon" href="logo.jpg">
 
 <script type="application/ld+json">
 {
@@ -130,7 +132,7 @@
 
       <div class="contact-form fade-up">
         <h3 style="margin-bottom:var(--space-md);">Request a Quote</h3>
-        <form id="quoteForm">
+        <form id="quoteForm" novalidate>
           <div id="formSuccess" style="display:none; background:var(--beige); border:1px solid var(--gold); border-radius:var(--radius-md); padding:var(--space-md); margin-bottom:var(--space-md); text-align:center;">
             <p style="margin:0; color:var(--black); font-weight:500;">&#10003; Message sent successfully! We'll reply within 24 hours.</p>
           </div>
@@ -140,19 +142,19 @@
 
           <div class="form-group">
             <label for="name">Full Name *</label>
-            <input type="text" id="name" name="name" required placeholder="Your name">
+            <input type="text" id="name" name="name" required placeholder="Your name" autocomplete="name" aria-required="true">
           </div>
           <div class="form-group">
             <label for="email">Email Address *</label>
-            <input type="email" id="email" name="email" required placeholder="you@example.com">
+            <input type="email" id="email" name="email" required placeholder="you@example.com" autocomplete="email" aria-required="true">
           </div>
           <div class="form-group">
             <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" name="phone" placeholder="203-555-0000">
+            <input type="tel" id="phone" name="phone" placeholder="203-555-0000" autocomplete="tel">
           </div>
           <div class="form-group">
             <label for="event-type">Event Type *</label>
-            <select id="event-type" name="event_type" required>
+            <select id="event-type" name="event_type" required aria-label="Event type">
               <option value="">Select event type</option>
               <option value="birthday">Birthday Party</option>
               <option value="wedding">Wedding / Reception</option>
@@ -168,9 +170,9 @@
           </div>
           <div class="form-group">
             <label for="message">Tell Us About Your Vision *</label>
-            <textarea id="message" name="message" rows="5" required placeholder="Describe your event, color palette, venue, and any inspiration photos or Pinterest boards..."></textarea>
+            <textarea id="message" name="message" rows="5" required aria-required="true" placeholder="Describe your event, color palette, venue, and any inspiration photos or Pinterest boards..."></textarea>
           </div>
-          <button type="submit" class="btn btn-primary" style="width:100%;">Send Request</button>
+          <button type="submit" class="btn btn-primary" style="width:100%;" aria-label="Send quote request">Send Request</button>
           <p style="font-size:0.8rem; color:var(--taupe); margin-top:var(--space-sm); text-align:center;">We'll reply within 24 hours with a custom quote and availability.</p>
         </form>
       </div>
@@ -221,6 +223,6 @@
 </footer>
 
 <button class="back-to-top" id="backToTop" aria-label="Back to top">&#8593;</button>
-<script src="main.js"></script>
+<script src="main.js" defer></script>
 </body>
 </html>
