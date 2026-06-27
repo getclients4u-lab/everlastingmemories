@@ -3,6 +3,25 @@
   "version": "1.0.0",
   "description": "GEO-optimized static site for Everlasting Memories balloon art & event decor",
   "scripts": {
-    "build": "echo 'Static site - no build needed'"
+    "build": "echo 'Build complete'",
+    "start": "node api/leads.js"
+  },
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/getclients4u-lab/everlastingmemories.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/getclients4u-lab/everlastingmemories/issues"
+  },
+  "homepage": "https://github.com/getclients4u-lab/everlastingmemories#readme",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1"
   }
 }

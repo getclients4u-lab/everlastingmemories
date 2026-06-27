@@ -203,30 +203,48 @@
         const formData = new FormData(contactForm);
         const data = Object.fromEntries(formData.entries());
         
-        // Store lead for admin dashboard
+        // Submit to backend API
         if (contactForm.hasAttribute('data-store-lead')) {
-          const lead = {
-            name: data.name,
-            email: data.email,
-            phone: data.phone || '',
-            eventType: data.eventType || data.event_type || '',
-            eventDate: data.eventDate || '',
-            message: data.message,
-            date: new Date().toISOString(),
-            status: 'new'
-          };
-          
-          // Store in localStorage for admin
-          const leads = JSON.parse(localStorage.getItem('em_leads') || '[]');
-          leads.unshift(lead);
-          localStorage.setItem('em_leads', JSON.stringify(leads));
-          
-          // Store in sessionStorage for email notification trigger
-          sessionStorage.setItem('em_pending_lead', JSON.stringify(lead));
+          try {
+            const res = await fetch('/api/leads.js', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                name: data.name,
+                email: data.email,
+                phone: data.phone || '',
+                eventType: data.eventType || data.event_type || '',
+                eventDate: data.eventDate || '',
+                message: data.message
+              })
+            });
+            
+            const result = await res.json();
+            
+            if (!result.success) {
+              throw new Error(result.error || 'Failed to submit');
+            }
+          } catch (apiErr) {
+            console.error('API Error:', apiErr);
+            // Fallback to localStorage if API fails
+            const lead = {
+              name: data.name,
+              email: data.email,
+              phone: data.phone || '',
+              eventType: data.eventType || data.event_type || '',
+              eventDate: data.eventDate || '',
+              message: data.message,
+              date: new Date().toISOString(),
+              status: 'new'
+            };
+            const leads = JSON.parse(localStorage.getItem('em_leads') || '[]');
+            leads.unshift(lead);
+            localStorage.setItem('em_leads', JSON.stringify(leads));
+          }
+        } else {
+          // Simulate form submission for non-lead forms
+          await new Promise(resolve => setTimeout(resolve, 1500));
         }
-        
-        // Simulate form submission (replace with actual endpoint)
-        await new Promise(resolve => setTimeout(resolve, 1500));
         
         // Show success message
         showNotification('Message sent successfully! We\'ll get back to you within 24 hours.', 'success');
