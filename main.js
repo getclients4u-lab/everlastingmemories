@@ -203,10 +203,9 @@
         const formData = new FormData(contactForm);
         const data = Object.fromEntries(formData.entries());
         
-        // Store lead in localStorage for admin dashboard
+        // Store lead for admin dashboard
         if (contactForm.hasAttribute('data-store-lead')) {
-          const leads = JSON.parse(localStorage.getItem('em_leads') || '[]');
-          leads.unshift({
+          const lead = {
             name: data.name,
             email: data.email,
             phone: data.phone || '',
@@ -215,8 +214,15 @@
             message: data.message,
             date: new Date().toISOString(),
             status: 'new'
-          });
+          };
+          
+          // Store in localStorage for admin
+          const leads = JSON.parse(localStorage.getItem('em_leads') || '[]');
+          leads.unshift(lead);
           localStorage.setItem('em_leads', JSON.stringify(leads));
+          
+          // Store in sessionStorage for email notification trigger
+          sessionStorage.setItem('em_pending_lead', JSON.stringify(lead));
         }
         
         // Simulate form submission (replace with actual endpoint)
