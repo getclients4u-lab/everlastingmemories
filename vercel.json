@@ -1,11 +1,28 @@
 {
-  "framework": null,
-  "outputDirectory": ".",
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/**/*.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "*.html",
+      "use": "@vercel/static"
+    }
+  ],
   "routes": [
-    { "src": "/services", "dest": "/services.html" },
-    { "src": "/gallery", "dest": "/gallery.html" },
-    { "src": "/about", "dest": "/about.html" },
-    { "src": "/faq", "dest": "/faq.html" },
-    { "src": "/contact", "dest": "/contact.html" }
-  ]
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ],
+  "env": {
+    "ADMIN_TOKEN": "em-admin-2026",
+    "ADMIN_USER": "admin",
+    "ADMIN_PASS": "Everlasting2026!"
+  }
 }
