@@ -4,99 +4,82 @@
     "SPY": {
       "current": 749.17,
       "prevClose": 0,
-      "change": 749.17,
       "changePct": 0
     },
     "QQQ": {
       "current": 711.74,
       "prevClose": 0,
-      "change": 711.74,
       "changePct": 0
     },
     "DIA": {
       "current": 524.47,
       "prevClose": 0,
-      "change": 524.47,
       "changePct": 0
     },
     "JPM": {
       "current": 334.53,
       "prevClose": 0,
-      "change": 334.53,
       "changePct": 0
     },
     "AAPL": {
       "current": 317.31,
       "prevClose": 0,
-      "change": 317.31,
       "changePct": 0
     },
     "GS": {
       "current": 1045.91,
       "prevClose": 0,
-      "change": 1045.91,
       "changePct": 0
     },
     "AMGN": {
       "current": 360.45,
       "prevClose": 0,
-      "change": 360.45,
       "changePct": 0
     },
     "CAT": {
       "current": 931.47,
       "prevClose": 0,
-      "change": 931.47,
       "changePct": 0
     },
     "BAC": {
       "current": 59.5,
       "prevClose": 0,
-      "change": 59.5,
       "changePct": 0
     },
     "AXP": {
       "current": 354.43,
       "prevClose": 0,
-      "change": 354.43,
       "changePct": 0
     },
     "NVDA": {
       "current": 203.53,
       "prevClose": 0,
-      "change": 203.53,
       "changePct": 0
     },
     "TSLA": {
       "current": 394.76,
       "prevClose": 0,
-      "change": 394.76,
       "changePct": 0
     },
     "NFLX": {
       "current": 73.83,
       "prevClose": 0,
-      "change": 73.83,
       "changePct": 0
     },
     "AMZN": {
       "current": 247.31,
       "prevClose": 0,
-      "change": 247.31,
       "changePct": 0
     },
     "GOOGL": {
       "current": 352.51,
       "prevClose": 0,
-      "change": 352.51,
       "changePct": 0
     },
     "IWM": {
       "current": 293.48,
       "prevClose": 0,
-      "change": 293.48,
       "changePct": 0
     }
-  },
-  "errors": []
+  }
 }
