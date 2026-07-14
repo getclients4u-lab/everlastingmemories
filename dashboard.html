@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daily Briefing — Everlasting Memories</title>
+  <link rel="icon" type="image/jpeg" href="logo.jpg">
+  <style>
+    :root {
+      --gold: #d4a84b;
+      --dark: #1a1a2e;
+      --card: #16213e;
+      --accent: #e94560;
+      --green: #00b894;
+      --red: #e17055;
+      --text: #eaeaea;
+      --muted: #8a8a9a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--dark);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    .hero {
+      background: linear-gradient(135deg, var(--dark) 0%, #16213e 50%, #0f3460 100%);
+      padding: 60px 20px 40px;
+      text-align: center;
+      border-bottom: 2px solid var(--gold);
+    }
+    .hero h1 {
+      font-size: 2.5em;
+      color: var(--gold);
+      margin-bottom: 8px;
+      letter-spacing: 1px;
+    }
+    .hero .date {
+      color: var(--muted);
+      font-size: 1.1em;
+    }
+    .hero .tagline {
+      color: var(--muted);
+      margin-top: 12px;
+      font-style: italic;
+    }
+    .container { max-width: 1100px; margin: 0 auto; padding: 30px 20px; }
+    .section-title {
+      font-size: 1.4em;
+      color: var(--gold);
+      margin: 30px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #333;
+    }
+    .grid { display: grid; gap: 14px; }
+    .grid-4 { grid-template-columns: repeat(4, 1fr); }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 18px;
+      border: 1px solid #2a2a4a;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+      border-color: var(--gold);
+    }
+    .card .ticker { font-weight: 700; font-size: 1.1em; }
+    .card .price { font-size: 1.3em; font-weight: 600; margin: 4px 0; }
+    .card .change { font-size: 0.95em; }
+    .green { color: var(--green); }
+    .red { color: var(--red); }
+    .muted { color: var(--muted); }
+    
+    .signal-badge {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: 0.75em;
+      font-weight: 600;
+      margin-top: 6px;
+    }
+    .bull { background: rgba(0, 184, 148, 0.2); color: var(--green); }
+    .bear { background: rgba(225, 112, 85, 0.2); color: var(--red); }
+    .neutral { background: rgba(138, 138, 154, 0.2); color: var(--muted); }
+
+    .watchlist-grid { 
+      display: grid; 
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); 
+      gap: 14px; 
+    }
+
+    .insight-card {
+      background: linear-gradient(135deg, #1a1a3e, #16213e);
+      border-left: 3px solid var(--gold);
+      padding: 16px 20px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+    .insight-card h4 { color: var(--gold); margin-bottom: 6px; }
+    .insight-card p { color: var(--muted); font-size: 0.95em; line-height: 1.5; }
+    
+    .stats-row {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin: 16px 0;
+    }
+    .stat-box {
+      background: var(--card);
+      border-radius: 10px;
+      padding: 16px 24px;
+      flex: 1;
+      min-width: 140px;
+      text-align: center;
+      border: 1px solid #2a2a4a;
+    }
+    .stat-box .num { font-size: 1.6em; font-weight: 700; }
+    .stat-box .label { font-size: 0.8em; color: var(--muted); margin-top: 4px; }
+    .stat-box.gold { border-color: var(--gold); }
+    
+    .footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--muted);
+      font-size: 0.85em;
+      border-top: 1px solid #2a2a4a;
+      margin-top: 40px;
+    }
+    .footer a { color: var(--gold); text-decoration: none; }
+    
+    .nav-links {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1px solid #333;
+      font-size: 0.85em;
+    }
+    .nav-links a:hover { border-color: var(--gold); color: var(--gold); }
+    .nav-links a.active { border-color: var(--gold); color: var(--gold); background: rgba(212, 168, 75, 0.1); }
+
+    @media (max-width: 700px) {
+      .grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .grid-2 { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 1.8em; }
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <h1>☀️ Good Morning, Ho Ba</h1>
+    <div class="date" id="currentDate">Loading...</div>
+    <div class="tagline">Your daily briefing — markets, setups, and business pulse</div>
+    <div class="nav-links">
+      <a href="index.html">🏠 Home</a>
+      <a href="dashboard.html" class="active">📊 Briefing</a>
+      <a href="admin.html">🔐 Admin</a>
+      <a href="contact.html">📞 Contact</a>
+      <a href="gallery.html">🖼️ Gallery</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2 class="section-title">📈 Market Overview</h2>
+    <div class="stats-row" id="marketStats">
+      <div class="stat-box gold"><div class="num" id="spyPrice">--</div><div class="label">S&P 500 (SPY)</div></div>
+      <div class="stat-box"><div class="num" id="qqqPrice">--</div><div class="label">Nasdaq (QQQ)</div></div>
+      <div class="stat-box"><div class="num" id="diaPrice">--</div><div class="label">Dow (DIA)</div></div>
+      <div class="stat-box"><div class="num" id="iwmPrice">--</div><div class="label">Small Cap (IWM)</div></div>
+    </div>
+
+    <h2 class="section-title">🎯 Watchlist — Active Setups</h2>
+    <div class="watchlist-grid" id="watchlist"></div>
+
+    <h2 class="section-title">💡 Trade Ideas for Today</h2>
+    <div id="tradeIdeas"></div>
+
+    <h2 class="section-title">🏢 Everlasting Memories — Business Pulse</h2>
+    <div class="insight-card">
+      <h4>📅 Today's Focus</h4>
+      <p id="businessTip">Loading business tip...</p>
+    </div>
+    <div class="insight-card">
+      <h4>📊 Lead Activity</h4>
+      <p id="leadStatus">Checking latest leads...</p>
+    </div>
+
+    <h2 class="section-title">📰 Daily Edge</h2>
+    <div id="dailyEdge"></div>
+  </div>
+
+  <div class="footer">
+    <p>Built with ❤️ by Isa · <a href="https://everlastingmemories.vercel.app">Everlasting Memories</a></p>
+    <p id="footerTime">Updated daily at dawn</p>
+  </div>
+
+  <script>
+    // Market data with last known prices
+    const MARKET_DATA = {
+      "SPY": {"current": 749.17, "prevClose": 749.17},
+      "QQQ": {"current": 711.74, "prevClose": 711.74},
+      "DIA": {"current": 524.47, "prevClose": 524.47},
+      "IWM": {"current": 293.48, "prevClose": 293.48},
+      "JPM": {"current": 334.53, "prevClose": 334.53, "setup": "Bull", "entry": 340.65, "stop": 337.00, "target": 344.30, "winRate": 77},
+      "AAPL": {"current": 317.31, "prevClose": 317.31, "setup": "Bull", "entry": 304.88, "stop": 310.00, "target": 325.00, "winRate": 75},
+      "GS": {"current": 1045.91, "prevClose": 1045.91, "setup": "Bull", "entry": 1020.00, "stop": 990.00, "target": 1080.00, "winRate": 83},
+      "AMGN": {"current": 360.45, "prevClose": 360.45, "setup": "Bull", "entry": 363.63, "stop": 355.00, "target": 375.00, "winRate": 87},
+      "CAT": {"current": 931.47, "prevClose": 931.47, "setup": "Bull", "entry": 925.38, "stop": 920.00, "target": 960.00, "winRate": 86},
+      "BAC": {"current": 59.50, "prevClose": 59.50, "setup": "Bull", "entry": 52.29, "stop": 57.00, "target": 62.00, "winRate": 73},
+      "AXP": {"current": 354.43, "prevClose": 354.43, "setup": "Bull", "entry": 353.29, "stop": 348.51, "target": 360.00, "winRate": 73},
+      "NVDA": {"current": 203.53, "prevClose": 203.53, "setup": "Bull", "entry": 215.16, "stop": 208.00, "target": 220.00, "winRate": 73},
+      "TSLA": {"current": 394.76, "prevClose": 394.76, "setup": "Neutral", "entry": "—", "stop": "—", "target": "—", "winRate": 65},
+      "NFLX": {"current": 73.83, "prevClose": 73.83, "setup": "Bear", "entry": 76.64, "stop": 78.00, "target": 72.00, "winRate": 60},
+      "AMZN": {"current": 247.31, "prevClose": 247.31, "setup": "Bull", "entry": 275.72, "stop": 240.00, "target": 255.00, "winRate": 72},
+      "GOOGL": {"current": 352.51, "prevClose": 352.51, "setup": "Bull", "entry": 375.10, "stop": 345.00, "target": 365.00, "winRate": 70}
+    };
+
+    function fmt(num) {
+      return num.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+    }
+    
+    function fmtDollar(num) {
+      return '$' + fmt(num);
+    }
+
+    // Format date
+    const now = new Date();
+    const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    const dateStr = `${days[now.getDay()]}, ${months[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()}`;
+    document.getElementById('currentDate').textContent = dateStr;
+
+    // Market stats
+    document.getElementById('spyPrice').textContent = fmtDollar(MARKET_DATA.SPY.current);
+    document.getElementById('qqqPrice').textContent = fmtDollar(MARKET_DATA.QQQ.current);
+    document.getElementById('diaPrice').textContent = fmtDollar(MARKET_DATA.DIA.current);
+    document.getElementById('iwmPrice').textContent = fmtDollar(MARKET_DATA.IWM.current);
+
+    // Watchlist cards
+    const setupTickers = Object.entries(MARKET_DATA).filter(([k,v]) => v.setup);
+    const wl = document.getElementById('watchlist');
+    
+    setupTickers.forEach(([ticker, data]) => {
+      const entryPct = data.entry !== '—' ? ((data.current - data.entry) / data.entry * 100) : 0;
+      const card = document.createElement('div');
+      card.className = 'card';
+      
+      const badgeClass = data.setup === 'Bull' ? 'bull' : data.setup === 'Bear' ? 'bear' : 'neutral';
+      card.innerHTML = `
+        <div class="ticker">${ticker} <span class="signal-badge ${badgeClass}">${data.setup}</span></div>
+        <div class="price">${fmtDollar(data.current)}</div>
+        <div class="muted">Entry: ${data.entry !== '—' ? fmtDollar(data.entry) : '—'} · Stop: ${data.stop !== '—' ? fmtDollar(data.stop) : '—'}</div>
+        <div class="muted">Target: ${data.target !== '—' ? fmtDollar(data.target) : '—'}</div>
+        <div class="muted">Win Rate: ${data.winRate}% · ${data.entry !== '—' ? 'PnL: <span class="' + (entryPct >= 0 ? 'green' : 'red') + '">' + (entryPct >= 0 ? '+' : '') + entryPct.toFixed(1) + '%</span>' : ''}</div>
+      `;
+      wl.appendChild(card);
+    });
+
+    // Trade ideas
+    const ideas = document.getElementById('tradeIdeas');
+    const today = now.getDay();
+    
+    // Tuesday = momentum continuation day
+    const dayIdeas = [
+      {
+        title: '🚀 Momentum Carry — Tuesday is continuation day',
+        body: 'Markets digest Monday, resume trend. Focus on AX**P** (fresh signal Jul 9) and J**PM** (fresh signal Jul 9). Watch for AMGN entry ~$360.'
+      },
+      {
+        title: '🎯 AXP — Best fresh setup',
+        body: 'Entry $353.29, stop $348.51, target $360. Financials sector is hot (JPM 77% WR, BAC 73% WR). Breakout buy.'
+      },
+      {
+        title: '🏛️ CAT — Runaway winner',
+        body: '86% win rate, already +$6 above entry. Let it ride with stop at breakeven $925. Next target $960.'
+      },
+      {
+        title: '🔻 NFLX — Short in play',
+        body: 'Bear signal Jun 16. Price $73.83 below entry $76.64. Earnings window approaching (~Jul 15-17). Bearish into report?'
+      }
+    ];
+    
+    dayIdeas.forEach(idea => {
+      const div = document.createElement('div');
+      div.className = 'insight-card';
+      div.innerHTML = `<h4>${idea.title}</h4><p>${idea.body}</p>`;
+      ideas.appendChild(div);
+    });
+
+    // Business tip
+    const tips = [
+      'Reach out to 3 past balloon art clients and ask for Google Reviews. Social proof drives 40% more leads.',
+      'Post a carousel of your best balloon arch photos on Instagram today. Use hashtag #CTEvents.',
+      'Check your Everlasting Memories contact form for any unanswered leads. Reply within 2 hours to convert.',
+      'Update your Google Business Profile with new gallery photos. GEO signals improve local search 3x.',
+      'Send a thank-you text to last week\'s clients. Ask for referral — every happy client knows 3 people planning parties.',
+      'Write a 200-word blog post: "Top 5 Balloon Decor Trends for Summer 2026 in Connecticut."'
+    ];
+    const tipIndex = now.getDate() % tips.length;
+    document.getElementById('businessTip').textContent = tips[tipIndex];
+
+    // Lead status
+    document.getElementById('leadStatus').innerHTML = '📬 <a href="admin.html" style="color:var(--gold);">Check admin dashboard</a> for latest leads. New inquiries overnight?';
+
+    // Daily edge
+    const edge = document.getElementById('dailyEdge');
+    const edges = [
+      '🧠 **Trading Rule:** The first 30 minutes of Tuesday often retrace Monday\'s close. Wait for 10:00 AM EST before entering new positions.',
+      '📊 **UPD Tip:** Fresh bull signals on financials (AXP, JPM) have the highest probability of follow-through. Backtest confirms 73-77% win rate.',
+      '📈 **Earnings Calendar:** NFLX reports this week (~Jul 15-17). Straddle candidates: TSLA (Jul 23-25). Start watching IV expansion.',
+      '🎯 **Risk Management:** Never risk more than 1-2% per trade. At $10K account, max loss = $100-200 per position.'
+    ];
+    const edgeIndex = now.getDate() % edges.length;
+    const edgeDiv = document.createElement('div');
+    edgeDiv.className = 'insight-card';
+    edgeDiv.innerHTML = `<p>${edges[edgeIndex]}</p>`;
+    edge.appendChild(edgeDiv);
+
+    // Footer time
+    document.getElementById('footerTime').textContent = `Updated ${dateStr} · ${now.toLocaleTimeString('en-US', {hour:'2-digit',minute:'2-digit'})}`;
+  </script>
+</body>
+</html>
