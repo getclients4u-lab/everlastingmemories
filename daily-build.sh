@@ -36,11 +36,8 @@ with open("data/market-data.json","w") as f:
 print(f"Saved {len(prices)} prices")
 PYEOF
 
-# 2. Update dashboard.html with fresh data (update the MARKET_DATA block)
-# (In a production setup, this would regenerate the HTML from a template)
-
-# 3. Commit and push
-git add dashboard.html data/market-data.json 2>/dev/null
+# 2. Commit and push
+git add dashboard.html journal.html data/market-data.json 2>/dev/null
 git commit -m "🤖 Daily build $(date -u +%Y-%m-%d) — market data refresh" 2>/dev/null || echo "Nothing new to commit"
 git push origin main 2>&1 | tail -3
 

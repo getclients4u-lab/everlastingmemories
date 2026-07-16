@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trade Journal — Everlasting Memories</title>
+  <link rel="icon" type="image/jpeg" href="logo.jpg">
+  <style>
+    :root {
+      --gold: #d4a84b;
+      --dark: #1a1a2e;
+      --card: #16213e;
+      --accent: #e94560;
+      --green: #00b894;
+      --red: #e17055;
+      --text: #eaeaea;
+      --muted: #8a8a9a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--dark);
+      color: var(--text);
+      min-height: 100vh;
+    }
+    .hero {
+      background: linear-gradient(135deg, var(--dark) 0%, #16213e 50%, #0f3460 100%);
+      padding: 60px 20px 40px;
+      text-align: center;
+      border-bottom: 2px solid var(--gold);
+    }
+    .hero h1 {
+      font-size: 2.2em;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .hero .date { color: var(--muted); font-size: 1em; }
+    .container { max-width: 900px; margin: 0 auto; padding: 30px 20px; }
+    .section-title {
+      font-size: 1.3em;
+      color: var(--gold);
+      margin: 30px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #333;
+    }
+    .nav-links {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1px solid #333;
+      font-size: 0.85em;
+    }
+    .nav-links a:hover { border-color: var(--gold); color: var(--gold); }
+    .nav-links a.active { border-color: var(--gold); color: var(--gold); background: rgba(212,168,75,0.1); }
+
+    #tradeForm { display: flex; flex-wrap: wrap; gap: 10px; align-items: end; }
+    #tradeForm input, #tradeForm select {
+      padding: 10px 12px; border-radius: 6px; border: 1px solid #333;
+      background: var(--card); color: var(--text); font-size: 0.9em;
+    }
+    #tradeForm button {
+      padding: 10px 20px; border-radius: 6px;
+      background: var(--gold); color: var(--dark); font-weight: 600;
+      cursor: pointer; border: none; font-size: 0.9em;
+    }
+    #tradeForm button:hover { background: #c4983b; }
+    #tradeForm label { color: var(--muted); font-size: 0.8em; }
+
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 20px;
+      border: 1px solid #2a2a4a;
+      margin: 20px 0;
+    }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.9em; }
+    th { padding: 10px 8px; text-align: left; color: var(--muted); border-bottom: 1px solid #333; font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.5px; }
+    td { padding: 10px 8px; border-bottom: 1px solid #2a2a4a; }
+    .green { color: var(--green); }
+    .red { color: var(--red); }
+    .muted { color: var(--muted); }
+
+    .signal-badge { display: inline-block; padding: 2px 10px; border-radius: 20px; font-size: 0.75em; font-weight: 600; }
+    .bull { background: rgba(0,184,148,0.2); color: var(--green); }
+    .bear { background: rgba(225,112,85,0.2); color: var(--red); }
+    .neutral { background: rgba(138,138,154,0.2); color: var(--muted); }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 12px;
+    }
+    .stat-box {
+      background: var(--dark);
+      border-radius: 10px;
+      padding: 14px 10px;
+      text-align: center;
+      border: 1px solid #2a2a4a;
+    }
+    .stat-box .num { font-size: 1.5em; font-weight: 700; }
+    .stat-box .label { font-size: 0.75em; color: var(--muted); margin-top: 4px; }
+
+    .del-btn {
+      background: none; border: 1px solid #555; color: var(--red);
+      border-radius: 4px; cursor: pointer; padding: 2px 8px; font-size: 0.8em;
+    }
+    .del-btn:hover { background: rgba(225,112,85,0.1); }
+
+    .footer {
+      text-align: center; padding: 40px 20px;
+      color: var(--muted); font-size: 0.85em;
+      border-top: 1px solid #2a2a4a; margin-top: 40px;
+    }
+    .footer a { color: var(--gold); text-decoration: none; }
+
+    .empty-state {
+      text-align: center; padding: 40px; color: var(--muted);
+    }
+    .empty-state .big { font-size: 3em; margin-bottom: 10px; }
+
+    @media (max-width: 600px) {
+      #tradeForm { flex-direction: column; }
+      #tradeForm input, #tradeForm select { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <h1>📒 Trade Journal</h1>
+    <div class="date" id="currentDate">Loading...</div>
+    <div class="nav-links">
+      <a href="dashboard.html">📊 Briefing</a>
+      <a href="journal.html" class="active">📒 Journal</a>
+      <a href="index.html">🏠 Home</a>
+      <a href="admin.html">🔐 Admin</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <h2 class="section-title">➕ Log a Trade</h2>
+    <form id="tradeForm">
+      <div>
+        <label>Date</label><br>
+        <input type="date" id="tradeDate" required>
+      </div>
+      <div>
+        <label>Type</label><br>
+        <select id="tradeType">
+          <option value="Bull">📈 Bull</option>
+          <option value="Bear">📉 Bear</option>
+          <option value="Straddle">⚖️ Straddle</option>
+        </select>
+      </div>
+      <div>
+        <label>Ticker</label><br>
+        <input type="text" id="ticker" placeholder="AAPL" required style="width:90px;text-transform:uppercase;">
+      </div>
+      <div>
+        <label>Entry $</label><br>
+        <input type="number" id="entryPrice" placeholder="0.00" step="0.01" required style="width:100px;">
+      </div>
+      <div>
+        <label>Exit $</label><br>
+        <input type="number" id="exitPrice" placeholder="0.00" step="0.01" style="width:100px;">
+      </div>
+      <div>
+        <label>Qty</label><br>
+        <input type="number" id="quantity" placeholder="1" step="1" min="1" style="width:80px;">
+      </div>
+      <button type="submit">+ Add Trade</button>
+    </form>
+
+    <h2 class="section-title">📊 Performance Summary</h2>
+    <div class="card" id="statsCard">
+      <div class="stats-grid" id="stats"></div>
+    </div>
+
+    <h2 class="section-title">📝 Trade History</h2>
+    <div id="tradesList">
+      <div class="empty-state">
+        <div class="big">📭</div>
+        <p>No trades logged yet. Start tracking above!</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Built with ❤️ by Isa · Data stored in your browser · <a href="https://everlastingmemories.vercel.app">Everlasting Memories</a></p>
+  </div>
+
+  <script>
+    const STORAGE_KEY = 'em_trading_journal';
+    const now = new Date();
+    const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+    const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    document.getElementById('currentDate').textContent = `${days[now.getDay()]}, ${months[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()}`;
+    document.getElementById('tradeDate').value = now.toISOString().split('T')[0];
+    
+    function getTrades() {
+      try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; } catch { return []; }
+    }
+    
+    function saveTrades(trades) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(trades));
+      render();
+    }
+
+    function calcPnL(trade) {
+      if (!trade.exitPrice || !trade.entryPrice) return null;
+      const multiplier = trade.type === 'Bear' ? -1 : 1;
+      return ((trade.exitPrice - trade.entryPrice) * multiplier) * (trade.quantity || 1);
+    }
+
+    function render() {
+      const trades = getTrades();
+      const closed = trades.filter(t => t.exitPrice);
+      const totalPL = closed.reduce((s, t) => s + (calcPnL(t) || 0), 0);
+      const wins = closed.filter(t => (calcPnL(t) || 0) > 0);
+      const losses = closed.filter(t => (calcPnL(t) || 0) < 0);
+      const winRate = closed.length ? (wins.length / closed.length * 100).toFixed(1) : '—';
+      const best = closed.length ? Math.max(...closed.map(t => calcPnL(t) || 0)) : 0;
+      const worst = closed.length ? Math.min(...closed.map(t => calcPnL(t) || 0)) : 0;
+      const avgWin = wins.length ? wins.reduce((s, t) => s + (calcPnL(t) || 0), 0) / wins.length : 0;
+      const avgLoss = losses.length ? losses.reduce((s, t) => s + (calcPnL(t) || 0), 0) / losses.length : 0;
+      const open = trades.filter(t => !t.exitPrice).length;
+
+      // Stats
+      document.getElementById('stats').innerHTML = `
+        <div class="stat-box"><div class="num" style="color:${totalPL >= 0 ? '#00b894' : '#e17055'};">${totalPL >= 0 ? '+' : ''}$${totalPL.toFixed(2)}</div><div class="label">Total P&L</div></div>
+        <div class="stat-box"><div class="num">${winRate}${winRate !== '—' ? '%' : ''}</div><div class="label">Win Rate (${wins.length}/${closed.length})</div></div>
+        <div class="stat-box"><div class="num" style="color:#00b894;">+$${best.toFixed(2)}</div><div class="label">Best Trade</div></div>
+        <div class="stat-box"><div class="num" style="color:#e17055;">$${worst.toFixed(2)}</div><div class="label">Worst Trade</div></div>
+        <div class="stat-box"><div class="num" style="color:#00b894;">+$${avgWin.toFixed(2)}</div><div class="label">Avg Win</div></div>
+        <div class="stat-box"><div class="num" style="color:#e17055;">$${avgLoss.toFixed(2)}</div><div class="label">Avg Loss</div></div>
+        <div class="stat-box"><div class="num">${open}</div><div class="label">Open</div></div>
+        <div class="stat-box"><div class="num">${trades.length}</div><div class="label">Total</div></div>
+      `;
+
+      // Trade list
+      const el = document.getElementById('tradesList');
+      if (!trades.length) {
+        el.innerHTML = '<div class="empty-state"><div class="big">📭</div><p>No trades logged yet. Start tracking above!</p></div>';
+        return;
+      }
+      
+      el.innerHTML = `
+        <div style="overflow-x:auto;">
+          <table>
+            <thead><tr>
+              <th>Date</th><th>Type</th><th>Ticker</th><th style="text-align:right;">Entry</th>
+              <th style="text-align:right;">Exit</th><th style="text-align:right;">Qty</th>
+              <th style="text-align:right;">P&L</th><th></th>
+            </tr></thead>
+            <tbody>${trades.toReversed().map((t, i) => {
+              const pnl = calcPnL(t);
+              const idx = trades.length - 1 - i;
+              return `<tr>
+                <td>${t.date}</td>
+                <td><span class="signal-badge ${t.type === 'Bull' ? 'bull' : t.type === 'Bear' ? 'bear' : 'neutral'}">${t.type}</span></td>
+                <td style="font-weight:600;">${t.ticker}</td>
+                <td style="text-align:right;">$${t.entryPrice.toFixed(2)}</td>
+                <td style="text-align:right;">${t.exitPrice !== null ? '$' + t.exitPrice.toFixed(2) : '<span class="muted">Open</span>'}</td>
+                <td style="text-align:right;">${t.quantity || '—'}</td>
+                <td style="text-align:right;">${pnl !== null ? `<span style="color:${pnl >= 0 ? '#00b894' : '#e17055'};">${pnl >= 0 ? '+' : ''}$${pnl.toFixed(2)}</span>` : '<span class="muted">—</span>'}</td>
+                <td><button class="del-btn" onclick="deleteTrade(${idx})">✕</button></td>
+              </tr>`;
+            }).join('')}</tbody>
+          </table>
+        </div>
+      `;
+    }
+
+    function deleteTrade(index) {
+      if (!confirm('Delete this trade?')) return;
+      const trades = getTrades();
+      trades.splice(index, 1);
+      saveTrades(trades);
+    }
+
+    document.getElementById('tradeForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const trade = {
+        id: Date.now(),
+        date: this.tradeDate.value,
+        type: this.tradeType.value,
+        ticker: this.ticker.value.toUpperCase(),
+        entryPrice: parseFloat(this.entryPrice.value),
+        exitPrice: this.exitPrice.value ? parseFloat(this.exitPrice.value) : null,
+        quantity: this.quantity.value ? parseInt(this.quantity.value) : null,
+        timestamp: new Date().toISOString()
+      };
+      const trades = getTrades();
+      trades.push(trade);
+      saveTrades(trades);
+      this.reset();
+      this.tradeDate.value = new Date().toISOString().split('T')[0];
+    });
+
+    render();
+  </script>
+</body>
+</html>
