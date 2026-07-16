@@ -27,6 +27,7 @@
   "env": {
     "ADMIN_TOKEN": "em-admin-2026",
     "ADMIN_USER": "admin",
-    "ADMIN_PASS": "Everlasting2026!"
+    "ADMIN_PASS": "Everlasting2026!",
+    "TELEGRAM_BOT_TOKEN": "8821411806:AAEE0lknawc_NGQwR-HFqRx0x83Oy4YZV7Q"
   }
 }
