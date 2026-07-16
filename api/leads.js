@@ -29,6 +29,8 @@ function verifyAuth(req) {
   return authHeader === `Bearer ${AUTH_TOKEN}`;
 }
 
+const telegramNotify = require('./telegram-notify');
+
 module.exports = async (req, res) => {
   // CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
