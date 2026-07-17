@@ -492,5 +492,46 @@ function formatDate(dateStr) {
 }
 </script>
 
+
+<script>
+// Social Post Widget — append to admin.html
+(function() {
+  const container = document.createElement('div');
+  container.id = 'zernio-poster';
+  container.innerHTML = `
+    <div style="margin:30px 0; background:#16213e; border:1px solid #d4a84b; border-radius:12px; padding:20px;">
+      <h3 style="color:#d4a84b; margin:0 0 12px;">📣 Post to Social</h3>
+      <textarea id="zernioContent" rows="3" style="width:100%; padding:10px; background:#1a1a2e; color:#eaeaea; border:1px solid #333; border-radius:6px; font-size:14px;" placeholder="What's happening at Everlasting Memories?"></textarea>
+      <div style="margin-top:8px; display:flex; gap:8px;">
+        <select id="zernioPlatform" style="padding:8px; background:#1a1a2e; color:#eaeaea; border:1px solid #333; border-radius:6px;">
+          <option value="twitter">Twitter</option>
+          <option value="instagram">Instagram</option>
+          <option value="facebook">Facebook</option>
+          <option value="linkedin">LinkedIn</option>
+          <option value="all">All connected</option>
+        </select>
+        <button id="zernioPostBtn" style="padding:8px 20px; background:#d4a84b; color:#1a1a2e; border:none; border-radius:6px; font-weight:600; cursor:pointer;">🚀 Post Now</button>
+      </div>
+      <div id="zernioStatus" style="margin-top:8px; font-size:0.85em; color:#8a8a9a;"></div>
+    </div>
+  `;
+  
+  // Insert after the stats section
+  const observer = new MutationObserver(() => {
+    const target = document.querySelector('.card:first-of-type') || document.querySelector('h2');
+    if (target && !document.getElementById('zernio-poster')) {
+      target.parentNode.insertBefore(container, target.nextSibling);
+      observer.disconnect();
+    }
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
+  
+  // Also inject the style
+  const style = document.createElement('style');
+  style.textContent = '#zernio-poster textarea:focus { outline: none; border-color: #d4a84b; }';
+  document.head.appendChild(style);
+})();
+</script>
+
 </body>
 </html>
