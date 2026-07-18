@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Social Connect — Everlasting Memories</title>
+  <link rel="icon" type="image/jpeg" href="logo.jpg">
+  <style>
+    :root { --gold: #d4a84b; --dark: #1a1a2e; --card: #16213e; --green: #00b894; --red: #e17055; --text: #eaeaea; --muted: #8a8a9a; }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--dark); color: var(--text); min-height: 100vh; }
+    .hero { background: linear-gradient(135deg, var(--dark) 0%, #16213e 50%, #0f3460 100%); padding: 50px 20px 30px; text-align: center; border-bottom: 2px solid var(--gold); }
+    .hero h1 { font-size: 2em; color: var(--gold); }
+    .nav-links { display: flex; gap: 12px; justify-content: center; margin-top: 18px; flex-wrap: wrap; }
+    .nav-links a { color: var(--muted); text-decoration: none; padding: 5px 12px; border-radius: 20px; border: 1px solid #333; font-size: 0.82em; }
+    .nav-links a:hover { border-color: var(--gold); color: var(--gold); }
+    .nav-links a.active { border-color: var(--gold); color: var(--gold); background: rgba(212,168,75,0.1); }
+    .container { max-width: 700px; margin: 0 auto; padding: 30px 16px; }
+    
+    .platform-card {
+      background: var(--card); border-radius: 12px; padding: 20px; margin-bottom: 14px;
+      border: 1px solid #2a2a4a; display: flex; align-items: center; justify-content: space-between;
+    }
+    .platform-card .info { display: flex; align-items: center; gap: 14px; }
+    .platform-card .icon { font-size: 2em; }
+    .platform-card .name { font-weight: 600; font-size: 1.1em; }
+    .platform-card .desc { color: var(--muted); font-size: 0.85em; }
+    
+    .btn-connect {
+      padding: 8px 20px; background: var(--gold); color: var(--dark); border: none;
+      border-radius: 6px; font-weight: 600; cursor: pointer; text-decoration: none; font-size: 0.9em;
+    }
+    .btn-connect:hover { background: #c4983b; }
+    .btn-connect:disabled { opacity: 0.5; cursor: not-allowed; }
+    
+    .connected-badge {
+      padding: 6px 14px; background: rgba(0,184,148,0.2); color: var(--green);
+      border-radius: 20px; font-size: 0.85em; font-weight: 600;
+    }
+
+    .status-box { margin: 20px 0; padding: 14px; border-radius: 8px; text-align: center; display: none; }
+    .status-box.success { display: block; background: rgba(0,184,148,0.1); border: 1px solid var(--green); color: var(--green); }
+    .status-box.error { display: block; background: rgba(225,112,85,0.1); border: 1px solid var(--red); color: var(--red); }
+    .status-box.info { display: block; background: rgba(212,168,75,0.1); border: 1px solid var(--gold); color: var(--gold); }
+    
+    .footer { text-align: center; padding: 30px 20px; color: var(--muted); font-size: 0.82em; border-top: 1px solid #2a2a4a; margin-top: 30px; }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <h1>🔗 Connect Social Accounts</h1>
+    <div class="nav-links">
+      <a href="index.html">🏠 Home</a>
+      <a href="admin.html">🔐 Admin</a>
+      <a href="dashboard.html">📊 Briefing</a>
+      <a href="social-connect.html" class="active">🔗 Social</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <div id="status" class="status-box"></div>
+
+    <p style="color:var(--muted); margin-bottom: 20px;">
+      Connect your social accounts to auto-post updates, promotions, and portfolio pieces from Everlasting Memories.
+    </p>
+
+    <div class="platform-card">
+      <div class="info">
+        <div class="icon">🐦</div>
+        <div><div class="name">Twitter / X</div><div class="desc">Post balloon art updates, promos, and event recaps</div></div>
+      </div>
+      <button class="btn-connect" data-platform="twitter">Connect</button>
+    </div>
+
+    <div class="platform-card">
+      <div class="info">
+        <div class="icon">📸</div>
+        <div><div class="name">Instagram</div><div class="desc">Share gallery pieces and behind-the-scenes</div></div>
+      </div>
+      <button class="btn-connect" data-platform="instagram">Connect</button>
+    </div>
+
+    <div class="platform-card">
+      <div class="info">
+        <div class="icon">👍</div>
+        <div><div class="name">Facebook</div><div class="desc">Reach local CT community groups</div></div>
+      </div>
+      <button class="btn-connect" data-platform="facebook">Connect</button>
+    </div>
+
+    <div class="platform-card">
+      <div class="info">
+        <div class="icon">💼</div>
+        <div><div class="name">LinkedIn</div><div class="desc">Professional event decor reach</div></div>
+      </div>
+      <button class="btn-connect" data-platform="linkedin">Connect</button>
+    </div>
+
+    <div class="platform-card">
+      <div class="info">
+        <div class="icon">📱</div>
+        <div><div class="name">TikTok</div><div class="desc">Short-form balloon transformation videos</div></div>
+      </div>
+      <button class="btn-connect" data-platform="tiktok">Connect</button>
+    </div>
+
+    <div style="margin-top: 30px; background: var(--card); border-radius: 12px; padding: 20px; border: 1px solid #2a2a4a;">
+      <h3 style="color: var(--gold); margin: 0 0 10px;">📢 Quick Post</h3>
+      <textarea id="quickPost" rows="3" style="width:100%; padding:10px; background:var(--dark); color:var(--text); border:1px solid #333; border-radius:6px; font-size:14px;" placeholder="Share something with all connected accounts..."></textarea>
+      <button id="postAllBtn" style="margin-top: 8px; padding: 8px 20px; background: var(--gold); color: var(--dark); border: none; border-radius: 6px; font-weight: 600; cursor: pointer;">🚀 Post to All</button>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>Powered by Zernio · <a href="https://everlastingmemories.vercel.app" style="color:var(--gold);">Everlasting Memories</a></p>
+  </div>
+
+  <script>
+    async function fetchAPI(action, data) {
+      try {
+        const resp = await fetch('/api/zernio-post.js', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ action, ...data })
+        });
+        return await resp.json();
+      } catch (e) {
+        return { error: e.message };
+      }
+    }
+
+    function showStatus(msg, type) {
+      const el = document.getElementById('status');
+      el.className = 'status-box ' + type;
+      el.textContent = msg;
+      el.style.display = 'block';
+      setTimeout(() => { el.style.display = 'none'; }, 6000);
+    }
+
+    // Connect buttons
+    document.querySelectorAll('[data-platform]').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const platform = btn.dataset.platform;
+        btn.disabled = true;
+        btn.textContent = 'Connecting...';
+        
+        const result = await fetchAPI('connect_url', { platform, profileId: '6a598e1d8e76f04cb748acdf' });
+        
+        if (result.status === 200 && result.data?.url) {
+          // Open in new tab for user to authorize
+          window.open(result.data.url, '_blank');
+          showStatus(`✅ ${platform} authorization opened in new tab. Complete the OAuth flow there.`, 'info');
+          btn.textContent = 'Connected ✓';
+          btn.disabled = true;
+          btn.className = 'connected-badge';
+        } else {
+          // Fallback: show the connect URL manually
+          showStatus(`⚠️ Auto-connect unavailable. Use Zernio dashboard to connect ${platform}.`, 'error');
+          btn.textContent = 'Connect';
+          btn.disabled = false;
+        }
+      });
+    });
+
+    // Quick post
+    document.getElementById('postAllBtn').addEventListener('click', async () => {
+      const content = document.getElementById('quickPost').value.trim();
+      if (!content) {
+        showStatus('✏️ Write something first!', 'error');
+        return;
+      }
+      
+      const btn = document.getElementById('postAllBtn');
+      btn.disabled = true;
+      btn.textContent = '⏳ Posting...';
+      
+      const result = await fetchAPI('post', { content, platforms: [] });
+      
+      if (result.status === 200 || result.status === 201) {
+        showStatus('✅ Posted successfully!', 'success');
+        document.getElementById('quickPost').value = '';
+      } else {
+        showStatus('❌ Post failed: ' + (result.data?.error || result.error || 'unknown'), 'error');
+      }
+      
+      btn.disabled = false;
+      btn.textContent = '🚀 Post to All';
+    });
+  </script>
+</body>
+</html>
