@@ -62,6 +62,20 @@ module.exports = async (req, res) => {
     return res.status(200).json(r);
   }
   
+  // List connected accounts
+  if (action === 'accounts') {
+    const r = await zernioRequest('GET', '/v1/accounts');
+    return res.status(200).json(r);
+  }
+  
+  // Get OAuth connect URL for a platform
+  if (action === 'connect_url') {
+    const { platform, profileId } = req.body || {};
+    if (!platform) return res.status(400).json({ error: 'platform required' });
+    const r = await zernioRequest('GET', `/v1/connect/${platform}?profileId=${profileId || ''}`);
+    return res.status(200).json(r);
+  }
+  
   // Post content
   if (!content) {
     return res.status(400).json({ error: 'content field required' });
