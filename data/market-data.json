@@ -1,83 +1,83 @@
 {
-  "date": "2026-07-16",
+  "date": "2026-07-21",
   "prices": {
     "SPY": {
-      "current": 754.81,
+      "current": 742.09,
       "prevClose": 0,
       "changePct": 0
     },
     "QQQ": {
-      "current": 717.74,
+      "current": 696.06,
       "prevClose": 0,
       "changePct": 0
     },
     "DIA": {
-      "current": 525.95,
+      "current": 517.94,
       "prevClose": 0,
       "changePct": 0
     },
     "JPM": {
-      "current": 346.91,
+      "current": 338.87,
       "prevClose": 0,
       "changePct": 0
     },
     "AAPL": {
-      "current": 327.5,
+      "current": 326.59,
       "prevClose": 0,
       "changePct": 0
     },
     "GS": {
-      "current": 1152.07,
+      "current": 1055.03,
       "prevClose": 0,
       "changePct": 0
     },
     "AMGN": {
-      "current": 358.32,
+      "current": 364.17,
       "prevClose": 0,
       "changePct": 0
     },
     "CAT": {
-      "current": 914.3,
+      "current": 864.3,
       "prevClose": 0,
       "changePct": 0
     },
     "BAC": {
-      "current": 61.59,
+      "current": 60.42,
       "prevClose": 0,
       "changePct": 0
     },
     "AXP": {
-      "current": 358.44,
+      "current": 351.93,
       "prevClose": 0,
       "changePct": 0
     },
     "NVDA": {
-      "current": 212.5,
+      "current": 203.28,
       "prevClose": 0,
       "changePct": 0
     },
     "TSLA": {
-      "current": 394.46,
+      "current": 369.57,
       "prevClose": 0,
       "changePct": 0
     },
     "NFLX": {
-      "current": 73.68,
+      "current": 67.6,
       "prevClose": 0,
       "changePct": 0
     },
     "AMZN": {
-      "current": 254.96,
+      "current": 249.99,
       "prevClose": 0,
       "changePct": 0
     },
     "GOOGL": {
-      "current": 370.92,
+      "current": 351.99,
       "prevClose": 0,
       "changePct": 0
     },
     "IWM": {
-      "current": 295.77,
+      "current": 292.31,
       "prevClose": 0,
       "changePct": 0
     }
