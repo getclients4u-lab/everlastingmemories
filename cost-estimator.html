@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Event Cost Estimator | Everlasting Memories</title>
+<meta name="description" content="Estimate your event decoration cost instantly. Interactive balloon decor pricing tool for garlands, bouquets, backdrops, and full event packages. Free quote within 60 seconds.">
+<meta property="og:title" content="Event Cost Estimator | Everlasting Memories">
+<meta property="og:description" content="Get an instant estimate for your event decor. 60 seconds, no commitment.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://everlastingmemories.vercel.app/cost-estimator.html">
+<meta property="og:image" content="https://everlastingmemories.vercel.app/logo.jpg">
+<link rel="canonical" href="https://everlastingmemories.vercel.app/cost-estimator.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<meta name="theme-color" content="#FAF8F5">
+<style>
+  :root {
+    --gold: #d4a84b;
+    --dark: #1a1a2e;
+    --card: #16213e;
+    --green: #00b894;
+    --red: #e17055;
+    --text: #eaeaea;
+    --muted: #8a8a9a;
+    --cream: #faf8f5;
+    --beige: #e8dfd4;
+    --taupe: #b5a89a;
+    --rose: #c4a494;
+    --charcoal: #2c2c2c;
+    --black: #1a1a1a;
+  }
+  .estimator-badge {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--black);
+    padding: 6px 16px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .estimator-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px 60px;
+  }
+  .estimator-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .estimator-header h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    color: var(--black);
+    margin-bottom: 8px;
+  }
+  .estimator-header p {
+    color: var(--taupe);
+    max-width: 500px;
+    margin: 0 auto;
+    font-size: 1.05rem;
+  }
+  .step-indicator {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-bottom: 40px;
+    gap: 0;
+  }
+  .step-dot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+  .step-dot .circle {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+    background: var(--beige);
+    color: var(--taupe);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    z-index: 2;
+  }
+  .step-dot.active .circle {
+    background: var(--gold);
+    color: var(--black);
+    border-color: var(--gold);
+    box-shadow: 0 0 0 4px rgba(212, 168, 75, 0.2);
+  }
+  .step-dot.done .circle {
+    background: var(--green);
+    color: white;
+    border-color: var(--green);
+  }
+  .step-dot .label {
+    position: absolute;
+    top: 50px;
+    font-size: 0.7rem;
+    color: var(--taupe);
+    white-space: nowrap;
+    font-weight: 500;
+  }
+  .step-dot.active .label { color: var(--gold); font-weight: 600; }
+  .step-line {
+    width: 40px;
+    height: 3px;
+    background: var(--beige);
+    margin-top: 20px;
+  }
+  .step-line.done { background: var(--green); }
+  .est-card {
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    border: 1px solid var(--beige);
+    margin-bottom: 24px;
+  }
+  .est-card h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.4rem;
+    color: var(--black);
+    margin-bottom: 6px;
+  }
+  .est-card .subtitle {
+    color: var(--taupe);
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+  }
+  .step-content { display: none; }
+  .step-content.active { display: block; }
+  .btn-nav {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 32px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+  }
+  .btn-next {
+    background: var(--black);
+    color: var(--cream);
+  }
+  .btn-next:hover { background: var(--charcoal); transform: translateY(-2px); }
+  .btn-back {
+    background: var(--beige);
+    color: var(--charcoal);
+  }
+  .btn-back:hover { background: var(--taupe); color: white; }
+  .btn-disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  .nav-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+    gap: 12px;
+  }
+  .option-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+  }
+  .option-card {
+    background: var(--cream);
+    border: 2px solid var(--beige);
+    border-radius: 12px;
+    padding: 20px 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+    user-select: none;
+  }
+  .option-card:hover {
+    border-color: var(--gold);
+    background: rgba(212, 168, 75, 0.05);
+  }
+  .option-card.selected {
+    border-color: var(--gold);
+    background: rgba(212, 168, 75, 0.1);
+    box-shadow: 0 0 0 3px rgba(212, 168, 75, 0.2);
+  }
+  .option-card .icon { font-size: 1.8rem; margin-bottom: 6px; }
+  .option-card .name { font-weight: 600; color: var(--black); font-size: 0.95rem; }
+  .option-card .desc { font-size: 0.8rem; color: var(--taupe); margin-top: 3px; }
+  .slider-group { margin-bottom: 20px; }
+  .slider-group label { display: flex; justify-content: space-between; font-weight: 500; margin-bottom: 8px; }
+  .slider-group label .value { color: var(--gold); font-weight: 700; }
+  .slider-group input[type=range] {
+    width: 100%;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--beige);
+    outline: none;
+  }
+  .slider-group input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--gold);
+    cursor: pointer;
+    border: 3px solid white;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+  }
+  .slider-row { display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--taupe); }
+  .addon-list { display: grid; gap: 10px; }
+  .addon-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: var(--cream);
+    border-radius: 10px;
+    border: 1px solid var(--beige);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  .addon-item:hover { border-color: var(--gold); }
+  .addon-item.checked { border-color: var(--gold); background: rgba(212,168,75,0.06); }
+  .addon-item input[type=checkbox] {
+    width: 20px; height: 20px;
+    accent-color: var(--gold);
+    cursor: pointer;
+  }
+  .addon-item .addon-name { font-weight: 500; flex: 1; }
+  .addon-item .addon-price { font-weight: 600; color: var(--gold); }
+  .result-card {
+    background: linear-gradient(135deg, var(--black) 0%, #1a1a2e 100%);
+    border-radius: 20px;
+    padding: 40px;
+    color: var(--text);
+    text-align: center;
+    border: 2px solid var(--gold);
+  }
+  .result-card .big-price {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 800;
+    color: var(--gold);
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+  .result-card .price-label {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-top: 4px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+  .result-card .range-note {
+    color: var(--muted);
+    font-size: 0.82rem;
+    margin-top: 20px;
+    font-style: italic;
+  }
+  .breakdown-list {
+    text-align: left;
+    margin: 24px 0;
+    padding: 0;
+    list-style: none;
+  }
+  .breakdown-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #2a2a4a;
+    font-size: 0.9rem;
+  }
+  .breakdown-list li:last-child { border-bottom: none; }
+  .breakdown-list .item-name { color: var(--text); }
+  .breakdown-list .item-price { color: var(--gold); font-weight: 600; }
+  .cta-row {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 24px;
+  }
+  .cta-row .btn {
+    padding: 14px 28px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    display: inline-block;
+  }
+  .cta-row .btn-primary {
+    background: var(--gold);
+    color: var(--black);
+  }
+  .cta-row .btn-primary:hover { transform: translateY(-2px); }
+  .cta-row .btn-secondary {
+    background: transparent;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+  }
+  .cta-row .btn-secondary:hover { background: rgba(212,168,75,0.1); }
+  .result-actions { margin-top: 20px; }
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: help;
+  }
+  .tooltip .tip-text {
+    visibility: hidden;
+    width: 200px;
+    background: var(--charcoal);
+    color: white;
+    text-align: center;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 400;
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .tooltip .tip-text::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border: 5px solid transparent;
+    border-top-color: var(--charcoal);
+  }
+  .tooltip:hover .tip-text { visibility: visible; opacity: 1; }
+  .est-footer {
+    text-align: center;
+    padding: 24px;
+    color: var(--taupe);
+    font-size: 0.8rem;
+    border-top: 1px solid var(--beige);
+    margin-top: 40px;
+  }
+  @media (max-width: 600px) {
+    .est-card { padding: 20px; }
+    .option-grid { grid-template-columns: repeat(2, 1fr); }
+    .step-line { width: 20px; }
+    .step-dot .label { font-size: 0.6rem; top: 46px; }
+    .result-card { padding: 24px; }
+  }
+  @keyframes pop-in {
+    0% { transform: scale(0.5); opacity: 0; }
+    70% { transform: scale(1.1); }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  .pop-in { animation: pop-in 0.4s ease-out; }
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  .shimmer-text {
+    background: linear-gradient(90deg, var(--gold) 0%, #f0d78e 50%, var(--gold) 100%);
+    background-size: 200% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav" role="navigation" aria-label="Main navigation">
+  <div class="container nav-inner">
+    <a href="index.html" class="nav-logo">
+      <img src="logo.jpg" alt="Everlasting Memories logo">
+      <span>Everlasting Memories</span>
+    </a>
+    <div class="nav-links">
+      <a href="services.html">Services</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="about.html">About</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html">Contact</a>
+      <a href="cost-estimator.html">Estimate Cost</a>
+    </div>
+    <a href="contact.html" class="nav-cta">Book Now</a>
+    <button class="mobile-toggle" aria-label="Open menu">&#9776;</button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" aria-label="Close menu">&times;</button>
+  <a href="services.html">Services</a>
+  <a href="gallery.html">Gallery</a>
+  <a href="about.html">About</a>
+  <a href="faq.html">FAQ</a>
+  <a href="contact.html">Contact</a>
+  <a href="cost-estimator.html">Estimate Cost</a>
+</div>
+
+<div class="estimator-wrapper">
+  <div class="estimator-header">
+    <span class="estimator-badge">&#10024; Free & Instant</span>
+    <h1>What Will Your Event Decor Cost?</h1>
+    <p>Answer a few quick questions. Get a real estimate in 60 seconds — no commitment, no spam.</p>
+  </div>
+
+  <!-- Step Progress -->
+  <div class="step-indicator">
+    <div class="step-dot active" data-step="1">
+      <div class="circle">1</div>
+      <div class="label">Event Type</div>
+    </div>
+    <div class="step-line" data-between="1-2"></div>
+    <div class="step-dot" data-step="2">
+      <div class="circle">2</div>
+      <div class="label">Services</div>
+    </div>
+    <div class="step-line" data-between="2-3"></div>
+    <div class="step-dot" data-step="3">
+      <div class="circle">3</div>
+      <div class="label">Size & Style</div>
+    </div>
+    <div class="step-line" data-between="3-4"></div>
+    <div class="step-dot" data-step="4">
+      <div class="circle">4</div>
+      <div class="label">Add-Ons</div>
+    </div>
+    <div class="step-line" data-between="4-5"></div>
+    <div class="step-dot" data-step="5">
+      <div class="circle">5</div>
+      <div class="label">Your Estimate</div>
+    </div>
+  </div>
+
+  <!-- STEP 1 -->
+  <div class="est-card step-content active" data-step="1">
+    <h2>&#127881; What kind of event?</h2>
+    <p class="subtitle">This helps us recommend the right services and pricing.</p>
+    <div class="option-grid">
+      <div class="option-card" data-value="birthday" onclick="selectOption(this,'eventType')">
+        <div class="icon">&#127874;</div>
+        <div class="name">Birthday</div>
+        <div class="desc">Kids, adults, milestones</div>
+      </div>
+      <div class="option-card" data-value="wedding" onclick="selectOption(this,'eventType')">
+        <div class="icon">&#128141;</div>
+        <div class="name">Wedding</div>
+        <div class="desc">Ceremony & reception</div>
+      </div>
+      <div class="option-card" data-value="baby-shower" onclick="selectOption(this,'eventType')">
+        <div class="icon">&#128118;</div>
+        <div class="name">Baby Shower</div>
+        <div class="desc">Gender reveal too</div>
+      </div>
+      <div class="option-card" data-value="corporate" onclick="selectOption(this,'eventType')">
+        <div class="icon">&#127963;</div>
+        <div class="name">Corporate</div>
+        <div class="desc">Galas, launches, events</div>
+      </div>
+      <div class="option-card" data-value="anniversary" onclick="selectOption(this,'eventType')">
+        <div class="icon">&#128149;</div>
+        <div class="name">Anniversary</div>
+        <div class="desc">Celebrating love</div>
+      </div>
+      <div class="option-card" data-value="other" onclick="selectOption(this,'eventType')">
+        <div class="icon">&#127882;</div>
+        <div class="name">Other</div>
+        <div class="desc">Graduation, holiday, etc.</div>
+      </div>
+    </div>
+    <div class="nav-row">
+      <span></span>
+      <button class="btn-nav btn-next btn-disabled" id="step1Btn" onclick="nextStep()">Next Step &#8594;</button>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="est-card step-content" data-step="2">
+    <h2>&#128203; What services interest you?</h2>
+    <p class="subtitle">Select all that apply. You can adjust details next.</p>
+    <div class="option-grid">
+      <div class="option-card" data-value="garland" onclick="toggleService(this)">
+        <div class="icon">&#127744;</div>
+        <div class="name">Balloon Garland</div>
+        <div class="desc">From $250</div>
+      </div>
+      <div class="option-card" data-value="bouquet" onclick="toggleService(this)">
+        <div class="icon">&#128144;</div>
+        <div class="name">Balloon Bouquet</div>
+        <div class="desc">From $45</div>
+      </div>
+      <div class="option-card" data-value="backdrop" onclick="toggleService(this)">
+        <div class="icon">&#128726;</div>
+        <div class="name">Custom Backdrop</div>
+        <div class="desc">From $550</div>
+      </div>
+      <div class="option-card" data-value="full-event" onclick="toggleService(this)">
+        <div class="icon">&#127963;</div>
+        <div class="name">Full Event Decor</div>
+        <div class="desc">From $1,200</div>
+      </div>
+    </div>
+    <div class="nav-row">
+      <button class="btn-nav btn-back" onclick="prevStep()">&#8592; Back</button>
+      <button class="btn-nav btn-next btn-disabled" id="step2Btn" onclick="nextStep()">Next Step &#8594;</button>
+    </div>
+  </div>
+
+  <!-- STEP 3 -->
+  <div class="est-card step-content" data-step="3">
+    <h2>&#128211; Size & style</h2>
+    <p class="subtitle">Fine-tune each service you selected.</p>
+    <div id="serviceSliders"></div>
+    <div class="slider-group">
+      <label>&#128138; Design Complexity <span class="tooltip">&#9432;<span class="tip-text">Simple = solid colors, basic shapes. Premium = mixed textures, florals, custom elements.</span></span>
+        <span class="value" id="complexityLabel">Standard</span>
+      </label>
+      <input type="range" id="complexity" min="1" max="3" value="2" step="1" oninput="updateComplexity();updateEstimate()">
+      <div class="slider-row"><span>Simple</span><span>Standard</span><span>Premium</span></div>
+    </div>
+    <div class="slider-group">
+      <label>&#128205; Event Location <span class="value" id="travelLabel">Local (no fee)</span></label>
+      <input type="range" id="travel" min="0" max="3" value="0" step="1" oninput="updateTravel();updateEstimate()">
+      <div class="slider-row"><span>Local</span><span>30 mi</span><span>60 mi</span><span>90+ mi</span></div>
+    </div>
+    <div class="nav-row">
+      <button class="btn-nav btn-back" onclick="prevStep()">&#8592; Back</button>
+      <button class="btn-nav btn-next" onclick="nextStep()">Next: Add-Ons &#8594;</button>
+    </div>
+  </div>
+
+  <!-- STEP 4 -->
+  <div class="est-card step-content" data-step="4">
+    <h2>&#10024; Add-ons & extras</h2>
+    <p class="subtitle">Make it unforgettable. All optional.</p>
+    <div class="addon-list">
+      <label class="addon-item" id="addon-florals">
+        <input type="checkbox" onchange="toggleAddon('florals',75);updateEstimate()">
+        <span class="addon-name">&#127800; Fresh/Dried Florals <span style="font-weight:400;color:var(--taupe);font-size:0.85rem;">— pampas grass, roses</span></span>
+        <span class="addon-price">+$75</span>
+      </label>
+      <label class="addon-item" id="addon-signage">
+        <input type="checkbox" onchange="toggleAddon('signage',120);updateEstimate()">
+        <span class="addon-name">&#128239; Custom Signage <span style="font-weight:400;color:var(--taupe);font-size:0.85rem;">— acrylic, neon, foam board</span></span>
+        <span class="addon-price">+$120</span>
+      </label>
+      <label class="addon-item" id="addon-lighting">
+        <input type="checkbox" onchange="toggleAddon('lighting',100);updateEstimate()">
+        <span class="addon-name">&#128161; LED Uplighting <span style="font-weight:400;color:var(--taupe);font-size:0.85rem;">— 4 uplights, color-matched</span></span>
+        <span class="addon-price">+$100</span>
+      </label>
+      <label class="addon-item" id="addon-fabric">
+        <input type="checkbox" onchange="toggleAddon('fabric',65);updateEstimate()">
+        <span class="addon-name">&#129525; Fabric Draping <span style="font-weight:400;color:var(--taupe);font-size:0.85rem;">— custom color backdrop drapes</span></span>
+        <span class="addon-price">+$65</span>
+      </label>
+      <label class="addon-item" id="addon-table">
+        <input type="checkbox" onchange="toggleAddon('table',40);updateEstimate()">
+        <span class="addon-name">&#128327; Centerpieces <span style="font-weight:400;color:var(--taupe);font-size:0.85rem;">— per table, includes setup</span></span>
+        <span class="addon-price">+$40/table</span>
+      </label>
+      <label class="addon-item" id="addon-breakdown">
+        <input type="checkbox" onchange="toggleAddon('breakdown',150);updateEstimate()">
+        <span class="addon-name">&#128230; Event Breakdown <span style="font-weight:400;color:var(--taupe);font-size:0.85rem;">— post-event removal & cleanup</span></span>
+        <span class="addon-price">+$150</span>
+      </label>
+      <label class="addon-item" id="addon-rush">
+        <input type="checkbox" onchange="toggleAddon('rush',100);updateEstimate()">
+        <span class="addon-name">&#9889; Rush Order <span style="font-weight:400;color:var(--taupe);font-size:0.85rem;">— less than 7 days notice</span></span>
+        <span class="addon-price">+$100</span>
+      </label>
+    </div>
+    <div class="nav-row">
+      <button class="btn-nav btn-back" onclick="prevStep()">&#8592; Back</button>
+      <button class="btn-nav btn-next" onclick="showResult()">&#127919; See My Estimate!</button>
+    </div>
+  </div>
+
+  <!-- STEP 5 -->
+  <div class="est-card step-content" data-step="5">
+    <div id="resultContent"></div>
+    <div class="nav-row result-actions">
+      <button class="btn-nav btn-back" onclick="prevStep()">&#8592; Adjust</button>
+      <button class="btn-nav btn-next" style="background:var(--beige);color:var(--charcoal);" onclick="resetEstimator()">&#8635; Start Over</button>
+    </div>
+  </div>
+</div>
+
+<div class="est-footer">
+  <p>This is an estimate based on typical pricing. Final quotes may vary.</p>
+  <p>Everlasting Memories | Balloon Art & Event Decor | Connecticut</p>
+</div>
+
+<script>
+const state={eventType:null,services:[],size:{garland:10,bouquet:2,backdrop:8,fullEvent:100},complexity:2,travel:0,addons:{},addonCounts:{table:5},currentStep:1,totalSteps:5};
+const PRICING={garland:{base:250,perFoot:20,label:'Balloon Garland'},bouquet:{base:45,options:[0,45,85,140,200],label:'Balloon Bouquet'},backdrop:{base:550,perFoot:45,label:'Custom Backdrop'},fullEvent:{base:1200,guestStep:8,label:'Full Event Decor'}};
+const C=[1,1.3,1.8],T=[0,50,100,200],CN=['Simple','Standard','Premium'],TN=['Local (no fee)','Within 30 mi','Within 60 mi','90+ miles'];
+const EN={birthday:'Birthday',wedding:'Wedding','baby-shower':'Baby Shower',corporate:'Corporate',anniversary:'Anniversary',other:'Other'};
+const BT=['Tabletop (2–3 ft)','Standard Floor (4–5 ft)','Deluxe Floor (6–7 ft)','Custom Themed'];
+
+function nextStep(){if(state.currentStep<state.totalSteps)goToStep(state.currentStep+1)}
+function prevStep(){if(state.currentStep>1)goToStep(state.currentStep-1)}
+function goToStep(n){state.currentStep=n;
+  document.querySelectorAll('.step-content').forEach(e=>e.classList.remove('active'));
+  document.querySelector('.step-content[data-step="'+n+'"]').classList.add('active');
+  document.querySelectorAll('.step-dot').forEach(d=>{let s=parseInt(d.dataset.step);d.classList.toggle('active',s===n);d.classList.toggle('done',s<n)});
+  document.querySelectorAll('.step-line').forEach(l=>{let p=l.dataset.between.split('-').map(Number);l.classList.toggle('done',n>p[0])});
+  window.scrollTo({top:0,behavior:'smooth'});
+  if(n===5)showResult();
+  if(n===3)buildServiceSliders();
+  updateEstimate()
+}
+
+function selectOption(el,field){el.parentElement.querySelectorAll('.option-card').forEach(c=>c.classList.remove('selected'));el.classList.add('selected');state[field]=el.dataset.value;document.getElementById('step1Btn').classList.remove('btn-disabled');updateEstimate()}
+function toggleService(el){let v=el.dataset.value;el.classList.toggle('selected');if(state.services.includes(v))state.services=state.services.filter(s=>s!==v);else state.services.push(v);let b=document.getElementById('step2Btn');state.services.length>0?b.classList.remove('btn-disabled'):b.classList.add('btn-disabled');buildServiceSliders();updateEstimate()}
+
+function buildServiceSliders(){let c=document.getElementById('serviceSliders');c.innerHTML='';state.services.forEach(svc=>{let d=document.createElement('div');d.className='slider-group';let h='';
+  if(svc==='garland'){let v=state.size.garland||10;h='<label>&#127744; Garland Length <span class="value" id="sizeLabel-garland">'+v+' ft</span></label><input type="range" id="size-garland" min="4" max="30" value="'+v+'" step="1" oninput="updateSizeSlider(\'garland\');updateEstimate()"><div class="slider-row"><span>4 ft</span><span>30 ft</span></div>'}
+  else if(svc==='bouquet'){let v=state.size.bouquet||2;h='<label>&#128144; Bouquet Size <span class="value" id="sizeLabel-bouquet">'+BT[v-1]+'</span></label><input type="range" id="size-bouquet" min="1" max="4" value="'+v+'" step="1" oninput="updateSizeSlider(\'bouquet\');updateEstimate()"><div class="slider-row"><span>'+BT[0]+'</span><span>'+BT[3]+'</span></div>'}
+  else if(svc==='backdrop'){let v=state.size.backdrop||8;h='<label>&#128726; Backdrop Width <span class="value" id="sizeLabel-backdrop">'+v+' ft</span></label><input type="range" id="size-backdrop" min="4" max="16" value="'+v+'" step="1" oninput="updateSizeSlider(\'backdrop\');updateEstimate()"><div class="slider-row"><span>4 ft</span><span>16 ft</span></div>'}
+  else if(svc==='full-event'){let v=state.size.fullEvent||100;h='<label>&#128101; Guest Count <span class="value" id="sizeLabel-full-event">'+v+'</span></label><input type="range" id="size-full-event" min="20" max="500" value="'+v+'" step="10" oninput="updateSizeSlider(\'full-event\');updateEstimate()"><div class="slider-row"><span>20 guests</span><span>500 guests</span></div>'}
+  d.innerHTML=h;c.appendChild(d)})}
+
+function updateSizeSlider(svc){let el=document.getElementById('size-'+svc),label=document.getElementById('sizeLabel-'+svc);if(!el||!label)return;let v=parseInt(el.value),key=svc==='full-event'?'fullEvent':svc;state.size[key]=v;
+  if(svc==='bouquet')label.textContent=BT[v-1];else if(svc==='full-event')label.textContent=v;else label.textContent=v+' ft';updateEstimate()}
+function updateComplexity(){state.complexity=parseInt(document.getElementById('complexity').value);document.getElementById('complexityLabel').textContent=CN[state.complexity-1]}
+function updateTravel(){state.travel=parseInt(document.getElementById('travel').value);document.getElementById('travelLabel').textContent=TN[state.travel]}
+
+function toggleAddon(name,price){let cb=document.querySelector('#addon-'+name+' input'),label=document.getElementById('addon-'+name);if(cb.checked){state.addons[name]=price;label.classList.add('checked')}else{delete state.addons[name];label.classList.remove('checked')}}
+
+function calcEstimate(){
+  let total=0,items=[];
+  state.services.forEach(s=>{
+    let p=PRICING[s];if(!p)return;
+    let price=0;
+    if(s==='garland'){let ft=state.size.garland||10;price=(p.base+p.perFoot*ft)*C[state.complexity-1];items.push({name:p.label+' ('+ft+' ft)',price:Math.round(price)});}
+    else if(s==='bouquet'){let t=state.size.bouquet||2;price=p.options[t];items.push({name:p.label+' — '+BT[t-1],price:price});}
+    else if(s==='backdrop'){let ft=state.size.backdrop||8;price=(p.base+p.perFoot*ft)*C[state.complexity-1];items.push({name:p.label+' ('+ft+' ft)',price:Math.round(price)});}
+    else if(s==='full-event'){let g=state.size.fullEvent||100;price=p.base+Math.round(g/p.guestStep)*100;price=price*C[state.complexity-1];items.push({name:p.label+' ('+g+' guests)',price:Math.round(price)});}
+    total+=price;
+  });
+  let travelFee=T[state.travel]||0;
+  if(travelFee>0){items.push({name:'Travel fee — '+TN[state.travel],price:travelFee});total+=travelFee;}
+  let addonTotal=0;
+  Object.entries(state.addons).forEach(([k,v])=>{
+    let label={florals:'&#127800; Fresh/Dried Florals',signage:'&#128239; Custom Signage',lighting:'&#128161; LED Uplighting',fabric:'&#129525; Fabric Draping',table:'&#128327; Centerpieces',breakdown:'&#128230; Event Breakdown',rush:'&#9889; Rush Order'}[k]||k;
+    let price=v;
+    if(k==='table')price=v*(state.addonCounts.table||5);
+    items.push({name:label,price:price});
+    addonTotal+=price;
+  });
+  total+=addonTotal;
+  let low=Math.round(total*0.9),high=Math.round(total*1.1);
+  return{total:Math.round(total),low,high,items};
+}
+
+function updateEstimate(){
+  // Live-updates on result page
+  let rc=document.getElementById('resultContent');
+  if(rc&&state.currentStep===5)showResult();
+}
+
+function showResult(){
+  goToStep(5);
+  let data=calcEstimate(),rc=document.getElementById('resultContent');
+  let eventName=EN[state.eventType]||'your event';
+  let servicesList=state.services.map(s=>PRICING[s]?PRICING[s].label:'').filter(Boolean).join(', ')||'None selected';
+  let addonCount=Object.keys(state.addons).length;
+  let rangeLow=data.low,rangeHigh=data.high;
+  
+  rc.innerHTML='<div class="result-card pop-in">'+
+    '<p style="color:var(--muted);font-size:0.85rem;margin-bottom:4px;">Estimated Cost for '+eventName+'</p>'+
+    '<div class="big-price shimmer-text">$'+data.total.toLocaleString()+'</div>'+
+    '<div class="price-label">Estimated Total</div>'+
+    '<p style="color:var(--muted);font-size:0.85rem;margin-top:4px;">Range: $'+rangeLow.toLocaleString()+' — $'+rangeHigh.toLocaleString()+'</p>'+
+    '<div class="range-note">Based on your selections and typical pricing in Connecticut</div>'+
+    '<ul class="breakdown-list">'+
+    data.items.map(i=>'<li><span class="item-name">'+i.name+'</span><span class="item-price">$'+i.price.toLocaleString()+'</span></li>').join('')+
+    '</ul>'+
+    '<div class="cta-row">'+
+    '<a href="contact.html" class="btn btn-primary">&#128222; Book a Free Consultation</a>'+
+    '<a href="tel:203-981-7244" class="btn btn-secondary">Call Now: 203-981-7244</a>'+
+    '</div>'+
+    '<div class="range-note" style="margin-top:16px;">This is a real-time estimate. Final pricing confirmed during consultation.</div>'+
+    '</div>';
+}
+
+function resetEstimator(){
+  state.eventType=null;state.services=[];state.size={garland:10,bouquet:2,backdrop:8,fullEvent:100};
+  state.complexity=2;state.travel=0;state.addons={};
+  document.getElementById('complexity').value=2;
+  document.getElementById('travel').value=0;
+  document.getElementById('complexityLabel').textContent='Standard';
+  document.getElementById('travelLabel').textContent='Local (no fee)';
+  document.getElementById('step1Btn').classList.add('btn-disabled');
+  document.getElementById('step2Btn').classList.add('btn-disabled');
+  document.querySelectorAll('.option-card').forEach(c=>c.classList.remove('selected'));
+  document.querySelectorAll('.addon-item').forEach(a=>{a.classList.remove('checked');a.querySelector('input').checked=false;});
+  document.getElementById('serviceSliders').innerHTML='';
+  goToStep(1);
+}
+</script>
+</body>
+</html>
