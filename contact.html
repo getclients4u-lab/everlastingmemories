@@ -224,6 +224,20 @@
 </footer>
 
 <button class="back-to-top" id="backToTop" aria-label="Back to top">&#8593;</button>
+<script>
+// Pre-fill message from theme-generator links (?theme=&palette=)
+document.addEventListener('DOMContentLoaded', function(){
+  try {
+    var p = new URLSearchParams(window.location.search);
+    var theme = p.get('theme');
+    var palette = p.get('palette');
+    if (theme && document.getElementById('message')) {
+      var msg = document.getElementById('message');
+      msg.value = 'I designed a palette with your Theme & Color Generator:\n\nOccasion/Vibe: ' + theme + (palette ? '\nPalette: ' + palette : '') + '\n\nI\'d love a quote for this style!';
+    }
+  } catch(e){}
+});
+</script>
 <script src="main.js" defer></script>
 </body>
 </html>

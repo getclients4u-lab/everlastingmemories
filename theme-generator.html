@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Balloon Theme &amp; Color Palette Generator — Everlasting Memories</title>
+<meta name="description" content="Pick your occasion and vibe, get instant balloon decor theme ideas, color palettes, and style suggestions — then request a free quote from Everlasting Memories.">
+<meta property="og:title" content="Balloon Theme & Color Palette Generator">
+<meta property="og:description" content="Design your perfect event palette in seconds. Free tool from Everlasting Memories.">
+<meta property="og:type" content="website">
+<style>
+:root{--c1:#5a3d2b;--c2:#8a6a4e;--bg:#f8f5f0;--ink:#33281f;--accent:#c9a87c;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+header{background:linear-gradient(135deg,#5a3d2b,#8a6a4e);color:#fff;padding:40px 24px 30px;text-align:center}
+header h1{font-size:clamp(1.6rem,4vw,2.4rem);margin-bottom:8px}
+header p{color:#e8dccb;max-width:600px;margin:0 auto;font-size:1.02rem}
+.container{max-width:1000px;margin:0 auto;padding:28px 20px}
+.card{background:#fff;border-radius:14px;padding:28px;box-shadow:0 3px 16px rgba(0,0,0,.06);margin-bottom:22px}
+.card h2{font-size:1.15rem;color:var(--c1);margin-bottom:18px;border-bottom:2px solid #f0e6da;padding-bottom:10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px}
+.opt{border:2px solid #e5dccd;border-radius:12px;padding:16px;cursor:pointer;text-align:center;transition:.15s;background:#fff}
+.opt:hover{border-color:var(--accent);transform:translateY(-2px)}
+.opt.sel{border-color:var(--c1);background:#f5ede2;box-shadow:0 0 0 2px rgba(90,61,43,.15)}
+.opt .ic{font-size:1.8rem;display:block;margin-bottom:6px}
+.opt .nm{font-weight:600;font-size:.95rem}
+.opt .ds{color:#999;font-size:.78rem;margin-top:3px}
+.palette{display:flex;border-radius:10px;overflow:hidden;height:90px;margin:14px 0 8px;box-shadow:0 3px 10px rgba(0,0,0,.12)}
+.sw{flex:1;display:flex;align-items:flex-end;justify-content:center;padding-bottom:6px;color:#fff;font-size:.7rem;font-weight:700;text-shadow:0 1px 3px rgba(0,0,0,.4);word-break:break-all}
+.hexes{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px}
+.hex{font-size:.78rem;color:#777}
+.ideas{background:#faf6f0;border-radius:10px;padding:16px;margin-top:10px}
+.ideas h4{color:var(--c1);margin-bottom:8px;font-size:.95rem}
+.ideas ul{list-style:none}
+.ideas li{padding:5px 0 5px 22px;position:relative;color:#555;font-size:.9rem}
+.ideas li:before{content:"🎈";position:absolute;left:0;top:4px;font-size:.85rem}
+.cta{background:linear-gradient(135deg,#5a3d2b,#8a6a4e);color:#fff;border-radius:14px;padding:28px;text-align:center;margin-bottom:20px}
+.cta h3{font-size:1.3rem;margin-bottom:10px}
+.cta p{color:#e8dccb;margin-bottom:18px}
+.btn{display:inline-block;background:#fff;color:var(--c1);padding:13px 32px;border-radius:999px;font-weight:700;text-decoration:none;transition:.15s;border:none;cursor:pointer;font-size:1rem}
+.btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.2)}
+.share{display:flex;gap:10px;justify-content:center;margin-top:4px}
+.share a{color:#e8dccb;font-size:.9rem}
+.select{width:100%;padding:13px;border:1px solid #ddd;border-radius:10px;font-size:1rem;background:#fff;color:var(--ink)}
+.note{color:#999;font-size:.8rem;margin-top:8px}
+footer{text-align:center;color:#b0a08a;font-size:.8rem;padding:30px 20px}
+.hidden{display:none}
+</style>
+</head>
+<body>
+<header>
+  <h1>🎨 Balloon Theme &amp; Color Palette Generator</h1>
+  <p>Pick your occasion and vibe — get an instant custom color palette, balloon styles, and setup ideas for your perfect event.</p>
+</header>
+
+<div class="container">
+  <div class="card">
+    <h2>1. What's the occasion?</h2>
+    <div class="grid" id="occasionGrid"></div>
+  </div>
+
+  <div class="card">
+    <h2>2. What's the vibe?</h2>
+    <div class="grid" id="vibeGrid"></div>
+  </div>
+
+  <div class="card hidden" id="resultCard">
+    <h2 id="resultTitle">✨ Your Custom Palette</h2>
+    <div class="palette" id="palette"></div>
+    <div class="hexes" id="hexes"></div>
+    <div class="ideas" id="ideas"></div>
+    <div class="share">
+      <button class="btn" onclick="sharePalette()">🔗 Share This Palette</button>
+    </div>
+  </div>
+
+  <div class="cta" id="ctaCard">
+    <h3>Love your palette? Make it real.</h3>
+    <p>Get a free quote for balloons &amp; decor in these exact colors from Everlasting Memories.</p>
+    <a class="btn" href="contact.html?theme=palette" id="quoteBtn">Request a Free Quote →</a>
+  </div>
+</div>
+
+<footer>Everlasting Memories · Balloon Art &amp; Event Decor · Connecticut</footer>
+
+<script>
+const DATA = {
+  occasion: {
+    birthday: { ic:"🎂", name:"Birthday", dark:["#1f2937","#fbbf24"], light:["#fef3c7","#ffffff"] },
+    wedding:  { ic:"💍", name:"Wedding", dark:["#7c3aed","#f472b6"], light:["#fdf2ff","#ffffff"] },
+    baby:     { ic:"🍼", name:"Baby Shower", dark:["#0ea5e9","#f472b6"], light:["#e0f2fe","#ffffff"] },
+    graduation:{ic:"🎓", name:"Graduation", dark:["#1e3a8a","#f59e0b"], light:["#dbeafe","#ffffff"] },
+    corporate:{ ic:"💼", name:"Corporate", dark:["#0f172a","#334155"], light:["#e2e8f0","#ffffff"] },
+    holiday:  { ic:"🎄", name:"Holiday/Seasonal", dark:["#dc2626","#16a34a"], light:["#fef2f2","#ffffff"] },
+    gender:   { ic:"👶", name:"Gender Reveal", dark:["#f59e0b","#ffffff"], light:["#fef3c7","#ffffff"] },
+    retirement:{ic:"🌴", name:"Retirement", dark:["#0d9488","#f59e0b"], light:["#ccfbf1","#ffffff"] }
+  },
+  vibe: {
+    elegant:    { ic:"✨", name:"Elegant / Classy", sat:[0] },
+    playful:    { ic:"🎈", name:"Playful / Fun", sat:[1] },
+    vintage:    { ic:"🕰️", name:"Vintage / Rustic", sat:[0,2] },
+    minimalist: { ic:"⬜", name:"Minimalist / Modern", sat:[3] },
+    tropical:   { ic:"🌴", name:"Tropical / Bright", sat:[1,2] },
+    pastel:     { ic:"🌸", name:"Soft Pastel", sat:[0,3] },
+    bold:       { ic:"🔥", name:"Bold / Vibrant", sat:[1,2] },
+    boho:       { ic:"🧶", name:"Boho / Natural", sat:[0,2] }
+  }
+};
+
+// Theme palettes per vibe (base palettes to blend per occasion)
+const VIBE_PALETTES = {
+  elegant:    ["#b76e79","#f5e9e2","#d4a373","#ffffff","#6d597a"],
+  playful:    ["#f72585","#4cc9f0","#f8961e","#9b5de5","#f9c74f"],
+  vintage:    ["#8a5a44","#d4a373","#b5838d","#f2e8cf","#6b4f3a"],
+  minimalist: ["#212529","#ffffff","#adb5bd","#f8f9fa","#343a40"],
+  tropical:   ["#00b4d8","#f4a261","#2a9d8f","#e76f51","#e9c46a"],
+  pastel:     ["#fde2e4","#caffbf","#9bf6ff","#ffd6a5","#bdb2ff"],
+  bold:       ["#ef476f","#ffd166","#06d6a0","#118ab2","#073b4c"],
+  boho:       ["#a68a64","#d6c7a6","#8b6f47","#f0e6d2","#5d4a2e"]
+};
+
+let selOcc = null, selVibe = null;
+
+function buildGrid(id, key, clickFn){
+  const g = document.getElementById(id);
+  g.innerHTML = Object.entries(DATA[key]).map(([k,v])=>`
+    <div class="opt" data-k="${k}" onclick="${clickFn}('${k}')">
+      <span class="ic">${v.ic}</span>
+      <div class="nm">${v.name}</div>
+      <div class="ds">${v.ds||''}</div>
+    </div>`).join('');
+}
+buildGrid('occasionGrid','occasion',"selectOccasion");
+buildGrid('vibeGrid','vibe',"selectVibe");
+
+function selectOccasion(k){
+  selOcc=k;
+  document.querySelectorAll('#occasionGrid .opt').forEach(o=>o.classList.toggle('sel',o.dataset.k===k));
+  render();
+}
+function selectVibe(k){
+  selVibe=k;
+  document.querySelectorAll('#vibeGrid .opt').forEach(o=>o.classList.toggle('sel',o.dataset.k===k));
+  render();
+}
+
+function mix(base, occ){
+  // blend occasion accent into the vibe palette (reflect brand)
+  const occAccent = occ.dark[0];
+  const out = [...base];
+  out[0] = mixHex(out[0], occAccent, 0.4);
+  out[2] = mixHex(out[2], occ.dark[1]||occ.dark[0], 0.3);
+  return out;
+}
+function mixHex(a,b,t){
+  const pa=hexToRgb(a), pb=hexToRgb(b);
+  const r=Math.round(pa.r+(pb.r-pa.r)*t), g=Math.round(pa.g+(pb.g-pa.g)*t), bl=Math.round(pa.b+(pb.b-pa.b)*t);
+  return rgbToHex(r,g,bl);
+}
+function hexToRgb(h){h=h.replace('#','');return{r:parseInt(h.slice(0,2),16),g:parseInt(h.slice(2,4),16),b:parseInt(h.slice(4,6),16)}}
+function rgbToHex(r,g,b){return '#'+[r,g,b].map(x=>x.toString(16).padStart(2,'0')).join('')}
+
+function render(){
+  if(!selOcc || !selVibe){
+    document.getElementById('resultCard').classList.add('hidden');
+    return;
+  }
+  const occ = DATA.occasion[selOcc], vibe = DATA.vibe[selVibe];
+  let palette = mix(VIBE_PALETTES[selVibe], occ);
+  // ensure contrasts for text on swatches
+  document.getElementById('resultCard').classList.remove('hidden');
+  document.getElementById('resultTitle').textContent = `✨ ${occ.name} · ${vibe.name} Palette`;
+  const pal = document.getElementById('palette');
+  pal.innerHTML = palette.map(c=>`<div class="sw" style="background:${c};color:${isLight(c)?'#222':'#fff'}">${c}</div>`).join('');
+  document.getElementById('hexes').innerHTML = palette.map(c=>`<span class="hex">${c}</span>`).join('');
+  document.getElementById('ideas').innerHTML = ideasHTML(selOcc, selVibe, palette);
+  document.getElementById('quoteBtn').href = `contact.html?theme=${encodeURIComponent(occ.name+' '+vibe.name)}&palette=${palette.join(',')}`;
+  window.__palette = palette;
+}
+
+function isLight(hex){const {r,g,b}=hexToRgb(hex);const l=(0.2126*r+0.7152*g+0.0722*b);return l>150;}
+
+function ideasHTML(occKey, vibeKey, palette){
+  const occIdeas = {
+    birthday:["A 4-ft "+(palette[0]+' ')+"balloon arch as the photo backdrop","Foil 'Happy Birthday' + color-coordinated helium bouquet","Mini balloon garland table runners with cake table accent"],
+    wedding:["Elegant "+(palette[0])+" + white balloon arch at the altar","Soft pastel garland framing the sweetheart table","Balloon wall behind the photo booth in your exact palette"],
+    baby:["Pastel balloon cloud ceiling piece over the gift table","Color-themed balloon arch at the entrance","Adorable mini garland on the dessert table"],
+    graduation:["School-color "+(palette[0])+" balloon arch with cap toppers","He'll balloon bouquet gift centerpiece","Garland framing the photo wall"],
+    corporate:["Understated "+(palette[0])+" accent arch behind the stage","Brand-color balloon clusters at entry points","Balanced minimalist garland on the registration desk"],
+    holiday:["Festive themed arch in "+(palette[0])+" & "+palette[2],"Whimsical balloon tree accent pieces","Garland lining the gift/food tables"],
+    gender:["Dramatic reveal: sealed box of "+palette[1]+" or "+palette[3]+" balloons that pop out","Neutral gold/white backdrop garland","Two-tone color balloon arch"],
+    retirement:["Relaxed tropical-palette arch in "+palette[0],"Balloon palm or open-sign mini cluster","Laid-back garland on the buffet table"]
+  };
+  const ideas = occIdeas[occKey] || occIdeas.birthday;
+  return `<h4>🎈 Styling ideas for your "${DATA.occasion[occKey].name}" event</h4><ul>${ideas.map(i=>`<li>${i}</li>`).join('')}</ul>`;
+}
+
+function sharePalette(){
+  if(!window.__palette) return;
+  const txt = "I designed a "+DATA.occasion[selOcc].name+" palette with Everlasting Memories: "+window.__palette.join(' ');
+  const url = "https://wa.me/?text="+encodeURIComponent(txt);
+  window.open(url,'_blank');
+}
+</script>
+</body>
+</html>
