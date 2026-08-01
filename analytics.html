@@ -11,29 +11,47 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .header{background:linear-gradient(135deg,#5a3d2b,#8a6a4e);color:#fff;padding:24px 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
 .header h1{font-size:1.5rem}
 .sub{color:#d8c9b8;font-size:.9rem}
-.container{max-width:1100px;margin:24px auto;padding:0 20px}
+.container{max-width:1200px;margin:24px auto;padding:0 20px}
+
 .login-box{max-width:360px;margin:80px auto;background:#fff;padding:32px;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,.08);text-align:center}
 .login-box input{width:100%;padding:12px;margin:12px 0;border:1px solid #ddd;border-radius:8px;font-size:1rem}
 .login-box button{width:100%;padding:12px;background:#5a3d2b;color:#fff;border:none;border-radius:8px;font-size:1rem;cursor:pointer;font-weight:600}
 .login-box button:hover{background:#6b4b35}
-.login-note{color:#999;font-size:.85rem;margin-top:12px}
-.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin-bottom:24px}
-.stat-card{background:#fff;border-radius:12px;padding:20px;box-shadow:0 2px 10px rgba(0,0,0,.05);text-align:center}
-.stat-card .num{font-size:2.2rem;font-weight:700;color:#5a3d2b}
-.stat-card .label{color:#888;font-size:.85rem;margin-top:4px}
-.card{background:#fff;border-radius:12px;padding:24px;box-shadow:0 2px 10px rgba(0,0,0,.05);margin-bottom:24px}
-.card h2{font-size:1.1rem;color:#5a3d2b;margin-bottom:16px;border-bottom:2px solid #f0e6da;padding-bottom:10px}
+
+.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-bottom:24px}
+.stat-card{background:#fff;border-radius:12px;padding:18px;box-shadow:0 2px 10px rgba(0,0,0,.05);text-align:center}
+.stat-card .num{font-size:2rem;font-weight:700;color:#5a3d2b}
+.stat-card .label{color:#888;font-size:.8rem;margin-top:4px}
+
+.card{background:#fff;border-radius:12px;padding:22px;box-shadow:0 2px 10px rgba(0,0,0,.05);margin-bottom:22px}
+.card h2{font-size:1.05rem;color:#5a3d2b;margin-bottom:14px;border-bottom:2px solid #f0e6da;padding-bottom:10px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:800px){.grid-2{grid-template-columns:1fr}}
+
 table{width:100%;border-collapse:collapse}
-th,td{padding:10px 12px;text-align:left;font-size:.9rem;border-bottom:1px solid #f0f0f0}
-th{color:#888;font-weight:600;font-size:.8rem;text-transform:uppercase;letter-spacing:.03em}
+th,td{padding:9px 11px;text-align:left;font-size:.85rem;border-bottom:1px solid #f0f0f0}
+th{color:#888;font-weight:600;font-size:.75rem;text-transform:uppercase;letter-spacing:.03em}
 tr:hover td{background:#faf6f0}
-.muted{color:#999}
-.bar{background:#e8dccb;border-radius:4px;height:18px;overflow:hidden;max-width:300px}
+.bar{background:#e8dccb;border-radius:4px;height:18px;overflow:hidden;max-width:280px}
 .bar span{display:block;height:100%;background:linear-gradient(90deg,#8a6a4e,#c9a87c)}
 .chip{display:inline-block;background:#f0e6da;color:#5a3d2b;padding:2px 10px;border-radius:999px;font-size:.75rem;margin:2px}
+.chip.direct{background:#e8e8e8;color:#555}
+.chip.social{background:#e3f2fd;color:#1565c0}
+.chip.search{background:#e8f5e9;color:#2e7d32}
 .refresh-btn{background:#fff;color:#5a3d2b;border:2px solid #5a3d2b;padding:8px 18px;border-radius:8px;cursor:pointer;font-weight:600}
 .refresh-btn:hover{background:#5a3d2b;color:#fff}
-.empty{text-align:center;color:#bbb;padding:30px}
+.tabs{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
+.tab{padding:8px 16px;border-radius:8px;border:2px solid #e0d6c8;background:#fff;cursor:pointer;font-weight:600;font-size:.85rem}
+.tab.active{background:#5a3d2b;border-color:#5a3d2b;color:#fff}
+.empty{text-align:center;color:#bbb;padding:24px}
+.donut-row{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.donut-legend{font-size:.85rem;line-height:2}
+.donut-legend b{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:8px}
+.detail-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px}
+.detail-box{background:#faf6f0;border-radius:8px;padding:12px;text-align:center}
+.detail-box .v{font-size:1.3rem;font-weight:700;color:#5a3d2b}
+.detail-box .k{font-size:.75rem;color:#888;margin-top:2px}
+.avg-bar{display:inline-block;height:14px;border-radius:3px;background:linear-gradient(90deg,#c9a87c,#8a6a4e)}
 footer{text-align:center;color:#aaa;font-size:.8rem;padding:30px}
 </style>
 </head>
@@ -41,7 +59,7 @@ footer{text-align:center;color:#aaa;font-size:.8rem;padding:30px}
 <div class="header">
   <div>
     <h1>📊 Site Analytics</h1>
-    <div class="sub">Visitor traffic &amp; lead sources — Everlasting Memories</div>
+    <div class="sub">Granular visitor &amp; lead intelligence — Everlasting Memories</div>
   </div>
   <button class="refresh-btn" onclick="load()">🔄 Refresh</button>
 </div>
@@ -52,129 +70,193 @@ footer{text-align:center;color:#aaa;font-size:.8rem;padding:30px}
     <p style="color:#888;font-size:.9rem">Enter admin password to view analytics</p>
     <input type="password" id="pass" placeholder="Password" onkeydown="if(event.key==='Enter')login()">
     <button onclick="login()">View Analytics</button>
-    <div class="login-note">Same password as admin dashboard</div>
   </div>
+
   <div id="dash" style="display:none">
-    <div class="stats-row" id="statsRow"></div>
-    <div class="card"><h2>🌐 Page Views (last 30 days)</h2><div id="pagesChart"></div></div>
-    <div class="card"><h2>🎯 Traffic Sources</h2><div id="sourcesChart"></div></div>
-    <div class="card"><h2>📅 Daily Visitors</h2><div id="dailyChart"></div></div>
-    <div class="card"><h2>📩 Real Leads (form submissions)</h2><div id="leadsTable"></div></div>
+    <div class="tabs" id="tabs">
+      <div class="tab active" data-tab="overview" onclick="switchTab('overview')">📊 Overview</div>
+      <div class="tab" data-tab="audience" onclick="switchTab('audience')">👥 Audience</div>
+      <div class="tab" data-tab="acquisition" onclick="switchTab('acquisition')">🎯 Acquisition</div>
+      <div class="tab" data-tab="behavior" onclick="switchTab('behavior')">🧭 Behavior</div>
+      <div class="tab" data-tab="leads" onclick="switchTab('leads')">📩 Leads</div>
+      <div class="tab" data-tab="log" onclick="switchTab('log')">📋 Raw Log</div>
+    </div>
+
+    <div id="overview" class="tab-content"></div>
+    <div id="audience" class="tab-content" style="display:none"></div>
+    <div id="acquisition" class="tab-content" style="display:none"></div>
+    <div id="behavior" class="tab-content" style="display:none"></div>
+    <div id="leads" class="tab-content" style="display:none"></div>
+    <div id="log" class="tab-content" style="display:none"></div>
   </div>
 </div>
 <footer>&copy; 2026 Everlasting Memories — Internal Analytics</footer>
 
 <script>
-const TOKEN = 'ADMIN_TOKEN_REVOKED';
-let leads = [];
+const ADMIN_PASS = 'ADMIN_PASS_REVOKED';
+let all = [];      // all records
+let visits = [];   // type=visit
+let engagements = []; // type=engagement
+let realLeads = [];   // type=lead
 
 function login() {
-  if (document.getElementById('pass').value === 'ADMIN_PASS_REVOKED') {
+  if (document.getElementById('pass').value === ADMIN_PASS) {
     document.getElementById('loginBox').style.display = 'none';
     document.getElementById('dash').style.display = 'block';
     load();
-  } else {
-    alert('Incorrect password');
-  }
+  } else alert('Incorrect password');
 }
 
 async function load() {
   try {
-    const res = await fetch('/api/leads.js', {
-      headers: { 'Authorization': 'Bearer ' + TOKEN }
-    });
+    const res = await fetch('/api/leads.js', { headers: { 'Authorization': 'Bearer ADMIN_TOKEN_REVOKED' } });
     const data = await res.json();
-    leads = data.leads || data || [];
-    renderStats();
-    renderPages();
-    renderSources();
-    renderDaily();
+    all = data.leads || data || [];
+    visits = all.filter(r => r.type === 'visit');
+    engagements = all.filter(r => r.type === 'engagement');
+    realLeads = all.filter(r => r.type !== 'visit' && r.type !== 'engagement');
+    renderOverview();
+    renderAudience();
+    renderAcquisition();
+    renderBehavior();
     renderLeads();
+    renderLog();
   } catch (e) {
-    document.getElementById('dash').innerHTML = '<div class="empty">Failed to load analytics. Try again.</div>';
+    document.getElementById('overview').innerHTML = '<div class="empty">Failed to load. Try refresh.</div>';
   }
 }
 
-function escapeHtml(s) {
-  return String(s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function escapeHtml(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function switchTab(t){document.querySelectorAll('.tab').forEach(x=>x.classList.remove('active'));document.querySelector('.tab[data-tab="'+t+'"]').classList.add('active');['overview','audience','acquisition','behavior','leads','log'].forEach(x=>document.getElementById(x).style.display=x===t?'block':'none');}
+function pageFromMsg(r){const m=(r.message||'').match(/Page: ([^\]]+)/);return m?m[1]:'Unknown';}
+function groupBy(arr,keyFn){const m={};arr.forEach(r=>{const k=keyFn(r)||'Unknown';m[k]=(m[k]||0)+1;});return Object.entries(m).sort((a,b)=>b[1]-a[1]);}
+function bar(max){const mx=Math.max(1,...(max.map?max(null):[1]));}
+function renderBars(data,widthKey){
+  const mx=Math.max(1,...data.map(d=>d[1]));
+  return data.map(([k,v])=>`<div style="display:flex;align-items:center;gap:12px;margin-bottom:7px;font-size:.85rem">
+    <div style="min-width:150px;font-weight:500">${escapeHtml(k)}</div>
+    <div class="bar" style="flex:1"><span style="width:${(v/mx*100).toFixed(1)}%"></span></div>
+    <div style="min-width:34px;font-weight:600;text-align:right">${v}</div>
+  </div>`).join('');
 }
 
-function renderStats() {
-  const totalVisits = leads.filter(l => l.type === 'visit').length;
-  const realLeads = leads.filter(l => l.type !== 'visit').length;
-  const uniqueSources = new Set(leads.map(l => l.source).filter(Boolean)).size;
-  document.getElementById('statsRow').innerHTML = `
-    <div class="stat-card"><div class="num">${totalVisits}</div><div class="label">👁 Visitor Sessions</div></div>
-    <div class="stat-card"><div class="num">${realLeads}</div><div class="label">📩 Real Leads</div></div>
-    <div class="stat-card"><div class="num">${uniqueSources}</div><div class="label">🎯 Traffic Sources</div></div>
-    <div class="stat-card"><div class="num">${leads.length}</div><div class="label">Total Records</div></div>
-  `;
+// ===== OVERVIEW =====
+function renderOverview(){
+  const uniqSessions=new Set(visits.map(v=>v.sessionId)).size;
+  const avgDur=engagements.length?Math.round(engagements.reduce((s,e)=>s+(e.duration||0),0)/engagements.length):0;
+  const today=new Date().toISOString().slice(0,10);
+  const todayVisits=visits.filter(v=>(v.date||'').slice(0,10)===today).length;
+  document.getElementById('overview').innerHTML=`
+    <div class="stat-row">
+      <div class="stat-card"><div class="num">${todayVisits}</div><div class="label">👁 Today</div></div>
+      <div class="stat-card"><div class="num">${visits.length}</div><div class="label">Page Views</div></div>
+      <div class="stat-card"><div class="num">${uniqSessions}</div><div class="label">Sessions</div></div>
+      <div class="stat-card"><div class="num">${realLeads.length}</div><div class="label">Real Leads</div></div>
+      <div class="stat-card"><div class="num">${avgDur}s</div><div class="label">Avg Time on Page</div></div>
+      <div class="stat-card"><div class="num">${new Set(visits.map(v=>v.source)).size}</div><div class="label">Sources</div></div>
+    </div>
+    <div class="grid-2">
+      <div class="card"><h2>📈 Page Views (last 14 days)</h2><div id="ovDaily"></div></div>
+      <div class="card"><h2>🏠 Top Landing Pages</h2><div id="ovPages"></div></div>
+    </div>`;
+  // Daily
+  const days={};visits.forEach(v=>{const d=(v.date||'').slice(0,10);if(d)days[d]=(days[d]||0)+1;});
+  const sorted=Object.entries(days).sort((a,b)=>a[0].localeCompare(b[0])).slice(-14);
+  const mx=Math.max(1,...sorted.map(d=>d[1]));
+  document.getElementById('ovDaily').innerHTML=sorted.length?sorted.map(([d,c])=>`<div style="display:flex;align-items:center;gap:10px;margin-bottom:5px;font-size:.82rem">
+    <div style="min-width:82px">${d}</div><div class="bar" style="flex:1"><span style="width:${(c/mx*100).toFixed(1)}%"></span></div><div style="min-width:24px;font-weight:600">${c}</div></div>`).join(''):'<div class="empty">No data yet</div>';
+  document.getElementById('ovPages').innerHTML=renderBars(groupBy(visits,pageFromMsg).slice(0,8));
 }
 
-function renderPages() {
-  const counts = {};
-  leads.filter(l => l.type === 'visit').forEach(l => {
-    const page = (l.message || '').match(/Page: ([^\]]+)/);
-    const p = page ? page[1] : 'Unknown';
-    counts[p] = (counts[p] || 0) + 1;
-  });
-  const max = Math.max(1, ...Object.values(counts));
-  document.getElementById('pagesChart').innerHTML = Object.keys(counts).length ? Object.entries(counts)
-    .sort((a,b) => b[1] - a[1]).map(([page, count]) => `
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
-        <div style="min-width:180px;font-size:.9rem">${escapeHtml(page)}</div>
-        <div class="bar" style="flex:1"><span style="width:${(count/max*100).toFixed(1)}%"></span></div>
-        <div style="min-width:30px;font-weight:600">${count}</div>
-      </div>`).join('')
-    : '<div class="empty">No visits recorded yet. Share the site!</div>';
+// ===== AUDIENCE =====
+function renderAudience(){
+  const d=groupBy(visits,v=>v.device),b=groupBy(visits,v=>v.browser),o=groupBy(visits,v=>v.os),scr=groupBy(visits,v=>v.screen);
+  const tz=groupBy(visits,v=>v.timezone||'Unknown');
+  document.getElementById('audience').innerHTML=`
+    <div class="stat-row">
+      <div class="stat-card"><div class="num">${visits.length}</div><div class="label">Total Views</div></div>
+      <div class="stat-card"><div class="num">${new Set(visits.map(v=>v.device)).size}</div><div class="label">Devices</div></div>
+      <div class="stat-card"><div class="num">${new Set(visits.map(v=>v.browser)).size}</div><div class="label">Browsers</div></div>
+      <div class="stat-card"><div class="num">${new Set(visits.map(v=>v.timezone)).size}</div><div class="label">Regions</div></div>
+    </div>
+    <div class="grid-2">
+      <div class="card"><h2>📱 Devices</h2>${renderBars(d)}</div>
+      <div class="card"><h2>🌐 Browsers</h2>${renderBars(b)}</div>
+      <div class="card"><h2>💻 Operating Systems</h2>${renderBars(o)}</div>
+      <div class="card"><h2>🌍 Geography (timezone)</h2>${renderBars(tz)}</div>
+    </div>
+    <div class="card"><h2>🖥 Screen Sizes</h2>${renderBars(scr)}</div>`;
 }
 
-function renderSources() {
-  const counts = {};
-  leads.forEach(l => {
-    const src = l.source || 'Direct';
-    counts[src] = (counts[src] || 0) + 1;
-  });
-  const max = Math.max(1, ...Object.values(counts));
-  document.getElementById('sourcesChart').innerHTML = Object.entries(counts)
-    .sort((a,b) => b[1] - a[1]).map(([src, count]) => `
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
-        <div style="min-width:140px;font-size:.9rem">${escapeHtml(src)}</div>
-        <div class="bar" style="flex:1"><span style="width:${(count/max*100).toFixed(1)}%"></span></div>
-        <div style="min-width:30px;font-weight:600">${count}</div>
-      </div>`).join('');
+// ===== ACQUISITION =====
+function renderAcquisition(){
+  const src=groupBy(visits,v=>v.source);
+  const med=groupBy(visits,v=>v.medium||'organic');
+  const ref=groupBy(visits,v=>{try{return new URL(v.referrer).hostname.replace('www.','');}catch(e){return 'Direct';}});
+  const camp=groupBy(all.filter(r=>r.campaign),v=>v.campaign);
+  document.getElementById('acquisition').innerHTML=`
+    <div class="grid-2">
+      <div class="card"><h2>🎯 Traffic Sources</h2>${renderBars(src)}</div>
+      <div class="card"><h2>📤 Medium</h2>${renderBars(med)}</div>
+      <div class="card"><h2>🔗 Referrers</h2>${renderBars(ref)}</div>
+      <div class="card"><h2>📣 Campaigns</h2>${camp.length?renderBars(camp):'<div class="empty">No campaigns tracked yet. Add ?utm_campaign=name to links.</div>'}</div>
+    </div>`;
 }
 
-function renderDaily() {
-  const days = {};
-  leads.filter(l => l.type === 'visit').forEach(l => {
-    const d = (l.date || '').slice(0,10);
-    if (d) days[d] = (days[d] || 0) + 1;
-  });
-  const sorted = Object.entries(days).sort((a,b) => a[0].localeCompare(b[0])).slice(-14);
-  document.getElementById('dailyChart').innerHTML = sorted.length ? sorted.map(([d,count]) => `
-    <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px;font-size:.85rem">
-      <div style="min-width:90px">${d}</div>
-      <div style="color:#888">${'▮'.repeat(Math.min(count,20))}</div>
-      <div style="font-weight:600">${count}</div>
-    </div>`).join('')
-    : '<div class="empty">No daily data yet</div>';
+// ===== BEHAVIOR =====
+function renderBehavior(){
+  // Avg duration per page
+  const eng={};engagements.forEach(e=>{const p=pageFromMsg(e);if(!eng[p])eng[p]={t:0,n:0};eng[p].t+=(e.duration||0);eng[p].n++;});
+  const durData=Object.entries(eng).map(([p,v])=>[p,Math.round(v.t/v.n)]).sort((a,b)=>b[1]-a[1]);
+  const mxDur=Math.max(1,...durData.map(d=>d[1]));
+  document.getElementById('behavior').innerHTML=`
+    <div class="grid-2">
+      <div class="card"><h2>⏱ Avg Time on Page</h2>${durData.length?durData.map(([p,s])=>`<div style="display:flex;align-items:center;gap:12px;margin-bottom:7px;font-size:.85rem"><div style="min-width:120px">${escapeHtml(p)}</div><div class="bar" style="flex:1"><span style="width:${(s/mxDur*100).toFixed(1)}%"></span></div><div style="min-width:44px;font-weight:600;text-align:right">${s}s</div></div>`).join(''):'<div class="empty">No engagement data yet</div>'}</div>
+      <div class="card"><h2>🔄 Sessions / Visitors</h2><div id="behSessions"></div></div>
+    </div>`;
+  // Sessions grouped
+  const sess={};visits.forEach(v=>{sess[v.sessionId]=(sess[v.sessionId]||0)+1;});
+  const sessDist=groupBy(Object.entries(sess),([,n])=>n===1?'1 page':'2+ pages');
+  document.getElementById('behSessions').innerHTML=renderBars(sessDist.map(([k,v])=>[k,v]));
 }
 
-function renderLeads() {
-  const real = leads.filter(l => l.type !== 'visit');
-  document.getElementById('leadsTable').innerHTML = real.length ? `
-    <table>
-      <thead><tr><th>Date</th><th>Name</th><th>Event</th><th>Source</th><th>Status</th></tr></thead>
-      <tbody>${real.map(l => `
-        <tr>
-          <td>${new Date(l.date).toLocaleDateString()}</td>
-          <td>${escapeHtml(l.name)}</td>
-          <td>${escapeHtml(l.eventType || '—')}</td>
-          <td><span class="chip">${escapeHtml(l.source || 'Direct')}</span>${l.campaign ? ' <span class="chip">🎯 ' + escapeHtml(l.campaign) + '</span>' : ''}</td>
-          <td>${escapeHtml(l.status)}</td>
-        </tr>`).join('')}</tbody>
-    </table>` : '<div class="empty">No form submissions yet</div>';
+// ===== LEADS =====
+function renderLeads(){
+  document.getElementById('leads').innerHTML=`
+    <div class="stat-row">
+      <div class="stat-card"><div class="num">${realLeads.length}</div><div class="label">Leads</div></div>
+      <div class="stat-card"><div class="num">${realLeads.filter(l=>l.source).length?new Set(realLeads.filter(l=>l.source).map(l=>l.source)).size:0}</div><div class="label">Lead Sources</div></div>
+      <div class="stat-card"><div class="num">${realLeads.filter(l=>l.source).length?Math.round(realLeads.filter(l=>l.source).filter(l=>l.source!=='Direct').length/realLeads.filter(l=>l.source).length*100):0}%</div><div class="label">Non-Direct</div></div>
+    </div>
+    ${realLeads.length?`<div class="card"><table>
+      <thead><tr><th>Date</th><th>Name</th><th>Email</th><th>Event</th><th>Phone</th><th>Source</th><th>Campaign</th><th>Device</th><th>Status</th></tr></thead>
+      <tbody>${realLeads.map(l=>`<tr>
+        <td>${new Date(l.date).toLocaleString()}</td>
+        <td><b>${escapeHtml(l.name)}</b></td>
+        <td>${escapeHtml(l.email)}</td>
+        <td>${escapeHtml(l.eventType||'—')}</td>
+        <td>${escapeHtml(l.phone||'—')}</td>
+        <td><span class="chip ${l.source==='Direct'?'direct':''}">${escapeHtml(l.source||'Direct')}</span></td>
+        <td>${l.campaign?escapeHtml(l.campaign):'—'}</td>
+        <td>${escapeHtml(l.device||'—')}</td>
+        <td>${escapeHtml(l.status)}</td></tr>`).join('')}</tbody></table></div>`:'<div class="empty">No real leads yet</div>'}`;
+}
+
+// ===== LOG =====
+function renderLog(){
+  document.getElementById('log').innerHTML=all.length?`<div class="card"><table>
+    <thead><tr><th>Time</th><th>Type</th><th>Page</th><th>Source</th><th>Device</th><th>Browser</th><th>OS</th><th>Screen</th><th>Ref</th><th>Dur</th></tr></thead>
+    <tbody>${all.slice(0,100).map(r=>`<tr>
+      <td>${new Date(r.date).toLocaleString()}</td>
+      <td><span class="chip">${escapeHtml(r.type||'lead')}</span></td>
+      <td>${escapeHtml(pageFromMsg(r))}</td>
+      <td><span class="chip">${escapeHtml(r.source||'Direct')}</span></td>
+      <td>${escapeHtml(r.device||'—')}</td>
+      <td>${escapeHtml(r.browser||'—')}</td>
+      <td>${escapeHtml(r.os||'—')}</td>
+      <td>${escapeHtml(r.screen||'—')}</td>
+      <td>${escapeHtml(r.referrer?new URL(r.referrer).hostname.replace('www.',''):'—')}</td>
+      <td>${r.duration?r.duration+'s':'—'}</td></tr>`).join('')}</tbody></table></div>`:'<div class="empty">No data yet</div>';
 }
 </script>
 </body>

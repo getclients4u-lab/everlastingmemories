@@ -51,10 +51,10 @@ module.exports = async (req, res) => {
     }
 
     if (method === 'POST') {
-      const { name, email, phone, eventType, eventDate, message, source, medium, campaign, type } = req.body;
+      const { name, email, phone, eventType, eventDate, message, source, medium, campaign, term, device, browser, os, screen, referrer, sessionId, language, timezone, duration, type } = req.body;
       
       // Auto-recorded visits don't need name/email
-      if (type !== 'visit' && (!name || !email)) {
+      if (type !== 'visit' && type !== 'engagement' && (!name || !email)) {
         return res.status(400).json({ success: false, error: 'Name and email are required' });
       }
 
@@ -70,8 +70,18 @@ module.exports = async (req, res) => {
         source: source || '',
         medium: medium || '',
         campaign: campaign || '',
+        term: term || '',
+        device: device || '',
+        browser: browser || '',
+        os: os || '',
+        screen: screen || '',
+        referrer: referrer || '',
+        sessionId: sessionId || '',
+        language: language || '',
+        timezone: timezone || '',
+        duration: duration ? Number(duration) : 0,
         type: type || 'lead',
-        status: type === 'visit' ? 'visit' : 'new',
+        status: (type === 'visit' || type === 'engagement') ? type : 'new',
         date: new Date().toISOString()
       };
 
