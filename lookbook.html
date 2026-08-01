@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lookbook Moodboard | Everlasting Memories — Balloon Art & Event Decor</title>
+<meta name="description" content="Browse real balloon art & event decor inspiration, heart the looks you love, and build your personalized moodboard. Send it to Everlasting Memories for a styled quote.">
+<meta name="keywords" content="balloon art inspiration, event decor ideas, wedding balloon arch, birthday party decor, moodboard, party styling, Connecticut">
+<meta name="theme-color" content="#FAF8F5">
+<link rel="apple-touch-icon" href="logo.jpg">
+<link rel="canonical" href="https://everlastingmemories.vercel.app/lookbook.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  :root {
+    --ink: #2b2b2b;
+    --cream: #FAF8F5;
+    --rose: #E08A9B;
+    --gold: #C9A24B;
+    --sage: #9BA88F;
+    --navy: #1F2A36;
+  }
+  * { box-sizing: border-box; }
+
+  body { margin: 0; font-family: 'Inter', sans-serif; background: var(--cream); color: var(--ink); }
+
+  /* Local header (matches site nav style) */
+  .look-header {
+    background: var(--navy);
+    padding: 14px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    position: sticky; top: 0; z-index: 50;
+  }
+  .look-header .brand { display: flex; align-items: center; gap: 12px; color: #fff; text-decoration: none; }
+  .look-header .brand img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+  .look-header .brand span { font-family: 'Playfair Display', serif; font-size: 1.25rem; }
+  .look-header nav a { color: #ffd9e1; text-decoration: none; margin-left: 18px; font-size: .95rem; }
+  .look-header nav a:hover { color: #fff; }
+
+  .hero-band {
+    text-align: center; padding: 48px 20px 28px;
+    background: linear-gradient(180deg, #fdeef0 0%, var(--cream) 100%);
+  }
+  .hero-band h1 { font-family: 'Playfair Display', serif; font-size: clamp(1.9rem, 4vw, 2.8rem); margin: 0 0 10px; }
+  .hero-band p { max-width: 620px; margin: 0 auto; color: #5a5a5a; font-size: 1.05rem; line-height: 1.6; }
+
+  /* Traits filter chips */
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; padding: 14px 16px 4px; }
+  .chip {
+    border: 1px solid #ddd; background: #fff; border-radius: 999px;
+    padding: 7px 15px; font-size: .85rem; cursor: pointer; transition: .15s; color: var(--ink);
+  }
+  .chip:hover { border-color: var(--rose); }
+  .chip.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+
+  /* Moodboard tray */
+  .tray {
+    position: sticky; top: 68px; z-index: 40;
+    background: #fff; border-bottom: 1px solid #eee;
+    padding: 10px 16px; display: flex; align-items: center; gap: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,.04);
+  }
+  .tray .count { font-weight: 700; color: var(--navy); min-width: 60px; }
+  .tray .thumbs { display: flex; gap: 6px; flex: 1; overflow-x: auto; padding: 2px; }
+  .tray .thumbs img { width: 44px; height: 44px; object-fit: cover; border-radius: 8px; border: 2px solid #fff; box-shadow: 0 1px 3px rgba(0,0,0,.2); }
+  .tray button.get-quote {
+    background: var(--rose); color: #fff; border: none; border-radius: 999px;
+    padding: 10px 20px; font-weight: 700; cursor: pointer; white-space: nowrap; transition: .15s;
+  }
+  .tray button.get-quote:hover { background: #d3738a; transform: translateY(-1px); }
+  .tray button.get-quote:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+
+  /* Masonry gallery */
+  .grid {
+    columns: 3 240px; column-gap: 16px; padding: 20px 16px 60px; max-width: 1200px; margin: 0 auto;
+  }
+  .card {
+    break-inside: avoid; margin-bottom: 16px; border-radius: 14px; overflow: hidden;
+    background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,.08); position: relative;
+    transition: transform .15s; cursor: pointer;
+  }
+  .card:hover { transform: translateY(-3px); box-shadow: 0 6px 18px rgba(0,0,0,.14); }
+  .card img { width: 100%; display: block; }
+  .card .cap { padding: 12px 14px; }
+  .card .cap .name { font-weight: 600; font-size: .95rem; margin: 0 0 4px; }
+  .card .cap .tags { font-size: .78rem; color: #888; }
+  .heart {
+    position: absolute; top: 10px; right: 10px; width: 38px; height: 38px; border-radius: 50%;
+    background: rgba(255,255,255,.85); display: grid; place-items: center; font-size: 1.15rem;
+    border: none; cursor: pointer; transition: .15s;
+  }
+  .heart:hover { transform: scale(1.1); }
+  .heart.saved { background: var(--rose); color: #fff; }
+  .badge { position: absolute; top: 10px; left: 10px; background: var(--navy); color: #fff; font-size: .68rem; padding: 4px 9px; border-radius: 999px; letter-spacing: .04em; }
+
+  /* Quote modal */
+  .modal { display: none; position: fixed; inset: 0; background: rgba(31,42,54,.55); z-index: 100; align-items: flex-start; justify-content: center; padding: 40px 16px; overflow-y: auto; }
+  .modal.open { display: flex; }
+  .modal-card { background: #fff; border-radius: 18px; max-width: 560px; width: 100%; padding: 28px; position: relative; animation: pop .25s ease; }
+  @keyframes pop { from { transform: scale(.96); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+  .modal-card h3 { font-family: 'Playfair Display', serif; margin: 0 0 6px; font-size: 1.5rem; }
+  .modal-card .sub { color: #666; font-size: .92rem; margin: 0 0 18px; }
+  .modal-close { position: absolute; top: 14px; right: 16px; border: none; background: none; font-size: 1.4rem; cursor: pointer; color: #888; }
+  .field { margin-bottom: 14px; }
+  .field label { display: block; font-size: .83rem; font-weight: 600; margin-bottom: 5px; color: #444; }
+  .field input, .field select, .field textarea {
+    width: 100%; padding: 11px 13px; border: 1px solid #ddd; border-radius: 10px; font-size: .95rem; font-family: inherit; background: #fff;
+  }
+  .field textarea { resize: vertical; min-height: 74px; }
+  .mood-summary { background: #fdf2f4; border-radius: 12px; padding: 12px 14px; margin-bottom: 16px; font-size: .86rem; }
+  .mood-summary b { color: var(--rose); }
+  .submit {
+    width: 100%; background: var(--navy); color: #fff; border: none; border-radius: 12px;
+    padding: 14px; font-size: 1rem; font-weight: 700; cursor: pointer; transition: .15s;
+  }
+  .submit:hover { background: #2a3a4a; }
+  .form-msg { text-align: center; font-weight: 600; margin-top: 12px; min-height: 20px; color: var(--sage); }
+  .toast {
+    position: fixed; left: 50%; bottom: 30px; transform: translateX(-50%) translateY(80px);
+    background: var(--navy); color: #fff; padding: 13px 22px; border-radius: 999px; font-weight: 600;
+    transition: .3s; opacity: 0; z-index: 120; font-size: .92rem;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+  @media (max-width: 640px) {
+    .look-header nav a { display: none; }
+    .tray { flex-wrap: wrap; top: 60px; }
+    .tray .thumbs { order: 3; width: 100%; }
+    .tray button.get-quote { margin-left: auto; }
+  }
+</style>
+</head>
+<body>
+
+<header class="look-header">
+  <a class="brand" href="index.html"><img src="logo.jpg" alt="Everlasting Memories logo"><span>Everlasting Memories</span></a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<section class="hero-band">
+  <h1>Build Your Dream Look</h1>
+  <p>Tap the <b>♡</b> on any style you love. Your picks build a personalized moodboard — then send it to us and we'll quote your dream event, styled around exactly what caught your eye.</p>
+</section>
+
+<!-- Trait filter -->
+<div class="chips" id="chips">
+  <span class="chip active" data-t="all">All looks</span>
+  <span class="chip" data-t="wedding">Weddings</span>
+  <span class="chip" data-t="birthday">Birthdays</span>
+  <span class="chip" data-t="baby">Baby showers</span>
+  <span class="chip" data-t="corporate">Corporate</span>
+  <span class="chip" data-t="seasonal">Holidays</span>
+  <span class="chip" data-t="arch">Arches</span>
+  <span class="chip" data-t="table">Tablescapes</span>
+</div>
+
+<!-- Moodboard tray -->
+<div class="tray">
+  <div class="count" id="count">0 saved</div>
+  <div class="thumbs" id="trayThumbs"></div>
+  <button class="get-quote" id="getQuoteBtn" disabled>Get my quote →</button>
+</div>
+
+<!-- Masonry grid -->
+<div class="grid" id="grid"></div>
+
+<!-- Quote modal -->
+<div class="modal" id="modal">
+  <div class="modal-card">
+    <button class="modal-close" id="modalClose">×</button>
+    <h3>Get Your Styled Quote</h3>
+    <p class="sub">Tell us about your event and we'll reply with a personalized quote based on your saved looks.</p>
+    <div class="mood-summary" id="moodSummary"></div>
+    <div class="field"><label>Name *</label><input id="fName" placeholder="Your name"></div>
+    <div class="field"><label>Email *</label><input id="fEmail" placeholder="you@email.com"></div>
+    <div class="field"><label>Phone</label><input id="fPhone" placeholder="(203) 555-0123"></div>
+    <div class="field"><label>Event type</label>
+      <select id="fType">
+        <option>Birthday</option><option>Wedding</option><option>Baby shower</option>
+        <option>Corporate / grand opening</option><option>Holiday party</option><option>Other</option>
+      </select>
+    </div>
+    <div class="field"><label>Event date</label><input id="fDate" type="date"></div>
+    <div class="field"><label>Anything else? (colors, venue, number of guests)</label><textarea id="fNotes" placeholder="e.g. Blush & gold, 120 guests, country club ballroom"></textarea></div>
+    <button class="submit" id="submitBtn">Send my moodboard &amp; request a quote</button>
+    <div class="form-msg" id="formMsg"></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// --- Look data: name, traits, image, short description, hero tag ---
+const LOOKS = [
+  { id:'w1', name:'Fairytale Arch', cat:'Weddings', tags:['wedding','arch'], img:'https://images.pexels.com/photos/28179599/pexels-photo-28179599.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&fit=crop', desc:'White & blush organic arch with soft draping' },
+  { id:'w2', name:'Romantic Garden', cat:'Weddings', tags:['wedding'], img:'https://images.pexels.com/photos/1190359/pexels-photo-1190359.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&fit=crop', desc:'Eucalyptus & cream tones, garden-party elegance' },
+  { id:'w3', name:'Golden Hour', cat:'Weddings', tags:['wedding','table'], img:'https://images.pexels.com/photos/265722/pexels-photo-265722.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&fit=crop', desc:'Gold-accent reception styling with candlelight' },
+  { id:'b1', name:'Pink Pop', cat:'Birthdays', tags:['birthday'], img:'https://images.pexels.com/photos/544961/pexels-photo-544961.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&fit=crop', desc:'Vibrant pink balloon cluster for a milestone' },
+  { id:'b2', name:'Unicorn Dream', cat:'Birthdays', tags:['birthday'], img:'https://images.pexels.com/photos/28179599/pexels-photo-28179599.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&fit=crop', desc:'Pastel fantasy palette, magical & bright' },
+  { id:'b3', name:'Navy & Gold', cat:'Birthdays', tags:['birthday','table'], img:'https://images.pexels.com/photos/35224368/pexels-photo-35224368.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&fit=crop', desc:'Sophisticated navy & gold dessert table' },
+  { id:'bb1', name:'Sweet Little One', cat:'Baby showers', tags:['baby'], img:'https://images.pexels.com/photos/2253836/pexels-photo-2253836.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&fit=crop', desc:'Soft pastels, cloud arches, sprinkle accents' },
+  { id:'bb2', name:'Teddy Tea', cat:'Baby showers', tags:['baby','table'], img:'https://images.pexels.com/photos/1322146/pexels-photo-1322146.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&fit=crop', desc:'Cozy teddy-bear themed welcome table' },
+  { id:'c1', name:'Brand Bloom', cat:'Corporate', tags:['corporate','arch'], img:'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&fit=crop', desc:'Crisp brand-color entrance arch for launches' },
+  { id:'c2', name:'Stage Ready', cat:'Corporate', tags:['corporate'], img:'https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&fit=crop', desc:'Clean conference styling with dramatic scale' },
+  { id:'s1', name:'Winter Wonder', cat:'Holidays', tags:['seasonal'], img:'https://images.pexels.com/photos/1419927/pexels-photo-1419927.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&fit=crop', desc:'Crisp white & ice-blue holiday decor' },
+  { id:'s2', name:'Holiday Cheer', cat:'Holidays', tags:['seasonal','table'], img:'https://images.pexels.com/photos/2313396/pexels-photo-2313396.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&fit=crop', desc:'Festive red & gold celebration tablescape' },
+  { id:'a1', name:'Organic Arch', cat:'Arches', tags:['arch','wedding'], img:'https://images.pexels.com/photos/5610373/pexels-photo-5610373.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&fit=crop', desc:'Our signature organic balloon arch — free-flowing & lush' },
+  { id:'a2', name:'Pastel Pillars', cat:'Arches', tags:['arch','birthday'], img:'https://images.pexels.com/photos/2337859/pexels-photo-2337859.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&fit=crop', desc:'Double-pillar pastel entrance for parties' },
+  { id:'t1', name:'Blush Tablescape', cat:'Tablescapes', tags:['table','baby'], img:'https://images.pexels.com/photos/587741/pexels-photo-587741.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&fit=crop', desc:'Intimate blush & cream dining styling' },
+  { id:'t2', name:'Dessert Bar', cat:'Tablescapes', tags:['table','birthday'], img:'https://images.pexels.com/photos/219906/pexels-photo-219906.jpeg?auto=compress&cs=tinysrgb&w=600&h=750&fit=crop', desc:'Show-stopping dessert bar with balloon garnish' }
+];
+
+let saved = new Set();
+let activeTrait = 'all';
+
+const grid = document.getElementById('grid');
+const chips = document.getElementById('chips');
+const count = document.getElementById('count');
+const trayThumbs = document.getElementById('trayThumbs');
+const getQuoteBtn = document.getElementById('getQuoteBtn');
+const modal = document.getElementById('modal');
+const toast = document.getElementById('toast');
+
+function renderGrid() {
+  const cards = LOOKS.filter(l => activeTrait === 'all' || l.tags.includes(activeTrait) || l.cat.toLowerCase().includes(activeTrait));
+  grid.innerHTML = cards.map(l => `
+    <div class="card" data-id="${l.id}">
+      <span class="badge">${l.cat}</span>
+      <button class="heart ${saved.has(l.id)?'saved':''}" data-heart="${l.id}">${saved.has(l.id)?'♥':'♡'}</button>
+      <img src="${l.img}" alt="${l.name}" loading="lazy">
+      <div class="cap">
+        <p class="name">${l.name}</p>
+        <p class="tags">${l.desc}</p>
+      </div>
+    </div>`).join('');
+}
+
+function updateTray() {
+  count.textContent = `${saved.size} saved`;
+  trayThumbs.innerHTML = [...saved].map(id => {
+    const l = LOOKS.find(x => x.id === id);
+    return l ? `<img src="${l.img}" title="${l.name}">` : '';
+  }).join('');
+  getQuoteBtn.disabled = saved.size === 0;
+}
+
+function showToast(msg) {
+  toast.textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(showToast._t);
+  showToast._t = setTimeout(() => toast.classList.remove('show'), 2200);
+}
+
+// Event delegation
+chips.addEventListener('click', e => {
+  const c = e.target.closest('.chip'); if (!c) return;
+  chips.querySelectorAll('.chip').forEach(x => x.classList.remove('active'));
+  c.classList.add('active');
+  activeTrait = c.dataset.t;
+  renderGrid();
+});
+
+grid.addEventListener('click', e => {
+  const heart = e.target.closest('.heart');
+  const card = e.target.closest('.card');
+  if (heart) {
+    const id = heart.dataset.heart;
+    if (saved.has(id)) { saved.delete(id); showToast('Removed from moodboard'); }
+    else { saved.add(id); showToast('Added to your moodboard ♥'); }
+    updateTray(); renderGrid();
+    return;
+  }
+  if (card) { // clicking card adds too
+    const id = card.dataset.id;
+    if (!saved.has(id)) { saved.add(id); showToast('Added to your moodboard ♥'); updateTray(); renderGrid(); }
+  }
+});
+
+// Modal
+getQuoteBtn.addEventListener('click', () => {
+  if (saved.size === 0) return;
+  const names = [...saved].map(id => LOOKS.find(l => l.id === id).name);
+  document.getElementById('moodSummary').innerHTML =
+    `Your moodboard: <b>${saved.size} looks</b> — ${names.join(' · ')}`;
+  modal.classList.add('open');
+});
+document.getElementById('modalClose').addEventListener('click', () => modal.classList.remove('open'));
+modal.addEventListener('click', e => { if (e.target === modal) modal.classList.remove('open'); });
+
+// Submit
+document.getElementById('submitBtn').addEventListener('click', async () => {
+  const name = document.getElementById('fName').value.trim();
+  const email = document.getElementById('fEmail').value.trim();
+  const phone = document.getElementById('fPhone').value.trim();
+  const msg = document.getElementById('formMsg');
+  if (!name || !email) { msg.textContent = 'Please add your name and email.'; msg.style.color = '#c0392b'; return; }
+  msg.textContent = 'Sending…'; msg.style.color = '';
+  const looksList = [...saved].map(id => LOOKS.find(l => l.id === id).name).join(', ');
+  const notes = document.getElementById('fNotes').value.trim();
+  const payload = {
+    name, email, phone,
+    eventType: document.getElementById('fType').value,
+    eventDate: document.getElementById('fDate').value,
+    message: `Moodboard (${saved.size} looks): ${looksList}.${notes ? ' Notes: ' + notes : ''}`,
+    source: 'Lookbook Moodboard'
+  };
+  try {
+    const res = await fetch('/api/leads.js', {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload)
+    });
+    if (res.ok) {
+      msg.textContent = '🎉 Sent! We\u2019ll be in touch within 24 hours with your styled quote.';
+      msg.style.color = '#7a8a6f';
+      modal.classList.remove('open');
+    } else {
+      msg.textContent = 'Hmm, something went wrong — please email Hey.everlasting.memories@gmail.com';
+      msg.style.color = '#c0392b';
+    }
+  } catch (e) {
+    msg.textContent = 'Hmm, something went wrong — please email Hey.everlasting.memories@gmail.com';
+    msg.style.color = '#c0392b';
+  }
+});
+
+// Init
+renderGrid(); updateTray();
+</script>
+</body>
+</html>
