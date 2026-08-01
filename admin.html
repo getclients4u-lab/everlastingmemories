@@ -64,6 +64,9 @@
   .leads-table tr.unread td { font-weight:600; }
   .badge { display:inline-block; padding:4px 12px; border-radius:999px; font-size:0.75rem; font-weight:500; }
   .badge-new { background:#e8f5e9; color:#2e7d32; }
+  .badge-visit { background:#eceff1; color:#455a64; }
+  .lead-source { font-size:0.8rem; color:#555; white-space:nowrap; }
+  .lead-source.muted { color:#bbb; }
   .badge-contacted { background:#fff3e0; color:#ef6c00; }
   .badge-booked { background:#e3f2fd; color:#1565c0; }
   .badge-completed { background:#f3e5f5; color:#6a1b9a; }
@@ -171,6 +174,7 @@
           <tr>
             <th>Name</th>
             <th>Event Type</th>
+            <th>Source</th>
             <th>Date Received</th>
             <th>Status</th>
             <th>Action</th>
@@ -305,6 +309,7 @@ function renderTable(data) {
         <div class="lead-email">${escapeHtml(lead.email)}</div>
       </td>
       <td>${escapeHtml(lead.eventType || 'N/A')}</td>
+      <td>${lead.type === 'visit' ? '<span class="badge badge-visit">👁 Visit</span>' : ''}${lead.source ? '<span class="lead-source">' + escapeHtml(lead.source) + (lead.medium && lead.medium !== 'organic' ? ' / ' + escapeHtml(lead.medium) : '') + '</span>' : '<span class="lead-source muted">—</span>'}</td>
       <td class="lead-date">${formatDate(lead.date)}</td>
       <td><span class="badge badge-${lead.status || 'new'}">${lead.status || 'new'}</span></td>
       <td>
@@ -345,6 +350,10 @@ function viewLead(id) {
     <div class="detail-row">
       <label>Date Received</label>
       <p>${formatDate(lead.date)}</p>
+    </div>
+    <div class="detail-row">
+      <label>Source</label>
+      <p>${lead.source ? escapeHtml(lead.source) + (lead.medium && lead.medium !== 'organic' ? ' / ' + escapeHtml(lead.medium) : '') + (lead.campaign ? ' — ' + escapeHtml(lead.campaign) : '') : 'Direct / Unknown'}</p>
     </div>
     <div class="detail-row">
       <label>Message</label>

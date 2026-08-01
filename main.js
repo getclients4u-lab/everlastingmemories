@@ -215,7 +215,10 @@
                 phone: data.phone || '',
                 eventType: data.eventType || data.event_type || '',
                 eventDate: data.eventDate || '',
-                message: data.message
+                message: data.message,
+                source: (window.__emSession && window.__emSession.source) || '',
+                medium: (window.__emSession && window.__emSession.medium) || '',
+                campaign: (window.__emSession && window.__emSession.campaign) || ''
               })
             });
             

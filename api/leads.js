@@ -51,22 +51,27 @@ module.exports = async (req, res) => {
     }
 
     if (method === 'POST') {
-      const { name, email, phone, eventType, eventDate, message } = req.body;
+      const { name, email, phone, eventType, eventDate, message, source, medium, campaign, type } = req.body;
       
-      if (!name || !email) {
+      // Auto-recorded visits don't need name/email
+      if (type !== 'visit' && (!name || !email)) {
         return res.status(400).json({ success: false, error: 'Name and email are required' });
       }
 
       const db = readDB();
       const newLead = {
         id: Date.now().toString(),
-        name,
-        email,
+        name: name || '[Visitor]',
+        email: email || '',
         phone: phone || '',
         eventType: eventType || '',
         eventDate: eventDate || '',
         message: message || '',
-        status: 'new',
+        source: source || '',
+        medium: medium || '',
+        campaign: campaign || '',
+        type: type || 'lead',
+        status: type === 'visit' ? 'visit' : 'new',
         date: new Date().toISOString()
       };
 

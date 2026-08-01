@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analytics — Everlasting Memories</title>
+<meta name="robots" content="noindex, nofollow">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f8f5f0;color:#333;min-height:100vh}
+.header{background:linear-gradient(135deg,#5a3d2b,#8a6a4e);color:#fff;padding:24px 32px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.5rem}
+.sub{color:#d8c9b8;font-size:.9rem}
+.container{max-width:1100px;margin:24px auto;padding:0 20px}
+.login-box{max-width:360px;margin:80px auto;background:#fff;padding:32px;border-radius:12px;box-shadow:0 4px 20px rgba(0,0,0,.08);text-align:center}
+.login-box input{width:100%;padding:12px;margin:12px 0;border:1px solid #ddd;border-radius:8px;font-size:1rem}
+.login-box button{width:100%;padding:12px;background:#5a3d2b;color:#fff;border:none;border-radius:8px;font-size:1rem;cursor:pointer;font-weight:600}
+.login-box button:hover{background:#6b4b35}
+.login-note{color:#999;font-size:.85rem;margin-top:12px}
+.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin-bottom:24px}
+.stat-card{background:#fff;border-radius:12px;padding:20px;box-shadow:0 2px 10px rgba(0,0,0,.05);text-align:center}
+.stat-card .num{font-size:2.2rem;font-weight:700;color:#5a3d2b}
+.stat-card .label{color:#888;font-size:.85rem;margin-top:4px}
+.card{background:#fff;border-radius:12px;padding:24px;box-shadow:0 2px 10px rgba(0,0,0,.05);margin-bottom:24px}
+.card h2{font-size:1.1rem;color:#5a3d2b;margin-bottom:16px;border-bottom:2px solid #f0e6da;padding-bottom:10px}
+table{width:100%;border-collapse:collapse}
+th,td{padding:10px 12px;text-align:left;font-size:.9rem;border-bottom:1px solid #f0f0f0}
+th{color:#888;font-weight:600;font-size:.8rem;text-transform:uppercase;letter-spacing:.03em}
+tr:hover td{background:#faf6f0}
+.muted{color:#999}
+.bar{background:#e8dccb;border-radius:4px;height:18px;overflow:hidden;max-width:300px}
+.bar span{display:block;height:100%;background:linear-gradient(90deg,#8a6a4e,#c9a87c)}
+.chip{display:inline-block;background:#f0e6da;color:#5a3d2b;padding:2px 10px;border-radius:999px;font-size:.75rem;margin:2px}
+.refresh-btn{background:#fff;color:#5a3d2b;border:2px solid #5a3d2b;padding:8px 18px;border-radius:8px;cursor:pointer;font-weight:600}
+.refresh-btn:hover{background:#5a3d2b;color:#fff}
+.empty{text-align:center;color:#bbb;padding:30px}
+footer{text-align:center;color:#aaa;font-size:.8rem;padding:30px}
+</style>
+</head>
+<body>
+<div class="header">
+  <div>
+    <h1>📊 Site Analytics</h1>
+    <div class="sub">Visitor traffic &amp; lead sources — Everlasting Memories</div>
+  </div>
+  <button class="refresh-btn" onclick="load()">🔄 Refresh</button>
+</div>
+
+<div class="container" id="app">
+  <div class="login-box" id="loginBox">
+    <h2 style="margin-bottom:12px">🔒 Admin Only</h2>
+    <p style="color:#888;font-size:.9rem">Enter admin password to view analytics</p>
+    <input type="password" id="pass" placeholder="Password" onkeydown="if(event.key==='Enter')login()">
+    <button onclick="login()">View Analytics</button>
+    <div class="login-note">Same password as admin dashboard</div>
+  </div>
+  <div id="dash" style="display:none">
+    <div class="stats-row" id="statsRow"></div>
+    <div class="card"><h2>🌐 Page Views (last 30 days)</h2><div id="pagesChart"></div></div>
+    <div class="card"><h2>🎯 Traffic Sources</h2><div id="sourcesChart"></div></div>
+    <div class="card"><h2>📅 Daily Visitors</h2><div id="dailyChart"></div></div>
+    <div class="card"><h2>📩 Real Leads (form submissions)</h2><div id="leadsTable"></div></div>
+  </div>
+</div>
+<footer>&copy; 2026 Everlasting Memories — Internal Analytics</footer>
+
+<script>
+const TOKEN = 'ADMIN_TOKEN_REVOKED';
+let leads = [];
+
+function login() {
+  if (document.getElementById('pass').value === 'ADMIN_PASS_REVOKED') {
+    document.getElementById('loginBox').style.display = 'none';
+    document.getElementById('dash').style.display = 'block';
+    load();
+  } else {
+    alert('Incorrect password');
+  }
+}
+
+async function load() {
+  try {
+    const res = await fetch('/api/leads.js', {
+      headers: { 'Authorization': 'Bearer ' + TOKEN }
+    });
+    const data = await res.json();
+    leads = data.leads || data || [];
+    renderStats();
+    renderPages();
+    renderSources();
+    renderDaily();
+    renderLeads();
+  } catch (e) {
+    document.getElementById('dash').innerHTML = '<div class="empty">Failed to load analytics. Try again.</div>';
+  }
+}
+
+function escapeHtml(s) {
+  return String(s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+function renderStats() {
+  const totalVisits = leads.filter(l => l.type === 'visit').length;
+  const realLeads = leads.filter(l => l.type !== 'visit').length;
+  const uniqueSources = new Set(leads.map(l => l.source).filter(Boolean)).size;
+  document.getElementById('statsRow').innerHTML = `
+    <div class="stat-card"><div class="num">${totalVisits}</div><div class="label">👁 Visitor Sessions</div></div>
+    <div class="stat-card"><div class="num">${realLeads}</div><div class="label">📩 Real Leads</div></div>
+    <div class="stat-card"><div class="num">${uniqueSources}</div><div class="label">🎯 Traffic Sources</div></div>
+    <div class="stat-card"><div class="num">${leads.length}</div><div class="label">Total Records</div></div>
+  `;
+}
+
+function renderPages() {
+  const counts = {};
+  leads.filter(l => l.type === 'visit').forEach(l => {
+    const page = (l.message || '').match(/Page: ([^\]]+)/);
+    const p = page ? page[1] : 'Unknown';
+    counts[p] = (counts[p] || 0) + 1;
+  });
+  const max = Math.max(1, ...Object.values(counts));
+  document.getElementById('pagesChart').innerHTML = Object.keys(counts).length ? Object.entries(counts)
+    .sort((a,b) => b[1] - a[1]).map(([page, count]) => `
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
+        <div style="min-width:180px;font-size:.9rem">${escapeHtml(page)}</div>
+        <div class="bar" style="flex:1"><span style="width:${(count/max*100).toFixed(1)}%"></span></div>
+        <div style="min-width:30px;font-weight:600">${count}</div>
+      </div>`).join('')
+    : '<div class="empty">No visits recorded yet. Share the site!</div>';
+}
+
+function renderSources() {
+  const counts = {};
+  leads.forEach(l => {
+    const src = l.source || 'Direct';
+    counts[src] = (counts[src] || 0) + 1;
+  });
+  const max = Math.max(1, ...Object.values(counts));
+  document.getElementById('sourcesChart').innerHTML = Object.entries(counts)
+    .sort((a,b) => b[1] - a[1]).map(([src, count]) => `
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
+        <div style="min-width:140px;font-size:.9rem">${escapeHtml(src)}</div>
+        <div class="bar" style="flex:1"><span style="width:${(count/max*100).toFixed(1)}%"></span></div>
+        <div style="min-width:30px;font-weight:600">${count}</div>
+      </div>`).join('');
+}
+
+function renderDaily() {
+  const days = {};
+  leads.filter(l => l.type === 'visit').forEach(l => {
+    const d = (l.date || '').slice(0,10);
+    if (d) days[d] = (days[d] || 0) + 1;
+  });
+  const sorted = Object.entries(days).sort((a,b) => a[0].localeCompare(b[0])).slice(-14);
+  document.getElementById('dailyChart').innerHTML = sorted.length ? sorted.map(([d,count]) => `
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px;font-size:.85rem">
+      <div style="min-width:90px">${d}</div>
+      <div style="color:#888">${'▮'.repeat(Math.min(count,20))}</div>
+      <div style="font-weight:600">${count}</div>
+    </div>`).join('')
+    : '<div class="empty">No daily data yet</div>';
+}
+
+function renderLeads() {
+  const real = leads.filter(l => l.type !== 'visit');
+  document.getElementById('leadsTable').innerHTML = real.length ? `
+    <table>
+      <thead><tr><th>Date</th><th>Name</th><th>Event</th><th>Source</th><th>Status</th></tr></thead>
+      <tbody>${real.map(l => `
+        <tr>
+          <td>${new Date(l.date).toLocaleDateString()}</td>
+          <td>${escapeHtml(l.name)}</td>
+          <td>${escapeHtml(l.eventType || '—')}</td>
+          <td><span class="chip">${escapeHtml(l.source || 'Direct')}</span>${l.campaign ? ' <span class="chip">🎯 ' + escapeHtml(l.campaign) + '</span>' : ''}</td>
+          <td>${escapeHtml(l.status)}</td>
+        </tr>`).join('')}</tbody>
+    </table>` : '<div class="empty">No form submissions yet</div>';
+}
+</script>
+</body>
+</html>
