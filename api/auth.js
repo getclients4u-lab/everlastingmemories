@@ -1,5 +1,5 @@
 // Vercel Serverless Function - Auth verification
-const AUTH_TOKEN = process.env.ADMIN_TOKEN || 'ADMIN_TOKEN_REVOKED';
+const AUTH_TOKEN = process.env.ADMIN_TOKEN || null;
 
 module.exports = async (req, res) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -16,9 +16,9 @@ module.exports = async (req, res) => {
 
   const { username, password } = req.body;
   
-  // Simple auth - in production use bcrypt and proper session management
-  const validUsername = process.env.ADMIN_USER || 'admin';
-  const validPassword = process.env.ADMIN_PASS || 'ADMIN_PASS_REVOKED';
+  // Credentials come from Vercel env vars only (no hardcoded fallbacks)
+  const validUsername = process.env.ADMIN_USER || null;
+  const validPassword = process.env.ADMIN_PASS || null;
   
   if (username === validUsername && password === validPassword) {
     return res.status(200).json({ 

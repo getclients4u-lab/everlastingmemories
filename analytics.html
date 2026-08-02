@@ -93,23 +93,34 @@ footer{text-align:center;color:#aaa;font-size:.8rem;padding:30px}
 <footer>&copy; 2026 Everlasting Memories — Internal Analytics</footer>
 
 <script>
-const ADMIN_PASS = 'ADMIN_PASS_REVOKED';
+let token = null;
 let all = [];      // all records
 let visits = [];   // type=visit
 let engagements = []; // type=engagement
 let realLeads = [];   // type=lead
 
 function login() {
-  if (document.getElementById('pass').value === ADMIN_PASS) {
-    document.getElementById('loginBox').style.display = 'none';
-    document.getElementById('dash').style.display = 'block';
-    load();
-  } else alert('Incorrect password');
+  const pass = document.getElementById('pass').value;
+  fetch('/api/auth.js', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ username: 'admin', password: pass })
+  })
+  .then(r => r.json())
+  .then(data => {
+    if (data.success) {
+      token = data.token;
+      document.getElementById('loginBox').style.display = 'none';
+      document.getElementById('dash').style.display = 'block';
+      load();
+    } else alert('Incorrect password');
+  })
+  .catch(() => alert('Connection error'));
 }
 
 async function load() {
   try {
-    const res = await fetch('/api/leads.js', { headers: { 'Authorization': 'Bearer ADMIN_TOKEN_REVOKED' } });
+    const res = await fetch('/api/leads.js', { headers: { 'Authorization': 'Bearer ' + token } });
     const data = await res.json();
     all = data.leads || data || [];
     visits = all.filter(r => r.type === 'visit');

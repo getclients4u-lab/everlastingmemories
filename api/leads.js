@@ -3,7 +3,7 @@
 // Fallback: /tmp cache so reads stay fast between writes
 
 const https = require('https');
-const AUTH_TOKEN = process.env.ADMIN_TOKEN || 'ADMIN_TOKEN_REVOKED';
+const AUTH_TOKEN = process.env.ADMIN_TOKEN || null;
 const GH_TOKEN = process.env.GH_TOKEN || null;
 const GH_REPO = 'getclients4u-lab/em-leads';
 const GH_PATH = 'leads.json';
