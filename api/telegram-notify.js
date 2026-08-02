@@ -7,6 +7,8 @@ const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN || null;
 const CHAT_ID = '8710537854';
 
 function notify(params) {
+  // Only notify for REAL form submissions — skip auto-recorded visits/engagements
+  if (params.type === 'visit' || params.type === 'engagement') return false;
   if (!BOT_TOKEN || !params.name) return false;
   
   const text = `🛎️ <b>New Lead!</b>\n\n`
