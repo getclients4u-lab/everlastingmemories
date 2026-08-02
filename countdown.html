@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Big Day Countdown & Planning Timeline | Everlasting Memories</title>
+<meta name="description" content="Count down the days to your wedding, birthday, baby shower or event with a live animated countdown, and get a smart week-by-week planning timeline for your balloon art & event decor. Everlasting Memories, Connecticut.">
+<meta name="keywords" content="event countdown, wedding countdown, planning timeline, event decor timeline, book balloon artist, Everlasting Memories, Connecticut event planning">
+<meta name="theme-color" content="#FAF8F5">
+<link rel="apple-touch-icon" href="logo.jpg">
+
+<!-- OpenGraph -->
+<meta property="og:title" content="Your Big Day Countdown & Planning Timeline">
+<meta property="og:description" content="Count down to your big day with a live animated countdown + a smart week-by-week decor planning timeline. Everlasting Memories, Connecticut.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://everlastingmemories.vercel.app/countdown.html">
+<meta property="og:image" content="https://everlastingmemories.vercel.app/logo.jpg">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Everlasting Memories">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="preload" href="hero.jpg" as="image">
+
+<style>
+  :root{
+    --gold:#C9A45C; --gold-dark:#a8873f; --blush:#f7ece4; --ink:#3b2f2a; --muted:#8a7a70;
+    --card:#ffffff; --line:#efe6dc; --green:#4f8a5b;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Inter',system-ui,sans-serif;color:var(--ink);background:linear-gradient(180deg,#fdf8f2 0%,#fbf1e6 100%);min-height:100vh}
+  .wrap{max-width:760px;margin:0 auto;padding:28px 20px 80px}
+  .site-top{display:flex;justify-content:space-between;align-items:center;max-width:1100px;margin:0 auto;padding:18px 24px}
+  .site-top a{color:var(--ink);text-decoration:none;font-weight:600;font-size:.95rem}
+  .logo{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--gold-dark);letter-spacing:.3px}
+  header.tt{text-align:center;margin:12px 0 26px}
+  header.tt h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3rem);margin:8px 0 8px;color:var(--ink);line-height:1.1}
+  header.tt p{color:var(--muted);font-size:1.05rem;max-width:560px;margin:0 auto}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:28px;box-shadow:0 18px 45px -25px rgba(59,47,42,.35)}
+
+  /* Step 1 — pick your date */
+  .step-label{font-size:.8rem;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--gold-dark);margin-bottom:10px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:560px){.grid2{grid-template-columns:1fr}}
+  label.f{display:block;font-size:.85rem;font-weight:600;margin:14px 0 6px;color:var(--ink)}
+  input[type=date],select{width:100%;padding:13px 14px;border:1.5px solid var(--line);border-radius:12px;font-family:inherit;font-size:1rem;color:var(--ink);background:#fff;transition:border .2s}
+  input[type=date]:focus,select:focus{outline:none;border-color:var(--gold)}
+  .pill-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  .pill{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:9px 15px;font-size:.9rem;font-weight:600;cursor:pointer;transition:all .2s;color:var(--ink)}
+  .pill:hover{border-color:var(--gold)}
+  .pill.active{background:var(--gold);border-color:var(--gold);color:#fff}
+  .btn{display:inline-block;background:var(--gold);color:#fff;border:none;border-radius:12px;padding:15px 28px;font-size:1.05rem;font-weight:700;cursor:pointer;font-family:inherit;transition:transform .15s,box-shadow .2s;box-shadow:0 10px 22px -12px rgba(201,164,92,.6)}
+  .btn:hover{transform:translateY(-2px)}
+  .btn:active{transform:translateY(0)}
+  .btn.ghost{background:#fff;color:var(--gold-dark);border:2px solid var(--gold);box-shadow:none}
+
+  /* Step 2 — countdown */
+  #countdown{display:none;text-align:center}
+  .days-big{font-family:'Playfair Display',serif;font-size:clamp(4rem,12vw,7rem);font-weight:700;line-height:1;color:var(--gold-dark);margin:6px 0 2px}
+  .days-label{font-size:1rem;letter-spacing:4px;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .cd-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:26px 0 8px}
+  .cd-box{background:var(--blush);border:1px solid var(--line);border-radius:16px;padding:18px 10px}
+  .cd-num{font-size:clamp(1.8rem,5vw,2.6rem);font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums}
+  .cd-unit{font-size:.75rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-top:4px}
+  .countdown-copy{margin-top:18px;color:var(--muted);font-size:1rem}
+  .countdown-copy strong{color:var(--ink)}
+
+  /* Timeline */
+  #timeline{display:none;margin-top:34px}
+  .tl-head{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+  .tl-head h2{font-family:'Playfair Display',serif;font-size:1.6rem;margin:0;color:var(--ink)}
+  .tl-sub{color:var(--muted);font-size:.95rem;margin:4px 0 0}
+  .mile{display:flex;gap:16px;padding:0 0 26px;position:relative}
+  .mile:last-child{padding-bottom:0}
+  .mile::before{content:"";position:absolute;left:17px;top:38px;bottom:-4px;width:2px;background:var(--line)}
+  .mile:last-child::before{display:none}
+  .dot{width:36px;height:36px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;color:#fff;background:var(--gold);box-shadow:0 0 0 5px rgba(201,164,92,.18)}
+  .mile.done .dot{background:var(--green);box-shadow:0 0 0 5px rgba(79,138,91,.18)}
+  .mile.done .dot::after{content:"✓"}
+  .mile.done .dot span{display:none}
+  .m-body{flex:1}
+  .m-title{font-weight:700;font-size:1.02rem;color:var(--ink);margin:4px 0 4px}
+  .m-days{font-size:.8rem;font-weight:700;color:var(--gold-dark);text-transform:uppercase;letter-spacing:.6px}
+  .mile.done .m-days{color:var(--green)}
+  .m-text{color:var(--muted);font-size:.92rem;line-height:1.55}
+  .done-tag{display:inline-block;background:rgba(79,138,91,.12);color:var(--green);font-size:.72rem;font-weight:700;padding:2px 9px;border-radius:999px;letter-spacing:.4px;text-transform:uppercase}
+
+  .quote-cta{display:none;margin-top:28px;text-align:center;background:linear-gradient(135deg,var(--blush),#fdf6ee);border:1px solid var(--line);border-radius:20px;padding:26px}
+  .quote-cta h3{font-family:'Playfair Display',serif;font-size:1.35rem;margin:0 0 8px;color:var(--ink)}
+  .quote-cta p{color:var(--muted);font-size:.95rem;margin:0 0 18px}
+  .btn-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .reset-link{display:inline-block;margin-top:20px;color:var(--muted);font-size:.85rem;text-decoration:underline;cursor:pointer}
+  .toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:12px 22px;border-radius:12px;font-size:.9rem;opacity:0;transition:all .3s;pointer-events:none;box-shadow:0 12px 30px -12px rgba(0,0,0,.4);z-index:99}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+  footer{text-align:center;color:var(--muted);font-size:.85rem;margin-top:34px}
+  .foot{max-width:1100px;margin:0 auto;padding:30px 24px;text-align:center;color:var(--muted);font-size:.85rem}
+</style>
+</head>
+<body>
+<div class="site-top">
+  <a class="logo" href="index.html">Everlasting Memories</a>
+  <a href="index.html">← Back to home</a>
+</div>
+
+<div class="wrap">
+  <header class="tt">
+    <h1>Your Big Day Countdown</h1>
+    <p>Pick your event date, watch it tick closer, and get a smart decor-planning timeline — so nothing is ever last-minute.</p>
+  </header>
+
+  <!-- STEP 1 -->
+  <div class="card" id="step1">
+    <div class="step-label">Step 1 — Your event</div>
+    <div class="grid2">
+      <div>
+        <label class="f" for="evdate">Event date</label>
+        <input type="date" id="evdate">
+      </div>
+      <div>
+        <label class="f" for="evtype">Event type</label>
+        <select id="evtype">
+          <option>Wedding</option>
+          <option>Birthday</option>
+          <option>Baby Shower</option>
+          <option>Corporate Event</option>
+          <option>Holiday Party</option>
+          <option>Other Celebration</option>
+        </select>
+      </div>
+    </div>
+    <div style="margin-top:18px">
+      <div class="step-label">Quick picks (tap to set)</div>
+      <div class="pill-row">
+        <div class="pill" data-days="30">30 days</div>
+        <div class="pill" data-days="60">60 days</div>
+        <div class="pill" data-days="90">90 days</div>
+        <div class="pill" data-days="120">120 days</div>
+        <div class="pill" data-days="180">6 months</div>
+      </div>
+    </div>
+    <div style="margin-top:24px;text-align:center">
+      <button class="btn" id="goBtn">Start my countdown 🎈</button>
+    </div>
+  </div>
+
+  <!-- STEP 2 -->
+  <div class="card" id="countdown">
+    <div class="step-label">Your countdown</div>
+    <div class="days-big" id="daysBig">–</div>
+    <div class="days-label">days to go</div>
+    <div class="cd-grid">
+      <div class="cd-box"><div class="cd-num" id="cMonths">–</div><div class="cd-unit">Months</div></div>
+      <div class="cd-box"><div class="cd-num" id="cWeeks">–</div><div class="cd-unit">Weeks</div></div>
+      <div class="cd-box"><div class="cd-num" id="cHours">–</div><div class="cd-unit">Hours</div></div>
+      <div class="cd-box"><div class="cd-num" id="cMins">–</div><div class="cd-unit">Mins</div></div>
+    </div>
+    <div class="countdown-copy" id="countdownCopy"></div>
+    <div style="margin-top:16px;text-align:center">
+      <button class="btn ghost" id="resetBtn">← Choose a different date</button>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div id="timeline">
+    <div class="tl-head">
+      <div>
+        <h2>Decor Planning Timeline</h2>
+        <p class="tl-sub" id="tlSub">Your personalized plan, week by week.</p>
+      </div>
+    </div>
+    <div class="card" id="tlList"></div>
+  </div>
+
+  <!-- QUOTE CTA -->
+  <div class="quote-cta" id="quoteCta">
+    <h3>Ready to lock in your date? 🎀</h3>
+    <p>Tell Everlasting Memories your event date and we'll hold availability and send a custom quote for your <span id="qType">event</span>.</p>
+    <div class="btn-row">
+      <a class="btn" id="quoteLink" href="contact.html">Request my quote</a>
+      <button class="btn ghost" id="shareBtn">Share countdown</button>
+    </div>
+  </div>
+
+  <footer class="reset-link-wrap">
+    <span class="reset-link" id="fullReset">Start over</span>
+  </footer>
+</div>
+
+<div class="toast" id="toast"></div>
+<div class="foot">© 2026 Everlasting Memories · Balloon Art &amp; Event Decor · Connecticut</div>
+
+<script>
+(function(){
+  var $=function(id){return document.getElementById(id)};
+  var state={date:null,type:'Wedding'};
+  var MILESTONES=[
+    {before:180,title:'Lock in your decorator',days:'6+ months out',text:'Peak dates book up fast — share your date and inspiration with Everlasting Memories to reserve availability.'},
+    {before:120,title:'Choose your theme & palette',days:'~4 months out',text:'Settle on colors, vibe and event style. Use our Theme Generator if you need inspiration, then send it along.'},
+    {before:90,title:'Lock down the design & quote',days:'~3 months out',text:'Finalize balloon garlands, bouquets, backdrops and add-ons. Confirm your quote and deposit to secure the date.'},
+    {before:60,title:'Confirm final details & measurements',days:'~2 months out',text:'Send exact venue space, ceiling height and doorway sizes so your decor fits perfectly on the day.'},
+    {before:30,title:'Final count check & setup time',days:'~1 month out',text:'Confirm setup window, access, and your final guest count so we bring exactly the right amount.'},
+    {before:7,title:'Last week glam',days:'7 days out',text:'Touch base on timing, parking and delivery. Get excited — it is almost here!'},
+    {before:0,title:'🎉 Celebration day!',days:'Your big day',text:'We handle setup while you relax. Everlasting Memories makes it effortless and stunning.'}
+  ];
+
+  function pad(n){return n<10?'0'+n:''+n}
+  function todayStr(){var d=new Date();return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())}
+
+  function setToday(){ $('evdate').min=todayStr(); }
+
+  function showToast(msg){
+    var t=$('toast');t.textContent=msg;t.classList.add('show');
+    setTimeout(function(){t.classList.remove('show')},2600);
+  }
+
+  function dateFromInput(v){var p=v.split('-');return new Date(+p[0],+p[1]-1,+p[2])}
+
+  function quickPicks(){
+    document.querySelectorAll('.pill').forEach(function(p){
+      p.addEventListener('click',function(){
+        document.querySelectorAll('.pill').forEach(function(x){x.classList.remove('active')});
+        p.classList.add('active');
+        var d=new Date(); d.setDate(d.getDate()+ (+p.getAttribute('data-days')));
+        $('evdate').value=d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate());
+      });
+    });
+  }
+
+  function startCountdown(){
+    var v=$('evdate').value;
+    if(!v){showToast('Please pick your event date first 🙂');return}
+    $('evtype').options; state.type=$('evtype').value;
+    state.date=dateFromInput(v);
+    var today=new Date(); today.setHours(0,0,0,0);
+    var diff=Math.round((state.date-today)/86400000);
+    if(diff<0){showToast('That date already passed — pick a future one!');return}
+
+    $('step1').style.display='none';
+    $('countdown').style.display='block';
+    $('timeline').style.display='block';
+    $('quoteCta').style.display='block';
+    $('qType').textContent=state.type.toLowerCase();
+    $('quoteLink').href='contact.html?event='+encodeURIComponent(state.type)+'&date='+v;
+
+    // copy
+    var copy = state.type==='Wedding'
+      ? '<strong>'+diff+' days</strong> until your wedding day. The countdown is on — lock your date soon so the decor is perfect.'
+      : '<strong>'+diff+' days</strong> until your '+state.type.toLowerCase()+'. Start planning now so the decor wows your guests.';
+    $('countdownCopy').innerHTML=copy;
+
+    buildTimeline(diff);
+    renderCountdown();
+    setInterval(renderCountdown,30000);
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+
+  function renderCountdown(){
+    var end=state.date;
+    var now=new Date();
+    var diff=end-now;
+    if(diff<=0){ $('daysBig').textContent='0'; $('cMonths').textContent='0';$('cWeeks').textContent='0';$('cHours').textContent='0';$('cMins').textContent='0'; return}
+    var s=Math.floor(diff/1000);
+    var days=Math.floor(s/86400);
+    var hours=Math.floor((s%86400)/3600);
+    var mins=Math.floor((s%3600)/60);
+    var months=Math.floor(days/30.44);
+    var weeks=Math.floor(days/7);
+    $('daysBig').textContent=days;
+    $('cMonths').textContent=months;
+    $('cWeeks').textContent=weeks;
+    $('cHours').textContent=hours;
+    $('cMins').textContent=mins;
+  }
+
+  function buildTimeline(daysLeft){
+    $('tlSub').textContent='With '+daysLeft+' days to go, here is your personalized checklist:';
+    var html='';
+    MILESTONES.forEach(function(m,idx){
+      var done = daysLeft <= (180-m.before);
+      var cls = done?'mile done':'mile';
+      var num = m.before===0?'🎉':m.before/30;
+      html+='<div class="'+cls+'">';
+      html+='  <div class="dot"><span>'+num+'</span></div>';
+      html+='  <div class="m-body">';
+      html+=done?'    <span class="done-tag"></span>':'';
+      html+='    <div class="m-title">'+m.title+'</div>';
+      html+='    <div class="m-days">'+m.days+(done?' · done ✓':'')+'</div>';
+      html+='    <div class="m-text">'+m.text+'</div>';
+      html+='  </div></div>';
+    });
+    $('tlList').innerHTML=html;
+  }
+
+  function share(){
+    if(!state.date){return}
+    var days=Math.round((state.date-new Date())/86400000);
+    var text='🎈 '+days+' days until my '+state.type.toLowerCase()+'! Counting down with @EverlastingMemories — balloon art & event decor in Connecticut. #everlastingmemories';
+    var url='https://wa.me/?text='+encodeURIComponent(text);
+    window.open(url,'_blank');
+  }
+
+  // wire up
+  setToday();
+  quickPicks();
+  $('goBtn').addEventListener('click',startCountdown);
+  $('resetBtn').addEventListener('click',function(){location.reload()});
+  $('fullReset').addEventListener('click',function(){location.reload()});
+  $('shareBtn').addEventListener('click',share);
+
+  // allow Enter
+  $('evdate').addEventListener('keydown',function(e){if(e.key==='Enter')startCountdown()});
+})();
+</script>
+</body>
+</html>
