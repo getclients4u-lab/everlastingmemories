@@ -23,12 +23,5 @@
       "src": "/(.*)",
       "dest": "/$1"
     }
-  ],
-  "env": {
-    "ADMIN_TOKEN": "ADMIN_TOKEN_REVOKED",
-    "ADMIN_USER": "admin",
-    "ADMIN_PASS": "ADMIN_PASS_REVOKED",
-    "TELEGRAM_BOT_TOKEN": "TELEGRAM_BOT_TOKEN_REVOKED",
-    "ZERNIO_API_KEY": "ZERNIO_API_KEY_REVOKED"
-  }
+  ]
 }
