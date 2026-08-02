@@ -88,8 +88,8 @@ module.exports = async (req, res) => {
       db.leads.unshift(newLead);
       writeDB(db);
 
-      // Send Telegram notification
-      telegramNotify.notify(newLead).catch(() => {});
+      // Send Telegram notification (only fires for real leads)
+      Promise.resolve(telegramNotify.notify(newLead)).catch(() => {});
 
       return res.status(201).json({ success: true, lead: newLead });
     }
