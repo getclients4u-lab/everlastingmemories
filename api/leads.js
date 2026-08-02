@@ -1,27 +1,89 @@
 // Vercel Serverless Function - Leads API
-const fs = require('fs');
-const path = require('path');
+// Persistent storage: GitHub private repo (getclients4u-lab/em-leads) via API
+// Fallback: /tmp cache so reads stay fast between writes
 
-const DB_PATH = path.join('/tmp', 'leads.json');
+const https = require('https');
 const AUTH_TOKEN = process.env.ADMIN_TOKEN || 'ADMIN_TOKEN_REVOKED';
+const GH_TOKEN = process.env.GH_TOKEN || null;
+const GH_REPO = 'getclients4u-lab/em-leads';
+const GH_PATH = 'leads.json';
 
-// Initialize DB if not exists
-function initDB() {
-  if (!fs.existsSync(DB_PATH)) {
-    fs.writeFileSync(DB_PATH, JSON.stringify({
-      leads: [],
-      createdAt: new Date().toISOString()
-    }, null, 2));
+const CACHE_PATH = '/tmp/leads-cache.json';
+
+function ghRequest(method, path, body) {
+  return new Promise((resolve, reject) => {
+    const payload = body ? JSON.stringify(body) : null;
+    const req = https.request({
+      hostname: 'api.github.com',
+      path: path,
+      method: method,
+      headers: {
+        'Authorization': `Bearer ${GH_TOKEN}`,
+        'Accept': 'application/vnd.github+json',
+        'User-Agent': 'everlastingmemories-leads',
+        'Content-Type': 'application/json',
+        ...(payload ? { 'Content-Length': Buffer.byteLength(payload) } : {})
+      }
+    }, (res) => {
+      let data = '';
+      res.on('data', c => data += c);
+      res.on('end', () => {
+        try { resolve({ status: res.statusCode, body: JSON.parse(data) }); }
+        catch (e) { resolve({ status: res.statusCode, body: data }); }
+      });
+    });
+    req.on('error', reject);
+    if (payload) req.write(payload);
+    req.end();
+  });
+}
+
+function readCache() {
+  try {
+    const fs = require('fs');
+    if (fs.existsSync(CACHE_PATH)) {
+      return JSON.parse(fs.readFileSync(CACHE_PATH, 'utf8'));
+    }
+  } catch (e) {}
+  return null;
+}
+
+function writeCache(data) {
+  try {
+    const fs = require('fs');
+    fs.writeFileSync(CACHE_PATH, JSON.stringify(data));
+  } catch (e) {}
+}
+
+async function fetchFromGitHub() {
+  if (!GH_TOKEN) return null;
+  const res = await ghRequest('GET', `/repos/${GH_REPO}/contents/${GH_PATH}`);
+  if (res.status !== 200 || !res.body.content) return null;
+  const content = Buffer.from(res.body.content, 'base64').toString('utf8');
+  return { data: JSON.parse(content), sha: res.body.sha };
+}
+
+async function saveToGitHub(data, sha) {
+  if (!GH_TOKEN) return false;
+  const content = Buffer.from(JSON.stringify(data, null, 2)).toString('base64');
+  const res = await ghRequest('PUT', `/repos/${GH_REPO}/contents/${GH_PATH}`, {
+    message: `lead update ${new Date().toISOString()}`,
+    content: content,
+    ...(sha ? { sha } : {})
+  });
+  return res.status === 200 || res.status === 201;
+}
+
+async function readDB() {
+  // Prefer GitHub (source of truth), fall back to /tmp cache
+  const gh = await fetchFromGitHub();
+  if (gh) {
+    writeCache(gh.data);
+    return gh;
   }
-}
-
-function readDB() {
-  initDB();
-  return JSON.parse(fs.readFileSync(DB_PATH, 'utf8'));
-}
-
-function writeDB(data) {
-  fs.writeFileSync(DB_PATH, JSON.stringify(data, null, 2));
+  const cached = readCache();
+  if (cached) return { data: cached, sha: null };
+  return { data: { leads: [], createdAt: new Date().toISOString() }, sha: null };
 }
 
 function verifyAuth(req) {
@@ -46,8 +108,8 @@ module.exports = async (req, res) => {
   try {
     if (method === 'GET') {
       // Get all leads (public endpoint for form submissions)
-      const db = readDB();
-      return res.status(200).json({ success: true, leads: db.leads });
+      const { data } = await readDB();
+      return res.status(200).json({ success: true, leads: data.leads });
     }
 
     if (method === 'POST') {
@@ -58,7 +120,7 @@ module.exports = async (req, res) => {
         return res.status(400).json({ success: false, error: 'Name and email are required' });
       }
 
-      const db = readDB();
+      const { data, sha } = await readDB();
       const newLead = {
         id: Date.now().toString(),
         name: name || '[Visitor]',
@@ -85,8 +147,14 @@ module.exports = async (req, res) => {
         date: new Date().toISOString()
       };
 
-      db.leads.unshift(newLead);
-      writeDB(db);
+      data.leads.unshift(newLead);
+      const saved = await saveToGitHub(data, sha);
+      if (saved) {
+        writeCache(data);
+      } else {
+        // GitHub failed - keep in cache so data isn't lost this session
+        writeCache(data);
+      }
 
       // Send Telegram notification (only fires for real leads)
       Promise.resolve(telegramNotify.notify(newLead)).catch(() => {});
@@ -101,17 +169,18 @@ module.exports = async (req, res) => {
       }
 
       const { id, status } = req.body;
-      const db = readDB();
-      const leadIndex = db.leads.findIndex(l => l.id === id);
+      const { data, sha } = await readDB();
+      const leadIndex = data.leads.findIndex(l => l.id === id);
       
       if (leadIndex === -1) {
         return res.status(404).json({ success: false, error: 'Lead not found' });
       }
 
-      db.leads[leadIndex].status = status;
-      writeDB(db);
+      data.leads[leadIndex].status = status;
+      const saved = await saveToGitHub(data, sha);
+      if (saved) writeCache(data);
 
-      return res.status(200).json({ success: true, lead: db.leads[leadIndex] });
+      return res.status(200).json({ success: true, lead: data.leads[leadIndex] });
     }
 
     if (method === 'DELETE') {
@@ -121,9 +190,10 @@ module.exports = async (req, res) => {
       }
 
       const { id } = req.query;
-      const db = readDB();
-      db.leads = db.leads.filter(l => l.id !== id);
-      writeDB(db);
+      const { data, sha } = await readDB();
+      data.leads = data.leads.filter(l => l.id !== id);
+      const saved = await saveToGitHub(data, sha);
+      if (saved) writeCache(data);
 
       return res.status(200).json({ success: true, message: 'Lead deleted' });
     }
