@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What's Your Party Style? — Everlasting Memories</title>
+<meta name="description" content="Take the 60-second party style quiz. Get your personalized decor style match, a recommended setup, and a custom quote from Everlasting Memories — CT balloon art & event decor.">
+<meta name="theme-color" content="#FAF8F5">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blush:#F7E8E0; --beige:#FAF8F5; --gold:#C9A227; --ink:#2B2118; --muted:#8A7A6B;
+  --line:#EFE4DA; --cream:#FFFDF9; --radius:18px;
+}
+*{box-sizing:border-box; margin:0; padding:0}
+body{font-family:'Inter',sans-serif; background:var(--beige); color:var(--ink); line-height:1.6}
+.wrap{max-width:820px; margin:0 auto; padding:32px 20px 80px}
+h1,h2,h3{font-family:'Playfair Display',serif; font-weight:600}
+header{text-align:center; padding:48px 0 12px}
+header .kicker{letter-spacing:.22em; text-transform:uppercase; font-size:.72rem; color:var(--gold); font-weight:600}
+header h1{font-size:clamp(1.9rem,4.5vw,2.7rem); margin:10px 0 8px}
+header p{color:var(--muted); max-width:520px; margin:0 auto; font-size:.98rem}
+.progress{height:6px; background:var(--line); border-radius:99px; margin:28px 0 8px; overflow:hidden}
+.progress i{display:block; height:100%; width:0; background:linear-gradient(90deg,var(--gold),#E3B23C); border-radius:99px; transition:width .4s ease}
+.step-num{font-size:.8rem; color:var(--muted); text-align:center; margin-bottom:26px}
+.qcard{background:var(--cream); border:1px solid var(--line); border-radius:var(--radius); padding:34px 30px; box-shadow:0 6px 24px rgba(43,33,24,.06)}
+.qcard h2{font-size:1.35rem; margin-bottom:22px}
+.qcard h2 em{color:var(--gold); font-style:italic}
+.options{display:grid; gap:12px}
+.opt{display:flex; align-items:center; gap:14px; border:1.5px solid var(--line); border-radius:14px; padding:16px 18px; cursor:pointer; transition:all .18s ease; background:#fff}
+.opt:hover{border-color:var(--gold); transform:translateY(-1px)}
+.opt.sel{border-color:var(--gold); background:var(--blush); box-shadow:0 0 0 3px rgba(201,162,39,.15)}
+.opt .emoji{font-size:1.6rem; flex:0 0 auto}
+.opt .txt b{display:block; font-size:.98rem}
+.opt .txt span{font-size:.85rem; color:var(--muted)}
+.btn-row{display:flex; justify-content:space-between; gap:12px; margin-top:26px}
+.btn{font-family:'Inter',sans-serif; font-weight:600; font-size:.95rem; border:none; border-radius:12px; padding:14px 26px; cursor:pointer; transition:all .18s ease}
+.btn-prev{background:#fff; border:1.5px solid var(--line); color:var(--muted)}
+.btn-prev:hover{border-color:var(--muted)}
+.btn-next{background:var(--ink); color:#fff}
+.btn-next:hover{background:#3d3023; transform:translateY(-1px)}
+.btn-next:disabled{opacity:.4; cursor:not-allowed; transform:none}
+.result{display:none; text-align:center}
+.result .badge{display:inline-block; font-size:.75rem; letter-spacing:.18em; text-transform:uppercase; color:var(--gold); font-weight:600; border:1px solid var(--gold); border-radius:99px; padding:6px 16px; margin-bottom:18px}
+.result h2{font-size:clamp(1.8rem,4vw,2.4rem); margin-bottom:8px}
+.result .style-desc{color:var(--muted); max-width:560px; margin:0 auto 26px; font-size:.98rem}
+.pkg{background:var(--cream); border:1px solid var(--line); border-radius:var(--radius); padding:26px; text-align:left; margin:0 auto 18px; max-width:560px; box-shadow:0 6px 24px rgba(43,33,24,.06)}
+.pkg h3{font-size:1.15rem; margin-bottom:12px; color:var(--gold)}
+.pkg ul{list-style:none}
+.pkg li{padding:7px 0 7px 30px; position:relative; font-size:.94rem}
+.pkg li::before{content:"✦"; position:absolute; left:2px; color:var(--gold)}
+.range{font-family:'Playfair Display',serif; font-size:1.3rem; color:var(--ink); margin-top:10px}
+.cta{display:inline-block; background:var(--gold); color:#fff; font-weight:600; font-size:1rem; border-radius:14px; padding:16px 38px; text-decoration:none; transition:all .18s ease; box-shadow:0 8px 20px rgba(201,162,39,.3)}
+.cta:hover{transform:translateY(-2px); box-shadow:0 12px 26px rgba(201,162,39,.4)}
+.retake{margin-top:16px; background:none; border:none; color:var(--muted); text-decoration:underline; cursor:pointer; font-size:.88rem}
+.hint{font-size:.8rem; color:var(--muted); margin-top:14px}
+.footer{text-align:center; color:var(--muted); font-size:.82rem; margin-top:40px}
+.footer a{color:var(--gold); text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="kicker">Everlasting Memories · 60-second quiz</div>
+    <h1>What's Your Party Style?</h1>
+    <p>Answer five quick questions and we'll match you to the decor style you'll love — plus a setup recommendation and instant quote.</p>
+  </header>
+
+  <div class="progress"><i id="bar"></i></div>
+  <div class="step-num" id="stepNum">Question 1 of 5</div>
+
+  <div id="quiz"></div>
+
+  <div class="result" id="result"></div>
+
+  <div class="footer">
+    Everlasting Memories — CT balloon art &amp; event decor · <a href="tel:2039817244">203-981-7244</a> · <a href="index.html">Home</a>
+  </div>
+</div>
+
+<script>
+const QUESTIONS = [
+  {
+    q: "What vibe are you going for?",
+    options: [
+      {e:"🌸", t:"Soft & romantic", s:"Blush pinks, garden roses, dreamy"}, 
+      {e:"✨", t:"Glam & elegant", s:"Gold, crystals, luxe finishes"},
+      {e:"🎈", t:"Fun & playful", s:"Bright colors, balloons, whimsy"},
+      {e:"🌿", t:"Modern & minimal", s:"Clean lines, greens, neutrals"}
+    ]
+  },
+  {
+    q: "Pick your dream palette:",
+    options: [
+      {e:"🌷", t:"Blush + cream + gold", s:"Classic romantic"},
+      {e:"🍋", t:"Pastel rainbow", s:"Sweet and cheerful"},
+      {e:"🖤", t:"Black + white + gold", s:"Bold statement"},
+      {e:"🌊", t:"Sage + eucalyptus", s:"Organic earthy"}
+    ]
+  },
+  {
+    q: "What's the occasion?",
+    options: [
+      {e:"💍", t:"Wedding / proposal", s:"The big day"},
+      {e:"🎂", t:"Birthday / milestone", s:"Party time"},
+      {e:"🍼", t:"Baby / bridal shower", s:"Celebrating someone"},
+      {e:"🎉", t:"Corporate / grand opening", s:"Show-stopping entry"}
+    ]
+  },
+  {
+    q: "How big is the moment?",
+    options: [
+      {e:"🤏", t:"Intimate", s:"Under 25 guests"},
+      {e:"👥", t:"Mid-size", s:"25–100 guests"},
+      {e:"🎪", t:"Big celebration", s:"100–300 guests"},
+      {e:"🏛️", t:"Grand scale", s:"300+ guests / large venue"}
+    ]
+  },
+  {
+    q: "What's the one thing guests should remember?",
+    options: [
+      {e:"📸", t:"The photo moment", s:"A backdrop everyone posts"},
+      {e:"✨", t:"The wow entrance", s:"An arch that stops traffic"},
+      {e:"🎁", t:"The table magic", s:"Centrepieces & details"},
+      {e:"🎊", t:"The energy", s:"Confetti, clouds, surprises"}
+    ]
+  }
+];
+
+const STYLES = {
+  romantic: {
+    name: "Romantic Bloom",
+    desc: "You love soft, dreamy details — think blush arches, garden-inspired florals and warm candlelight vibes. Perfect for weddings, proposals and anniversaries.",
+    pkg: ["Organic balloon arch or garland in blush/cream/gold", "Floral + balloon mix backdrop", "Table centrepieces & sweetheart table styling", "Custom name or monogram letters"],
+    range: "$450 – $1,800"
+  },
+  glam: {
+    name: "Glam Gold",
+    desc: "You're all about the wow factor — luxe metallics, statement backdrops and finishes that photograph like a magazine cover. Made for milestone birthdays, launches and black-tie events.",
+    pkg: ["Gold foil balloon column or arch", "Sequin / mirror backdrop with balloon frame", "Champagne tower or dessert table styling", "LED-lit statement pieces"],
+    range: "$600 – $2,500"
+  },
+  playful: {
+    name: "Party Pop",
+    desc: "You want joy from the doorway in — bright colors, cheeky details and photo moments everyone will talk about. Ideal for birthdays, showers and kid celebrations.",
+    pkg: ["Pastel rainbow balloon garland", "Character or number balloon set", "Confetti wall or balloon cloud", "Themed photo corner"],
+    range: "$350 – $1,400"
+  },
+  modern: {
+    name: "Modern Muse",
+    desc: "Clean, chic and effortless — you lean on texture and negative space. Great for corporate events, baby showers and elevated intimate dinners.",
+    pkg: ["Sculptural arch in sage/white/neutral", "Eucalyptus & balloon installation", "Modern centrepieces & runner styling", "Branded backdrop for corporate"],
+    range: "$500 – $2,200"
+  }
+};
+
+let step = 0;
+const answers = [];
+
+const $ = id => document.getElementById(id);
+const quizEl = $('quiz'), resultEl = $('result'), bar = $('bar');
+
+function render(){
+  const q = QUESTIONS[step];
+  $('stepNum').textContent = `Question ${step+1} of ${QUESTIONS.length}`;
+  bar.style.width = ((step) / QUESTIONS.length * 100) + '%';
+  let html = `<div class="qcard"><h2>${q.q}</h2><div class="options">`;
+  q.options.forEach((o,i)=>{
+    const sel = answers[step] === i ? ' sel' : '';
+    html += `<div class="opt${sel}" onclick="pick(${i})"><span class="emoji">${o.e}</span><span class="txt"><b>${o.t}</b><span>${o.s}</span></span></div>`;
+  });
+  html += `</div><div class="btn-row">`;
+  if(step > 0) html += `<button class="btn btn-prev" onclick="prev()">← Back</button>`;
+  else html += `<span></span>`;
+  html += `<button class="btn btn-next" id="nextBtn" onclick="next()" ${answers[step]===undefined?'disabled':''}>${step === QUESTIONS.length-1 ? 'Show my style ✨' : 'Next →'}</button>`;
+  html += `</div></div>`;
+  quizEl.innerHTML = html;
+}
+
+function pick(i){
+  answers[step] = i;
+  document.querySelectorAll('.opt').forEach((el,idx)=>el.classList.toggle('sel', idx===i));
+  const nb = $('nextBtn'); if(nb) nb.disabled = false;
+}
+function prev(){ step--; render(); }
+function next(){
+  if(answers[step]===undefined) return;
+  step++;
+  if(step < QUESTIONS.length){ render(); }
+  else { finish(); }
+}
+
+function finish(){
+  quizEl.style.display = 'none';
+  $('stepNum').style.display = 'none';
+  bar.style.width = '100%';
+  // scoring: 0=romantic 1=glam 2=playful 3=modern — weighted by q0 (vibe) mostly
+  const vibe = answers[0];
+  const pal = answers[1];
+  const occ = answers[2];
+  const size = answers[3];
+  const mem = answers[4];
+  let key;
+  if(vibe===0 || pal===0) key = 'romantic';
+  else if(vibe===1 || pal===2) key = 'glam';
+  else if(vibe===2 || occ===1 || occ===2) key = 'playful';
+  else key = 'modern';
+  // refine with memory pick
+  if(mem===0 && key!=='romantic') key = (answers[0]===1)?'glam':'romantic';
+  if(mem===1 && key!=='glam' && answers[0]===1) key='glam';
+  const s = STYLES[key];
+  const occLabel = ['wedding','birthday','baby-shower','corporate'][occ];
+  const occFull = ['a Wedding','a Birthday','a Baby/Bridal Shower','a Corporate Event'][occ];
+  resultEl.innerHTML = `
+    <div class="badge">Your match</div>
+    <h2>${s.name}</h2>
+    <p class="style-desc">${s.desc}</p>
+    <div class="pkg">
+      <h3>Your recommended setup</h3>
+      <ul>${s.pkg.map(p=>`<li>${p}</li>`).join('')}</ul>
+      <div class="range">Typical range: ${s.range}</div>
+    </div>
+    <a class="cta" id="ctaLink" href="contact.html">Get my exact quote →</a>
+    <br><button class="retake" onclick="resetQuiz()">↺ Retake the quiz</button>
+    <p class="hint">Every event is unique — your quote is free and tailored to your date, venue and vision.</p>
+  `;
+  const msg = `I took the Party Style Quiz and matched with "${s.name}" for ${occFull.toLowerCase()}. Style: ${s.desc} Recommended: ${s.pkg[0]}. I'd love a custom quote!`;
+  $('ctaLink').href = 'contact.html?style=' + encodeURIComponent(s.name) + '&event=' + occLabel + '&message=' + encodeURIComponent(msg);
+  resultEl.style.display = 'block';
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+function resetQuiz(){
+  step = 0; answers.length = 0;
+  resultEl.style.display = 'none';
+  quizEl.style.display = 'block';
+  $('stepNum').style.display = 'block';
+  render();
+}
+
+render();
+</script>
+</body>
+</html>

@@ -225,15 +225,25 @@
 
 <button class="back-to-top" id="backToTop" aria-label="Back to top">&#8593;</button>
 <script>
-// Pre-fill message from theme-generator links (?theme=&palette=)
+// Pre-fill message from theme-generator links (?theme=&palette=) and party-style-quiz (?style=&event=&message=)
 document.addEventListener('DOMContentLoaded', function(){
   try {
     var p = new URLSearchParams(window.location.search);
     var theme = p.get('theme');
     var palette = p.get('palette');
-    if (theme && document.getElementById('message')) {
-      var msg = document.getElementById('message');
-      msg.value = 'I designed a palette with your Theme & Color Generator:\n\nOccasion/Vibe: ' + theme + (palette ? '\nPalette: ' + palette : '') + '\n\nI\'d love a quote for this style!';
+    var style = p.get('style');
+    var evt = p.get('event');
+    var msg = p.get('message');
+    if (msg && document.getElementById('message')) {
+      document.getElementById('message').value = decodeURIComponent(msg);
+    } else if (theme && document.getElementById('message')) {
+      var m = document.getElementById('message');
+      m.value = 'I designed a palette with your Theme & Color Generator:\n\nOccasion/Vibe: ' + theme + (palette ? '\nPalette: ' + palette : '') + '\n\nI\'d love a quote for this style!';
+    }
+    if (evt && document.getElementById('event-type')) {
+      var sel = document.getElementById('event-type');
+      var vals = ['birthday','wedding','baby-shower','corporate','anniversary','other'];
+      if (vals.indexOf(evt) !== -1) sel.value = evt;
     }
   } catch(e){}
 });
