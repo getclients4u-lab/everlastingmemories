@@ -72,6 +72,7 @@ footer{text-align:center;color:#b0a08a;font-size:.8rem;padding:30px 20px}
     <div class="ideas" id="ideas"></div>
     <div class="share">
       <button class="btn" onclick="sharePalette()">🔗 Share This Palette</button>
+      <span id="shareStatus" style="display:block;margin-top:10px;font-size:.85rem;color:#8a6a4e;min-height:1.2em;"></span>
     </div>
   </div>
 
@@ -212,9 +213,31 @@ function ideasHTML(occKey, vibeKey, palette){
 
 function sharePalette(){
   if(!window.__palette) return;
-  const txt = "I designed a "+DATA.occasion[selOcc].name+" palette with Everlasting Memories: "+window.__palette.join(' ');
-  const url = "https://wa.me/?text="+encodeURIComponent(txt);
-  window.open(url,'_blank');
+  const txt = "I designed a "+DATA.occasion[selOcc].name+" palette with Everlasting Memories: "+window.__palette.join(' ')+" — get yours at myeverlastingmemories.com";
+  const status = document.getElementById('shareStatus');
+  // 1) Native share sheet (mobile: WhatsApp, SMS, email, Messages, etc.)
+  if(navigator.share){
+    navigator.share({title:'My Event Palette', text:txt, url:'https://myeverlastingmemories.com/theme-generator.html'})
+      .then(()=>{ if(status)status.textContent='✅ Shared!' })
+      .catch(()=>{ /* user cancelled — do nothing */ });
+    return;
+  }
+  // 2) Copy to clipboard fallback (desktop)
+  const done = function(){
+    if(status)status.textContent='📋 Copied! Paste it anywhere — text, email, or DM.';
+  };
+  const fail = function(){
+    if(status)status.textContent='❌ Could not copy. Here\'s your palette: '+txt;
+  };
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt).then(done).catch(fail);
+  } else {
+    // legacy fallback
+    const ta = document.createElement('textarea');
+    ta.value = txt; document.body.appendChild(ta); ta.select();
+    try{ document.execCommand('copy'); done(); }catch(e){ fail(); }
+    document.body.removeChild(ta);
+  }
 }
 </script>
 </body>
