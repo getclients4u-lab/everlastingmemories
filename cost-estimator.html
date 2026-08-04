@@ -625,9 +625,8 @@ function goToStep(n){state.currentStep=n;
   document.querySelectorAll('.step-dot').forEach(d=>{let s=parseInt(d.dataset.step);d.classList.toggle('active',s===n);d.classList.toggle('done',s<n)});
   document.querySelectorAll('.step-line').forEach(l=>{let p=l.dataset.between.split('-').map(Number);l.classList.toggle('done',n>p[0])});
   window.scrollTo({top:0,behavior:'smooth'});
-  if(n===5)showResult();
   if(n===3)buildServiceSliders();
-  updateEstimate()
+  if(n!==5)updateEstimate()
 }
 
 function selectOption(el,field){el.parentElement.querySelectorAll('.option-card').forEach(c=>c.classList.remove('selected'));el.classList.add('selected');state[field]=el.dataset.value;document.getElementById('step1Btn').classList.remove('btn-disabled');updateEstimate()}
@@ -676,11 +675,13 @@ function calcEstimate(){
 function updateEstimate(){
   // Live-updates on result page
   let rc=document.getElementById('resultContent');
-  if(rc&&state.currentStep===5)showResult();
+  if(rc&&state.currentStep===5&&typeof window.__renderingResult==='undefined')showResult();
 }
 
 function showResult(){
+  window.__renderingResult=1;
   goToStep(5);
+  delete window.__renderingResult;
   let data=calcEstimate(),rc=document.getElementById('resultContent');
   let eventName=EN[state.eventType]||'your event';
   let servicesList=state.services.map(s=>PRICING[s]?PRICING[s].label:'').filter(Boolean).join(', ')||'None selected';
