@@ -75,6 +75,10 @@ footer{text-align:center;color:#b0a08a;font-size:.8rem;padding:30px 20px}
     </div>
   </div>
 
+  <div class="card hidden" id="hintCard">
+    <p style="text-align:center;color:#8a6a4e;font-size:1rem;">👆 Now pick a vibe above to see your palette ✨</p>
+  </div>
+
   <div class="cta" id="ctaCard">
     <h3>Love your palette? Make it real.</h3>
     <p>Get a free quote for balloons &amp; decor in these exact colors from Everlasting Memories.</p>
@@ -162,21 +166,31 @@ function hexToRgb(h){h=h.replace('#','');return{r:parseInt(h.slice(0,2),16),g:pa
 function rgbToHex(r,g,b){return '#'+[r,g,b].map(x=>x.toString(16).padStart(2,'0')).join('')}
 
 function render(){
-  if(!selOcc || !selVibe){
-    document.getElementById('resultCard').classList.add('hidden');
+  const resultCard = document.getElementById('resultCard'), hintCard = document.getElementById('hintCard');
+  if(!selOcc && !selVibe){
+    resultCard.classList.add('hidden');
+    hintCard.classList.add('hidden');
     return;
   }
+  if(!selOcc || !selVibe){
+    resultCard.classList.add('hidden');
+    hintCard.classList.remove('hidden');
+    if(hintCard.scrollIntoView)hintCard.scrollIntoView({behavior:'smooth',block:'center'});
+    return;
+  }
+  hintCard.classList.add('hidden');
   const occ = DATA.occasion[selOcc], vibe = DATA.vibe[selVibe];
   let palette = mix(VIBE_PALETTES[selVibe], occ);
   // ensure contrasts for text on swatches
-  document.getElementById('resultCard').classList.remove('hidden');
+  resultCard.classList.remove('hidden');
   document.getElementById('resultTitle').textContent = `✨ ${occ.name} · ${vibe.name} Palette`;
   const pal = document.getElementById('palette');
   pal.innerHTML = palette.map(c=>`<div class="sw" style="background:${c};color:${isLight(c)?'#222':'#fff'}">${c}</div>`).join('');
   document.getElementById('hexes').innerHTML = palette.map(c=>`<span class="hex">${c}</span>`).join('');
   document.getElementById('ideas').innerHTML = ideasHTML(selOcc, selVibe, palette);
-  document.getElementById('quoteBtn').href = `contact.html?theme=${encodeURIComponent(occ.name+' '+vibe.name)}&palette=${palette.join(',')}`;
+  document.getElementById('quoteBtn').href = `contact.html?theme=${encodeURIComponent(occ.name+' '+vibe.name)}&palette=${encodeURIComponent(palette.join(','))}`;
   window.__palette = palette;
+  if(resultCard.scrollIntoView)resultCard.scrollIntoView({behavior:'smooth',block:'start'});
 }
 
 function isLight(hex){const {r,g,b}=hexToRgb(hex);const l=(0.2126*r+0.7152*g+0.0722*b);return l>150;}
