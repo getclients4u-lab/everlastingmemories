@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gift Card Studio — Design a Gift Card | Everlasting Memories</title>
+<meta name="description" content="Give the gift of beautiful balloon art & event decor. Design a digital Everlasting Memories gift card in seconds — pick an amount, occasion and theme, add a personal message, and send it to someone you love. Redeemable for any event in Connecticut.">
+<meta property="og:title" content="Gift Card Studio — Everlasting Memories">
+<meta property="og:description" content="Design a beautiful, personalized gift card for balloon art & event decor. Perfect for birthdays, weddings, baby showers, holidays & more.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://everlastingmemories.vercel.app/gift-card.html">
+<meta property="og:image" content="https://everlastingmemories.vercel.app/logo.jpg">
+<meta name="theme-color" content="#8a6a4e">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="analytics.js" defer></script>
+<style>
+:root{--c1:#5a3d2b;--c2:#8a6a4e;--bg:#f8f4ee;--ink:#33281f;--accent:#C9A227;--gold:#d4af37;--card:#ffffff;--line:#e9dfd2;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+h1,h2,h3,.display{font-family:'Playfair Display',Georgia,serif}
+header{background:linear-gradient(135deg,#5a3d2b,#8a6a4e);color:#fff;padding:38px 24px 30px;text-align:center;position:relative;overflow:hidden}
+header:after{content:"🎁";position:absolute;right:18px;top:14px;font-size:3rem;opacity:.25;transform:rotate(15deg)}
+header:before{content:"🎈";position:absolute;left:18px;bottom:10px;font-size:2.4rem;opacity:.2;transform:rotate(-20deg)}
+.home-link{display:inline-block;margin-bottom:12px;color:#f3d78a;text-decoration:none;font-weight:600;font-size:.88rem;letter-spacing:.02em}
+.home-link:hover{color:#fff}
+header h1{font-size:clamp(1.7rem,4.5vw,2.5rem);margin-bottom:8px}
+header p{color:#eadfce;max-width:660px;margin:0 auto;font-size:1.02rem}
+.container{max-width:1060px;margin:0 auto;padding:26px 20px}
+.layout{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:start}
+@media(max-width:900px){.layout{grid-template-columns:1fr}}
+.card{background:var(--card);border-radius:16px;padding:24px;box-shadow:0 3px 18px rgba(90,61,43,.08);margin-bottom:18px;border:1px solid var(--line)}
+.card h2{font-size:1.12rem;color:var(--c1);margin-bottom:4px}
+.step-num{display:inline-block;background:var(--c1);color:#fff;width:24px;height:24px;border-radius:50%;text-align:center;line-height:24px;font-size:.8rem;font-weight:700;margin-right:8px;font-family:'Inter',sans-serif}
+.card .hint{color:#9a8a76;font-size:.85rem;margin-bottom:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px}
+.opt{border:2px solid var(--line);border-radius:12px;padding:14px 10px;cursor:pointer;text-align:center;transition:.15s;background:#fff}
+.opt:hover{border-color:var(--accent);transform:translateY(-2px)}
+.opt.sel{border-color:var(--c1);background:#f7efe3;box-shadow:0 0 0 2px rgba(90,61,43,.14)}
+.opt .ic{font-size:1.6rem;display:block;margin-bottom:5px}
+.opt .nm{font-weight:600;font-size:.92rem}
+.opt .ds{color:#a08e79;font-size:.75rem;margin-top:3px;line-height:1.35}
+.amount-opt .amt{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:var(--c1)}
+.pal-opt{border:2px solid var(--line);border-radius:12px;padding:10px;cursor:pointer;transition:.15s;background:#fff}
+.pal-opt:hover{border-color:var(--accent)}
+.pal-opt.sel{border-color:var(--c1);box-shadow:0 0 0 2px rgba(90,61,43,.14)}
+.pal-opt .pn{font-weight:600;font-size:.82rem;margin-top:6px;text-align:center}
+.pal-opt .mini{display:flex;border-radius:6px;overflow:hidden;height:26px;margin-top:6px}
+.pal-opt .mini i{flex:1}
+/* form fields */
+.fg{margin-bottom:12px}
+.fg label{display:block;font-weight:600;font-size:.86rem;margin-bottom:4px;color:var(--c1)}
+.fg input,.fg textarea,.fg select{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;font-size:.95rem;background:#fff;font-family:'Inter',sans-serif}
+.fg input:focus,.fg textarea:focus,.fg select:focus{outline:none;border-color:var(--accent)}
+.fg textarea{resize:vertical;min-height:70px}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:480px){.fg-row{grid-template-columns:1fr}}
+.msg{display:none;border-radius:10px;padding:12px;font-size:.9rem;font-weight:500;margin-bottom:12px;text-align:center}
+.msg.ok{display:block;background:#eef7ee;border:1px solid #7cc47c;color:#2c6e2c}
+.msg.err{display:block;background:#fdeeee;border:1px solid #e08a8a;color:#a33}
+/* buttons */
+.cta-btn{display:block;width:100%;background:var(--accent);color:#fff;border:none;padding:14px;border-radius:12px;font-weight:700;font-size:1rem;cursor:pointer;transition:.15s;margin-top:14px;font-family:'Inter',sans-serif;text-decoration:none;text-align:center}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(201,162,39,.4)}
+.cta-btn.ghost{background:#fff;color:var(--c1);border:2px solid var(--c1);margin-top:8px}
+.cta-btn.ghost:hover{background:var(--c1);color:#fff}
+.cta-btn.small{padding:10px;font-size:.88rem}
+/* the gift card */
+.stage{position:sticky;top:16px}
+@media(max-width:900px){.stage{position:static}}
+.card-preview{
+  width:100%;max-width:480px;aspect-ratio:8/5;margin:0 auto;border-radius:18px;position:relative;overflow:hidden;
+  box-shadow:0 22px 55px rgba(60,40,20,.28);color:#fff;padding:22px 26px;
+  display:flex;flex-direction:column;justify-content:space-between;
+  font-family:'Playfair Display',Georgia,serif;transition:background .4s ease;
+}
+.card-preview .cp-top{display:flex;justify-content:space-between;align-items:center}
+.card-preview .cp-brand{font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;font-family:'Inter',sans-serif;font-weight:700;opacity:.95}
+.card-preview .cp-emoji{font-size:1.5rem;filter:drop-shadow(0 2px 4px rgba(0,0,0,.25))}
+.card-preview .cp-eyebrow{font-family:'Inter',sans-serif;font-size:.66rem;letter-spacing:.3em;text-transform:uppercase;font-weight:600;opacity:.85}
+.card-preview .cp-name{font-size:clamp(1.5rem,4vw,2.2rem);font-weight:700;line-height:1.15;text-shadow:0 2px 8px rgba(0,0,0,.25);word-break:break-word}
+.card-preview .cp-amount{font-size:clamp(2.1rem,6vw,3.1rem);font-weight:700;line-height:1;text-shadow:0 2px 10px rgba(0,0,0,.3)}
+.card-preview .cp-occasion{font-family:'Inter',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;opacity:.92;margin-top:2px}
+.card-preview .cp-msg{font-style:italic;font-size:.82rem;opacity:.95;line-height:1.4;max-height:2.8em;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.card-preview .cp-bottom{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;flex-wrap:wrap}
+.card-preview .cp-code{font-family:'Inter',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.14em;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);padding:5px 12px;border-radius:999px;backdrop-filter:blur(4px)}
+.card-preview .cp-valid{font-family:'Inter',sans-serif;font-size:.64rem;opacity:.85;letter-spacing:.04em}
+.cp-bubbles{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.cp-bubbles i{position:absolute;border-radius:50%;background:rgba(255,255,255,.14);animation:float 6s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.preview-cap{font-size:.75rem;color:#a08e79;text-align:center;margin-top:10px}
+.card-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.card-actions .cta-btn{margin-top:0}
+@media(max-width:480px){.card-actions{grid-template-columns:1fr}}
+.code-chip{display:flex;align-items:center;justify-content:center;gap:10px;background:#faf4e8;border:1.5px dashed var(--gold);border-radius:12px;padding:10px;font-family:'Inter',sans-serif;font-weight:700;letter-spacing:.12em;color:var(--c1);font-size:.95rem;margin-top:12px}
+.code-chip button{background:none;border:none;color:var(--accent);cursor:pointer;font-size:1rem;font-weight:700}
+/* facts + faq */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:6px}
+.fact{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;font-size:.86rem;color:#5d4c38}
+.fact b{color:var(--c1);display:block;margin-bottom:4px}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-item:last-child{border-bottom:none}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;padding:13px 0;background:none;border:none;cursor:pointer;font-family:'Inter',sans-serif;font-size:.92rem;font-weight:600;color:var(--c1);text-align:left}
+.faq-q::after{content:'+';font-size:1.2rem;color:var(--gold);transition:transform .3s}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease-out}
+.faq-item.open .faq-a{max-height:300px}
+.faq-a p{padding-bottom:13px;font-size:.87rem;color:#7a6a4f}
+.badge{display:inline-block;background:rgba(255,255,255,.18);color:#fff;padding:3px 12px;border-radius:999px;font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
+footer{text-align:center;color:#a08e79;font-size:.8rem;padding:30px 20px}
+footer a{color:var(--c1);font-weight:600;text-decoration:none}
+.hidden{display:none}
+/* confetti */
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:9999}
+/* print: only the card */
+@media print{
+  body *{visibility:hidden}
+  .card-preview,.card-preview *{visibility:visible}
+  .card-preview{position:fixed;inset:0;width:100%;height:100%;max-width:none;aspect-ratio:auto;border-radius:0;box-shadow:none}
+}
+</style>
+</head>
+<body>
+<header>
+  <a href="index.html" class="home-link">&#8592; Back to Home</a>
+  <div class="badge">&#127873; New — Gift Card Studio</div>
+  <h1>&#127873; Gift Card Studio</h1>
+  <p>Give the gift of beautiful balloon art &amp; event decor. Design a one-of-a-kind digital gift card in seconds — pick the amount, the occasion, and the look, add a message from the heart, and send it. Redeemable for <em>any</em> event, any time in the next 12 months.</p>
+</header>
+
+<div class="container">
+  <div class="layout">
+    <!-- LEFT: builder -->
+    <div>
+      <div class="card">
+        <h2><span class="step-num">1</span>How much magic?</h2>
+        <p class="hint">Pick an amount — or type your own. Every card is redeemable toward any service.</p>
+        <div class="grid" id="amountGrid" style="grid-template-columns:repeat(auto-fit,minmax(110px,1fr));"></div>
+        <div class="fg" style="margin-top:12px;"><label for="customAmount">Custom amount (USD)</label><input type="number" id="customAmount" min="25" max="2000" step="5" placeholder="e.g. 125"></div>
+      </div>
+
+      <div class="card">
+        <h2><span class="step-num">2</span>What's the occasion?</h2>
+        <p class="hint">We'll tune the design to match the celebration.</p>
+        <div class="grid" id="occGrid"></div>
+      </div>
+
+      <div class="card">
+        <h2><span class="step-num">3</span>Pick a look</h2>
+        <p class="hint">Each theme is inspired by a real Everlasting Memories palette.</p>
+        <div class="grid" id="palGrid" style="grid-template-columns:repeat(auto-fit,minmax(120px,1fr));"></div>
+      </div>
+
+      <div class="card">
+        <h2><span class="step-num">4</span>Make it personal</h2>
+        <p class="hint">Who's it for, who's it from, and what should it say?</p>
+        <div class="fg-row">
+          <div class="fg"><label for="recipient">Recipient's name *</label><input type="text" id="recipient" placeholder="e.g. Mom" autocomplete="off"></div>
+          <div class="fg"><label for="fromName">From</label><input type="text" id="fromName" placeholder="Your name" autocomplete="name"></div>
+        </div>
+        <div class="fg">
+          <label for="message">Personal message</label>
+          <textarea id="message" placeholder="e.g. Can't wait to celebrate with you — balloons on me!"></textarea>
+        </div>
+        <button class="cta-btn ghost small" id="surpriseBtn" type="button" style="margin-top:0;">&#127922; Surprise me with a message</button>
+        <button class="cta-btn" id="designBtn" type="button" style="margin-top:14px;">&#127873; Design My Gift Card</button>
+      </div>
+
+      <div class="card">
+        <h2>&#10067; Gift card questions</h2>
+        <div class="faq" id="faq">
+          <div class="faq-item">
+            <button class="faq-q" type="button">How does the recipient redeem it?</button>
+            <div class="faq-a"><p>Easy — they call 203-981-7244 or email Hey.everlasting.memories@gmail.com, mention their gift code (printed right on the card), and we apply the amount to their event. Works for garlands, bouquets, backdrops, full event decor, anything.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button">How long is it valid?</button>
+            <div class="faq-a"><p>12 full months from the date of purchase — plenty of time to plan the perfect celebration. No blackout dates, no fine print.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button">How do I pay for the card?</button>
+            <div class="faq-a"><p>When you place the order below, Isabella herself confirms it within 24 hours and takes payment over the phone or by email (card, Venmo, Cash App or check). You'll get the final digital card the moment it's confirmed.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button">Can I send it as a surprise?</button>
+            <div class="faq-a"><p>Absolutely — that's our favorite kind. Share it on WhatsApp, print it, or just screenshot it. The design, the code, and the message are all yours the second you hit "Design My Gift Card".</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>&#128161; Why a gift card?</h2>
+        <div class="facts">
+          <div class="fact"><b>&#9200; Last-minute hero</b> Forgot a gift again? This takes 30 seconds and never needs wrapping.</div>
+          <div class="fact"><b>&#127881; Always the right size</b> Balloons fit every party — birthdays, weddings, baby showers, corporate galas.</div>
+          <div class="fact"><b>&#128176; Real value, no waste</b> It's an experience, not another candle. Valid 12 months, any service.</div>
+          <div class="fact"><b>&#128151; From the heart</b> A custom-designed card with your own words beats a store-bought gift every time.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: the card + order -->
+    <div class="stage">
+      <div class="card" style="padding:20px;">
+        <div class="card-preview" id="cardPreview" role="img" aria-label="Your live gift card preview">
+          <div class="cp-bubbles" id="cpBubbles"></div>
+          <div class="cp-top">
+            <span class="cp-brand">Everlasting Memories</span>
+            <span class="cp-emoji">🎈</span>
+          </div>
+          <div style="position:relative;">
+            <div class="cp-eyebrow">Gift Card</div>
+            <div class="cp-name" id="cpName">Your Loved One</div>
+            <div class="cp-amount" id="cpAmount">$100</div>
+            <div class="cp-occasion" id="cpOccasion">Birthday Magic</div>
+          </div>
+          <div style="position:relative;">
+            <div class="cp-msg" id="cpMsg">A little something to make your day unforgettable. 🎈</div>
+            <div class="cp-bottom" style="margin-top:10px;">
+              <span class="cp-code" id="cpCode">EM-····-····</span>
+              <span class="cp-valid">Valid 12 months · CT, USA</span>
+            </div>
+          </div>
+        </div>
+        <div class="preview-cap">Your card updates live — hit "Design My Gift Card" to lock in the code.</div>
+        <div class="code-chip" id="codeChip" style="display:none;">🎟️ <span id="codeText"></span> <button id="copyBtn" title="Copy code">&#128203;</button></div>
+        <div class="card-actions">
+          <button class="cta-btn small" id="whatsappBtn" type="button">&#128172; Share on WhatsApp</button>
+          <button class="cta-btn small ghost" id="printBtn" type="button">&#128424; Print Card</button>
+        </div>
+        <a class="cta-btn small ghost" id="shareBtn" href="#" style="margin-top:10px;">&#128228; Share via… (native)</a>
+      </div>
+
+      <div class="card">
+        <h2>&#128722; Order this gift card</h2>
+        <p class="hint">Leave your details and we'll confirm your order &amp; payment within 24 hours. The card spec below is attached automatically.</p>
+        <div class="msg" id="formMsg"></div>
+        <form id="orderForm" novalidate>
+          <div class="fg-row">
+            <div class="fg"><label for="name">Your name *</label><input type="text" id="name" required placeholder="Full name" autocomplete="name"></div>
+            <div class="fg"><label for="phone">Phone</label><input type="tel" id="phone" placeholder="203-555-0000" autocomplete="tel"></div>
+          </div>
+          <div class="fg"><label for="email">Email *</label><input type="email" id="email" required placeholder="you@example.com" autocomplete="email"></div>
+          <button type="submit" class="cta-btn" id="submitBtn">&#127873; Order This Gift Card</button>
+          <p style="font-size:.75rem;color:#a08e79;text-align:center;margin-top:8px;">No payment taken online — Isabella confirms by phone/email first.</p>
+        </form>
+      </div>
+
+      <div class="card" style="text-align:center;">
+        <p style="font-size:.9rem;color:#7a6a4f;">Prefer to just talk it through?<br><a href="tel:203-981-7244" style="font-weight:700;color:var(--c1);text-decoration:none;">Call 203-981-7244</a> · <a href="mailto:Hey.everlasting.memories@gmail.com" style="font-weight:700;color:var(--c1);text-decoration:none;">Email us</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p><a href="index.html">Everlasting Memories</a> — Balloon Art &amp; Event Decor, Connecticut · <a href="tel:203-981-7244">203-981-7244</a> · <a href="contact.html">Contact</a></p>
+  <p style="margin-top:6px;">Gift cards are redeemable for any service within 12 months of purchase. Final event quotes confirmed during a free consultation.</p>
+</footer>
+
+<canvas id="confetti"></canvas>
+
+<script>
+/* ================= DATA ================= */
+const AMOUNTS = [50, 75, 100, 150, 250];
+const OCCASIONS = [
+  { key:'birthday',   label:'Birthday',     icon:'🎂', tag:'Birthday Magic' },
+  { key:'wedding',    label:'Wedding',      icon:'💍', tag:'Wedding Wishes' },
+  { key:'baby-shower',label:'Baby Shower',  icon:'🍼', tag:'Baby Shower Bliss' },
+  { key:'anniversary',label:'Anniversary',  icon:'💞', tag:'Anniversary Love' },
+  { key:'holiday',    label:'Holiday',      icon:'🎄', tag:'Holiday Cheer' },
+  { key:'congrats',   label:'Congrats',     icon:'🎓', tag:'Congratulations' },
+  { key:'corporate',  label:'Corporate',    icon:'🏢', tag:'Corporate Thanks' },
+  { key:'just-because',label:'Just Because',icon:'🌷', tag:'Just Because' }
+];
+const THEMES = [
+  { name:'Romantic Bloom', colors:['#f7c8d0','#e86a8a','#c94f6d'], grad:'linear-gradient(135deg,#e86a8a 0%,#c94f6d 55%,#8a2d4a 100%)' },
+  { name:'Glam Gold',      colors:['#d4af37','#8a6a4e','#2b2b2b'], grad:'linear-gradient(135deg,#2b2b2b 0%,#6b5434 60%,#d4af37 130%)' },
+  { name:'Party Pop',      colors:['#ff6b6b','#ffd93d','#4d96ff'], grad:'linear-gradient(135deg,#ff6b6b 0%,#ff8e53 55%,#ffd93d 120%)' },
+  { name:'Modern Muse',    colors:['#2d2d2d','#c9a87c','#f5f0e8'], grad:'linear-gradient(135deg,#2d2d2d 0%,#5c5146 70%,#c9a87c 130%)' },
+  { name:'Boho Earth',     colors:['#8a6a4e','#c9a87c','#3d5a40'], grad:'linear-gradient(135deg,#5a3d2b 0%,#8a6a4e 55%,#3d5a40 130%)' },
+  { name:'Winter Wonder',  colors:['#a8d8ea','#f0f7ff','#7fb3d5'], grad:'linear-gradient(135deg,#4a7ba6 0%,#7fb3d5 55%,#dceefb 130%)' }
+];
+const SUGGESTIONS = [
+  'A little balloon magic for your big day — can\'t wait to celebrate with you! 🎈',
+  'For the person who makes every day a party. This one\'s on me. 💛',
+  'Go pick your dream setup — the balloons are already paid for! 🎉',
+  'Some things are better in person. This is my way of saying: let\'s celebrate soon. 🥂',
+  'You deserve a room that looks as amazing as you are. Enjoy! ✨',
+  'Happy everything — this gift card works for literally any occasion. 😉'
+];
+const DEFAULT_MSG = 'A little something to make your day unforgettable. 🎈';
+
+/* ================= STATE ================= */
+const state = { amount:100, occasion:'birthday', theme:0, recipient:'Your Loved One', from:'', message:'' };
+let cardCode = null;
+
+/* ================= RENDER INPUTS ================= */
+function buildAmountGrid(){
+  const g = document.getElementById('amountGrid');
+  g.innerHTML = '';
+  AMOUNTS.forEach(a=>{
+    const d = document.createElement('div');
+    d.className = 'opt amount-opt' + (state.amount===a ? ' sel':'');
+    d.innerHTML = '<span class="amt">$'+a+'</span>';
+    d.onclick = ()=>{ state.amount=a; document.getElementById('customAmount').value=''; refreshAmounts(); };
+    g.appendChild(d);
+  });
+}
+function refreshAmounts(){
+  document.querySelectorAll('#amountGrid .opt').forEach((el,i)=>{
+    el.classList.toggle('sel', state.amount===AMOUNTS[i]);
+  });
+}
+document.getElementById('customAmount').addEventListener('input',(e)=>{
+  const v = parseInt(e.target.value,10);
+  if (v >= 25){ state.amount = v; refreshAmounts(); updateCard(true); }
+});
+function buildOccGrid(){
+  const g = document.getElementById('occGrid');
+  g.innerHTML = '';
+  OCCASIONS.forEach(o=>{
+    const d = document.createElement('div');
+    d.className = 'opt' + (state.occasion===o.key ? ' sel':'');
+    d.innerHTML = '<span class="ic">'+o.icon+'</span><span class="nm">'+o.label+'</span>';
+    d.onclick = ()=>{ state.occasion=o.key; document.querySelectorAll('#occGrid .opt').forEach(x=>x.classList.remove('sel')); d.classList.add('sel'); updateCard(true); };
+    g.appendChild(d);
+  });
+}
+function buildPalGrid(){
+  const g = document.getElementById('palGrid');
+  g.innerHTML = '';
+  THEMES.forEach((t,i)=>{
+    const d = document.createElement('div');
+    d.className = 'pal-opt' + (state.theme===i ? ' sel':'');
+    d.innerHTML = '<div class="mini">'+t.colors.map(c=>'<i style="background:'+c+'"></i>').join('')+'</div><div class="pn">'+t.name+'</div>';
+    d.onclick = ()=>{ state.theme=i; document.querySelectorAll('#palGrid .pal-opt').forEach(x=>x.classList.remove('sel')); d.classList.add('sel'); updateCard(true); };
+    g.appendChild(d);
+  });
+}
+
+/* ================= CARD RENDERING ================= */
+function currentOccasion(){ return OCCASIONS.find(o=>o.key===state.occasion) || OCCASIONS[0]; }
+function genCode(){
+  const alpha = 'ABCDEFGHJKMNPQRSTUVWXYZ23456789';
+  let s = '';
+  for (let i=0;i<8;i++) s += alpha[Math.floor(Math.random()*alpha.length)];
+  return 'EM-' + s.slice(0,4) + '-' + s.slice(4);
+}
+function makeBubbles(){
+  const wrap = document.getElementById('cpBubbles');
+  wrap.innerHTML = '';
+  for (let i=0;i<14;i++){
+    const b = document.createElement('i');
+    const size = 14 + Math.random()*46;
+    b.style.width = size+'px'; b.style.height = size+'px';
+    b.style.left = (Math.random()*90)+'%';
+    b.style.top = (Math.random()*90)+'%';
+    b.style.animationDelay = (Math.random()*5)+'s';
+    b.style.animationDuration = (4+Math.random()*5)+'s';
+    wrap.appendChild(b);
+  }
+}
+function updateCard(soft){
+  const theme = THEMES[state.theme];
+  const occ = currentOccasion();
+  const preview = document.getElementById('cardPreview');
+  preview.style.background = theme.grad;
+  document.getElementById('cpName').textContent = state.recipient || 'Your Loved One';
+  document.getElementById('cpAmount').textContent = '$' + state.amount.toLocaleString();
+  document.getElementById('cpOccasion').textContent = occ.tag;
+  document.getElementById('cpMsg').textContent = state.message || DEFAULT_MSG;
+  if (!soft) makeBubbles();
+}
+function lockCard(){
+  cardCode = genCode();
+  document.getElementById('cpCode').textContent = cardCode;
+  const chip = document.getElementById('codeChip');
+  chip.style.display = 'flex';
+  document.getElementById('codeText').textContent = cardCode;
+}
+function specText(){
+  const occ = currentOccasion();
+  const theme = THEMES[state.theme];
+  const lines = [
+    '🎁 GIFT CARD ORDER',
+    '— Amount: $' + state.amount.toLocaleString(),
+    '— Occasion: ' + occ.label,
+    '— Theme: ' + theme.name,
+    '— Recipient: ' + (state.recipient || '—'),
+    '— From: ' + (state.from || '—'),
+    '— Message: "' + (state.message || DEFAULT_MSG) + '"',
+    '— Gift code: ' + (cardCode || 'not yet generated')
+  ];
+  return lines.join('\n');
+}
+
+/* ================= ACTIONS ================= */
+document.getElementById('designBtn').addEventListener('click', ()=>{
+  updateCard(false);
+  lockCard();
+  confettiBurst();
+  const card = document.getElementById('cardPreview');
+  card.scrollIntoView({ behavior:'smooth', block:'center' });
+});
+document.getElementById('surpriseBtn').addEventListener('click', ()=>{
+  const m = SUGGESTIONS[Math.floor(Math.random()*SUGGESTIONS.length)];
+  document.getElementById('message').value = m;
+  state.message = m;
+  updateCard(true);
+});
+document.getElementById('recipient').addEventListener('input',(e)=>{ state.recipient = e.target.value.trim(); updateCard(true); });
+document.getElementById('fromName').addEventListener('input',(e)=>{ state.from = e.target.value.trim(); });
+document.getElementById('message').addEventListener('input',(e)=>{ state.message = e.target.value; updateCard(true); });
+
+document.getElementById('copyBtn').addEventListener('click', async ()=>{
+  if (!cardCode) return;
+  try {
+    await navigator.clipboard.writeText(cardCode);
+    const b = document.getElementById('copyBtn'); b.textContent = '✓'; setTimeout(()=>b.textContent='📋', 1500);
+  } catch(e){
+    const b = document.getElementById('copyBtn'); b.textContent = '✓'; setTimeout(()=>b.textContent='📋', 1500);
+  }
+});
+document.getElementById('whatsappBtn').addEventListener('click', ()=>{
+  const occ = currentOccasion();
+  const text = encodeURIComponent(
+    '🎁 I designed a gift card for ' + (state.recipient||'you') + '! ' +
+    '$' + state.amount.toLocaleString() + ' of ' + occ.label.toLowerCase() + ' balloon magic from ' + (state.from||'me') +
+    (cardCode ? ' — code: ' + cardCode : '') + '\n\nOrder yours here: https://everlastingmemories.vercel.app/gift-card.html 🎈'
+  );
+  window.open('https://wa.me/12039817244?text='+text, '_blank');
+});
+document.getElementById('printBtn').addEventListener('click', ()=>{ window.print(); });
+document.getElementById('shareBtn').addEventListener('click', async (e)=>{
+  e.preventDefault();
+  const occ = currentOccasion();
+  const text = '🎁 A gift card for ' + (state.recipient||'you') + ' — $' + state.amount.toLocaleString() + ' of ' + occ.label.toLowerCase() + ' balloon magic from Everlasting Memories' + (cardCode ? ' (code: '+cardCode+')' : '') + '!';
+  if (navigator.share){
+    try { await navigator.share({ title:'Everlasting Memories Gift Card', text, url:'https://everlastingmemories.vercel.app/gift-card.html' }); } catch(e){}
+  } else {
+    try { await navigator.clipboard.writeText(text + ' https://everlastingmemories.vercel.app/gift-card.html'); alert('Copied to clipboard — paste it anywhere!'); } catch(e){ window.open('https://wa.me/?text='+encodeURIComponent(text), '_blank'); }
+  }
+});
+
+/* ================= ORDER FORM ================= */
+document.getElementById('orderForm').addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  const msg = document.getElementById('formMsg');
+  const btn = document.getElementById('submitBtn');
+  msg.className = 'msg';
+  msg.style.display = 'none';
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  if (!name || !email){ msg.className='msg err'; msg.style.display='block'; msg.textContent='Please add your name and email so we can confirm your gift card order.'; return; }
+  btn.disabled = true; btn.textContent = 'Sending…'; btn.style.opacity = '.7';
+  try {
+    const payload = {
+      name, email,
+      phone: document.getElementById('phone').value.trim(),
+      eventType: 'gift-card',
+      eventDate: '',
+      message: specText() + '\n\n(Lead from Gift Card Studio — buyer wants to purchase this card)',
+      source: 'gift-card-studio'
+    };
+    const res = await fetch('/api/leads.js', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) });
+    const json = await res.json();
+    if (!json.success) throw new Error(json.error||'submit failed');
+    msg.className='msg ok'; msg.style.display='block';
+    msg.innerHTML = '&#10003; Order received! Isabella will call or email within 24 hours to confirm payment &amp; send the final card.';
+    btn.textContent = '&#127873; Order Received — We\'ll Reply Soon';
+  } catch(err){
+    console.error(err);
+    msg.className='msg err'; msg.style.display='block';
+    msg.textContent='Something went wrong — please call 203-981-7244 or email Hey.everlasting.memories@gmail.com';
+    btn.disabled = false; btn.textContent = '&#127873; Order This Gift Card'; btn.style.opacity = '1';
+  }
+});
+
+/* ================= FAQ ================= */
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click', ()=> q.parentElement.classList.toggle('open'));
+});
+
+/* ================= CONFETTI ================= */
+const cvs = document.getElementById('confetti');
+const ctx = cvs.getContext('2d');
+let pieces = [], confettiRunning = false;
+function sizeCanvas(){ cvs.width = window.innerWidth; cvs.height = window.innerHeight; }
+window.addEventListener('resize', sizeCanvas); sizeCanvas();
+function confettiBurst(){
+  const theme = THEMES[state.theme];
+  const colors = theme.colors.concat(['#f5e7c1','#ffffff']);
+  pieces = [];
+  for (let i=0;i<90;i++){
+    pieces.push({
+      x: cvs.width/2 + (Math.random()-0.5)*160,
+      y: cvs.height*0.35,
+      w: 6+Math.random()*7, h: 8+Math.random()*10,
+      vx:(Math.random()-0.5)*7, vy:-(Math.random()*10+4),
+      rot:Math.random()*Math.PI*2, vr:(Math.random()-0.5)*0.3,
+      color: colors[Math.floor(Math.random()*colors.length)],
+      life: 1
+    });
+  }
+  if (!confettiRunning){ confettiRunning = true; requestAnimationFrame(confettiLoop); }
+}
+function confettiLoop(){
+  ctx.clearRect(0,0,cvs.width,cvs.height);
+  let alive = 0;
+  pieces.forEach(p=>{
+    p.x += p.vx; p.y += p.vy; p.vy += 0.25; p.rot += p.vr; p.life -= 0.008;
+    if (p.life <= 0) return;
+    alive++;
+    ctx.save();
+    ctx.translate(p.x,p.y); ctx.rotate(p.rot);
+    ctx.globalAlpha = Math.max(0, p.life);
+    ctx.fillStyle = p.color;
+    ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);
+    ctx.restore();
+  });
+  if (alive > 0){ requestAnimationFrame(confettiLoop); } else { confettiRunning = false; ctx.clearRect(0,0,cvs.width,cvs.height); }
+}
+
+/* ================= INIT ================= */
+buildAmountGrid(); buildOccGrid(); buildPalGrid(); updateCard(false);
+</script>
+</body>
+</html>
