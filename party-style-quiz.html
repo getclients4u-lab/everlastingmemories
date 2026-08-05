@@ -19,6 +19,8 @@ body{font-family:'Inter',sans-serif; background:var(--beige); color:var(--ink); 
 h1,h2,h3{font-family:'Playfair Display',serif; font-weight:600}
 header{text-align:center; padding:48px 0 12px}
 header .kicker{letter-spacing:.22em; text-transform:uppercase; font-size:.72rem; color:var(--gold); font-weight:600}
+header .home-link{display:inline-block; margin-bottom:14px; color:var(--gold); text-decoration:none; font-weight:600; font-size:.88rem; letter-spacing:.02em; opacity:.9}
+header .home-link:hover{opacity:1; text-decoration:underline}
 header h1{font-size:clamp(1.9rem,4.5vw,2.7rem); margin:10px 0 8px}
 header p{color:var(--muted); max-width:520px; margin:0 auto; font-size:.98rem}
 .progress{height:6px; background:var(--line); border-radius:99px; margin:28px 0 8px; overflow:hidden}
@@ -83,6 +85,7 @@ header p{color:var(--muted); max-width:520px; margin:0 auto; font-size:.98rem}
 <!-- TOOLS-BAR -->
 <div class="wrap">
   <header>
+    <a href="index.html" class="home-link">&#8592; Back to Home</a>
     <div class="kicker">Everlasting Memories · 60-second quiz</div>
     <h1>What's Your Party Style?</h1>
     <p>Answer five quick questions and we'll match you to the decor style you'll love — plus a setup recommendation and instant quote.</p>
