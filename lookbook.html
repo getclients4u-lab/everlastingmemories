@@ -30,7 +30,6 @@
     background: var(--navy);
     padding: 14px 24px;
     display: flex; align-items: center; justify-content: space-between;
-    position: sticky; top: 0; z-index: 50;
   }
   .look-header .brand { display: flex; align-items: center; gap: 12px; color: #fff; text-decoration: none; }
   .look-header .brand img { width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
@@ -132,36 +131,56 @@
 </style>
 </head>
 <body>
-<!-- TOOLS-BAR -->
 <style>
-  .tools-bar{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;align-items:center;
-    background:rgba(250,248,245,.96);border-bottom:1px solid #E8DFD4;padding:8px 12px;
-    position:sticky;top:0;z-index:900;box-shadow:0 2px 10px rgba(60,40,20,.06)}
-  .tools-bar a{font-family:'Inter',-apple-system,sans-serif;font-size:.74rem;font-weight:600;
-    text-transform:uppercase;letter-spacing:.05em;color:#2C2C2C;text-decoration:none;
-    padding:6px 12px;border-radius:999px;border:1px solid #E8DFD4;background:#fff;transition:all .2s}
-  .tools-bar a:hover{color:#C9A87C;border-color:#C9A87C}
-  .tools-bar a.tb-active{background:#C9A87C;border-color:#C9A87C;color:#fff}
+  .em-nav{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
+    background:#faf8f5;border-bottom:1px solid #E8DFD4;padding:10px 20px;
+    position:sticky;top:0;z-index:950;box-shadow:0 2px 10px rgba(60,40,20,.06)}
+  .em-nav-brand{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:1.05rem;color:#2C2C2C;text-decoration:none;letter-spacing:.02em}
+  .em-nav-links{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .em-nav-links>a,.em-nav-drop-btn{font-family:'Inter',-apple-system,sans-serif;font-size:.76rem;font-weight:600;
+    text-transform:uppercase;letter-spacing:.05em;color:#2C2C2C;text-decoration:none;background:none;border:none;cursor:pointer;padding:0}
+  .em-nav-links>a:hover,.em-nav-drop-btn:hover{color:#C9A87C}
+  .em-nav-hot{color:#C9A227 !important;font-weight:700 !important}
+  .em-nav-drop{position:relative}
+  .em-nav-drop-menu{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%) translateY(6px);
+    min-width:200px;background:#fff;border:1px solid #E8DFD4;border-radius:12px;box-shadow:0 14px 40px rgba(60,40,20,.14);
+    padding:8px;display:flex;flex-direction:column;gap:2px;opacity:0;pointer-events:none;transition:all .2s;z-index:960}
+  .em-nav-drop:hover .em-nav-drop-menu,.em-nav-drop:focus-within .em-nav-drop-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+  .em-nav-drop-menu a{font-size:.8rem;padding:8px 12px;border-radius:8px;color:#2C2C2C;text-decoration:none;white-space:nowrap;font-family:'Inter',sans-serif}
+  .em-nav-drop-menu a:hover{background:#E8DFD4;color:#C9A87C}
+  .em-nav-cta{background:#2C2C2C;color:#FAF8F5;text-decoration:none;padding:9px 18px;border-radius:999px;font-size:.76rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;font-family:'Inter',sans-serif}
+  .em-nav-cta:hover{background:#C9A87C}
+  @media(max-width:640px){.em-nav{justify-content:center;text-align:center}.em-nav-cta{display:none}}
 </style>
-<div class="tools-bar" role="navigation" aria-label="Tools">
-      <a href="cost-estimator.html">💰 Estimate Cost</a>
-      <a href="theme-generator.html">🎨 Theme Generator</a>
-      <a href="lookbook.html" class="tb-active">📖 Lookbook</a>
-      <a href="countdown.html">⏳ Countdown</a>
-      <a href="party-style-quiz.html">🎉 Party Style Quiz</a>
-      <a href="balloon-math.html">🎈 Balloon Math</a>
-      <a href="gift-card.html">🎁 Gift Cards</a>
-    </div>
-<!-- TOOLS-BAR -->
-
-<header class="look-header">
-  <a class="brand" href="index.html"><img src="logo.jpg" alt="Everlasting Memories logo"><span>Everlasting Memories</span></a>
-  <nav>
-    <a href="index.html">Home</a>
+<div class="em-nav" role="navigation" aria-label="Main navigation">
+  <a class="em-nav-brand" href="index.html">🎈 Everlasting Memories</a>
+  <div class="em-nav-links">
     <a href="services.html">Services</a>
     <a href="gallery.html">Gallery</a>
+    <a href="about.html">About</a>
+    <a href="faq.html">FAQ</a>
     <a href="contact.html">Contact</a>
-  </nav>
+    <a href="gift-card.html" class="em-nav-hot">Gift Cards</a>
+    <div class="em-nav-drop">
+      <button class="em-nav-drop-btn" type="button" aria-haspopup="true" aria-expanded="false">Tools &#9662;</button>
+      <div class="em-nav-drop-menu">
+        <a href="cost-estimator.html">💰 Estimate Cost</a>
+        <a href="theme-generator.html">🎨 Theme Generator</a>
+        <a href="lookbook.html" style="background:#C9A87C;color:#fff;">📖 Lookbook</a>
+        <a href="countdown.html">⏳ Countdown</a>
+        <a href="party-style-quiz.html">🎉 Party Style Quiz</a>
+        <a href="balloon-math.html">🎈 Balloon Math</a>
+        <a href="gift-card.html">🎁 Gift Cards</a>
+      </div>
+    </div>
+  </div>
+  <a class="em-nav-cta" href="cost-estimator.html">Get a Quote</a>
+</div>
+
+
+
+<header class="look-header" style="padding-top:14px;">
+  <a class="brand" href="index.html"><img src="logo.jpg" alt="Everlasting Memories logo"><span>Everlasting Memories</span></a>
 </header>
 
 <section class="hero-band">
