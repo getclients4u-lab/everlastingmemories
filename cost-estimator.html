@@ -31,6 +31,18 @@
     --charcoal: #2c2c2c;
     --black: #1a1a1a;
   }
+  .estimator-home-link {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: var(--black);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+    opacity: 0.75;
+    transition: opacity 0.2s;
+  }
+  .estimator-home-link:hover { opacity: 1; text-decoration: underline; }
   .estimator-badge {
     display: inline-block;
     background: var(--gold);
@@ -430,6 +442,7 @@
 
 <div class="estimator-wrapper">
   <div class="estimator-header">
+    <a href="index.html" class="estimator-home-link">&#8592; Back to Home</a>
     <span class="estimator-badge">&#10024; Free & Instant</span>
     <h1>What Will Your Event Decor Cost?</h1>
     <p>Answer a few quick questions. Get a real estimate in 60 seconds — no commitment, no spam.</p>
