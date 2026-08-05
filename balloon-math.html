@@ -95,6 +95,27 @@ footer a{color:var(--c1);font-weight:600;text-decoration:none}
 </style>
 </head>
 <body>
+<!-- TOOLS-BAR -->
+<style>
+  .tools-bar{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;align-items:center;
+    background:rgba(250,248,245,.96);border-bottom:1px solid #E8DFD4;padding:8px 12px;
+    position:sticky;top:0;z-index:900;box-shadow:0 2px 10px rgba(60,40,20,.06)}
+  .tools-bar a{font-family:'Inter',-apple-system,sans-serif;font-size:.74rem;font-weight:600;
+    text-transform:uppercase;letter-spacing:.05em;color:#2C2C2C;text-decoration:none;
+    padding:6px 12px;border-radius:999px;border:1px solid #E8DFD4;background:#fff;transition:all .2s}
+  .tools-bar a:hover{color:#C9A87C;border-color:#C9A87C}
+  .tools-bar a.tb-active{background:#C9A87C;border-color:#C9A87C;color:#fff}
+</style>
+<div class="tools-bar" role="navigation" aria-label="Tools">
+      <a href="cost-estimator.html">💰 Estimate Cost</a>
+      <a href="theme-generator.html">🎨 Theme Generator</a>
+      <a href="lookbook.html">📖 Lookbook</a>
+      <a href="countdown.html">⏳ Countdown</a>
+      <a href="party-style-quiz.html">🎉 Party Style Quiz</a>
+      <a href="balloon-math.html" class="tb-active">🎈 Balloon Math</a>
+      <a href="gift-card.html">🎁 Gift Cards</a>
+    </div>
+<!-- TOOLS-BAR -->
 <header>
   <a href="index.html" class="home-link">&#8592; Back to Home</a>
   <div class="badge">&#129514; Free Client Tool</div>
