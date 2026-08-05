@@ -8,7 +8,7 @@
 <meta property="og:title" content="Gift Card Studio — Everlasting Memories">
 <meta property="og:description" content="Design a beautiful, personalized gift card for balloon art & event decor. Perfect for birthdays, weddings, baby showers, holidays & more.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://everlastingmemories.vercel.app/gift-card.html">
+<meta property="og:url" content="https://myeverlastingmemories.com/gift-card.html">
 <meta property="og:image" content="https://everlastingmemories.vercel.app/logo.jpg">
 <meta name="theme-color" content="#8a6a4e">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -224,9 +224,10 @@ footer a{color:var(--c1);font-weight:600;text-decoration:none}
         <div class="preview-cap">Your card updates live — hit "Design My Gift Card" to lock in the code.</div>
         <div class="code-chip" id="codeChip" style="display:none;">🎟️ <span id="codeText"></span> <button id="copyBtn" title="Copy code">&#128203;</button></div>
         <div class="card-actions">
-          <button class="cta-btn small" id="whatsappBtn" type="button">&#128172; Share on WhatsApp</button>
+          <button class="cta-btn small" id="whatsappBtn" type="button">&#128228; Share Card</button>
           <button class="cta-btn small ghost" id="printBtn" type="button">&#128424; Print Card</button>
         </div>
+        <div class="msg" id="shareStatus"></div>
         <a class="cta-btn small ghost" id="shareBtn" href="#" style="margin-top:10px;">&#128228; Share via… (native)</a>
       </div>
 
@@ -421,26 +422,40 @@ document.getElementById('copyBtn').addEventListener('click', async ()=>{
     const b = document.getElementById('copyBtn'); b.textContent = '✓'; setTimeout(()=>b.textContent='📋', 1500);
   }
 });
-document.getElementById('whatsappBtn').addEventListener('click', ()=>{
+const shareStatus = document.getElementById('shareStatus');
+const setShareStatus = (t, cls) => { shareStatus.textContent = t; shareStatus.className = 'msg ' + (cls||'ok'); };
+const shareCardText = () => {
   const occ = currentOccasion();
-  const text = encodeURIComponent(
-    '🎁 I designed a gift card for ' + (state.recipient||'you') + '! ' +
+  return '🎁 I designed a gift card for ' + (state.recipient||'you') + '! ' +
     '$' + state.amount.toLocaleString() + ' of ' + occ.label.toLowerCase() + ' balloon magic from ' + (state.from||'me') +
-    (cardCode ? ' — code: ' + cardCode : '') + '\n\nOrder yours here: https://everlastingmemories.vercel.app/gift-card.html 🎈'
-  );
-  window.open('https://wa.me/12039817244?text='+text, '_blank');
-});
-document.getElementById('printBtn').addEventListener('click', ()=>{ window.print(); });
-document.getElementById('shareBtn').addEventListener('click', async (e)=>{
-  e.preventDefault();
-  const occ = currentOccasion();
-  const text = '🎁 A gift card for ' + (state.recipient||'you') + ' — $' + state.amount.toLocaleString() + ' of ' + occ.label.toLowerCase() + ' balloon magic from Everlasting Memories' + (cardCode ? ' (code: '+cardCode+')' : '') + '!';
+    (cardCode ? ' — code: ' + cardCode : '') + '\n\nGet yours at https://myeverlastingmemories.com/gift-card.html 🎈';
+};
+const shareCard = async () => {
+  const text = shareCardText();
+  const url = 'https://myeverlastingmemories.com/gift-card.html';
   if (navigator.share){
-    try { await navigator.share({ title:'Everlasting Memories Gift Card', text, url:'https://everlastingmemories.vercel.app/gift-card.html' }); } catch(e){}
-  } else {
-    try { await navigator.clipboard.writeText(text + ' https://everlastingmemories.vercel.app/gift-card.html'); alert('Copied to clipboard — paste it anywhere!'); } catch(e){ window.open('https://wa.me/?text='+encodeURIComponent(text), '_blank'); }
+    try { await navigator.share({ title:'Everlasting Memories Gift Card', text, url }); return; } catch(e){ /* cancelled — fall through */ }
   }
-});
+  try {
+    await navigator.clipboard.writeText(text + '\n' + url);
+    setShareStatus('✓ Copied to clipboard — paste it anywhere!');
+  } catch(e){
+    try {
+      const ta = document.createElement('textarea');
+      ta.value = text + '\n' + url;
+      ta.style.position='fixed'; ta.style.opacity='0';
+      document.body.appendChild(ta); ta.select();
+      document.execCommand('copy');
+      document.body.removeChild(ta);
+      setShareStatus('✓ Copied to clipboard — paste it anywhere!');
+    } catch(e2){
+      setShareStatus('Copy failed — long-press the text above to copy it.', 'err');
+    }
+  }
+};
+document.getElementById('whatsappBtn').addEventListener('click', shareCard);
+document.getElementById('printBtn').addEventListener('click', ()=>{ window.print(); });
+document.getElementById('shareBtn').addEventListener('click', (e)=>{ e.preventDefault(); shareCard(); });
 
 /* ================= ORDER FORM ================= */
 document.getElementById('orderForm').addEventListener('submit', async (e)=>{
