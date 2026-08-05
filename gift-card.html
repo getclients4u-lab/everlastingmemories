@@ -232,6 +232,7 @@ footer a{color:var(--c1);font-weight:600;text-decoration:none}
         <div class="code-chip" id="codeChip" style="display:none;">🎟️ <span id="codeText"></span> <button id="copyBtn" title="Copy code">&#128203;</button></div>
         <div class="card-actions">
           <button class="cta-btn small" id="whatsappBtn" type="button">&#128228; Share Card</button>
+          <button class="cta-btn small ghost" id="pdfBtn" type="button">&#128196; Save as PDF</button>
           <button class="cta-btn small ghost" id="printBtn" type="button">&#128424; Print Card</button>
         </div>
         <div class="msg" id="shareStatus"></div>
@@ -461,11 +462,12 @@ const shareCard = async () => {
   }
 };
 document.getElementById('whatsappBtn').addEventListener('click', shareCard);
-document.getElementById('printBtn').addEventListener('click', ()=>{ printCard(); });
+document.getElementById('printBtn').addEventListener('click', ()=>{ printCard('Print'); });
+document.getElementById('pdfBtn').addEventListener('click', ()=>{ printCard('Save as PDF'); });
 document.getElementById('shareBtn').addEventListener('click', (e)=>{ e.preventDefault(); shareCard(); });
 
 /* ================= PRINT: dedicated card-only window ================= */
-function printCard(){
+function printCard(mode){
   const preview = document.getElementById('cardPreview');
   const grad = preview.style.background || 'linear-gradient(135deg,#8a5a44,#c98d5e)';
   const name = document.getElementById('cpName').textContent;
@@ -475,7 +477,7 @@ function printCard(){
   const code = document.getElementById('cpCode').textContent;
   const valid = document.querySelector('.cp-valid').textContent;
   const w = window.open('', '_blank', 'width=1000,height=650');
-  if (!w){ alert('Please allow pop-ups so we can open the print view.'); return; }
+  if (!w){ alert('Please allow pop-ups so we can open the ' + (mode||'print') + ' view.'); return; }
   w.document.write(`<!doctype html><html><head><meta charset="utf-8">
   <title>Everlasting Memories Gift Card</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
