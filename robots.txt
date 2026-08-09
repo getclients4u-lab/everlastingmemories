@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /analytics
+Disallow: /dashboard
+Disallow: /scanner
+Disallow: /api/
+
+Sitemap: https://myeverlastingmemories.com/sitemap.xml

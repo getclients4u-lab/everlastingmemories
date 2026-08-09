@@ -8,8 +8,8 @@
 <meta property="og:title" content="Balloon Math — Garland & Arch Size Calculator">
 <meta property="og:description" content="Find out exactly how many balloons your arch or garland needs — with a live preview, build time, and price range. Free tool from Everlasting Memories.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://everlastingmemories.vercel.app/balloon-math.html">
-<meta property="og:image" content="https://everlastingmemories.vercel.app/logo.jpg">
+<meta property="og:url" content="https://myeverlastingmemories.com/balloon-math.html">
+<meta property="og:image" content="https://myeverlastingmemories.com/logo.jpg">
 <meta name="theme-color" content="#5a3d2b">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -503,7 +503,7 @@ function specText(){
   const res = compute();
   const pal = PALETTES[state.palette];
   const mix = MIXES[state.mix];
-  return '🎈 Balloon Math request via everlastingmemories.vercel.app\n'+
+  return '🎈 Balloon Math request via myeverlastingmemories.com\n'+
     '• Structure: '+STRUCTURES[state.structure].label+' ('+dimsText()+')\n'+
     '• Balloons: ≈ '+res.total.toLocaleString()+' total ('+res.parts.map(p=>p.n.toLocaleString()+' × '+p.sz).join(', ')+')\n'+
     '• Coverage: ≈ '+fmtFt(res.len)+' ft · Mix: '+mix.label+' · Fullness: '+FULLNESS[state.fullness].label+'\n'+
