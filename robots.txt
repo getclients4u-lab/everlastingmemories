@@ -5,5 +5,7 @@ Disallow: /analytics
 Disallow: /dashboard
 Disallow: /scanner
 Disallow: /api/
+Disallow: /journal.html
+Disallow: /social-connect.html
 
 Sitemap: https://myeverlastingmemories.com/sitemap.xml

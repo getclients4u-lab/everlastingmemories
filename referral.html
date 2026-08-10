@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Refer & Earn — Refer a Friend, Get Rewarded | Everlasting Memories</title>
+<meta name="description" content="Refer a friend to Everlasting Memories balloon art & event decor and you both get rewarded. Share your referral link, your friend books their dream event, and you earn credit toward your next celebration. Serving all of Connecticut.">
+<meta property="og:title" content="Refer & Earn — Everlasting Memories">
+<meta property="og:description" content="Share the joy of beautiful event decor. Refer a friend, and you both get rewarded on your next Everlasting Memories event.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://myeverlastingmemories.com/referral.html">
+<meta property="og:image" content="https://everlastingmemories.vercel.app/logo.jpg">
+<meta name="theme-color" content="#8a6a4e">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="analytics.js" defer></script>
+<style>
+:root{--c1:#5a3d2b;--c2:#8a6a4e;--bg:#f8f4ee;--ink:#33281f;--accent:#C9A227;--gold:#d4af37;--card:#ffffff;--line:#e9dfd2;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+h1,h2,h3,.display{font-family:'Playfair Display',Georgia,serif}
+
+/* Full site nav (matches tool pages) */
+.em-nav{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  background:#faf8f5;border-bottom:1px solid #E8DFD4;padding:10px 20px;
+  position:sticky;top:0;z-index:950;box-shadow:0 2px 10px rgba(60,40,20,.06)}
+.em-nav-brand{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:1.05rem;color:#2C2C2C;text-decoration:none;letter-spacing:.02em}
+.em-nav-links{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.em-nav-links>a,.em-nav-drop-btn{font-family:'Inter',-apple-system,sans-serif;font-size:.76rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:.05em;color:#2C2C2C;text-decoration:none;background:none;border:none;cursor:pointer;padding:0}
+.em-nav-links>a:hover,.em-nav-drop-btn:hover{color:#C9A87C}
+.em-nav-hot{color:#C9A227 !important;font-weight:700 !important}
+.em-nav-drop{position:relative}
+.em-nav-drop-menu{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%) translateY(6px);
+  min-width:200px;background:#fff;border:1px solid #E8DFD4;border-radius:12px;box-shadow:0 14px 40px rgba(60,40,20,.14);
+  padding:8px;display:flex;flex-direction:column;gap:2px;opacity:0;pointer-events:none;transition:all .2s;z-index:960}
+.em-nav-drop:hover .em-nav-drop-menu,.em-nav-drop:focus-within .em-nav-drop-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.em-nav-drop-menu a{font-size:.8rem;padding:8px 12px;border-radius:8px;color:#2C2C2C;text-decoration:none;white-space:nowrap;font-family:'Inter',sans-serif}
+.em-nav-drop-menu a:hover{background:#E8DFD4;color:#C9A87C}
+.em-nav-cta{background:#2C2C2C;color:#FAF8F5;text-decoration:none;padding:9px 18px;border-radius:999px;font-size:.76rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;font-family:'Inter',sans-serif}
+.em-nav-cta:hover{background:#C9A87C}
+@media(max-width:640px){.em-nav{justify-content:center;text-align:center}.em-nav-cta{display:none}}
+
+/* Page header */
+header{background:linear-gradient(135deg,#5a3d2b,#8a6a4e);color:#fff;padding:44px 24px 38px;text-align:center;position:relative;overflow:hidden}
+header:after{content:"🤝";position:absolute;right:18px;top:14px;font-size:3rem;opacity:.25;transform:rotate(15deg)}
+header:before{content:"🎈";position:absolute;left:18px;bottom:12px;font-size:2.4rem;opacity:.2;transform:rotate(-20deg)}
+.home-link{display:inline-block;margin-bottom:12px;color:#f3d78a;text-decoration:none;font-weight:600;font-size:.88rem;letter-spacing:.02em}
+.home-link:hover{color:#fff}
+header h1{font-size:clamp(1.8rem,4.5vw,2.6rem);margin-bottom:10px}
+header p{color:#eadfce;max-width:680px;margin:0 auto;font-size:1.03rem}
+.badge-top{display:inline-block;background:rgba(255,255,255,.14);color:#f3d78a;padding:5px 14px;border-radius:999px;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
+
+.container{max-width:1080px;margin:0 auto;padding:28px 20px 60px}
+
+/* How it works */
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:6px 0 26px}
+@media(max-width:760px){.how{grid-template-columns:1fr}}
+.how .step{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;text-align:center;box-shadow:0 3px 16px rgba(90,61,43,.06)}
+.how .step .n{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff;font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;margin-bottom:12px}
+.how .step h3{font-size:1.05rem;color:var(--c1);margin-bottom:6px}
+.how .step p{font-size:.9rem;color:#6b5b49}
+
+.layout{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;align-items:start}
+@media(max-width:900px){.layout{grid-template-columns:1fr}}
+.card{background:var(--card);border-radius:16px;padding:26px;box-shadow:0 3px 18px rgba(90,61,43,.08);margin-bottom:18px;border:1px solid var(--line)}
+.card h2{font-size:1.2rem;color:var(--c1);margin-bottom:6px;font-family:'Playfair Display',serif}
+.card .sub{color:#9a8a76;font-size:.9rem;margin-bottom:18px}
+
+/* Share box */
+.share-box{background:linear-gradient(135deg,#f7efe3,#fdfaf5);border:1px solid var(--line);border-radius:16px;padding:26px;text-align:center;margin-bottom:18px}
+.share-box .big{font-size:1.35rem;color:var(--c1);font-family:'Playfair Display',serif;margin-bottom:6px}
+.share-box .perk{display:inline-block;background:#fff;border:2px dashed var(--gold);color:var(--c1);padding:10px 22px;border-radius:999px;font-weight:700;font-size:1rem;margin:10px 0 18px;font-family:'Inter',sans-serif}
+.link-row{display:flex;gap:8px;margin-bottom:10px}
+.link-row input{flex:1;padding:12px 14px;border:1px solid var(--line);border-radius:12px;font-size:.85rem;color:var(--ink);background:#fff;font-family:'Inter',sans-serif}
+.link-row button{white-space:nowrap;background:#fff;border:2px solid var(--c1);color:var(--c1);padding:0 18px;border-radius:12px;font-weight:600;font-size:.85rem;cursor:pointer;transition:.15s;font-family:'Inter',sans-serif}
+.link-row button:hover{background:var(--c1);color:#fff}
+.btn-share{display:block;width:100%;background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff;border:none;padding:14px;border-radius:12px;font-size:.95rem;font-weight:600;cursor:pointer;transition:.15s;font-family:'Inter',sans-serif;margin-top:6px}
+.btn-share:hover{filter:brightness(1.08)}
+#shareStatus{font-size:.85rem;margin-top:10px;min-height:1.2em;font-weight:600}
+
+/* Form */
+label{display:block;font-size:.8rem;font-weight:600;color:var(--c1);margin:14px 0 6px;text-transform:uppercase;letter-spacing:.04em}
+input,select,textarea{width:100%;padding:12px 14px;border:1px solid var(--line);border-radius:12px;font-size:.9rem;color:var(--ink);background:#fff;font-family:'Inter',sans-serif}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(212,175,55,.18)}
+.btn-submit{width:100%;background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff;border:none;padding:15px;border-radius:12px;font-size:1rem;font-weight:600;cursor:pointer;transition:.15s;margin-top:20px;font-family:'Inter',sans-serif}
+.btn-submit:hover{filter:brightness(1.08)}
+#formResult{font-size:.9rem;margin-top:14px;text-align:center;font-weight:600;min-height:1.4em}
+
+/* Rewards strip */
+.rewards{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:26px 0}
+@media(max-width:600px){.rewards{grid-template-columns:1fr}}
+.reward{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;text-align:center;box-shadow:0 3px 16px rgba(90,61,43,.06)}
+.reward .ic{font-size:2rem;margin-bottom:8px}
+.reward h3{color:var(--c1);font-size:1.05rem;margin-bottom:4px;font-family:'Playfair Display',serif}
+.reward .val{font-size:1.5rem;font-weight:700;color:var(--accent)}
+.reward p{font-size:.85rem;color:#6b5b49;margin-top:4px}
+
+/* Terms */
+.terms{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 24px;margin-top:22px}
+.terms h3{color:var(--c1);font-size:1rem;margin-bottom:10px}
+.terms ul{padding-left:18px}
+.terms li{font-size:.85rem;color:#6b5b49;margin:6px 0}
+
+footer{background:var(--c1);color:#d8cbb8;text-align:center;padding:26px 20px;font-size:.85rem}
+footer a{color:#f3d78a;text-decoration:none}
+</style>
+</head>
+<body>
+
+<div class="em-nav" role="navigation" aria-label="Main navigation">
+  <a class="em-nav-brand" href="index.html">🎈 Everlasting Memories</a>
+  <div class="em-nav-links">
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="about.html">About</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+    <a href="gift-card.html" class="em-nav-hot">Gift Cards</a>
+    <div class="em-nav-drop">
+      <button class="em-nav-drop-btn" type="button" aria-haspopup="true" aria-expanded="false">Tools &#9662;</button>
+      <div class="em-nav-drop-menu">
+        <a href="cost-estimator.html">Estimate Cost</a>
+        <a href="theme-generator.html">Theme Generator</a>
+        <a href="lookbook.html">Lookbook</a>
+        <a href="countdown.html">Countdown</a>
+        <a href="party-style-quiz.html">Party Style Quiz</a>
+        <a href="balloon-math.html">Balloon Math</a>
+      </div>
+    </div>
+  </div>
+  <a class="em-nav-cta" href="cost-estimator.html">Get a Quote</a>
+</div>
+
+<header>
+  <a href="index.html" class="home-link">&#8592; Back to Home</a>
+  <div class="badge-top">Free &amp; Friendly &#127881;</div>
+  <h1>Refer a Friend, Get Rewarded</h1>
+  <p>Know someone planning a party, wedding, baby shower, or corporate event? When they book with Everlasting Memories, <strong>you both</strong> get credit toward your next celebration. It's our way of saying thank you for spreading the word.</p>
+</header>
+
+<div class="container">
+  <!-- How it works -->
+  <div class="how">
+    <div class="step"><span class="n">1</span><h3>Share Your Link</h3><p>Grab your personal referral link and send it to friends &amp; family.</p></div>
+    <div class="step"><span class="n">2</span><h3>They Book</h3><p>Your friend confirms an event with Everlasting Memories and mentions you.</p></div>
+    <div class="step"><span class="n">3</span><h3>You Both Earn</h3><p>We apply credit to your next event — and theirs too. Win-win!</p></div>
+  </div>
+
+  <div class="layout">
+    <div>
+      <!-- Share box -->
+      <div class="card">
+        <div class="share-box">
+          <div class="big">Your Referral Link</div>
+          <p class="sub" style="margin-bottom:4px">Share this with friends — it's already personalized.</p>
+          <div class="perk">🎁 You BOTH get $25 off your next event</div>
+          <div class="link-row">
+            <input type="text" id="refLink" readonly value="https://myeverlastingmemories.com/referral.html?ref=isabella">
+            <button type="button" onclick="copyLink()">Copy</button>
+          </div>
+          <button class="btn-share" type="button" onclick="shareLink()">&#128228; Share Referral Link</button>
+          <div id="shareStatus"></div>
+        </div>
+      </div>
+
+      <!-- Rewards -->
+      <div class="rewards">
+        <div class="reward"><div class="ic">🎉</div><h3>Your Reward</h3><div class="val">$25 off</div><p>Your next Everlasting Memories event</p></div>
+        <div class="reward"><div class="ic">🥳</div><h3>Their Reward</h3><div class="val">$25 off</div><p>Their very first event with us</p></div>
+      </div>
+    </div>
+
+    <!-- Referral form -->
+    <div class="card">
+      <h2>Refer a Friend Now</h2>
+      <p class="sub">Tell us a little about your friend's upcoming event — we'll take it from there.</p>
+      <form id="refForm">
+        <label for="yourName">Your Name *</label>
+        <input type="text" id="yourName" required placeholder="Isabella Garcia">
+        <label for="yourEmail">Your Email *</label>
+        <input type="email" id="yourEmail" required placeholder="you@email.com">
+        <label for="friendName">Friend's Name *</label>
+        <input type="text" id="friendName" required placeholder="Their name">
+        <label for="friendEmail">Friend's Email</label>
+        <input type="email" id="friendEmail" placeholder="friend@email.com">
+        <label for="eventType">Upcoming Event</label>
+        <select id="eventType">
+          <option value="">Select...</option>
+          <option>Birthday</option>
+          <option>Wedding</option>
+          <option>Baby Shower</option>
+          <option>Corporate Event</option>
+          <option>Graduation</option>
+          <option>Holiday Party</option>
+          <option>Other</option>
+        </select>
+        <label for="eventDate">Event Date</label>
+        <input type="date" id="eventDate">
+        <label for="message">Notes</label>
+        <textarea id="message" rows="3" placeholder="Anything that would help us WOW them..."></textarea>
+        <button class="btn-submit" type="submit">&#127881; Send Referral</button>
+        <div id="formResult"></div>
+        <p style="font-size:.75rem;color:#9a8a76;margin-top:10px;text-align:center">Your friend isn't committed to anything by submitting — we'll simply reach out to say hi.</p>
+      </form>
+    </div>
+  </div>
+
+  <!-- Terms -->
+  <div class="terms">
+    <h3>How rewards work</h3>
+    <ul>
+      <li>Reward credit ($25) is applied after your friend's event is booked and confirmed.</li>
+      <li>Credit applies to any future Everlasting Memories event — no minimum, never expires for 12 months.</li>
+      <li>There's no limit to how many friends you can refer — the more you share, the more you save.</li>
+      <li>Applies to events in Connecticut. Cannot be combined with other offers.</li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; <span id="yr"></span> Everlasting Memories &middot; Balloon Art &amp; Event Decor &middot; <a href="https://instagram.com/everlasting.memories25" target="_blank" rel="noopener">@everlasting.memories25</a> &middot; <a href="tel:2039817244">203-981-7244</a></p>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+// Build ref param into link so each visitor can share back — keep it simple + shareable
+function currentLink(){
+  const base = 'https://myeverlastingmemories.com/referral.html';
+  return base + '?ref=share';
+}
+
+function copyLink(){
+  const inp = document.getElementById('refLink');
+  const text = currentLink();
+  inp.value = text;
+  if (navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(text).then(function(){
+      showStatus('&#9989; Link copied!');
+    }, function(){
+      legacyCopy(inp, text);
+    });
+  } else {
+    legacyCopy(inp, text);
+  }
+}
+
+function legacyCopy(inp, text){
+  inp.select(); inp.setSelectionRange(0, 99999);
+  try { document.execCommand('copy'); showStatus('&#9989; Link copied!'); }
+  catch(e){ showStatus('Copy not supported — long-press to copy: ' + text); }
+}
+
+function shareLink(){
+  const text = 'Get $25 off your next event with Everlasting Memories balloon art & decor \u2014 and I get $25 too! ' + currentLink();
+  if (navigator.share){
+    navigator.share({ title:'Everlasting Memories — Refer & Earn', text:text, url: currentLink() }).catch(function(){});
+  } else {
+    copyLink();
+    showStatus('&#9989; Link copied \u2014 paste it anywhere to share!');
+  }
+}
+
+function showStatus(msg){
+  const el = document.getElementById('shareStatus');
+  el.innerHTML = msg;
+  el.style.color = '#2e7d32';
+  setTimeout(function(){ el.textContent=''; }, 4000);
+}
+
+// Referral form -> leads API
+document.getElementById('refForm').addEventListener('submit', async function(e){
+  e.preventDefault();
+  const btn = this.querySelector('.btn-submit');
+  const result = document.getElementById('formResult');
+  const payload = {
+    name: document.getElementById('yourName').value.trim(),
+    email: document.getElementById('yourEmail').value.trim(),
+    phone: '',
+    eventType: document.getElementById('eventType').value || 'Referral',
+    eventDate: document.getElementById('eventDate').value || '',
+    message: 'REFERRAL from ' + document.getElementById('yourName').value.trim() + ' \u2192 friend: ' + document.getElementById('friendName').value.trim() + (document.getElementById('friendEmail').value ? ' (' + document.getElementById('friendEmail').value.trim() + ')' : '') + (document.getElementById('message').value ? ' | Notes: ' + document.getElementById('message').value : ''),
+    source: 'referral',
+    medium: 'refer-a-friend',
+    campaign: 'refer-earn',
+    type: 'lead'
+  };
+  btn.disabled = true; btn.textContent = 'Sending...';
+  result.textContent = '';
+  try {
+    const res = await fetch('/api/leads.js', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) });
+    const data = await res.json().catch(function(){return {};});
+    if (res.ok){
+      result.style.color = '#2e7d32';
+      result.innerHTML = '&#127881; Referral sent! Thank you — we\u2019ll reach out to your friend shortly.';
+      this.reset();
+    } else {
+      result.style.color = '#b3261e';
+      result.textContent = 'Something went wrong. Please try again, or email us directly.';
+    }
+  } catch(err){
+    result.style.color = '#b3261e';
+    result.textContent = 'Network error — please try again.';
+  }
+  btn.disabled = false; btn.textContent = '&#127881; Send Referral';
+});
+</script>
+</body>
+</html>
