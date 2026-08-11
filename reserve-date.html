@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reserve Your Date — Live Availability Calendar | Everlasting Memories</title>
+<meta name="description" content="See which dates are still available for your event in real time. Check the live availability calendar, pick your date, and send a free reservation request to Everlasting Memories — CT's balloon art & event decor studio.">
+<meta property="og:title" content="Reserve Your Date — Live Availability Calendar">
+<meta property="og:description" content="Check real-time availability for your event date, then reserve it in seconds. Free, no obligation — from Everlasting Memories, CT balloon art & event decor.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://myeverlastingmemories.com/reserve-date.html">
+<meta property="og:image" content="https://myeverlastingmemories.com/logo.jpg">
+<meta name="theme-color" content="#1f3a4d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="analytics.js" defer></script>
+<style>
+:root{--c1:#5a3d2b;--c2:#8a6a4e;--bg:#f8f4ee;--ink:#33281f;--accent:#C9A227;--gold:#d4af37;--card:#ffffff;--line:#e9dfd2;--navy:#1f3a4d;--navy2:#2e5e6e;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+h1,h2,h3,.display{font-family:'Playfair Display',Georgia,serif}
+header{background:linear-gradient(135deg,#1f3a4d,#2e5e6e);color:#fff;padding:38px 24px 30px;text-align:center;position:relative;overflow:hidden}
+header:after{content:"📅";position:absolute;right:18px;top:14px;font-size:3rem;opacity:.25;transform:rotate(12deg)}
+header:before{content:"🎈";position:absolute;left:18px;bottom:10px;font-size:2.4rem;opacity:.2;transform:rotate(-18deg)}
+.home-link{display:inline-block;margin-bottom:12px;color:#a8d4e0;text-decoration:none;font-weight:600;font-size:.88rem;letter-spacing:.02em}
+.home-link:hover{color:#fff}
+header h1{font-size:clamp(1.7rem,4.5vw,2.5rem);margin-bottom:8px}
+header p{color:#d8e8ee;max-width:680px;margin:0 auto;font-size:1.02rem}
+.container{max-width:1060px;margin:0 auto;padding:26px 20px}
+.layout{display:grid;grid-template-columns:1.25fr .95fr;gap:22px;align-items:start}
+@media(max-width:920px){.layout{grid-template-columns:1fr}}
+.card{background:var(--card);border-radius:16px;padding:24px;box-shadow:0 3px 18px rgba(90,61,43,.08);margin-bottom:18px;border:1px solid var(--line)}
+.card h2{font-size:1.12rem;color:var(--c1);margin-bottom:4px}
+.card .hint{color:#9a8a76;font-size:.85rem;margin-bottom:14px}
+.badge{display:inline-block;background:rgba(255,255,255,.18);color:#fff;padding:3px 12px;border-radius:999px;font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
+/* ===== CALENDAR ===== */
+.cal-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.cal-head h2{font-size:1.25rem;color:var(--navy)}
+.cal-nav{display:flex;gap:8px}
+.cal-nav button{width:38px;height:38px;border-radius:10px;border:1.5px solid var(--line);background:#fff;font-size:1.05rem;cursor:pointer;color:var(--navy);transition:.15s;font-family:'Inter',sans-serif}
+.cal-nav button:hover:not(:disabled){border-color:var(--accent);background:#fdf6e3}
+.cal-nav button:disabled{opacity:.35;cursor:not-allowed}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px}
+.cal-dow{text-align:center;font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#9a8a76;padding:4px 0}
+.day{position:relative;min-height:52px;border-radius:11px;border:1.5px solid var(--line);background:#fff;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;transition:.15s;font-family:'Inter',sans-serif;padding:4px 2px}
+.day:hover{transform:translateY(-2px);box-shadow:0 4px 12px rgba(60,40,20,.12)}
+.day .dnum{font-size:.92rem;font-weight:700;line-height:1}
+.day .ddot{font-size:.62rem;line-height:1}
+.day.available{background:#f0f7f0;border-color:#b5d8b5}
+.day.available:hover{border-color:#7cc47c}
+.day.limited{background:#fdf4dc;border-color:#eccf8f}
+.day.limited:hover{border-color:#e0a83c}
+.day.reserved{background:#fbecec;border-color:#e3b0b0;cursor:not-allowed}
+.day.reserved .dnum{color:#a05252}
+.day.closed{background:#f1ede6;border-color:#e2dcd2;cursor:not-allowed}
+.day.closed .dnum{color:#a89f92}
+.day.past{background:#f5f2ec;border-color:#ece7de;cursor:not-allowed;opacity:.55}
+.day.sat .dnum{color:var(--accent)}
+.day.sel{outline:3px solid var(--navy);outline-offset:1px;border-color:var(--navy);transform:translateY(-2px);box-shadow:0 5px 14px rgba(31,58,77,.22)}
+.day.reserved .ddot,.day.closed .ddot,.day.past .ddot{visibility:hidden}
+.legend{display:flex;flex-wrap:wrap;gap:10px 16px;margin-top:14px;padding-top:12px;border-top:1px dashed var(--line);font-size:.76rem;color:#7a6a52}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:4px;margin-right:5px;vertical-align:-1px;border:1px solid rgba(0,0,0,.08)}
+.legend .lg-av{background:#f0f7f0;border-color:#b5d8b5}
+.legend .lg-li{background:#fdf4dc;border-color:#eccf8f}
+.legend .lg-re{background:#fbecec;border-color:#e3b0b0}
+.legend .lg-cl{background:#f1ede6;border-color:#e2dcd2}
+.month-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+@media(max-width:480px){.month-stats{grid-template-columns:1fr}}
+.mstat{background:#faf7f1;border:1px solid var(--line);border-radius:11px;padding:9px 6px;text-align:center}
+.mstat b{display:block;font-size:1.15rem;font-family:'Playfair Display',serif;color:var(--navy)}
+.mstat span{font-size:.66rem;text-transform:uppercase;letter-spacing:.05em;color:#9a8a76;font-weight:600}
+.mstat.ok b{color:#3f8f3f}.mstat.warn b{color:#b07d17}.mstat.no b{color:#a05252}
+/* ===== BOOKING PANEL ===== */
+.panel{position:sticky;top:16px}
+@media(max-width:920px){.panel{position:static}}
+.panel-hero{background:linear-gradient(135deg,#1f3a4d,#2e5e6e);color:#fff;border-radius:16px;padding:22px;text-align:center;margin-bottom:14px}
+.panel-hero .big{font-size:1.6rem;font-weight:700;font-family:'Playfair Display',serif;line-height:1.25}
+.panel-hero .sub{color:#cfe3ea;font-size:.88rem;margin-top:6px}
+.panel-hero .sub b{color:#ffd97a}
+.status-pill{display:inline-block;padding:3px 12px;border-radius:999px;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin-top:8px}
+.status-pill.av{background:#2f6b2f;color:#eaf6ea}
+.status-pill.li{background:#8a6410;color:#fdf3d7}
+.status-pill.re{background:#7c2d2d;color:#fbecec}
+.status-pill.cl{background:#4a4a4a;color:#eee}
+.fg{margin-bottom:12px}
+.fg label{display:block;font-weight:600;font-size:.86rem;margin-bottom:4px;color:var(--c1)}
+.fg input,.fg select,.fg textarea{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;font-size:.95rem;background:#fff;font-family:'Inter',sans-serif;color:var(--ink)}
+.fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:var(--accent)}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:480px){.fg-row{grid-template-columns:1fr}}
+.cta-btn{display:block;width:100%;background:var(--accent);color:#fff;border:none;padding:14px;border-radius:12px;font-weight:700;font-size:1rem;cursor:pointer;transition:.15s;margin-top:12px;font-family:'Inter',sans-serif}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(201,162,39,.4)}
+.cta-btn.ghost{background:#fff;color:var(--navy);border:2px solid var(--navy);margin-top:8px}
+.cta-btn.ghost:hover{background:var(--navy);color:#fff}
+.cta-btn:disabled{opacity:.6;cursor:not-allowed;transform:none;box-shadow:none}
+.msg{display:none;border-radius:10px;padding:12px;font-size:.9rem;font-weight:500;margin-bottom:12px;text-align:center}
+.msg.ok{display:block;background:#eef7ee;border:1px solid #7cc47c;color:#2c6e2c}
+.msg.err{display:block;background:#fdeeee;border:1px solid #e08a8a;color:#a33}
+.window{background:#faf4e8;border-left:3px solid var(--gold);border-radius:8px;padding:10px 12px;font-size:.84rem;color:#7a6a4f;margin-top:4px;margin-bottom:12px}
+.pop-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.pop-chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:6px 13px;font-size:.8rem;font-weight:600;cursor:pointer;color:var(--c1);transition:.15s;font-family:'Inter',sans-serif}
+.pop-chip:hover{border-color:var(--accent);background:#fdf6e3}
+.pop-chip .lim{color:#b07d17}
+/* ===== SECTIONS ===== */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:6px}
+@media(max-width:720px){.steps{grid-template-columns:1fr}}
+.step{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;text-align:center}
+.step .ic{font-size:1.8rem;display:block;margin-bottom:8px}
+.step b{display:block;color:var(--c1);font-size:.95rem;margin-bottom:4px;font-family:'Playfair Display',serif}
+.step p{font-size:.82rem;color:#8d7b66}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:6px}
+.fact{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;font-size:.86rem;color:#5d4c38}
+.fact b{color:var(--c1);display:block;margin-bottom:4px}
+.faq-item{margin-bottom:10px}
+.faq-item details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px;cursor:pointer}
+.faq-item summary{font-weight:600;color:var(--c1);font-size:.93rem}
+.faq-item p{font-size:.87rem;color:#5d4c38;margin-top:8px}
+footer{text-align:center;color:#a08e79;font-size:.8rem;padding:30px 20px}
+footer a{color:var(--c1);font-weight:600;text-decoration:none}
+.hidden{display:none}
+/* confetti */
+#confettiLayer{position:fixed;inset:0;pointer-events:none;z-index:9999;overflow:hidden}
+.confetti{position:absolute;top:-20px;font-size:1.3rem;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:.9}}
+</style>
+</head>
+<body>
+<style>
+  .em-nav{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
+    background:#faf8f5;border-bottom:1px solid #E8DFD4;padding:10px 20px;
+    position:sticky;top:0;z-index:950;box-shadow:0 2px 10px rgba(60,40,20,.06)}
+  .em-nav-brand{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:1.05rem;color:#2C2C2C;text-decoration:none;letter-spacing:.02em}
+  .em-nav-links{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .em-nav-links>a,.em-nav-drop-btn{font-family:'Inter',-apple-system,sans-serif;font-size:.76rem;font-weight:600;
+    text-transform:uppercase;letter-spacing:.05em;color:#2C2C2C;text-decoration:none;background:none;border:none;cursor:pointer;padding:0}
+  .em-nav-links>a:hover,.em-nav-drop-btn:hover{color:#C9A87C}
+  .em-nav-hot{color:#C9A227 !important;font-weight:700 !important}
+  .em-nav-drop{position:relative}
+  .em-nav-drop-menu{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%) translateY(6px);
+    min-width:210px;background:#fff;border:1px solid #E8DFD4;border-radius:12px;box-shadow:0 14px 40px rgba(60,40,20,.14);
+    padding:8px;display:flex;flex-direction:column;gap:2px;opacity:0;pointer-events:none;transition:all .2s;z-index:960}
+  .em-nav-drop:hover .em-nav-drop-menu,.em-nav-drop:focus-within .em-nav-drop-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+  .em-nav-drop-menu a{font-size:.8rem;padding:8px 12px;border-radius:8px;color:#2C2C2C;text-decoration:none;white-space:nowrap;font-family:'Inter',sans-serif}
+  .em-nav-drop-menu a:hover{background:#E8DFD4;color:#C9A87C}
+  .em-nav-cta{background:#2C2C2C;color:#FAF8F5;text-decoration:none;padding:9px 18px;border-radius:999px;font-size:.76rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;font-family:'Inter',sans-serif}
+  .em-nav-cta:hover{background:#C9A87C}
+  @media(max-width:640px){.em-nav{justify-content:center;text-align:center}.em-nav-cta{display:none}}
+</style>
+<div class="em-nav" role="navigation" aria-label="Main navigation">
+  <a class="em-nav-brand" href="index.html">🎈 Everlasting Memories</a>
+  <div class="em-nav-links">
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="about.html">About</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+    <a href="gift-card.html" class="em-nav-hot">Gift Cards</a>
+    <div class="em-nav-drop">
+      <button class="em-nav-drop-btn" type="button" aria-haspopup="true" aria-expanded="false">Tools &#9662;</button>
+      <div class="em-nav-drop-menu">
+          <a href="cost-estimator.html">Estimate Cost</a>
+          <a href="theme-generator.html">Theme Generator</a>
+          <a href="lookbook.html">Lookbook</a>
+          <a href="countdown.html">Countdown</a>
+          <a href="party-style-quiz.html">Party Style Quiz</a>
+          <a href="balloon-math.html">Balloon Math</a>
+          <a href="reserve-date.html" style="background:#C9A87C;color:#fff;">Reserve Your Date</a>
+          <a href="referral.html">Refer &amp; Earn</a>
+        </div>
+    </div>
+  </div>
+  <a class="em-nav-cta" href="cost-estimator.html">Get a Quote</a>
+</div>
+
+
+<header>
+  <a href="index.html" class="home-link">&#8592; Back to Home</a>
+  <div class="badge">&#128197; New — Live Availability Calendar</div>
+  <h1>&#128197; Reserve Your Date</h1>
+  <p>See which dates are still open for your celebration <em>in real time</em> — then lock yours in before someone else does. Pick a date, tell us about your event, and Isabella will confirm within 24 hours. Free, no obligation.</p>
+</header>
+
+<div class="container">
+  <div class="layout">
+    <!-- LEFT: calendar -->
+    <div>
+      <div class="card">
+        <div class="cal-head">
+          <h2 id="monthLabel">August 2026</h2>
+          <div class="cal-nav">
+            <button id="prevBtn" aria-label="Previous month">&#8592;</button>
+            <button id="nextBtn" aria-label="Next month">&#8594;</button>
+          </div>
+        </div>
+        <div class="cal-grid" id="dowRow"></div>
+        <div class="cal-grid" id="calGrid"></div>
+        <div class="legend">
+          <span><i class="lg-av"></i>Available</span>
+          <span><i class="lg-li"></i>Limited — 1 slot left</span>
+          <span><i class="lg-re"></i>Reserved</span>
+          <span><i class="lg-cl"></i>Closed Sundays</span>
+        </div>
+        <div class="month-stats">
+          <div class="mstat ok"><b id="statAv">–</b><span>Open dates</span></div>
+          <div class="mstat warn"><b id="statLi">–</b><span>Limited</span></div>
+          <div class="mstat no"><b id="statRe">–</b><span>Reserved</span></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>&#128161; Planning ahead?</h2>
+        <p class="hint">Peak season (September–December and May–June) books fastest. Popular Saturdays are usually limited 4–6 weeks out.</p>
+        <div class="facts">
+          <div class="fact"><b>&#128141; Weddings</b> — book 4–8 months ahead. Peak Saturdays go first, so the earlier the better.</div>
+          <div class="fact"><b>&#127874; Birthdays</b> — 2–4 weeks is usually fine, but weekends in peak season fill up fast.</div>
+          <div class="fact"><b>&#128188; Corporate</b> — 4–8 weeks ahead. Weekdays are often wide open and easier to lock in.</div>
+          <div class="fact"><b>&#128062; Baby showers</b> — 3–6 weeks ahead. Popular with our organic blush &amp; boho looks!</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>&#128270; How it works</h2>
+        <p class="hint">Three steps between you and a locked-in date.</p>
+        <div class="steps">
+          <div class="step"><span class="ic">&#128197;</span><b>1. Pick your date</b><p>Tap any open day on the calendar. Limited days show a warning — reserved and Sunday days are locked.</p></div>
+          <div class="step"><span class="ic">&#128221;</span><b>2. Tell us about it</b><p>Event type, guest count, and the dream. Your details go straight to Isabella — no middlemen.</p></div>
+          <div class="step"><span class="ic">&#9989;</span><b>3. Get confirmed</b><p>Isabella replies within 24 hours to confirm your date and lock in your decor quote.</p></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>&#10067; Questions?</h2>
+        <div class="faq-item"><details>
+          <summary>Is the calendar really live?</summary>
+          <p>Yes — this page reflects real-time availability. Isabella updates it as bookings are confirmed, so the status you see is the status we're working with.</p>
+        </details></div>
+        <div class="faq-item"><details>
+          <summary>Does reserving cost anything?</summary>
+          <p>No. Requesting a date is completely free and non-binding. Once you confirm the design and quote, a small deposit holds your date firmly.</p>
+        </details></div>
+        <div class="faq-item"><details>
+          <summary>What if my date is already reserved?</summary>
+          <p>Tap a nearby open date, or send us a message anyway — cancellations happen, and we keep a waitlist for popular dates. You'll be the first to know if it opens.</p>
+        </details></div>
+        <div class="faq-item"><details>
+          <summary>Can I book for next year?</summary>
+          <p>Absolutely. The calendar extends 18 months out, and planning early is the best way to get exactly the Saturday you want.</p>
+        </details></div>
+      </div>
+    </div>
+
+    <!-- RIGHT: booking panel -->
+    <div class="panel">
+      <div class="panel-hero">
+        <div class="big" id="panelDate">Pick a date &#128071;</div>
+        <div class="sub" id="panelSub">Open dates are shown on the calendar.</div>
+        <span class="status-pill hidden" id="panelPill"></span>
+      </div>
+      <div class="card" style="margin-bottom:14px;">
+        <h2>&#128272; Hold my date</h2>
+        <p class="hint" id="formHint">Select an open date to begin.</p>
+        <div class="msg" id="formMsg"></div>
+        <div id="formWrap" class="hidden">
+          <div class="window" id="windowBox"></div>
+          <form id="reserveForm" novalidate>
+            <div class="fg-row">
+              <div class="fg"><label for="name">Full name *</label><input type="text" id="name" name="name" required placeholder="Your name" autocomplete="name"></div>
+              <div class="fg"><label for="phone">Phone</label><input type="tel" id="phone" name="phone" placeholder="203-555-0000" autocomplete="tel"></div>
+            </div>
+            <div class="fg"><label for="email">Email *</label><input type="email" id="email" name="email" required placeholder="you@example.com" autocomplete="email"></div>
+            <div class="fg-row">
+              <div class="fg"><label for="eventType">Event type *</label>
+                <select id="eventType" required>
+                  <option value="">Select…</option>
+                  <option value="wedding">Wedding / Reception</option>
+                  <option value="birthday">Birthday Party</option>
+                  <option value="baby-shower">Baby / Bridal Shower</option>
+                  <option value="corporate">Corporate Event</option>
+                  <option value="anniversary">Anniversary</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+              <div class="fg"><label for="guests">Guests</label><input type="number" id="guests" min="1" max="2000" placeholder="~ guests"></div>
+            </div>
+            <div class="fg"><label for="notes">Tell us about your vision</label><textarea id="notes" rows="3" placeholder="Theme, colors, must-haves… (optional)"></textarea></div>
+            <button type="submit" class="cta-btn" id="submitBtn">&#128272; Request This Date — Free</button>
+            <p style="font-size:.75rem;color:#a08e79;text-align:center;margin-top:8px;">Free &amp; non-binding. Isabella replies within 24 hours.</p>
+          </form>
+          <button class="cta-btn ghost" id="shareBtn">&#128172; Share This Date on WhatsApp</button>
+        </div>
+      </div>
+      <div class="card">
+        <h2>&#127881; Popular upcoming dates</h2>
+        <p class="hint">The next open Saturdays — tap one to select it.</p>
+        <div class="pop-chips" id="popChips"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer><p><a href="index.html">Everlasting Memories</a> — Balloon Art &amp; Event Decor, Connecticut · <a href="tel:203-981-7244">203-981-7244</a> · <a href="contact.html">Contact</a> · <a href="https://instagram.com/everlasting.memories25" style="color:#C9A87C" target="_blank" rel="noopener">@everlasting.memories25</a></p><p style="margin-top:6px;">Availability is updated as bookings are confirmed. A small deposit holds your date once your quote is approved.</p><p style="margin-top:8px;"><a href="referral.html" style="color:#C9A87C">Refer &amp; Earn</a></p></footer>
+
+<div id="confettiLayer" aria-hidden="true"></div>
+
+<script>
+/* ================= AVAILABILITY DATA =================
+   Edit these two lists to manage the calendar.
+   Format: 'YYYY-MM-DD' (local). Saturdays in peak season
+   are intentionally marked limited. Update as you book! */
+const RESERVED = [
+  '2026-08-15','2026-08-22','2026-09-05','2026-09-12','2026-09-26',
+  '2026-10-03','2026-10-17','2026-10-31','2026-11-07','2026-11-21',
+  '2026-12-05','2026-12-12','2027-01-09','2027-01-23','2027-02-06',
+  '2027-02-20','2027-03-06','2027-03-27','2027-04-10','2027-04-24',
+  '2027-05-08','2027-05-22','2027-06-05','2027-06-19','2027-07-10'
+];
+const LIMITED = [
+  '2026-08-29','2026-09-19','2026-10-10','2026-10-24','2026-11-14',
+  '2026-11-28','2026-12-19','2027-01-16','2027-01-30','2027-02-13',
+  '2027-02-27','2027-03-13','2027-03-20','2027-04-17','2027-05-01',
+  '2027-05-15','2027-05-29','2027-06-12','2027-06-26','2027-07-17'
+];
+
+const MONTH_NAMES = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+const DOW = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+const EVENT_WINDOWS = {
+  wedding:    'Weddings book best 4–8 months out — peak Saturdays go first. You\'re ahead of the curve!',
+  birthday:   'Birthdays usually need 2–4 weeks. If you want a popular Saturday, lock it in now.',
+  'baby-shower':'Baby showers book 3–6 weeks out. Blush & boho organic looks are our specialty!',
+  corporate:  'Corporate events book 4–8 weeks out — weekdays are often wide open.',
+  anniversary:'Anniversaries book 2–6 weeks out. We\'ll make the date feel brand new.',
+  other:      'Tell us your occasion — we\'ll make sure the date and the decor fit.'
+};
+const CONFETTI_EMOJI = ['🎈','🎉','✨','🎊','💛','🫧'];
+let view = { y: 2026, m: 7 }; // Aug 2026
+let selected = null;          // 'YYYY-MM-DD'
+
+const $ = id => document.getElementById(id);
+
+function pad(n){ return String(n).padStart(2,'0'); }
+function ymd(d){ return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate()); }
+function todayStr(){
+  const t = new Date();
+  return t.getFullYear()+'-'+pad(t.getMonth()+1)+'-'+pad(t.getDate());
+}
+function parse(s){ return new Date(s+'T12:00:00'); }
+function prettyDate(s){
+  const d = parse(s);
+  return DOW[d.getDay()]+', '+MONTH_NAMES[d.getMonth()]+' '+d.getDate()+', '+d.getFullYear();
+}
+function daysAway(s){
+  const one = 86400000;
+  return Math.round((parse(s) - parse(todayStr()))/one);
+}
+function statusFor(s){
+  const d = parse(s);
+  if (s < todayStr()) return 'past';
+  if (d.getDay() === 0) return 'closed';
+  if (RESERVED.includes(s)) return 'reserved';
+  if (LIMITED.includes(s)) return 'limited';
+  return 'available';
+}
+
+/* ================= RENDER ================= */
+function renderDow(){
+  $('dowRow').innerHTML = DOW.map(d=>`<div class="cal-dow">${d}</div>`).join('');
+}
+function renderCal(){
+  const first = new Date(view.y, view.m, 1);
+  const daysInMonth = new Date(view.y, view.m+1, 0).getDate();
+  const startDow = first.getDay();
+  $('monthLabel').textContent = MONTH_NAMES[view.m]+' '+view.y;
+  $('prevBtn').disabled = (view.y === new Date().getFullYear() && view.m <= new Date().getMonth());
+  $('nextBtn').disabled = (view.y*12+view.m) >= (new Date().getFullYear()*12 + new Date().getMonth() + 18);
+
+  let html = '';
+  for (let i=0;i<startDow;i++) html += '<div></div>';
+  for (let day=1; day<=daysInMonth; day++){
+    const s = view.y+'-'+pad(view.m+1)+'-'+pad(day);
+    const st = statusFor(s);
+    const cls = ['day', st, (new Date(view.y,view.m,day).getDay()===6?'sat':''), (selected===s?'sel':'')].join(' ');
+    const dot = st==='reserved' ? '🔒' : st==='limited' ? '⚠️' : st==='available' ? '●' : '';
+    html += `<button type="button" class="${cls}" data-date="${s}" ${(st==='past'||st==='reserved'||st==='closed')?'disabled':''}>
+      <span class="dnum">${day}</span><span class="ddot">${dot}</span></button>`;
+  }
+  $('calGrid').innerHTML = html;
+
+  let av=0, li=0, re=0;
+  for (let day=1; day<=daysInMonth; day++){
+    const st = statusFor(view.y+'-'+pad(view.m+1)+'-'+pad(day));
+    if (st==='available') av++;
+    else if (st==='limited') li++;
+    else if (st==='reserved') re++;
+  }
+  $('statAv').textContent = av;
+  $('statLi').textContent = li;
+  $('statRe').textContent = re;
+}
+function renderPopChips(){
+  // next 6 Saturdays that are open or limited, within 90 days
+  const chips = [];
+  const start = parse(todayStr());
+  for (let i=1; i<=90 && chips.length<6; i++){
+    const d = new Date(start.getTime() + i*86400000);
+    if (d.getDay() !== 6) continue;
+    const s = ymd(d);
+    const st = statusFor(s);
+    if (st==='available' || st==='limited'){
+      chips.push(`<button type="button" class="pop-chip" data-date="${s}">${MONTH_NAMES[d.getMonth()].slice(0,3)} ${d.getDate()}${st==='limited'?' <span class="lim">⚠️ limited</span>':''}</button>`);
+    }
+  }
+  $('popChips').innerHTML = chips.join('') || '<span style="font-size:.82rem;color:#a08e79;">All Saturdays are booked for the next 90 days — grab a Friday or weekday!</span>';
+}
+function selectDate(s){
+  const st = statusFor(s);
+  if (st==='past' || st==='reserved' || st==='closed') return;
+  selected = s;
+  renderCal();
+  const d = parse(s);
+  const away = daysAway(s);
+  $('panelDate').textContent = prettyDate(s);
+  const pill = $('panelPill');
+  pill.classList.remove('hidden');
+  if (st==='available'){ pill.className='status-pill av'; pill.textContent='✓ Available'; }
+  else { pill.className='status-pill li'; pill.textContent='⚠️ Limited — 1 slot left'; }
+  $('panelSub').innerHTML = away===0 ? 'That\'s <b>today</b> — let\'s make it happen!' :
+    away===1 ? 'That\'s <b>tomorrow</b> — quick turnaround is our specialty!' :
+    `That's <b>${away} days away</b> — perfect planning window.`;
+  $('formHint').textContent = 'Your requested date is locked in below.';
+  $('formWrap').classList.remove('hidden');
+  updateWindow();
+  $('name').focus();
+}
+function updateWindow(){
+  const t = $('eventType').value;
+  $('windowBox').textContent = t ? EVENT_WINDOWS[t] : 'Pick your event type to see the ideal booking window.';
+}
+
+/* ================= FORM ================= */
+$('reserveForm').addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  const msg = $('formMsg');
+  msg.className='msg'; msg.style.display='none';
+  const name = $('name').value.trim();
+  const email = $('email').value.trim();
+  if (!selected){ msg.className='msg err'; msg.style.display='block'; msg.textContent='Please pick a date on the calendar first.'; return; }
+  if (!name || !email){ msg.className='msg err'; msg.style.display='block'; msg.textContent='Please add your name and email so we can confirm your date.'; return; }
+  const btn = $('submitBtn');
+  btn.disabled = true; btn.textContent = 'Sending…'; btn.style.opacity = '.7';
+  const st = statusFor(selected);
+  const payload = {
+    name, email,
+    phone: $('phone').value.trim(),
+    eventType: $('eventType').value,
+    eventDate: selected,
+    message: '📅 DATE RESERVATION REQUEST via myeverlastingmemories.com\n'+
+      '• Requested date: '+prettyDate(selected)+' ('+st+(st==='limited'?' — only 1 slot left!':'')+')\n'+
+      '• Event type: '+($('eventType').value||'TBD')+'\n'+
+      '• Guests: '+($('guests').value||'TBD')+'\n'+
+      '• Vision: '+($('notes').value.trim()||'—')+'\n\n(Lead from Reserve Your Date calendar)',
+    source: 'date-reservation'
+  };
+  try {
+    const res = await fetch('/api/leads.js', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) });
+    const json = await res.json();
+    if (!json.success) throw new Error(json.error||'submit failed');
+    msg.className='msg ok'; msg.style.display='block';
+    msg.innerHTML = '&#10003; Date request sent! Isabella will confirm within 24 hours and hold your spot.';
+    btn.textContent = '&#127881; Request Received — We\'ll Reply Soon';
+    confetti();
+  } catch(err){
+    console.error(err);
+    msg.className='msg err'; msg.style.display='block';
+    msg.textContent='Something went wrong — please try again, call 203-981-7244, or email Hey.everlasting.memories@gmail.com';
+    btn.disabled = false; btn.textContent = '&#128272; Request This Date — Free'; btn.style.opacity = '1';
+  }
+});
+$('eventType').addEventListener('change', updateWindow);
+$('shareBtn').addEventListener('click', ()=>{
+  if (!selected) return;
+  const text = encodeURIComponent('📅 Can you hold '+prettyDate(selected)+' for my event? I just requested it on Everlasting Memories — can you confirm? 🎈');
+  window.open('https://wa.me/12039817244?text='+text, '_blank');
+});
+$('prevBtn').addEventListener('click', ()=>{ view.m--; if (view.m<0){ view.m=11; view.y--; } renderCal(); });
+$('nextBtn').addEventListener('click', ()=>{ view.m++; if (view.m>11){ view.m=0; view.y++; } renderCal(); });
+$('calGrid').addEventListener('click', (e)=>{
+  const btn = e.target.closest('.day');
+  if (btn && btn.dataset.date) selectDate(btn.dataset.date);
+});
+$('popChips').addEventListener('click', (e)=>{
+  const chip = e.target.closest('.pop-chip');
+  if (chip && chip.dataset.date){
+    const d = parse(chip.dataset.date);
+    view = { y: d.getFullYear(), m: d.getMonth() };
+    renderCal();
+    selectDate(chip.dataset.date);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+});
+
+/* ================= CONFETTI ================= */
+function confetti(){
+  const layer = $('confettiLayer');
+  for (let i=0;i<40;i++){
+    const el = document.createElement('span');
+    el.className = 'confetti';
+    el.textContent = CONFETTI_EMOJI[Math.floor(Math.random()*CONFETTI_EMOJI.length)];
+    el.style.left = Math.random()*100+'vw';
+    el.style.fontSize = (0.9+Math.random()*1.4)+'rem';
+    el.style.animationDuration = (2.2+Math.random()*2.2)+'s';
+    el.style.animationDelay = (Math.random()*0.6)+'s';
+    layer.appendChild(el);
+    setTimeout(()=>el.remove(), 5200);
+  }
+}
+
+/* ================= INIT ================= */
+renderDow(); renderCal(); renderPopChips(); updateWindow();
+</script>
+</body>
+</html>
