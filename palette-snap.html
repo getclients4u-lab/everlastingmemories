@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Palette Snap — Match Balloon Colors to Any Photo | Everlasting Memories</title>
+<meta name="description" content="Upload a photo of your invitation, dress, or tablecloth — Palette Snap extracts the real colors and builds a matching balloon palette with hex codes, a style match, and a live preview. Free tool by Everlasting Memories, CT balloon art & event decor.">
+<meta property="og:title" content="Palette Snap — Match Your Balloons to Any Photo">
+<meta property="og:description" content="Snap a photo of your invitation, dress, or tablecloth. We pull the real colors and build a balloon palette that matches — with a live preview and a free quote.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://myeverlastingmemories.com/palette-snap.html">
+<meta property="og:image" content="https://myeverlastingmemories.com/logo.jpg">
+<meta name="theme-color" content="#8a4a5e">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="analytics.js" defer></script>
+<style>
+:root{--c1:#5a3d2b;--c2:#8a6a4e;--bg:#f8f4ee;--ink:#33281f;--accent:#C9A227;--gold:#d4af37;--card:#ffffff;--line:#e9dfd2;--navy:#1f3a4d;--navy2:#2e5e6e;--berry:#8a4a5e;--berry2:#b06a7e;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+h1,h2,h3,.display{font-family:'Playfair Display',Georgia,serif}
+header{background:linear-gradient(135deg,#4a2a38,#8a4a5e);color:#fff;padding:38px 24px 30px;text-align:center;position:relative;overflow:hidden}
+header:after{content:"📸";position:absolute;right:18px;top:14px;font-size:3rem;opacity:.25;transform:rotate(12deg)}
+header:before{content:"🎈";position:absolute;left:18px;bottom:10px;font-size:2.4rem;opacity:.2;transform:rotate(-18deg)}
+.home-link{display:inline-block;margin-bottom:12px;color:#f0c8d4;text-decoration:none;font-weight:600;font-size:.88rem;letter-spacing:.02em}
+.home-link:hover{color:#fff}
+header h1{font-size:clamp(1.7rem,4.5vw,2.5rem);margin-bottom:8px}
+header p{color:#f3dde4;max-width:680px;margin:0 auto;font-size:1.02rem}
+.container{max-width:1060px;margin:0 auto;padding:26px 20px}
+.layout{display:grid;grid-template-columns:1.2fr .95fr;gap:22px;align-items:start}
+@media(max-width:920px){.layout{grid-template-columns:1fr}}
+.card{background:var(--card);border-radius:16px;padding:24px;box-shadow:0 3px 18px rgba(90,61,43,.08);margin-bottom:18px;border:1px solid var(--line)}
+.card h2{font-size:1.12rem;color:var(--c1);margin-bottom:4px}
+.card .hint{color:#9a8a76;font-size:.85rem;margin-bottom:14px}
+.badge{display:inline-block;background:rgba(255,255,255,.18);color:#fff;padding:3px 12px;border-radius:999px;font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
+/* ===== UPLOAD ===== */
+.dropzone{border:2.5px dashed #cbb8a0;border-radius:16px;padding:34px 20px;text-align:center;cursor:pointer;transition:.2s;background:#fdfaf6}
+.dropzone:hover,.dropzone.drag{border-color:var(--berry);background:#fdf1f4}
+.dropzone .dz-ic{font-size:2.6rem;display:block;margin-bottom:6px}
+.dropzone p{font-size:.9rem;color:#5d4c38;font-weight:600}
+.dropzone small{color:#9a8a76;font-size:.78rem;display:block;margin-top:4px}
+#fileInput{display:none}
+.preview-wrap{display:none;margin-top:14px;text-align:center}
+.preview-wrap img{max-width:100%;max-height:260px;border-radius:14px;box-shadow:0 6px 24px rgba(90,61,43,.18);border:3px solid #fff}
+.samples{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:14px}
+.sample-btn{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:7px 14px;font-size:.8rem;font-weight:600;cursor:pointer;color:var(--c1);transition:.15s;font-family:'Inter',sans-serif}
+.sample-btn:hover{border-color:var(--berry);background:#fdf1f4}
+/* ===== PALETTE ===== */
+.palette{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0 6px}
+.swatch{border-radius:14px;overflow:hidden;border:1.5px solid var(--line);background:#fff;transition:.2s}
+.swatch .chip{height:74px;position:relative}
+.swatch .chip .pct{position:absolute;bottom:6px;right:8px;font-size:.68rem;font-weight:800;color:rgba(255,255,255,.9);text-shadow:0 1px 3px rgba(0,0,0,.4)}
+.swatch .meta{padding:9px 11px}
+.swatch .meta .nm{font-weight:700;font-size:.85rem;color:var(--c1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.swatch .meta .hex{font-size:.72rem;color:#9a8a76;font-family:ui-monospace,Menlo,monospace;font-weight:600}
+.balloon-preview{margin-top:8px}
+.balloon-preview .bp-label{font-size:.78rem;font-weight:700;color:var(--c1);text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+.garland{display:flex;align-items:flex-end;justify-content:center;gap:4px;padding:18px 6px 6px;background:linear-gradient(180deg,#fdfaf6,#f3ece2);border-radius:14px;border:1px solid var(--line);min-height:150px;overflow-x:auto}
+.bl{width:44px;height:54px;border-radius:50% 50% 46% 46%;position:relative;flex-shrink:0;box-shadow:inset -6px -8px 14px rgba(0,0,0,.14), inset 4px 6px 10px rgba(255,255,255,.35)}
+.bl::before{content:"";position:absolute;top:5px;left:9px;width:10px;height:14px;background:rgba(255,255,255,.5);border-radius:50%;transform:rotate(-25deg)}
+.bl::after{content:"";position:absolute;bottom:-8px;left:50%;width:1.5px;height:10px;background:rgba(90,61,43,.4)}
+.bl.big{width:56px;height:68px}
+.bl.small{width:34px;height:42px}
+/* ===== STYLE MATCH ===== */
+.style-match{display:none;background:linear-gradient(135deg,#4a2a38,#8a4a5e);color:#fff;border-radius:16px;padding:22px;text-align:center;margin-top:14px}
+.style-match .sm-label{font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#f0c8d4;margin-bottom:4px}
+.style-match .sm-name{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700;margin-bottom:6px}
+.style-match .sm-desc{font-size:.9rem;color:#f7e6ec;max-width:520px;margin:0 auto 10px}
+.style-match .sm-price{display:inline-block;background:rgba(255,255,255,.18);border-radius:999px;padding:5px 14px;font-size:.8rem;font-weight:700}
+/* ===== BUTTONS ===== */
+.run-btn{display:block;width:100%;background:linear-gradient(135deg,#8a4a5e,#b06a7e);color:#fff;border:none;padding:16px;border-radius:14px;font-weight:800;font-size:1.05rem;cursor:pointer;transition:.15s;font-family:'Inter',sans-serif;box-shadow:0 6px 20px rgba(138,74,94,.35);margin-top:16px}
+.run-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(138,74,94,.45)}
+.run-btn:disabled{opacity:.55;cursor:not-allowed;transform:none}
+.cta-btn{display:block;width:100%;background:var(--accent);color:#fff;border:none;padding:14px;border-radius:12px;font-weight:700;font-size:1rem;cursor:pointer;transition:.15s;margin-top:12px;font-family:'Inter',sans-serif}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(201,162,39,.4)}
+.cta-btn.ghost{background:#fff;color:var(--navy);border:2px solid var(--navy);margin-top:8px}
+.cta-btn.ghost:hover{background:var(--navy);color:#fff}
+.cta-btn:disabled{opacity:.6;cursor:not-allowed;transform:none;box-shadow:none}
+/* ===== FORM ===== */
+.fg{margin-bottom:12px}
+.fg label{display:block;font-weight:600;font-size:.86rem;margin-bottom:4px;color:var(--c1)}
+.fg input,.fg select,.fg textarea{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;font-size:.95rem;background:#fff;font-family:'Inter',sans-serif;color:var(--ink)}
+.fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:var(--berry)}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:480px){.fg-row{grid-template-columns:1fr}}
+.msg{display:none;border-radius:10px;padding:12px;font-size:.9rem;font-weight:500;margin-bottom:12px;text-align:center}
+.msg.ok{display:block;background:#eef7ee;border:1px solid #7cc47c;color:#2c6e2c}
+.msg.err{display:block;background:#fdeeee;border:1px solid #e08a8a;color:#a33}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:6px}
+.fact{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;font-size:.86rem;color:#5d4c38}
+.fact b{color:var(--c1);display:block;margin-bottom:4px}
+.faq-item{margin-bottom:10px}
+.faq-item details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px;cursor:pointer}
+.faq-item summary{font-weight:600;color:var(--c1);font-size:.93rem}
+.faq-item p{font-size:.87rem;color:#5d4c38;margin-top:8px}
+footer{text-align:center;color:#a08e79;font-size:.8rem;padding:30px 20px}
+footer a{color:var(--c1);font-weight:600;text-decoration:none}
+.hidden{display:none}
+.spin{display:inline-block;animation:rot 1s linear infinite}
+@keyframes rot{to{transform:rotate(360deg)}}
+#confettiLayer{position:fixed;inset:0;pointer-events:none;z-index:9999;overflow:hidden}
+.confetti{position:absolute;top:-20px;font-size:1.3rem;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:.9}}
+</style>
+</head>
+<body>
+<style>
+  .em-nav{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
+    background:#faf8f5;border-bottom:1px solid #E8DFD4;padding:10px 20px;
+    position:sticky;top:0;z-index:950;box-shadow:0 2px 10px rgba(60,40,20,.06)}
+  .em-nav-brand{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:1.05rem;color:#2C2C2C;text-decoration:none;letter-spacing:.02em}
+  .em-nav-links{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .em-nav-links>a,.em-nav-drop-btn{font-family:'Inter',-apple-system,sans-serif;font-size:.76rem;font-weight:600;
+    text-transform:uppercase;letter-spacing:.05em;color:#2C2C2C;text-decoration:none;background:none;border:none;cursor:pointer;padding:0}
+  .em-nav-links>a:hover,.em-nav-drop-btn:hover{color:#C9A87C}
+  .em-nav-hot{color:#C9A227 !important;font-weight:700 !important}
+  .em-nav-drop{position:relative}
+  .em-nav-drop-menu{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%) translateY(6px);
+    min-width:220px;background:#fff;border:1px solid #E8DFD4;border-radius:12px;box-shadow:0 14px 40px rgba(60,40,20,.14);
+    padding:8px;display:flex;flex-direction:column;gap:2px;opacity:0;pointer-events:none;transition:all .2s;z-index:960}
+  .em-nav-drop:hover .em-nav-drop-menu,.em-nav-drop:focus-within .em-nav-drop-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+  .em-nav-drop-menu a{font-size:.8rem;padding:8px 12px;border-radius:8px;color:#2C2C2C;text-decoration:none;white-space:nowrap;font-family:'Inter',sans-serif}
+  .em-nav-drop-menu a:hover{background:#E8DFD4;color:#C9A87C}
+  .em-nav-cta{background:#2C2C2C;color:#FAF8F5;text-decoration:none;padding:9px 18px;border-radius:999px;font-size:.76rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;font-family:'Inter',sans-serif}
+  .em-nav-cta:hover{background:#C9A87C}
+  @media(max-width:640px){.em-nav{justify-content:center;text-align:center}.em-nav-cta{display:none}}
+</style>
+<div class="em-nav" role="navigation" aria-label="Main navigation">
+  <a class="em-nav-brand" href="index.html">🎈 Everlasting Memories</a>
+  <div class="em-nav-links">
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="about.html">About</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+    <a href="gift-card.html" class="em-nav-hot">Gift Cards</a>
+    <div class="em-nav-drop">
+      <button class="em-nav-drop-btn" type="button" aria-haspopup="true" aria-expanded="false">Tools &#9662;</button>
+      <div class="em-nav-drop-menu">
+          <a href="cost-estimator.html">Estimate Cost</a>
+          <a href="theme-generator.html">Theme Generator</a>
+          <a href="lookbook.html">Lookbook</a>
+          <a href="countdown.html">Countdown</a>
+          <a href="party-style-quiz.html">Party Style Quiz</a>
+          <a href="balloon-math.html">Balloon Math</a>
+          <a href="reserve-date.html">Reserve Your Date</a>
+          <a href="diy-vs-pro.html">DIY vs Pro</a>
+          <a href="palette-snap.html" style="background:#C9A87C;color:#fff;">Palette Snap</a>
+          <a href="referral.html">Refer &amp; Earn</a>
+        </div>
+    </div>
+  </div>
+  <a class="em-nav-cta" href="cost-estimator.html">Get a Quote</a>
+</div>
+
+
+<header>
+  <a href="index.html" class="home-link">&#8592; Back to Home</a>
+  <div class="badge">&#128247; New — Match Balloons to ANY Photo</div>
+  <h1>&#127912; Palette Snap</h1>
+  <p>Got an invitation, a dress, a tablecloth, or even a screenshot of a Pinterest board? Snap a photo of it — we'll pull the <em>real</em> colors out and build a balloon palette that matches perfectly. No more guessing if the blush is the <em>right</em> blush.</p>
+</header>
+
+<div class="container">
+  <div class="layout">
+    <!-- LEFT: upload + palette -->
+    <div>
+      <div class="card">
+        <h2>&#128247; Step 1 — Upload any photo</h2>
+        <p class="hint">Your invitation, bridesmaid dress, wallpaper, flowers, a paint swatch… anything with the colors you love. The photo never leaves your browser.</p>
+        <div class="dropzone" id="dropzone">
+          <span class="dz-ic">&#128248;</span>
+          <p>Click to choose a photo, or drag &amp; drop it here</p>
+          <small>JPG, PNG, WebP — works great with bright, even lighting</small>
+        </div>
+        <input type="file" id="fileInput" accept="image/*">
+        <div class="preview-wrap" id="previewWrap">
+          <img id="previewImg" alt="Your uploaded photo">
+        </div>
+        <div class="samples">
+          <span style="font-size:.78rem;color:#9a8a76;font-weight:600;align-self:center;">No photo handy? Try a sample:</span>
+          <button class="sample-btn" data-sample="invite">&#128142; Blush Invitation</button>
+          <button class="sample-btn" data-sample="dress">&#128087; Sage Dress</button>
+          <button class="sample-btn" data-sample="gold">&#127873; Gold Stationery</button>
+        </div>
+        <button class="run-btn" id="snapBtn" disabled>&#128247; Snap My Palette</button>
+      </div>
+
+      <div class="card" id="paletteCard" style="display:none;">
+        <h2>&#127881; Your Matching Balloon Palette</h2>
+        <p class="hint">The exact colors pulled from your photo — these are the hex codes Isabella's studio can match in premium latex, foil, and organic mixes.</p>
+        <div class="palette" id="paletteGrid"></div>
+        <div class="balloon-preview">
+          <div class="bp-label">&#127880; Preview — your garland in these colors</div>
+          <div class="garland" id="garlandPrev"></div>
+        </div>
+        <div class="style-match" id="styleMatch"></div>
+        <button class="cta-btn ghost" id="surpriseBtn" style="margin-top:14px;">&#127922; Surprise Me — another take on these colors</button>
+        <button class="cta-btn ghost" id="shareBtn">&#128172; Share This Palette on WhatsApp</button>
+      </div>
+    </div>
+
+    <!-- RIGHT: lead -->
+    <div class="panel">
+      <div class="card">
+        <div class="panel-hero" style="background:linear-gradient(135deg,#4a2a38,#8a4a5e);color:#fff;border-radius:14px;padding:16px;text-align:center;margin-bottom:14px;">
+          <div style="font-size:1.25rem;font-weight:800;font-family:'Playfair Display',serif;">Love those colors? Lock them in.</div>
+          <div style="font-size:.82rem;color:#f3dde4;margin-top:4px;">Send your palette to Isabella — she'll quote your exact event with these exact colors. Free, no obligation, reply within 24 hrs.</div>
+        </div>
+        <form id="leadForm">
+          <div class="fg-row">
+            <div class="fg"><label for="name">Name</label><input id="name" required placeholder="Your name"></div>
+            <div class="fg"><label for="email">Email</label><input id="email" type="email" required placeholder="you@email.com"></div>
+          </div>
+          <div class="fg-row">
+            <div class="fg"><label for="phone">Phone (optional)</label><input id="phone" placeholder="(203) 555-0123"></div>
+            <div class="fg"><label for="eventDate">Event date (optional)</label><input id="eventDate" type="date"></div>
+          </div>
+          <div class="fg">
+            <label for="eventType">Event type</label>
+            <select id="eventType">
+              <option>Wedding</option>
+              <option>Birthday</option>
+              <option>Baby Shower</option>
+              <option>Gender Reveal</option>
+              <option>Graduation</option>
+              <option>Corporate</option>
+              <option>Holiday Party</option>
+              <option>Just Because</option>
+            </select>
+          </div>
+          <div class="fg"><label for="notes">Notes / your dream</label><textarea id="notes" rows="2" placeholder="Venue, vibe, what you pictured…"></textarea></div>
+          <div class="msg" id="formMsg"></div>
+          <button class="cta-btn" id="submitBtn" type="submit">&#127881; Get My Quote With These Colors</button>
+        </form>
+      </div>
+
+      <div class="card" style="text-align:center;padding:16px;">
+        <div style="font-size:1.6rem;">&#128073;</div>
+        <p style="font-size:.85rem;color:#5d4c38;"><b>Already know your colors?</b><br>Skip the photo and build a palette from your occasion + vibe.</p>
+        <a href="theme-generator.html" class="cta-btn" style="text-decoration:none;text-align:center;">&#127912; Open the Theme Generator</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>&#128161; Why matching colors matters more than you think</h2>
+    <p class="hint">Your photos live forever — the palette should be right the first time.</p>
+    <div class="facts">
+      <div class="fact"><b>&#128247; Photos don't forgive</b> — a balloon palette that's 10% off your invitation reads as "off" in every single photo. Matching the real hex codes keeps the whole gallery cohesive.</div>
+      <div class="fact"><b>&#127912; We match anything</b> — premium latex comes in 60+ shades; foil and organic mixes expand that further. If you can photograph it, we can balloon it.</div>
+      <div class="fact"><b>&#128141; One photo, one palette, one quote</b> — send us the same photo you upload here and your quote arrives color-accurate. No "about this shade" guesswork.</div>
+      <div class="fact"><b>&#128085; Lighting lies</b> — phone screens shift colors. We extract from the photo AND can adjust to your venue's lighting during the design consult.</div>
+      <div class="fact"><b>&#127881; It's free</b> — this tool exists because matching should be the fun part, not the stressful part. Snap, share, done.</div>
+      <div class="fact"><b>&#128373;&#65039; Your photo stays private</b> — everything happens in your browser. We never see, store, or upload your image. Only the hex codes travel (and only if you send them).</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>&#10067; Questions people actually ask</h2>
+    <div class="faq-item"><details>
+      <summary>Will the balloons really match my photo?</summary>
+      <p>Within the limits of balloon manufacturing, yes — impressively close. Premium latex comes in a wide shade range, and for exact matches we blend tones in organic garlands. We'll also confirm the palette with you before any balloon is inflated.</p>
+    </details></div>
+    <div class="faq-item"><details>
+      <summary>Does my photo get uploaded anywhere?</summary>
+      <p>No. Palette Snap reads the image entirely in your browser using canvas. Nothing is sent to a server — the only thing that travels is the lead form you choose to submit (and even then, just the hex codes, not the photo).</p>
+    </details></div>
+    <div class="faq-item"><details>
+      <summary>What if my photo has too many colors?</summary>
+      <p>We extract the 5 most dominant colors and drop the noise. If a color is missing, hit "Surprise Me" for alternate takes, or just tell Isabella in the notes — she'll tune the palette with you for free.</p>
+    </details></div>
+    <div class="faq-item"><details>
+      <summary>Can you match a specific paint swatch or brand color?</summary>
+      <p>Yes — if you have a hex code (from a brand guide, paint chip, or website), paste it in the notes and we'll build around it. Palette Snap is just the fastest way to get there from a photo.</p>
+    </details></div>
+    <div class="faq-item"><details>
+      <summary>Is this really free?</summary>
+      <p>100% free, no account, no watermark, no email required to use the tool. It exists because a client once said "I wish someone could just match my invitation" — so we built it.</p>
+    </details></div>
+  </div>
+</div>
+
+<footer><p><a href="index.html">Everlasting Memories</a> — Balloon Art &amp; Event Decor, Connecticut · <a href="tel:203-981-7244">203-981-7244</a> · <a href="contact.html">Contact</a> · <a href="https://instagram.com/everlasting.memories25" style="color:#C9A87C" target="_blank" rel="noopener">@everlasting.memories25</a></p><p style="margin-top:6px;">Palette Snap extracts dominant colors from your photo in your browser — the photo is never uploaded. Final colors are confirmed with you before production.</p><p style="margin-top:8px;"><a href="reserve-date.html" style="color:#C9A87C">Check Date Availability</a> · <a href="referral.html" style="color:#C9A87C">Refer &amp; Earn</a></p></footer>
+
+<div id="confettiLayer" aria-hidden="true"></div>
+
+<script>
+/* ================= PALETTE SNAP ENGINE =================
+   Reads an image in-browser (canvas), buckets pixels, extracts
+   the 5 most dominant colors, names them, matches a studio style,
+   and renders a balloon garland preview. Zero uploads. */
+const $ = id => document.getElementById(id);
+let currentImg = null;
+let palette = [];
+let style = null;
+
+/* ---------- COLOR UTILS ---------- */
+function rgbToHsl(r,g,b){
+  r/=255; g/=255; b/=255;
+  const max=Math.max(r,g,b), min=Math.min(r,g,b);
+  let h=0,s=0; const l=(max+min)/2;
+  if(max!==min){
+    const d=max-min;
+    s = l>0.5 ? d/(2-max-min) : d/(max+min);
+    switch(max){
+      case r: h=(g-b)/d+(g<b?6:0); break;
+      case g: h=(b-r)/d+2; break;
+      default: h=(r-g)/d+4;
+    }
+    h*=60;
+  }
+  return [Math.round(h), Math.round(s*100), Math.round(l*100)];
+}
+function hslToRgb(h,s,l){
+  s/=100; l/=100;
+  const c=(1-Math.abs(2*l-1))*s, x=c*(1-Math.abs((h/60)%2-1)), m=l-c/2;
+  let r=0,g=0,b=0;
+  if(h<60){r=c;g=x;} else if(h<120){r=x;g=c;} else if(h<180){g=c;b=x;}
+  else if(h<240){g=x;b=c;} else if(h<300){r=x;b=c;} else {r=c;b=x;}
+  return [Math.round((r+m)*255), Math.round((g+m)*255), Math.round((b+m)*255)];
+}
+function hex(r,g,b){
+  return '#'+[r,g,b].map(v=>Math.max(0,Math.min(255,Math.round(v))).toString(16).padStart(2,'0')).join('');
+}
+function lum(r,g,b){ return 0.299*r+0.587*g+0.114*b; }
+function dist(c1,c2){ return Math.abs(c1[0]-c2[0])+Math.abs(c1[1]-c2[1])+Math.abs(c1[2]-c2[2]); }
+
+/* ---------- COLOR NAMING (small named set) ---------- */
+const NAMED = [
+  ['Blush Rose',[236,200,196]],['Rose Pink',[222,138,150]],['Dusty Rose',[196,142,144]],
+  ['Champagne',[242,222,183]],['Cream',[250,242,224]],['Ivory',[255,250,235]],
+  ['Sage',[172,186,148]],['Eucalyptus',[138,158,124]],['Olive',[120,130,80]],
+  ['Terracotta',[200,116,78]],['Rust',[179,85,46]],['Coral',[240,128,110]],
+  ['Gold',[212,175,55]],['Honey',[235,190,80]],['Mustard',[214,165,42]],
+  ['Navy',[31,58,77]],['Slate Blue',[94,120,148]],['Dusty Blue',[148,172,190]],
+  ['Lavender',[190,172,210]],['Lilac',[214,190,228]],['Mauve',[170,120,150]],
+  ['Blush Beige',[226,202,178]],['Sand',[214,190,158]],['Taupe',[168,144,120]],
+  ['White',[250,250,248]],['Pearl Grey',[220,220,220]],['Charcoal',[80,80,84]],
+  ['Mint',[178,220,196]],['Seafoam',[150,205,190]],['Sky Blue',[160,200,230]],
+  ['Peach',[250,204,170]],['Apricot',[242,168,120]],['Berry',[138,74,94]],
+  ['Plum',[110,60,90]],['Burgundy',[110,40,50]],['Evergreen',[60,90,70]],
+  ['Chocolate',[90,60,40]],['Cocoa',[120,85,60]],['Latte',[200,170,130]],
+  ['Bubblegum',[248,150,180]],['Hot Pink',[230,80,140]],['Fuchsia',[190,60,130]],
+  ['Sunshine',[250,210,70]],['Butter',[250,230,150]],['Tangerine',[245,140,60]],
+  ['Teal',[60,140,140]],['Emerald',[50,130,90]],['Sapphire',[50,80,160]]
+];
+function nameColor(r,g,b){
+  let best=NAMED[0], bd=1e9;
+  for(const n of NAMED){
+    const d=dist([r,g,b],n[1]);
+    if(d<bd){bd=d;best=n;}
+  }
+  return best[0];
+}
+
+/* ---------- DOMINANT COLOR EXTRACTION ---------- */
+function extractPalette(img){
+  const size=90;
+  const cv=document.createElement('canvas');
+  cv.width=size; cv.height=size;
+  const ctx=cv.getContext('2d',{willReadFrequently:true});
+  const ratio=Math.min(size/img.width, size/img.height);
+  const w=Math.max(1,Math.round(img.width*ratio)), h=Math.max(1,Math.round(img.height*ratio));
+  ctx.drawImage(img,(size-w)/2,(size-h)/2,w,h);
+  const data=ctx.getImageData(0,0,size,size).data;
+  // bucket by 4-bit quantization
+  const buckets=new Map();
+  for(let i=0;i<data.length;i+=4){
+    if(data[i+3]<128) continue;
+    const r=data[i]>>4, g=data[i+1]>>4, b=data[i+2]>>4;
+    const key=(r<<8)|(g<<4)|b;
+    buckets.set(key,(buckets.get(key)||0)+1);
+    // also accumulate real average
+  }
+  const entries=[...buckets.entries()].map(([k,c])=>{
+    const r=(k>>8)<<4, g=((k>>4)&15)<<4, b=(k&15)<<4;
+    return {r,g,b,c};
+  }).sort((a,b)=>b.c-a.c);
+  // greedy pick: keep colors far apart from already-picked
+  const picked=[];
+  for(const e of entries){
+    if(picked.length>=5) break;
+    if(picked.every(p=>dist([p.r,p.g,p.b],[e.r,e.g,e.b])>70)) picked.push(e);
+  }
+  // if fewer than 3, relax threshold
+  if(picked.length<3){
+    for(const e of entries){
+      if(picked.length>=5) break;
+      if(picked.every(p=>dist([p.r,p.g,p.b],[e.r,e.g,e.b])>40)) picked.push(e);
+    }
+  }
+  while(picked.length<5 && entries.length){
+    const e=entries.shift();
+    if(!picked.includes(e)) picked.push(e);
+  }
+  const total=entries.reduce((s,e)=>s+e.c,0)||1;
+  const cols=picked.map(e=>({r:e.r,g:e.g,b:e.b,pct:Math.round(e.c/total*100)}));
+  // sort light -> dark for pleasing display
+  cols.sort((a,b)=>lum(b.r,b.g,b.b)-lum(a.r,a.g,a.b));
+  return cols;
+}
+
+/* ---------- STYLE MATCHING ---------- */
+function matchStyle(cols){
+  // average hue & saturation
+  let hSum=0,sSum=0,lSum=0;
+  const hsls=cols.map(c=>rgbToHsl(c.r,c.g,c.b));
+  for(const h of hsls){ hSum+=h[0]; sSum+=h[1]; lSum+=h[2]; }
+  const ah=hSum/cols.length, as=sSum/cols.length, al=lSum/cols.length;
+  const styles=[
+    { key:'romantic', name:'Romantic Bloom', icon:'🌹', desc:'Soft blush, cream, and rose tones with airy organic texture — Isabella\'s signature look for weddings and anniversaries.', price:'From $350', match:()=> (ah<30||ah>330) && as<55 && al>55 },
+    { key:'glam', name:'Glam Gold', icon:'✨', desc:'Champagne, gold, and ivory with metallic foil accents — elegant evenings, engagements, and milestone birthdays.', price:'From $400', match:()=> as<60 && al>60 && (ah>35&&ah<60) },
+    { key:'party', name:'Party Pop', icon:'🎉', desc:'Bold, saturated brights with playful contrast — birthdays, graduations, and celebrations that want to be heard.', price:'From $250', match:()=> as>55 },
+    { key:'modern', name:'Modern Muse', icon:'🤍', desc:'Muted, sophisticated neutrals — taupe, sand, charcoal, and ivory. Clean lines, editorial feel, corporate chic.', price:'From $300', match:()=> as<30 && al<60 },
+    { key:'boho', name:'Boho Earth', icon:'🌿', desc:'Sage, terracotta, olive, and clay — organic, grounded, and warm. Perfect for garden parties and baby showers.', price:'From $280', match:()=> (ah>60&&ah<160) && as<55 },
+    { key:'winter', name:'Winter Wonder', icon:'❄️', desc:'Dusty blues, evergreen, white, and silver — holiday parties, winter weddings, and frosty elegance.', price:'From $320', match:()=> (ah>180&&ah<260) }
+  ];
+  // score each style
+  let best=styles[0], bScore=-1;
+  for(const s of styles){
+    const score = s.match() ? 1 : 0;
+    if(score>bScore){bScore=score;best=s;}
+  }
+  // tie-break by saturation proximity to style personality
+  return best;
+}
+
+/* ---------- RENDER ---------- */
+function renderPalette(cols){
+  $('paletteGrid').innerHTML = cols.map(c=>{
+    const h=hex(c.r,c.g,c.b);
+    return '<div class="swatch"><div class="chip" style="background:'+h+'"><span class="pct">'+c.pct+'%</span></div>'+
+      '<div class="meta"><div class="nm">'+nameColor(c.r,c.g,c.b)+'</div><div class="hex">'+h.toUpperCase()+'</div></div></div>';
+  }).join('');
+}
+function renderGarland(cols){
+  // build an organic-looking garland: big/small alternation, colors repeated
+  const sizes=['big','','small','','',''];
+  const els=[];
+  for(let i=0;i<16;i++){
+    const c=cols[i%cols.length];
+    const sz=sizes[i%sizes.length];
+    els.push('<div class="bl '+sz+'" style="background:'+hex(c.r,c.g,c.b)+'"></div>');
+  }
+  $('garlandPrev').innerHTML=els.join('');
+}
+function renderStyle(s){
+  $('styleMatch').style.display='block';
+  $('styleMatch').innerHTML =
+    '<div class="sm-label">Your colors match our signature style</div>'+
+    '<div class="sm-name">'+s.icon+' '+s.name+'</div>'+
+    '<div class="sm-desc">'+s.desc+'</div>'+
+    '<span class="sm-price">'+s.price+' — typical starting range</span>';
+}
+
+/* ---------- SNAP FLOW ---------- */
+function snap(){
+  if(!currentImg) return;
+  const btn=$('snapBtn');
+  btn.disabled=true; btn.innerHTML='<span class="spin">🎨</span> Mixing your palette…';
+  setTimeout(()=>{
+    try{
+      palette=extractPalette(currentImg);
+      style=matchStyle(palette);
+      renderPalette(palette);
+      renderGarland(palette);
+      renderStyle(style);
+      $('paletteCard').style.display='block';
+      $('paletteCard').scrollIntoView({behavior:'smooth',block:'start'});
+    }catch(err){
+      alert('Hmm, we couldn\'t read that image. Try a different photo (JPG/PNG work best).');
+    }finally{
+      btn.disabled=false; btn.innerHTML='&#128247; Snap My Palette';
+    }
+  },120);
+}
+function surprise(){
+  if(!palette.length) return;
+  // rotate hues slightly, swap order, nudge lightness
+  const shifted=palette.map((c,i)=>{
+    const [h,s,l]=rgbToHsl(c.r,c.g,c.b);
+    const nh=(h+(i%2===0?18:-14)+360)%360;
+    const nl=Math.max(8,Math.min(92,l+(i%3===0?6:-5)));
+    const [r,g,b]=hslToRgb(nh,s,nl);
+    return {r,g,b,pct:c.pct};
+  });
+  shifted.sort((a,b)=>lum(b.r,b.g,b.b)-lum(a.r,a.g,a.b));
+  palette=shifted;
+  style=matchStyle(palette);
+  renderPalette(palette);
+  renderGarland(palette);
+  renderStyle(style);
+  confetti(12);
+}
+
+/* ---------- UPLOAD HANDLING ---------- */
+function loadFile(file){
+  if(!file || !file.type.startsWith('image/')) return;
+  const reader=new FileReader();
+  reader.onload=e=>{
+    const img=new Image();
+    img.onload=()=>{
+      currentImg=img;
+      $('previewImg').src=e.target.result;
+      $('previewWrap').style.display='block';
+      $('snapBtn').disabled=false;
+      $('dropzone').querySelector('p').textContent='📸 Photo loaded — hit Snap My Palette!';
+    };
+    img.src=e.target.result;
+  };
+  reader.readAsDataURL(file);
+}
+$('dropzone').addEventListener('click',()=>$('fileInput').click());
+$('fileInput').addEventListener('change',e=>loadFile(e.target.files[0]));
+['dragover','dragenter'].forEach(ev=>
+  $('dropzone').addEventListener(ev,e=>{e.preventDefault();$('dropzone').classList.add('drag');}));
+['dragleave','drop'].forEach(ev=>
+  $('dropzone').addEventListener(ev,e=>{e.preventDefault();$('dropzone').classList.remove('drag');}));
+$('dropzone').addEventListener('drop',e=>loadFile(e.dataTransfer.files[0]));
+$('snapBtn').addEventListener('click',snap);
+$('surpriseBtn').addEventListener('click',surprise);
+
+/* ---------- SAMPLE IMAGES (generated in-browser) ---------- */
+function makeSample(kind){
+  const cv=document.createElement('canvas');
+  cv.width=400; cv.height=300;
+  const ctx=cv.getContext('2d');
+  if(kind==='invite'){
+    const g=ctx.createLinearGradient(0,0,400,300);
+    g.addColorStop(0,'#f2d8d2'); g.addColorStop(.5,'#e6b7b4'); g.addColorStop(1,'#c98a94');
+    ctx.fillStyle=g; ctx.fillRect(0,0,400,300);
+    ctx.fillStyle='#fff6f0';
+    ctx.fillRect(90,60,220,180);
+    ctx.strokeStyle='#b06a7e'; ctx.lineWidth=3;
+    ctx.strokeRect(105,75,190,150);
+    ctx.fillStyle='#8a4a5e'; ctx.font='italic 26px Georgia';
+    ctx.fillText('You are invited',140,150);
+  } else if(kind==='dress'){
+    const g=ctx.createLinearGradient(0,0,400,300);
+    g.addColorStop(0,'#c4d0ac'); g.addColorStop(.6,'#9db08a'); g.addColorStop(1,'#7a8f68');
+    ctx.fillStyle=g; ctx.fillRect(0,0,400,300);
+    ctx.fillStyle='#e8eedd';
+    for(let i=0;i<40;i++){ ctx.beginPath(); ctx.arc(Math.random()*400,Math.random()*300,Math.random()*3+1,0,7); ctx.fill(); }
+  } else {
+    const g=ctx.createLinearGradient(0,0,400,300);
+    g.addColorStop(0,'#f5e7c4'); g.addColorStop(.5,'#e8cf94'); g.addColorStop(1,'#d4af37');
+    ctx.fillStyle=g; ctx.fillRect(0,0,400,300);
+    ctx.strokeStyle='#b8942a'; ctx.lineWidth=2;
+    for(let i=0;i<12;i++){
+      ctx.beginPath(); ctx.moveTo(Math.random()*400,0); ctx.lineTo(Math.random()*400,300); ctx.stroke();
+    }
+    ctx.fillStyle='#fff8e6'; ctx.font='bold 40px Georgia';
+    ctx.fillText('✦',330,60);
+  }
+  const img=new Image();
+  img.onload=()=>{ currentImg=img; $('previewImg').src=cv.toDataURL('image/png'); $('previewWrap').style.display='block'; $('snapBtn').disabled=false; $('dropzone').querySelector('p').textContent='📸 Sample loaded — hit Snap My Palette!'; };
+  img.src=cv.toDataURL('image/png');
+}
+document.querySelectorAll('.sample-btn').forEach(b=>
+  b.addEventListener('click',()=>makeSample(b.dataset.sample)));
+
+/* ---------- SHARE ---------- */
+$('shareBtn').addEventListener('click',()=>{
+  if(!palette.length) return;
+  const hexes=palette.map(c=>hex(c.r,c.g,c.b).toUpperCase()).join(' · ');
+  const names=palette.map(c=>nameColor(c.r,c.g,c.b)).join(', ');
+  const text=encodeURIComponent(
+    '🎨 I snapped my palette on Everlasting Memories!\n'+
+    'Colors: '+names+'\n'+hexes+'\n'+
+    'Matched style: '+(style?style.icon+' '+style.name:'—')+'\n'+
+    'Try it with any photo: myeverlastingmemories.com/palette-snap.html'
+  );
+  window.open('https://wa.me/12039817244?text='+text,'_blank');
+});
+
+/* ---------- LEAD SUBMIT ---------- */
+$('leadForm').addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  const msg=$('formMsg');
+  msg.className='msg'; msg.style.display='none';
+  const name=$('name').value.trim();
+  const email=$('email').value.trim();
+  if(!name||!email){ msg.className='msg err'; msg.style.display='block'; msg.textContent='Please add your name and email so Isabella can reply.'; return; }
+  const btn=$('submitBtn');
+  btn.disabled=true; btn.textContent='Sending…'; btn.style.opacity='.7';
+  const hexes=palette.length?palette.map(c=>hex(c.r,c.g,c.b).toUpperCase()).join(', '):'not set';
+  const names=palette.length?palette.map(c=>nameColor(c.r,c.g,c.b)).join(', '):'—';
+  const payload={
+    name, email,
+    phone:$('phone').value.trim(),
+    eventType:$('eventType').value,
+    eventDate:$('eventDate').value||'',
+    message:'🎨 PALETTE SNAP via myeverlastingmemories.com\n'+
+      '• Palette (hex): '+hexes+'\n'+
+      '• Color names: '+names+'\n'+
+      '• Matched style: '+(style?style.name:'—')+'\n'+
+      '• Event: '+$('eventType').value+($('eventDate').value?' on '+$('eventDate').value:'')+'\n'+
+      '• Notes: '+($('notes').value.trim()||'—')+'\n\n(Lead from Palette Snap photo matcher)',
+    source:'palette-snap'
+  };
+  try{
+    const res=await fetch('/api/leads.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    const json=await res.json();
+    if(!json.success) throw new Error(json.error||'submit failed');
+    msg.className='msg ok'; msg.style.display='block';
+    msg.textContent='🎉 Sent! Isabella will reply within 24 hrs with a quote in your exact colors.';
+    confetti(40);
+    $('leadForm').reset();
+  }catch(err){
+    msg.className='msg err'; msg.style.display='block';
+    msg.textContent='Something went wrong sending. Please email Hey.everlasting.memories@gmail.com — or WhatsApp 203-981-7244.';
+  }finally{
+    btn.disabled=false; btn.textContent='&#127881; Get My Quote With These Colors'; btn.style.opacity='1';
+  }
+});
+
+/* ---------- CONFETTI ---------- */
+function confetti(n){
+  const layer=$('confettiLayer');
+  const emojis=['🎈','🎉','✨','💖','🎊','🫧'];
+  for(let i=0;i<n;i++){
+    const el=document.createElement('div');
+    el.className='confetti';
+    el.textContent=emojis[Math.floor(Math.random()*emojis.length)];
+    el.style.left=Math.random()*100+'vw';
+    el.style.fontSize=(0.9+Math.random()*1.2)+'rem';
+    el.style.animationDuration=(2.2+Math.random()*2)+'s';
+    el.style.animationDelay=(Math.random()*0.6)+'s';
+    layer.appendChild(el);
+    setTimeout(()=>el.remove(),5000);
+  }
+}
+</script>
+</body>
+</html>
