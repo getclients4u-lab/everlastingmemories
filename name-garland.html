@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Balloon Letter Studio — Spell Any Name in Balloons | Everlasting Memories</title>
+<link rel="canonical" href="https://myeverlastingmemories.com/name-garland.html">
+<meta name="description" content="Type any name or word and preview it as a stunning balloon letter garland. Pick your style, palette and layout — then get a real quote from Everlasting Memories.">
+<meta property="og:title" content="Balloon Letter Studio — Everlasting Memories">
+<meta property="og:description" content="See your name spelled in balloons. Design a custom letter garland for birthdays, weddings, baby showers & more.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://myeverlastingmemories.com/name-garland.html">
+<meta property="og:image" content="https://myeverlastingmemories.com/logo.jpg">
+<meta name="theme-color" content="#8a6a4e">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="analytics.js" defer></script>
+<style>
+:root{--c1:#5a3d2b;--c2:#8a6a4e;--bg:#f8f4ee;--ink:#33281f;--accent:#C9A227;--gold:#d4af37;--card:#ffffff;--line:#e9dfd2;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+h1,h2,h3,.display{font-family:'Playfair Display',Georgia,serif}
+header{background:linear-gradient(135deg,#5a3d2b,#8a6a4e);color:#fff;padding:38px 24px 30px;text-align:center;position:relative;overflow:hidden}
+header:after{content:"🔤";position:absolute;right:18px;top:14px;font-size:3rem;opacity:.25;transform:rotate(15deg)}
+header:before{content:"🎈";position:absolute;left:18px;bottom:10px;font-size:2.4rem;opacity:.2;transform:rotate(-20deg)}
+.home-link{display:inline-block;margin-bottom:12px;color:#f3d78a;text-decoration:none;font-weight:600;font-size:.88rem;letter-spacing:.02em}
+.home-link:hover{color:#fff}
+header h1{font-size:clamp(1.7rem,4.5vw,2.5rem);margin-bottom:8px}
+header p{color:#eadfce;max-width:680px;margin:0 auto;font-size:1.02rem}
+.container{max-width:1080px;margin:0 auto;padding:26px 20px}
+.layout{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:start}
+@media(max-width:900px){.layout{grid-template-columns:1fr}}
+.card{background:var(--card);border-radius:16px;padding:24px;box-shadow:0 3px 18px rgba(90,61,43,.08);margin-bottom:18px;border:1px solid var(--line)}
+.card h2{font-size:1.12rem;color:var(--c1);margin-bottom:4px}
+.step-num{display:inline-block;background:var(--c1);color:#fff;width:24px;height:24px;border-radius:50%;text-align:center;line-height:24px;font-size:.8rem;font-weight:700;margin-right:8px;font-family:'Inter',sans-serif}
+.card .hint{color:#9a8a76;font-size:.85rem;margin-bottom:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px}
+.opt{border:2px solid var(--line);border-radius:12px;padding:14px 10px;cursor:pointer;text-align:center;transition:.15s;background:#fff}
+.opt:hover{border-color:var(--accent);transform:translateY(-2px)}
+.opt.sel{border-color:var(--c1);background:#f7efe3;box-shadow:0 0 0 2px rgba(90,61,43,.14)}
+.opt .ic{font-size:1.6rem;display:block;margin-bottom:5px}
+.opt .nm{font-weight:600;font-size:.92rem}
+.opt .ds{color:#a08e79;font-size:.75rem;margin-top:3px;line-height:1.35}
+.pal-opt{border:2px solid var(--line);border-radius:12px;padding:10px;cursor:pointer;transition:.15s;background:#fff}
+.pal-opt:hover{border-color:var(--accent)}
+.pal-opt.sel{border-color:var(--c1);box-shadow:0 0 0 2px rgba(90,61,43,.14)}
+.pal-opt .pn{font-weight:600;font-size:.82rem;margin-top:6px;text-align:center}
+.pal-opt .mini{display:flex;border-radius:6px;overflow:hidden;height:26px;margin-top:6px}
+.pal-opt .mini i{flex:1}
+.fg{margin-bottom:12px}
+.fg label{display:block;font-weight:600;font-size:.86rem;margin-bottom:4px;color:var(--c1)}
+.fg input,.fg textarea,.fg select{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;font-size:.95rem;background:#fff;font-family:'Inter',sans-serif}
+.fg input:focus,.fg textarea:focus,.fg select:focus{outline:none;border-color:var(--accent)}
+.fg textarea{resize:vertical;min-height:70px}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:480px){.fg-row{grid-template-columns:1fr}}
+.msg{display:none;border-radius:10px;padding:12px;font-size:.9rem;font-weight:500;margin-bottom:12px;text-align:center}
+.msg.ok{display:block;background:#eef7ee;border:1px solid #7cc47c;color:#2c6e2c}
+.msg.err{display:block;background:#fdeeee;border:1px solid #e08a8a;color:#a33}
+.cta-btn{display:block;width:100%;background:var(--accent);color:#fff;border:none;padding:14px;border-radius:12px;font-weight:700;font-size:1rem;cursor:pointer;transition:.15s;margin-top:14px;font-family:'Inter',sans-serif;text-decoration:none;text-align:center}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(201,162,39,.4)}
+.cta-btn.ghost{background:#fff;color:var(--c1);border:2px solid var(--c1);margin-top:8px}
+.cta-btn.ghost:hover{background:var(--c1);color:#fff}
+.cta-btn.small{padding:10px;font-size:.88rem}
+/* letter input */
+.letter-input{display:flex;gap:8px;align-items:stretch}
+.letter-input input{flex:1;font-size:1.35rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;text-align:center;padding:14px 12px;border:2px solid var(--line);border-radius:12px;font-family:'Inter',sans-serif}
+.letter-input input:focus{outline:none;border-color:var(--accent)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.chip{background:#faf4e8;border:1px solid var(--line);border-radius:999px;padding:6px 14px;font-size:.8rem;font-weight:600;cursor:pointer;color:var(--c1);transition:.15s;font-family:'Inter',sans-serif}
+.chip:hover{background:var(--c1);color:#fff;border-color:var(--c1)}
+.char-count{font-size:.75rem;color:#a08e79;margin-top:8px;text-align:right}
+/* preview stage */
+.stage{position:sticky;top:16px}
+@media(max-width:900px){.stage{position:static}}
+.preview-wrap{background:linear-gradient(160deg,#fdfbf7 0%,#f3ece0 100%);border-radius:16px;padding:18px;border:1px solid var(--line);overflow:hidden}
+.preview-stage{background:radial-gradient(ellipse at 50% 0%,#fffdf8 0%,#f6efe4 100%);border-radius:12px;padding:10px;min-height:300px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+#garlandSvg{width:100%;height:auto;max-height:340px}
+.preview-cap{font-size:.75rem;color:#a08e79;text-align:center;margin-top:10px}
+.est-box{background:#faf4e8;border:1.5px dashed var(--gold);border-radius:12px;padding:12px;margin-top:12px;text-align:center}
+.est-box .est-amt{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--c1)}
+.est-box .est-note{font-size:.75rem;color:#9a8a76;margin-top:2px}
+.preview-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.preview-actions .cta-btn{margin-top:0}
+@media(max-width:480px){.preview-actions{grid-template-columns:1fr}}
+/* facts + faq */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:6px}
+.fact{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;font-size:.86rem;color:#5d4c38}
+.fact b{color:var(--c1);display:block;margin-bottom:4px}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-item:last-child{border-bottom:none}
+.faq-q{width:100%;display:flex;justify-content:space-between;align-items:center;padding:13px 0;background:none;border:none;cursor:pointer;font-family:'Inter',sans-serif;font-size:.92rem;font-weight:600;color:var(--c1);text-align:left}
+.faq-q::after{content:'+';font-size:1.2rem;color:var(--gold);transition:transform .3s}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease-out}
+.faq-item.open .faq-a{max-height:300px}
+.faq-a p{padding-bottom:13px;font-size:.87rem;color:#7a6a4f}
+.badge{display:inline-block;background:rgba(255,255,255,.18);color:#fff;padding:3px 12px;border-radius:999px;font-size:.7rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
+footer{text-align:center;color:#a08e79;font-size:.8rem;padding:30px 20px}
+footer a{color:var(--c1);font-weight:600;text-decoration:none}
+.hidden{display:none}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:9999}
+</style>
+</head>
+<body>
+<style>
+  .em-nav{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
+    background:#faf8f5;border-bottom:1px solid #E8DFD4;padding:10px 20px;
+    position:sticky;top:0;z-index:950;box-shadow:0 2px 10px rgba(60,40,20,.06)}
+  .em-nav-brand{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:1.05rem;color:#2C2C2C;text-decoration:none;letter-spacing:.02em}
+  .em-nav-links{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .em-nav-links>a,.em-nav-drop-btn{font-family:'Inter',-apple-system,sans-serif;font-size:.76rem;font-weight:600;
+    text-transform:uppercase;letter-spacing:.05em;color:#2C2C2C;text-decoration:none;background:none;border:none;cursor:pointer;padding:0}
+  .em-nav-links>a:hover,.em-nav-drop-btn:hover{color:#C9A87C}
+  .em-nav-hot{color:#C9A227 !important;font-weight:700 !important}
+  .em-nav-drop{position:relative}
+  .em-nav-drop-menu{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%) translateY(6px);
+    min-width:200px;background:#fff;border:1px solid #E8DFD4;border-radius:12px;box-shadow:0 14px 40px rgba(60,40,20,.14);
+    padding:8px;display:flex;flex-direction:column;gap:2px;opacity:0;pointer-events:none;transition:all .2s;z-index:960}
+  .em-nav-drop:hover .em-nav-drop-menu,.em-nav-drop:focus-within .em-nav-drop-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+  .em-nav-drop-menu a{font-size:.8rem;padding:8px 12px;border-radius:8px;color:#2C2C2C;text-decoration:none;white-space:nowrap;font-family:'Inter',sans-serif}
+  .em-nav-drop-menu a:hover{background:#E8DFD4;color:#C9A87C}
+  .em-nav-cta{background:#2C2C2C;color:#FAF8F5;text-decoration:none;padding:9px 18px;border-radius:999px;font-size:.76rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;font-family:'Inter',sans-serif}
+  .em-nav-cta:hover{background:#C9A87C}
+  @media(max-width:640px){.em-nav{justify-content:center;text-align:center}.em-nav-cta{display:none}}
+</style>
+<div class="em-nav" role="navigation" aria-label="Main navigation">
+  <a class="em-nav-brand" href="index.html">🎈 Everlasting Memories</a>
+  <div class="em-nav-links">
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="about.html">About</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+    <a href="gift-card.html" class="em-nav-hot">Gift Cards</a>
+    <div class="em-nav-drop">
+      <button class="em-nav-drop-btn" type="button" aria-haspopup="true" aria-expanded="false">Tools &#9662;</button>
+      <div class="em-nav-drop-menu">
+          <a href="cost-estimator.html">Estimate Cost</a>
+          <a href="theme-generator.html">Theme Generator</a>
+          <a href="lookbook.html">Lookbook</a>
+          <a href="countdown.html">Countdown</a>
+          <a href="party-style-quiz.html">Party Style Quiz</a>
+          <a href="balloon-math.html">Balloon Math</a>
+          <a href="reserve-date.html">Reserve Your Date</a>
+          <a href="diy-vs-pro.html">DIY vs Pro</a>
+          <a href="palette-snap.html">Palette Snap</a>
+          <a href="name-garland.html" style="background:#C9A87C;color:#fff;">Balloon Letters</a>
+          <a href="referral.html">Refer &amp; Earn</a>
+        </div>
+    </div>
+  </div>
+  <a class="em-nav-cta" href="cost-estimator.html">Get a Quote</a>
+</div>
+
+
+<header>
+  <a href="index.html" class="home-link">&#8592; Back to Home</a>
+  <div class="badge">&#127881; New — Balloon Letter Studio</div>
+  <h1>&#128220; Balloon Letter Studio</h1>
+  <p>Some names deserve more than a card. Type any name or word and watch it come alive as a hand-built balloon letter garland — <em>your</em> colors, <em>your</em> style, <em>your</em> spelling. Preview it live, download it, and get a real quote from Isabella in one click.</p>
+</header>
+
+<div class="container">
+  <div class="layout">
+    <!-- LEFT: builder -->
+    <div>
+      <div class="card">
+        <h2><span class="step-num">1</span>What does it say?</h2>
+        <p class="hint">A name, a word, a phrase — up to about 12 characters looks best. Spaces, &amp; and &hearts; work too.</p>
+        <div class="letter-input">
+          <input type="text" id="wordInput" maxlength="14" placeholder="AMELIA" value="AMELIA" autocomplete="off" spellcheck="false" aria-label="Word to spell in balloons">
+        </div>
+        <div class="chips" id="chipRow"></div>
+        <div class="char-count" id="charCount"></div>
+      </div>
+
+      <div class="card">
+        <h2><span class="step-num">2</span>Pick a letter style</h2>
+        <p class="hint">How should each balloon letter look?</p>
+        <div class="grid" id="styleGrid"></div>
+      </div>
+
+      <div class="card">
+        <h2><span class="step-num">3</span>Pick your palette</h2>
+        <p class="hint">Six signature Everlasting Memories looks — colors rotate through your letters.</p>
+        <div class="grid" id="palGrid" style="grid-template-columns:repeat(auto-fit,minmax(120px,1fr));"></div>
+      </div>
+
+      <div class="card">
+        <h2><span class="step-num">4</span>Choose the layout</h2>
+        <p class="hint">Straight reads clean and bold; arch feels like a celebration entrance.</p>
+        <div class="grid" id="layoutGrid" style="grid-template-columns:1fr 1fr;"></div>
+      </div>
+
+      <div class="card">
+        <h2>&#10067; Balloon letter questions</h2>
+        <div class="faq" id="faq">
+          <div class="faq-item">
+            <button class="faq-q" type="button">How much does a name garland cost?</button>
+            <div class="faq-a"><p>Each balloon letter is hand-built and quoted individually — the estimate on the right gives you a typical range based on your word, style and layout. Isabella confirms the exact price when you send the request; most single-name garlands land between $85 and $180.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button">Can I pick exact colors, not just a palette?</button>
+            <div class="faq-a"><p>Absolutely. The palettes here are starting points — tell Isabella your exact hex codes or your venue's colors and she'll match them in real latex or foil balloons.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button">What surfaces can a letter garland hang on?</button>
+            <div class="faq-a"><p>Almost anything: a fireplace mantel, a dessert table backdrop, a nursery wall, a photo booth frame, an arch or a door. Isabella brings the hardware and installs it so it stays perfectly level and secure.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button">How far ahead should I book?</button>
+            <div class="faq-a"><p>2–3 weeks is comfortable for letter garlands since each letter is custom-inflated and assembled by hand. Last-minute? Call 203-981-7244 — if the colors are in stock, she can often make magic happen in 48 hours.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button">Do the balloons last the whole event?</button>
+            <div class="faq-a"><p>Yes — quality latex holds beautifully for 12+ hours, and foil letters last for days. If you want the garland to survive the party <em>and</em> the photo shoot the next morning, foil or the organic mix are the way to go.</p></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button">Can I use a &hearts; or &amp; between names?</button>
+            <div class="faq-a"><p>Yes! Type it right into the box — like AMELIA &hearts; NOAH — and it renders as a special heart balloon between the names. It's the most-requested touch for weddings, anniversaries and couple showers.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>&#128161; Why a balloon letter garland?</h2>
+        <div class="facts">
+          <div class="fact"><b>&#128247; The photo moment</b> Nothing says "this party is about YOU" like your name towering over the dessert table. Guaranteed guest-photo magnet.</div>
+          <div class="fact"><b>&#127881; Any milestone</b> First birthdays, sweet sixteens, graduations, engagements, gender reveals, retirements — letters fit every chapter.</div>
+          <div class="fact"><b>&#128142; Two names, one arch</b> Couples love AMELIA &hearts; NOAH over the entryway or the sweetheart table. Instant romance.</div>
+          <div class="fact"><b>&#128230; Built to last the night</b> Hand-tied, properly inflated, professionally installed — not a sad cluster of half-deflated balloons by hour three.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: the preview + order -->
+    <div class="stage">
+      <div class="card" style="padding:18px;">
+        <div class="preview-wrap">
+          <div class="preview-stage" id="previewStage" role="img" aria-label="Live balloon letter garland preview">
+            <svg id="garlandSvg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300"></svg>
+          </div>
+          <div class="preview-cap">Your garland updates live — every letter, color and string exactly as it will look.</div>
+        </div>
+        <div class="est-box">
+          <div style="font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#9a8a76;">Typical price range</div>
+          <div class="est-amt" id="estAmt">$95 – $130</div>
+          <div class="est-note" id="estNote">~7 letters · Classic Latex · straight · exact quote from Isabella</div>
+        </div>
+        <div class="preview-actions">
+          <button class="cta-btn small" id="downloadBtn" type="button">&#11015; Download PNG</button>
+          <button class="cta-btn small ghost" id="whatsappBtn" type="button">&#128228; WhatsApp</button>
+          <button class="cta-btn small ghost" id="surpriseBtn" type="button" style="grid-column:1/-1;">&#127922; Surprise Me — new word, style &amp; palette</button>
+        </div>
+        <div class="msg" id="shareStatus"></div>
+      </div>
+
+      <div class="card">
+        <h2>&#128722; Get your exact quote</h2>
+        <p class="hint">Send your design to Isabella — she replies within 24 hours with the real price, timing and any color tweaks. Your design travels with the form automatically.</p>
+        <div class="msg" id="formMsg"></div>
+        <form id="orderForm" novalidate>
+          <div class="fg-row">
+            <div class="fg"><label for="name">Your name *</label><input type="text" id="name" required placeholder="Full name" autocomplete="name"></div>
+            <div class="fg"><label for="phone">Phone</label><input type="tel" id="phone" placeholder="203-555-0000" autocomplete="tel"></div>
+          </div>
+          <div class="fg"><label for="email">Email *</label><input type="email" id="email" required placeholder="you@example.com" autocomplete="email"></div>
+          <div class="fg-row">
+            <div class="fg">
+              <label for="eventType">Event type</label>
+              <select id="eventType">
+                <option>Birthday</option>
+                <option>Wedding</option>
+                <option>Baby Shower</option>
+                <option>Gender Reveal</option>
+                <option>Anniversary</option>
+                <option>Graduation</option>
+                <option>Corporate</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="fg"><label for="eventDate">Event date</label><input type="date" id="eventDate"></div>
+          </div>
+          <div class="fg"><label for="notes">Notes for Isabella</label><textarea id="notes" placeholder="e.g. Exact colors to match: blush + gold. Hanging above the dessert table, ~4 ft wide."></textarea></div>
+          <button type="submit" class="cta-btn" id="submitBtn">&#127881; Get My Quote</button>
+          <p style="font-size:.75rem;color:#a08e79;text-align:center;margin-top:8px;">Free quote · no commitment · Isabella replies within 24 hours</p>
+        </form>
+      </div>
+
+      <div class="card" style="text-align:center;">
+        <p style="font-size:.9rem;color:#7a6a4f;">Prefer to just talk it through?<br><a href="tel:203-981-7244" style="font-weight:700;color:var(--c1);text-decoration:none;">Call 203-981-7244</a> · <a href="mailto:Hey.everlasting.memories@gmail.com" style="font-weight:700;color:var(--c1);text-decoration:none;">Email us</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer><p><a href="index.html">Everlasting Memories</a> — Balloon Art &amp; Event Decor, Connecticut · <a href="tel:203-981-7244">203-981-7244</a> · <a href="contact.html">Contact</a> · <a href="https://instagram.com/everlasting.memories25" style="color:#C9A87C" target="_blank" rel="noopener">@everlasting.memories25</a></p><p style="margin-top:6px;">Every garland is hand-built and installed by Isabella — no templates, no shortcuts.</p><p style="margin-top:8px;"><a href="name-garland.html" style="color:#C9A87C">Balloon Letter Studio</a> · <a href="referral.html" style="color:#C9A87C">Refer &amp; Earn</a></p></footer>
+
+<canvas id="confetti"></canvas>
+
+<script>
+/* ================= DATA ================= */
+const STYLES = [
+  { key:'latex',   label:'Classic Latex', icon:'🎈', ds:'Soft matte finish, timeless party look', price:13 },
+  { key:'foil',    label:'Glam Foil',     icon:'✨', ds:'Shiny metallic shine, lasts for days',   price:16 },
+  { key:'organic', label:'Organic Bloom', icon:'🌸', ds:'Letter + mini balloon clusters, high-end', price:18 }
+];
+const PALETTES = [
+  { name:'Romantic Bloom', colors:['#f7c8d0','#e86a8a','#c94f6d'] },
+  { name:'Glam Gold',      colors:['#d4af37','#8a6a4e','#2b2b2b'] },
+  { name:'Party Pop',      colors:['#ff6b6b','#ffd93d','#4d96ff'] },
+  { name:'Modern Muse',    colors:['#2d2d2d','#c9a87c','#f5f0e8'] },
+  { name:'Boho Earth',     colors:['#8a6a4e','#c9a87c','#3d5a40'] },
+  { name:'Winter Wonder',  colors:['#a8d8ea','#f0f7ff','#7fb3d5'] }
+];
+const LAYOUTS = [
+  { key:'straight', label:'Straight', icon:'➡️' },
+  { key:'arch',     label:'Arch',     icon:'🌈' }
+];
+const CHIPS = ['AMELIA','NOAH','EMMA ♥ JACK','HAPPY BIRTHDAY','LOVE','WELCOME BABY','SOFIA','JUST MARRIED','LIAM','A & M'];
+
+/* ================= STATE ================= */
+const state = { text:'AMELIA', style:0, palette:0, layout:0 };
+
+/* ================= RENDER INPUTS ================= */
+function buildStyleGrid(){
+  const g = document.getElementById('styleGrid');
+  g.innerHTML = '';
+  STYLES.forEach((s,i)=>{
+    const d = document.createElement('div');
+    d.className = 'opt' + (state.style===i ? ' sel':'');
+    d.innerHTML = '<span class="ic">'+s.icon+'</span><span class="nm">'+s.label+'</span><span class="ds">'+s.ds+'</span>';
+    d.onclick = ()=>{ state.style=i; document.querySelectorAll('#styleGrid .opt').forEach(x=>x.classList.remove('sel')); d.classList.add('sel'); render(); };
+    g.appendChild(d);
+  });
+}
+function buildPalGrid(){
+  const g = document.getElementById('palGrid');
+  g.innerHTML = '';
+  PALETTES.forEach((t,i)=>{
+    const d = document.createElement('div');
+    d.className = 'pal-opt' + (state.palette===i ? ' sel':'');
+    d.innerHTML = '<div class="mini">'+t.colors.map(c=>'<i style="background:'+c+'"></i>').join('')+'</div><div class="pn">'+t.name+'</div>';
+    d.onclick = ()=>{ state.palette=i; document.querySelectorAll('#palGrid .pal-opt').forEach(x=>x.classList.remove('sel')); d.classList.add('sel'); render(); };
+    g.appendChild(d);
+  });
+}
+function buildLayoutGrid(){
+  const g = document.getElementById('layoutGrid');
+  g.innerHTML = '';
+  LAYOUTS.forEach((l,i)=>{
+    const d = document.createElement('div');
+    d.className = 'opt' + (state.layout===i ? ' sel':'');
+    d.innerHTML = '<span class="ic">'+l.icon+'</span><span class="nm">'+l.label+'</span>';
+    d.onclick = ()=>{ state.layout=i; document.querySelectorAll('#layoutGrid .opt').forEach(x=>x.classList.remove('sel')); d.classList.add('sel'); render(); };
+    g.appendChild(d);
+  });
+}
+function buildChips(){
+  const row = document.getElementById('chipRow');
+  row.innerHTML = '';
+  CHIPS.forEach(c=>{
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'chip';
+    b.textContent = c;
+    b.onclick = ()=>{ document.getElementById('wordInput').value = c; state.text = c; render(); };
+    row.appendChild(b);
+  });
+}
+
+/* ================= SVG GARLAND RENDERING ================= */
+function lighten(hex, amt){
+  const n = parseInt(hex.slice(1),16);
+  const r = Math.min(255, (n>>16)+amt), g = Math.min(255, ((n>>8)&255)+amt), b = Math.min(255, (n&255)+amt);
+  return '#'+((r<<16)|(g<<8)|b).toString(16).padStart(6,'0');
+}
+function isLight(hex){
+  const n = parseInt(hex.slice(1),16);
+  const r = n>>16, g = (n>>8)&255, b = n&255;
+  return (0.299*r + 0.587*g + 0.114*b) > 170;
+}
+function balloonLetter(ch, cx, cy, r, color, styleKey, idx, ropeY){
+  const gradId = 'bg'+idx;
+  let balloon;
+  if (styleKey === 'foil'){
+    balloon = `
+      <defs>
+        <linearGradient id="${gradId}" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0%" stop-color="${lighten(color,70)}"/>
+          <stop offset="35%" stop-color="${color}"/>
+          <stop offset="70%" stop-color="${lighten(color,-25)}"/>
+          <stop offset="100%" stop-color="${lighten(color,-45)}"/>
+        </linearGradient>
+      </defs>
+      <ellipse cx="${cx-r*0.34}" cy="${cy-r*0.4}" rx="${r*0.3}" ry="${r*0.42}" fill="#ffffff" opacity="0.55" transform="rotate(-24 ${cx-r*0.34} ${cy-r*0.4})"/>`;
+  } else {
+    balloon = `
+      <defs>
+        <radialGradient id="${gradId}" cx="0.35" cy="0.3" r="1.1">
+          <stop offset="0%" stop-color="${lighten(color,65)}"/>
+          <stop offset="45%" stop-color="${color}"/>
+          <stop offset="100%" stop-color="${lighten(color,-30)}"/>
+        </radialGradient>
+      </defs>`;
+  }
+  const fill = `url(#${gradId})`;
+  const textColor = isLight(color) ? '#3d2b1f' : '#ffffff';
+  const isHeart = ch === '♥';
+  const isAmp = ch === '&';
+  let body;
+  if (isHeart){
+    body = `<path d="M ${cx} ${cy+r*0.55} C ${cx-r*1.05} ${cy-r*0.15} ${cx-r*0.62} ${cy-r*0.95} ${cx} ${cy-r*0.35} C ${cx+r*0.62} ${cy-r*0.95} ${cx+r*1.05} ${cy-r*0.15} ${cx} ${cy+r*0.55} Z" fill="${fill}" stroke="${lighten(color,-40)}" stroke-width="2"/>`;
+  } else if (isAmp){
+    body = `<circle cx="${cx}" cy="${cy}" r="${r}" fill="${fill}" stroke="${lighten(color,-40)}" stroke-width="2"/>`;
+  } else {
+    body = `<circle cx="${cx}" cy="${cy}" r="${r}" fill="${fill}" stroke="${lighten(color,-40)}" stroke-width="2"/>`;
+  }
+  const knot = `<path d="M ${cx-7} ${cy+r-3} L ${cx+7} ${cy+r-3} L ${cx} ${cy+r+13} Z" fill="${lighten(color,-35)}"/>`;
+  const strTop = ropeY + 8;
+  const midY = (cy + r + 13 + strTop) / 2;
+  const str = `<path d="M ${cx} ${cy+r+13} C ${cx+10} ${midY-12}, ${cx-10} ${midY+12}, ${cx} ${strTop}" fill="none" stroke="#b9a78f" stroke-width="2" opacity="0.85"/>`;
+  const letter = isHeart ? '' : `<text x="${cx}" y="${cy + r*0.36}" text-anchor="middle" font-family="'Arial Black','Arial',sans-serif" font-weight="900" font-size="${r*1.05}" fill="${textColor}" style="letter-spacing:-0.02em;">${ch === '&' ? '&amp;' : ch}</text>`;
+  return `<g class="balloon-g" style="animation-delay:${(idx*0.35).toFixed(2)}s">
+    ${balloon}
+    ${body}
+    <ellipse cx="${cx-r*0.34}" cy="${cy-r*0.42}" rx="${r*0.22}" ry="${r*0.3}" fill="#ffffff" opacity="${styleKey==='foil' ? 0.6 : 0.35}" transform="rotate(-24 ${cx-r*0.34} ${cy-r*0.42})"/>
+    ${knot}
+    ${str}
+    ${letter}
+  </g>`;
+}
+
+function render(){
+  const raw = (state.text || 'AMELIA').toUpperCase().trim();
+  const chars = [...raw];
+  const svg = document.getElementById('garlandSvg');
+  if (!chars.length){ svg.innerHTML = ''; updateEstimate(0); return; }
+
+  const n = chars.length;
+  const styleKey = STYLES[state.style].key;
+  const palette = PALETTES[state.palette].colors;
+  const arch = state.layout === 1;
+
+  // layout geometry — rope near top, letters hang BELOW it on even strings
+  const letterR = 52;
+  const gap = arch ? 118 : 108;
+  const W = Math.max(560, n*gap + 170);
+  const H = arch ? 340 : 290;
+  const ropeY = arch ? 40 : 38;
+  const ropeDrop = arch ? 110 : 0; // arch rope dips this far at center
+  const hang = arch ? 95 : 148;     // balloon center below rope at its point
+  const ropeAt = (t) => ropeY + Math.sin(Math.PI*t)*ropeDrop;
+
+  let parts = [];
+  // garland rope
+  if (arch){
+    parts.push(`<path d="M 85 ${ropeY} Q ${W/2} ${ropeY+ropeDrop} ${W-85} ${ropeY}" fill="none" stroke="#cbb79a" stroke-width="5" stroke-linecap="round"/>`);
+  } else {
+    parts.push(`<line x1="60" y1="${ropeY}" x2="${W-60}" y2="${ropeY}" stroke="#cbb79a" stroke-width="5" stroke-linecap="round"/>`);
+  }
+  // little attachment bows on the rope
+  for (let i=0;i<n;i++){
+    const t = n===1 ? 0.5 : i/(n-1);
+    const cx = 85 + t*(W-170);
+    parts.push(`<circle cx="${cx}" cy="${ropeAt(t)}" r="6" fill="#cbb79a"/>`);
+  }
+  // balloons
+  const miniCols = ['#ffd93d','#ff9fb2','#a8d8ea','#c9f2c7'];
+  chars.forEach((ch,i)=>{
+    const t = n===1 ? 0.5 : i/(n-1);
+    const cx = 85 + t*(W-170);
+    const ropeHere = ropeAt(t);
+    const cy = arch ? ropeHere + hang : ropeHere + hang + (i%2===0 ? 0 : 14);
+    const color = palette[i % palette.length];
+    const r = letterR;
+    parts.push(balloonLetter(ch, cx, cy, r, color, styleKey, i, ropeY));
+    if (styleKey === 'organic'){
+      // mini balloons around the letter
+      const spots = [[-r*1.05,-r*0.35],[r*1.05,-r*0.2],[-r*0.85,r*0.75],[r*0.9,r*0.8]];
+      spots.forEach((s,si)=>{
+        const mc = miniCols[(i*3+si) % miniCols.length];
+        parts.push(`<circle cx="${cx+s[0]}" cy="${cy+s[1]}" r="${12+ (si%2)*5}" fill="${mc}" stroke="${lighten(mc,-30)}" stroke-width="1.5"/>`);
+        parts.push(`<path d="M ${cx+s[0]} ${cy+s[1]+12} q ${3+(si%3)} ${8} ${0} ${16}" fill="none" stroke="#b9a78f" stroke-width="1.5" opacity="0.7"/>`);
+      });
+    }
+  });
+
+  const inner = parts.join('\n');
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+  svg.setAttribute('width', W);
+  svg.setAttribute('height', H);
+  svg.innerHTML = `<style>
+    .balloon-g{transform-box:fill-box;transform-origin:50% 0px;animation:sway 4.2s ease-in-out infinite}
+    @keyframes sway{0%,100%{transform:rotate(-1.6deg)}50%{transform:rotate(1.6deg)}}
+  </style>` + inner;
+
+  updateEstimate(n);
+  updateCharCount(n);
+}
+
+function updateCharCount(n){
+  const el = document.getElementById('charCount');
+  el.textContent = n + (n===1 ? ' character' : ' characters') + (n>12 ? ' — that\'s a big one, we love it!' : (n===0 ? ' — type something above!' : ''));
+}
+
+function updateEstimate(n){
+  if (!n){ document.getElementById('estAmt').textContent = '—'; document.getElementById('estNote').textContent = 'Type a word to see a typical price range'; return; }
+  const price = STYLES[state.style].price;
+  const low = n*price + 35;
+  const high = n*price + 75;
+  document.getElementById('estAmt').textContent = '$' + low + ' – $' + high;
+  const layoutName = LAYOUTS[state.layout].label.toLowerCase();
+  document.getElementById('estNote').textContent = '~' + n + (n===1?' letter':' letters') + ' · ' + STYLES[state.style].label + ' · ' + layoutName + ' · exact quote from Isabella';
+}
+
+function specText(){
+  const lines = [
+    '🎈 BALLOON LETTER GARLAND REQUEST',
+    '— Word: "' + (state.text || 'AMELIA').toUpperCase().trim() + '"',
+    '— Style: ' + STYLES[state.style].label,
+    '— Palette: ' + PALETTES[state.palette].name + ' (' + PALETTES[state.palette].colors.join(', ') + ')',
+    '— Layout: ' + LAYOUTS[state.layout].label,
+    '— Est. range: ' + document.getElementById('estAmt').textContent,
+    '— Notes: ' + (document.getElementById('notes').value.trim() || '—')
+  ];
+  return lines.join('\n');
+}
+
+/* ================= PNG DOWNLOAD ================= */
+function svgToString(){
+  const svg = document.getElementById('garlandSvg');
+  const clone = svg.cloneNode(true);
+  const W = parseInt(svg.getAttribute('width'),10);
+  const H = parseInt(svg.getAttribute('height'),10);
+  clone.setAttribute('xmlns','http://www.w3.org/2000/svg');
+  clone.setAttribute('width', W*2);
+  clone.setAttribute('height', H*2);
+  clone.setAttribute('viewBox', `0 0 ${W} ${H}`);
+  // flatten animations for export
+  clone.querySelectorAll('.balloon-g').forEach(g=>{ g.style.animation = 'none'; });
+  return { str: new XMLSerializer().serializeToString(clone), W: W*2, H: H*2 };
+}
+function downloadPNG(){
+  try {
+    const { str, W, H } = svgToString();
+    const blob = new Blob([str], { type:'image/svg+xml;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const img = new Image();
+    img.onload = () => {
+      const canvas = document.createElement('canvas');
+      canvas.width = W; canvas.height = H;
+      const ctx = canvas.getContext('2d');
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0,0,W,H);
+      ctx.drawImage(img,0,0,W,H);
+      URL.revokeObjectURL(url);
+      const a = document.createElement('a');
+      const word = (state.text||'garland').toUpperCase().replace(/[^A-Z0-9]/g,'');
+      a.download = 'balloon-garland-' + word + '.png';
+      a.href = canvas.toDataURL('image/png');
+      a.click();
+      setShareStatus('✓ PNG downloaded — show it off!');
+    };
+    img.onerror = () => { setShareStatus('Download failed on this browser — try WhatsApp share instead.', 'err'); };
+    img.src = url;
+  } catch(e){
+    console.error(e);
+    setShareStatus('Download failed on this browser — try WhatsApp share instead.', 'err');
+  }
+}
+
+/* ================= SHARE ================= */
+const shareStatus = document.getElementById('shareStatus');
+const setShareStatus = (t, cls) => { shareStatus.textContent = t; shareStatus.className = 'msg ' + (cls||'ok'); };
+function shareText(){
+  const word = (state.text||'AMELIA').toUpperCase().trim();
+  return '🎈 I just spelled "' + word + '" in balloons with Everlasting Memories! ' +
+    STYLES[state.style].label + ' · ' + PALETTES[state.palette].name + ' · ' + LAYOUTS[state.layout].label +
+    '\n\nDesign yours free: https://myeverlastingmemories.com/name-garland.html';
+}
+document.getElementById('whatsappBtn').addEventListener('click', ()=>{
+  const url = 'https://wa.me/?text=' + encodeURIComponent(shareText());
+  window.open(url, '_blank');
+  setShareStatus('WhatsApp opened — send it to whoever needs to see this!');
+});
+document.getElementById('downloadBtn').addEventListener('click', downloadPNG);
+
+/* ================= SURPRISE ME ================= */
+document.getElementById('surpriseBtn').addEventListener('click', ()=>{
+  const words = CHIPS.concat(['GRACE','OLIVER','HAPPY 40TH','AVERY','BABY MASON','HAPPY BIRTHDAY','THE SMITHS','AVA & LEO','WELCOME HOME','HAPPY ANNIVERSARY']);
+  state.text = words[Math.floor(Math.random()*words.length)];
+  state.style = Math.floor(Math.random()*STYLES.length);
+  state.palette = Math.floor(Math.random()*PALETTES.length);
+  state.layout = Math.floor(Math.random()*LAYOUTS.length);
+  document.getElementById('wordInput').value = state.text;
+  document.querySelectorAll('#styleGrid .opt').forEach((x,i)=>x.classList.toggle('sel', i===state.style));
+  document.querySelectorAll('#palGrid .pal-opt').forEach((x,i)=>x.classList.toggle('sel', i===state.palette));
+  document.querySelectorAll('#layoutGrid .opt').forEach((x,i)=>x.classList.toggle('sel', i===state.layout));
+  render();
+  confettiBurst();
+});
+document.getElementById('wordInput').addEventListener('input',(e)=>{
+  state.text = e.target.value;
+  render();
+});
+
+/* ================= ORDER FORM ================= */
+document.getElementById('orderForm').addEventListener('submit', async (e)=>{
+  e.preventDefault();
+  const msg = document.getElementById('formMsg');
+  const btn = document.getElementById('submitBtn');
+  msg.className = 'msg';
+  msg.style.display = 'none';
+  const name = document.getElementById('name').value.trim();
+  const email = document.getElementById('email').value.trim();
+  if (!name || !email){ msg.className='msg err'; msg.style.display='block'; msg.textContent='Please add your name and email so Isabella can send your quote.'; return; }
+  btn.disabled = true; btn.textContent = 'Sending…'; btn.style.opacity = '.7';
+  try {
+    const payload = {
+      name, email,
+      phone: document.getElementById('phone').value.trim(),
+      eventType: document.getElementById('eventType').value,
+      eventDate: document.getElementById('eventDate').value,
+      message: specText() + '\n\n(Lead from Balloon Letter Studio — wants a custom name garland quote)',
+      source: 'name-garland'
+    };
+    const res = await fetch('/api/leads.js', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) });
+    const json = await res.json();
+    if (!json.success) throw new Error(json.error||'submit failed');
+    msg.className='msg ok'; msg.style.display='block';
+    msg.innerHTML = '&#10003; Design sent! Isabella will reply within 24 hours with your exact quote &amp; available dates.';
+    btn.textContent = '&#10003; Quote Requested';
+  } catch(err){
+    console.error(err);
+    msg.className='msg err'; msg.style.display='block';
+    msg.textContent='Something went wrong — please call 203-981-7244 or email Hey.everlasting.memories@gmail.com';
+    btn.disabled = false; btn.textContent = '&#127881; Get My Quote'; btn.style.opacity = '1';
+  }
+});
+
+/* ================= FAQ ================= */
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click', ()=> q.parentElement.classList.toggle('open'));
+});
+
+/* ================= CONFETTI ================= */
+const cvs = document.getElementById('confetti');
+const ctx = cvs.getContext('2d');
+let pieces = [], confettiRunning = false;
+function sizeCanvas(){ cvs.width = window.innerWidth; cvs.height = window.innerHeight; }
+window.addEventListener('resize', sizeCanvas); sizeCanvas();
+function confettiBurst(){
+  const colors = PALETTES[state.palette].colors.concat(['#f5e7c1','#ffffff']);
+  pieces = [];
+  for (let i=0;i<90;i++){
+    pieces.push({
+      x: cvs.width/2 + (Math.random()-0.5)*160,
+      y: cvs.height*0.35,
+      w: 6+Math.random()*7, h: 8+Math.random()*10,
+      vx:(Math.random()-0.5)*7, vy:-(Math.random()*10+4),
+      rot:Math.random()*Math.PI*2, vr:(Math.random()-0.5)*0.3,
+      color: colors[Math.floor(Math.random()*colors.length)],
+      life: 1
+    });
+  }
+  if (!confettiRunning){ confettiRunning = true; requestAnimationFrame(confettiLoop); }
+}
+function confettiLoop(){
+  ctx.clearRect(0,0,cvs.width,cvs.height);
+  let alive = 0;
+  pieces.forEach(p=>{
+    p.x += p.vx; p.y += p.vy; p.vy += 0.25; p.rot += p.vr; p.life -= 0.008;
+    if (p.life <= 0) return;
+    alive++;
+    ctx.save();
+    ctx.translate(p.x,p.y); ctx.rotate(p.rot);
+    ctx.globalAlpha = Math.max(0, p.life);
+    ctx.fillStyle = p.color;
+    ctx.fillRect(-p.w/2,-p.h/2,p.w,p.h);
+    ctx.restore();
+  });
+  if (alive > 0){ requestAnimationFrame(confettiLoop); } else { confettiRunning = false; ctx.clearRect(0,0,cvs.width,cvs.height); }
+}
+
+/* ================= INIT ================= */
+buildStyleGrid(); buildPalGrid(); buildLayoutGrid(); buildChips(); render();
+</script>
+</body>
+</html>
