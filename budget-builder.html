@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Budget Balloonist — What Can Your Budget Buy? | Everlasting Memories</title>
+<link rel="canonical" href="https://myeverlastingmemories.com/budget-builder.html">
+<meta name="description" content="Tell us your balloon budget and watch a real party build itself. Honest pricing from Everlasting Memories — garlands, arches, backdrops & bouquets that actually fit your number.">
+<meta property="og:title" content="Budget Balloonist — Everlasting Memories">
+<meta property="og:description" content="Give us a budget, get a real balloon setup that fits it — with live preview, honest prices, and a quote from Isabella in one click.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://myeverlastingmemories.com/budget-builder.html">
+<meta property="og:image" content="https://myeverlastingmemories.com/logo.jpg">
+<meta name="theme-color" content="#1f5c3d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="analytics.js" defer></script>
+<style>
+:root{--c1:#1f5c3d;--c2:#2f7a52;--bg:#f6f4ec;--ink:#2c2a24;--accent:#d4af37;--gold:#d4af37;--card:#ffffff;--line:#e5ddca;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+h1,h2,h3,.display{font-family:'Playfair Display',Georgia,serif}
+/* ===== shared mini-nav (same as other tool pages) ===== */
+.em-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 22px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;flex-wrap:wrap}
+.em-nav-brand{font-weight:700;color:var(--c1);text-decoration:none;font-size:1.02rem}
+.em-nav-links{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.em-nav-links>a{color:#2C2C2C;text-decoration:none;font-size:.88rem;font-weight:500}
+.em-nav-links>a:hover{color:var(--c2)}
+.em-nav-hot{color:#C9A227!important;font-weight:700}
+.em-nav-drop{position:relative}
+.em-nav-drop-btn{background:none;border:none;font-family:'Inter',sans-serif;font-size:.88rem;font-weight:500;color:#2C2C2C;cursor:pointer;padding:4px 2px}
+.em-nav-drop-menu{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%) translateY(6px);background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 34px rgba(31,92,61,.14);padding:10px;display:flex;flex-direction:column;gap:2px;opacity:0;pointer-events:none;transition:.16s;min-width:210px}
+.em-nav-drop:hover .em-nav-drop-menu,.em-nav-drop:focus-within .em-nav-drop-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.em-nav-drop-menu a{font-size:.8rem;padding:8px 12px;border-radius:8px;color:#2C2C2C;text-decoration:none;white-space:nowrap;font-family:'Inter',sans-serif}
+.em-nav-drop-menu a:hover{background:#E8F0E8;color:var(--c2)}
+.em-nav-cta{background:var(--c1);color:#fff;text-decoration:none;font-size:.85rem;font-weight:600;padding:9px 18px;border-radius:999px}
+.em-nav-cta:hover{background:var(--c2)}
+@media(max-width:640px){.em-nav{justify-content:center;text-align:center}.em-nav-cta{display:none}}
+header{background:linear-gradient(135deg,#14532d,#2f7a52);color:#fff;padding:38px 24px 30px;text-align:center;position:relative;overflow:hidden}
+header:after{content:"💰";position:absolute;right:18px;top:14px;font-size:3rem;opacity:.25;transform:rotate(15deg)}
+header:before{content:"🎈";position:absolute;left:18px;bottom:10px;font-size:2.4rem;opacity:.2;transform:rotate(-20deg)}
+.home-link{display:inline-block;margin-bottom:12px;color:#d9f0dd;text-decoration:none;font-weight:600;font-size:.88rem;letter-spacing:.02em}
+.home-link:hover{color:#fff}
+.badge{display:inline-block;background:rgba(255,255,255,.18);color:#fff;padding:4px 14px;border-radius:999px;font-size:.75rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:12px}
+header h1{font-size:clamp(1.7rem,4.5vw,2.5rem);margin-bottom:8px}
+header p{color:#dcefe0;max-width:680px;margin:0 auto;font-size:1.02rem}
+.container{max-width:1080px;margin:0 auto;padding:26px 20px}
+.layout{display:grid;grid-template-columns:1.05fr .95fr;gap:22px;align-items:start}
+@media(max-width:900px){.layout{grid-template-columns:1fr}}
+.card{background:var(--card);border-radius:16px;padding:24px;box-shadow:0 3px 18px rgba(31,92,61,.08);margin-bottom:18px;border:1px solid var(--line)}
+.card h2{font-size:1.12rem;color:var(--c1);margin-bottom:4px}
+.step-num{display:inline-block;background:var(--c1);color:#fff;width:24px;height:24px;border-radius:50%;text-align:center;line-height:24px;font-size:.8rem;font-weight:700;margin-right:8px;font-family:'Inter',sans-serif}
+.card .hint{color:#9a927e;font-size:.85rem;margin-bottom:14px}
+/* budget slider */
+.budget-display{font-family:'Playfair Display',serif;font-size:2.3rem;font-weight:700;color:var(--c1);text-align:center;margin:6px 0 2px}
+.budget-display small{font-size:.95rem;color:#9a927e;font-weight:500;font-family:'Inter',sans-serif}
+input[type=range]{width:100%;accent-color:var(--c2);height:34px;cursor:pointer}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.chip{border:2px solid var(--line);background:#fff;border-radius:999px;padding:6px 14px;font-size:.82rem;font-weight:600;cursor:pointer;color:var(--c1);transition:.15s}
+.chip:hover{border-color:var(--c2);transform:translateY(-1px)}
+.chip.sel{background:var(--c1);border-color:var(--c1);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px}
+.opt{border:2px solid var(--line);border-radius:12px;padding:14px 10px;cursor:pointer;text-align:center;transition:.15s;background:#fff}
+.opt:hover{border-color:var(--accent);transform:translateY(-2px)}
+.opt.sel{border-color:var(--c1);background:#eef5ee;box-shadow:0 0 0 2px rgba(31,92,61,.14)}
+.opt .ic{font-size:1.6rem;display:block;margin-bottom:5px}
+.opt .nm{font-weight:600;font-size:.9rem}
+.opt .ds{color:#a09a86;font-size:.74rem;margin-top:3px;line-height:1.35}
+/* scene */
+.scene-wrap{position:relative;border-radius:14px;overflow:hidden;background:#f7f2e9;border:1px solid var(--line)}
+.scene-wrap svg{display:block;width:100%;height:auto}
+.scene-label{position:absolute;top:10px;left:12px;background:rgba(255,255,255,.85);border:1px solid var(--line);border-radius:999px;padding:3px 12px;font-size:.72rem;font-weight:600;color:var(--c1)}
+.tier-row{display:flex;align-items:center;gap:12px;margin:14px 0 4px}
+.tier-badge{background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff;padding:8px 16px;border-radius:999px;font-weight:700;font-size:.95rem;white-space:nowrap}
+.tier-line{color:#7a7462;font-size:.88rem}
+/* combo list */
+.combo-item{display:flex;align-items:center;gap:10px;padding:9px 4px;border-bottom:1px dashed var(--line);font-size:.92rem}
+.combo-item .ci{font-size:1.15rem}
+.combo-item .cn{flex:1;font-weight:500}
+.combo-item .cp{font-weight:700;color:var(--c1);white-space:nowrap}
+.combo-total{display:flex;justify-content:space-between;align-items:baseline;margin-top:12px;padding-top:12px;border-top:2px solid var(--c1);font-size:1.05rem}
+.combo-total b{font-size:1.25rem;color:var(--c1)}
+.leftover{display:inline-block;margin-top:8px;background:#f3f7d8;border:1px solid #c9d97a;color:#5c6e1f;padding:5px 12px;border-radius:999px;font-size:.82rem;font-weight:600}
+.nudge{margin-top:12px;background:#fff8e1;border:1.5px solid var(--accent);border-radius:12px;padding:11px 14px;font-size:.88rem;color:#6e5a13}
+.msg{display:none;border-radius:10px;padding:12px;font-size:.9rem;font-weight:500;margin-bottom:12px;text-align:center}
+.msg.ok{display:block;background:#eef7ee;border:1px solid #7cc47c;color:#2c6e2c}
+.msg.err{display:block;background:#fdeeee;border:1px solid #e08a8a;color:#a33}
+.cta-btn{display:block;width:100%;background:var(--accent);color:#fff;border:none;padding:14px;border-radius:12px;font-weight:700;font-size:1rem;cursor:pointer;transition:.15s;margin-top:14px;font-family:'Inter',sans-serif;text-decoration:none;text-align:center}
+.cta-btn:hover{filter:brightness(1.06)}
+.cta-btn.ghost{background:#fff;color:var(--c1);border:2px solid var(--c1)}
+.btn-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:480px){.btn-row{grid-template-columns:1fr}}
+.fg{margin-bottom:12px}
+.fg label{display:block;font-weight:600;font-size:.86rem;margin-bottom:4px;color:var(--c1)}
+.fg input,.fg textarea,.fg select{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;font-size:.95rem;background:#fff;font-family:'Inter',sans-serif}
+.fg input:focus,.fg textarea:focus,.fg select:focus{outline:none;border-color:var(--c2)}
+.fg textarea{resize:vertical;min-height:70px}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:480px){.fg-row{grid-template-columns:1fr}}
+.faq-q{display:flex;justify-content:space-between;align-items:center;gap:10px;width:100%;background:none;border:none;font-family:'Inter',sans-serif;font-size:.95rem;font-weight:600;color:var(--c1);cursor:pointer;padding:13px 2px;text-align:left}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .25s ease;font-size:.9rem;color:#5c574a;padding:0 2px}
+.faq-item.open .faq-a{max-height:220px;padding-bottom:14px}
+.faq-item.open .faq-arrow{transform:rotate(180deg)}
+.faq-arrow{transition:.2s;color:var(--c2)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.fact{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;font-size:.85rem;color:#5c574a}
+.fact b{display:block;color:var(--c1);margin-bottom:4px;font-size:.9rem}
+footer{background:#f1ede2;border-top:1px solid var(--line);text-align:center;padding:26px 20px;font-size:.85rem;color:#7a7462;margin-top:10px}
+footer a{color:var(--c2);text-decoration:none}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:99}
+</style>
+</head>
+<body>
+<div class="em-nav" role="navigation" aria-label="Main navigation">
+  <a class="em-nav-brand" href="index.html">🎈 Everlasting Memories</a>
+  <div class="em-nav-links">
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="about.html">About</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+    <a href="gift-card.html" class="em-nav-hot">Gift Cards</a>
+    <div class="em-nav-drop">
+      <button class="em-nav-drop-btn" type="button" aria-haspopup="true" aria-expanded="false">Tools &#9662;</button>
+      <div class="em-nav-drop-menu">
+          <a href="cost-estimator.html">Estimate Cost</a>
+          <a href="theme-generator.html">Theme Generator</a>
+          <a href="lookbook.html">Lookbook</a>
+          <a href="countdown.html">Countdown</a>
+          <a href="party-style-quiz.html">Party Style Quiz</a>
+          <a href="balloon-math.html">Balloon Math</a>
+          <a href="reserve-date.html">Reserve Your Date</a>
+          <a href="diy-vs-pro.html">DIY vs Pro</a>
+          <a href="palette-snap.html">Palette Snap</a>
+          <a href="name-garland.html">Balloon Letters</a>
+          <a href="budget-builder.html" style="background:#2f7a52;color:#fff;">Budget Builder</a>
+          <a href="referral.html">Refer &amp; Earn</a>
+        </div>
+    </div>
+  </div>
+  <a class="em-nav-cta" href="cost-estimator.html">Get a Quote</a>
+</div>
+
+
+<header>
+  <a href="index.html" class="home-link">&#8592; Back to Home</a>
+  <div class="badge">&#127881; New Tonight — Budget Balloonist</div>
+  <h1>&#128184; Budget Balloonist</h1>
+  <p>Tell us your number. Watch a real party build itself around it. No "starting at" games — these are the same prices Isabella puts in real quotes, and the combo that fits <em>your</em> budget builds itself live.</p>
+</header>
+
+<div class="container">
+  <div class="layout">
+
+    <!-- LEFT: controls -->
+    <div>
+      <div class="card">
+        <h2><span class="step-num">1</span>What's your budget?</h2>
+        <p class="hint">Drag, tap a chip, or type a number. Every dollar becomes helium and joy.</p>
+        <div class="budget-display" id="budgetDisplay">$<span id="budgetVal">600</span></div>
+        <input type="range" id="budgetSlider" min="100" max="3000" step="25" value="600" aria-label="Party budget in dollars">
+        <div class="chips" id="chips"></div>
+      </div>
+
+      <div class="card">
+        <h2><span class="step-num">2</span>What are we celebrating?</h2>
+        <p class="hint">This steers the Balloonist toward the pieces that wow hardest for your occasion.</p>
+        <div class="grid" id="eventGrid"></div>
+      </div>
+
+      <div class="card">
+        <h2>&#128161; The honest fine print</h2>
+        <p style="font-size:.88rem;color:#5c574a;">Prices come straight from Isabella's quote sheet (garlands $250 + $20/ft, organic arches $350 + $25/ft, backdrops $550 + $45/ft). Setup, takedown, and a safety check are included. Travel within 30 miles of Connecticut is free.</p>
+      </div>
+    </div>
+
+    <!-- RIGHT: results -->
+    <div>
+      <div class="card">
+        <div class="tier-row">
+          <span class="tier-badge" id="tierBadge">&#127881; Sweet Spot</span>
+          <span class="tier-line" id="tierLine">The most party per dollar we do.</span>
+        </div>
+        <div class="scene-wrap">
+          <span class="scene-label" id="sceneLabel">Your party, filling in…</span>
+          <svg id="scene" viewBox="0 0 640 340" role="img" aria-label="Live preview of your balloon setup"></svg>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>&#128230; What fits in $<span id="comboBudget">600</span></h2>
+        <p class="hint">The Balloonist's pick — best wow per dollar, in Isabella's real prices.</p>
+        <div id="comboList"></div>
+        <div class="combo-total"><span>Estimated total</span><b id="comboTotal">$0</b></div>
+        <span class="leftover" id="leftover">&#128176; $0 left to play with</span>
+        <div class="nudge" id="nudge" style="display:none;"></div>
+        <div class="btn-row" style="margin-top:14px;">
+          <button class="cta-btn ghost" id="surpriseBtn" type="button">&#127922; Surprise Me</button>
+          <button class="cta-btn ghost" id="whatsappBtn" type="button">&#128172; Share on WhatsApp</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>&#128231; Lock it in — get your real quote</h2>
+        <p class="hint">Send your budget + combo to Isabella. She replies within 24 hours with an exact quote and 2–3 combos to choose from. No pressure, no surprise fees.</p>
+        <form id="orderForm">
+          <div class="msg" id="formMsg"></div>
+          <div class="fg-row">
+            <div class="fg"><label for="name">Name *</label><input id="name" type="text" autocomplete="name" placeholder="Your name"></div>
+            <div class="fg"><label for="email">Email *</label><input id="email" type="email" autocomplete="email" placeholder="you@email.com"></div>
+          </div>
+          <div class="fg-row">
+            <div class="fg"><label for="phone">Phone</label><input id="phone" type="tel" autocomplete="tel" placeholder="(203) 555-0123"></div>
+            <div class="fg"><label for="eventDate">Event date</label><input id="eventDate" type="date"></div>
+          </div>
+          <button class="cta-btn" id="submitBtn" type="submit">&#127881; Get My Exact Quote</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="card" style="margin-top:6px;">
+    <h2 style="margin-bottom:8px;">&#10067; Budget questions, answered honestly</h2>
+    <div class="faq-item">
+      <button class="faq-q" type="button">My budget is tiny — is this even worth it?<span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">Almost always yes. A 10&nbsp;ft garland starts around $450, but for smaller moments a name letter garland ($150) or a single bouquet ($85) still turns a corner into a celebration. If nothing fits, the form still sends Isabella your number — she'll tell you straight what's realistic and what to save for.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Are these prices real, or "starting at" bait?<span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">Real. These are the same line items Isabella uses in her quote sheet — garlands $250 + $20/ft, organic arches $350 + $25/ft, custom backdrops $550 + $45/ft, bouquets from $85. Your final quote is confirmed in writing within 24 hours, and it won't move after.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Can I change the combo after I send it?<span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">Absolutely — that's the point. The form sends your budget and the Balloonist's pick, and Isabella replies with 2–3 different ways to spend it. Swap the arch for a longer garland, trade bouquets for centerpieces — it's your party.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">What's included in the price?<span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">Design, materials, setup, and takedown — plus a safety check on every install. Travel within 30 miles is free. You don't lift a finger (that's the point of hiring a professional).</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Do you offer payment plans?<span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">Yes. Grand Affair setups ($2,000+) can be split into two payments: 50% to hold your date, 50% at install. For everything else, a 30% deposit locks in your date and the balance is due on the day.</div>
+    </div>
+  </div>
+
+  <!-- Facts -->
+  <div class="card">
+    <h2 style="margin-bottom:12px;">&#128300; Why budgets are our love language</h2>
+    <div class="facts">
+      <div class="fact"><b>&#128176; Exact, not "from"</b>Every quote is written, itemized, and final. The number you see is the number you pay.</div>
+      <div class="fact"><b>&#128197; 30% holds your date</b>A small deposit reserves your day; the rest is due at install. No big upfront gamble.</div>
+      <div class="fact"><b>&#128173; We've talked people DOWN</b>If a smaller setup wows harder for your space, we'll say so. Overselling is bad for repeat customers.</div>
+      <div class="fact"><b>&#128176;&#8205;&#129530; Best wow-per-dollar</b>Our 10–15&nbsp;ft garlands are the highest-impact pieces for the money — that's why they're the hero of most budgets.</div>
+      <div class="fact"><b>&#128187; Free re-design</b>Send your budget, get 2–3 combos to choose from. Zero obligation, zero pressure.</div>
+      <div class="fact"><b>&#127881; Grand Affair plans</b>Setups $2,000+ can split into two payments — 50% now, 50% on the day.</div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p><a href="index.html">Everlasting Memories</a> — Balloon Art &amp; Event Decor, Connecticut · <a href="tel:203-981-7244">203-981-7244</a> · <a href="contact.html">Contact</a> · <a href="https://instagram.com/everlasting.memories25" style="color:#C9A87C" target="_blank" rel="noopener">@everlasting.memories25</a></p>
+  <p style="margin-top:6px;">Every garland is hand-built and installed by Isabella — no templates, no shortcuts, no surprise fees.</p>
+  <p style="margin-top:8px;"><a href="budget-builder.html" style="color:#2f7a52">Budget Balloonist</a> · <a href="name-garland.html" style="color:#C9A87C">Balloon Letter Studio</a> · <a href="referral.html" style="color:#C9A87C">Refer &amp; Earn</a></p>
+</footer>
+
+<canvas id="confetti"></canvas>
+
+<script>
+/* ================= DATA ================= */
+const ITEMS = [
+  {id:'garland10', name:'Balloon Garland — 10 ft',      price:450, icon:'🎀', cat:'g', wow:3.4},
+  {id:'garland15', name:'Balloon Garland — 15 ft',      price:550, icon:'🎀', cat:'g', wow:3.9},
+  {id:'garland20', name:'Balloon Garland — 20 ft',      price:650, icon:'🎀', cat:'g', wow:4.3},
+  {id:'arch',      name:'Organic Arch — 8 ft tall',     price:550, icon:'🌈', cat:'a', wow:4.6},
+  {id:'round',     name:'Round Arch — 6 ft entry',      price:430, icon:'⭕', cat:'a', wow:3.7},
+  {id:'columns',   name:'Balloon Columns — pair',       price:455, icon:'🏛️', cat:'c', wow:3.1},
+  {id:'backdrop',  name:'Balloon Backdrop — 8 ft',      price:910, icon:'🖼️', cat:'b', wow:4.8},
+  {id:'nameg',     name:'Name Letter Garland',          price:150, icon:'🔤', cat:'g', wow:3.2},
+  {id:'bouquet',   name:'Balloon Bouquet',              price:85,  icon:'💐', cat:'t', wow:2.0},
+  {id:'deluxe',    name:'Deluxe Bouquet — 6–7 ft',      price:140, icon:'💐', cat:'t', wow:2.5},
+  {id:'centers',   name:'Table Centerpieces — 4 tables',price:160, icon:'🕯️', cat:'t', wow:1.8}
+];
+const ITEM = {}; ITEMS.forEach(i=>ITEM[i.id]=i);
+
+const HERO = {
+  wedding:     ['arch','round','backdrop','columns','garland15','garland20','garland10','nameg'],
+  birthday:    ['garland15','garland20','garland10','nameg','arch','columns','bouquet','centers'],
+  'baby-shower':['garland10','nameg','arch','bouquet','centers','garland15'],
+  corporate:   ['backdrop','columns','garland15','garland10','arch'],
+  anniversary: ['arch','garland15','round','nameg','bouquet'],
+  holiday:     ['garland10','columns','round','bouquet','centers'],
+  other:       ['garland10','arch','nameg','bouquet','columns','centers']
+};
+const EVENTS = [
+  {id:'wedding',     ic:'💍', nm:'Wedding'},
+  {id:'birthday',    ic:'🎂', nm:'Birthday'},
+  {id:'baby-shower', ic:'🍼', nm:'Baby Shower'},
+  {id:'corporate',   ic:'💼', nm:'Corporate'},
+  {id:'anniversary', ic:'💞', nm:'Anniversary'},
+  {id:'other',       ic:'🎉', nm:'Other'}
+];
+const PALETTES = {
+  wedding:     ['#f2c9d3','#f7e7d9','#e8cfa6','#d4af37','#f9efea'],
+  birthday:    ['#ff6b9d','#ffd166','#6bc7ff','#9b5de5','#ff8c42'],
+  'baby-shower':['#e8cfa6','#a8c3a0','#f2e3d5','#c9a87c','#8a9a5b'],
+  corporate:   ['#2e5e6e','#d4af37','#eef2f5','#8a9aa8','#1f3a4d'],
+  anniversary: ['#d4af37','#f5e7c1','#c9a87c','#8a6a4e','#fff8e7'],
+  holiday:     ['#a8d8ea','#f5f5f5','#d4af37','#c94f4f','#7fb3d5'],
+  other:       ['#f2c9d3','#ffd166','#6bc7ff','#9b5de5','#8a9a5b']
+};
+const CHIPS = [200, 300, 450, 600, 850, 1000, 1500, 2500];
+
+function tierFor(b){
+  if(b<250)  return {n:'First Pop',   e:'🎈', line:'A little goes a long way.'};
+  if(b<600)  return {n:'Starter Pop', e:'🎈', line:'Classic, clean, crowd-pleasing.'};
+  if(b<1000) return {n:'Sweet Spot',  e:'🍭', line:'The most party per dollar we do.'};
+  if(b<2000) return {n:'Full Dazzle', e:'✨', line:'Walk in and hear the gasps.'};
+  return {n:'Grand Affair', e:'👑', line:'Go big. We\'ll bring the wow.'};
+}
+
+/* ================= ENGINE ================= */
+function buildCombo(budget, ev){
+  const order = HERO[ev] || HERO.other;
+  const picked=[]; let spent=0;
+  const hasCat = c => picked.some(id=>ITEM[id].cat===c);
+  // 1. hero piece (event-specific priority, first thing that fits)
+  for(const id of order){
+    const it=ITEM[id];
+    if(it && it.price<=budget-spent){ picked.push(id); spent+=it.price; break; }
+  }
+  // 2. greedy fill by wow-per-dollar (one piece per big category; $1,500+ events may earn a second garland)
+  const blocked = new Set();
+  ['g','a','b','c'].forEach(c=>{ if(hasCat(c)) blocked.add(c); });
+  let cands = ITEMS.filter(it=>!picked.includes(it.id) && !blocked.has(it.cat) && it.cat!=='t');
+  cands.sort((a,b)=> (b.wow/b.price) - (a.wow/a.price));
+  let secondG = hasCat('g'); // a hero garland already counts as the first
+  for(const it of cands){
+    let allow = !blocked.has(it.cat);
+    if(it.cat==='g' && it.id!=='nameg' && blocked.has('g') && !secondG && budget>=1500){ allow=true; secondG=true; }
+    if(allow && it.price<=budget-spent){ picked.push(it.id); spent+=it.price; blocked.add(it.cat); }
+  }
+  // 3. table extras: up to 2 bouquets, then centerpieces
+  let bq = picked.filter(id=>id==='bouquet').length;
+  while(budget-spent>=85 && bq<2){ picked.push('bouquet'); spent+=85; bq++; }
+  if(budget-spent>=160 && !picked.includes('centers')){ picked.push('centers'); spent+=160; }
+  // 4. nudge: the best thing that's just out of reach (only if the ask is genuinely small)
+  const left = budget-spent;
+  const nudgeCap = Math.max(60, Math.round(budget*0.25));
+  let nudge=null;
+  for(const it of ITEMS){
+    if(!picked.includes(it.id) && !blocked.has(it.cat) && it.cat!=='t' && it.price>left && (it.price-left)<=nudgeCap){
+      if(!nudge || it.price<nudge.price) nudge=it;
+    }
+  }
+  if(!nudge && left>=40 && bq<2 && (85-left)<=nudgeCap){ nudge=ITEM.bouquet; }
+  return {picked, spent, left, nudge, tier:tierFor(budget)};
+}
+
+/* ================= SCENE ================= */
+function lighten(hex,pct){
+  const n=parseInt(hex.slice(1),16), r=(n>>16)&255, g=(n>>8)&255, b=n&255;
+  const m=(c)=>Math.round(c+(255-c)*pct);
+  return `rgb(${m(r)},${m(g)},${m(b)})`;
+}
+let gradCounter=0;
+function bal(cx,cy,r,color,sway){
+  const gi=gradCounter++;
+  return `<g class="bub"${sway?` style="animation:sway ${(2.4+Math.random()*2).toFixed(1)}s ease-in-out infinite alternate"`:''}>`+
+    `<path d="M${cx} ${cy+r*1.05} C ${cx-7} ${cy+r+14}, ${cx+7} ${cy+r+14}, ${cx+Math.round((Math.random()*6-3))} ${cy+r+22}" fill="none" stroke="#b9a98f" stroke-width="1.3"/>`+
+    `<defs><radialGradient id="g${gi}" cx="35%" cy="30%" r="80%">`+
+      `<stop offset="0%" stop-color="${lighten(color,.42)}"/><stop offset="60%" stop-color="${color}"/>`+
+      `<stop offset="100%" stop-color="${lighten(color,-.18)}"/>`+
+    `</radialGradient></defs>`+
+    `<circle cx="${cx}" cy="${cy}" r="${r}" fill="url(#g${gi})" stroke="${color}" stroke-width="1.1"/>`+
+    `<ellipse cx="${cx-r*.32}" cy="${cy-r*.38}" rx="${r*.22}" ry="${r*.13}" fill="rgba(255,255,255,.55)" transform="rotate(-25 ${cx-r*.32} ${cy-r*.38})"/>`+
+    `<path d="M${cx-3} ${cy+r-2} L${cx+3} ${cy+r-2} L${cx} ${cy+r+4} Z" fill="${color}"/></g>`;
+}
+function renderScene(combo, ev){
+  gradCounter=0;
+  const PAL=PALETTES[ev]||PALETTES.other;
+  const pick=id=>combo.picked.includes(id);
+  let s='<defs></defs>';
+  // room
+  s+=`<rect x="0" y="0" width="640" height="300" fill="#f7f2e9"/>`;
+  s+=`<rect x="0" y="300" width="640" height="40" fill="#e6dcc8"/>`;
+  s+=`<rect x="0" y="298" width="640" height="4" fill="#d8cbb0"/>`;
+  s+=`<text x="14" y="322" font-size="12" fill="#a89c82" font-family="Inter,sans-serif">🎈 live preview — fills in as your budget grows</text>`;
+  // backdrop
+  if(pick('backdrop')){
+    s+=`<rect x="252" y="52" width="136" height="186" rx="6" fill="#fdfbf5" stroke="#e0d6bf"/>`;
+    for(let i=0;i<3;i++){
+      const cx=252+20+i*48, cy=52+18;
+      s+=bal(cx,cy,10,PAL[i%PAL.length],false);
+    }
+    s+=`<circle cx="290" cy="110" r="16" fill="none" stroke="${PAL[0]}" stroke-width="2" opacity=".7"/>`;
+    s+=`<circle cx="352" cy="150" r="22" fill="none" stroke="${PAL[2]}" stroke-width="2" opacity=".6"/>`;
+    s+=`<text x="320" y="205" text-anchor="middle" font-size="15" fill="#b8ac90" font-family="Playfair Display,serif" font-style="italic">love</text>`;
+  }
+  // garland along top
+  if(pick('garland10')||pick('garland15')||pick('garland20')){
+    const ft = pick('garland20')?20 : pick('garland15')?15 : 10;
+    const n = 10 + ft; // balloons
+    for(let i=0;i<n;i++){
+      const t=i/(n-1), x=8+t*(624), y=26+Math.sin(t*Math.PI*2)*7;
+      s+=bal(x,y,13,PAL[i%PAL.length],true);
+    }
+  }
+  // arch (organic) on left
+  if(pick('arch')){
+    const cx=92, cy=250, r=72;
+    for(let i=0;i<=14;i++){
+      const a=Math.PI*(1-i/14), x=cx+Math.cos(a)*r, y=cy-Math.sin(a)*r;
+      s+=bal(x,y,11,PAL[i%PAL.length],false);
+    }
+    for(let i=0;i<4;i++){ s+=bal(cx-58+i*6,268+i*8,9,PAL[(i+1)%PAL.length],false); }
+    for(let i=0;i<4;i++){ s+=bal(cx+40+i*6,268+i*8,9,PAL[(i+2)%PAL.length],false); }
+  }
+  // round arch
+  if(pick('round')){
+    const cx=92, cy=250, r=62;
+    for(let i=0;i<=12;i++){
+      const a=Math.PI*(1-i/12), x=cx+Math.cos(a)*r, y=cy-Math.sin(a)*r;
+      s+=bal(x,y,10,PAL[(i+1)%PAL.length],false);
+    }
+  }
+  // columns (pair)
+  if(pick('columns')){
+    [[228,150],[416,150]].forEach(([x,top])=>{
+      for(let i=0;i<5;i++){ s+=bal(x,top+i*24,12,PAL[(i+1)%PAL.length],false); }
+    });
+  }
+  // table + centerpieces
+  if(pick('centers')){
+    s+=`<rect x="262" y="262" width="116" height="16" rx="4" fill="#8a5a3a"/>`;
+    s+=`<rect x="262" y="260" width="116" height="5" rx="3" fill="#a06a45"/>`;
+    for(let i=0;i<4;i++){
+      const x=282+i*24;
+      s+=`<line x1="${x}" y1="260" x2="${x}" y2="248" stroke="#7c8a5a" stroke-width="1.5"/>`;
+      s+=bal(x,242,7,PAL[(i+2)%PAL.length],false);
+    }
+  }
+  // bouquets (floor)
+  if(pick('bouquet')){
+    [[58,288],[584,290]].forEach(([x,y],side)=>{
+      s+=`<line x1="${x}" y1="${y+14}" x2="${x-8}" y2="${y+34}" stroke="#7c8a5a" stroke-width="2"/>`;
+      s+=`<line x1="${x}" y1="${y+14}" x2="${x+8}" y2="${y+36}" stroke="#7c8a5a" stroke-width="2"/>`;
+      s+=bal(x-9,y,10,PAL[(side*2)%PAL.length],false);
+      s+=bal(x+9,y,10,PAL[(side*2+1)%PAL.length],false);
+      s+=bal(x,y-6,12,PAL[(side*2+2)%PAL.length],false);
+    });
+  }
+  // deluxe bouquet
+  if(pick('deluxe')){
+    [[58,270],[584,272]].forEach(([x,y],side)=>{
+      s+=`<line x1="${x}" y1="${y+16}" x2="${x-10}" y2="${y+38}" stroke="#7c8a5a" stroke-width="2"/>`;
+      s+=`<line x1="${x}" y1="${y+16}" x2="${x+10}" y2="${y+38}" stroke="#7c8a5a" stroke-width="2"/>`;
+      s+=bal(x-12,y,11,PAL[(side*2)%PAL.length],false);
+      s+=bal(x+12,y,11,PAL[(side*2+1)%PAL.length],false);
+      s+=bal(x-4,y-9,13,PAL[(side*2+2)%PAL.length],false);
+      s+=bal(x+5,y-7,12,PAL[(side*2+3)%PAL.length],false);
+    });
+  }
+  // name garland banner
+  if(pick('nameg')){
+    s+=`<g transform="translate(0,0)">`;
+    s+=`<rect x="262" y="118" width="116" height="30" rx="6" fill="#fff" stroke="${PAL[0]}" stroke-width="1.5"/>`;
+    s+=`<text x="320" y="139" text-anchor="middle" font-size="16" fill="${PAL[1]}" font-family="Playfair Display,serif" font-weight="700">YOUR NAME</text>`;
+    for(let i=0;i<5;i++){ s+=bal(266+i*22,108,6.5,PAL[(i+1)%PAL.length],true); }
+    s+=`</g>`;
+  }
+  document.getElementById('scene').innerHTML=s;
+}
+
+/* ================= UI ================= */
+const state={budget:600, event:'birthday'};
+const $=id=>document.getElementById(id);
+
+function initChips(){
+  $('chips').innerHTML='';
+  CHIPS.forEach(v=>{
+    const b=document.createElement('button');
+    b.type='button'; b.className='chip'+(v===state.budget?' sel':''); b.textContent='$'+v;
+    b.onclick=()=>{ state.budget=v; $('budgetSlider').value=v; syncUI(); };
+    $('chips').appendChild(b);
+  });
+}
+function initEvents(){
+  $('eventGrid').innerHTML='';
+  EVENTS.forEach(e=>{
+    const d=document.createElement('div');
+    d.className='opt'+(e.id===state.event?' sel':'');
+    d.innerHTML=`<span class="ic">${e.ic}</span><span class="nm">${e.nm}</span>`;
+    d.onclick=()=>{ state.event=e.id; document.querySelectorAll('#eventGrid .opt').forEach(x=>x.classList.remove('sel')); d.classList.add('sel'); syncUI(); };
+    $('eventGrid').appendChild(d);
+  });
+}
+function syncUI(){
+  const b=state.budget;
+  $('budgetVal').textContent=b.toLocaleString();
+  $('comboBudget').textContent=b.toLocaleString();
+  document.querySelectorAll('#chips .chip').forEach(c=>c.classList.toggle('sel', parseInt(c.textContent.slice(1))===b));
+  const combo=buildCombo(b,state.event);
+  $('tierBadge').innerHTML=combo.tier.e+' '+combo.tier.n;
+  $('tierLine').textContent=combo.tier.line;
+  // combo list
+  let html='';
+  combo.picked.forEach((id,i)=>{
+    const it=ITEM[id];
+    html+=`<div class="combo-item"><span class="ci">${it.icon}</span><span class="cn">${it.name}</span><span class="cp">$${it.price.toLocaleString()}</span></div>`;
+  });
+  if(!combo.picked.length) html='<div class="combo-item" style="border:none;color:#9a927e;">No piece fits yet — try a higher budget or grab a bouquet ($85) to start the magic. 🎈</div>';
+  $('comboList').innerHTML=html;
+  $('comboTotal').textContent='$'+combo.spent.toLocaleString();
+  $('leftover').innerHTML='&#128176; $'+combo.left.toLocaleString()+' left to play with';
+  // nudge
+  const nudgeEl=$('nudge');
+  if(combo.nudge){
+    const need=combo.nudge.price-combo.left;
+    nudgeEl.style.display='block';
+    nudgeEl.innerHTML=`&#128161; <b>Balloonist's upgrade:</b> just <b>$${need.toLocaleString()}</b> more gets you <b>${combo.nudge.icon} ${combo.nudge.name}</b> ($${combo.nudge.price.toLocaleString()}). Mention it in the form and Isabella will price it in.`;
+  } else nudgeEl.style.display='none';
+  renderScene(combo,state.event);
+  $('sceneLabel').textContent='Your party, filling in…';
+}
+function specText(){
+  const combo=buildCombo(state.budget,state.event);
+  const ev=EVENTS.find(e=>e.id===state.event)||EVENTS[5];
+  let lines=combo.picked.map((id,i)=>{const it=ITEM[id];return `  ${i+1}. ${it.icon} ${it.name} — $${it.price}`;}).join('\n');
+  let t=`💸 Budget Balloonist spec:\n• Budget: $${state.budget.toLocaleString()} for a ${ev.nm.toLowerCase()} event\n• Tier: ${combo.tier.e} ${combo.tier.n}\n• Combo:\n${lines}\n• Total: $${combo.spent.toLocaleString()} · Left to spend: $${combo.left.toLocaleString()}`;
+  if(combo.nudge) t+=`\n• Upgrade nudge: ${combo.nudge.name} (+$${(combo.nudge.price-combo.left).toLocaleString()})`;
+  return t;
+}
+$('budgetSlider').addEventListener('input',e=>{ state.budget=parseInt(e.target.value); syncUI(); });
+
+/* ================= SURPRISE ================= */
+$('surpriseBtn').addEventListener('click',()=>{
+  state.budget=CHIPS[Math.floor(Math.random()*CHIPS.length)];
+  state.event=EVENTS[Math.floor(Math.random()*EVENTS.length)].id;
+  $('budgetSlider').value=state.budget;
+  document.querySelectorAll('#eventGrid .opt').forEach((x,i)=>x.classList.toggle('sel', EVENTS[i].id===state.event));
+  syncUI();
+  confettiBurst();
+  $('sceneLabel').textContent='🎲 Surprise! Here\'s a random party for $'+state.budget.toLocaleString();
+});
+
+/* ================= SHARE ================= */
+$('whatsappBtn').addEventListener('click',()=>{
+  const ev=EVENTS.find(e=>e.id===state.event)||EVENTS[5];
+  const combo=buildCombo(state.budget,state.event);
+  const url='https://wa.me/?text='+encodeURIComponent(
+    '🎈 I gave the Budget Balloonist $'+state.budget.toLocaleString()+' for a '+ev.nm+' and it built me a '+combo.tier.n+' setup ('+combo.picked.length+' pieces, $'+combo.spent.toLocaleString()+', $'+combo.left.toLocaleString()+' to spare).\n\nBuild yours free: https://myeverlastingmemories.com/budget-builder.html'
+  );
+  window.open(url,'_blank');
+});
+
+/* ================= LEAD FORM ================= */
+$('orderForm').addEventListener('submit',async(e)=>{
+  e.preventDefault();
+  const msg=$('formMsg'); msg.className='msg'; msg.style.display='none';
+  const name=$('name').value.trim(), email=$('email').value.trim();
+  if(!name||!email){ msg.className='msg err'; msg.style.display='block'; msg.textContent='Please add your name and email so Isabella can send your quote.'; return; }
+  const btn=$('submitBtn'); btn.disabled=true; btn.textContent='Sending…'; btn.style.opacity='.7';
+  const ev=EVENTS.find(x=>x.id===state.event)||EVENTS[5];
+  try{
+    const payload={
+      name, email,
+      phone:$('phone').value.trim(),
+      eventType:ev.nm,
+      eventDate:$('eventDate').value,
+      message:specText()+'\n\n(Lead from Budget Balloonist — wants an exact quote for this budget)',
+      source:'budget-builder'
+    };
+    const res=await fetch('/api/leads.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    const json=await res.json();
+    if(!json.success) throw new Error(json.error||'submit failed');
+    msg.className='msg ok'; msg.style.display='block';
+    msg.innerHTML='&#10003; Budget sent! Isabella will reply within 24 hours with your exact quote &amp; 2–3 combos to choose from.';
+    btn.textContent='&#10003; Quote Requested';
+    confettiBurst();
+  }catch(err){
+    console.error(err);
+    msg.className='msg err'; msg.style.display='block';
+    msg.textContent='Something went wrong — please call 203-981-7244 or email Hey.everlasting.memories@gmail.com';
+    btn.disabled=false; btn.textContent='&#127881; Get My Exact Quote'; btn.style.opacity='1';
+  }
+});
+
+/* ================= FAQ ================= */
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click',()=>q.parentElement.classList.toggle('open'));
+});
+
+/* ================= CONFETTI ================= */
+const cvs=$('confetti'), cctx=cvs.getContext('2d');
+let pieces=[], confettiRunning=false;
+function sizeCanvas(){ cvs.width=window.innerWidth; cvs.height=window.innerHeight; }
+window.addEventListener('resize',sizeCanvas); sizeCanvas();
+function confettiBurst(){
+  const colors=['#2f7a52','#d4af37','#ff6b9d','#6bc7ff','#ffd166','#ffffff'];
+  pieces=[];
+  for(let i=0;i<110;i++){
+    pieces.push({
+      x:cvs.width/2+(Math.random()-0.5)*180,
+      y:cvs.height*0.35,
+      vx:(Math.random()-0.5)*7,
+      vy:-4-Math.random()*7,
+      w:5+Math.random()*7,
+      h:8+Math.random()*8,
+      r:Math.random()*Math.PI,
+      vr:(Math.random()-0.5)*0.25,
+      c:colors[Math.floor(Math.random()*colors.length)]
+    });
+  }
+  if(!confettiRunning){ confettiRunning=true; requestAnimationFrame(confettiTick); }
+}
+function confettiTick(){
+  cctx.clearRect(0,0,cvs.width,cvs.height);
+  pieces.forEach(p=>{
+    p.x+=p.vx; p.y+=p.vy; p.vy+=0.22; p.r+=p.vr;
+    cctx.save(); cctx.translate(p.x,p.y); cctx.rotate(p.r);
+    cctx.fillStyle=p.c; cctx.fillRect(-p.w/2,-p.h/2,p.w,p.h); cctx.restore();
+  });
+  pieces=pieces.filter(p=>p.y<cvs.height+30);
+  if(pieces.length){ requestAnimationFrame(confettiTick); } else { confettiRunning=false; cctx.clearRect(0,0,cvs.width,cvs.height); }
+}
+
+/* sway animation for floating balloons */
+const st=document.createElement('style');
+st.textContent='@keyframes sway{from{transform:translateY(0)}to{transform:translateY(-4px)}}';
+document.head.appendChild(st);
+
+/* ================= INIT ================= */
+initChips(); initEvents(); syncUI();
+</script>
+</body>
+</html>
