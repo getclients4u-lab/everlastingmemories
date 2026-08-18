@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pop Party — The Balloon Popping Game | Everlasting Memories</title>
+<link rel="canonical" href="https://myeverlastingmemories.com/balloon-pop.html">
+<meta name="description" content="Pop balloons, chase combos, beat the clock — then turn your score into a real party. The most fun 30 seconds on Everlasting Memories, with Isabella's real insider party secrets hidden inside.">
+<meta property="og:title" content="Pop Party — Everlasting Memories">
+<meta property="og:description" content="30 seconds. A sky full of balloons. How high can you score? Pop for fun, pop for secrets, then turn your score into a real party quote.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://myeverlastingmemories.com/balloon-pop.html">
+<meta property="og:image" content="https://myeverlastingmemories.com/garland.jpg">
+<meta name="theme-color" content="#ea580c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="analytics.js" defer></script>
+<style>
+:root{--c1:#ea580c;--c2:#f97316;--c3:#c2410c;--bg:#faf6f1;--ink:#2c2a24;--accent:#d4af37;--gold:#d4af37;--card:#ffffff;--line:#f3d9c4;}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+h1,h2,h3,.display{font-family:'Playfair Display',Georgia,serif}
+/* ===== shared mini-nav (same as other tool pages) ===== */
+.em-nav{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 22px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;flex-wrap:wrap}
+.em-nav-brand{font-weight:700;color:var(--c1);text-decoration:none;font-size:1.02rem}
+.em-nav-links{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.em-nav-links>a{color:#2C2C2C;text-decoration:none;font-size:.88rem;font-weight:500}
+.em-nav-links>a:hover{color:var(--c2)}
+.em-nav-hot{color:#C9A227!important;font-weight:700}
+.em-nav-drop{position:relative}
+.em-nav-drop-btn{background:none;border:none;font-family:'Inter',sans-serif;font-size:.88rem;font-weight:500;color:#2C2C2C;cursor:pointer;padding:4px 2px}
+.em-nav-drop-menu{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%) translateY(6px);background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 34px rgba(234,88,12,.16);padding:10px;display:flex;flex-direction:column;gap:2px;opacity:0;pointer-events:none;transition:.16s;min-width:210px}
+.em-nav-drop:hover .em-nav-drop-menu,.em-nav-drop:focus-within .em-nav-drop-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+.em-nav-drop-menu a{font-size:.8rem;padding:8px 12px;border-radius:8px;color:#2C2C2C;text-decoration:none;white-space:nowrap;font-family:'Inter',sans-serif}
+.em-nav-drop-menu a:hover{background:#FFF3E8;color:var(--c2)}
+.em-nav-cta{background:var(--c1);color:#fff;text-decoration:none;font-size:.85rem;font-weight:600;padding:9px 18px;border-radius:999px}
+.em-nav-cta:hover{background:var(--c2)}
+@media(max-width:640px){.em-nav{justify-content:center;text-align:center}.em-nav-cta{display:none}}
+header{background:linear-gradient(135deg,#9a3412,#ea580c);color:#fff;padding:42px 24px 34px;text-align:center;position:relative;overflow:hidden}
+header:after{content:"🎈";position:absolute;right:22px;top:14px;font-size:3rem;opacity:.25;transform:rotate(12deg)}
+header:before{content:"🎉";position:absolute;left:20px;bottom:12px;font-size:2.4rem;opacity:.2;transform:rotate(-18deg)}
+.home-link{display:inline-block;margin-bottom:12px;color:#ffedd5;text-decoration:none;font-weight:600;font-size:.88rem;letter-spacing:.02em}
+.home-link:hover{color:#fff}
+.badge{display:inline-block;background:rgba(255,255,255,.18);color:#fff;padding:4px 14px;border-radius:999px;font-size:.75rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin-bottom:12px}
+header h1{font-size:clamp(1.7rem,4.5vw,2.5rem);margin-bottom:8px}
+header p{color:#ffedd5;max-width:720px;margin:0 auto;font-size:1.02rem}
+.container{max-width:1080px;margin:0 auto;padding:26px 20px}
+/* ===== mode select ===== */
+.mode-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
+@media(max-width:700px){.mode-grid{grid-template-columns:1fr}}
+.mode-card{background:var(--card);border:2px solid var(--line);border-radius:18px;padding:20px;cursor:pointer;transition:.18s;position:relative;overflow:hidden}
+.mode-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(234,88,12,.14)}
+.mode-card.sel{border-color:var(--c1);background:#fff7f0;box-shadow:0 10px 28px rgba(234,88,12,.18)}
+.mode-card .m-ico{font-size:2rem;margin-bottom:6px}
+.mode-card h3{font-size:1.15rem;color:var(--c1);margin-bottom:4px}
+.mode-card p{font-size:.84rem;color:#7a5a4e}
+.mode-card .m-tag{position:absolute;top:12px;right:12px;background:var(--c1);color:#fff;font-size:.66rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:3px 10px;border-radius:999px}
+/* ===== game shell ===== */
+.game-shell{max-width:820px;margin:0 auto 16px;border-radius:20px;overflow:hidden;border:1px solid var(--line);box-shadow:0 10px 34px rgba(234,88,12,.14);background:#fff}
+.game-hud{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 16px;background:linear-gradient(135deg,#7c2d12,#ea580c);color:#fff}
+.hud-item{text-align:center;min-width:86px}
+.hud-item .h-label{font-size:.62rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;opacity:.75}
+.hud-item .h-num{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;line-height:1.15}
+.hud-item .h-num small{font-size:.85rem}
+.hud-timer{min-width:70px}
+.hud-timer .h-num{color:#fde68a}
+.hud-timer.warn .h-num{color:#fecaca;animation:pulse .5s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
+#muteBtn{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.35);color:#fff;border-radius:999px;padding:7px 12px;font-size:.85rem;cursor:pointer;font-family:'Inter',sans-serif}
+#muteBtn:hover{background:rgba(255,255,255,.3)}
+#gameBox{position:relative;height:440px;overflow:hidden;background:linear-gradient(180deg,#fef3e2 0%,#fde8d0 45%,#fbd5ac 100%);touch-action:manipulation;user-select:none;-webkit-user-select:none;-webkit-tap-highlight-color:transparent;cursor:crosshair}
+@media(max-width:560px){#gameBox{height:380px}}
+/* balloons */
+.balloon{position:absolute;width:72px;height:92px;transform:translate3d(0,0,0);will-change:transform;pointer-events:auto;cursor:pointer}
+.balloon svg{display:block;width:100%;height:100%;overflow:visible}
+.balloon.small{width:56px;height:72px}
+.balloon.big{width:92px;height:118px}
+.balloon.gold{filter:drop-shadow(0 0 10px rgba(245,158,11,.75))}
+/* pop burst */
+.burst{position:absolute;width:10px;height:10px;border-radius:50%;pointer-events:none;z-index:5}
+.ring{position:absolute;border:3px solid rgba(255,255,255,.9);border-radius:50%;pointer-events:none;z-index:5;animation:ringOut .45s ease-out forwards}
+@keyframes ringOut{from{transform:scale(.3);opacity:1}to{transform:scale(2.6);opacity:0}}
+.fly{position:absolute;font-weight:800;font-family:'Playfair Display',serif;pointer-events:none;z-index:6;animation:flyUp 1s ease-out forwards;text-shadow:0 1px 0 #fff}
+@keyframes flyUp{from{transform:translateY(0);opacity:1}to{transform:translateY(-70px);opacity:0}}
+/* overlays */
+.overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(124,45,18,.55);backdrop-filter:blur(3px);z-index:20;padding:20px}
+.overlay.hidden{display:none}
+.ov-card{background:#fff;border-radius:18px;padding:26px 26px 22px;max-width:430px;width:100%;text-align:center;box-shadow:0 18px 50px rgba(0,0,0,.25)}
+.ov-card h3{color:var(--c1);font-size:1.4rem;margin-bottom:6px}
+.ov-card p{font-size:.88rem;color:#7a5a4e;margin-bottom:10px}
+.ov-card .big-score{font-family:'Playfair Display',serif;font-size:3rem;font-weight:700;color:var(--c1);line-height:1.1}
+.ov-card .big-score small{font-size:1.1rem}
+.rating-chip{display:inline-block;background:#fff7f0;border:1.5px solid var(--c1);color:var(--c1);font-weight:700;font-size:.85rem;padding:5px 16px;border-radius:999px;margin:6px 0 2px}
+.cta-btn{display:block;width:100%;background:linear-gradient(135deg,var(--c1),var(--c2));color:#fff;border:none;padding:13px 16px;border-radius:12px;font-weight:700;font-size:.95rem;cursor:pointer;transition:.15s;font-family:'Inter',sans-serif;text-decoration:none;text-align:center;margin-top:10px}
+.cta-btn:hover{filter:brightness(1.1)}
+.cta-btn.ghost{background:#fff;color:var(--c1);border:2px solid var(--c1)}
+.cta-btn.gold{background:var(--accent);color:#3d2c00}
+.share-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+@media(max-width:480px){.share-row{grid-template-columns:1fr}}
+.legend-row{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;padding:12px 14px;background:#fff;border-top:1px solid var(--line)}
+.legend-row span{font-size:.74rem;font-weight:600;color:#7a5a4e;display:inline-flex;align-items:center;gap:5px}
+.legend-row .dot{display:inline-block;width:12px;height:12px;border-radius:50%;border:1px solid rgba(0,0,0,.12)}
+/* ===== secrets ===== */
+.secrets-panel{max-width:820px;margin:0 auto 18px;display:none}
+.secrets-panel.on{display:block}
+.sec-progress{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px 16px}
+.sec-progress .sp-label{font-size:.82rem;font-weight:700;color:var(--c1)}
+.sec-track{flex:1;height:10px;border-radius:999px;background:#f3d9c4;overflow:hidden}
+.sec-fill{height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,var(--c1),var(--gold));transition:width .4s ease}
+.sec-list{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:640px){.sec-list{grid-template-columns:1fr}}
+.sec-card{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:14px;opacity:.45;transition:.3s;min-height:64px}
+.sec-card.found{opacity:1;border-color:var(--c1);background:#fff7f0}
+.sec-card .s-ico{font-size:1.15rem}
+.sec-card .s-text{font-size:.84rem;color:#5c574a;margin-top:4px}
+.sec-card .s-num{font-size:.68rem;font-weight:700;color:var(--c2);letter-spacing:.08em;text-transform:uppercase}
+.sec-grand{display:none;background:linear-gradient(135deg,#7c2d12,#ea580c);color:#fff;border-radius:18px;padding:24px;text-align:center;margin-top:14px;box-shadow:0 10px 30px rgba(234,88,12,.3)}
+.sec-grand.on{display:block}
+.sec-grand h3{font-size:1.35rem;margin-bottom:6px}
+.sec-grand p{font-size:.92rem;color:#ffedd5;max-width:520px;margin:0 auto 12px}
+/* ===== card / form / faq / facts (shared) ===== */
+.card{background:var(--card);border-radius:16px;padding:22px;box-shadow:0 3px 18px rgba(234,88,12,.08);border:1px solid var(--line);margin-top:18px}
+.card h2{font-size:1.2rem;color:var(--c1);margin-bottom:4px}
+.range-note{font-size:.78rem;color:#a08a7e;margin-top:2px}
+.fg{margin-bottom:12px}
+.fg label{display:block;font-weight:600;font-size:.86rem;margin-bottom:4px;color:var(--c1)}
+.fg input,.fg textarea,.fg select{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;font-size:.95rem;background:#fff;font-family:'Inter',sans-serif}
+.fg input:focus,.fg textarea:focus,.fg select:focus{outline:none;border-color:var(--c2)}
+.fg textarea{resize:vertical;min-height:64px}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:480px){.fg-row{grid-template-columns:1fr}}
+.plan-chip{display:inline-flex;align-items:center;gap:8px;background:#FFF3E8;border:1.5px solid var(--c2);color:var(--c1);font-weight:700;font-size:.86rem;padding:7px 14px;border-radius:999px;margin-bottom:10px;flex-wrap:wrap}
+.plan-chip button{background:none;border:none;color:var(--c2);font-weight:800;cursor:pointer;font-size:1rem;line-height:1}
+.msg{display:none;border-radius:10px;padding:12px;font-size:.9rem;font-weight:500;margin-bottom:12px;text-align:center}
+.msg.ok{display:block;background:#eef7ee;border:1px solid #7cc47c;color:#2c6e2c}
+.msg.err{display:block;background:#fdeeee;border:1px solid #e08a8a;color:#a33}
+.faq-q{display:flex;justify-content:space-between;align-items:center;gap:10px;width:100%;background:none;border:none;font-family:'Inter',sans-serif;font-size:.95rem;font-weight:600;color:var(--c1);cursor:pointer;padding:13px 2px;text-align:left}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .25s ease;font-size:.9rem;color:#5c574a;padding:0 2px}
+.faq-item.open .faq-a{max-height:300px;padding-bottom:14px}
+.faq-item.open .faq-arrow{transform:rotate(180deg)}
+.faq-arrow{transition:.2s;color:var(--c2)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px}
+.fact{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;font-size:.85rem;color:#5c574a}
+.fact b{display:block;color:var(--c1);margin-bottom:4px;font-size:.9rem}
+footer{background:#f1ede2;border-top:1px solid var(--line);text-align:center;padding:26px 20px;font-size:.85rem;color:#7a7462;margin-top:10px}
+footer a{color:var(--c2);text-decoration:none}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:99}
+@media (prefers-reduced-motion: reduce){.balloon{transition:none}.overlay{backdrop-filter:none}}
+</style>
+</head>
+<body>
+<div class="em-nav" role="navigation" aria-label="Main navigation">
+  <a class="em-nav-brand" href="index.html">🎈 Everlasting Memories</a>
+  <div class="em-nav-links">
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="about.html">About</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+    <a href="gift-card.html" class="em-nav-hot">Gift Cards</a>
+    <div class="em-nav-drop">
+      <button class="em-nav-drop-btn" type="button" aria-haspopup="true" aria-expanded="false">Tools &#9662;</button>
+      <div class="em-nav-drop-menu">
+          <a href="cost-estimator.html">Estimate Cost</a>
+          <a href="theme-generator.html">Theme Generator</a>
+          <a href="lookbook.html">Lookbook</a>
+          <a href="countdown.html">Countdown</a>
+          <a href="party-style-quiz.html">Party Style Quiz</a>
+          <a href="balloon-math.html">Balloon Math</a>
+          <a href="reserve-date.html">Reserve Your Date</a>
+          <a href="diy-vs-pro.html">DIY vs Pro</a>
+          <a href="palette-snap.html">Palette Snap</a>
+          <a href="name-garland.html">Balloon Letters</a>
+          <a href="budget-builder.html">Budget Builder</a>
+          <a href="transformations.html">The Big Reveal</a>
+          <a href="wedding-workshop.html">Wedding Workshop</a>
+          <a href="balloon-pop.html" style="background:#ea580c;color:#fff;">Pop Party</a>
+          <a href="referral.html">Refer &amp; Earn</a>
+        </div>
+    </div>
+  </div>
+  <a class="em-nav-cta" href="cost-estimator.html">Get a Quote</a>
+</div>
+
+
+<header>
+  <a href="index.html" class="home-link">&#8592; Back to Home</a>
+  <div class="badge">&#127881; New Tonight — Pop Party</div>
+  <h1>&#127880; Pop Party</h1>
+  <p>The site's first-ever game. Pop balloons, chase combos, beat the clock — then turn your score into a <em>real</em> party. Secret Pop mode hides Isabella's genuine insider tips inside every balloon. Warning: wildly addictive.</p>
+</header>
+
+<div class="container">
+
+  <!-- MODE SELECT -->
+  <div class="mode-grid" id="modeGrid" role="tablist" aria-label="Game modes">
+    <div class="mode-card sel" data-mode="blitz" role="tab" aria-selected="true" tabindex="0">
+      <span class="m-tag">Arcade</span>
+      <div class="m-ico">&#128640;</div>
+      <h3>Blitz Pop</h3>
+      <p>30 seconds. Endless balloons. Pop golden balloons for 50, hearts for 25 — and let the Sneaky Stripe float away untouched. Combos multiply your score. How high can you go?</p>
+    </div>
+    <div class="mode-card" data-mode="secret" role="tab" aria-selected="false" tabindex="0">
+      <span class="m-tag">Zen</span>
+      <div class="m-ico">&#129504;</div>
+      <h3>Secret Pop</h3>
+      <p>No timer, no pressure. Pop 8 gentle balloons to uncover Isabella's real party secrets — from the cheapest wow-moment to when to book. Find them all, unlock the Grand Secret.</p>
+    </div>
+  </div>
+
+  <!-- GAME -->
+  <div class="game-shell">
+    <div class="game-hud">
+      <div class="hud-item"><div class="h-label">Score</div><div class="h-num" id="scoreNum">0</div></div>
+      <div class="hud-item"><div class="h-label">Combo</div><div class="h-num" id="comboNum">×1<span style="font-size:.7rem">.0</span></div></div>
+      <div class="hud-item hud-timer" id="timerWrap"><div class="h-label">Time</div><div class="h-num" id="timerNum">30</div></div>
+      <button id="muteBtn" type="button" aria-label="Toggle sound">&#128266; Sound</button>
+    </div>
+    <div id="gameBox" aria-label="Game area. Tap balloons to pop them.">
+      <div class="overlay" id="startOverlay">
+        <div class="ov-card">
+          <h3 id="ovTitle">&#127880; Ready to pop?</h3>
+          <p id="ovText">Pop as many balloons as you can in 30 seconds. Golden = 50&nbsp;pts, Hearts = 25&nbsp;pts, Sneaky Stripes = <b>don't pop!</b> (let them float away for a bonus).</p>
+          <div class="legend-row" style="border-top:none;padding:2px 0 10px;">
+            <span><span class="dot" style="background:#f97316"></span>+10</span>
+            <span><span class="dot" style="background:linear-gradient(135deg,#fbbf24,#b45309)"></span>+50</span>
+            <span><span class="dot" style="background:#f43f5e"></span>+25</span>
+            <span><span class="dot" style="background:repeating-linear-gradient(45deg,#fff,#fff 4px,#94a3b8 4px,#94a3b8 8px)"></span>–15</span>
+            <span><span class="dot" style="background:#22c55e"></span>+3s</span>
+          </div>
+          <button class="cta-btn" id="startBtn">&#127881; Pop! (Space also works)</button>
+          <button class="cta-btn ghost" id="switchBtn" style="margin-top:8px;">&#128172; Switch to Secret Pop</button>
+        </div>
+      </div>
+      <div class="overlay hidden" id="endOverlay">
+        <div class="ov-card">
+          <div class="h-label" style="font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#a08a7e;">Final score</div>
+          <div class="big-score" id="endScore">0</div>
+          <div class="rating-chip" id="endRating">Party Starter</div>
+          <p id="endBest" style="font-size:.82rem;color:#7a5a4e;">Best: 0</p>
+          <button class="cta-btn" id="againBtn">&#128260; Play Again</button>
+          <div class="share-row">
+            <button class="cta-btn ghost" id="shareBtn">&#128172; Share on WhatsApp</button>
+            <button class="cta-btn ghost" id="partyBtn">&#127881; Turn Score Into a Party</button>
+          </div>
+          <button class="cta-btn ghost" id="switchBtn2" style="margin-top:8px;">&#129504; Try Secret Pop</button>
+        </div>
+      </div>
+    </div>
+    <div class="legend-row" id="blitzLegend">
+      <span><span class="dot" style="background:#f97316"></span>Balloon +10</span>
+      <span><span class="dot" style="background:linear-gradient(135deg,#fbbf24,#b45309)"></span>Golden +50</span>
+      <span><span class="dot" style="background:#f43f5e"></span>Heart +25</span>
+      <span><span class="dot" style="background:repeating-linear-gradient(45deg,#fff,#fff 4px,#94a3b8 4px,#94a3b8 8px)"></span>Sneaky — let it go! (+5)</span>
+      <span><span class="dot" style="background:#22c55e"></span>Gift +3s</span>
+    </div>
+  </div>
+
+  <!-- SECRETS PANEL -->
+  <div class="secrets-panel" id="secretsPanel">
+    <div class="sec-progress">
+      <span class="sp-label">&#129504; Isabella's secrets: <span id="secCount">0</span>/8</span>
+      <div class="sec-track"><div class="sec-fill" id="secFill"></div></div>
+    </div>
+    <div class="sec-list" id="secList"></div>
+    <div class="sec-grand" id="secGrand">
+      <h3>&#128081; The Grand Secret</h3>
+      <p>Every unforgettable party starts with one 60-second conversation. Tell Isabella your date below — she'll handle the balloons, the setup, the take-down, and the "how did you do that?!"</p>
+      <button class="cta-btn" id="grandCta" style="max-width:340px;margin:0 auto;">&#127881; Start My Party</button>
+    </div>
+  </div>
+
+  <!-- SCORE → PARTY (lead form) -->
+  <div class="card" id="leadCard">
+    <h2>&#127881; Turn your score into a party</h2>
+    <p style="font-size:.82rem;color:#7a5a4e;margin-bottom:12px;">Isabella replies within 24 hours with your exact quote — mention your score and she'll know you mean business.</p>
+    <div class="plan-chip" id="planChip" style="display:none;">&#127880; <span id="planName"></span><button onclick="clearPlan()" aria-label="Remove game result">&times;</button></div>
+    <form id="leadForm">
+      <div class="fg-row">
+        <div class="fg"><label for="fName">Name</label><input id="fName" required placeholder="Your name"></div>
+        <div class="fg"><label for="fPhone">Phone</label><input id="fPhone" required placeholder="(203) 555-0123"></div>
+      </div>
+      <div class="fg"><label for="fEmail">Email</label><input id="fEmail" type="email" required placeholder="you@example.com"></div>
+      <div class="fg-row">
+        <div class="fg"><label for="fDate">Event date (optional)</label><input id="fDate" type="date"></div>
+        <div class="fg"><label for="fType">Event type</label>
+          <select id="fType">
+            <option>Birthday</option>
+            <option>Wedding</option>
+            <option>Baby shower</option>
+            <option>Corporate</option>
+            <option>Holiday</option>
+            <option>Just exploring — surprise me</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg"><label for="fMsg">Anything Isabella should know?</label><textarea id="fMsg" placeholder="Colors, vibe, how many guests…"></textarea></div>
+      <div class="msg" id="formMsg"></div>
+      <button class="cta-btn gold" id="submitBtn" type="submit">&#127881; Request My Exact Quote</button>
+    </form>
+  </div>
+
+  <!-- FAQ -->
+  <div class="card">
+    <h2>&#128161; Pop Party FAQ</h2>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Is this a real game, or a sneaky ad?<span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">It's a real game — 30 seconds of pure popping, no ads, no sign-up wall. The "sneaky" part is only the Sneaky Stripe balloon (don't pop it!). When you're done having fun, the form below is there if you want a real party to go with your score.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Do high scores do anything?<span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">Your best score is saved on your device, and you can brag about it on WhatsApp with one tap. Beat 200 points and you're officially Pop Royalty — Isabella will be genuinely impressed (she pops about 12,000 balloons a year, so she's picky).</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">What are the Sneaky Stripe balloons?<span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">They're the mischief-makers. Pop one and you lose 15 points. Let it float away untouched and you earn a +5 "good call" bonus. Life lesson: sometimes the best move is doing nothing.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Are the Secret Pop tips real?<span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">100% real — they're the same insider rules Isabella uses in every quote and installation: two-to-three colors max, 11″+16″ balloon mixes, booking windows, and the cheapest wow-moment in the business. Free knowledge, no balloons harmed.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Does popping balloons here book me a party?<span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">Not automatically — but the form sends your details straight to Isabella (with your score attached, if you like), and she replies within 24 hours with a real quote. The actual popping happens at your venue, by professionals, with real balloons.</div>
+    </div>
+  </div>
+
+  <!-- FACTS -->
+  <div class="facts">
+    <div class="fact"><b>&#127880; 12,000+ balloons</b>popped (professionally) by Isabella every year — she's basically a balloon-pop grandmaster.</div>
+    <div class="fact"><b>&#128640; 30 seconds</b>is all it takes. One round, zero downloads, works on any phone.</div>
+    <div class="fact"><b>&#129504; 8 real secrets</b>hidden in Secret Pop — the same tips that go into every real quote.</div>
+    <div class="fact"><b>&#128172; Bragging rights</b>Your best score is saved on your device — share it on WhatsApp and start a family rivalry.</div>
+  </div>
+
+</div>
+
+<footer>
+  <p><a href="index.html">Everlasting Memories</a> — Balloon Art &amp; Event Decor, Connecticut · <a href="tel:203-981-7244">203-981-7244</a> · <a href="contact.html">Contact</a> · <a href="https://instagram.com/everlasting.memories25" style="color:#C9A87C" target="_blank" rel="noopener">@everlasting.memories25</a></p>
+  <p style="margin-top:6px;">Every garland is hand-built and installed by Isabella — no templates, no shortcuts, no surprise fees.</p>
+  <p style="margin-top:8px;"><a href="balloon-pop.html" style="color:#ea580c;font-weight:600;">Pop Party</a> · <a href="wedding-workshop.html" style="color:#9d174d;font-weight:600;">Wedding Workshop</a> · <a href="transformations.html" style="color:#7c3aed;font-weight:600;">The Big Reveal</a> · <a href="budget-builder.html" style="color:#2f7a52">Budget Balloonist</a> · <a href="referral.html" style="color:#C9A87C">Refer &amp; Earn</a></p>
+</footer>
+
+<canvas id="confetti"></canvas>
+
+<script>
+/* ================= HELPERS ================= */
+function $(s){return document.querySelector(s);}
+const $box=$('#gameBox');
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ================= AUDIO (WebAudio, no files) ================= */
+let AC=null, muted=false;
+function audio(){
+  if(!AC){ try{ AC=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){} }
+  if(AC && AC.state==='suspended') AC.resume();
+  return AC;
+}
+function tone(freq, dur, type, vol, slideTo){
+  if(muted||!AC) return;
+  const t=AC.currentTime;
+  const o=AC.createOscillator(), g=AC.createGain();
+  o.type=type||'sine';
+  o.frequency.setValueAtTime(freq,t);
+  if(slideTo) o.frequency.exponentialRampToValueAtTime(slideTo, t+dur);
+  g.gain.setValueAtTime(vol||.2,t);
+  g.gain.exponentialRampToValueAtTime(.0001,t+dur);
+  o.connect(g); g.connect(AC.destination);
+  o.start(t); o.stop(t+dur+.02);
+}
+function sndPop(){ tone(320,.12,'sine',.22,70); }
+function sndGold(){ tone(659,.09,'triangle',.2); setTimeout(()=>tone(784,.09,'triangle',.2),70); setTimeout(()=>tone(988,.14,'triangle',.22),140); }
+function sndHeart(){ tone(523,.1,'triangle',.2); setTimeout(()=>tone(659,.16,'triangle',.2),90); }
+function sndSneaky(){ tone(150,.2,'square',.12,60); }
+function sndGift(){ tone(523,.08,'triangle',.2); setTimeout(()=>tone(659,.08,'triangle',.2),70); setTimeout(()=>tone(784,.08,'triangle',.2),140); setTimeout(()=>tone(1047,.16,'triangle',.24),210); }
+function sndTick(){ tone(1000,.04,'sine',.12); }
+function sndEnd(){ tone(784,.12,'triangle',.2); setTimeout(()=>tone(659,.12,'triangle',.2),120); setTimeout(()=>tone(523,.2,'triangle',.2),240); }
+function sndSecret(){ tone(440,.08,'sine',.18,880); setTimeout(()=>tone(880,.14,'triangle',.16),80); }
+$('#muteBtn').addEventListener('click',()=>{
+  muted=!muted;
+  $('#muteBtn').textContent = muted ? '&#128263; Muted' : '&#128266; Sound';
+  if(!muted) audio();
+});
+
+/* ================= CONFETTI ================= */
+const cvs=$('#confetti'), cctx=cvs.getContext('2d');
+let pieces=[], confettiRunning=false;
+function confettiBurst(){
+  if(reducedMotion) return;
+  cvs.width=innerWidth; cvs.height=innerHeight;
+  const colors=['#ea580c','#f97316','#fbbf24','#f43f5e','#8b5cf6','#22c55e','#0ea5e9','#d4af37'];
+  for(let i=0;i<120;i++){
+    pieces.push({x:Math.random()*cvs.width,y:-20-Math.random()*cvs.height*.4,
+      w:5+Math.random()*7,h:8+Math.random()*8,c:colors[(Math.random()*colors.length)|0],
+      vy:2+Math.random()*4,vx:-1.5+Math.random()*3,r:Math.random()*Math.PI,vr:-.15+Math.random()*.3});
+  }
+  if(!confettiRunning){ confettiRunning=true; requestAnimationFrame(confettiTick); }
+}
+function confettiTick(){
+  cctx.clearRect(0,0,cvs.width,cvs.height);
+  pieces.forEach(p=>{ p.y+=p.vy; p.x+=p.vx; p.r+=p.vr;
+    cctx.save(); cctx.translate(p.x,p.y); cctx.rotate(p.r);
+    cctx.fillStyle=p.c; cctx.fillRect(-p.w/2,-p.h/2,p.w,p.h); cctx.restore(); });
+  pieces=pieces.filter(p=>p.y<cvs.height+30);
+  if(pieces.length){ requestAnimationFrame(confettiTick); } else { confettiRunning=false; cctx.clearRect(0,0,cvs.width,cvs.height); }
+}
+
+/* ================= BALLOON SVG ================= */
+const PALETTE=[
+  {a:'#f97316',b:'#c2410c'},{a:'#ef4444',b:'#991b1b'},{a:'#ec4899',b:'#9d174d'},
+  {a:'#8b5cf6',b:'#5b21b6'},{a:'#0ea5e9',b:'#075985'},{a:'#22c55e',b:'#15803d'},
+  {a:'#eab308',b:'#a16207'},{a:'#14b8a6',b:'#0f766e'}
+];
+function balloonSVG(type){
+  const t=type||'normal';
+  if(t==='gold'){
+    return '<svg viewBox="0 0 72 92" aria-hidden="true"><defs><radialGradient id="gG" cx="35%" cy="30%" r="80%"><stop offset="0%" stop-color="#fef3c7"/><stop offset="45%" stop-color="#fbbf24"/><stop offset="100%" stop-color="#b45309"/></radialGradient></defs><ellipse cx="36" cy="38" rx="25" ry="32" fill="url(#gG)" stroke="#92400e" stroke-width="2"/><ellipse cx="28" cy="27" rx="8" ry="11" fill="#fff" opacity=".55"/><path d="M36 70 l-2 8 M36 70 l2 8" stroke="#92400e" stroke-width="2.5" stroke-linecap="round"/><path d="M30 78 q6 5 12 0" stroke="#92400e" stroke-width="2" fill="none"/></svg>';
+  }
+  if(t==='heart'){
+    return '<svg viewBox="0 0 72 92" aria-hidden="true"><defs><radialGradient id="gH" cx="35%" cy="30%" r="80%"><stop offset="0%" stop-color="#fecdd3"/><stop offset="55%" stop-color="#f43f5e"/><stop offset="100%" stop-color="#9f1239"/></radialGradient></defs><path d="M36 66 Q4 42 10 24 Q14 10 28 12 Q36 14 36 24 Q36 14 44 12 Q58 10 62 24 Q68 42 36 66 Z" fill="url(#gH)" stroke="#9f1239" stroke-width="2"/><ellipse cx="26" cy="20" rx="6" ry="8" fill="#fff" opacity=".5" transform="rotate(-20 26 20)"/><path d="M36 70 l-2 8 M36 70 l2 8" stroke="#9f1239" stroke-width="2.5" stroke-linecap="round"/></svg>';
+  }
+  if(t==='sneaky'){
+    return '<svg viewBox="0 0 72 92" aria-hidden="true"><defs><linearGradient id="gS" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#f8fafc"/><stop offset="100%" stop-color="#cbd5e1"/></linearGradient></defs><ellipse cx="36" cy="38" rx="25" ry="32" fill="url(#gS)" stroke="#64748b" stroke-width="2"/><path d="M14 30 L58 18 M11 42 L61 30 M12 54 L62 42 M16 64 L60 54" stroke="#64748b" stroke-width="6"/><ellipse cx="28" cy="27" rx="8" ry="11" fill="#fff" opacity=".6"/><path d="M36 70 l-2 8 M36 70 l2 8" stroke="#64748b" stroke-width="2.5" stroke-linecap="round"/><circle cx="52" cy="14" r="8" fill="#f43f5e" opacity=".9"/></svg>';
+  }
+  if(t==='gift'){
+    return '<svg viewBox="0 0 72 92" aria-hidden="true"><defs><radialGradient id="gGf" cx="35%" cy="30%" r="80%"><stop offset="0%" stop-color="#d1fae5"/><stop offset="55%" stop-color="#34d399"/><stop offset="100%" stop-color="#047857"/></radialGradient></defs><ellipse cx="36" cy="38" rx="25" ry="32" fill="url(#gGf)" stroke="#065f46" stroke-width="2"/><ellipse cx="28" cy="27" rx="8" ry="11" fill="#fff" opacity=".55"/><path d="M36 70 l-2 8 M36 70 l2 8" stroke="#065f46" stroke-width="2.5" stroke-linecap="round"/><rect x="27" y="34" width="18" height="12" rx="2" fill="#fbbf24" stroke="#b45309" stroke-width="1.5"/><path d="M36 34 v12 M27 40 h18" stroke="#b45309" stroke-width="1.5"/></svg>';
+  }
+  const p=PALETTE[(Math.random()*PALETTE.length)|0];
+  const gid='gB'+Math.random().toString(36).slice(2,8);
+  return '<svg viewBox="0 0 72 92" aria-hidden="true"><defs><radialGradient id="'+gid+'" cx="35%" cy="30%" r="80%"><stop offset="0%" stop-color="'+p.a+'"/><stop offset="100%" stop-color="'+p.b+'"/></radialGradient></defs><ellipse cx="36" cy="38" rx="25" ry="32" fill="url(#'+gid+')" stroke="'+p.b+'" stroke-width="2"/><ellipse cx="28" cy="27" rx="8" ry="11" fill="#fff" opacity=".5"/><path d="M36 70 l-2 8 M36 70 l2 8" stroke="'+p.b+'" stroke-width="2.5" stroke-linecap="round"/></svg>';
+}
+
+/* ================= POP FX ================= */
+function burst(x,y,color,big){
+  const n=big?18:11;
+  for(let i=0;i<n;i++){
+    const d=document.createElement('div');
+    d.className='burst';
+    d.style.left=x+'px'; d.style.top=y+'px';
+    d.style.background=color||'#f97316';
+    const ang=Math.random()*Math.PI*2, sp=60+Math.random()*150;
+    d.style.transform='translate('+Math.cos(ang)*sp+'px,'+(Math.sin(ang)*sp-40)+'px)';
+    d.style.transition='transform .55s ease-out, opacity .55s ease-out';
+    d.style.opacity='1';
+    $box.appendChild(d);
+    requestAnimationFrame(()=>{ d.style.transform='translate('+Math.cos(ang)*sp*1.6+'px,'+(Math.sin(ang)*sp*1.6-60)+'px)'; d.style.opacity='0'; });
+    setTimeout(()=>d.remove(),600);
+  }
+  const r=document.createElement('div');
+  r.className='ring'; r.style.left=(x-18)+'px'; r.style.top=(y-18)+'px'; r.style.width='36px'; r.style.height='36px';
+  $box.appendChild(r); setTimeout(()=>r.remove(),500);
+}
+function flyUp(x,y,text,color){
+  const f=document.createElement('div');
+  f.className='fly'; f.textContent=text;
+  f.style.left=x+'px'; f.style.top=y+'px'; f.style.color=color||'#ea580c'; f.style.fontSize=(color==='#b45309'||color==='#f43f5e')?'1.25rem':'1rem';
+  $box.appendChild(f); setTimeout(()=>f.remove(),1050);
+}
+
+/* ================= BLITZ ENGINE ================= */
+let mode='blitz';
+const BEST_KEY='em_pop_best';
+let best=0; try{ best=parseInt(localStorage.getItem(BEST_KEY)||'0',10)||0; }catch(e){}
+let blitz=null;
+
+function startBlitz(){
+  audio();
+  $('#startOverlay').classList.add('hidden');
+  $('#endOverlay').classList.add('hidden');
+  $('#secretsPanel').classList.remove('on');
+  $('#blitzLegend').style.display='flex';
+  $('#timerWrap').classList.remove('warn');
+  clearInterval(blitz&&blitz.int);
+  const g={ score:0, combo:0, lastPop:0, time:30, running:true, balloons:[], spawnTimer:null, gifts:0 };
+  blitz=g;
+  $('#scoreNum').textContent='0';
+  $('#comboNum').innerHTML='×1<span style="font-size:.7rem">.0</span>';
+  $('#timerNum').textContent='30';
+  const spawnInt=setInterval(()=>{
+    if(!g.running) return clearInterval(spawnInt);
+    if(g.balloons.length<16) spawnBalloon(g);
+  },780);
+  g.spawnTimer=spawnInt;
+  const t0=performance.now();
+  (function tick(now){
+    if(!g.running) return;
+    const elapsed=(now-t0)/1000;
+    g.time=Math.max(0,30-elapsed);
+    const t=Math.ceil(g.time);
+    const tn=$('#timerNum');
+    if(tn.textContent!==String(t)){
+      tn.textContent=t;
+      $('#timerWrap').classList.toggle('warn',t<=5);
+      if(t<=5&&t>0) sndTick();
+    }
+    // speed up spawning as time runs out
+    clearInterval(g.spawnTimer);
+    const interval=Math.max(300,780-g.time*16);
+    g.spawnTimer=setInterval(()=>{ if(g.running&&g.balloons.length<16) spawnBalloon(g); },interval);
+    // move balloons
+    const dt=1/60;
+    g.balloons.forEach(b=>{
+      b.y-=b.speed*dt;
+      b.phase+=b.sway*dt;
+      b.el.style.transform='translate3d('+(b.baseX+Math.sin(b.phase)*b.amp)+'px,'+b.y+'px,0)';
+    });
+    // remove escaped
+    for(let i=g.balloons.length-1;i>=0;i--){
+      const b=g.balloons[i];
+      if(b.y<-110){
+        g.balloons.splice(i,1); b.el.remove();
+        if(b.type!=='sneaky'){ g.combo=0; $('#comboNum').innerHTML='×1<span style="font-size:.7rem">.0</span>'; }
+        else { g.score+=5; $('#scoreNum').textContent=g.score; flyUp(b.baseX,b.y+40,'+5 good call!','#16a34a'); sndHeart(); }
+      }
+    }
+    if(g.time<=0){ endBlitz(g); return; }
+    requestAnimationFrame(tick);
+  })(t0);
+}
+
+function spawnBalloon(g){
+  const r=Math.random();
+  let type='normal';
+  if(g.time<=15 && g.gifts<2 && r>0.96){ type='gift'; g.gifts++; }
+  else if(r>0.86){ type='gold'; }
+  else if(r>0.74){ type='heart'; }
+  else if(r>0.62){ type='sneaky'; }
+  const el=document.createElement('div');
+  el.className='balloon'+(type==='gold'?' gold':'')+(type==='gift'||type==='sneaky'?' small':'');
+  el.innerHTML=balloonSVG(type);
+  el.setAttribute('role','button');
+  el.setAttribute('aria-label', type==='sneaky'?'Sneaky stripe balloon — do not pop':(type==='gold'?'Golden balloon worth 50 points':(type==='heart'?'Heart balloon worth 25 points':(type==='gift'?'Gift balloon adds 3 seconds':'Balloon worth 10 points'))));
+  const w=$box.clientWidth, h=$box.clientHeight;
+  const bw=el.offsetWidth||72;
+  const b={
+    type, el,
+    x:20+Math.random()*(w-bw-40),
+    baseX:0,
+    y:h+30+Math.random()*80,
+    speed:55+Math.random()*55+(type==='sneaky'?25:0),
+    phase:Math.random()*Math.PI*2,
+    sway:.6+Math.random()*.9,
+    amp:8+Math.random()*22
+  };
+  b.baseX=b.x;
+  el.style.left='0px'; el.style.top='0px';
+  el.style.transform='translate3d('+b.x+'px,'+b.y+'px,0)';
+  el.addEventListener('pointerdown',(e)=>{
+    e.preventDefault();
+    popBalloon(g,b);
+  });
+  $box.appendChild(el);
+  g.balloons.push(b);
+}
+
+function popBalloon(g,b){
+  if(!g.running) return;
+  const rect=b.el.getBoundingClientRect();
+  const bx=rect.left-$box.getBoundingClientRect().left+rect.width/2;
+  const by=rect.top-$box.getBoundingClientRect().top+rect.height/2;
+  const idx=g.balloons.indexOf(b);
+  if(idx>-1) g.balloons.splice(idx,1);
+  b.el.remove();
+  const now=performance.now();
+  const inCombo=(now-g.lastPop)<1600;
+  g.lastPop=now;
+  let pts=10, label='+10', color='#ea580c', big=false;
+  if(b.type==='gold'){ pts=50; label='+50'; color='#b45309'; big=true; sndGold(); }
+  else if(b.type==='heart'){ pts=25; label='+25'; color='#f43f5e'; big=true; sndHeart(); }
+  else if(b.type==='gift'){ pts=0; label='+3s'; color='#16a34a'; g.time=Math.min(45,g.time+3); $('#timerNum').textContent=Math.ceil(g.time); sndGift(); }
+  else if(b.type==='sneaky'){ pts=-15; label='-15 oops!'; color='#64748b'; g.combo=0; $('#comboNum').innerHTML='×1<span style="font-size:.7rem">.0</span>'; sndSneaky(); }
+  else sndPop();
+  if(inCombo && b.type!=='sneaky' && b.type!=='gift'){ g.combo++; }
+  else if(!inCombo && b.type!=='sneaky' && b.type!=='gift'){ g.combo=0; }
+  const mult=Math.min(1+g.combo*0.1,3);
+  const final=Math.max(0,Math.round(pts*mult));
+  if(b.type!=='gift'){ g.score+=final; label=(pts>0? '+'+final : label); }
+  $('#scoreNum').textContent=g.score;
+  $('#comboNum').textContent='×'+mult.toFixed(1);
+  burst(bx,by,b.type==='gold'?'#fbbf24':(b.type==='heart'?'#f43f5e':(b.type==='sneaky'?'#94a3b8':'#f97316')),big);
+  flyUp(bx,by,label,color);
+}
+
+function endBlitz(g){
+  g.running=false;
+  clearInterval(g.spawnTimer);
+  g.balloons.forEach(b=>b.el.remove());
+  g.balloons=[];
+  sndEnd();
+  const s=g.score;
+  const rating = s>=200?'👑 Pop Royalty 💎': s>=150?'👑 Balloon Boss': s>=100?'🎊 Garland Guru': s>=50?'🥳 Party Starter':'🎈 First Pop';
+  $('#endScore').textContent=s;
+  $('#endRating').textContent=rating;
+  const isBest=s>best;
+  if(isBest){ best=s; try{ localStorage.setItem(BEST_KEY,String(best)); }catch(e){} confettiBurst(); }
+  $('#endBest').innerHTML = isBest ? '🎉 NEW BEST!' : 'Best: '+best;
+  $('#endOverlay').classList.remove('hidden');
+  window._lastGame={mode:'blitz',score:s,rating:rating};
+  $('#shareBtn').onclick=()=>{
+    const txt='I just scored '+s+' in 30 seconds on Everlasting Memories\' Pop Party! 🎈 ('+rating+') Can you beat me? https://myeverlastingmemories.com/balloon-pop.html';
+    window.open('https://wa.me/?text='+encodeURIComponent(txt),'_blank');
+  };
+  $('#partyBtn').onclick=()=>{ setPlan('🎮 Blitz Pop — '+s+' pts ('+rating+')','Popped '+s+' balloons in Blitz Pop ('+rating+'). Now let\'s make it a real party!'); $('#endOverlay').classList.add('hidden'); $('#leadCard').scrollIntoView({behavior:'smooth'}); };
+}
+
+/* ================= SECRET ENGINE ================= */
+const SECRETS=[
+  {ico:'🎨', text:'Two colors, max three. Isabella\'s signature look is 2 — guests always think it\'s more.'},
+  {ico:'📸', text:'Organic arches photograph best against white or neutral walls — the balloons pop in every shot.'},
+  {ico:'📅', text:'May–October Saturdays book 3–6 months out. November–April? Much more room to play.'},
+  {ico:'🎁', text:'The cheapest wow-moment? A 10-balloon cluster over the dessert table. $40 of balloons, $400 of reaction.'},
+  {ico:'🎈', text:'Mix 11″ + 16″ balloons in one garland — fewer balloons, fuller look, lower cost. Balloon Math approves.'},
+  {ico:'🧵', text:'Foil letters read better than latex for names — that\'s why the Balloon Letter Studio builds them that way.'},
+  {ico:'🪂', text:'Balloon drops need a clear ceiling drop zone — tell Isabella in the form and she\'ll scout it with you.'},
+  {ico:'👐', text:'Setup AND take-down are included in every quote. You never lift a finger — that\'s the whole point.'}
+];
+let secretState=null;
+
+function startSecret(){
+  audio();
+  $('#startOverlay').classList.add('hidden');
+  $('#endOverlay').classList.add('hidden');
+  $('#blitzLegend').style.display='none';
+  $('#secretsPanel').classList.add('on');
+  $('#secGrand').classList.remove('on');
+  if(secretState&&secretState.cleanup) secretState.cleanup();
+  const st={ found:0, balloons:[], running:true };
+  secretState=st;
+  $('#secCount').textContent='0';
+  $('#secFill').style.width='0%';
+  const list=$('#secList'); list.innerHTML='';
+  SECRETS.forEach((s,i)=>{
+    const d=document.createElement('div');
+    d.className='sec-card'; d.id='sec-'+i;
+    d.innerHTML='<div class="s-num">Secret '+(i+1)+'</div><div class="s-ico">'+s.ico+' <span style="font-size:.8rem;color:#a08a7e;">?</span></div><div class="s-text" style="display:none;">'+s.text+'</div>';
+    list.appendChild(d);
+  });
+  let next=0;
+  (function spawnLoop(){
+    if(!st.running) return;
+    if(st.balloons.length<3 && next<SECRETS.length){
+      spawnSecretBalloon(st,next++);
+    }
+    setTimeout(spawnLoop,900);
+  })();
+}
+
+function spawnSecretBalloon(st,idx){
+  const el=document.createElement('div');
+  el.className='balloon';
+  el.innerHTML=balloonSVG('normal');
+  el.setAttribute('role','button');
+  el.setAttribute('aria-label','Secret balloon '+(idx+1));
+  const w=$box.clientWidth, h=$box.clientHeight;
+  const b={ type:'secret', idx, el, baseX:30+Math.random()*(w-130), y:h+40, speed:38+Math.random()*22, phase:Math.random()*Math.PI*2, sway:.5+Math.random()*.6, amp:10+Math.random()*16 };
+  el.style.left='0px'; el.style.top='0px';
+  el.style.transform='translate3d('+b.baseX+'px,'+b.y+'px,0)';
+  el.addEventListener('pointerdown',(e)=>{
+    e.preventDefault();
+    if(!st.running) return;
+    const rect=el.getBoundingClientRect();
+    const bx=rect.left-$box.getBoundingClientRect().left+rect.width/2;
+    const by=rect.top-$box.getBoundingClientRect().top+rect.height/2;
+    const i=st.balloons.indexOf(b);
+    if(i>-1) st.balloons.splice(i,1);
+    el.remove();
+    burst(bx,by,'#f97316',true);
+    flyUp(bx,by,'🔍','#ea580c');
+    sndSecret();
+    st.found++;
+    $('#secCount').textContent=st.found;
+    $('#secFill').style.width=(st.found/8*100)+'%';
+    const card=$('#sec-'+b.idx);
+    if(card){ card.classList.add('found'); card.querySelector('.s-ico').innerHTML=SECRETS[b.idx].ico; card.querySelector('.s-text').style.display='block'; }
+    if(st.found>=8){
+      st.running=false;
+      st.balloons.forEach(x=>x.el.remove());
+      st.balloons=[];
+      setTimeout(()=>{ $('#secGrand').classList.add('on'); confettiBurst(); sndGold(); window._lastGame={mode:'secret',score:8,rating:'Secret Keeper'}; },700);
+    }
+  });
+  $box.appendChild(el);
+  st.balloons.push(b);
+  (function move(){
+    if(!st.running && !st.balloons.includes(b)) return;
+    if(!st.balloons.includes(b)) return;
+    b.y-=b.speed/60; b.phase+=b.sway/60;
+    b.el.style.transform='translate3d('+(b.baseX+Math.sin(b.phase)*b.amp)+'px,'+b.y+'px,0)';
+    if(b.y<-110){ const i=st.balloons.indexOf(b); if(i>-1) st.balloons.splice(i,1); b.el.remove(); }
+    else requestAnimationFrame(move);
+  })();
+}
+
+$('#grandCta').onclick=()=>{ setPlan('🕵️ Secret Pop — all 8 secrets found','Found all 8 of Isabella\'s party secrets. Time to put them to work — quote my party!'); $('#leadCard').scrollIntoView({behavior:'smooth'}); };
+
+/* ================= MODE SWITCHING ================= */
+function setMode(m){
+  mode=m;
+  document.querySelectorAll('.mode-card').forEach(c=>{
+    const on=c.dataset.mode===m;
+    c.classList.toggle('sel',on);
+    c.setAttribute('aria-selected',on?'true':'false');
+  });
+  const ov=$('#startOverlay');
+  ov.classList.remove('hidden');
+  $('#endOverlay').classList.add('hidden');
+  if(secretState&&secretState.running){ secretState.running=false; secretState.balloons.forEach(x=>x.el.remove()); secretState.balloons=[]; }
+  if(blitz&&blitz.running){ blitz.running=false; clearInterval(blitz.spawnTimer); blitz.balloons.forEach(x=>x.el.remove()); blitz.balloons=[]; }
+  if(m==='blitz'){
+    $('#secretsPanel').classList.remove('on');
+    $('#blitzLegend').style.display='flex';
+    $('#ovTitle').textContent='🎈 Ready to pop?';
+    $('#ovText').innerHTML='Pop as many balloons as you can in 30 seconds. Golden = 50&nbsp;pts, Hearts = 25&nbsp;pts, Sneaky Stripes = <b>don\'t pop!</b> (let them float away for a bonus).';
+    $('#startBtn').textContent='🎉 Pop! (Space also works)';
+    $('#switchBtn').textContent='🕵️ Switch to Secret Pop';
+  } else {
+    $('#secretsPanel').classList.add('on');
+    $('#blitzLegend').style.display='none';
+    $('#ovTitle').textContent='🕵️ Secret Pop';
+    $('#ovText').innerHTML='No timer, no pressure. Pop the 8 floating balloons to uncover Isabella\'s real insider secrets — then unlock the Grand Secret.';
+    $('#startBtn').textContent='🕵️ Start Popping Secrets';
+    $('#switchBtn').textContent='🚀 Switch to Blitz Pop';
+  }
+}
+document.querySelectorAll('.mode-card').forEach(c=>{
+  c.addEventListener('click',()=>setMode(c.dataset.mode));
+  c.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); setMode(c.dataset.mode); } });
+});
+$('#startBtn').onclick=()=>{ mode==='blitz'?startBlitz():startSecret(); };
+$('#switchBtn').onclick=()=>{ setMode(mode==='blitz'?'secret':'blitz'); };
+$('#switchBtn2').onclick=()=>{ setMode('secret'); };
+$('#againBtn').onclick=()=>{ mode==='blitz'?startBlitz():startSecret(); };
+// Space bar = pop (blitz: pops a random balloon; secret: pops next available)
+document.addEventListener('keydown',e=>{
+  if(e.code==='Space' && !e.repeat){
+    const tag=(e.target.tagName||'').toLowerCase();
+    if(tag==='input'||tag==='textarea'||tag==='select'||tag==='button') return;
+    e.preventDefault();
+    if(mode==='blitz'&&blitz&&blitz.running&&blitz.balloons.length){
+      const b=blitz.balloons[(Math.random()*blitz.balloons.length)|0];
+      popBalloon(blitz,b);
+    } else if(mode==='secret'&&secretState&&secretState.running&&secretState.balloons.length){
+      const b=secretState.balloons[0];
+      b.el.dispatchEvent(new PointerEvent('pointerdown',{bubbles:true}));
+    }
+  }
+});
+
+/* ================= LEAD FORM ================= */
+let planMsg='';
+function setPlan(label,msg){
+  planMsg=msg;
+  $('#planChip').style.display='inline-flex';
+  $('#planName').textContent=label;
+  const ta=$('#fMsg');
+  if(!ta.value.trim()) ta.value=msg;
+}
+window.clearPlan=function(){
+  planMsg='';
+  $('#planChip').style.display='none';
+  if($('#fMsg').value.trim()===planMsg) $('#fMsg').value='';
+};
+$('#leadForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const name=$('#fName').value.trim(), email=$('#fEmail').value.trim(), phone=$('#fPhone').value.trim();
+  if(!name||!email){ showMsg('err','Name and email are required — Isabella needs to know who to reply to.'); return; }
+  const payload={
+    name, email, phone,
+    eventType:$('#fType').value,
+    eventDate:$('#fDate').value,
+    message: planMsg || $('#fMsg').value.trim() || 'Came from Pop Party — wants a quote.',
+    source:'pop-party',
+    type:'lead'
+  };
+  const btn=$('#submitBtn');
+  btn.disabled=true; btn.textContent='Sending…';
+  try{
+    const res=await fetch('/api/leads.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    if(!res.ok) throw new Error('bad status');
+    showMsg('ok','🎉 Popped! Isabella got your message — expect a reply within 24 hours. Want to play another round while you wait?');
+    confettiBurst();
+    e.target.reset();
+    $('#planChip').style.display='none';
+    planMsg='';
+  }catch(err){
+    showMsg('err','Hmm, that didn\'t go through. Please try again, or email Isabella directly at Hey.everlasting.memories@gmail.com');
+  }
+  btn.disabled=false; btn.textContent='🎉 Request My Exact Quote';
+});
+function showMsg(kind,text){
+  const m=$('#formMsg');
+  m.className='msg '+kind;
+  m.textContent=text;
+  setTimeout(()=>{ m.className='msg'; },7000);
+}
+
+/* ================= FAQ ================= */
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click',()=>q.parentElement.classList.toggle('open'));
+});
+
+/* init */
+setMode('blitz');
+</script>
+</body>
+</html>
