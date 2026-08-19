@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Invitation Studio | Everlasting Memories — Balloon Art & Event Decor</title>
+<meta name="description" content="Design a stunning digital party invitation in 30 seconds — animated balloons, live countdown, download as PNG, share on WhatsApp. Then let Isabella decorate the real party.">
+<link rel="canonical" href="https://myeverlastingmemories.com/invitation-studio.html">
+<meta property="og:title" content="The Invitation Studio — Design Your Party Invite">
+<meta property="og:description" content="Animated balloons, a live countdown, and a beautiful invitation you can download or share in 30 seconds. Every great party starts with a great invite.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://myeverlastingmemories.com/invitation-studio.html">
+<meta property="og:image" content="https://myeverlastingmemories.com/logo.jpg">
+<meta property="og:site_name" content="Everlasting Memories">
+<meta name="theme-color" content="#312e81">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="analytics.js" defer></script>
+<style>
+:root{
+  --c1:#312e81;      /* deep indigo */
+  --c2:#C9A227;      /* gold */
+  --c3:#6d5bd0;      /* violet */
+  --bg:#f7f5ff;
+  --card:#ffffff;
+  --line:#e5e0f5;
+  --ink:#2d2a4a;
+  --soft:#6f6a8e;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+.em-nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 22px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;flex-wrap:wrap}
+.em-nav-brand{font-weight:700;color:var(--c1);text-decoration:none;font-size:1rem;font-family:'Playfair Display',serif}
+.em-nav-links{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.em-nav-links a{color:var(--ink);text-decoration:none;font-size:.85rem;font-weight:500}
+.em-nav-links a:hover{color:var(--c2)}
+.em-nav-hot{color:var(--c2)!important;font-weight:700}
+.em-nav-drop{position:relative}
+.em-nav-drop-btn{background:none;border:none;font-family:'Inter',sans-serif;font-size:.85rem;font-weight:500;color:var(--ink);cursor:pointer;padding:4px 2px}
+.em-nav-drop-menu{display:none;position:absolute;right:0;top:calc(100%+8px);background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 34px rgba(49,46,129,.16);min-width:240px;padding:8px;z-index:60}
+.em-nav-drop-menu.open{display:block}
+.em-nav-drop-menu a{display:block;padding:8px 12px;border-radius:9px;font-size:.85rem;color:var(--ink);text-decoration:none}
+.em-nav-drop-menu a:hover{background:var(--bg)}
+.em-nav-cta{background:var(--c1);color:#fff!important;padding:9px 18px;border-radius:999px;font-weight:600;text-decoration:none;font-size:.85rem}
+.em-nav-cta:hover{background:#4338ca}
+header{max-width:960px;margin:0 auto;padding:44px 22px 10px;text-align:center}
+.home-link{display:inline-block;color:var(--c1);text-decoration:none;font-size:.85rem;font-weight:600;margin-bottom:14px}
+.badge{display:inline-block;background:linear-gradient(135deg,var(--c1),var(--c3));color:#fff;padding:5px 16px;border-radius:999px;font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
+header h1{font-family:'Playfair Display',serif;font-size:2.3rem;color:var(--c1);margin-bottom:10px}
+header p{color:var(--soft);max-width:640px;margin:0 auto;font-size:.98rem}
+.container{max-width:960px;margin:0 auto;padding:0 22px 30px}
+.grid{display:grid;grid-template-columns:1.05fr .95fr;gap:22px;margin-top:22px}
+@media(max-width:860px){.grid{grid-template-columns:1fr}}
+/* ===== form card ===== */
+.card{background:var(--card);border-radius:18px;padding:22px;box-shadow:0 4px 24px rgba(49,46,129,.08);border:1px solid var(--line)}
+.card h2{font-size:1.05rem;color:var(--c1);margin-bottom:4px;font-family:'Playfair Display',serif}
+.card .sub{font-size:.8rem;color:var(--soft);margin-bottom:14px}
+.fg{margin-bottom:12px}
+.fg label{display:block;font-weight:600;font-size:.82rem;margin-bottom:4px;color:var(--c1)}
+.fg input,.fg textarea,.fg select{width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;font-size:.92rem;background:#fff;font-family:'Inter',sans-serif;color:var(--ink)}
+.fg input:focus,.fg textarea:focus,.fg select:focus{outline:none;border-color:var(--c3)}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:480px){.fg-row{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:4px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:6px 13px;font-size:.8rem;font-weight:600;color:var(--soft);cursor:pointer;transition:.2s;font-family:'Inter',sans-serif}
+.chip.on{border-color:var(--c1);background:var(--c1);color:#fff}
+.pal{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+@media(max-width:480px){.pal{grid-template-columns:repeat(2,1fr)}}
+.pal-item{border:1.5px solid var(--line);border-radius:12px;padding:8px;cursor:pointer;transition:.2s;background:#fff;text-align:center}
+.pal-item.on{border-color:var(--c1);box-shadow:0 0 0 2px rgba(49,46,129,.15)}
+.pal-dots{display:flex;justify-content:center;gap:4px;margin-bottom:5px}
+.pal-dots span{width:16px;height:16px;border-radius:50%;border:1px solid rgba(0,0,0,.08)}
+.pal-name{font-size:.7rem;font-weight:700;color:var(--c1)}
+.msg{display:none;border-radius:10px;padding:11px;font-size:.86rem;font-weight:500;margin-bottom:12px;text-align:center}
+.msg.ok{display:block;background:#eef7ee;border:1px solid #7cc47c;color:#2c6e2c}
+.msg.err{display:block;background:#fdeeee;border:1px solid #e08a8a;color:#a33}
+.cta-btn{width:100%;border:none;border-radius:12px;padding:13px;font-size:.95rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:.2s;margin-top:4px}
+.cta-btn.primary{background:linear-gradient(135deg,var(--c1),var(--c3));color:#fff}
+.cta-btn.primary:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(49,46,129,.3)}
+.cta-btn.gold{background:linear-gradient(135deg,#b8860b,var(--c2));color:#fff}
+.cta-btn.gold:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(201,162,39,.35)}
+.cta-btn:disabled{opacity:.6;cursor:wait;transform:none}
+/* ===== invite preview ===== */
+.preview-col{position:sticky;top:76px;align-self:start}
+@media(max-width:860px){.preview-col{position:static}}
+.preview-wrap{position:relative;border-radius:18px;overflow:hidden;box-shadow:0 18px 50px rgba(49,46,129,.25);aspect-ratio:5/7;background:#fff}
+.preview-inner{position:absolute;inset:0;overflow:hidden}
+.pv-bg{position:absolute;inset:0;transition:background 1s ease}
+.pv-balloons{position:absolute;inset:0;overflow:hidden}
+.pv-balloon{position:absolute;bottom:-90px;border-radius:50% 50% 50% 50%/55% 55% 45% 45%;opacity:.85;animation:floatUp linear infinite}
+.pv-balloon::after{content:'';position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:7px solid inherit}
+.pv-balloon .string{position:absolute;top:100%;left:50%;width:1.5px;height:70px;background:rgba(0,0,0,.18)}
+@keyframes floatUp{0%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-45vh) rotate(3deg)}100%{transform:translateY(-90vh) rotate(-2deg)}}
+.pv-content{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:28px;z-index:2}
+.pv-frame{position:absolute;inset:12px;border:1.5px solid rgba(255,255,255,.55);border-radius:14px;pointer-events:none}
+.pv-kicker{font-size:.66rem;font-weight:700;letter-spacing:.28em;text-transform:uppercase;margin-bottom:10px;opacity:.9}
+.pv-name{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,5vw,2.3rem);font-weight:700;line-height:1.12;margin-bottom:6px}
+.pv-honor{font-size:.8rem;font-style:italic;margin-bottom:14px;opacity:.92}
+.pv-divider{width:64px;height:1.5px;background:currentColor;opacity:.5;margin-bottom:14px}
+.pv-details{font-size:.85rem;line-height:1.8;font-weight:500}
+.pv-details .pv-date{font-size:1.05rem;font-weight:700}
+.pv-count{position:absolute;bottom:16px;left:0;right:0;text-align:center;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;opacity:.95;z-index:2}
+.pv-brand{position:absolute;top:14px;left:0;right:0;text-align:center;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;font-weight:700;opacity:.8;z-index:2}
+.preview-actions{display:flex;gap:10px;margin-top:14px}
+.preview-actions button{flex:1;border:none;border-radius:11px;padding:11px;font-size:.85rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:.2s}
+.btn-dl{background:var(--c1);color:#fff}
+.btn-dl:hover{background:#4338ca}
+.btn-wa{background:#25D366;color:#fff}
+.btn-wa:hover{filter:brightness(.95)}
+.tip{font-size:.74rem;color:var(--soft);text-align:center;margin-top:10px}
+/* ===== countdown strip ===== */
+.count-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:18px}
+.count-box{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px;text-align:center}
+.count-num{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--c1)}
+.count-lab{font-size:.62rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
+/* ===== lead card ===== */
+.lead-note{font-size:.8rem;color:var(--soft);margin-top:10px;text-align:center}
+/* ===== faq / facts ===== */
+.faq-q{display:flex;justify-content:space-between;align-items:center;gap:10px;width:100%;background:none;border:none;font-family:'Inter',sans-serif;font-size:.92rem;font-weight:600;color:var(--c1);cursor:pointer;padding:13px 2px;text-align:left}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .25s ease;font-size:.87rem;color:var(--soft);padding:0 2px}
+.faq-item.open .faq-a{max-height:320px;padding-bottom:14px}
+.faq-item.open .faq-arrow{transform:rotate(180deg)}
+.faq-arrow{transition:.2s;color:var(--c2)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px}
+.fact{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;font-size:.84rem;color:var(--soft)}
+.fact b{display:block;color:var(--c1);margin-bottom:4px;font-size:.88rem}
+footer{background:#ece8fb;border-top:1px solid var(--line);text-align:center;padding:26px 20px;font-size:.84rem;color:var(--soft);margin-top:10px}
+footer a{color:var(--c1);text-decoration:none;font-weight:600}
+@media (prefers-reduced-motion: reduce){.pv-balloon{animation:none}}
+</style>
+</head>
+<body>
+<div class="em-nav" role="navigation" aria-label="Main navigation">
+  <a class="em-nav-brand" href="index.html">&#127881; Everlasting Memories</a>
+  <div class="em-nav-links">
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="about.html">About</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+    <a href="gift-card.html" class="em-nav-hot">Gift Cards</a>
+    <div class="em-nav-drop">
+      <button class="em-nav-drop-btn" type="button" aria-haspopup="true" aria-expanded="false">Tools &#9662;</button>
+      <div class="em-nav-drop-menu">
+          <a href="cost-estimator.html">Estimate Cost</a>
+          <a href="theme-generator.html">Theme Generator</a>
+          <a href="lookbook.html">Lookbook</a>
+          <a href="countdown.html">Countdown</a>
+          <a href="party-style-quiz.html">Party Style Quiz</a>
+          <a href="balloon-math.html">Balloon Math</a>
+          <a href="reserve-date.html">Reserve Your Date</a>
+          <a href="diy-vs-pro.html">DIY vs Pro</a>
+          <a href="palette-snap.html">Palette Snap</a>
+          <a href="name-garland.html">Balloon Letters</a>
+          <a href="budget-builder.html">Budget Builder</a>
+          <a href="transformations.html">The Big Reveal</a>
+          <a href="wedding-workshop.html">Wedding Workshop</a>
+          <a href="balloon-pop.html">Pop Party</a>
+          <a href="invitation-studio.html" style="background:#312e81;color:#fff;">Invitation Studio</a>
+          <a href="referral.html">Refer &amp; Earn</a>
+        </div>
+    </div>
+  </div>
+  <a class="em-nav-cta" href="cost-estimator.html">Get a Quote</a>
+</div>
+
+<header>
+  <a href="index.html" class="home-link">&#8592; Back to Home</a>
+  <div class="badge">&#127881; New Tonight — The Invitation Studio</div>
+  <h1>&#128233; The Invitation Studio</h1>
+  <p>Design a stunning digital invitation in 30 seconds — pick your occasion, choose one of Isabella's signature palettes, and watch animated balloons carry your invite to life with a live countdown to the big day. Download it as a PNG, share it on WhatsApp, and when the balloons pop for real — Isabella decorates the party.</p>
+</header>
+
+<div class="container">
+
+  <div class="grid">
+    <!-- ============ DESIGNER ============ -->
+    <div class="card">
+      <h2>&#127912; Design Your Invite</h2>
+      <p class="sub">Every detail updates the preview live. No account needed.</p>
+
+      <div class="fg">
+        <label>What are we celebrating?</label>
+        <div class="chips" id="occChips">
+          <button class="chip on" data-occ="Birthday">&#127874; Birthday</button>
+          <button class="chip" data-occ="Wedding">&#128142; Wedding</button>
+          <button class="chip" data-occ="Baby Shower">&#128118; Baby Shower</button>
+          <button class="chip" data-occ="Anniversary">&#128149; Anniversary</button>
+          <button class="chip" data-occ="Graduation">&#127891; Graduation</button>
+          <button class="chip" data-occ="Corporate">&#127970; Corporate</button>
+          <button class="chip" data-occ="Just Because">&#127881; Just Because</button>
+        </div>
+      </div>
+
+      <div class="fg">
+        <label>Palette — Isabella's signature looks</label>
+        <div class="pal" id="palGrid">
+          <div class="pal-item on" data-pal="Romantic Bloom" data-colors='["#F6D7DE","#E8A2B8","#C96B83","#7A4A5E"]' data-bg="linear-gradient(160deg,#fdf2f5,#f6d7de)">
+            <div class="pal-dots"><span style="background:#F6D7DE"></span><span style="background:#E8A2B8"></span><span style="background:#C96B83"></span></div>
+            <div class="pal-name">Romantic Bloom</div>
+          </div>
+          <div class="pal-item" data-pal="Glam Gold" data-colors='["#F5E6C8","#E3B23C","#C9A227","#8A6D12"]' data-bg="linear-gradient(160deg,#fdf8ec,#f5e6c8)">
+            <div class="pal-dots"><span style="background:#F5E6C8"></span><span style="background:#E3B23C"></span><span style="background:#C9A227"></span></div>
+            <div class="pal-name">Glam Gold</div>
+          </div>
+          <div class="pal-item" data-pal="Party Pop" data-colors='["#FDE68A","#F97316","#EA580C","#9A3412"]' data-bg="linear-gradient(160deg,#fff7e0,#fde68a)">
+            <div class="pal-dots"><span style="background:#FDE68A"></span><span style="background:#F97316"></span><span style="background:#EA580C"></span></div>
+            <div class="pal-name">Party Pop</div>
+          </div>
+          <div class="pal-item" data-pal="Modern Muse" data-colors='["#E7E5E4","#D6D3D1","#A8A29E","#57534E"]' data-bg="linear-gradient(160deg,#fafaf9,#e7e5e4)">
+            <div class="pal-dots"><span style="background:#E7E5E4"></span><span style="background:#A8A29E"></span><span style="background:#57534E"></span></div>
+            <div class="pal-name">Modern Muse</div>
+          </div>
+          <div class="pal-item" data-pal="Boho Earth" data-colors='["#EAD9C7","#C9A87C","#8A6A4E","#5A3D2B"]' data-bg="linear-gradient(160deg,#faf4ec,#ead9c7)">
+            <div class="pal-dots"><span style="background:#EAD9C7"></span><span style="background:#C9A87C"></span><span style="background:#8A6A4E"></span></div>
+            <div class="pal-name">Boho Earth</div>
+          </div>
+          <div class="pal-item" data-pal="Winter Wonder" data-colors='["#DBEAFE","#93C5FD","#3B82F6","#1E3A5F"]' data-bg="linear-gradient(160deg,#f0f7ff,#dbeafe)">
+            <div class="pal-dots"><span style="background:#DBEAFE"></span><span style="background:#93C5FD"></span><span style="background:#3B82F6"></span></div>
+            <div class="pal-name">Winter Wonder</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fg"><label for="fName">Guest of honor / event name</label><input id="fName" type="text" placeholder="e.g. Sofia's Sweet 16" maxlength="32"></div>
+      <div class="fg"><label for="fHost">Hosted by</label><input id="fHost" type="text" placeholder="e.g. The Garcia Family" maxlength="40"></div>
+      <div class="fg-row">
+        <div class="fg"><label for="fDate">Date of the party</label><input id="fDate" type="date"></div>
+        <div class="fg"><label for="fTime">Time</label><input id="fTime" type="time" value="18:00"></div>
+      </div>
+      <div class="fg"><label for="fLoc">Location</label><input id="fLoc" type="text" placeholder="e.g. The Barn at Windy Hill, Oxford CT" maxlength="60"></div>
+      <div class="fg"><label for="fMsg">A note for your guests (optional)</label><textarea id="fMsg" rows="2" placeholder="e.g. Come hungry — cake at 7! Dress code: glitter encouraged." maxlength="120"></textarea></div>
+    </div>
+
+    <!-- ============ PREVIEW ============ -->
+    <div class="preview-col">
+      <div class="preview-wrap">
+        <div class="preview-inner">
+          <div class="pv-bg" id="pvBg"></div>
+          <div class="pv-balloons" id="pvBalloons"></div>
+          <div class="pv-frame"></div>
+          <div class="pv-brand" id="pvBrand">Everlasting Memories &#8226; Balloon Art &amp; Event Decor</div>
+          <div class="pv-content" id="pvContent">
+            <div class="pv-kicker" id="pvKicker">You're Invited</div>
+            <div class="pv-name" id="pvName">Sofia's Sweet 16</div>
+            <div class="pv-honor" id="pvHonor">hosted by The Garcia Family</div>
+            <div class="pv-divider"></div>
+            <div class="pv-details" id="pvDetails">
+              <div class="pv-date" id="pvDate">Saturday, September 12</div>
+              <div id="pvTime">6:00 PM</div>
+              <div id="pvLoc">The Barn at Windy Hill, Oxford CT</div>
+            </div>
+            <div class="pv-note" id="pvNote" style="margin-top:12px;font-size:.78rem;font-style:italic;max-width:280px;"></div>
+          </div>
+          <div class="pv-count" id="pvCount">&#128197; Counting down to the big day…</div>
+        </div>
+      </div>
+      <div class="count-strip">
+        <div class="count-box"><div class="count-num" id="cDays">--</div><div class="count-lab">Days</div></div>
+        <div class="count-box"><div class="count-num" id="cHours">--</div><div class="count-lab">Hours</div></div>
+        <div class="count-box"><div class="count-num" id="cMins">--</div><div class="count-lab">Mins</div></div>
+        <div class="count-box"><div class="count-num" id="cSecs">--</div><div class="count-lab">Secs</div></div>
+      </div>
+      <div class="preview-actions">
+        <button class="btn-dl" id="dlBtn" type="button">&#11015; Download PNG</button>
+        <button class="btn-wa" id="waBtn" type="button">&#128172; Share on WhatsApp</button>
+      </div>
+      <div class="tip">&#128274; Everything is made right here in your browser — your invite never leaves your device until you share it.</div>
+    </div>
+  </div>
+
+  <!-- ============ LEAD FORM ============ -->
+  <div class="card" style="margin-top:22px;" id="leadCard">
+    <h2>&#127880; Now Make the Real Party Match the Invite</h2>
+    <p class="sub">Tell Isabella about your celebration and she'll quote the balloon decor to match your invite's palette — free, no obligation, reply within 24 hours.</p>
+    <form id="leadForm">
+      <div class="fg-row">
+        <div class="fg"><label for="f2Name">Your name</label><input id="f2Name" type="text" required placeholder="Jane Smith"></div>
+        <div class="fg"><label for="f2Email">Email</label><input id="f2Email" type="email" required placeholder="you@email.com"></div>
+      </div>
+      <div class="fg-row">
+        <div class="fg"><label for="f2Phone">Phone (optional)</label><input id="f2Phone" type="tel" placeholder="203-555-0100"></div>
+        <div class="fg"><label for="f2Budget">Balloon budget (optional)</label>
+          <select id="f2Budget"><option value="">Not sure yet</option><option>Under $300</option><option>$300–$700</option><option>$700–$1,500</option><option>$1,500+</option></select>
+        </div>
+      </div>
+      <div class="msg" id="formMsg"></div>
+      <button class="cta-btn gold" id="submitBtn" type="submit">&#127881; Request My Balloon Quote</button>
+      <p class="lead-note">Your invite details (event, date, palette) are attached so Isabella can match the decor to your invite perfectly.</p>
+    </form>
+  </div>
+
+  <!-- FAQ -->
+  <div class="card" style="margin-top:22px;">
+    <h2>&#128161; Invitation Studio FAQ</h2>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Is this really free?<span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">Completely free. Design, download, and share as many invites as you like. The only thing we ask is that you think of Isabella when the balloons need to be real — the quote form below is there when you're ready.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Does the countdown work on the downloaded PNG?<span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">The PNG is a beautiful static snapshot with the date and time — perfect for posting or printing. The live ticking countdown lives on the shareable web version, so guests who open your invite link see it counting down to the minute.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Can I match the decor to my invite?<span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">Yes — and that's the magic. The palette you pick is one of Isabella's six signature styles, so when you request a quote, she can build garlands, arches, and backdrops in exactly those colors. Invite and venue, perfectly in sync.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">What if my event is tomorrow?<span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">The countdown will be very small — but don't panic! Isabella has booked same-week events before. Send the quote request and mention your date; she'll tell you honestly what's possible.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Do you make printed invites too?<span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">The PNG downloads at a crisp resolution perfect for printing at home or a print shop — and it looks gorgeous on paper. For fully custom letterpress-style suites, mention it in the quote form and Isabella can point you to her print partners.</div>
+    </div>
+  </div>
+
+  <!-- FACTS -->
+  <div class="facts">
+    <div class="fact"><b>&#127881; 30 seconds</b>from blank screen to beautiful invite. Pick occasion, pick palette, type the details — done.</div>
+    <div class="fact"><b>&#127880; 6 signature palettes</b>straight from Isabella's real portfolio — the same colors she builds garlands in every week.</div>
+    <div class="fact"><b>&#128197; Live countdown</b>built into every invite — guests literally watch the party get closer. FOMO, engineered.</div>
+    <div class="fact"><b>&#128172; WhatsApp-ready</b>One tap builds a share message with the invite link — your guests see the animated version, not just a photo.</div>
+  </div>
+
+</div>
+
+<footer>
+  <p><a href="index.html">Everlasting Memories</a> — Balloon Art &amp; Event Decor, Connecticut · <a href="tel:203-981-7244">203-981-7244</a> · <a href="contact.html">Contact</a> · <a href="https://instagram.com/everlasting.memories25" style="color:#C9A87C" target="_blank" rel="noopener">@everlasting.memories25</a></p>
+  <p style="margin-top:6px;">Every garland is hand-built and installed by Isabella — no templates, no shortcuts, no surprise fees.</p>
+  <p style="margin-top:8px;"><a href="invitation-studio.html" style="color:#312e81;font-weight:600;">Invitation Studio</a> · <a href="balloon-pop.html" style="color:#ea580c;font-weight:600;">Pop Party</a> · <a href="wedding-workshop.html" style="color:#9d174d;font-weight:600;">Wedding Workshop</a> · <a href="transformations.html" style="color:#7c3aed;font-weight:600;">The Big Reveal</a> · <a href="budget-builder.html" style="color:#2f7a52">Budget Balloonist</a> · <a href="referral.html" style="color:#C9A87C">Refer &amp; Earn</a></p>
+</footer>
+
+<script>
+const $=id=>document.getElementById(id);
+let occ='Birthday', pal='Romantic Bloom', colors=['#F6D7DE','#E8A2B8','#C96B83','#7A4A5E'], bg='linear-gradient(160deg,#fdf2f5,#f6d7de)';
+let balloons=[], ballTimer=null;
+
+/* occasion chips */
+document.querySelectorAll('#occChips .chip').forEach(c=>{
+  c.addEventListener('click',()=>{
+    document.querySelectorAll('#occChips .chip').forEach(x=>x.classList.remove('on'));
+    c.classList.add('on');
+    occ=c.dataset.occ;
+    render();
+  });
+});
+
+/* palette */
+document.querySelectorAll('#palGrid .pal-item').forEach(p=>{
+  p.addEventListener('click',()=>{
+    document.querySelectorAll('#palGrid .pal-item').forEach(x=>x.classList.remove('on'));
+    p.classList.add('on');
+    pal=p.dataset.pal;
+    colors=JSON.parse(p.dataset.colors);
+    bg=p.dataset.bg;
+    resetBalloons();
+    render();
+  });
+});
+
+/* live inputs */
+['fName','fHost','fDate','fTime','fLoc','fMsg'].forEach(id=>{
+  $(id).addEventListener('input',render);
+  $(id).addEventListener('change',render);
+});
+
+function fmtDate(d){
+  if(!d) return '';
+  const dt=new Date(d+'T12:00:00');
+  const opts={weekday:'long',month:'long',day:'numeric'};
+  const base=dt.toLocaleDateString('en-US',opts);
+  const yr=dt.getFullYear();
+  if(yr!==new Date().getFullYear()) return base+', '+yr;
+  return base;
+}
+function fmtTime(t){
+  if(!t) return '';
+  const [h,m]=t.split(':').map(Number);
+  const ap=h>=12?'PM':'AM';
+  const hh=h%12===0?12:h%12;
+  return hh+':'+String(m).padStart(2,'0')+' '+ap;
+}
+
+function render(){
+  const name=$('fName').value.trim()||'Your Celebration';
+  const host=$('fHost').value.trim();
+  const date=$('fDate').value;
+  const time=$('fTime').value;
+  const loc=$('fLoc').value.trim();
+  const note=$('fMsg').value.trim();
+  const isDark = ['#312e81','#8A6D12','#9A3412','#57534E','#5A3D2B','#1E3A5F'].includes(colors[3]);
+  const fg=isDark?'#ffffff':'#2d2a4a';
+
+  $('pvBg').style.background=bg;
+  $('pvKicker').textContent='You\'re Invited — '+occ;
+  $('pvName').textContent=name;
+  $('pvName').style.color=fg;
+  $('pvHonor').textContent=host?('hosted by '+host):'';
+  $('pvDate').textContent=fmtDate(date)||'Date TBD';
+  $('pvTime').textContent=fmtTime(time)||'Time TBD';
+  $('pvLoc').textContent=loc||'Location TBD';
+  $('pvNote').textContent=note;
+  $('pvContent').style.color=fg;
+  $('pvCount').style.color=fg;
+  $('pvBrand').style.color=fg;
+  $('pvFrame').style.borderColor=fg+'88';
+  $('pvDivider').style.background=fg;
+
+  /* countdown */
+  if(date){
+    const target=new Date(date+'T'+(time||'23:59')+':00').getTime();
+    const now=Date.now();
+    const diff=target-now;
+    if(diff>0){
+      const d=Math.floor(diff/86400000), h=Math.floor(diff/3600000)%24, m=Math.floor(diff/60000)%60, s=Math.floor(diff/1000)%60;
+      $('cDays').textContent=d; $('cHours').textContent=h; $('cMins').textContent=m; $('cSecs').textContent=s;
+      $('pvCount').textContent=d+' days to go — '+name;
+    }else{
+      $('cDays').textContent='🎉'; $('cHours').textContent='🎈'; $('cMins').textContent='🥳'; $('cSecs').textContent='✨';
+      $('pvCount').textContent='The party is here! 🎉';
+    }
+  }else{
+    $('cDays').textContent='--'; $('cHours').textContent='--'; $('cMins').textContent='--'; $('cSecs').textContent='--';
+    $('pvCount').textContent='📅 Pick a date to start the countdown';
+  }
+}
+setInterval(()=>{ if($('fDate').value) render(); },1000);
+
+/* ===== balloons ===== */
+function spawnBalloon(){
+  const wrap=$('pvBalloons');
+  const el=document.createElement('div');
+  el.className='pv-balloon';
+  const size=26+Math.random()*46;
+  const col=colors[Math.floor(Math.random()*colors.length)];
+  el.style.width=size+'px'; el.style.height=(size*1.18)+'px';
+  el.style.left=(5+Math.random()*90)+'%';
+  el.style.background='radial-gradient(circle at 32% 28%, rgba(255,255,255,.75), '+col+' 62%)';
+  el.style.animationDuration=(9+Math.random()*9)+'s';
+  el.style.animationDelay=(-Math.random()*12)+'s';
+  el.innerHTML='<div class="string"></div>';
+  wrap.appendChild(el);
+  balloons.push(el);
+  if(balloons.length>14){ const old=balloons.shift(); old.remove(); }
+}
+function resetBalloons(){
+  balloons.forEach(b=>b.remove());
+  balloons=[];
+  for(let i=0;i<8;i++) spawnBalloon();
+}
+resetBalloons();
+ballTimer=setInterval(()=>{ if(balloons.length<14) spawnBalloon(); },1800);
+
+/* ===== download PNG ===== */
+$('dlBtn').addEventListener('click',()=>{
+  const wrap=$('pvContent');
+  const w=wrap.clientWidth*2, h=wrap.clientHeight*2; /* 2x for crispness */
+  const canvas=document.createElement('canvas');
+  canvas.width=w; canvas.height=h;
+  const ctx=canvas.getContext('2d');
+  const grad=ctx.createLinearGradient(0,0,w,h);
+  const c1=colors[1]||'#f6d7de', c2=colors[0]||'#ffffff';
+  grad.addColorStop(0,c2); grad.addColorStop(1,c1);
+  ctx.fillStyle=grad; ctx.fillRect(0,0,w,h);
+  /* balloons */
+  colors.forEach((c,i)=>{
+    ctx.beginPath();
+    ctx.arc(w*(0.15+i*0.2), h*(0.22+(i%2)*0.14), w*0.07, 0, Math.PI*2);
+    ctx.fillStyle=c; ctx.globalAlpha=.85; ctx.fill();
+    ctx.globalAlpha=1;
+  });
+  /* frame */
+  ctx.strokeStyle='rgba(255,255,255,.6)'; ctx.lineWidth=w*0.006;
+  ctx.strokeRect(w*0.03,h*0.03,w*0.94,h*0.94);
+  ctx.textAlign='center';
+  /* brand */
+  ctx.fillStyle='rgba(45,42,74,.55)'; ctx.font='600 '+Math.round(w*0.016)+'px Inter, sans-serif';
+  ctx.fillText('EVERLASTING MEMORIES • BALLOON ART & EVENT DECOR', w/2, h*0.075);
+  /* kicker */
+  ctx.fillStyle='rgba(45,42,74,.75)'; ctx.font='700 '+Math.round(w*0.022)+'px Inter, sans-serif';
+  ctx.fillText("YOU'RE INVITED — "+(occ||'CELEBRATION').toUpperCase(), w/2, h*0.24);
+  /* name */
+  const name=$('fName').value.trim()||'Your Celebration';
+  ctx.fillStyle='#2d2a4a'; ctx.font='700 '+Math.round(w*0.075)+'px "Playfair Display", serif';
+  const nameLines=wrapText(ctx,name,w*0.8);
+  nameLines.forEach((l,i)=>ctx.fillText(l,w/2,h*0.34+i*Math.round(w*0.088)));
+  /* host */
+  const host=$('fHost').value.trim();
+  if(host){
+    ctx.fillStyle='rgba(45,42,74,.7)'; ctx.font='italic 400 '+Math.round(w*0.024)+'px Inter, sans-serif';
+    ctx.fillText('hosted by '+host, w/2, h*0.34+nameLines.length*Math.round(w*0.088)+Math.round(h*0.03));
+  }
+  /* divider */
+  ctx.strokeStyle='rgba(45,42,74,.4)'; ctx.lineWidth=w*0.003;
+  ctx.beginPath(); ctx.moveTo(w/2-w*0.09,h*0.55); ctx.lineTo(w/2+w*0.09,h*0.55); ctx.stroke();
+  /* details */
+  ctx.fillStyle='#2d2a4a'; ctx.font='700 '+Math.round(w*0.032)+'px Inter, sans-serif';
+  ctx.fillText(fmtDate($('fDate').value)||'Date TBD', w/2, h*0.62);
+  ctx.font='500 '+Math.round(w*0.026)+'px Inter, sans-serif';
+  ctx.fillText((fmtTime($('fTime').value)||'Time TBD')+'  •  '+($('fLoc').value.trim()||'Location TBD'), w/2, h*0.68);
+  /* note */
+  const note=$('fMsg').value.trim();
+  if(note){
+    ctx.fillStyle='rgba(45,42,74,.7)'; ctx.font='italic 400 '+Math.round(w*0.022)+'px Inter, sans-serif';
+    ctx.fillText(note, w/2, h*0.78);
+  }
+  /* footer countdown text */
+  const date=$('fDate').value;
+  let foot='';
+  if(date){
+    const diff=new Date(date+'T12:00:00').getTime()-Date.now();
+    foot=diff>0?('🎈 '+(Math.ceil(diff/86400000))+' days to go') : '🎉 The party is here!';
+  }
+  ctx.fillStyle='rgba(45,42,74,.6)'; ctx.font='600 '+Math.round(w*0.02)+'px Inter, sans-serif';
+  ctx.fillText(foot, w/2, h*0.92);
+  const a=document.createElement('a');
+  a.download='my-invite-'+Date.now()+'.png';
+  a.href=canvas.toDataURL('image/png');
+  a.click();
+});
+function wrapText(ctx,text,maxW){
+  const words=text.split(' '); const lines=[]; let line='';
+  words.forEach(w=>{
+    const test=line?line+' '+w:w;
+    if(ctx.measureText(test).width>maxW && line){ lines.push(line); line=w; }
+    else line=test;
+  });
+  if(line) lines.push(line);
+  return lines.slice(0,3);
+}
+
+/* ===== WhatsApp share ===== */
+$('waBtn').addEventListener('click',()=>{
+  const name=$('fName').value.trim()||'my celebration';
+  const date=$('fDate').value;
+  const dateTxt=fmtDate(date)||'soon';
+  const loc=$('fLoc').value.trim();
+  let txt='🎈 You\'re invited to '+name+'! 🎉\n📅 '+dateTxt+( $('fTime').value?(' at '+fmtTime($('fTime').value)):'' )+(loc?('\n📍 '+loc):'')+'\n\nWatch the live countdown and see the full invite here:\nhttps://myeverlastingmemories.com/invitation-studio.html?e='+encodeURIComponent(name);
+  window.open('https://wa.me/?text='+encodeURIComponent(txt),'_blank');
+});
+
+/* ===== lead form ===== */
+$('leadForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const name=$('f2Name').value.trim(), email=$('f2Email').value.trim(), phone=$('f2Phone').value.trim();
+  const ev=$('fName').value.trim()||occ;
+  const date=$('fDate').value;
+  const budget=$('f2Budget').value;
+  const inviteMsg='🎟️ Invite: "'+ev+'" ('+occ+') • '+pal+' palette • '+(date||'date TBD')+(budget?(' • budget '+budget):'');
+  const extra=[$('fLoc').value.trim(),$('fMsg').value.trim()].filter(Boolean).join(' — ');
+  const payload={
+    name, email, phone,
+    eventType: occ,
+    eventDate: date||'',
+    message: inviteMsg+(extra?(' — '+extra):'')+' — wants a quote.',
+    source:'invitation-studio',
+    type:'lead'
+  };
+  const btn=$('submitBtn');
+  btn.disabled=true; btn.textContent='Sending…';
+  try{
+    const res=await fetch('/api/leads.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    if(!res.ok) throw new Error('bad status');
+    showMsg('ok','🎉 Invitation sent to Isabella! Expect a reply within 24 hours — and may your countdown be glorious.');
+    e.target.reset();
+  }catch(err){
+    showMsg('err','Hmm, that didn\'t go through. Please try again, or email Isabella directly at Hey.everlasting.memories@gmail.com');
+  }
+  btn.disabled=false; btn.textContent='🎁 Request My Balloon Quote';
+});
+function showMsg(kind,text){
+  const m=$('formMsg');
+  m.className='msg '+kind;
+  m.textContent=text;
+  setTimeout(()=>{ m.className='msg'; },7000);
+}
+
+/* nav dropdown */
+document.querySelector('.em-nav-drop-btn').addEventListener('click',e=>{
+  e.stopPropagation();
+  document.querySelector('.em-nav-drop-menu').classList.toggle('open');
+});
+document.addEventListener('click',()=>document.querySelector('.em-nav-drop-menu').classList.remove('open'));
+
+/* FAQ */
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click',()=>q.parentElement.classList.toggle('open'));
+});
+
+/* default date: 3 weeks out */
+(function(){
+  const d=new Date(); d.setDate(d.getDate()+21);
+  $('fDate').value=d.toISOString().split('T')[0];
+  render();
+})();
+</script>
+</body>
+</html>
