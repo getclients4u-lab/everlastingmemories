@@ -1,0 +1,1039 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Golden Hour Booth | Everlasting Memories — Balloon Art & Event Decor</title>
+<meta name="description" content="Try on Isabella's balloon decor in the Golden Hour Booth — 6 signature palettes, 3 frame styles, one glorious snap. Then make the real party match.">
+<link rel="canonical" href="https://myeverlastingmemories.com/photo-booth.html">
+<meta property="og:title" content="The Golden Hour Booth — Try On a Balloon Moment">
+<meta property="og:description" content="Put your face (or your best party face) inside Isabella's real balloon looks — 6 palettes, 3 frame styles, one glorious snap. Download it, share it, then make the real party match.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://myeverlastingmemories.com/photo-booth.html">
+<meta property="og:image" content="https://myeverlastingmemories.com/logo.jpg">
+<meta property="og:site_name" content="Everlasting Memories">
+<meta name="theme-color" content="#0369a1">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="analytics.js" defer></script>
+<style>
+:root{
+  --c1:#0369a1;      /* golden-hour azure */
+  --c2:#C9A227;      /* gold */
+  --c3:#0ea5e9;      /* sky bright */
+  --bg:#f0f7fc;
+  --card:#ffffff;
+  --line:#d7e7f2;
+  --ink:#173a5c;
+  --soft:#5c7a94;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+.em-nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 22px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;flex-wrap:wrap}
+.em-nav-brand{font-weight:700;color:var(--c1);text-decoration:none;font-size:1rem;font-family:'Playfair Display',serif}
+.em-nav-links{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.em-nav-links a{color:var(--ink);text-decoration:none;font-size:.85rem;font-weight:500}
+.em-nav-links a:hover{color:var(--c2)}
+.em-nav-hot{color:var(--c2)!important;font-weight:700}
+.em-nav-drop{position:relative}
+.em-nav-drop-btn{background:none;border:none;font-family:'Inter',sans-serif;font-size:.85rem;font-weight:500;color:var(--ink);cursor:pointer;padding:4px 2px}
+.em-nav-drop-menu{display:none;position:absolute;right:0;top:calc(100%+8px);background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 34px rgba(3,105,161,.16);min-width:240px;padding:8px;z-index:60}
+.em-nav-drop-menu.open{display:block}
+.em-nav-drop-menu a{display:block;padding:8px 12px;border-radius:9px;font-size:.85rem;color:var(--ink);text-decoration:none}
+.em-nav-drop-menu a:hover{background:var(--bg)}
+.em-nav-cta{background:var(--c1);color:#fff!important;padding:9px 18px;border-radius:999px;font-weight:600;text-decoration:none;font-size:.85rem}
+.em-nav-cta:hover{background:#075985}
+header{max-width:960px;margin:0 auto;padding:44px 22px 10px;text-align:center}
+.home-link{display:inline-block;color:var(--c1);text-decoration:none;font-size:.85rem;font-weight:600;margin-bottom:14px}
+.badge{display:inline-block;background:linear-gradient(135deg,#b45309,#f59e0b);color:#fff;padding:5px 16px;border-radius:999px;font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
+header h1{font-family:'Playfair Display',serif;font-size:2.3rem;color:var(--c1);margin-bottom:10px}
+header p{color:var(--soft);max-width:640px;margin:0 auto;font-size:.98rem}
+.container{max-width:960px;margin:0 auto;padding:0 22px 30px}
+.grid{display:grid;grid-template-columns:1.15fr 1fr;gap:22px;margin-top:22px}
+@media(max-width:860px){.grid{grid-template-columns:1fr}}
+/* ===== booth ===== */
+.booth-col{position:sticky;top:76px;align-self:start}
+@media(max-width:860px){.booth-col{position:static}}
+.film{background:#0f172a;border-radius:18px;padding:16px 16px 12px;box-shadow:0 18px 50px rgba(3,105,161,.22);border:1px solid #1e293b}
+.film-strip{display:flex;justify-content:space-between;padding:0 4px 8px}
+.film-strip span{width:9px;height:9px;border-radius:50%;background:#1e293b;box-shadow:inset 0 0 0 2px #334155}
+.booth-wrap{position:relative;border-radius:12px;overflow:hidden;background:#0b1220;line-height:0}
+.booth-wrap canvas{width:100%;height:auto;display:block}
+.booth-glow{position:absolute;inset:0;pointer-events:none;border-radius:12px;box-shadow:inset 0 0 60px rgba(251,191,36,.12)}
+.float-balloon{position:absolute;border-radius:50% 50% 50% 50%/55% 55% 45% 45%;animation:floatUp linear infinite;pointer-events:none;z-index:3}
+@keyframes floatUp{0%{transform:translateY(0);opacity:0}10%{opacity:.85}85%{opacity:.85}100%{transform:translateY(-46vh);opacity:0}}
+.shot-counter{color:#94a3b8;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;text-align:center;padding-top:9px;font-weight:600}
+/* ===== film strip gallery ===== */
+.strips{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
+.strip{position:relative;border-radius:10px;overflow:hidden;border:2px solid #334155;cursor:pointer;background:#0b1220;line-height:0;transition:.2s}
+.strip:hover{transform:translateY(-2px);border-color:var(--c2)}
+.strip img{width:100%;height:auto;display:block}
+.strip.empty{aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;color:#475569;font-size:.68rem;text-align:center;line-height:1.3;cursor:default;border-style:dashed}
+.strip-num{position:absolute;top:4px;left:6px;background:rgba(15,23,42,.8);color:#fbbf24;font-size:.62rem;font-weight:700;padding:2px 6px;border-radius:999px;letter-spacing:.08em}
+/* ===== controls ===== */
+.card{background:var(--card);border-radius:18px;padding:22px;box-shadow:0 4px 24px rgba(3,105,161,.08);border:1px solid var(--line)}
+.card h2{font-size:1.05rem;color:var(--c1);margin-bottom:4px;font-family:'Playfair Display',serif}
+.card .sub{font-size:.8rem;color:var(--soft);margin-bottom:14px}
+.fg{margin-bottom:12px}
+.fg label{display:block;font-weight:600;font-size:.82rem;margin-bottom:4px;color:var(--c1)}
+.fg input,.fg textarea,.fg select{width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;font-size:.92rem;background:#fff;font-family:'Inter',sans-serif;color:var(--ink)}
+.fg input:focus,.fg textarea:focus,.fg select:focus{outline:none;border-color:var(--c3)}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:480px){.fg-row{grid-template-columns:1fr}}
+/* photo source tabs */
+.src-tabs{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:14px}
+.src-tab{border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:10px 6px;font-size:.8rem;font-weight:600;color:var(--soft);cursor:pointer;transition:.2s;font-family:'Inter',sans-serif;text-align:center}
+.src-tab.on{border-color:var(--c1);background:var(--c1);color:#fff}
+.src-tab .ic{display:block;font-size:1.15rem;margin-bottom:3px}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:4px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:6px 13px;font-size:.8rem;font-weight:600;color:var(--soft);cursor:pointer;transition:.2s;font-family:'Inter',sans-serif}
+.chip.on{border-color:var(--c1);background:var(--c1);color:#fff}
+.pal{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+@media(max-width:480px){.pal{grid-template-columns:repeat(2,1fr)}}
+.pal-item{border:1.5px solid var(--line);border-radius:12px;padding:8px;cursor:pointer;transition:.2s;background:#fff;text-align:center}
+.pal-item.on{border-color:var(--c1);box-shadow:0 0 0 2px rgba(3,105,161,.18)}
+.pal-dots{display:flex;justify-content:center;gap:4px;margin-bottom:5px}
+.pal-dots span{width:16px;height:16px;border-radius:50%;border:1px solid rgba(0,0,0,.08)}
+.pal-name{font-size:.7rem;font-weight:700;color:var(--c1)}
+.sty{display:grid;gap:8px;margin-top:4px}
+.sty-item{border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;cursor:pointer;transition:.2s;background:#fff;text-align:left;font-family:'Inter',sans-serif}
+.sty-item.on{border-color:var(--c1);box-shadow:0 0 0 2px rgba(3,105,161,.18)}
+.sty-name{font-size:.84rem;font-weight:700;color:var(--ink);display:flex;justify-content:space-between;align-items:center}
+.sty-name .tick{color:var(--c1);font-weight:800;display:none}
+.sty-item.on .tick{display:inline}
+.sty-desc{font-size:.74rem;color:var(--soft);margin-top:2px}
+/* ===== action row ===== */
+.actions{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:10px;margin-top:16px}
+@media(max-width:480px){.actions{grid-template-columns:1fr 1fr}}
+.act{border:none;border-radius:12px;padding:13px 8px;font-size:.88rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:.2s}
+.act.snap{background:linear-gradient(135deg,#b45309,#f59e0b);color:#fff}
+.act.snap:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(245,158,11,.35)}
+.act.dl{background:var(--c1);color:#fff}
+.act.dl:hover{background:#075985}
+.act.share{background:#25D366;color:#fff}
+.act.share:hover{filter:brightness(.95)}
+.msg{display:none;border-radius:10px;padding:11px;font-size:.86rem;font-weight:500;margin-bottom:12px;text-align:center}
+.msg.ok{display:block;background:#eefaf1;border:1px solid #7fd4a3;color:#166534}
+.msg.err{display:block;background:#fdeeee;border:1px solid #e08a8a;color:#a33}
+.tip{font-size:.74rem;color:var(--soft);text-align:center;margin-top:10px}
+.lead-note{font-size:.8rem;color:var(--soft);margin-top:10px;text-align:center}
+/* ===== flash + confetti + golden mode ===== */
+.flash{position:fixed;inset:0;background:#fff;opacity:0;pointer-events:none;z-index:98}
+.flash.go{animation:flashAnim .28s ease-out}
+@keyframes flashAnim{0%{opacity:.95}100%{opacity:0}}
+.confetti{position:fixed;top:-12px;width:10px;height:14px;z-index:99;pointer-events:none;animation:confFall linear forwards}
+@keyframes confFall{0%{transform:translateY(0) rotate(0);opacity:1}100%{transform:translateY(105vh) rotate(720deg);opacity:.6}}
+body.golden{animation:goldGlow 4s ease-out}
+@keyframes goldGlow{0%{filter:sepia(.55) saturate(1.6) hue-rotate(-8deg)}60%{filter:sepia(.25) saturate(1.15)}100%{filter:none}}
+.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);background:#0f172a;color:#fbbf24;padding:12px 22px;border-radius:999px;font-size:.86rem;font-weight:600;opacity:0;pointer-events:none;transition:.3s;z-index:100;box-shadow:0 12px 30px rgba(0,0,0,.3)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media (prefers-reduced-motion: reduce){.float-balloon,.confetti,.flash.go,body.golden{animation:none!important}}
+/* ===== faq / facts ===== */
+.faq-q{display:flex;justify-content:space-between;align-items:center;gap:10px;width:100%;background:none;border:none;font-family:'Inter',sans-serif;font-size:.92rem;font-weight:600;color:var(--c1);cursor:pointer;padding:13px 2px;text-align:left}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .25s ease;font-size:.87rem;color:var(--soft);padding:0 2px}
+.faq-item.open .faq-a{max-height:340px;padding-bottom:14px}
+.faq-item.open .faq-arrow{transform:rotate(180deg)}
+.faq-arrow{transition:.2s;color:var(--c2)}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px}
+.fact{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;font-size:.84rem;color:var(--soft)}
+.fact b{display:block;color:var(--c1);margin-bottom:4px;font-size:.88rem}
+footer{background:#e8f2f9;border-top:1px solid var(--line);text-align:center;padding:26px 20px;font-size:.84rem;color:var(--soft);margin-top:10px}
+footer a{color:var(--c1);text-decoration:none;font-weight:600}
+</style>
+</head>
+<body>
+<div class="em-nav" role="navigation" aria-label="Main navigation">
+  <a class="em-nav-brand" href="index.html">&#127881; Everlasting Memories</a>
+  <div class="em-nav-links">
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="about.html">About</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+    <a href="gift-card.html" class="em-nav-hot">Gift Cards</a>
+    <div class="em-nav-drop">
+      <button class="em-nav-drop-btn" type="button" aria-haspopup="true" aria-expanded="false">Tools &#9662;</button>
+      <div class="em-nav-drop-menu">
+          <a href="cost-estimator.html">Estimate Cost</a>
+          <a href="theme-generator.html">Theme Generator</a>
+          <a href="lookbook.html">Lookbook</a>
+          <a href="countdown.html">Countdown</a>
+          <a href="party-style-quiz.html">Party Style Quiz</a>
+          <a href="balloon-math.html">Balloon Math</a>
+          <a href="reserve-date.html">Reserve Your Date</a>
+          <a href="diy-vs-pro.html">DIY vs Pro</a>
+          <a href="palette-snap.html">Palette Snap</a>
+          <a href="name-garland.html">Balloon Letters</a>
+          <a href="budget-builder.html">Budget Builder</a>
+          <a href="transformations.html">The Big Reveal</a>
+          <a href="wedding-workshop.html">Wedding Workshop</a>
+          <a href="balloon-pop.html">Pop Party</a>
+          <a href="invitation-studio.html">Invitation Studio</a>
+          <a href="party-roadmap.html">Party Roadmap</a>
+          <a href="memory-wall.html" style="background:#b45309;color:#fff;">Memory Wall</a>
+          <a href="photo-booth.html" style="background:#0369a1;color:#fff;">Golden Hour Booth</a>
+          <a href="referral.html">Refer &amp; Earn</a>
+        </div>
+    </div>
+  </div>
+  <a class="em-nav-cta" href="cost-estimator.html">Get a Quote</a>
+</div>
+
+<header>
+  <a href="index.html" class="home-link">&#8592; Back to Home</a>
+  <div class="badge">&#127881; New Tonight — The Golden Hour Booth</div>
+  <h1>&#128247; The Golden Hour Booth</h1>
+  <p>Ever wondered what your party would look like with Isabella's balloons? Now you can see it on <em>your own face</em>. Pick one of her six signature looks and a frame style, snap your photo — camera, upload, or the built-in golden-hour scene — and watch yourself inside the decor. Download it, share it, then make the real party match.</p>
+</header>
+
+<div class="container">
+  <div class="grid">
+    <!-- ============ BOOTH ============ -->
+    <div class="booth-col">
+      <div class="film">
+        <div class="film-strip"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+        <div class="booth-wrap" id="boothWrap">
+          <canvas id="boothCanvas" width="900" height="1100"></canvas>
+          <div class="booth-glow"></div>
+        </div>
+        <div class="shot-counter" id="shotCounter">Shot #0 &middot; Film roll: empty</div>
+      </div>
+      <div class="strips" id="strips"></div>
+      <p class="tip">Tip: tap the little sun in the demo scene. Seriously. Tap it five times.</p>
+    </div>
+
+    <!-- ============ CONTROLS ============ -->
+    <div>
+      <div class="card">
+        <h2>&#128248; 1 &middot; Your photo</h2>
+        <p class="sub">Everything stays in your browser — nothing is uploaded.</p>
+        <div class="src-tabs">
+          <button class="src-tab" data-src="demo"><span class="ic">&#10024;</span>Demo scene</button>
+          <button class="src-tab" data-src="upload"><span class="ic">&#128444;&#65039;</span>Upload</button>
+          <button class="src-tab" data-src="camera"><span class="ic">&#128248;</span>Camera</button>
+        </div>
+        <input type="file" id="fileInput" accept="image/*" style="display:none">
+        <video id="camVideo" playsinline muted style="display:none"></video>
+        <div class="msg" id="camMsg"></div>
+      </div>
+
+      <div class="card" style="margin-top:14px">
+        <h2>&#127880; 2 &middot; Isabella's look</h2>
+        <p class="sub">Six signature palettes from her real portfolio.</p>
+        <div class="pal" id="palGrid"></div>
+        <div class="fg" style="margin-top:14px"><label>Frame style</label>
+          <div class="sty" id="styGrid"></div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:14px">
+        <h2>&#128221; 3 &middot; Your caption</h2>
+        <p class="sub">What's written on the film?</p>
+        <div class="fg"><label>Occasion</label>
+          <div class="chips" id="occChips"></div>
+        </div>
+        <div class="fg-row">
+          <div class="fg"><label for="capName">Name (optional)</label><input id="capName" type="text" maxlength="24" placeholder="e.g. Sophia"></div>
+          <div class="fg"><label for="capDate">Date (optional)</label><input id="capDate" type="date"></div>
+        </div>
+        <div class="actions">
+          <button class="act snap" id="snapBtn">&#128248; Snap!</button>
+          <button class="act dl" id="dlBtn">&#11015;&#65039; PNG</button>
+          <button class="act share" id="shareBtn">&#128172; Share</button>
+        </div>
+        <p class="tip">Snap stores your last four shots on this device — click one to bring it back.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ LEAD ============ -->
+  <div class="card" style="margin-top:22px">
+    <h2>&#127881; Love how that looks on you? Make the real party match.</h2>
+    <p class="sub">That's the whole trick of the booth — it's not a fantasy, it's a preview. Tell Isabella what you just tried on and she'll reply within 24 hours with ideas and an honest quote.</p>
+    <div class="msg" id="formMsg"></div>
+    <form id="leadForm">
+      <div class="fg-row">
+        <div class="fg"><label for="fName">Name</label><input id="fName" type="text" required placeholder="Your name"></div>
+        <div class="fg"><label for="fEmail">Email</label><input id="fEmail" type="email" required placeholder="you@email.com"></div>
+      </div>
+      <div class="fg-row">
+        <div class="fg"><label for="fPhone">Phone (optional)</label><input id="fPhone" type="tel" placeholder="(203) 555-0123"></div>
+        <div class="fg"><label for="fEvent">Event type</label>
+          <select id="fEvent">
+            <option>Birthday</option><option>Wedding</option><option>Baby Shower</option>
+            <option>Anniversary</option><option>Graduation</option><option>Corporate</option><option>Just Because</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg-row">
+        <div class="fg"><label for="fDate">Event date (optional)</label><input id="fDate" type="date"></div>
+        <div class="fg"><label for="fBudget">Budget (optional)</label>
+          <select id="fBudget">
+            <option value="">Not sure yet</option><option>Under $300</option><option>$300–$700</option>
+            <option>$700–$1,500</option><option>$1,500+</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg"><label for="fMsg">What are you dreaming of? (optional)</label><textarea id="fMsg" rows="2" placeholder="e.g. That Romantic Bloom arch over our dessert table, ~25 guests, backyard."></textarea></div>
+      <button class="act snap" style="width:100%" id="submitBtn" type="submit">&#127873; Request My Balloon Quote</button>
+    </form>
+    <p class="lead-note">No spam, no pressure — just ideas, honest prices, and a 24-hour reply.</p>
+  </div>
+
+  <!-- ===== FAQ ===== -->
+  <h2 style="font-family:'Playfair Display',serif;color:var(--c1);margin:26px 2px 4px;font-size:1.4rem">Golden Hour Booth FAQ</h2>
+  <div class="card" style="margin-top:8px">
+    <div class="faq-item">
+      <button class="faq-q">Is this really what Isabella's decor looks like? <span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">Every palette and frame style in the booth comes from Isabella's real portfolio — Romantic Bloom, Glam Gold, Party Pop, Modern Muse, Boho Earth and Winter Wonder are the exact looks she builds for clients. If it looks good on your selfie, it will look even better in your living room.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Is my photo uploaded anywhere? <span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">Never. The whole booth runs in your browser. Your camera feed and your uploads never leave your device — not even when you download or share your shot. That's a promise, not a privacy policy.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Can I use the booth on my phone? <span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">That's the best way to use it. Flip your camera on, hold it up, and snap yourself in front of the arch. It works on any modern phone browser — no app, no account, no download.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">I tried a look and I'm obsessed. Now what? <span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">Send the lead form below — tell Isabella which look you tried on and when your event is. She'll reply within 24 hours with ideas, honest prices, and how to book your date. Mention your shot and she'll know exactly what you mean.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What's the "Golden Hour" about? <span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">Golden hour is that warm, magic light right before sunset when everything looks like a movie. It's also one of Isabella's favorite photo backdrops — her signature "Golden Hour Wall" has decorated dozens of parties. The booth is named after it for a reason.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Can I use my booth shot as a party invitation? <span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">Absolutely — download the PNG and send it anywhere you like. And if you want a proper animated invitation with floating balloons and a live countdown, the Invitation Studio has you covered. The booth is for showing off; the studio is for inviting.</div>
+    </div>
+  </div>
+
+  <!-- ===== FACTS ===== -->
+  <div class="facts">
+    <div class="fact"><b>6 signature looks</b>Every palette is a real Everlasting Memories design — not a filter, a preview.</div>
+    <div class="fact"><b>3 frame styles × 6 palettes</b>Eighteen ways to try on the same party.</div>
+    <div class="fact"><b>30 seconds to a shot</b>Pick, snap, share. The booth does not do complicated.</div>
+    <div class="fact"><b>100% in-browser</b>No uploads, no accounts, no data leaving your device.</div>
+    <div class="fact"><b>200+ real events</b>Behind every look is a party Isabella actually decorated.</div>
+    <div class="fact"><b>Share = instant moodboard</b>Send your shot to the group chat and watch the "wait, can we do that?" messages roll in.</div>
+  </div>
+</div>
+
+<footer>
+  <p><a href="index.html">Everlasting Memories</a> — Balloon Art &amp; Event Decor, Connecticut · <a href="tel:203-981-7244">203-981-7244</a> · <a href="contact.html">Contact</a> · <a href="https://instagram.com/everlasting.memories25" style="color:#C9A87C" target="_blank" rel="noopener">@everlasting.memories25</a></p>
+  <p style="margin-top:6px;">Every garland is hand-built and installed by Isabella — no templates, no shortcuts, no surprise fees.</p>
+  <p style="margin-top:8px;"><a href="photo-booth.html" style="color:#0369a1;font-weight:600;">Golden Hour Booth</a> · <a href="memory-wall.html" style="color:#b45309;font-weight:600;">Memory Wall</a> · <a href="party-roadmap.html" style="color:#0f766e;font-weight:600;">Party Roadmap</a> · <a href="invitation-studio.html" style="color:#312e81;font-weight:600;">Invitation Studio</a> · <a href="balloon-pop.html" style="color:#ea580c;font-weight:600;">Pop Party</a> · <a href="wedding-workshop.html" style="color:#9d174d;font-weight:600;">Wedding Workshop</a> · <a href="transformations.html" style="color:#7c3aed;font-weight:600;">The Big Reveal</a> · <a href="budget-builder.html" style="color:#2f7a52">Budget Balloonist</a> · <a href="referral.html" style="color:#C9A87C">Refer &amp; Earn</a></p>
+</footer>
+
+<script>
+/* =========================================================================
+   THE GOLDEN HOUR BOOTH — Everlasting Memories (Night 27)
+   Pure data + geometry live at the top so the whole engine is Node-testable;
+   all DOM wiring sits behind a document guard at the bottom.
+   ========================================================================= */
+
+/* ---------- pure: data ---------- */
+const OCCASIONS=['Birthday','Wedding','Baby Shower','Anniversary','Graduation','Corporate','Just Because'];
+
+const PALETTES=[
+  {id:'romantic-bloom', name:'Romantic Bloom', colors:['#f4c6d4','#e88aa8','#d96a8f','#fdf0f4','#b95c7e']},
+  {id:'glam-gold',      name:'Glam Gold',      colors:['#C9A227','#e6c55c','#8a6d1f','#fdf6e3','#a37f1c']},
+  {id:'party-pop',      name:'Party Pop',      colors:['#ef4444','#f59e0b','#3b82f6','#22c55e','#a855f7']},
+  {id:'modern-muse',    name:'Modern Muse',    colors:['#1f2937','#6b7280','#e5e7eb','#111827','#9ca3af']},
+  {id:'boho-earth',     name:'Boho Earth',     colors:['#c2703d','#8a9a5b','#d9a066','#5c4a3a','#e8d5b7']},
+  {id:'winter-wonder',  name:'Winter Wonder',  colors:['#7dd3fc','#e0f2fe','#bae6fd','#94a3b8','#f0f9ff']}
+];
+
+const STYLES=[
+  {id:'arch',    name:'Grand Arch',    desc:'A show-stopping arch over the whole moment'},
+  {id:'garland', name:'Swoop Garland', desc:'A balloon garland sweeping diagonally across'},
+  {id:'pop',     name:'Corner Pop',    desc:'Four cheerful clusters, one in every corner'}
+];
+
+/* ---------- pure: color helpers ---------- */
+function hexToRgb(hex){
+  const h=hex.replace('#','');
+  return {r:parseInt(h.substr(0,2),16),g:parseInt(h.substr(2,2),16),b:parseInt(h.substr(4,2),16)};
+}
+function mixHex(hex,amt){
+  // amt in [-1,1]: -1 → black, 0 → same, +1 → white
+  const {r,g,b}=hexToRgb(hex);
+  const t=amt<0?0:255;
+  const a=Math.abs(amt);
+  const nr=Math.round(r+(t-r)*a), ng=Math.round(g+(t-g)*a), nb=Math.round(b+(t-b)*a);
+  return '#'+[nr,ng,nb].map(v=>Math.max(0,Math.min(255,v)).toString(16).padStart(2,'0')).join('');
+}
+function lighten(hex,p){return mixHex(hex,Math.min(1,p/100));}
+function shade(hex,p){return mixHex(hex,-Math.min(1,p/100));}
+function escapeHtml(s){
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+
+/* ---------- pure: balloon geometry (relative coords 0..1) ---------- */
+// each balloon: {x,y,r,ci} where ci indexes palette.colors
+function archBalloons(){
+  const out=[];
+  const cx=0.5, top=0.15, rx=0.44, ry=0.34, n=15;
+  for(let i=0;i<=n;i++){
+    const t=i/n;
+    const x=cx+rx*Math.cos(Math.PI*t);
+    const y=top+ry*Math.sin(Math.PI*t);
+    const r=0.075+0.045*Math.sin(Math.PI*t);
+    out.push({x,y,r,ci:i%5});
+  }
+  // bottom corner clusters
+  [[0.08,0.92],[0.92,0.92]].forEach((p,side)=>{
+    out.push({x:p[0],y:p[1],r:0.09,ci:(side+1)%5});
+    out.push({x:p[0]+(side?-0.06:0.06),y:p[1]-0.07,r:0.06,ci:(side+2)%5});
+    out.push({x:p[0]+(side?-0.1:0.1),y:p[1]-0.02,r:0.05,ci:(side+3)%5});
+  });
+  return out;
+}
+function garlandBalloons(){
+  const out=[];
+  const P0={x:0.02,y:0.00}, C={x:0.42,y:0.44}, P1={x:0.98,y:0.30};
+  const n=13;
+  for(let i=0;i<=n;i++){
+    const t=i/n, u=1-t;
+    const x=u*u*P0.x+2*u*t*C.x+t*t*P1.x;
+    const y=u*u*P0.y+2*u*t*C.y+t*t*P1.y;
+    const r=0.07+0.04*Math.sin(Math.PI*t);
+    out.push({x,y,r,ci:i%5});
+  }
+  // bottom-left cluster
+  out.push({x:0.10,y:0.90,r:0.09,ci:2});
+  out.push({x:0.16,y:0.82,r:0.06,ci:3});
+  out.push({x:0.05,y:0.82,r:0.05,ci:4});
+  return out;
+}
+function popBalloons(){
+  const out=[];
+  const corners=[[0.10,0.14],[0.90,0.12],[0.10,0.88],[0.90,0.88]];
+  corners.forEach((p,side)=>{
+    const sizes=[0.11,0.08,0.06,0.05,0.04];
+    const offs=[[0,0],[-0.09,-0.08],[0.09,-0.06],[-0.05,0.08],[0.08,0.07]];
+    sizes.forEach((r,i)=>{
+      out.push({x:p[0]+offs[i][0],y:p[1]+offs[i][1],r,ci:(side+i)%5});
+    });
+  });
+  return out;
+}
+function floaters(){
+  return [
+    {x:0.04,y:0.28,r:0.035,ci:1},
+    {x:0.95,y:0.42,r:0.03,ci:2},
+    {x:0.06,y:0.62,r:0.028,ci:3},
+    {x:0.93,y:0.70,r:0.032,ci:4}
+  ];
+}
+const GEOM={arch:archBalloons,garland:garlandBalloons,pop:popBalloons};
+
+/* ---------- pure: text builders ---------- */
+function fmtDate(dateStr){
+  if(!dateStr) return 'the big day';
+  try{
+    const d=new Date(dateStr+'T12:00:00');
+    return d.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric',year:'numeric'}).toUpperCase();
+  }catch(e){ return dateStr; }
+}
+function buildCaption(occasion,name,dateStr){
+  const line1=name? (name+"'s "+occasion) : occasion;
+  const line2=fmtDate(dateStr);
+  const line3='EVERLASTING MEMORIES \u00B7 GOLDEN HOUR BOOTH';
+  return {line1,line2,line3};
+}
+function shareText(paletteName,styleName,occasion){
+  let t='I just tried on Isabella\u2019s balloon decor in the Golden Hour Booth \uD83C\uDF88';
+  t+='\nLook: '+paletteName+' \u00B7 '+styleName;
+  if(occasion) t+=' \u2014 for my '+occasion;
+  t+='\nMake yours real: https://myeverlastingmemories.com/photo-booth.html';
+  return t;
+}
+function leadPayload(fields){
+  const ev=fields.eventType||'party';
+  const palette=PALETTES.find(p=>p.id===fields.paletteId);
+  const style=STYLES.find(s=>s.id===fields.styleId);
+  const look=(palette?palette.name:'')+(style?(' \u00B7 '+style.name):'');
+  const cap=fields.caption?(' \u2014 caption "'+fields.caption+'"'):'';
+  return {
+    name:fields.name,
+    email:fields.email,
+    phone:fields.phone||'',
+    eventType:fields.eventType||'',
+    eventDate:fields.eventDate||'',
+    message:'\uD83D\uDCF7 Golden Hour Booth: tried on "'+look+'"'+(fields.occasion?(' for '+fields.occasion):'')+(fields.eventDate?(' on '+fmtDate(fields.eventDate)):'')+(fields.budget?(' \u2022 budget '+fields.budget):'')+cap+(fields.extra?(' \u2014 '+fields.extra):'')+' \u2014 wants a quote.',
+    source:'photo-booth',
+    type:'lead'
+  };
+}
+
+/* ---------- canvas: balloon + frame renderers (ctx passed in) ---------- */
+function drawBalloon(ctx,x,y,r,color,withString){
+  if(withString){
+    ctx.strokeStyle='rgba(60,50,40,.30)';
+    ctx.lineWidth=Math.max(1,r*0.04);
+    ctx.beginPath();
+    ctx.moveTo(x,y+r*0.95);
+    ctx.quadraticCurveTo(x+r*0.4,y+r*1.9,x+r*0.02,y+r*2.6);
+    ctx.stroke();
+  }
+  const g=ctx.createRadialGradient(x-r*0.35,y-r*0.42,r*0.1,x,y,r*1.08);
+  g.addColorStop(0,lighten(color,55));
+  g.addColorStop(0.45,lighten(color,20));
+  g.addColorStop(1,color);
+  ctx.fillStyle=g;
+  ctx.beginPath();
+  ctx.ellipse(x,y,r,r*1.14,0,0,Math.PI*2);
+  ctx.fill();
+  ctx.fillStyle='rgba(255,255,255,.5)';
+  ctx.beginPath();
+  ctx.ellipse(x-r*0.34,y-r*0.44,r*0.24,r*0.13,-0.6,0,Math.PI*2);
+  ctx.fill();
+  ctx.fillStyle=shade(color,16);
+  ctx.beginPath();
+  ctx.moveTo(x-r*0.09,y+r*1.05);
+  ctx.lineTo(x+r*0.09,y+r*1.05);
+  ctx.lineTo(x,y+r*1.3);
+  ctx.closePath();
+  ctx.fill();
+}
+function renderFrame(ctx,w,h,palette,styleId){
+  const specs=GEOM[styleId]?GEOM[styleId]():GEOM.arch();
+  const m=Math.min(w,h);
+  // strings first
+  specs.forEach(b=>{
+    ctx.strokeStyle='rgba(60,50,40,.22)';
+    ctx.lineWidth=Math.max(1,m*b.r*0.05);
+    ctx.beginPath();
+    ctx.moveTo(b.x*w,b.y*h+m*b.r*1.1);
+    ctx.quadraticCurveTo(b.x*w+m*b.r*0.5,b.y*h+m*b.r*2.2,b.x*w+m*b.r*0.08,b.y*h+m*b.r*3.0);
+    ctx.stroke();
+  });
+  // balloons, small first so big ones sit on top
+  specs.slice().sort((a,b)=>a.r-b.r).forEach(b=>{
+    drawBalloon(ctx,b.x*w,b.y*h,m*b.r,palette.colors[b.ci%palette.colors.length],false);
+  });
+  // a few tiny floaters for life
+  floaters().forEach(f=>{
+    drawBalloon(ctx,f.x*w,f.y*h,m*f.r,palette.colors[f.ci%palette.colors.length],true);
+  });
+}
+function sunPos(w,h){
+  return {x:w*0.86,y:h*0.16,r:Math.min(w,h)*0.085};
+}
+function drawDemo(ctx,w,h,palette){
+  const m=Math.min(w,h);
+  // golden-hour sky
+  const sky=ctx.createLinearGradient(0,0,0,h);
+  sky.addColorStop(0,'#fff7e0');
+  sky.addColorStop(0.45,'#fcd34d');
+  sky.addColorStop(1,'#fb923c');
+  ctx.fillStyle=sky;
+  ctx.fillRect(0,0,w,h);
+  // sun (clickable easter egg)
+  const s=sunPos(w,h);
+  const sun=ctx.createRadialGradient(s.x,s.y,s.r*0.2,s.x,s.y,s.r*2.2);
+  sun.addColorStop(0,'rgba(255,255,255,.95)');
+  sun.addColorStop(0.35,'rgba(253,224,71,.85)');
+  sun.addColorStop(1,'rgba(253,224,71,0)');
+  ctx.fillStyle=sun;
+  ctx.beginPath();
+  ctx.arc(s.x,s.y,s.r*2.2,0,Math.PI*2);
+  ctx.fill();
+  // mini arch in the palette (behind the table)
+  renderFrame(ctx,w,h,palette,'arch');
+  // floor
+  ctx.fillStyle='rgba(146,64,14,.18)';
+  ctx.fillRect(0,h*0.86,w,h*0.14);
+  // table
+  ctx.fillStyle='#7c4a1e';
+  ctx.fillRect(w*0.28,h*0.80,w*0.44,h*0.07);
+  ctx.fillRect(w*0.34,h*0.87,w*0.05,h*0.08);
+  ctx.fillRect(w*0.61,h*0.87,w*0.05,h*0.08);
+  // cake
+  ctx.fillStyle='#fdf6e3';
+  ctx.fillRect(w*0.44,h*0.70,w*0.12,h*0.10);
+  ctx.fillRect(w*0.47,h*0.63,w*0.06,h*0.07);
+  ctx.fillStyle=palette.colors[1];
+  ctx.fillRect(w*0.44,h*0.70,w*0.12,h*0.025);
+  ctx.fillRect(w*0.47,h*0.63,w*0.06,h*0.02);
+  ctx.fillStyle='#fbbf24';
+  [0.465,0.485,0.505].forEach(cx=>{
+    ctx.fillRect(w*cx,h*0.59,w*0.006,h*0.045);
+    ctx.beginPath();
+    ctx.arc(w*cx+0.003*w,h*0.585,0.006*w,0,Math.PI*2);
+    ctx.fill();
+  });
+  // gift boxes
+  [0.30,0.64].forEach((gx,i)=>{
+    ctx.fillStyle=i?palette.colors[2]:palette.colors[0];
+    ctx.fillRect(w*gx,h*0.78,w*0.09,h*0.08);
+    ctx.fillStyle='#fff';
+    ctx.fillRect(w*(gx+0.038),h*0.78,w*0.014,h*0.08);
+  });
+  // sparkles
+  ctx.fillStyle='rgba(255,255,255,.8)';
+  [[0.18,0.30],[0.80,0.55],[0.14,0.68],[0.85,0.25]].forEach(p=>{
+    const r=0.012*m;
+    ctx.beginPath();
+    ctx.moveTo(p.x*w,p.y*h-r);
+    ctx.lineTo(p.x*w+r*0.28,p.y*h-r*0.28);
+    ctx.lineTo(p.x*w+r,p.y*h);
+    ctx.lineTo(p.x*w+r*0.28,p.y*h+r*0.28);
+    ctx.lineTo(p.x*w,p.y*h+r);
+    ctx.lineTo(p.x*w-r*0.28,p.y*h+r*0.28);
+    ctx.lineTo(p.x*w-r,p.y*h);
+    ctx.lineTo(p.x*w-r*0.28,p.y*h-r*0.28);
+    ctx.closePath();
+    ctx.fill();
+  });
+}
+function drawCaptionBar(ctx,w,h,occasion,name,dateStr,palette){
+  const barH=Math.round(h*0.16);
+  const g=ctx.createLinearGradient(0,h-barH,0,h);
+  g.addColorStop(0,'rgba(10,20,35,0)');
+  g.addColorStop(0.45,'rgba(10,20,35,.72)');
+  g.addColorStop(1,'rgba(10,20,35,.88)');
+  ctx.fillStyle=g;
+  ctx.fillRect(0,h-barH,w,barH);
+  const cap=buildCaption(occasion,name,dateStr);
+  ctx.textAlign='center';
+  ctx.fillStyle='#fff';
+  ctx.font='700 '+(h*0.052)+'px "Playfair Display", Georgia, serif';
+  ctx.fillText(cap.line1,w/2,h-barH+ h*0.055, w*0.86);
+  ctx.fillStyle='#fbbf24';
+  ctx.font='600 '+(h*0.026)+'px Inter, Arial, sans-serif';
+  ctx.fillText(cap.line2,w/2,h-barH+ h*0.092, w*0.86);
+  ctx.fillStyle='rgba(255,255,255,.75)';
+  ctx.font='500 '+(h*0.019)+'px Inter, Arial, sans-serif';
+  ctx.fillText(cap.line3,w/2,h-barH+ h*0.128, w*0.86);
+  // gold inner frame
+  ctx.strokeStyle=palette?palette.colors[1]:'#C9A227';
+  ctx.lineWidth=Math.max(3,w*0.006);
+  ctx.strokeRect(w*0.012,h*0.012,w*0.976,h*0.976);
+}
+function drawCover(ctx,img,w,h){
+  // cover-fit an image into w×h without distortion
+  const ir=img.width/img.height, cr=w/h;
+  let sw,sh,sx,sy;
+  if(ir>cr){ sh=img.height; sw=img.height*cr; sx=(img.width-sw)/2; sy=0; }
+  else{ sw=img.width; sh=img.width/cr; sx=0; sy=(img.height-sh)/2; }
+  ctx.drawImage(img,sx,sy,sw,sh,0,0,w,h);
+}
+
+/* ---------- Node export (smoke tests) ---------- */
+if(typeof module!=='undefined'&&module.exports){
+  module.exports={OCCASIONS,PALETTES,STYLES,hexToRgb,mixHex,lighten,shade,escapeHtml,
+    archBalloons,garlandBalloons,popBalloons,floaters,GEOM,fmtDate,buildCaption,shareText,leadPayload,
+    drawBalloon,renderFrame,sunPos,drawDemo,drawCaptionBar,drawCover};
+}
+
+/* =========================================================================
+   DOM WIRING (browser only)
+   ========================================================================= */
+if(typeof document!=='undefined'){(function(){
+  const $=id=>document.getElementById(id);
+  const canvas=$('boothCanvas'), ctx=canvas.getContext('2d');
+  const wrap=$('boothWrap');
+
+  let paletteId='romantic-bloom';
+  let styleId='arch';
+  let occasion='Birthday';
+  let srcMode='demo';
+  let currentImage=null;      // Image or canvas (camera frame)
+  let camStream=null, camRAF=0, lastCamDraw=0;
+  let sunClicks=0;
+  let shotCount=parseInt(localStorage.getItem('em_booth_count')||'0',10);
+
+  const palette=()=>PALETTES.find(p=>p.id===paletteId);
+  const style=()=>STYLES.find(s=>s.id===styleId);
+
+  /* ---------- palettes / styles / occasions UI ---------- */
+  const palGrid=$('palGrid');
+  PALETTES.forEach(p=>{
+    const el=document.createElement('div');
+    el.className='pal-item'+(p.id===paletteId?' on':'');
+    el.dataset.pal=p.id;
+    el.innerHTML='<div class="pal-dots">'+p.colors.map(c=>'<span style="background:'+c+'"></span>').join('')+'</div><div class="pal-name">'+p.name+'</div>';
+    el.addEventListener('click',()=>{
+      document.querySelectorAll('#palGrid .pal-item').forEach(x=>x.classList.remove('on'));
+      el.classList.add('on');
+      paletteId=p.id;
+      makeFloaters();
+      redraw();
+    });
+    palGrid.appendChild(el);
+  });
+  const styGrid=$('styGrid');
+  STYLES.forEach(s=>{
+    const el=document.createElement('div');
+    el.className='sty-item'+(s.id===styleId?' on':'');
+    el.dataset.style=s.id;
+    el.innerHTML='<div class="sty-name">'+s.name+' <span class="tick">&#10003;</span></div><div class="sty-desc">'+s.desc+'</div>';
+    el.addEventListener('click',()=>{
+      document.querySelectorAll('#styGrid .sty-item').forEach(x=>x.classList.remove('on'));
+      el.classList.add('on');
+      styleId=s.id;
+      redraw();
+    });
+    styGrid.appendChild(el);
+  });
+  const occChips=$('occChips');
+  OCCASIONS.forEach(o=>{
+    const el=document.createElement('button');
+    el.type='button';
+    el.className='chip'+(o===occasion?' on':'');
+    el.textContent=o;
+    el.addEventListener('click',()=>{
+      document.querySelectorAll('#occChips .chip').forEach(x=>x.classList.remove('on'));
+      el.classList.add('on');
+      occasion=o;
+      redraw();
+    });
+    occChips.appendChild(el);
+  });
+
+  /* ---------- floating balloons overlay ---------- */
+  function makeFloaters(){
+    document.querySelectorAll('.float-balloon').forEach(b=>b.remove());
+    const cols=palette().colors;
+    const n=7;
+    for(let i=0;i<n;i++){
+      const b=document.createElement('div');
+      b.className='float-balloon';
+      const size=14+Math.random()*26;
+      const c=cols[i%cols.length];
+      b.style.cssText='left:'+(4+Math.random()*88)+'%;bottom:-40px;width:'+size+'px;height:'+(size*1.14)+'px;'+
+        'background:radial-gradient(circle at 32% 26%, rgba(255,255,255,.85), '+c+' 55%, '+shade(c,22)+' 100%);'+
+        'animation-duration:'+(7+Math.random()*7)+'s;animation-delay:-'+Math.random()*8+'s;opacity:0';
+      wrap.appendChild(b);
+    }
+  }
+
+  /* ---------- demo / upload / camera ---------- */
+  function drawDemoScene(){
+    const w=canvas.width,h=canvas.height;
+    drawDemo(ctx,w,h,palette());
+    renderFrame(ctx,w,h,palette(),styleId);
+    drawCaptionBar(ctx,w,h,occasion,$('capName').value.trim(),$('capDate').value,palette());
+    currentImage=null; // demo is drawn directly; keep null so snap re-renders demo
+  }
+  function drawCurrentPhoto(){
+    const w=canvas.width,h=canvas.height;
+    if(currentImage){ drawCover(ctx,currentImage,w,h); }
+    else { drawDemo(ctx,w,h,palette()); }
+    renderFrame(ctx,w,h,palette(),styleId);
+    drawCaptionBar(ctx,w,h,occasion,$('capName').value.trim(),$('capDate').value,palette());
+  }
+  function redraw(){
+    stopCamera();
+    if(srcMode==='demo'){ drawDemoScene(); }
+    else if(srcMode==='upload'&&currentImage){ drawCurrentPhoto(); }
+    else { drawDemoScene(); }
+  }
+
+  /* source tabs */
+  document.querySelectorAll('.src-tab').forEach(tab=>{
+    tab.addEventListener('click',()=>{
+      document.querySelectorAll('.src-tab').forEach(x=>x.classList.remove('on'));
+      tab.classList.add('on');
+      srcMode=tab.dataset.src;
+      $('camMsg').className='msg';
+      if(srcMode==='upload'){ $('fileInput').click(); }
+      else if(srcMode==='camera'){ startCamera(); }
+      else { redraw(); }
+    });
+  });
+  $('fileInput').addEventListener('change',e=>{
+    const file=e.target.files[0];
+    if(!file) return;
+    const img=new Image();
+    img.onload=()=>{
+      currentImage=img;
+      const ar=img.width/img.height;
+      canvas.width=900;
+      canvas.height=Math.round(900/ar);
+      drawCurrentPhoto();
+    };
+    img.onerror=()=>{ $('camMsg').className='msg err'; $('camMsg').textContent='That file didn\'t load — try a JPEG or PNG.'; };
+    img.src=URL.createObjectURL(file);
+  });
+
+  function startCamera(){
+    stopCamera();
+    if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){
+      $('camMsg').className='msg err';
+      $('camMsg').textContent='Camera isn\'t supported here — use Upload or the Demo scene instead.';
+      srcMode='demo';
+      document.querySelectorAll('.src-tab').forEach(x=>x.classList.remove('on'));
+      document.querySelector('.src-tab[data-src="demo"]').classList.add('on');
+      redraw();
+      return;
+    }
+    navigator.mediaDevices.getUserMedia({video:{facingMode:'user',width:{ideal:1280},height:{ideal:1280}},audio:false})
+      .then(stream=>{
+        camStream=stream;
+        const v=$('camVideo');
+        v.srcObject=stream;
+        v.play();
+        const tick=ts=>{
+          if(!camStream) return;
+          if(ts-lastCamDraw>80){ // ~12fps is plenty for a booth preview
+            lastCamDraw=ts;
+            if(v.videoWidth){
+              const ar=v.videoWidth/v.videoHeight;
+              canvas.width=900;
+              canvas.height=Math.round(900/ar);
+              drawCover(ctx,v,canvas.width,canvas.height);
+              renderFrame(ctx,canvas.width,canvas.height,palette(),styleId);
+              drawCaptionBar(ctx,canvas.width,canvas.height,occasion,$('capName').value.trim(),$('capDate').value,palette());
+            }
+          }
+          camRAF=requestAnimationFrame(tick);
+        };
+        camRAF=requestAnimationFrame(tick);
+      })
+      .catch(()=>{
+        $('camMsg').className='msg err';
+        $('camMsg').textContent='Camera permission was declined — the booth works great with Upload or the Demo scene too.';
+        srcMode='demo';
+        document.querySelectorAll('.src-tab').forEach(x=>x.classList.remove('on'));
+        document.querySelector('.src-tab[data-src="demo"]').classList.add('on');
+        redraw();
+      });
+  }
+  function stopCamera(){
+    if(camRAF){ cancelAnimationFrame(camRAF); camRAF=0; }
+    if(camStream){ camStream.getTracks().forEach(t=>t.stop()); camStream=null; }
+    const v=$('camVideo');
+    if(v.srcObject){ v.srcObject=null; }
+  }
+
+  /* ---------- snap / export / share ---------- */
+  function makeShotCanvas(){
+    const srcW=canvas.width, srcH=canvas.height;
+    const c=document.createElement('canvas');
+    c.width=srcW; c.height=srcH;
+    const c2=c.getContext('2d');
+    if(srcMode==='camera'&&camStream&&$('camVideo').videoWidth){
+      const v=$('camVideo');
+      drawCover(c2,v,c.width,c.height);
+    }else if(currentImage){
+      drawCover(c2,currentImage,c.width,c.height);
+    }else{
+      drawDemo(c2,c.width,c.height,palette());
+    }
+    renderFrame(c2,c.width,c.height,palette(),styleId);
+    drawCaptionBar(c2,c.width,c.height,occasion,$('capName').value.trim(),$('capDate').value,palette());
+    return c;
+  }
+  function confetti(n){
+    const colors=['#C9A227','#f59e0b','#0ea5e9','#f472b6','#22c55e','#a855f7'];
+    for(let i=0;i<n;i++){
+      const el=document.createElement('div');
+      el.className='confetti';
+      el.style.cssText='left:'+Math.random()*100+'vw;background:'+colors[i%colors.length]+';'+
+        'animation-duration:'+(2.2+Math.random()*2)+'s;animation-delay:'+(Math.random()*0.4)+'s;'+
+        'transform:rotate('+Math.random()*360+'deg)';
+      document.body.appendChild(el);
+      setTimeout(()=>el.remove(),5200);
+    }
+  }
+  function shutter(){
+    try{
+      const AC=window.AudioContext||window.webkitAudioContext;
+      if(!AC) return;
+      const ac=new AC();
+      const o=ac.createOscillator(), g=ac.createGain();
+      o.type='square';
+      o.frequency.setValueAtTime(880,ac.currentTime);
+      o.frequency.exponentialRampToValueAtTime(220,ac.currentTime+0.08);
+      g.gain.setValueAtTime(0.06,ac.currentTime);
+      g.gain.exponentialRampToValueAtTime(0.001,ac.currentTime+0.1);
+      o.connect(g); g.connect(ac.destination);
+      o.start(); o.stop(ac.currentTime+0.11);
+    }catch(e){}
+  }
+  function pushShot(c){
+    shotCount++;
+    localStorage.setItem('em_booth_count',String(shotCount));
+    $('shotCounter').textContent='Shot #'+shotCount+' \u00B7 Film roll: '+Math.min(4,shotCount)+'/4';
+    const thumb=document.createElement('canvas');
+    thumb.width=320;
+    thumb.height=Math.round(320*c.height/c.width);
+    thumb.getContext('2d').drawImage(c,0,0,thumb.width,thumb.height);
+    const url=thumb.toDataURL('image/jpeg',0.72);
+    let shots=[];
+    try{ shots=JSON.parse(localStorage.getItem('em_booth_shots')||'[]'); }catch(e){ shots=[]; }
+    shots.unshift(url);
+    shots=shots.slice(0,4);
+    try{ localStorage.setItem('em_booth_shots',JSON.stringify(shots)); }catch(e){}
+    renderStrips();
+  }
+  function renderStrips(){
+    let shots=[];
+    try{ shots=JSON.parse(localStorage.getItem('em_booth_shots')||'[]'); }catch(e){ shots=[]; }
+    const strips=$('strips');
+    strips.innerHTML='';
+    for(let i=0;i<4;i++){
+      const d=document.createElement('div');
+      d.className='strip'+(shots[i]?'':' empty');
+      if(shots[i]){
+        d.innerHTML='<img src="'+shots[i]+'" alt="Golden Hour Booth shot '+(i+1)+'"><span class="strip-num">#'+(shotCount-i)+'</span>';
+        d.title='Click to bring this shot back';
+        d.addEventListener('click',()=>{
+          const img=new Image();
+          img.onload=()=>{
+            currentImage=img;
+            srcMode='upload';
+            document.querySelectorAll('.src-tab').forEach(x=>x.classList.remove('on'));
+            document.querySelector('.src-tab[data-src="upload"]').classList.add('on');
+            const ar=img.width/img.height;
+            canvas.width=900;
+            canvas.height=Math.round(900/ar);
+            drawCurrentPhoto();
+            showToast('Welcome back to shot #'+(shotCount-i)+' \uD83C\uDF89');
+          };
+          img.src=shots[i];
+        });
+      }else{
+        d.textContent='Empty frame';
+      }
+      strips.appendChild(d);
+    }
+  }
+  function downloadShot(){
+    const c=makeShotCanvas();
+    const a=document.createElement('a');
+    a.download='golden-hour-booth-'+Date.now()+'.png';
+    a.href=c.toDataURL('image/png');
+    a.click();
+  }
+  async function shareShot(){
+    const c=makeShotCanvas();
+    const text=shareText(palette().name,style().name,occasion);
+    try{
+      const blob=await new Promise(r=>c.toBlob(r,'image/png'));
+      const file=new File([blob],'golden-hour-booth.png',{type:'image/png'});
+      if(navigator.canShare&&navigator.canShare({files:[file]})){
+        await navigator.share({files:[file],title:'My Golden Hour Booth shot',text});
+        return;
+      }
+    }catch(e){ /* fall through to download + WhatsApp */ }
+    downloadShot();
+    window.open('https://wa.me/?text='+encodeURIComponent(text),'_blank');
+  }
+  function showToast(msg){
+    let t=document.querySelector('.toast');
+    if(!t){ t=document.createElement('div'); t.className='toast'; document.body.appendChild(t); }
+    t.textContent=msg;
+    t.classList.add('show');
+    clearTimeout(t._h);
+    t._h=setTimeout(()=>t.classList.remove('show'),3600);
+  }
+  $('snapBtn').addEventListener('click',()=>{
+    const c=makeShotCanvas();
+    const flash=document.createElement('div');
+    flash.className='flash';
+    document.body.appendChild(flash);
+    requestAnimationFrame(()=>{ flash.classList.add('go'); setTimeout(()=>flash.remove(),350); });
+    confetti(46);
+    shutter();
+    pushShot(c);
+    showToast('Snap! Shot #'+shotCount+' \u2014 saved to your film roll \uD83C\uDF89');
+  });
+  $('dlBtn').addEventListener('click',downloadShot);
+  $('shareBtn').addEventListener('click',shareShot);
+  $('capName').addEventListener('input',redraw);
+  $('capDate').addEventListener('input',redraw);
+
+  /* ---------- sun easter egg ---------- */
+  canvas.addEventListener('click',e=>{
+    if(srcMode!=='demo') return;
+    const rect=canvas.getBoundingClientRect();
+    const x=(e.clientX-rect.left)*(canvas.width/rect.width);
+    const y=(e.clientY-rect.top)*(canvas.height/rect.height);
+    const s=sunPos(canvas.width,canvas.height);
+    const dx=x-s.x, dy=y-s.y;
+    if(dx*dx+dy*dy<=s.r*s.r*4){
+      sunClicks++;
+      if(sunClicks>=5){
+        sunClicks=0;
+        document.body.classList.remove('golden');
+        void document.body.offsetWidth;
+        document.body.classList.add('golden');
+        confetti(60);
+        showToast('You found the golden hour \u2600\uFE0F \u2014 that\u2019s the light in every Everlasting Memories photo.');
+      }
+    }
+  });
+
+  /* ---------- lead form ---------- */
+  $('leadForm').addEventListener('submit',async e=>{
+    e.preventDefault();
+    const name=$('fName').value.trim(), email=$('fEmail').value.trim(), phone=$('fPhone').value.trim();
+    const ev=$('fEvent').value;
+    const date=$('fDate').value;
+    const budget=$('fBudget').value;
+    const extra=$('fMsg').value.trim();
+    const capName=$('capName').value.trim();
+    const cap=(capName? capName+"'s ":'')+occasion+(date?(' \u00B7 '+fmtDate(date)):'');
+    const payload=leadPayload({
+      name,email,phone,
+      eventType:ev,
+      eventDate:date,
+      budget:budget,
+      occasion:occasion,
+      paletteId:paletteId,
+      styleId:styleId,
+      caption:cap,
+      extra:extra
+    });
+    const btn=$('submitBtn');
+    btn.disabled=true; btn.textContent='Sending\u2026';
+    try{
+      const res=await fetch('/api/leads.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+      if(!res.ok) throw new Error('bad status');
+      const m=$('formMsg');
+      m.className='msg ok';
+      m.textContent='\uD83C\uDF89 Sent to Isabella! Expect a reply within 24 hours \u2014 your preview is about to become the real thing.';
+      confetti(40);
+      e.target.reset();
+      setTimeout(()=>{m.className='msg';},8000);
+    }catch(err){
+      const m=$('formMsg');
+      m.className='msg err';
+      m.textContent='Hmm, that didn\'t go through. Please try again, or email Isabella directly at Hey.everlasting.memories@gmail.com';
+      setTimeout(()=>{m.className='msg';},7000);
+    }
+    btn.disabled=false; btn.textContent='\uD83C\uDF89 Request My Balloon Quote';
+  });
+
+  /* ---------- init ---------- */
+  canvas.width=900; canvas.height=1100;
+  makeFloaters();
+  drawDemoScene();
+  renderStrips();
+  $('shotCounter').textContent='Shot #'+shotCount+' \u00B7 Film roll: '+(localStorage.getItem('em_booth_shots')?Math.min(4,JSON.parse(localStorage.getItem('em_booth_shots')).length):0)+'/4';
+
+  /* nav dropdown */
+  document.querySelector('.em-nav-drop-btn').addEventListener('click',e=>{
+    e.stopPropagation();
+    document.querySelector('.em-nav-drop-menu').classList.toggle('open');
+  });
+  document.addEventListener('click',()=>{
+    document.querySelector('.em-nav-drop-menu').classList.remove('open');
+  });
+
+  /* faq accordion */
+  document.querySelectorAll('.faq-q').forEach(q=>{
+    q.addEventListener('click',()=>{
+      q.parentElement.classList.toggle('open');
+    });
+  });
+})();}
+</script>
+</body>
+</html>
