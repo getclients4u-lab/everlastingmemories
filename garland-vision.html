@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Garland Vision Studio — Live Balloon Preview | Everlasting Memories</title>
+<meta name="description" content="See your balloon garland before you book it. Pick a style and colors, watch your arch, garland, column or backdrop render live — then get a free exact quote from Everlasting Memories, CT's balloon art studio.">
+<meta property="og:title" content="Garland Vision Studio — Live Balloon Preview">
+<meta property="og:description" content="Design your balloon decor in real time — pick a style, pick your colors, watch it render. Free tool from Everlasting Memories.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://myeverlastingmemories.com/garland-vision.html">
+<meta property="og:image" content="https://myeverlastingmemories.com/logo.jpg">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Everlasting Memories">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Garland Vision Studio — Live Balloon Preview">
+<meta name="twitter:description" content="Design your balloon decor in real time — free tool from Everlasting Memories.">
+<meta name="twitter:image" content="https://myeverlastingmemories.com/logo.jpg">
+<link rel="canonical" href="https://myeverlastingmemories.com/garland-vision.html">
+<meta name="theme-color" content="#5a3d2b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="analytics.js" defer></script>
+<style>
+  :root{--c1:#5a3d2b;--accent:#C9A87C;--gold:#C9A227;--cream:#FAF8F5;--beige:#E8DFD4;--ink:#2C2C2C;--muted:#8a8a6e}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',-apple-system,sans-serif;background:var(--cream);color:var(--ink);min-height:100vh}
+  .em-nav{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
+    background:#faf8f5;border-bottom:1px solid #E8DFD4;padding:10px 20px;
+    position:sticky;top:0;z-index:950;box-shadow:0 2px 10px rgba(60,40,20,.06)}
+  .em-nav-brand{font-family:'Playfair Display',Georgia,serif;font-weight:700;font-size:1.05rem;color:#2C2C2C;text-decoration:none;letter-spacing:.02em}
+  .em-nav-links{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  .em-nav-links>a,.em-nav-drop-btn{font-family:'Inter',-apple-system,sans-serif;font-size:.76rem;font-weight:600;
+    text-transform:uppercase;letter-spacing:.05em;color:#2C2C2C;text-decoration:none;background:none;border:none;cursor:pointer;padding:0}
+  .em-nav-links>a:hover,.em-nav-drop-btn:hover{color:#C9A87C}
+  .em-nav-hot{color:#C9A227 !important;font-weight:700 !important}
+  .em-nav-drop{position:relative}
+  .em-nav-drop-menu{position:absolute;top:calc(100% + 12px);left:50%;transform:translateX(-50%) translateY(6px);
+    min-width:200px;background:#fff;border:1px solid #E8DFD4;border-radius:12px;box-shadow:0 14px 40px rgba(60,40,20,.14);
+    padding:8px;display:flex;flex-direction:column;gap:2px;opacity:0;pointer-events:none;transition:all .2s;z-index:960}
+  .em-nav-drop:hover .em-nav-drop-menu,.em-nav-drop:focus-within .em-nav-drop-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+  .em-nav-drop-menu a{font-size:.8rem;padding:8px 12px;border-radius:8px;color:#2C2C2C;text-decoration:none;white-space:nowrap;font-family:'Inter',sans-serif}
+  .em-nav-drop-menu a:hover{background:#E8DFD4;color:#C9A87C}
+  .em-nav-cta{background:#2C2C2C;color:#FAF8F5;text-decoration:none;padding:9px 18px;border-radius:999px;font-size:.76rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;font-family:'Inter',sans-serif}
+  .em-nav-cta:hover{background:#C9A87C}
+  @media(max-width:640px){.em-nav{justify-content:center;text-align:center}.em-nav-cta{display:none}}
+  header{background:linear-gradient(135deg,#5a3d2b,#8a6a4e);color:#fff;padding:44px 24px 36px;text-align:center}
+  header .home-link{display:inline-block;margin-bottom:12px;color:#e8dccb;text-decoration:none;font-weight:600;font-size:.85rem;letter-spacing:.03em}
+  header .home-link:hover{color:#fff}
+  header h1{font-family:'Playfair Display',Georgia,serif;font-size:2.1rem;font-weight:700;margin-bottom:10px}
+  header p{color:#e8dccb;max-width:620px;margin:0 auto;font-size:.98rem;line-height:1.55}
+  .container{max-width:1000px;margin:0 auto;padding:28px 20px}
+  .card{background:#fff;border-radius:14px;padding:28px;box-shadow:0 3px 16px rgba(0,0,0,.06);margin-bottom:22px}
+  .card h2{font-size:1.15rem;color:var(--c1);margin-bottom:18px;border-bottom:2px solid #f0e6da;padding-bottom:10px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+  .opt{border:2px solid #e5dccd;border-radius:12px;padding:16px;cursor:pointer;text-align:center;transition:.15s;background:#fff}
+  .opt:hover{border-color:var(--accent);transform:translateY(-2px)}
+  .opt.sel{border-color:var(--c1);background:#f5ede2;box-shadow:0 0 0 2px rgba(90,61,43,.15)}
+  .opt .ic{font-size:1.8rem;display:block;margin-bottom:6px}
+  .opt .nm{font-weight:600;font-size:.95rem}
+  .opt .ds{color:#999;font-size:.78rem;margin-top:3px}
+  .palette-rows{display:flex;flex-direction:column;gap:10px}
+  .pchip{display:flex;align-items:center;gap:12px;border:2px solid #e5dccd;border-radius:12px;padding:8px 12px;cursor:pointer;transition:.15s;background:#fff}
+  .pchip:hover{border-color:var(--accent);transform:translateY(-1px)}
+  .pchip.sel{border-color:var(--c1);background:#f5ede2;box-shadow:0 0 0 2px rgba(90,61,43,.15)}
+  .pchip .swatches{display:flex;border-radius:8px;overflow:hidden;height:34px;flex:1;max-width:220px;box-shadow:inset 0 0 0 1px rgba(0,0,0,.06)}
+  .pchip .swatches div{flex:1}
+  .pchip .pname{font-size:.88rem;font-weight:600;color:var(--ink);flex:1}
+  .pchip .pdesc{font-size:.74rem;color:#999}
+  .custom-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin-top:6px}
+  .custom-row label{display:flex;align-items:center;gap:8px;font-size:.8rem;color:#555;background:#faf6f0;border:1px solid #eee;border-radius:10px;padding:8px 12px}
+  .custom-row input[type=color]{width:38px;height:30px;border:none;background:none;cursor:pointer;padding:0}
+  .dims{display:flex;flex-wrap:wrap;gap:18px;margin-top:4px}
+  .dims label{display:flex;flex-direction:column;gap:6px;font-size:.8rem;font-weight:600;color:#555;text-transform:uppercase;letter-spacing:.04em}
+  .dims input[type=range]{width:190px;accent-color:#8a6a4e}
+  .dims output{color:var(--c1);font-weight:700;font-size:.95rem}
+  .seg{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
+  .seg button{border:2px solid #e5dccd;background:#fff;border-radius:999px;padding:9px 18px;font-size:.85rem;font-weight:600;cursor:pointer;color:#555;transition:.15s;font-family:'Inter',sans-serif}
+  .seg button:hover{border-color:var(--accent)}
+  .seg button.sel{background:var(--c1);border-color:var(--c1);color:#fff}
+  .toggle{display:inline-flex;align-items:center;gap:10px;cursor:pointer;font-size:.9rem;color:#555;font-weight:600;margin-top:14px}
+  .toggle input{width:18px;height:18px;accent-color:#8a6a4e}
+  .stage{background:linear-gradient(180deg,#fdfbf8,#f3ece1);border:1px solid #eee;border-radius:14px;padding:14px;text-align:center}
+  .stage svg{width:100%;height:auto;max-width:860px}
+  .stage .cap{color:#999;font-size:.78rem;margin-top:8px}
+  .recipe{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-top:8px}
+  .rstat{background:#faf6f0;border-radius:12px;padding:16px;text-align:center}
+  .rstat .big{font-size:1.7rem;font-weight:700;color:var(--c1);font-family:'Playfair Display',serif}
+  .rstat .lbl{font-size:.75rem;color:#999;text-transform:uppercase;letter-spacing:.05em;margin-top:4px;font-weight:600}
+  .sizecount{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+  .sizecount span{background:#fff;border:1px solid #e5dccd;border-radius:999px;padding:8px 16px;font-size:.88rem;font-weight:600;color:var(--ink)}
+  .sizecount b{color:var(--c1)}
+  .tip{background:#fbf6ee;border-left:4px solid var(--gold);border-radius:8px;padding:12px 16px;font-size:.88rem;color:#5a5a5a;margin-top:16px;line-height:1.5}
+  .share{display:flex;gap:10px;justify-content:center;margin-top:18px;flex-wrap:wrap}
+  .btn{display:inline-block;background:#fff;color:var(--c1);padding:13px 32px;border-radius:999px;font-weight:700;text-decoration:none;transition:.15s;border:none;cursor:pointer;font-size:1rem;font-family:'Inter',sans-serif}
+  .btn:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.2)}
+  .btn.dark{background:var(--c1);color:#fff}
+  .btn.dark:hover{background:#6b4a33}
+  .cta{background:linear-gradient(135deg,#5a3d2b,#8a6a4e);color:#fff;border-radius:14px;padding:30px 24px;text-align:center;margin-bottom:20px}
+  .cta h3{font-size:1.3rem;margin-bottom:10px;font-family:'Playfair Display',serif}
+  .cta p{color:#e8dccb;margin-bottom:18px;font-size:.95rem}
+  .share a{color:#e8dccb;font-size:.9rem}
+  #shareStatus{display:block;margin-top:8px;font-size:.82rem;color:#e8dccb;min-height:1.2em}
+  footer{text-align:center;color:#b0a08a;font-size:.8rem;padding:30px 20px}
+  footer a{color:#C9A87C}
+  .hidden{display:none}
+  @media(max-width:640px){header h1{font-size:1.6rem}.card{padding:20px}}
+</style>
+</head>
+<body>
+<div class="em-nav" role="navigation" aria-label="Main navigation">
+  <a class="em-nav-brand" href="index.html">🎈 Everlasting Memories</a>
+  <div class="em-nav-links">
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="about.html">About</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+    <a href="gift-card.html" class="em-nav-hot">Gift Cards</a>
+    <div class="em-nav-drop">
+      <button class="em-nav-drop-btn" type="button" aria-haspopup="true" aria-expanded="false">Tools &#9662;</button>
+      <div class="em-nav-drop-menu">
+          <a href="cost-estimator.html">Estimate Cost</a>
+          <a href="theme-generator.html">Theme Generator</a>
+          <a href="garland-vision.html" style="background:#C9A87C;color:#fff;">Garland Vision</a>
+          <a href="lookbook.html">Lookbook</a>
+          <a href="countdown.html">Countdown</a>
+          <a href="party-style-quiz.html">Party Style Quiz</a>
+          <a href="balloon-math.html">Balloon Math</a>
+          <a href="referral.html">Refer &amp; Earn</a>
+        </div>
+    </div>
+  </div>
+  <a class="em-nav-cta" href="cost-estimator.html">Get a Quote</a>
+</div>
+
+<header>
+  <a href="index.html" class="home-link">&#8592; Back to Home</a>
+  <h1>&#127880; Garland Vision Studio</h1>
+  <p>See your balloon decor <em>before</em> you book it. Pick a style and colors — watch your garland, arch, column or backdrop render live. When it makes you smile, request a free quote in those exact colors.</p>
+</header>
+
+<div class="container">
+  <div class="card">
+    <h2>1. Pick your style</h2>
+    <div class="grid" id="styleGrid"></div>
+  </div>
+
+  <div class="card">
+    <h2>2. Pick your colors</h2>
+    <div class="palette-rows" id="paletteRows"></div>
+    <div class="custom-row hidden" id="customRow">
+      <label>1 <input type="color" id="c1" value="#F4C2C2"></label>
+      <label>2 <input type="color" id="c2" value="#E79AA5"></label>
+      <label>3 <input type="color" id="c3" value="#FBF0F0"></label>
+      <label>4 <input type="color" id="c4" value="#B76E79"></label>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>3. Shape it</h2>
+    <div class="dims" id="dims"></div>
+    <div style="margin-top:16px;font-size:.8rem;font-weight:600;color:#555;text-transform:uppercase;letter-spacing:.04em">Fullness</div>
+    <div class="seg" id="fullSeg">
+      <button data-full="light">Light</button>
+      <button data-full="medium" class="sel">Medium</button>
+      <button data-full="full">Full</button>
+    </div>
+    <label class="toggle"><input type="checkbox" id="florals"> Add florals &#127807; <span style="font-weight:400;color:#999">(organic touch)</span></label>
+  </div>
+
+  <div class="card">
+    <h2>4. Live preview</h2>
+    <div class="stage">
+      <svg id="preview" viewBox="0 0 900 460" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Live balloon decor preview"></svg>
+      <div class="cap">Rendering updates as you design — this is the vibe, Isabella makes it real.</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>5. Your recipe</h2>
+    <div class="recipe">
+      <div class="rstat"><div class="big" id="rTotal">0</div><div class="lbl">Balloons</div></div>
+      <div class="rstat"><div class="big" id="rTime">0</div><div class="lbl">Build time (est.)</div></div>
+      <div class="rstat"><div class="big" id="rMix">0</div><div class="lbl">Size mix</div></div>
+    </div>
+    <div class="sizecount" id="sizeCounts"></div>
+    <div class="tip" id="tip"></div>
+    <div class="share">
+      <button class="btn dark" onclick="copyPalette()">&#128203; Copy Colors</button>
+      <button class="btn" onclick="shareDesign()">&#128279; Share This Design</button>
+      <span id="shareStatus" style="display:block;width:100%;text-align:center;font-size:.82rem;color:#8a6a4e;min-height:1.2em"></span>
+    </div>
+  </div>
+
+  <div class="cta">
+    <h3>Love the look? Make it real.</h3>
+    <p>Get a free quote for balloons &amp; decor in these exact colors from Everlasting Memories.</p>
+    <a class="btn" href="contact.html?theme=Garland+Vision&palette=#F4C2C2,#E79AA5,#FBF0F0,#B76E79" id="quoteBtn">Request a Free Quote &rarr;</a>
+  </div>
+</div>
+
+<footer>Everlasting Memories · Balloon Art &amp; Event Decor · Connecticut · <a href="https://instagram.com/everlasting.memories25" target="_blank" rel="noopener">@everlasting.memories25</a> · <a href="referral.html">Refer &amp; Earn</a></footer>
+
+<script>
+/* ============ DATA (consistent with Balloon Math tool) ============ */
+const STYLES = {
+  garland: { label:'Organic Garland', icon:'🎀', desc:'Soft cloud along a table, doorway or wall', dims:[{key:'length',label:'Length',min:4,max:40,step:1,unit:'ft',def:10}], tip:'Drape it over a dessert bar, doorway, or mantel — our signature organic cloud look. Add florals for extra romance.' },
+  arch:    { label:'Organic Arch', icon:'🌈', desc:'Statement entrance or photo backdrop', dims:[{key:'height',label:'Height',min:4,max:12,step:1,unit:'ft',def:8},{key:'width',label:'Width',min:4,max:20,step:1,unit:'ft',def:10}], tip:'The wedding & party classic. Walk-through arches love fuller density — go Full if it\'s a photo moment.' },
+  round:   { label:'Round Backdrop', icon:'⭕', desc:'Circular balloon frame — the selfie magnet', dims:[{key:'diameter',label:'Diameter',min:4,max:16,step:1,unit:'ft',def:6}], tip:'Perfect behind the cake table, dessert bar, or ceremony spot. Florals make it extra luxe.' },
+  column:  { label:'Balloon Column', icon:'🏛️', desc:'Greet guests at doors & stages', dims:[{key:'height',label:'Height',min:3,max:10,step:1,unit:'ft',def:6}], tip:'Flank your entrance, stage, or gift table with matching pairs — columns love symmetry.' }
+};
+const MIX = { breakdown:{'16"':0.15,'11"':0.40,'5"':0.45}, density:{light:10,medium:14,full:18}, timePerFt:10 };
+const PALETTES = [
+  { name:'Champagne & Gold', desc:'timeless & bridal', hexes:['#E8D9C5','#C9A87C','#FAF8F5','#8A6A4E'] },
+  { name:'Blush Romance', desc:'sweet & soft', hexes:['#F4C2C2','#E79AA5','#FBF0F0','#B76E79'] },
+  { name:'Sage Garden', desc:'fresh & botanical', hexes:['#A8BCA1','#DCE8D8','#F6F8F3','#5F7361'] },
+  { name:'Navy Nights', desc:'bold & elegant', hexes:['#1F2A44','#C9D4E4','#FDFDFD','#3A4A6B'] },
+  { name:'Berry Crush', desc:'vibrant & fun', hexes:['#9E3B4F','#F2C6CF','#FBEFF2','#6E2739'] },
+  { name:'Terracotta', desc:'warm & earthy', hexes:['#C97B4A','#EFD9C4','#FBF3EA','#8C4A2B'] }
+];
+const FULLNESS = { light:'Light', medium:'Medium', full:'Full' };
+const SVGNS = 'http://www.w3.org/2000/svg';
+const R_PX = { 16:34, 11:24, 5:13 };
+const SIZE_SEQ = [16,11,5,11,5,11,16,11,5,11,5,11,16,5,11,5,11,16,5,11];
+
+/* ============ STATE ============ */
+let state = { style:'garland', palette:null, custom:false, dims:{}, fullness:'medium', florals:true };
+
+/* ============ URL params (share links + theme-generator handoff) ============ */
+(function(){
+  const q = new URLSearchParams(location.search);
+  const s = q.get('style'); if (s && STYLES[s]) state.style = s;
+  const p = q.get('palette');
+  if (p) {
+    const hexes = p.split(',').map(h=>h.trim()).filter(h=>/^#[0-9a-fA-F]{6}$/.test(h));
+    if (hexes.length >= 2) { state.custom = true; state.palette = hexes.slice(0,4); }
+  }
+  const f = q.get('full'); if (f && FULLNESS[f]) state.fullness = f;
+  if (q.get('fl') === '0') state.florals = false;
+})();
+
+/* ============ COLOR UTILS ============ */
+function hexToRgb(h){ const n=parseInt(h.slice(1),16); return [(n>>16)&255,(n>>8)&255,n&255]; }
+function rgbToHex(r,g,b){ return '#'+[r,g,b].map(v=>Math.max(0,Math.min(255,Math.round(v))).toString(16).padStart(2,'0')).join(''); }
+function lighten(h,f){ const [r,g,b]=hexToRgb(h); return rgbToHex(r+(255-r)*f,g+(255-g)*f,b+(255-b)*f); }
+function darken(h,f){ const [r,g,b]=hexToRgb(h); return rgbToHex(r*(1-f),g*(1-f),b*(1-f)); }
+function mulberry32(a){ return function(){ a|=0; a=a+0x6D2B79F5|0; let t=Math.imul(a^a>>>15,1|a); t=t+Math.imul(t^t>>>7,61|t)^t; return ((t^t>>>14)>>>0)/4294967296; }; }
+
+/* ============ SVG HELPERS ============ */
+function ensureDefs(svg, colors){
+  let defs = svg.querySelector('defs');
+  if (!defs){ defs = document.createElementNS(SVGNS,'defs'); svg.prepend(defs); }
+  colors.forEach((hex,i)=>{
+    const id = 'bg'+i;
+    if (defs.querySelector('#'+id)) return;
+    const grad = document.createElementNS(SVGNS,'radialGradient');
+    grad.setAttribute('id',id);
+    grad.setAttribute('cx','35%'); grad.setAttribute('cy','30%'); grad.setAttribute('r','75%');
+    const mk=(off,col)=>{ const s=document.createElementNS(SVGNS,'stop'); s.setAttribute('offset',off); s.setAttribute('stop-color',col); return s; };
+    grad.appendChild(mk('0%', lighten(hex,0.38)));
+    grad.appendChild(mk('55%', hex));
+    grad.appendChild(mk('100%', darken(hex,0.30)));
+    defs.appendChild(grad);
+  });
+}
+function addBalloon(svg, x, y, r, colorIdx, colors){
+  const g = document.createElementNS(SVGNS,'g');
+  const c = document.createElementNS(SVGNS,'circle');
+  c.setAttribute('cx',x); c.setAttribute('cy',y); c.setAttribute('r',r);
+  c.setAttribute('fill','url(#bg'+colorIdx+')');
+  g.appendChild(c);
+  const sh = document.createElementNS(SVGNS,'ellipse');
+  const sx = x - r*0.30, sy = y - r*0.34;
+  sh.setAttribute('cx',sx); sh.setAttribute('cy',sy);
+  sh.setAttribute('rx',r*0.24); sh.setAttribute('ry',r*0.13);
+  sh.setAttribute('fill','rgba(255,255,255,.55)');
+  sh.setAttribute('transform','rotate(-28 '+sx+' '+sy+')');
+  g.appendChild(sh);
+  const k = document.createElementNS(SVGNS,'path');
+  const ky = y + r*0.90;
+  k.setAttribute('d','M'+(x-r*0.12)+' '+ky+' Q'+x+' '+(ky+r*0.24)+' '+(x+r*0.12)+' '+ky);
+  k.setAttribute('fill', darken(colors[colorIdx],0.32));
+  g.appendChild(k);
+  svg.appendChild(g);
+}
+function addFloral(svg, x, y, rnd){
+  const g = document.createElementNS(SVGNS,'g');
+  const n = 3 + Math.floor(rnd()*3);
+  for (let i=0;i<n;i++){
+    const leaf = document.createElementNS(SVGNS,'ellipse');
+    const lx = x + (rnd()-0.5)*26, ly = y + (rnd()-0.5)*18;
+    leaf.setAttribute('cx',lx); leaf.setAttribute('cy',ly);
+    leaf.setAttribute('rx',7); leaf.setAttribute('ry',3.2);
+    leaf.setAttribute('fill', rnd()>0.5 ? '#7d9b76' : '#93b28a');
+    leaf.setAttribute('transform','rotate('+(rnd()*360-180)+' '+lx+' '+ly+')');
+    g.appendChild(leaf);
+  }
+  if (rnd() > 0.35){
+    const fx = x + (rnd()-0.5)*16, fy = y + (rnd()-0.5)*12;
+    for (let p=0;p<5;p++){
+      const pet = document.createElementNS(SVGNS,'circle');
+      const a = p/5*Math.PI*2;
+      pet.setAttribute('cx', fx + Math.cos(a)*4.5); pet.setAttribute('cy', fy + Math.sin(a)*4.5);
+      pet.setAttribute('r',3.2); pet.setAttribute('fill','#fdf6ec');
+      g.appendChild(pet);
+    }
+    const mid = document.createElementNS(SVGNS,'circle');
+    mid.setAttribute('cx',fx); mid.setAttribute('cy',fy); mid.setAttribute('r',2.6); mid.setAttribute('fill','#e8b64c');
+    g.appendChild(mid);
+  }
+  svg.appendChild(g);
+}
+
+/* ============ RENDERERS ============ */
+function render(){
+  const svg = document.getElementById('preview');
+  svg.innerHTML = '';
+  const colors = state.palette.slice(0,4);
+  ensureDefs(svg, colors);
+  const rnd = mulberry32((state.style.length*131 + (state.dims.length||10)*7 + (state.dims.height||8)*3 + (state.dims.diameter||6)*11) >>> 0);
+  const density = MIX.density[state.fullness];
+  if (state.style === 'garland') drawGarland(svg, colors, state.dims.length, density, state.florals, rnd);
+  else if (state.style === 'arch') drawArch(svg, colors, state.dims.width, state.dims.height, density, state.florals, rnd);
+  else if (state.style === 'round') drawRound(svg, colors, state.dims.diameter, density, state.florals, rnd);
+  else drawColumn(svg, colors, state.dims.height, density, rnd);
+}
+
+function drawGarland(svg, colors, len, density, florals, rnd){
+  const span = Math.min(800, 80 + len*42);
+  const x0 = (900-span)/2, x1 = x0+span;
+  const total = Math.round(len*density);
+  const spacing = span/total;
+  const baseY = 245, amp = 52, freq = 0.016;
+  const pos = i => {
+    const x = x0 + spacing*i + (rnd()-0.5)*spacing*0.35;
+    const y = baseY + Math.sin(x*freq + (x0*0.016))*amp + (rnd()-0.5)*16;
+    return [x,y];
+  };
+  for (let i=0;i<total;i++){ const s=SIZE_SEQ[i%SIZE_SEQ.length]; if (R_PX[s]<=16){ const [x,y]=pos(i); addBalloon(svg,x,y,R_PX[s]*(0.9+rnd()*0.3), i%colors.length, colors); } }
+  for (let i=0;i<total;i++){ const s=SIZE_SEQ[i%SIZE_SEQ.length]; if (R_PX[s]>16){ const [x,y]=pos(i); addBalloon(svg,x,y,R_PX[s]*(0.9+rnd()*0.3), i%colors.length, colors); } }
+  if (florals) for (let i=3;i<total;i+=5){ const [x,y]=pos(i); addFloral(svg, x, y+8, rnd); }
+}
+
+function drawArch(svg, colors, w, h, density, florals, rnd){
+  const R = Math.min(290, 70 + h*26);
+  const widthPx = Math.min(720, 100 + w*54);
+  const scale = widthPx/(2*R);
+  const cx = 450, baseY = 400;
+  const arcLen = Math.PI * R;
+  const total = Math.round(arcLen/26 * density);
+  const thetaFor = i => Math.PI * i/(total-1);
+  for (let i=0;i<total;i++){
+    const th = thetaFor(i);
+    const x = cx - Math.cos(th)*R*scale;
+    const y = baseY - Math.sin(th)*R;
+    const s = SIZE_SEQ[i%SIZE_SEQ.length];
+    const r = R_PX[s] * (0.85 + 0.35*Math.sin(th)) * (0.9+rnd()*0.25);
+    addBalloon(svg, x, y, r, i%colors.length, colors);
+  }
+  if (florals) for (let i=3;i<total;i+=6){ const th = thetaFor(i); addFloral(svg, cx - Math.cos(th)*R*scale, baseY - Math.sin(th)*R + 6, rnd); }
+}
+
+function drawRound(svg, colors, diam, density, florals, rnd){
+  const R = Math.min(165, 28 + diam*20);
+  const cx = 450, cy = 238;
+  const total = Math.round(diam * density * 3.2);
+  for (let i=0;i<total;i++){
+    const ring = (i%2===0) ? R : R*0.55;
+    const a = (i/total)*Math.PI*2 + (i%2)*0.5;
+    const s = SIZE_SEQ[(i*2)%SIZE_SEQ.length];
+    const r = R_PX[s]*(0.8+rnd()*0.3);
+    addBalloon(svg, cx + Math.cos(a)*ring, cy + Math.sin(a)*ring*0.92, r, i%colors.length, colors);
+  }
+  addBalloon(svg, cx-24, cy-14, 30, 0, colors);
+  addBalloon(svg, cx+26, cy-10, 26, 1, colors);
+  addBalloon(svg, cx+2, cy+24, 22, 2, colors);
+  if (florals) for (let i=0;i<8;i++){ const a=(i/8)*Math.PI*2; addFloral(svg, cx+Math.cos(a)*(R+16), cy+Math.sin(a)*(R*0.9+16), rnd); }
+}
+
+function drawColumn(svg, colors, h, density, rnd){
+  const H = Math.min(330, 50 + h*44);
+  const cx = 450, top = 75, bottom = top + H;
+  const rows = Math.max(6, Math.round(h * density * 0.8));
+  for (let i=0;i<rows;i++){
+    const t = i/(rows-1);
+    const y = top + (bottom-top)*t;
+    const wob = Math.sin(i*1.7)*13*(1-t*0.5);
+    const r = (20 + 11*t) * (0.9+rnd()*0.2);
+    addBalloon(svg, cx+wob, y, r, i%colors.length, colors);
+    if (i%2===1){ addBalloon(svg, cx+wob-r*0.95, y+r*0.45, 11, (i+1)%colors.length, colors); addBalloon(svg, cx+wob+r*0.95, y-r*0.35, 9, (i+2)%colors.length, colors); }
+  }
+  addBalloon(svg, cx, bottom-10, 26, 0, colors);
+}
+
+/* ============ RECIPE ============ */
+function structureFt(){
+  const d = state.dims;
+  if (state.style==='garland') return d.length;
+  if (state.style==='arch') return (d.height + d.width) * 1.2;
+  if (state.style==='round') return Math.round(Math.PI * d.diameter);
+  return d.height * 1.6;
+}
+function updateRecipe(){
+  const ft = structureFt();
+  const density = MIX.density[state.fullness];
+  const total = Math.max(8, Math.round(ft * density));
+  const c16 = Math.round(total*0.15), c11 = Math.round(total*0.40), c5 = Math.max(0, total-c16-c11);
+  const time = Math.round(ft * MIX.timePerFt);
+  document.getElementById('rTotal').textContent = total;
+  document.getElementById('rTime').textContent = time + ' min';
+  document.getElementById('rMix').textContent = '16" 15% · 11" 40% · 5" 45%';
+  document.getElementById('sizeCounts').innerHTML =
+    '<span>🎈 16" jumbo: <b>'+c16+'</b></span><span>🎈 11" classic: <b>'+c11+'</b></span><span>🫧 5" mini: <b>'+c5+'</b></span>';
+  document.getElementById('tip').innerHTML = '&#128161; <b>Isabella\'s tip:</b> ' + STYLES[state.style].tip +
+    ' <span style="color:#999">Counts are estimates — <a href="balloon-math.html" style="color:#C9A227;font-weight:600">Balloon Math</a> has the exact numbers, and your quote is confirmed free.</span>';
+  const hexes = state.palette.slice(0,4).join(',');
+  const ftStr = state.style==='garland' ? state.dims.length + 'ft' : state.style==='round' ? state.dims.diameter + 'ft round' : (state.dims.height+'x'+state.dims.width)+'ft';
+  document.getElementById('quoteBtn').href = 'contact.html?theme='+encodeURIComponent('Garland Vision '+STYLES[state.style].label+' '+ftStr)+'&palette='+encodeURIComponent(hexes);
+}
+
+/* ============ UI BUILD ============ */
+function buildStyleGrid(){
+  const grid = document.getElementById('styleGrid');
+  grid.innerHTML = '';
+  Object.keys(STYLES).forEach(key=>{
+    const s = STYLES[key];
+    const d = document.createElement('div');
+    d.className = 'opt' + (state.style===key?' sel':'');
+    d.innerHTML = '<span class="ic">'+s.icon+'</span><div class="nm">'+s.label+'</div><div class="ds">'+s.desc+'</div>';
+    d.onclick = ()=>{ state.style=key; syncDims(); buildStyleGrid(); render(); updateRecipe(); };
+    grid.appendChild(d);
+  });
+}
+function buildPaletteRows(){
+  const rows = document.getElementById('paletteRows');
+  rows.innerHTML = '';
+  PALETTES.forEach((p,i)=>{
+    const d = document.createElement('div');
+    d.className = 'pchip' + (!state.custom && state.palette===p.hexes ? ' sel':'');
+    d.innerHTML = '<div class="swatches">'+p.hexes.map(h=>'<div style="background:'+h+'"></div>').join('')+'</div>'+
+      '<div><div class="pname">'+p.name+'</div><div class="pdesc">'+p.desc+'</div></div>';
+    d.onclick = ()=>{ state.custom=false; state.palette=p.hexes.slice(); syncColorInputs(); buildPaletteRows(); render(); updateRecipe(); };
+    rows.appendChild(d);
+  });
+  const c = document.createElement('div');
+  c.className = 'pchip' + (state.custom?' sel':'');
+  c.innerHTML = '<div class="swatches" style="background:conic-gradient(#F4C2C2,#E79AA5,#FBF0F0,#B76E79,#F4C2C2)"></div><div><div class="pname">Custom</div><div class="pdesc">pick your own colors</div></div>';
+  c.onclick = ()=>{ state.custom=true; state.palette = customHexes(); document.getElementById('customRow').classList.remove('hidden'); syncColorInputs(); buildPaletteRows(); render(); updateRecipe(); };
+  rows.appendChild(c);
+  document.getElementById('customRow').classList.toggle('hidden', !state.custom);
+}
+function customHexes(){ return ['c1','c2','c3','c4'].map(id=>document.getElementById(id).value); }
+function syncColorInputs(){
+  const p = state.palette;
+  if (p && p.length===4){ ['c1','c2','c3','c4'].forEach((id,i)=>{ document.getElementById(id).value = p[i]; }); }
+}
+function syncDims(){
+  const wrap = document.getElementById('dims');
+  wrap.innerHTML = '';
+  const d = state.dims = {};
+  STYLES[state.style].dims.forEach(dim=>{
+    d[dim.key] = dim.def;
+    const lab = document.createElement('label');
+    lab.innerHTML = dim.label + ' <output id="out-'+dim.key+'">'+dim.def+' '+dim.unit+'</output>';
+    const inp = document.createElement('input');
+    inp.type = 'range'; inp.min = dim.min; inp.max = dim.max; inp.step = dim.step; inp.value = dim.def;
+    inp.oninput = ()=>{ d[dim.key] = +inp.value; document.getElementById('out-'+dim.key).textContent = inp.value+' '+dim.unit; render(); updateRecipe(); };
+    lab.appendChild(inp);
+    wrap.appendChild(lab);
+  });
+}
+
+/* ============ ACTIONS ============ */
+function currentLink(){
+  const hexes = state.palette.slice(0,4).join(',');
+  const u = new URL(location.href);
+  u.search = new URLSearchParams({ style:state.style, palette:hexes, full:state.fullness, fl:state.florals?1:0 }).toString();
+  return u.href;
+}
+function copyText(t, ok){
+  const el = document.getElementById('shareStatus');
+  const done = ()=>{ el.textContent = ok; setTimeout(()=>{ el.textContent=''; }, 2600); };
+  if (navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(t).then(done).catch(()=>fallback(t,done));
+  } else fallback(t,done);
+}
+function fallback(t,done){
+  const ta = document.createElement('textarea');
+  ta.value = t; ta.style.position='fixed'; ta.style.opacity='0';
+  document.body.appendChild(ta); ta.select();
+  try{ document.execCommand('copy'); done(); }catch(e){ done(); }
+  document.body.removeChild(ta);
+}
+function copyPalette(){
+  copyText(state.palette.slice(0,4).join('  ·  '), '🎨 Colors copied — paste them anywhere!');
+}
+function shareDesign(){
+  copyText(currentLink(), '🔗 Design link copied — send it to Isabella or your guests!');
+}
+
+/* ============ INIT ============ */
+(function init(){
+  if (!state.palette){ state.palette = PALETTES[1].hexes.slice(); } // default Blush Romance
+  syncColorInputs();
+  document.getElementById('fullSeg').querySelectorAll('button').forEach(b=>{
+    b.onclick = ()=>{ state.fullness = b.dataset.full;
+      document.querySelectorAll('#fullSeg button').forEach(x=>x.classList.toggle('sel', x===b));
+      render(); updateRecipe(); };
+  });
+  document.getElementById('florals').checked = state.florals;
+  document.getElementById('florals').onchange = e=>{ state.florals = e.target.checked; render(); updateRecipe(); };
+  document.querySelectorAll('.custom-row input[type=color]').forEach(inp=>{
+    inp.oninput = ()=>{ if (state.custom){ state.palette = customHexes(); render(); updateRecipe(); } };
+  });
+  buildStyleGrid();
+  buildPaletteRows();
+  syncDims();
+  render();
+  updateRecipe();
+})();
+</script>
+</body>
+</html>
