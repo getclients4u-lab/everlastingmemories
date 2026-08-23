@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Party Photo Hunt | Everlasting Memories — Balloon Art & Event Decor</title>
+<meta name="description" content="Turn every guest into the event photographer. Pick your party, get a 15-shot photo scavenger hunt, and watch your guests capture the night.">
+<link rel="canonical" href="https://myeverlastingmemories.com/photo-hunt.html">
+<meta property="og:title" content="The Party Photo Hunt — Every Guest Is the Photographer">
+<meta property="og:description" content="Give your guests a photo mission. They capture the night (your decor included), you get a gallery of real moments — and the best shots make the party unforgettable.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://myeverlastingmemories.com/photo-hunt.html">
+<meta property="og:image" content="https://myeverlastingmemories.com/logo.jpg">
+<meta property="og:site_name" content="Everlasting Memories">
+<meta name="theme-color" content="#a21caf">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="analytics.js" defer></script>
+<style>
+:root{
+  --c1:#a21caf;      /* fuchsia */
+  --c2:#C9A227;      /* gold */
+  --c3:#d946ef;      /* fuchsia bright */
+  --bg:#fdf4fb;
+  --card:#ffffff;
+  --line:#f3d9f0;
+  --ink:#4a1d4f;
+  --soft:#8a5a90;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+.em-nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 22px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;flex-wrap:wrap}
+.em-nav-brand{font-weight:700;color:var(--c1);text-decoration:none;font-size:1rem;font-family:'Playfair Display',serif}
+.em-nav-links{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.em-nav-links a{color:var(--ink);text-decoration:none;font-size:.85rem;font-weight:500}
+.em-nav-links a:hover{color:var(--c2)}
+.em-nav-hot{color:var(--c2)!important;font-weight:700}
+.em-nav-drop{position:relative}
+.em-nav-drop-btn{background:none;border:none;font-family:'Inter',sans-serif;font-size:.85rem;font-weight:500;color:var(--ink);cursor:pointer;padding:4px 2px}
+.em-nav-drop-menu{display:none;position:absolute;right:0;top:calc(100%+8px);background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 34px rgba(162,28,175,.16);min-width:240px;padding:8px;z-index:60}
+.em-nav-drop-menu.open{display:block}
+.em-nav-drop-menu a{display:block;padding:8px 12px;border-radius:9px;font-size:.85rem;color:var(--ink);text-decoration:none}
+.em-nav-drop-menu a:hover{background:var(--bg)}
+.em-nav-cta{background:var(--c1);color:#fff!important;padding:9px 18px;border-radius:999px;font-weight:600;text-decoration:none;font-size:.85rem}
+.em-nav-cta:hover{background:#86198f}
+header{max-width:960px;margin:0 auto;padding:44px 22px 10px;text-align:center}
+.home-link{display:inline-block;color:var(--c1);text-decoration:none;font-size:.85rem;font-weight:600;margin-bottom:14px}
+.badge{display:inline-block;background:linear-gradient(135deg,var(--c1),var(--c3));color:#fff;padding:5px 16px;border-radius:999px;font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
+header h1{font-family:'Playfair Display',serif;font-size:2.3rem;color:var(--c1);margin-bottom:10px}
+header p{color:var(--soft);max-width:680px;margin:0 auto;font-size:.98rem}
+.container{max-width:960px;margin:0 auto;padding:0 22px 30px}
+.grid{display:grid;grid-template-columns:1fr 1.15fr;gap:22px;margin-top:22px}
+@media(max-width:860px){.grid{grid-template-columns:1fr}}
+/* ===== cards ===== */
+.card{background:var(--card);border-radius:18px;padding:22px;box-shadow:0 4px 24px rgba(162,28,175,.08);border:1px solid var(--line)}
+.card h2{font-size:1.05rem;color:var(--c1);margin-bottom:4px;font-family:'Playfair Display',serif}
+.card .sub{font-size:.8rem;color:var(--soft);margin-bottom:14px}
+.fg{margin-bottom:12px}
+.fg label{display:block;font-weight:600;font-size:.82rem;margin-bottom:4px;color:var(--c1)}
+.fg input,.fg textarea,.fg select{width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;font-size:.92rem;background:#fff;font-family:'Inter',sans-serif;color:var(--ink)}
+.fg input:focus,.fg textarea:focus,.fg select:focus{outline:none;border-color:var(--c3)}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:480px){.fg-row{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:4px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:6px 13px;font-size:.8rem;font-weight:600;color:var(--soft);cursor:pointer;transition:.2s;font-family:'Inter',sans-serif}
+.chip.on{border-color:var(--c1);background:var(--c1);color:#fff}
+.msg{display:none;border-radius:10px;padding:11px;font-size:.86rem;font-weight:500;margin-bottom:12px;text-align:center}
+.msg.ok{display:block;background:#fef7e6;border:1px solid #e3b23c;color:#7a5a10}
+.msg.err{display:block;background:#fdeeee;border:1px solid #e08a8a;color:#a33}
+.cta-btn{width:100%;border:none;border-radius:12px;padding:13px;font-size:.95rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:.2s;margin-top:4px}
+.cta-btn.primary{background:linear-gradient(135deg,var(--c1),var(--c3));color:#fff}
+.cta-btn.primary:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(162,28,175,.3)}
+.cta-btn.gold{background:linear-gradient(135deg,#b8860b,var(--c2));color:#fff}
+.cta-btn.gold:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(201,162,39,.35)}
+.cta-btn.ghost{background:#fff;border:1.5px solid var(--line);color:var(--c1)}
+.cta-btn.ghost:hover{border-color:var(--c1)}
+.cta-btn:disabled{opacity:.6;cursor:wait;transform:none}
+/* ===== hunt ===== */
+.hunt-col{position:sticky;top:76px;align-self:start}
+@media(max-width:860px){.hunt-col{position:static}}
+.hunt-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.hunt-head h2{font-size:1.05rem}
+.score-pill{background:linear-gradient(135deg,var(--c1),var(--c3));color:#fff;border-radius:999px;padding:6px 16px;font-weight:700;font-size:.85rem}
+.rank-line{font-size:.75rem;color:var(--soft);margin-bottom:8px}
+.rank-line b{color:var(--c1)}
+.bar{height:10px;background:var(--line);border-radius:999px;overflow:hidden;margin:8px 0 14px}
+.bar span{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--c1),var(--c2));border-radius:999px;transition:width .5s ease}
+.timer-row{display:flex;align-items:center;gap:10px;margin-bottom:12px;flex-wrap:wrap}
+.timer{font-variant-numeric:tabular-nums;font-weight:700;color:var(--c1);background:var(--bg);border:1.5px solid var(--line);border-radius:10px;padding:6px 12px;font-size:.9rem}
+.timer.low{color:#dc2626;border-color:#fca5a5;animation:pulse 1s infinite}
+@keyframes pulse{50%{opacity:.55}}
+.mission{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border:1.5px solid var(--line);border-radius:12px;margin-bottom:8px;cursor:pointer;transition:.2s;background:#fff;user-select:none}
+.mission:hover{border-color:var(--c3)}
+.mission.done{background:#faf5ff;border-color:#e9d5ff;opacity:.85}
+.mission.done .m-title{text-decoration:line-through;color:var(--soft)}
+.m-check{flex:0 0 22px;height:22px;border-radius:7px;border:2px solid var(--line);background:#fff;display:flex;align-items:center;justify-content:center;font-size:.7rem;color:#fff;margin-top:1px}
+.mission.done .m-check{background:linear-gradient(135deg,var(--c1),var(--c3));border-color:var(--c1)}
+.m-body{flex:1}
+.m-title{font-size:.88rem;font-weight:600}
+.m-tip{font-size:.74rem;color:var(--soft);margin-top:2px}
+.m-pts{flex:0 0 auto;font-size:.72rem;font-weight:700;color:var(--c2);background:#fdf6e3;border:1px solid #f0dfae;border-radius:999px;padding:2px 9px;align-self:center}
+.mission.golden{border-color:var(--c2);background:linear-gradient(135deg,#fffdf5,#fdf6e3)}
+.mission.golden .m-pts{background:linear-gradient(135deg,#b8860b,var(--c2));color:#fff;border:none}
+.mission.golden .m-title{color:#92610a}
+.hunt-note{font-size:.72rem;color:var(--soft);text-align:center;margin-top:10px}
+.share-row{display:flex;gap:10px;margin-top:14px}
+.share-row button{flex:1;border:none;border-radius:11px;padding:11px;font-size:.85rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:.2s}
+.btn-wa{background:#25D366;color:#fff}
+.btn-wa:hover{filter:brightness(.95)}
+.btn-dl{background:var(--c1);color:#fff}
+.btn-dl:hover{background:#86198f}
+.tip{font-size:.74rem;color:var(--soft);text-align:center;margin-top:10px}
+/* ===== print card ===== */
+.print-card{display:none}
+@media print{
+  body *{visibility:hidden}
+  .print-card,.print-card *{visibility:visible}
+  .print-card{display:block;position:absolute;left:0;top:0;width:100%}
+  .print-sheet{display:grid;grid-template-columns:1fr 1fr;gap:6mm;width:100%}
+  .print-single{break-inside:avoid;border:1.5px solid #000;border-radius:12px;padding:6mm;height:138mm}
+  .no-print{display:none!important}
+}
+/* ===== faq / facts ===== */
+.faq-q{display:flex;justify-content:space-between;align-items:center;gap:10px;width:100%;background:none;border:none;font-family:'Inter',sans-serif;font-size:.92rem;font-weight:600;color:var(--c1);cursor:pointer;padding:13px 2px;text-align:left}
+.faq-a{display:none;font-size:.86rem;color:var(--soft);padding:0 2px 14px}
+.faq-a.open{display:block}
+.facts{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:22px}
+@media(max-width:560px){.facts{grid-template-columns:1fr}}
+.fact{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;font-size:.82rem;color:var(--soft)}
+.fact b{display:block;color:var(--c1);margin-bottom:3px;font-size:.84rem}
+/* ===== confetti ===== */
+.confetti{position:fixed;top:-12px;width:10px;height:14px;z-index:99;pointer-events:none;animation:confFall linear forwards}
+@keyframes confFall{0%{transform:translateY(0) rotate(0);opacity:1}100%{transform:translateY(105vh) rotate(720deg);opacity:.6}}
+@media (prefers-reduced-motion: reduce){.confetti{animation:none!important}.timer.low{animation:none!important}}
+footer{background:#f7e8f5;border-top:1px solid var(--line);text-align:center;padding:26px 20px;font-size:.84rem;color:var(--soft);margin-top:10px}
+footer a{color:var(--c1);text-decoration:none;font-weight:600}
+</style>
+</head>
+<body>
+<div class="em-nav" role="navigation" aria-label="Main navigation">
+  <a class="em-nav-brand" href="index.html">&#127881; Everlasting Memories</a>
+  <div class="em-nav-links">
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="about.html">About</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+    <a href="gift-card.html" class="em-nav-hot">Gift Cards</a>
+    <div class="em-nav-drop">
+      <button class="em-nav-drop-btn" type="button" aria-haspopup="true" aria-expanded="false">Tools &#9662;</button>
+      <div class="em-nav-drop-menu">
+          <a href="cost-estimator.html">Estimate Cost</a>
+          <a href="theme-generator.html">Theme Generator</a>
+          <a href="lookbook.html">Lookbook</a>
+          <a href="countdown.html">Countdown</a>
+          <a href="party-style-quiz.html">Party Style Quiz</a>
+          <a href="balloon-math.html">Balloon Math</a>
+          <a href="reserve-date.html">Reserve Your Date</a>
+          <a href="diy-vs-pro.html">DIY vs Pro</a>
+          <a href="palette-snap.html">Palette Snap</a>
+          <a href="name-garland.html">Balloon Letters</a>
+          <a href="budget-builder.html">Budget Builder</a>
+          <a href="transformations.html">The Big Reveal</a>
+          <a href="wedding-workshop.html">Wedding Workshop</a>
+          <a href="balloon-pop.html">Pop Party</a>
+          <a href="invitation-studio.html">Invitation Studio</a>
+          <a href="party-roadmap.html">Party Roadmap</a>
+          <a href="memory-wall.html">Memory Wall</a>
+          <a href="photo-booth.html">Golden Hour Booth</a>
+          <a href="garland-vision.html">Garland Vision</a>
+          <a href="photo-hunt.html" style="background:#a21caf;color:#fff;">Party Photo Hunt</a>
+          <a href="referral.html">Refer &amp; Earn</a>
+        </div>
+    </div>
+  </div>
+  <a class="em-nav-cta" href="cost-estimator.html">Get a Quote</a>
+</div>
+
+<header>
+  <a href="index.html" class="home-link">&#8592; Back to Home</a>
+  <div class="badge">&#128248; New Tonight — The Party Photo Hunt</div>
+  <h1>&#128247; The Party Photo Hunt</h1>
+  <p>Give every guest a photo mission and watch your party photograph itself. Pick your event, get a scavenger hunt of 20 fun shots — your decor included — then hand out the printable card or play the live hunt on your phone. Everyone captures the night. You keep the memories.</p>
+</header>
+
+<div class="container">
+
+  <div class="grid">
+    <!-- ============ SETUP ============ -->
+    <div>
+      <div class="card">
+        <h2>&#127881; What are we celebrating?</h2>
+        <p class="sub">The mission list adapts to your party — Isabella's picks, with a photographer's tip on every shot.</p>
+        <div class="fg">
+          <label>Event type</label>
+          <div class="chips" id="evChips"></div>
+        </div>
+        <div class="fg-row">
+          <div class="fg"><label for="partyName">Party name (for the card, optional)</label><input id="partyName" type="text" maxlength="40" placeholder="e.g. Sophia's Sweet 16"></div>
+          <div class="fg"><label for="partyDate">Party date (optional)</label><input id="partyDate" type="date"></div>
+        </div>
+        <div class="fg">
+          <label>Hunt style</label>
+          <div class="chips" id="modeChips">
+            <button type="button" class="chip on" data-mode="live">&#128241; Live hunt (phone)</button>
+            <button type="button" class="chip" data-mode="print">&#128424; Printable card</button>
+          </div>
+        </div>
+        <button class="cta-btn primary" id="buildBtn">&#127919; Build My Photo Hunt</button>
+        <button class="cta-btn ghost" id="surpriseBtn" style="margin-top:8px">&#127922; Surprise Me</button>
+        <p class="tip">Live hunt: tap missions as guests capture them, watch the score climb. Printable: a beautiful card to hand out at the door.</p>
+      </div>
+
+      <!-- ============ LEAD ============ -->
+      <div class="card" style="margin-top:22px">
+        <h2>&#127881; Want the decor your guests will be photographing?</h2>
+        <p class="sub">The hunt is more fun with something gorgeous in the frame. Tell Isabella about your party — she'll reply within 24 hours with ideas and an honest quote.</p>
+        <div class="msg" id="formMsg"></div>
+        <form id="leadForm">
+          <div class="fg-row">
+            <div class="fg"><label for="fName">Name</label><input id="fName" type="text" required placeholder="Your name"></div>
+            <div class="fg"><label for="fEmail">Email</label><input id="fEmail" type="email" required placeholder="you@email.com"></div>
+          </div>
+          <div class="fg-row">
+            <div class="fg"><label for="fPhone">Phone (optional)</label><input id="fPhone" type="tel" placeholder="(203) 555-0123"></div>
+            <div class="fg"><label for="fEvent">Event type</label>
+              <select id="fEvent">
+                <option>Birthday</option><option>Wedding</option><option>Baby Shower</option>
+                <option>Anniversary</option><option>Graduation</option><option>Corporate</option><option>Just Because</option>
+              </select>
+            </div>
+          </div>
+          <div class="fg-row">
+            <div class="fg"><label for="fDate">Event date (optional)</label><input id="fDate" type="date"></div>
+            <div class="fg"><label for="fBudget">Budget (optional)</label>
+              <select id="fBudget">
+                <option value="">Not sure yet</option><option>Under $300</option><option>$300–$700</option>
+                <option>$700–$1,500</option><option>$1,500+</option>
+              </select>
+            </div>
+          </div>
+          <div class="fg"><label for="fMsg">What are you dreaming of? (optional)</label><textarea id="fMsg" rows="2" placeholder="e.g. An organic arch + garland for a backyard birthday, ~40 guests, gold and blush."></textarea></div>
+          <button class="cta-btn gold" id="submitBtn" type="submit">&#127873; Request My Balloon Quote</button>
+        </form>
+        <p class="lead-note">No spam, no pressure — just ideas, honest prices, and a 24-hour reply.</p>
+      </div>
+    </div>
+
+    <!-- ============ HUNT ============ -->
+    <div class="hunt-col">
+      <div class="card" id="huntCard">
+        <div class="hunt-head">
+          <h2 id="huntTitle">&#128247; Your Photo Hunt</h2>
+          <span class="score-pill" id="scorePill">0 pts</span>
+        </div>
+        <div class="rank-line" id="rankLine">Pick an event and press <b>Build My Photo Hunt</b> to start.</div>
+        <div class="bar"><span id="scoreBar"></span></div>
+        <div class="timer-row no-print" id="timerRow" style="display:none">
+          <span class="timer" id="timerDisp">45:00</span>
+          <button class="cta-btn ghost" id="timerBtn" style="width:auto;padding:7px 16px;font-size:.8rem;margin:0">&#9201; Start timer</button>
+          <button class="cta-btn ghost" id="resetBtn" style="width:auto;padding:7px 16px;font-size:.8rem;margin:0">&#8635; Reset</button>
+        </div>
+        <div id="missionList"><p style="font-size:.85rem;color:var(--soft);text-align:center;padding:26px 0">Your missions will appear here — 15 shots, 750 points on the table, one golden moment.</p></div>
+        <div class="share-row no-print">
+          <button class="btn-wa" id="shareHuntBtn">&#128172; Share the Hunt</button>
+          <button class="btn-dl" id="printBtn">&#128424; Print Party Card</button>
+        </div>
+        <p class="tip no-print">Tag <b>@everlasting.memories25</b> in the best shots — Isabella loves seeing her work through your lens. &#10084;&#65039;</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ PRINT CARD (hidden, shown only when printing) ============ -->
+  <div class="print-card" id="printCard" aria-hidden="true">
+    <div class="print-sheet" id="printSheet"></div>
+  </div>
+
+  <!-- ===== FAQ ===== -->
+  <h2 style="font-family:'Playfair Display',serif;color:var(--c1);margin:26px 2px 4px;font-size:1.4rem">Photo Hunt FAQ</h2>
+  <div class="card" style="margin-top:8px">
+    <div class="faq-item">
+      <button class="faq-q">What exactly is a photo hunt? <span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">It's a scavenger hunt where the treasure is a photograph. Guests get a list of fun missions — "the candles mid-wish," "a guest mid-laugh under the arch" — and race to capture them all. Your party photographs itself, and nobody is stuck behind a camera the whole night. We've even snuck in a few missions that make your decor the star.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Live hunt or printable card — which should I use? <span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">Both are great: the live hunt keeps a running score and a 45-minute countdown on one phone (perfect for a group huddle), while the printable card hands a mission list to every guest at the door — no phone needed, and it doubles as a cute party favor. Use the card for big parties, the live hunt for close groups. Or both: print the cards, play the score on your phone.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Is this really free? <span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">100% free, forever, no sign-up. Build as many hunts as you like, print as many cards as you need. The only thing we'd love back is a tag — <b>@everlasting.memories25</b> — so Isabella can see her balloon art through your guests' eyes.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Why are some missions about the balloons? <span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">Because the decor is the part guests always photograph anyway — we just make it a game. Shots of the garland, the arch, the golden-hour light through the balloons are the ones that make the gallery (and the party) unforgettable. And if you don't have balloon decor yet, well… that's what the quote form below is for. &#128521;</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Can I reuse the hunt after the party? <span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">Yes — the best photos from a hunt make a beautiful keepsake wall, a thank-you card, or next year's invitation. Pair your favorites with the <a href="memory-wall.html" style="color:var(--c1);font-weight:600">Memory Wall</a> to pin the story, or ask Isabella about turning the night into a printed keepsake.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">I'm planning the party — where do I start? <span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">Plan the whole thing in 5 minutes with the <a href="party-roadmap.html" style="color:var(--c1);font-weight:600">Party Roadmap</a>, design invites in the <a href="invitation-studio.html" style="color:var(--c1);font-weight:600">Invitation Studio</a>, then come back and build the hunt for the big night. Full circle, and every piece links to Isabella for the quote.</div>
+    </div>
+  </div>
+
+  <!-- ===== FACTS ===== -->
+  <div class="facts">
+    <div class="fact"><b>&#128247; Guests shoot 3× more</b>with a mission in hand — a photo hunt turns every phone in the room into your event photographer.</div>
+    <div class="fact"><b>&#127881; 15 missions, 750 points</b>per hunt, adapted to your event — plus one golden 150-point moment every party deserves.</div>
+    <div class="fact"><b>&#128172; 200+ events, 97% happy</b>Isabella's parties are built to be photographed — arches, garlands and backdrops that beg for a close-up.</div>
+    <div class="fact"><b>&#128248; Free forever</b>build, print, and share as many hunts as you like — the only cost is tagging the decor. &#128521;</div>
+  </div>
+
+</div>
+
+<footer>
+  <p><a href="index.html">Everlasting Memories</a> — Balloon Art &amp; Event Decor, Connecticut · <a href="tel:203-981-7244">203-981-7244</a> · <a href="contact.html">Contact</a> · <a href="https://instagram.com/everlasting.memories25" style="color:#C9A87C" target="_blank" rel="noopener">@everlasting.memories25</a></p>
+  <p style="margin-top:6px;">Every garland is hand-built and installed by Isabella — no templates, no shortcuts, no surprise fees.</p>
+  <p style="margin-top:8px;"><a href="photo-hunt.html" style="color:#a21caf;font-weight:600;">Party Photo Hunt</a> · <a href="photo-booth.html" style="color:#0369a1;font-weight:600;">Golden Hour Booth</a> · <a href="memory-wall.html" style="color:#b45309;font-weight:600;">Memory Wall</a> · <a href="party-roadmap.html" style="color:#0f766e;font-weight:600;">Party Roadmap</a> · <a href="invitation-studio.html" style="color:#312e81;font-weight:600;">Invitation Studio</a> · <a href="balloon-pop.html" style="color:#ea580c;font-weight:600;">Pop Party</a> · <a href="wedding-workshop.html" style="color:#9d174d;font-weight:600;">Wedding Workshop</a> · <a href="transformations.html" style="color:#7c3aed;font-weight:600;">The Big Reveal</a> · <a href="budget-builder.html" style="color:#2f7a52">Budget Balloonist</a> · <a href="referral.html" style="color:#C9A87C">Refer &amp; Earn</a></p>
+</footer>
+
+<script>
+/* ================= The Party Photo Hunt ================= */
+const $=id=>document.getElementById(id);
+const EVENTS=['Birthday','Wedding','Baby Shower','Anniversary','Graduation','Corporate','Just Because'];
+const LS_KEY='em_photo_hunt_best';
+
+/* ---------- mission data ---------- */
+const UNIVERSAL=[
+  {t:'The Balloon Selfie',p:50,tip:'A guest mid-laugh in front of the garland — catch the real face, not the pose.'},
+  {t:'Golden Hour Light',p:50,tip:'Warm light through the balloons — low angle, sun behind the arch, lens flare encouraged.'},
+  {t:'Hands in the Air',p:25,tip:'Crowd shot from below, balloons overhead. Burst mode helps.'},
+  {t:'The Detail Shot',p:25,tip:'Macro of a balloon cluster, ribbon curl or table setting — the tiny stuff is the magic.'},
+  {t:'The Setup Sneak',p:25,tip:'A guest photobombing the decor before anyone notices. Sneaky counts.'},
+  {t:'Color Pop',p:50,tip:'Someone wearing a color that matches the palette — frame them against the matching balloon.'},
+  {t:'The Countdown Face',p:50,tip:'A face mid "3…2…1…" — the anticipation is the photo.'},
+  {t:'The Thank-You',p:25,tip:'A guest thanking the host on camera — genuine, unscripted, warm.'}
+];
+const GOLDEN={
+  'Birthday':{t:'The Golden-Hour Birthday Selfie',tip:'You + the arch in warm light, mid-laugh. This is the shot that makes the album.'},
+  'Wedding':{t:'The First-Look Face',tip:'Their face the moment they see the aisle through the balloons — stand back, stay quiet.'},
+  'Baby Shower':{t:'The Reveal Face',tip:'Every face at the color moment — the burst of balloons + the burst of joy.'},
+  'Anniversary':{t:'Their Hands + The Garlands',tip:'Their hands together, the garland soft in the frame behind — one perfect frame.'},
+  'Graduation':{t:'Cap in the Air',tip:'Cap mid-flight against the balloon backdrop — time it with the jump.'},
+  'Corporate':{t:'The Whole Team Under the Arch',tip:'Everyone under the brand-color arch at once — boss included, smiling even.'},
+  'Just Because':{t:'The Whole Room, One Frame',tip:'Balloons overhead, everyone in it, zero staging. The "this is why we gather" shot.'}
+};
+const SPECIFIC={
+  'Birthday':[
+    {t:'The Candles Mid-Wish',p:100,tip:'Side angle, flames + face in focus — the wish is the story.'},
+    {t:'A Kid Mid-Pop',p:50,tip:'Freeze the pop — burst mode or a lucky tap. The balloon never stood a chance.'},
+    {t:'The Gift Pile Chaos',p:25,tip:'Wrapping paper carnage, bows everywhere — honest and hilarious.'},
+    {t:'The Birthday Crown',p:50,tip:'The birthday person in the crown, caught off-guard, loving it.'},
+    {t:'The First Slice',p:25,tip:'The first cut — icing on the knife, everyone leaning in.'},
+    {t:'The "Surprise!" Jump',p:50,tip:'The exact second they walk in — feet off the floor, hands up.'}
+  ],
+  'Wedding':[
+    {t:'The First Dance',p:100,tip:'Wide shot, room in shadow, couple in the light — one rotation, no zooming.'},
+    {t:'The Ring Shot',p:100,tip:'Rings on the bouquet or the guest book — macro, soft background.'},
+    {t:'The Arch Reveal',p:50,tip:'The moment the doors open on the arch — capture the gasps.'},
+    {t:'The Bouquet Toss',p:25,tip:'Freeze the flight — everyone reaching, one face of pure hope.'},
+    {t:'The Grandparents Dancing',p:50,tip:'They always steal the floor — capture them before they notice you.'},
+    {t:'The "She Said Yes" Hug',p:50,tip:'The hug after the vows — tight, teary, real.'}
+  ],
+  'Baby Shower':[
+    {t:'The Tiny Shoes',p:50,tip:'Shoes on the dessert table, soft light — the smallest detail, the biggest feels.'},
+    {t:'The Mom Glow Shot',p:50,tip:'Mom laughing, hand on belly, balloons behind her — golden hour if you can.'},
+    {t:'The Color Moment',p:100,tip:'The reveal — every face + the color burst in one frame. THE shot of the day.'},
+    {t:'The Onesie Pile',p:25,tip:'The mountain of tiny clothes — messy, adorable, unstoppable.'},
+    {t:'The Belly Bump',p:50,tip:'Siblings or friends with their hands on the bump — layered, sweet.'},
+    {t:'The Diaper Cake',p:25,tip:'The diaper cake in all its glory — get the bow in focus.'}
+  ],
+  'Anniversary':[
+    {t:'The Wedding Photo Re-Create',p:100,tip:'Same pose, same smiles, older and wiser — side-by-side magic.'},
+    {t:'The "Still Got It" Dip',p:50,tip:'The classic dip — somebody has to catch it on camera.'},
+    {t:'The Toast',p:50,tip:'Glasses raised, eyes on each other — the "to us" moment.'},
+    {t:'The Photo Wall Walk',p:25,tip:'Them walking past their own history — frame the wall + them together.'},
+    {t:'The Handwritten Note',p:50,tip:'A note being read — zoom on the reaction, not the words.'},
+    {t:'The Cake Table Close-Up',p:25,tip:'The topper, the flowers, the years — details tell the story.'}
+  ],
+  'Graduation':[
+    {t:'The Cap Toss',p:100,tip:'Cap against the sky, tassels everywhere — time it with the cheer.'},
+    {t:'The Diploma Grip',p:50,tip:'The white-knuckle grip on the diploma — relief in one hand.'},
+    {t:'The Proud Parents',p:50,tip:'Parents mid-tear — capture them before they fix their faces.'},
+    {t:'The Tassel Flip',p:25,tip:'The tassel flip from left to right — the official "done" moment.'},
+    {t:'The Squad Jump',p:50,tip:'The whole crew airborne at once — countdown it, then jump together.'},
+    {t:'The Cap Decor',p:25,tip:'The decorated cap up close — the bling, the jokes, the glitter.'}
+  ],
+  'Corporate':[
+    {t:'The Team Huddle',p:50,tip:'Hands in, one cheer — the real team moment, not the posed one.'},
+    {t:'The Boss Laughing',p:50,tip:'The boss mid-laugh, tie loosened — proof the party worked.'},
+    {t:'The Awkward Group Photo',p:25,tip:'The classic "everyone staring at the camera" — own the awkward.'},
+    {t:'The Confetti Canon',p:100,tip:'The exact burst — freeze it at full bloom.'},
+    {t:'The Whiteboard Moment',p:25,tip:'A spontaneous brainstorm or a doodle war — work + play in one frame.'},
+    {t:'The Casual Cluster',p:50,tip:'Three coworkers genuinely laughing — no meeting face in sight.'}
+  ],
+  'Just Because':[
+    {t:'The Spontaneous Dance',p:50,tip:'Someone dancing like nobody is watching — they really are not.'},
+    {t:'The Pet Cameo',p:50,tip:'The dog/cat/hamster stealing the party — always the crowd favorite.'},
+    {t:'The Inside Joke',p:25,tip:'Two people mid-laugh at something only they get — pure gold.'},
+    {t:'The Midnight Snack',p:25,tip:'The late-night snack raid — crumbs and all.'},
+    {t:'The "Just Because" Toast',p:100,tip:'Glasses up for no reason at all — the best reason there is.'},
+    {t:'The Living Room Dance-Off',p:50,tip:'Two people going full dance-off — capture the face of the loser.'}
+  ]
+};
+const RANKS=[[0,'Snap Rookie'],[100,'Shutterbug'],[200,'Photo Ninja'],[300,'Party Legend'],[400,'Golden Eye']];
+const TOTAL_PTS=750;
+
+/* ---------- state ---------- */
+let ev='Birthday', mode='live', missions=[], done=new Set(), score=0, timerOn=false, timerLeft=45*60, timerInt=null;
+
+/* ---------- helpers ---------- */
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function rankFor(s){let r=RANKS[0][1];for(const[t,n]of RANKS)if(s>=t)r=n;return r}
+function buildMissions(){
+  const regular = UNIVERSAL.concat(SPECIFIC[ev]).sort(()=>Math.random()-.5);
+  const golden = {t:GOLDEN[ev].t,p:150,tip:GOLDEN[ev].tip,golden:true};
+  missions = regular.concat(golden).sort(()=>Math.random()-.5);
+  done=new Set(); score=0;
+}
+function renderChips(){
+  $('evChips').innerHTML=EVENTS.map(e=>`<button type="button" class="chip${e===ev?' on':''}" data-ev="${e}">${e}</button>`).join('');
+  document.querySelectorAll('#evChips .chip').forEach(c=>c.addEventListener('click',()=>{ev=c.dataset.ev;renderChips();}));
+}
+function renderHunt(){
+  $('huntTitle').textContent='📷 '+ev+' Photo Hunt';
+  $('rankLine').innerHTML='Best so far: <b>'+rankFor(+(localStorage.getItem(LS_KEY)||0))+'</b> — '+missions.length+' missions · '+TOTAL_PTS+' points on the table.';
+  $('missionList').innerHTML=missions.map((m,i)=>{
+    const isDone=done.has(i);
+    return `<div class="mission${isDone?' done':''}${m.golden?' golden':''}" data-i="${i}" role="button" tabindex="0" aria-label="${esc(m.t)}${isDone?' — done':''}">
+      <div class="m-check">${isDone?'✓':''}</div>
+      <div class="m-body"><div class="m-title">${m.golden?'&#127773; ':''}${esc(m.t)}</div><div class="m-tip">${esc(m.tip)}</div></div>
+      <div class="m-pts">${m.p} pts</div>
+    </div>`;
+  }).join('');
+  document.querySelectorAll('.mission').forEach(el=>{
+    const i=+el.dataset.i;
+    const toggle=()=>{done.has(i)?done.delete(i):done.add(i);score=0;done.forEach(d=>score+=missions[d].p);updateScore();renderHunt();};
+    el.addEventListener('click',toggle);
+    el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();}});
+  });
+}
+function updateScore(){
+  $('scorePill').textContent=score+' pts';
+  $('scoreBar').style.width=Math.min(100,score/TOTAL_PTS*100)+'%';
+  $('rankLine').innerHTML='Rank: <b>'+rankFor(score)+'</b>'+(score>=300?' — crushing it!':'')+' · '+done.size+'/'+missions.length+' missions captured'+(score>+(localStorage.getItem(LS_KEY)||0)?' · NEW BEST!':'');
+  if(score>0&&(score===100||score===200||score===300||score===400||score===500||score===750)){confetti(score>=500?70:35);}
+}
+function fmtTime(s){const m=Math.floor(s/60),ss=s%60;return String(m).padStart(2,'0')+':'+String(ss).padStart(2,'0')}
+function startTimer(){
+  if(timerOn){clearInterval(timerInt);timerOn=false;$('timerBtn').textContent='▶ Start timer';$('timerDisp').classList.remove('low');return;}
+  timerOn=true;$('timerBtn').textContent='⏸ Pause';
+  timerInt=setInterval(()=>{
+    timerLeft--;
+    if(timerLeft<=0){clearInterval(timerInt);timerOn=false;$('timerBtn').textContent='▶ Start timer';$('timerDisp').textContent='00:00';$('timerDisp').classList.remove('low');confetti(50);return;}
+    $('timerDisp').textContent=fmtTime(timerLeft);
+    $('timerDisp').classList.toggle('low',timerLeft<=60);
+  },1000);
+}
+/* ---------- confetti ---------- */
+function confetti(n){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  const cols=['#a21caf','#C9A227','#d946ef','#f472b6','#fbbf24','#fff'];
+  for(let i=0;i<n;i++){
+    const c=document.createElement('div');
+    c.className='confetti';
+    c.style.left=Math.random()*100+'vw';
+    c.style.background=cols[i%cols.length];
+    c.style.animationDuration=(2+Math.random()*2.4)+'s';
+    c.style.animationDelay=(Math.random()*.4)+'s';
+    c.style.transform='rotate('+Math.random()*360+'deg)';
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),5200);
+  }
+}
+/* ---------- print card ---------- */
+function buildPrintSheet(){
+  const name=esc($('partyName').value.trim()||ev+' Party');
+  const date=$('partyDate').value?esc($('partyDate').value):'';
+  const list=missions.map((m,i)=>`
+    <div style="display:flex;gap:6px;align-items:flex-start;padding:3px 0;border-bottom:1px dotted #ccc;font-size:10.5px">
+      <span style="flex:0 0 14px;height:14px;border:1px solid #888;border-radius:3px;display:inline-block;margin-top:1px"></span>
+      <span style="flex:1;font-weight:600;color:#4a1d4f">${m.golden?'⭐ ':''}${esc(m.t)}</span>
+      <span style="flex:0 0 auto;font-weight:700;color:#a21caf">${m.p}</span>
+    </div>`).join('');
+  const card=`
+    <div class="print-single">
+      <div style="text-align:center;border-bottom:2px solid #a21caf;padding-bottom:6px;margin-bottom:8px">
+        <div style="font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:#a21caf">🎈 The Party Photo Hunt</div>
+        <div style="font-size:12px;font-weight:700;color:#4a1d4f">${name}${date?' · '+date:''}</div>
+        <div style="font-size:9.5px;color:#888;margin-top:2px">Capture every mission · ${missions.length} shots · ${TOTAL_PTS} pts · most points wins</div>
+      </div>
+      ${list}
+      <div style="margin-top:8px;font-size:9px;color:#888;text-align:center">Tag <b>@everlasting.memories25</b> — Everlasting Memories · myeverlastingmemories.com</div>
+    </div>`;
+  $('printSheet').innerHTML=card+card;
+}
+/* ---------- share ---------- */
+function shareHunt(){
+  const name=$('partyName').value.trim()||ev+' Party';
+  const txt='🎈 '+name+' Photo Hunt — I scored '+score+' pts ('+rankFor(score)+')! '+(done.size)+'/'+missions.length+' missions captured. Build yours free: https://myeverlastingmemories.com/photo-hunt.html';
+  const wa='https://wa.me/?text='+encodeURIComponent(txt);
+  if(navigator.share){navigator.share({title:'Party Photo Hunt',text:txt,url:'https://myeverlastingmemories.com/photo-hunt.html'}).catch(()=>{});}
+  else{window.open(wa,'_blank');}
+}
+/* ---------- lead form ---------- */
+$('leadForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const name=$('fName').value.trim(), email=$('fEmail').value.trim(), phone=$('fPhone').value.trim();
+  const evt=$('fEvent').value, date=$('fDate').value, budget=$('fBudget').value;
+  const extra=$('fMsg').value.trim();
+  const huntPart=' 📸 Photo Hunt: '+missions.length+' missions · scored '+score+' pts ('+rankFor(score)+')';
+  const payload={
+    name,email,phone,
+    eventType: evt,
+    eventDate: date||'',
+    message: '📸 Party Photo Hunt: planning a '+evt+(date?(' on '+date):'')+(budget?(' • budget '+budget):'')+' — '+huntPart+(extra?(' — '+extra):'')+' — wants a quote.',
+    source:'photo-hunt',
+    type:'lead'
+  };
+  const btn=$('submitBtn');
+  btn.disabled=true; btn.textContent='Sending…';
+  try{
+    const res=await fetch('/api/leads.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    if(!res.ok) throw new Error('bad status');
+    const m=$('formMsg');
+    m.className='msg ok';
+    m.textContent='🎉 Sent to Isabella! Expect a reply within 24 hours — and keep the best hunt photos handy, she may ask to see them.';
+    confetti(40);
+    e.target.reset();
+    setTimeout(()=>{m.className='msg';},8000);
+  }catch(err){
+    const m=$('formMsg');
+    m.className='msg err';
+    m.textContent='Hmm, that didn\'t go through. Please try again, or email Isabella directly at Hey.everlasting.memories@gmail.com';
+    setTimeout(()=>{m.className='msg';},7000);
+  }
+  btn.disabled=false; btn.textContent='🎈 Request My Balloon Quote';
+});
+
+/* ---------- wire up ---------- */
+$('buildBtn').addEventListener('click',()=>{buildMissions();renderHunt();updateScore();confetti(18);});
+$('surpriseBtn').addEventListener('click',()=>{
+  ev=EVENTS[Math.floor(Math.random()*EVENTS.length)];
+  const names=['The Surprise Bash','The "Why Not" Party','The Spontaneous Shindig','The Midnight Gathering'];
+  $('partyName').value=names[Math.floor(Math.random()*names.length)];
+  renderChips();buildMissions();renderHunt();updateScore();confetti(40);
+});
+document.querySelectorAll('#modeChips .chip').forEach(c=>c.addEventListener('click',()=>{
+  mode=c.dataset.mode;
+  document.querySelectorAll('#modeChips .chip').forEach(x=>x.classList.toggle('on',x===c));
+  $('timerRow').style.display=mode==='live'?'flex':'none';
+}));
+$('timerBtn').addEventListener('click',startTimer);
+$('resetBtn').addEventListener('click',()=>{
+  clearInterval(timerInt);timerOn=false;timerLeft=45*60;
+  $('timerDisp').textContent=fmtTime(timerLeft);$('timerDisp').classList.remove('low');$('timerBtn').textContent='▶ Start timer';
+  buildMissions();renderHunt();updateScore();
+});
+$('shareHuntBtn').addEventListener('click',shareHunt);
+$('printBtn').addEventListener('click',()=>{buildPrintSheet();window.print();});
+$('printCard').addEventListener('click',()=>{});
+document.querySelectorAll('.faq-q').forEach(q=>q.addEventListener('click',()=>{
+  const a=q.nextElementSibling;
+  const open=a.classList.contains('open');
+  document.querySelectorAll('.faq-a').forEach(x=>x.classList.remove('open'));
+  document.querySelectorAll('.faq-arrow').forEach(x=>x.innerHTML='&#9660;');
+  if(!open){a.classList.add('open');q.querySelector('.faq-arrow').innerHTML='&#9650;';}
+}));
+
+/* ---------- init ---------- */
+renderChips();
+buildMissions();
+renderHunt();
+updateScore();
+
+/* nav dropdown */
+document.querySelector('.em-nav-drop-btn').addEventListener('click',e=>{
+  e.stopPropagation();
+  document.querySelector('.em-nav-drop-menu').classList.toggle('open');
+});
+document.addEventListener('click',()=>document.querySelector('.em-nav-drop-menu').classList.remove('open'));
+</script>
+</body>
+</html>
