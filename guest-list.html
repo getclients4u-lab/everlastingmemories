@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Guest List — RSVP Command Center | Everlasting Memories — Balloon Art & Event Decor</title>
+<meta name="description" content="Track RSVPs, plus-ones and seating for your party in one place. Live headcount, capacity meter, WhatsApp nudges, printable tracker — free forever.">
+<link rel="canonical" href="https://myeverlastingmemories.com/guest-list.html">
+<meta property="og:title" content="The Guest List — RSVP Command Center">
+<meta property="og:description" content="Every party has a guest list. Track RSVPs, plus-ones and tables in one beautiful command center — live headcount, capacity meter, WhatsApp nudges and a printable tracker.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://myeverlastingmemories.com/guest-list.html">
+<meta property="og:image" content="https://myeverlastingmemories.com/logo.jpg">
+<meta property="og:site_name" content="Everlasting Memories">
+<meta name="theme-color" content="#1e3a8a">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="analytics.js" defer></script>
+<style>
+:root{
+  --c1:#1e3a8a;      /* deep navy */
+  --c2:#C9A227;      /* gold */
+  --c3:#2563eb;      /* royal blue */
+  --bg:#f2f5fc;
+  --card:#ffffff;
+  --line:#dbe3f5;
+  --ink:#172554;
+  --soft:#5b6b9e;
+  --yes:#16a34a;
+  --no:#dc2626;
+  --maybe:#d97706;
+  --wait:#64748b;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+.em-nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 22px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;flex-wrap:wrap}
+.em-nav-brand{font-weight:700;color:var(--c1);text-decoration:none;font-size:1rem;font-family:'Playfair Display',serif}
+.em-nav-links{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.em-nav-links a{color:var(--ink);text-decoration:none;font-size:.85rem;font-weight:500}
+.em-nav-links a:hover{color:var(--c2)}
+.em-nav-hot{color:var(--c2)!important;font-weight:700}
+.em-nav-drop{position:relative}
+.em-nav-drop-btn{background:none;border:none;font-family:'Inter',sans-serif;font-size:.85rem;font-weight:500;color:var(--ink);cursor:pointer;padding:4px 2px}
+.em-nav-drop-menu{display:none;position:absolute;right:0;top:calc(100%+8px);background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 34px rgba(30,58,138,.16);min-width:240px;padding:8px;z-index:60}
+.em-nav-drop-menu.open{display:block}
+.em-nav-drop-menu a{display:block;padding:8px 12px;border-radius:9px;font-size:.85rem;color:var(--ink);text-decoration:none}
+.em-nav-drop-menu a:hover{background:var(--bg)}
+.em-nav-cta{background:var(--c1);color:#fff!important;padding:9px 18px;border-radius:999px;font-weight:600;text-decoration:none;font-size:.85rem}
+.em-nav-cta:hover{background:#172554}
+header{max-width:960px;margin:0 auto;padding:44px 22px 10px;text-align:center}
+.home-link{display:inline-block;color:var(--c1);text-decoration:none;font-size:.85rem;font-weight:600;margin-bottom:14px}
+.badge{display:inline-block;background:linear-gradient(135deg,var(--c1),var(--c3));color:#fff;padding:5px 16px;border-radius:999px;font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
+header h1{font-family:'Playfair Display',serif;font-size:2.3rem;color:var(--c1);margin-bottom:10px}
+header p{color:var(--soft);max-width:680px;margin:0 auto;font-size:.98rem}
+.container{max-width:960px;margin:0 auto;padding:0 22px 30px}
+.grid{display:grid;grid-template-columns:1fr 1.15fr;gap:22px;margin-top:22px}
+@media(max-width:860px){.grid{grid-template-columns:1fr}}
+/* ===== cards ===== */
+.card{background:var(--card);border-radius:18px;padding:22px;box-shadow:0 4px 24px rgba(30,58,138,.08);border:1px solid var(--line)}
+.card h2{font-size:1.05rem;color:var(--c1);margin-bottom:4px;font-family:'Playfair Display',serif}
+.card .sub{font-size:.8rem;color:var(--soft);margin-bottom:14px}
+.fg{margin-bottom:12px}
+.fg label{display:block;font-weight:600;font-size:.82rem;margin-bottom:4px;color:var(--c1)}
+.fg input,.fg textarea,.fg select{width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;font-size:.92rem;background:#fff;font-family:'Inter',sans-serif;color:var(--ink)}
+.fg input:focus,.fg textarea:focus,.fg select:focus{outline:none;border-color:var(--c3)}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:480px){.fg-row{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:4px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:6px 13px;font-size:.8rem;font-weight:600;color:var(--soft);cursor:pointer;transition:.2s;font-family:'Inter',sans-serif}
+.chip.on{border-color:var(--c1);background:var(--c1);color:#fff}
+.msg{display:none;border-radius:10px;padding:11px;font-size:.86rem;font-weight:500;margin-bottom:12px;text-align:center}
+.msg.ok{display:block;background:#fef7e6;border:1px solid #e3b23c;color:#7a5a10}
+.msg.err{display:block;background:#fdeeee;border:1px solid #e08a8a;color:#a33}
+.cta-btn{width:100%;border:none;border-radius:12px;padding:13px;font-size:.95rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:.2s;margin-top:4px}
+.cta-btn.primary{background:linear-gradient(135deg,var(--c1),var(--c3));color:#fff}
+.cta-btn.primary:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(30,58,138,.3)}
+.cta-btn.gold{background:linear-gradient(135deg,#b8860b,var(--c2));color:#fff}
+.cta-btn.gold:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(201,162,39,.35)}
+.cta-btn.ghost{background:#fff;border:1.5px solid var(--line);color:var(--c1)}
+.cta-btn.ghost:hover{border-color:var(--c1)}
+.cta-btn:disabled{opacity:.6;cursor:wait;transform:none}
+.cta-btn.small{width:auto;padding:7px 14px;font-size:.8rem;margin:0}
+/* ===== dashboard ===== */
+.dash-col{position:sticky;top:76px;align-self:start}
+@media(max-width:860px){.dash-col{position:static}}
+.dash-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.dash-head h2{font-size:1.05rem}
+.logo-balloon{cursor:pointer;font-size:1.2rem;transition:.2s}
+.logo-balloon:hover{transform:scale(1.15) rotate(-6deg)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:12px 0 4px}
+.stat{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:9px 6px;text-align:center}
+.stat b{display:block;font-size:1.15rem;color:var(--c1);font-variant-numeric:tabular-nums}
+.stat span{font-size:.66rem;color:var(--soft);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.stat.yes b{color:var(--yes)} .stat.no b{color:var(--no)} .stat.maybe b{color:var(--maybe)}
+.cap-row{display:flex;justify-content:space-between;align-items:center;margin:14px 0 6px;font-size:.8rem;font-weight:600;color:var(--c1)}
+.cap-row .pill{background:linear-gradient(135deg,var(--c1),var(--c3));color:#fff;border-radius:999px;padding:4px 12px;font-size:.74rem}
+.bar{height:16px;background:var(--line);border-radius:999px;overflow:hidden;margin:4px 0 6px;display:flex}
+.bar span{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--c1),var(--c3));border-radius:999px;transition:width .5s ease}
+.bar.warn span{background:linear-gradient(90deg,#b45309,var(--maybe))}
+.bar.full span{background:linear-gradient(90deg,var(--no),#f87171)}
+.bar .seg{height:100%;flex:0 0 auto;background:radial-gradient(circle at 30% 30%,#fff,var(--c3) 60%);border-radius:50%;margin:auto 1px;opacity:.9}
+.est{background:linear-gradient(135deg,#fdf9ec,#faf3d9);border:1px solid #f0dfae;border-radius:12px;padding:10px 12px;font-size:.82rem;color:#7a5a10;margin:10px 0}
+.est b{color:#92610a}
+.wisdom{font-size:.72rem;color:var(--soft);text-align:center;margin-top:10px;font-style:italic}
+/* ===== guest rows ===== */
+.filter-row{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.fchip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:5px 11px;font-size:.74rem;font-weight:600;color:var(--soft);cursor:pointer;font-family:'Inter',sans-serif}
+.fchip.on{border-color:var(--c1);background:var(--c1);color:#fff}
+.fchip .n{opacity:.7;font-weight:700}
+.guest{display:flex;gap:10px;align-items:center;padding:10px 12px;border:1.5px solid var(--line);border-radius:12px;margin-bottom:8px;background:#fff;transition:.2s;flex-wrap:wrap}
+.guest:hover{border-color:var(--c3)}
+.gdot{flex:0 0 14px;height:14px;border-radius:50%;background:var(--wait);box-shadow:inset 0 -2px 3px rgba(0,0,0,.18)}
+.gdot.yes{background:var(--yes)} .gdot.no{background:var(--no)} .gdot.maybe{background:var(--maybe)} .gdot.wait{background:var(--wait)}
+.g-main{flex:1;min-width:130px}
+.g-name{font-size:.88rem;font-weight:600}
+.g-meta{font-size:.7rem;color:var(--soft)}
+.g-tags{display:flex;gap:5px;align-items:center;flex-wrap:wrap}
+.g-tag{font-size:.68rem;font-weight:700;border-radius:999px;padding:2px 8px;background:var(--bg);border:1px solid var(--line);color:var(--soft)}
+.g-tag.table{background:#eef2ff;border-color:#c7d2fe;color:#3730a3}
+.g-tag.note{background:#fefce8;border-color:#fde68a;color:#854d0e}
+.plus{display:flex;align-items:center;gap:5px}
+.plus button{width:24px;height:24px;border-radius:8px;border:1.5px solid var(--line);background:#fff;color:var(--c1);font-weight:700;cursor:pointer;font-size:.85rem;line-height:1}
+.plus button:hover{border-color:var(--c1)}
+.plus .pn{font-size:.78rem;font-weight:700;min-width:18px;text-align:center}
+.st-chips{display:flex;gap:4px}
+.st-chips button{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:3px 9px;font-size:.72rem;font-weight:700;cursor:pointer;color:var(--soft);font-family:'Inter',sans-serif}
+.st-chips button.on-yes{border-color:var(--yes);background:var(--yes);color:#fff}
+.st-chips button.on-maybe{border-color:var(--maybe);background:var(--maybe);color:#fff}
+.st-chips button.on-no{border-color:var(--no);background:var(--no);color:#fff}
+.st-chips button.on-wait{border-color:var(--wait);background:var(--wait);color:#fff}
+.del-btn{border:none;background:none;color:#cbd5e1;font-size:1rem;cursor:pointer;padding:2px 4px;line-height:1}
+.del-btn:hover{color:var(--no)}
+.empty{font-size:.82rem;color:var(--soft);text-align:center;padding:20px 0}
+.nudge-box{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:10px 12px;font-size:.78rem;color:var(--ink);margin:10px 0;word-break:break-word}
+.nudge-row{display:flex;gap:8px;margin-top:8px}
+.nudge-row button{flex:1;border:none;border-radius:10px;padding:9px;font-size:.78rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif}
+.btn-wa{background:#25D366;color:#fff}
+.btn-wa:hover{filter:brightness(.95)}
+.btn-copy{background:var(--c1);color:#fff}
+.btn-copy:hover{background:#172554}
+/* ===== toast ===== */
+.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:12px 20px;border-radius:999px;font-size:.84rem;font-weight:600;opacity:0;pointer-events:none;transition:.3s;z-index:100;max-width:90vw;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+/* ===== print ===== */
+.print-sheet{display:none}
+@media print{
+  body *{visibility:hidden}
+  .print-sheet,.print-sheet *{visibility:visible}
+  .print-sheet{display:block;position:absolute;left:0;top:0;width:100%;padding:10mm}
+  .ps-head{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#1e3a8a;border-bottom:2px solid #C9A227;padding-bottom:4mm;margin-bottom:4mm}
+  .ps-head small{font-family:'Inter',sans-serif;font-size:10px;color:#5b6b9e;font-weight:500}
+  .ps-table{width:100%;border-collapse:collapse;font-size:11px}
+  .ps-table th{background:#eef2ff;text-align:left;padding:2mm;border:1px solid #c7d2fe}
+  .ps-table td{padding:2mm;border:1px solid #dbe3f5}
+  .ps-legend{font-size:9px;color:#5b6b9e;margin-top:3mm}
+  .no-print{display:none!important}
+}
+/* ===== faq / facts ===== */
+.faq-q{display:flex;justify-content:space-between;align-items:center;gap:10px;width:100%;background:none;border:none;font-family:'Inter',sans-serif;font-size:.92rem;font-weight:600;color:var(--c1);cursor:pointer;padding:13px 2px;text-align:left}
+.faq-a{display:none;font-size:.86rem;color:var(--soft);padding:0 2px 14px}
+.faq-a.open{display:block}
+.facts{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:22px}
+@media(max-width:560px){.facts{grid-template-columns:1fr}}
+.fact{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;font-size:.82rem;color:var(--soft)}
+.fact b{display:block;color:var(--c1);margin-bottom:3px;font-size:.84rem}
+/* ===== confetti ===== */
+.confetti{position:fixed;top:-12px;width:10px;height:14px;z-index:99;pointer-events:none;animation:confFall linear forwards}
+@keyframes confFall{0%{transform:translateY(0) rotate(0);opacity:1}100%{transform:translateY(105vh) rotate(720deg);opacity:.6}}
+@media (prefers-reduced-motion: reduce){.confetti{animation:none!important}}
+footer{background:#e8edf9;border-top:1px solid var(--line);text-align:center;padding:26px 20px;font-size:.84rem;color:var(--soft);margin-top:10px}
+footer a{color:var(--c1);text-decoration:none;font-weight:600}
+</style>
+</head>
+<body>
+<div class="em-nav" role="navigation" aria-label="Main navigation">
+  <a class="em-nav-brand" href="index.html">&#127881; Everlasting Memories</a>
+  <div class="em-nav-links">
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="about.html">About</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+    <a href="gift-card.html" class="em-nav-hot">Gift Cards</a>
+    <div class="em-nav-drop">
+      <button class="em-nav-drop-btn" type="button" aria-haspopup="true" aria-expanded="false">Tools &#9662;</button>
+      <div class="em-nav-drop-menu">
+          <a href="cost-estimator.html">Estimate Cost</a>
+          <a href="theme-generator.html">Theme Generator</a>
+          <a href="lookbook.html">Lookbook</a>
+          <a href="countdown.html">Countdown</a>
+          <a href="party-style-quiz.html">Party Style Quiz</a>
+          <a href="balloon-math.html">Balloon Math</a>
+          <a href="reserve-date.html">Reserve Your Date</a>
+          <a href="diy-vs-pro.html">DIY vs Pro</a>
+          <a href="palette-snap.html">Palette Snap</a>
+          <a href="name-garland.html">Balloon Letters</a>
+          <a href="budget-builder.html">Budget Builder</a>
+          <a href="transformations.html">The Big Reveal</a>
+          <a href="wedding-workshop.html">Wedding Workshop</a>
+          <a href="balloon-pop.html">Pop Party</a>
+          <a href="invitation-studio.html">Invitation Studio</a>
+          <a href="party-roadmap.html">Party Roadmap</a>
+          <a href="memory-wall.html">Memory Wall</a>
+          <a href="photo-booth.html">Golden Hour Booth</a>
+          <a href="garland-vision.html">Garland Vision</a>
+          <a href="photo-hunt.html">Party Photo Hunt</a>
+          <a href="guest-list.html" style="background:#1e3a8a;color:#fff;">The Guest List</a>
+          <a href="referral.html">Refer &amp; Earn</a>
+        </div>
+    </div>
+  </div>
+  <a class="em-nav-cta" href="cost-estimator.html">Get a Quote</a>
+</div>
+
+<header>
+  <a href="index.html" class="home-link">&#8592; Back to Home</a>
+  <div class="badge">&#127881; New Tonight — The Guest List</div>
+  <h1>&#128221; The Guest List — RSVP Command Center</h1>
+  <p>Every party has a guest list. Now it has a command center: add your guests, tap their RSVP as replies roll in, and watch the headcount, capacity meter and attendance estimate update live. Nudge the stragglers with one tap, print the tracker for the door, and know exactly how many seats — and how many balloons — your party needs.</p>
+</header>
+
+<div class="container">
+
+  <div class="grid">
+    <!-- ============ SETUP + ADD ============ -->
+    <div>
+      <div class="card">
+        <h2>&#127881; Your party</h2>
+        <p class="sub">The command center adapts to your event and headcount.</p>
+        <div class="fg">
+          <label>Event type</label>
+          <div class="chips" id="evChips"></div>
+        </div>
+        <div class="fg-row">
+          <div class="fg"><label for="partyName">Party name (optional)</label><input id="partyName" type="text" maxlength="40" placeholder="e.g. Sophia's Sweet 16"></div>
+          <div class="fg"><label for="partyDate">Party date (optional)</label><input id="partyDate" type="date"></div>
+        </div>
+        <div class="fg-row">
+          <div class="fg"><label for="capacity">Seats / capacity</label><input id="capacity" type="number" min="1" max="500" value="40"></div>
+          <div class="fg"><label for="venue">Venue (optional)</label><input id="venue" type="text" maxlength="40" placeholder="Backyard, hall…"></div>
+        </div>
+        <button class="cta-btn ghost" id="sampleBtn" style="margin-top:2px">&#127922; Surprise Me — add sample guests</button>
+        <button class="cta-btn ghost" id="clearBtn" style="margin-top:8px">&#128465; Clear all guests</button>
+      </div>
+
+      <div class="card" style="margin-top:22px">
+        <h2>&#128104;&#8205;&#128105; Add a guest</h2>
+        <p class="sub">Name, status, plus-ones, table and a note. Press Enter to add fast.</p>
+        <div class="fg-row">
+          <div class="fg"><label for="gName">Name</label><input id="gName" type="text" maxlength="40" placeholder="Guest name"></div>
+          <div class="fg"><label for="gTable">Table (optional)</label><input id="gTable" type="text" maxlength="20" placeholder="e.g. Table 3"></div>
+        </div>
+        <div class="fg-row">
+          <div class="fg"><label for="gStatus">RSVP status</label>
+            <select id="gStatus">
+              <option value="wait">Invited — no reply yet</option>
+              <option value="yes">Yes — coming!</option>
+              <option value="maybe">Maybe</option>
+              <option value="no">No — can't make it</option>
+            </select>
+          </div>
+          <div class="fg"><label>Plus-ones</label>
+            <div class="plus" style="margin-top:6px">
+              <button type="button" id="poMinus" aria-label="Fewer plus-ones">&#8722;</button>
+              <span class="pn" id="poCount">0</span>
+              <button type="button" id="poPlus" aria-label="More plus-ones">+</button>
+            </div>
+          </div>
+        </div>
+        <div class="fg"><label for="gNote">Note (diet, song request… optional)</label><input id="gNote" type="text" maxlength="60" placeholder="e.g. gluten-free"></div>
+        <button class="cta-btn primary" id="addBtn">&#127873; Add Guest</button>
+        <p class="tip" style="font-size:.74rem;color:var(--soft);text-align:center;margin-top:10px">Everything lives in your browser — no account, no upload, no spam.</p>
+      </div>
+
+      <!-- ============ LEAD ============ -->
+      <div class="card" style="margin-top:22px">
+        <h2>&#127881; Now the room they'll walk into</h2>
+        <p class="sub">You know the guest count — Isabella prices decor by the room and the headcount, so tell her the number and she'll reply within 24 hours with ideas and an honest quote.</p>
+        <div class="msg" id="formMsg"></div>
+        <form id="leadForm">
+          <div class="fg-row">
+            <div class="fg"><label for="fName">Name</label><input id="fName" type="text" required placeholder="Your name"></div>
+            <div class="fg"><label for="fEmail">Email</label><input id="fEmail" type="email" required placeholder="you@email.com"></div>
+          </div>
+          <div class="fg-row">
+            <div class="fg"><label for="fPhone">Phone (optional)</label><input id="fPhone" type="tel" placeholder="(203) 555-0123"></div>
+            <div class="fg"><label for="fEvent">Event type</label>
+              <select id="fEvent">
+                <option>Birthday</option><option>Wedding</option><option>Baby Shower</option>
+                <option>Anniversary</option><option>Graduation</option><option>Corporate</option><option>Just Because</option>
+              </select>
+            </div>
+          </div>
+          <div class="fg-row">
+            <div class="fg"><label for="fDate">Event date (optional)</label><input id="fDate" type="date"></div>
+            <div class="fg"><label for="fBudget">Budget (optional)</label>
+              <select id="fBudget">
+                <option value="">Not sure yet</option><option>Under $300</option><option>$300–$700</option>
+                <option>$700–$1,500</option><option>$1,500+</option>
+              </select>
+            </div>
+          </div>
+          <div class="fg"><label for="fMsg">What are you dreaming of? (optional)</label><textarea id="fMsg" rows="2" placeholder="e.g. An organic arch + garland for ~40 guests, gold and navy, backyard wedding."></textarea></div>
+          <button class="cta-btn gold" id="submitBtn" type="submit">&#127873; Request My Balloon Quote</button>
+        </form>
+        <p class="lead-note" style="font-size:.74rem;color:var(--soft);text-align:center;margin-top:10px">No spam, no pressure — just ideas, honest prices, and a 24-hour reply.</p>
+      </div>
+    </div>
+
+    <!-- ============ DASHBOARD + LIST ============ -->
+    <div class="dash-col">
+      <div class="card">
+        <div class="dash-head">
+          <h2><span class="logo-balloon" id="logoBalloon" title="Tap me 5 times…">&#127880;</span> <span id="dashTitle">Your Command Center</span></h2>
+          <span class="pill cap-row" style="margin:0"><span class="pill" id="headPill">0 / 40 seats</span></span>
+        </div>
+        <div class="stats">
+          <div class="stat yes"><b id="stYes">0</b><span>Coming</span></div>
+          <div class="stat maybe"><b id="stMaybe">0</b><span>Maybe</span></div>
+          <div class="stat no"><b id="stNo">0</b><span>Declined</span></div>
+        </div>
+        <div class="cap-row"><span>Capacity used <span id="capPct">0%</span></span><span id="capLabel">room to grow</span></div>
+        <div class="bar" id="capBar" aria-hidden="true"></div>
+        <div class="est">&#128200; <b id="estNum">Expect ~0 guests</b> <span id="estDetail">(confirmed + half the maybes — the classic party math)</span></div>
+        <div class="cap-row" style="margin-top:4px"><span>Pending replies</span><span id="pendPill" style="font-weight:700;color:var(--c1)">0</span></div>
+        <div class="nudge-box" id="nudgeBox" style="display:none">
+          <b>&#128172; Nudge your pending guests:</b><br><span id="nudgeTxt"></span>
+          <div class="nudge-row">
+            <button class="btn-copy" id="copyNudge">&#128203; Copy message</button>
+            <button class="btn-wa" id="waNudge">&#128172; Open WhatsApp</button>
+          </div>
+        </div>
+        <p class="wisdom" id="wisdom">&#127881; "A RSVP'd guest is a happy guest — a nudged one is just busy."</p>
+      </div>
+
+      <div class="card" style="margin-top:22px">
+        <h2>&#128221; Guest list <span id="guestCount" style="font-size:.8rem;color:var(--soft);font-family:'Inter',sans-serif">(0)</span></h2>
+        <div class="filter-row" id="filters">
+          <button class="fchip on" data-f="all">All <span class="n" id="fAll">0</span></button>
+          <button class="fchip" data-f="wait">Pending <span class="n" id="fWait">0</span></button>
+          <button class="fchip" data-f="yes">Yes <span class="n" id="fYes">0</span></button>
+          <button class="fchip" data-f="maybe">Maybe <span class="n" id="fMaybe">0</span></button>
+          <button class="fchip" data-f="no">No <span class="n" id="fNo">0</span></button>
+        </div>
+        <div id="guestList"><p class="empty">Your guests will appear here. Add one above, or hit <b>Surprise Me</b> to see the command center in action.</p></div>
+        <div class="share-row" style="display:flex;gap:10px;margin-top:12px">
+          <button class="btn-wa" id="shareBtn" style="flex:1;border:none;border-radius:11px;padding:11px;font-size:.85rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif">&#128172; Share my party</button>
+          <button class="btn-copy" id="printBtn" style="flex:1;border:none;border-radius:11px;padding:11px;font-size:.85rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif">&#128424; Print tracker</button>
+        </div>
+        <p class="tip no-print" style="font-size:.72rem;color:var(--soft);text-align:center;margin-top:10px">Tip: send the pending guests a nudge — Saturday parties get ~25% more "yes" replies. &#128521;</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ PRINT SHEET (hidden, shown only when printing) ============ -->
+  <div class="print-sheet" id="printSheet" aria-hidden="true">
+    <div class="ps-head">&#127881; <span id="psName">My Party</span> — RSVP Tracker <small id="psMeta"></small></div>
+    <table class="ps-table">
+      <thead><tr><th>#</th><th>Guest</th><th>Status</th><th>Plus-ones</th><th>Table</th><th>Note</th></tr></thead>
+      <tbody id="psBody"></tbody>
+    </table>
+    <p class="ps-legend">&#9679; Yes &nbsp; &#9679; Maybe &nbsp; &#9679; No &nbsp; &#9679; No reply — check the box when they answer. Printed from myeverlastingmemories.com/guest-list.html — Everlasting Memories, Balloon Art &amp; Event Decor.</p>
+  </div>
+
+  <!-- ===== FAQ ===== -->
+  <h2 style="font-family:'Playfair Display',serif;color:var(--c1);margin:26px 2px 4px;font-size:1.4rem">Guest List FAQ</h2>
+  <div class="card" style="margin-top:8px">
+    <div class="faq-item">
+      <button class="faq-q">Is this really free? <span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">100% free, forever, no sign-up, no ads. Your guest list never leaves your browser — it's saved on your own device so it's still there when you come back. The only thing we'd love is a share: tell your guests where the party is, and tag <b>@everlasting.memories25</b> when the balloons go up.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How do plus-ones count? <span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">Every guest with a "Yes" RSVP counts as 1 seat, plus their plus-ones. So a "Yes" with 1 plus-one = 2 seats. Maybes count as half a seat each in the attendance estimate — the classic party math — and "No"s free up their seats. The capacity meter and the "Expect ~N guests" line do all the arithmetic for you.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What should I do when the list fills up? <span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">The meter turns amber at 80% and red at 100% so you see it coming. When you're close to full, it's time for a waitlist — and time to make the room feel bigger: Isabella's arches and backdrops are famous for making packed rooms feel grand, not cramped. Tell her your headcount and she'll design around it.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Why does Isabella need my guest count? <span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">Balloon decor is priced by the room and the space it needs to fill — a 20-person dinner and a 120-person reception want very different arches, garlands and entrance pieces. A real headcount means a real quote the first time, no back-and-forth. That's why the quote form below quietly includes your numbers.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Can I print the tracker? <span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">Yes — hit <b>Print tracker</b> and you'll get a clean RSVP sheet with status checkboxes, plus-one counts, tables and notes. Perfect for the door greeter, the venue coordinator, or the clipboard you'll absolutely lose and find again at midnight.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">I'm planning the whole party — where do I start? <span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">Plan the full event in 5 minutes with the <a href="party-roadmap.html" style="color:var(--c1);font-weight:600">Party Roadmap</a>, send invites from the <a href="invitation-studio.html" style="color:var(--c1);font-weight:600">Invitation Studio</a>, lock the date on <a href="reserve-date.html" style="color:var(--c1);font-weight:600">Reserve Your Date</a>, then track every reply here. On the big night, hand guests a <a href="photo-hunt.html" style="color:var(--c1);font-weight:600">Photo Hunt</a> card and let them capture the rest.</div>
+    </div>
+  </div>
+
+  <!-- ===== FACTS ===== -->
+  <div class="facts">
+    <div class="fact"><b>&#128197; 1 in 3 RSVPs late</b>guests reply in the final week — the nudge button turns stragglers into a full room.</div>
+    <div class="fact"><b>&#129300; Maybes are 50/50</b>plan for half of them and you'll never be caught short on seats or cake.</div>
+    <div class="fact"><b>&#127881; Rooms are priced by headcount</b>Isabella quotes by the space and the guests in it — know your number, get the right design.</div>
+    <div class="fact"><b>&#128172; 200+ events, 97% happy</b>every party Isabella decorates starts with a list exactly like this one.</div>
+  </div>
+
+</div>
+
+<footer>
+  <p><a href="index.html">Everlasting Memories</a> — Balloon Art &amp; Event Decor, Connecticut · <a href="tel:203-981-7244">203-981-7244</a> · <a href="contact.html">Contact</a> · <a href="https://instagram.com/everlasting.memories25" style="color:#C9A87C" target="_blank" rel="noopener">@everlasting.memories25</a></p>
+  <p style="margin-top:6px;">Every garland is hand-built and installed by Isabella — no templates, no shortcuts, no surprise fees.</p>
+  <p style="margin-top:8px;"><a href="guest-list.html" style="color:#1e3a8a;font-weight:600;">The Guest List</a> · <a href="photo-hunt.html" style="color:#a21caf;font-weight:600;">Party Photo Hunt</a> · <a href="photo-booth.html" style="color:#0369a1;font-weight:600;">Golden Hour Booth</a> · <a href="memory-wall.html" style="color:#b45309;font-weight:600;">Memory Wall</a> · <a href="party-roadmap.html" style="color:#0f766e;font-weight:600;">Party Roadmap</a> · <a href="invitation-studio.html" style="color:#312e81;font-weight:600;">Invitation Studio</a> · <a href="balloon-pop.html" style="color:#ea580c;font-weight:600;">Pop Party</a> · <a href="wedding-workshop.html" style="color:#9d174d;font-weight:600;">Wedding Workshop</a> · <a href="transformations.html" style="color:#7c3aed;font-weight:600;">The Big Reveal</a> · <a href="budget-builder.html" style="color:#2f7a52">Budget Balloonist</a> · <a href="referral.html" style="color:#C9A87C">Refer &amp; Earn</a></p>
+</footer>
+
+<script>
+/* ================= The Guest List — RSVP Command Center ================= */
+const $=id=>document.getElementById(id);
+const EVENTS=['Birthday','Wedding','Baby Shower','Anniversary','Graduation','Corporate','Just Because'];
+const LS_KEY='em_guest_list_v1';
+const STATUS_LABEL={yes:'Yes',maybe:'Maybe',no:'No',wait:'Pending'};
+const WISDOM=[
+  'A RSVP\'d guest is a happy guest — a nudged one is just busy.',
+  'Saturday parties get ~25% more "yes" replies. Schedule for Saturday when you can.',
+  'Maybes are 50/50 — plan for half and you\'ll never be short on seats.',
+  'The last week brings 1 in 3 RSVPs. Don\'t panic — nudge.',
+  'Plus-ones are the sneakiest guests: count them, or they count themselves.',
+  'A full room + a grand arch = a grand entrance. Ask Isabella.',
+  'The best parties are the ones where the host isn\'t doing math at the door.',
+  '97% of hosts forget the plus-one math. You won\'t — this page does it for you.'
+];
+const SAMPLES=[
+  {n:'Maria & James',s:'yes',p:2,t:'Table 1',note:'Anniversary couple, front row'},
+  {n:'Uncle Rob',s:'maybe',p:1,t:'Table 2',note:'Only if the game is over'},
+  {n:'Aunt Priya',s:'yes',p:1,t:'Table 1',note:'Vegetarian'},
+  {n:'The Nguyen Family',s:'yes',p:3,t:'Table 3',note:'Kids love balloons'},
+  {n:'Dana',s:'no',p:0,t:'',note:'Out of town — send photos!'},
+  {n:'Chris',s:'wait',p:0,t:'Table 2',note:''},
+  {n:'Sam & Jordan',s:'wait',p:1,t:'Table 3',note:'Ask about the toast'},
+  {n:'Grandma Rose',s:'yes',p:0,t:'Table 1',note:'Needs a chair near the cake'}
+];
+
+let ev='Birthday';
+let guests=[];
+let filter='all';
+let plusOnes=0;
+let milestones={half:false,full:false};
+let balloonClicks=0;
+
+/* ---------- persistence ---------- */
+function load(){
+  try{
+    const raw=localStorage.getItem(LS_KEY);
+    if(raw){const d=JSON.parse(raw);guests=d.guests||[];milestones=d.milestones||{half:false,full:false};return;}
+  }catch(e){}
+  guests=SAMPLES.map(g=>({id:'g'+Math.random().toString(36).slice(2,8),name:g.n,status:g.s,plus:g.p,table:g.t,note:g.note}));
+  milestones={half:false,full:false};
+  save();
+  setTimeout(()=>toast('🎈 These are sample guests to show you around — edit or clear them anytime.'),600);
+}
+function save(){
+  try{localStorage.setItem(LS_KEY,JSON.stringify({guests,milestones}));}catch(e){}
+}
+
+/* ---------- helpers ---------- */
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function popSound(){
+  try{
+    const ctx=new (window.AudioContext||window.webkitAudioContext)();
+    const o=ctx.createOscillator(),g=ctx.createGain();
+    o.frequency.value=380+Math.random()*220;
+    g.gain.setValueAtTime(.12,ctx.currentTime);
+    g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.18);
+    o.connect(g);g.connect(ctx.destination);
+    o.start();o.stop(ctx.currentTime+.2);
+  }catch(e){}
+}
+function toast(msg){
+  let t=$('toastEl');
+  if(!t){t=document.createElement('div');t.id='toastEl';t.className='toast';document.body.appendChild(t);}
+  t.textContent=msg;t.classList.add('show');
+  clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),3200);
+}
+function confetti(n){
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  const colors=['#1e3a8a','#2563eb','#C9A227','#f59e0b','#16a34a','#db2777'];
+  for(let i=0;i<n;i++){
+    const c=document.createElement('div');
+    c.className='confetti';
+    c.style.left=Math.random()*100+'vw';
+    c.style.background=colors[Math.floor(Math.random()*colors.length)];
+    c.style.animationDuration=(2.2+Math.random()*1.6)+'s';
+    c.style.animationDelay=(Math.random()*.4)+'s';
+    c.style.borderRadius=Math.random()>.5?'50%':'2px';
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),4200);
+  }
+}
+
+/* ---------- stats ---------- */
+function stats(){
+  const s={yes:0,maybe:0,no:0,wait:0,plus:0};
+  guests.forEach(g=>{s[g.status]=(s[g.status]||0)+1;s.plus+=(g.status==='yes'?g.plus:0);});
+  const confirmed=s.yes+s.plus;
+  const capacity=Math.max(1,parseInt($('capacity').value)||1);
+  const expected=confirmed+Math.ceil(s.maybe*0.5);
+  const pct=Math.min(100,Math.round(confirmed/capacity*100));
+  return {s,confirmed,capacity,expected,pct};
+}
+
+/* ---------- render ---------- */
+function renderChips(){
+  $('evChips').innerHTML=EVENTS.map(e=>`<button type="button" class="chip${e===ev?' on':''}" data-ev="${e}">${e}</button>`).join('');
+  $('evChips').querySelectorAll('.chip').forEach(b=>b.addEventListener('click',()=>{ev=b.dataset.ev;renderChips();toast('🎉 '+ev+' party — noted!');}));
+}
+function renderDash(){
+  const st=stats(),s=st.s;
+  $('stYes').textContent=st.confirmed;
+  $('stMaybe').textContent=s.maybe;
+  $('stNo').textContent=s.no;
+  $('pendPill').textContent=s.wait;
+  $('headPill').textContent=st.confirmed+' / '+st.capacity+' seats';
+  $('capPct').textContent=st.pct+'%';
+  $('estNum').textContent='Expect ~'+st.expected+' guests';
+  $('estDetail').textContent='('+s.yes+' yes'+(s.plus?' + '+s.plus+' plus-ones':'')+(s.maybe?' + '+s.maybe+' maybes ÷ 2':'')+')';
+  const bar=$('capBar');
+  bar.innerHTML='';
+  const segs=Math.min(40,Math.max(1,Math.round(st.pct/2.5)));
+  for(let i=0;i<segs;i++){const d=document.createElement('span');d.className='seg';d.style.width=(100/segs-1)+'%';bar.appendChild(d);}
+  bar.className='bar'+(st.pct>=100?' full':st.pct>=80?' warn':'');
+  $('capLabel').textContent=st.pct>=100?'list is full — wow!':st.pct>=80?'almost full — waitlist time':'room to grow';
+  if(!milestones.half&&st.pct>=50){milestones.half=true;save();confetti(40);toast('🎉 Half the room is confirmed!');
+    setTimeout(()=>{if(!milestones.full)toast('💡 Tell Isabella the headcount — she designs the decor around it.');},2600);}
+  if(!milestones.full&&st.pct>=100){milestones.full=true;save();confetti(60);toast('🎊 Full house! Isabella\'s arches make full rooms feel grand, not cramped.');}
+}
+function renderList(){
+  const st=stats(),s=st.s;
+  $('guestCount').textContent='('+guests.length+')';
+  $('fAll').textContent=guests.length;
+  $('fWait').textContent=s.wait;$('fYes').textContent=s.yes;$('fMaybe').textContent=s.maybe;$('fNo').textContent=s.no;
+  const list=guests.filter(g=>filter==='all'||g.status===filter);
+  const box=$('guestList');
+  if(!list.length){
+    box.innerHTML='<p class="empty">'+(guests.length?'No guests match this filter.':'Your guests will appear here. Add one above, or hit <b>Surprise Me</b> to see the command center in action.')+'</p>';
+    renderNudge();return;
+  }
+  box.innerHTML=list.map(g=>`
+    <div class="guest" data-id="${g.id}">
+      <span class="gdot ${g.status}" aria-hidden="true"></span>
+      <div class="g-main">
+        <div class="g-name">${esc(g.name)}</div>
+        <div class="g-meta">${STATUS_LABEL[g.status]||'Invited'}${g.plus?' · +'+g.plus:''}</div>
+      </div>
+      <div class="g-tags">
+        ${g.table?'<span class="g-tag table">'+esc(g.table)+'</span>':''}
+        ${g.note?'<span class="g-tag note" title="'+esc(g.note)+'">'+esc(g.note.length>14?g.note.slice(0,14)+'…':g.note)+'</span>':''}
+      </div>
+      <div class="st-chips">
+        <button class="${g.status==='yes'?'on-yes':''}" data-st="yes" title="Coming">&#10003;</button>
+        <button class="${g.status==='maybe'?'on-maybe':''}" data-st="maybe" title="Maybe">&#8764;</button>
+        <button class="${g.status==='no'?'on-no':''}" data-st="no" title="Declined">&#10007;</button>
+        <button class="${g.status==='wait'?'on-wait':''}" data-st="wait" title="Pending">&#9201;</button>
+      </div>
+      <button class="del-btn" title="Remove">&#10005;</button>
+    </div>`).join('');
+  box.querySelectorAll('.guest').forEach(row=>{
+    const id=row.dataset.id;
+    row.querySelectorAll('.st-chips button').forEach(b=>b.addEventListener('click',()=>{
+      const g=guests.find(x=>x.id===id);if(!g)return;
+      g.status=b.dataset.st;save();renderDash();renderList();popSound();confetti(10);
+    }));
+    row.querySelector('.del-btn').addEventListener('click',()=>{
+      guests=guests.filter(x=>x.id!==id);save();renderDash();renderList();toast('🗑️ Guest removed.');
+    });
+  });
+  renderNudge();
+}
+function renderNudge(){
+  const pending=guests.filter(g=>g.status==='wait');
+  const box=$('nudgeBox');
+  if(!pending.length){box.style.display='none';return;}
+  const name=$('partyName').value.trim()||'our party';
+  const date=$('partyDate').value?(' on '+$('partyDate').value):'';
+  const plural=pending.length>1?'s':'';
+  const txt='🎈 Hey! '+name+' is '+date+' and we\'d love to know if you can make it. Quick RSVP (takes 10 seconds): https://myeverlastingmemories.com/guest-list.html — '+pending.length+' guest'+plural+' still deciding.';
+  $('nudgeTxt').textContent=txt;
+  box.style.display='block';
+  $('waNudge').onclick=()=>window.open('https://wa.me/?text='+encodeURIComponent(txt),'_blank');
+  $('copyNudge').onclick=()=>{
+    if(navigator.clipboard){navigator.clipboard.writeText(txt).then(()=>toast('📋 Message copied — paste it in the group chat!')).catch(()=>toast('Copy failed — long-press to copy.'));}
+    else toast('Copy failed — long-press to copy.');
+  };
+}
+
+/* ---------- add / sample / clear ---------- */
+function addGuest(){
+  const name=$('gName').value.trim();
+  if(!name){toast('✏️ Give your guest a name first.');return;}
+  guests.push({id:'g'+Math.random().toString(36).slice(2,8),name,status:$('gStatus').value,plus:plusOnes,table:$('gTable').value.trim(),note:$('gNote').value.trim()});
+  $('gName').value='';$('gTable').value='';$('gNote').value='';plusOnes=0;$('poCount').textContent='0';
+  save();renderDash();renderList();popSound();confetti(8);
+}
+function addSamples(){
+  const names=['Ava & Liam','The Patels','Coach Miller','Jules','Marco','Tía Elena','The Book Club','Big Mike','Sophie + Mom','Dr. Whitfield'];
+  const sts=['yes','yes','maybe','wait','yes','wait','maybe','no','yes','wait'];
+  names.forEach((n,i)=>{
+    guests.push({id:'g'+Math.random().toString(36).slice(2,8),name:n,status:sts[i],plus:i%3===0?1:0,table:'Table '+((i%3)+1),note:i===4?'DJ request: 90s hits':''});
+  });
+  save();renderDash();renderList();confetti(30);toast('🎈 Added 10 sample guests — edit freely!');
+}
+function clearAll(){
+  guests=[];milestones={half:false,full:false};save();renderDash();renderList();toast('🧹 List cleared — fresh start!');
+}
+
+/* ---------- share / print ---------- */
+function shareParty(){
+  const st=stats();
+  const name=$('partyName').value.trim()||'My party';
+  const txt='🎈 '+name+' — '+st.confirmed+' guests confirmed of ~'+st.expected+' expected! Tracking RSVPs free with Everlasting Memories: https://myeverlastingmemories.com/guest-list.html';
+  if(navigator.share){navigator.share({title:'The Guest List',text:txt,url:'https://myeverlastingmemories.com/guest-list.html'}).catch(()=>{});}
+  else window.open('https://wa.me/?text='+encodeURIComponent(txt),'_blank');
+}
+function printTracker(){
+  const name=$('partyName').value.trim()||'My Party';
+  const meta=[$('partyDate').value,$('venue').value.trim(),stats().confirmed+' confirmed'].filter(Boolean).join(' · ');
+  $('psName').textContent=name;
+  $('psMeta').textContent=meta?' — '+meta:'';
+  $('psBody').innerHTML=guests.map((g,i)=>`<tr><td>${i+1}</td><td>${esc(g.name)}</td><td>${STATUS_LABEL[g.status]||'Invited'}</td><td>${g.plus||''}</td><td>${esc(g.table||'')}</td><td>${esc(g.note||'')}</td></tr>`).join('');
+  window.print();
+}
+
+/* ---------- lead form ---------- */
+$('leadForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const name=$('fName').value.trim(),email=$('fEmail').value.trim(),phone=$('fPhone').value.trim();
+  const evt=$('fEvent').value,date=$('fDate').value,budget=$('fBudget').value;
+  const extra=$('fMsg').value.trim();
+  const st=stats();
+  const listPart=' 📋 Guest List: '+guests.length+' invited · '+st.confirmed+' confirmed (+'+st.s.plus+' plus-ones) · '+st.s.maybe+' maybe · ~'+st.expected+' expected of '+st.capacity+' seats';
+  const payload={
+    name,email,phone,
+    eventType:evt,
+    eventDate:date||'',
+    message:'🎈 The Guest List: planning a '+evt+(date?(' on '+date):'')+(budget?(' • budget '+budget):'')+' — '+listPart+(extra?(' — '+extra):'')+' — wants a quote.',
+    source:'guest-list',
+    type:'lead'
+  };
+  const btn=$('submitBtn');
+  btn.disabled=true;btn.textContent='Sending…';
+  try{
+    const res=await fetch('/api/leads.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    if(!res.ok)throw new Error('bad status');
+    const m=$('formMsg');
+    m.className='msg ok';
+    m.textContent='🎉 Sent to Isabella! Expect a reply within 24 hours — she loves a host who knows their headcount.';
+    confetti(40);
+    e.target.reset();
+    setTimeout(()=>{m.className='msg';},8000);
+  }catch(err){
+    const m=$('formMsg');
+    m.className='msg err';
+    m.textContent='Hmm, that didn\'t go through. Please try again, or email Isabella directly at Hey.everlasting.memories@gmail.com';
+    setTimeout(()=>{m.className='msg';},7000);
+  }
+  btn.disabled=false;btn.textContent='🎈 Request My Balloon Quote';
+});
+
+/* ---------- wire up ---------- */
+renderChips();
+$('evChips').addEventListener('click',()=>{}); /* chips handle their own clicks */
+$('capacity').addEventListener('input',()=>{save();renderDash();});
+$('addBtn').addEventListener('click',addGuest);
+$('gName').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();addGuest();}});
+$('sampleBtn').addEventListener('click',addSamples);
+$('clearBtn').addEventListener('click',()=>{if(guests.length&&!confirm('Remove all '+guests.length+' guests?'))return;clearAll();});
+$('poPlus').addEventListener('click',()=>{plusOnes=Math.min(5,plusOnes+1);$('poCount').textContent=plusOnes;});
+$('poMinus').addEventListener('click',()=>{plusOnes=Math.max(0,plusOnes-1);$('poCount').textContent=plusOnes;});
+$('shareBtn').addEventListener('click',shareParty);
+$('printBtn').addEventListener('click',printTracker);
+document.querySelectorAll('.fchip').forEach(f=>f.addEventListener('click',()=>{
+  filter=f.dataset.f;
+  document.querySelectorAll('.fchip').forEach(x=>x.classList.toggle('on',x===f));
+  renderList();
+}));
+$('logoBalloon').addEventListener('click',()=>{
+  balloonClicks++;
+  if(balloonClicks>=5){
+    balloonClicks=0;confetti(50);
+    toast('🎈 Fun fact: Saturday parties get ~25% more "yes" RSVPs — and 3× more balloon photos.');
+  }
+});
+setInterval(()=>{
+  const w=$('wisdom');
+  if(w)w.textContent='🎈 "'+WISDOM[Math.floor(Math.random()*WISDOM.length)]+'"';
+},14000);
+
+/* ---------- boot ---------- */
+load();
+renderDash();
+renderList();
+</script>
+</body>
+</html>
