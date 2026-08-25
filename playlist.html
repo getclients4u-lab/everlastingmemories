@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Party Playlist Studio — Free Party Music Setlist Builder | Everlasting Memories — Balloon Art & Event Decor</title>
+<meta name="description" content="Generate a hand-curated 18-song party playlist in seconds — DJ countdown timer, party soundboard, WhatsApp share. Free forever.">
+<link rel="canonical" href="https://myeverlastingmemories.com/playlist.html">
+<meta property="og:title" content="The Party Playlist Studio">
+<meta property="og:description" content="Every party needs a soundtrack. Pick your occasion + vibe and get a hand-curated 18-song setlist with a DJ countdown, a live party soundboard and one-tap WhatsApp sharing.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://myeverlastingmemories.com/playlist.html">
+<meta property="og:image" content="https://myeverlastingmemories.com/logo.jpg">
+<meta property="og:site_name" content="Everlasting Memories">
+<meta name="theme-color" content="#b91c1c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="analytics.js" defer></script>
+<style>
+:root{
+  --c1:#b91c1c;      /* crimson */
+  --c2:#C9A227;      /* gold */
+  --c3:#e11d48;      /* rose */
+  --bg:#fdf6f4;
+  --card:#ffffff;
+  --line:#f2d9d9;
+  --ink:#4c0519;
+  --soft:#9d6a6a;
+  --good:#16a34a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+.em-nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 22px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;flex-wrap:wrap}
+.em-nav-brand{font-weight:700;color:var(--c1);text-decoration:none;font-size:1rem;font-family:'Playfair Display',serif}
+.em-nav-links{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.em-nav-links a{color:var(--ink);text-decoration:none;font-size:.85rem;font-weight:500}
+.em-nav-links a:hover{color:var(--c2)}
+.em-nav-hot{color:var(--c2)!important;font-weight:700}
+.em-nav-drop{position:relative}
+.em-nav-drop-btn{background:none;border:none;font-family:'Inter',sans-serif;font-size:.85rem;font-weight:500;color:var(--ink);cursor:pointer;padding:4px 2px}
+.em-nav-drop-menu{display:none;position:absolute;right:0;top:calc(100%+8px);background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 34px rgba(185,28,28,.16);min-width:240px;padding:8px;z-index:60}
+.em-nav-drop-menu.open{display:block}
+.em-nav-drop-menu a{display:block;padding:8px 12px;border-radius:9px;font-size:.85rem;color:var(--ink);text-decoration:none}
+.em-nav-drop-menu a:hover{background:var(--bg)}
+.em-nav-cta{background:var(--c1);color:#fff!important;padding:9px 18px;border-radius:999px;font-weight:600;text-decoration:none;font-size:.85rem}
+.em-nav-cta:hover{background:#7f1d1d}
+header{max-width:960px;margin:0 auto;padding:44px 22px 10px;text-align:center}
+.home-link{display:inline-block;color:var(--c1);text-decoration:none;font-size:.85rem;font-weight:600;margin-bottom:14px}
+.badge{display:inline-block;background:linear-gradient(135deg,var(--c1),var(--c3));color:#fff;padding:5px 16px;border-radius:999px;font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
+header h1{font-family:'Playfair Display',serif;font-size:2.3rem;color:var(--c1);margin-bottom:10px}
+header p{color:var(--soft);max-width:680px;margin:0 auto;font-size:.98rem}
+.container{max-width:960px;margin:0 auto;padding:0 22px 30px}
+.grid{display:grid;grid-template-columns:1fr 1.15fr;gap:22px;margin-top:22px}
+@media(max-width:860px){.grid{grid-template-columns:1fr}}
+/* ===== cards ===== */
+.card{background:var(--card);border-radius:18px;padding:22px;box-shadow:0 4px 24px rgba(185,28,28,.08);border:1px solid var(--line)}
+.card h2{font-size:1.05rem;color:var(--c1);margin-bottom:4px;font-family:'Playfair Display',serif}
+.card .sub{font-size:.8rem;color:var(--soft);margin-bottom:14px}
+.fg{margin-bottom:12px}
+.fg label{display:block;font-weight:600;font-size:.82rem;margin-bottom:4px;color:var(--c1)}
+.fg input,.fg textarea,.fg select{width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;font-size:.92rem;background:#fff;font-family:'Inter',sans-serif;color:var(--ink)}
+.fg input:focus,.fg textarea:focus,.fg select:focus{outline:none;border-color:var(--c3)}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:480px){.fg-row{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:4px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:6px 13px;font-size:.8rem;font-weight:600;color:var(--soft);cursor:pointer;transition:.2s;font-family:'Inter',sans-serif}
+.chip.on{border-color:var(--c1);background:var(--c1);color:#fff}
+.vibe-chip{display:flex;align-items:center;gap:7px;border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:5px 12px;font-size:.78rem;font-weight:600;color:var(--soft);cursor:pointer;transition:.2s;font-family:'Inter',sans-serif}
+.vibe-chip.on{border-color:var(--c1);background:var(--c1);color:#fff}
+.vibe-dot{width:11px;height:11px;border-radius:50%;border:1px solid rgba(0,0,0,.15);flex:0 0 auto}
+.msg{display:none;border-radius:10px;padding:11px;font-size:.86rem;font-weight:500;margin-bottom:12px;text-align:center}
+.msg.ok{display:block;background:#fef7e6;border:1px solid #e3b23c;color:#7a5a10}
+.msg.err{display:block;background:#fdeeee;border:1px solid #e08a8a;color:#a33}
+.cta-btn{width:100%;border:none;border-radius:12px;padding:13px;font-size:.95rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:.2s;margin-top:4px}
+.cta-btn.primary{background:linear-gradient(135deg,var(--c1),var(--c3));color:#fff}
+.cta-btn.primary:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(185,28,28,.3)}
+.cta-btn.gold{background:linear-gradient(135deg,#b8860b,var(--c2));color:#fff}
+.cta-btn.gold:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(201,162,39,.35)}
+.cta-btn.ghost{background:#fff;border:1.5px solid var(--line);color:var(--c1)}
+.cta-btn.ghost:hover{border-color:var(--c1)}
+.cta-btn:disabled{opacity:.6;cursor:wait;transform:none}
+.cta-btn.small{width:auto;padding:7px 14px;font-size:.8rem;margin:0}
+/* ===== setlist ===== */
+.setlist-col{position:sticky;top:76px;align-self:start}
+@media(max-width:860px){.setlist-col{position:static}}
+.sl-head{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:4px}
+.sl-head h2{font-size:1.05rem}
+.logo-note{cursor:pointer;font-size:1.2rem;transition:.2s}
+.logo-note:hover{transform:scale(1.15) rotate(-6deg)}
+.sl-meta{font-size:.74rem;color:var(--soft);margin-bottom:12px}
+.sl-meta b{color:var(--c1)}
+.act{margin:14px 0 0}
+.act-head{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.act-head .a-emoji{font-size:1.05rem}
+.act-head .a-name{font-weight:700;font-size:.88rem;color:var(--c1)}
+.act-head .a-desc{font-size:.72rem;color:var(--soft);margin-left:auto;text-align:right}
+.track{display:flex;align-items:center;gap:9px;padding:7px 10px;border:1.5px solid var(--line);border-radius:10px;margin-bottom:6px;background:#fff;transition:.15s}
+.track:hover{border-color:var(--c3)}
+.t-emoji{flex:0 0 auto;font-size:.95rem}
+.t-main{flex:1;min-width:0}
+.t-title{font-size:.84rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.t-artist{font-size:.72rem;color:var(--soft)}
+.t-links{display:flex;gap:5px;flex:0 0 auto}
+.t-links a{text-decoration:none;font-size:.68rem;font-weight:700;border-radius:999px;padding:3px 9px;background:var(--bg);border:1px solid var(--line);color:var(--soft);transition:.15s}
+.t-links a:hover{border-color:var(--c1);color:var(--c1)}
+.t-links a.yt:hover{background:#ff0000;border-color:#ff0000;color:#fff}
+.t-links a.sp:hover{background:#1db954;border-color:#1db954;color:#fff}
+/* ===== countdown ===== */
+.cd-display{font-family:'Playfair Display',serif;font-size:3.2rem;font-weight:700;color:var(--c1);text-align:center;line-height:1;margin:10px 0 4px;font-variant-numeric:tabular-nums;transition:.2s}
+.cd-display.pulse{animation:cdPulse 1s ease infinite}
+@keyframes cdPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.07)}}
+.cd-label{text-align:center;font-size:.78rem;font-weight:700;color:var(--c2);letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px;min-height:1.2em}
+.cd-bar{height:10px;background:var(--line);border-radius:999px;overflow:hidden;margin:8px 0 12px}
+.cd-bar span{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--c1),var(--c3));border-radius:999px;transition:width .3s linear}
+.cd-row{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-bottom:10px}
+.mchip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:5px 11px;font-size:.74rem;font-weight:600;color:var(--soft);cursor:pointer;font-family:'Inter',sans-serif;transition:.15s}
+.mchip.on{border-color:var(--c1);background:var(--c1);color:#fff}
+.cd-ctrl{display:flex;gap:8px}
+.cd-ctrl button{flex:1;border:none;border-radius:11px;padding:10px;font-size:.82rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif}
+.btn-start{background:linear-gradient(135deg,var(--c1),var(--c3));color:#fff}
+.btn-start:hover{filter:brightness(1.05)}
+.btn-pause{background:#fbbf24;color:#78350f}
+.btn-reset{background:var(--bg);border:1.5px solid var(--line)!important;color:var(--soft)}
+/* ===== soundboard ===== */
+.sb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.sb-btn{border:1.5px solid var(--line);background:#fff;border-radius:12px;padding:11px 6px;font-size:.74rem;font-weight:700;color:var(--ink);cursor:pointer;font-family:'Inter',sans-serif;transition:.15s;line-height:1.3}
+.sb-btn:hover{border-color:var(--c1);transform:translateY(-1px)}
+.sb-btn .s-emoji{display:block;font-size:1.15rem;margin-bottom:3px}
+.sb-mute{display:flex;align-items:center;gap:8px;margin-top:10px;font-size:.76rem;font-weight:600;color:var(--soft)}
+.switch{position:relative;width:40px;height:22px;background:var(--line);border-radius:999px;cursor:pointer;transition:.2s;border:none}
+.switch::after{content:'';position:absolute;top:3px;left:3px;width:16px;height:16px;background:#fff;border-radius:50%;transition:.2s;box-shadow:0 1px 3px rgba(0,0,0,.25)}
+.switch.on{background:var(--good)}
+.switch.on::after{left:21px}
+/* ===== toast / confetti ===== */
+.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:12px 20px;border-radius:999px;font-size:.84rem;font-weight:600;opacity:0;pointer-events:none;transition:.3s;z-index:100;max-width:90vw;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.confetti{position:fixed;top:-12px;width:10px;height:14px;z-index:99;pointer-events:none;animation:confFall linear forwards}
+@keyframes confFall{0%{transform:translateY(0) rotate(0);opacity:1}100%{transform:translateY(105vh) rotate(720deg);opacity:.6}}
+@media (prefers-reduced-motion: reduce){.confetti{animation:none!important}.cd-display.pulse{animation:none!important}}
+/* ===== print ===== */
+.print-sheet{display:none}
+@media print{
+  body *{visibility:hidden}
+  .print-sheet,.print-sheet *{visibility:visible}
+  .print-sheet{display:block;position:absolute;left:0;top:0;width:100%;padding:10mm}
+  .ps-head{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#b91c1c;border-bottom:2px solid #C9A227;padding-bottom:4mm;margin-bottom:4mm}
+  .ps-head small{font-family:'Inter',sans-serif;font-size:10px;color:#9d6a6a;font-weight:500}
+  .ps-act{font-size:11px;font-weight:700;color:#b91c1c;margin:3mm 0 1mm}
+  .ps-table{width:100%;border-collapse:collapse;font-size:10.5px;margin-bottom:3mm}
+  .ps-table th{background:#fdecec;text-align:left;padding:1.5mm;border:1px solid #f2d9d9}
+  .ps-table td{padding:1.5mm;border:1px solid #f2d9d9}
+  .no-print{display:none!important}
+}
+/* ===== faq / facts ===== */
+.faq-q{display:flex;justify-content:space-between;align-items:center;gap:10px;width:100%;background:none;border:none;font-family:'Inter',sans-serif;font-size:.92rem;font-weight:600;color:var(--c1);cursor:pointer;padding:13px 2px;text-align:left}
+.faq-a{display:none;font-size:.86rem;color:var(--soft);padding:0 2px 14px}
+.faq-a.open{display:block}
+.facts{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:22px}
+@media(max-width:560px){.facts{grid-template-columns:1fr}}
+.fact{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;font-size:.82rem;color:var(--soft)}
+.fact b{display:block;color:var(--c1);margin-bottom:3px;font-size:.84rem}
+footer{background:#fbecec;border-top:1px solid var(--line);text-align:center;padding:26px 20px;font-size:.84rem;color:var(--soft);margin-top:10px}
+footer a{color:var(--c1);text-decoration:none;font-weight:600}
+</style>
+</head>
+<body>
+<div class="em-nav" role="navigation" aria-label="Main navigation">
+  <a class="em-nav-brand" href="index.html">&#127881; Everlasting Memories</a>
+  <div class="em-nav-links">
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="about.html">About</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+    <a href="gift-card.html" class="em-nav-hot">Gift Cards</a>
+    <div class="em-nav-drop">
+      <button class="em-nav-drop-btn" type="button" aria-haspopup="true" aria-expanded="false">Tools &#9662;</button>
+      <div class="em-nav-drop-menu">
+          <a href="cost-estimator.html">Estimate Cost</a>
+          <a href="theme-generator.html">Theme Generator</a>
+          <a href="lookbook.html">Lookbook</a>
+          <a href="countdown.html">Countdown</a>
+          <a href="party-style-quiz.html">Party Style Quiz</a>
+          <a href="balloon-math.html">Balloon Math</a>
+          <a href="reserve-date.html">Reserve Your Date</a>
+          <a href="diy-vs-pro.html">DIY vs Pro</a>
+          <a href="palette-snap.html">Palette Snap</a>
+          <a href="name-garland.html">Balloon Letters</a>
+          <a href="budget-builder.html">Budget Builder</a>
+          <a href="transformations.html">The Big Reveal</a>
+          <a href="wedding-workshop.html">Wedding Workshop</a>
+          <a href="balloon-pop.html">Pop Party</a>
+          <a href="invitation-studio.html">Invitation Studio</a>
+          <a href="party-roadmap.html">Party Roadmap</a>
+          <a href="memory-wall.html">Memory Wall</a>
+          <a href="photo-booth.html">Golden Hour Booth</a>
+          <a href="garland-vision.html">Garland Vision</a>
+          <a href="photo-hunt.html">Party Photo Hunt</a>
+          <a href="guest-list.html">The Guest List</a>
+          <a href="playlist.html" style="background:#b91c1c;color:#fff;">Party Playlist</a>
+          <a href="referral.html">Refer &amp; Earn</a>
+        </div>
+    </div>
+  </div>
+  <a class="em-nav-cta" href="cost-estimator.html">Get a Quote</a>
+</div>
+
+<header>
+  <a href="index.html" class="home-link">&#8592; Back to Home</a>
+  <div class="badge">&#127925; New Tonight — The Party Playlist</div>
+  <h1>&#127925; The Party Playlist Studio</h1>
+  <p>Every party needs a soundtrack. Pick your occasion and one of Isabella's six signature vibes, and get a hand-curated 18-song setlist in five acts — warm-up to grand finale. Time the big moments with the DJ countdown, fire up the party soundboard, and share the whole setlist on WhatsApp in one tap.</p>
+</header>
+
+<div class="container">
+
+  <div class="grid">
+    <!-- ============ SETUP + DJ + SOUNDBOARD ============ -->
+    <div>
+      <div class="card">
+        <h2>&#127908; Pick your party</h2>
+        <p class="sub">The setlist adapts to your event — and the vibe matches Isabella's real palettes.</p>
+        <div class="fg">
+          <label>Occasion</label>
+          <div class="chips" id="evChips"></div>
+        </div>
+        <div class="fg">
+          <label>Vibe — the mood of the music (and your decor)</label>
+          <div class="chips" id="vibeChips"></div>
+        </div>
+        <div class="fg"><label for="partyName">Party name (optional)</label><input id="partyName" type="text" maxlength="40" placeholder="e.g. Sophia's Sweet 16"></div>
+        <button class="cta-btn ghost" id="surpriseBtn">&#127922; Surprise Me — pick for me</button>
+      </div>
+
+      <div class="card" style="margin-top:22px">
+        <h2>&#9200; DJ Countdown</h2>
+        <p class="sub">Time the moments that make the party: cake, first dance, golden hour, the balloon drop.</p>
+        <div class="cd-row" id="mChips">
+          <button class="mchip on" data-m="Cake Cutting">&#127874; Cake</button>
+          <button class="mchip" data-m="First Dance">&#128131; First Dance</button>
+          <button class="mchip" data-m="Golden Hour">&#127749; Golden Hour</button>
+          <button class="mchip" data-m="Balloon Drop">&#127880; Drop</button>
+          <button class="mchip" data-m="Grand Finale">&#127988; Finale</button>
+        </div>
+        <div class="cd-row" id="minChips">
+          <button class="mchip on" data-min="3">3 min</button>
+          <button class="mchip" data-min="5">5 min</button>
+          <button class="mchip" data-min="10">10 min</button>
+          <button class="mchip" data-min="15">15 min</button>
+        </div>
+        <div class="cd-display" id="cdDisplay">03:00</div>
+        <div class="cd-label" id="cdLabel">&#127874; Cake Cutting</div>
+        <div class="cd-bar" aria-hidden="true"><span id="cdBar"></span></div>
+        <div class="cd-ctrl">
+          <button class="btn-start" id="cdStart">&#9654; Start</button>
+          <button class="btn-reset" id="cdReset">&#8634; Reset</button>
+        </div>
+        <p class="tip" style="font-size:.72rem;color:var(--soft);text-align:center;margin-top:10px">It chimes and pops confetti when the moment arrives — no phone alarm needed. &#128521;</p>
+      </div>
+
+      <div class="card" style="margin-top:22px">
+        <h2>&#128239; Party Soundboard</h2>
+        <p class="sub">Live-synthesized in your browser — no files, no apps, zero downloads.</p>
+        <div class="sb-grid" id="sbGrid">
+          <button class="sb-btn" data-s="horn"><span class="s-emoji">&#128227;</span>Air Horn</button>
+          <button class="sb-btn" data-s="applause"><span class="s-emoji">&#128079;</span>Applause</button>
+          <button class="sb-btn" data-s="pop"><span class="s-emoji">&#127880;</span>Balloon Pop</button>
+          <button class="sb-btn" data-s="whistle"><span class="s-emoji">&#127931;</span>Whistle</button>
+          <button class="sb-btn" data-s="drum"><span class="s-emoji">&#129351;</span>Drumroll</button>
+          <button class="sb-btn" data-s="cheer"><span class="s-emoji">&#127881;</span>Crowd Cheer</button>
+        </div>
+        <div class="sb-mute">
+          <button class="switch on" id="muteBtn" role="switch" aria-checked="true" aria-label="Toggle sound"></button>
+          <span id="muteLbl">Sound on</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============ THE SETLIST + LEAD ============ -->
+    <div class="setlist-col">
+      <div class="card">
+        <div class="sl-head">
+          <h2><span class="logo-note" id="logoNote" title="Tap me 5 times…">&#127925;</span> <span id="slTitle">Your Setlist</span></h2>
+          <span class="pill" id="slCount" style="background:linear-gradient(135deg,var(--c1),var(--c3));color:#fff;border-radius:999px;padding:4px 12px;font-size:.74rem;font-weight:700;">0 tracks</span>
+        </div>
+        <p class="sl-meta" id="slMeta">Pick an occasion and a vibe to build your setlist.</p>
+        <div id="slBody">
+          <p class="empty" style="font-size:.82rem;color:var(--soft);text-align:center;padding:24px 0">Your five-act setlist will appear here. Hit <b>Surprise Me</b> for instant party magic. &#127925;</p>
+        </div>
+        <div class="share-row" style="display:flex;gap:10px;margin-top:12px">
+          <button class="btn-wa" id="shareBtn" style="flex:1;border:none;border-radius:11px;padding:11px;font-size:.85rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;background:#25D366;color:#fff">&#128172; Share on WhatsApp</button>
+          <button class="btn-copy" id="printBtn" style="flex:1;border:none;border-radius:11px;padding:11px;font-size:.85rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;background:var(--c1);color:#fff">&#128424; Print setlist</button>
+        </div>
+      </div>
+
+      <!-- ============ LEAD ============ -->
+      <div class="card" style="margin-top:22px">
+        <h2>&#127881; Make the room match the music</h2>
+        <p class="sub">Tell Isabella your setlist's vibe and she'll reply within 24 hours with decor ideas and an honest quote — a Glam Gold playlist deserves a Glam Gold arch.</p>
+        <div class="msg" id="formMsg"></div>
+        <form id="leadForm">
+          <div class="fg-row">
+            <div class="fg"><label for="fName">Name</label><input id="fName" type="text" required placeholder="Your name"></div>
+            <div class="fg"><label for="fEmail">Email</label><input id="fEmail" type="email" required placeholder="you@email.com"></div>
+          </div>
+          <div class="fg-row">
+            <div class="fg"><label for="fPhone">Phone (optional)</label><input id="fPhone" type="tel" placeholder="(203) 555-0123"></div>
+            <div class="fg"><label for="fEvent">Event type</label>
+              <select id="fEvent">
+                <option>Birthday</option><option>Wedding</option><option>Baby Shower</option>
+                <option>Anniversary</option><option>Graduation</option><option>Corporate</option><option>Just Because</option>
+              </select>
+            </div>
+          </div>
+          <div class="fg-row">
+            <div class="fg"><label for="fDate">Event date (optional)</label><input id="fDate" type="date"></div>
+            <div class="fg"><label for="fBudget">Budget (optional)</label>
+              <select id="fBudget">
+                <option value="">Not sure yet</option><option>Under $300</option><option>$300–$700</option>
+                <option>$700–$1,500</option><option>$1,500+</option>
+              </select>
+            </div>
+          </div>
+          <div class="fg"><label for="fMsg">What are you dreaming of? (optional)</label><textarea id="fMsg" rows="2" placeholder="e.g. A gold organic arch + garland for a 60-person anniversary dinner, candlelight vibe."></textarea></div>
+          <button class="cta-btn gold" id="submitBtn" type="submit">&#127873; Request My Balloon Quote</button>
+        </form>
+        <p class="lead-note" style="font-size:.74rem;color:var(--soft);text-align:center;margin-top:10px">No spam, no pressure — just ideas, honest prices, and a 24-hour reply.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ PRINT SHEET ============ -->
+  <div class="print-sheet" id="printSheet" aria-hidden="true">
+    <div class="ps-head">&#127925; <span id="psName">My Party Setlist</span> <small id="psMeta"></small></div>
+    <div id="psActs"></div>
+    <p style="font-size:9px;color:#9d6a6a;margin-top:2mm">Printed from myeverlastingmemories.com/playlist.html — Everlasting Memories, Balloon Art &amp; Event Decor. Search each song on YouTube or Spotify to preview.</p>
+  </div>
+
+  <!-- ===== FAQ ===== -->
+  <h2 style="font-family:'Playfair Display',serif;color:var(--c1);margin:26px 2px 4px;font-size:1.4rem">Party Playlist FAQ</h2>
+  <div class="card" style="margin-top:8px">
+    <div class="faq-item">
+      <button class="faq-q">Is this really free? <span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">100% free, forever, no sign-up, no ads. The setlist, the DJ countdown and the soundboard all live in your browser. Every song row links out to YouTube and Spotify so you can preview or play instantly — the playlist itself is just smart curation, and we don't host any music files.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Why does the playlist match a decor vibe? <span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">The six vibes — Romantic Bloom, Glam Gold, Party Pop, Modern Muse, Boho Earth and Winter Wonder — are Isabella's real signature palettes. When your music and your decor share a mood, the party feels like one designed thing instead of a pile of borrowed pieces. Tell her the vibe and she'll match the garlands, arch and backdrop to it.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How does the DJ countdown work? <span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">Pick the moment you don't want to miss — cake cutting, first dance, golden hour, balloon drop or the finale — choose 3, 5, 10 or 15 minutes, and hit start. The last ten seconds tick audibly, then a chime + confetti announces the moment. No phone alarm, no "was that 8pm or 9pm?"</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Are these real songs? <span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">Every track is a real, hand-curated crowd-pleaser chosen per occasion — 18 songs in five acts, about an hour of music that flows from arrival to grand finale. Hit the red or green button on any row to jump straight to it on YouTube or Spotify.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Can I print or share the setlist? <span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">Yes — <b>Print setlist</b> renders a clean setlist card for the DJ or the kitchen tablet, and <b>Share on WhatsApp</b> sends the whole playlist with occasion, vibe and highlights to your guests, your partner or your DJ in one tap.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">I'm planning the whole party — where do I start? <span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">Plan the full event in 5 minutes with the <a href="party-roadmap.html" style="color:var(--c1);font-weight:600">Party Roadmap</a>, send invites from the <a href="invitation-studio.html" style="color:var(--c1);font-weight:600">Invitation Studio</a>, track replies on <a href="guest-list.html" style="color:var(--c1);font-weight:600">The Guest List</a>, build the soundtrack here, and hand guests a <a href="photo-hunt.html" style="color:var(--c1);font-weight:600">Photo Hunt</a> card on the night.</div>
+    </div>
+  </div>
+
+  <!-- ===== FACTS ===== -->
+  <div class="facts">
+    <div class="fact"><b>&#127925; 18 songs, 5 acts</b>warm-up to grand finale — about an hour of music that never dips.</div>
+    <div class="fact"><b>&#127912; Vibes are real palettes</b>the six moods are Isabella's actual signature color stories — music and decor in sync.</div>
+    <div class="fact"><b>&#128227; Synthesized live</b>every soundboard effect is generated in your browser — no files, no apps, no downloads.</div>
+    <div class="fact"><b>&#128172; 200+ events, 97% happy</b>every party Isabella decorates starts with a vibe — and a soundtrack.</div>
+  </div>
+
+</div>
+
+<footer>
+  <p><a href="index.html">Everlasting Memories</a> — Balloon Art &amp; Event Decor, Connecticut · <a href="tel:203-981-7244">203-981-7244</a> · <a href="contact.html">Contact</a> · <a href="https://instagram.com/everlasting.memories25" style="color:#C9A87C" target="_blank" rel="noopener">@everlasting.memories25</a></p>
+  <p style="margin-top:6px;">Every garland is hand-built and installed by Isabella — no templates, no shortcuts, no surprise fees.</p>
+  <p style="margin-top:8px;"><a href="playlist.html" style="color:#b91c1c;font-weight:600;">Party Playlist</a> · <a href="guest-list.html" style="color:#1e3a8a;font-weight:600;">The Guest List</a> · <a href="photo-hunt.html" style="color:#a21caf;font-weight:600;">Party Photo Hunt</a> · <a href="photo-booth.html" style="color:#0369a1;font-weight:600;">Golden Hour Booth</a> · <a href="memory-wall.html" style="color:#b45309;font-weight:600;">Memory Wall</a> · <a href="party-roadmap.html" style="color:#0f766e;font-weight:600;">Party Roadmap</a> · <a href="invitation-studio.html" style="color:#312e81;font-weight:600;">Invitation Studio</a> · <a href="balloon-pop.html" style="color:#ea580c;font-weight:600;">Pop Party</a> · <a href="wedding-workshop.html" style="color:#9d174d;font-weight:600;">Wedding Workshop</a> · <a href="transformations.html" style="color:#7c3aed;font-weight:600;">The Big Reveal</a> · <a href="budget-builder.html" style="color:#2f7a52">Budget Balloonist</a> · <a href="referral.html" style="color:#C9A87C">Refer &amp; Earn</a></p>
+</footer>
+
+<script>
+/* ================= The Party Playlist Studio ================= */
+const $=id=>document.getElementById(id);
+const OCCASIONS=['Birthday','Wedding','Baby Shower','Anniversary','Graduation','Corporate','Just Because'];
+const VIBES=[
+  {id:'romantic-bloom',name:'Romantic Bloom',emoji:'🌷',hex:'#e8b4c8',desc:'blush, candlelight, slow dances'},
+  {id:'glam-gold',name:'Glam Gold',emoji:'✨',hex:'#C9A227',desc:'champagne, sparkle, high heels'},
+  {id:'party-pop',name:'Party Pop',emoji:'🎉',hex:'#f472b6',desc:'neon, confetti, dance floor all night'},
+  {id:'modern-muse',name:'Modern Muse',emoji:'🖤',hex:'#8a9a8e',desc:'muted, curated, indie-cool'},
+  {id:'boho-earth',name:'Boho Earth',emoji:'🌿',hex:'#c2703d',desc:'terracotta, lanterns, barefoot vibes'},
+  {id:'winter-wonder',name:'Winter Wonder',emoji:'❄️',hex:'#7dd3fc',desc:'silver bells, fairy lights, cozy glow'}
+];
+/* Each playlist: 5 acts (warm-up 4, dinner 4, dance 5, golden 3, finale 2) = 18 tracks */
+const PLAYLISTS={
+  'Birthday':{name:'Birthday Bash',acts:[
+    {name:'Warm-Up',emoji:'🥂',desc:'arrival & hello',tracks:[
+      ['Happy','Pharrell Williams','😄'],['Can\'t Stop the Feeling!','Justin Timberlake','✨'],['Shake It Off','Taylor Swift','💃'],['Uptown Funk','Bruno Mars','🕺']]},
+    {name:'Dinner & Drift',emoji:'🍽️',desc:'eat, chat, vibe',tracks:[
+      ['Sunday Morning','Maroon 5','☕'],['Budapest','George Ezra','🧳'],['Better Together','Jack Johnson','🌊'],['Ho Hey','The Lumineers','🪕']]},
+    {name:'Dance Floor',emoji:'🕺',desc:'turn it up',tracks:[
+      ['Dance Monkey','Tones and I','🐒'],['Blinding Lights','The Weeknd','🌃'],['I Gotta Feeling','Black Eyed Peas','🎉'],['Yeah!','Usher','🎤'],['Party Rock Anthem','LMFAO','🤖']]},
+    {name:'Golden Hour',emoji:'🌅',desc:'slow it down',tracks:[
+      ['Count on Me','Bruno Mars','🤝'],['You\'ve Got a Friend in Me','Randy Newman','🎹'],['See You Again','Wiz Khalifa ft. Charlie Puth','🕊️']]},
+    {name:'Grand Finale',emoji:'🎆',desc:'end on a high',tracks:[
+      ['Firework','Katy Perry','🧨'],['Don\'t Stop Me Now','Queen','👑']]}
+  ]},
+  'Wedding':{name:'Wedding Day',acts:[
+    {name:'Warm-Up',emoji:'🥂',desc:'guests arriving',tracks:[
+      ['A Thousand Years','Christina Perri','💫'],['Marry You','Bruno Mars','💍'],['Perfect','Ed Sheeran','❤️'],['All of Me','John Legend','🎹']]},
+    {name:'Dinner & Drift',emoji:'🍽️',desc:'toasts & first bites',tracks:[
+      ['At Last','Etta James','🌹'],['L-O-V-E','Nat King Cole','💌'],['Can\'t Help Falling in Love','Elvis Presley','🕰️'],['Make You Feel My Love','Adele','🥀']]},
+    {name:'Dance Floor',emoji:'🕺',desc:'the party opens',tracks:[
+      ['Uptown Funk','Bruno Mars','🕺'],['September','Earth, Wind & Fire','🎷'],['Crazy in Love','Beyoncé','🔥'],['I Wanna Dance with Somebody','Whitney Houston','💃'],['Shout','The Isley Brothers','📣']]},
+    {name:'Golden Hour',emoji:'🌅',desc:'first dance & slow songs',tracks:[
+      ['Thinking Out Loud','Ed Sheeran','🎸'],['Unchained Melody','The Righteous Brothers','🌙'],['The Way You Look Tonight','Frank Sinatra','🎩']]},
+    {name:'Grand Finale',emoji:'🎆',desc:'send-off',tracks:[
+      ['Don\'t Stop Believin\'','Journey','🚌'],['Signed, Sealed, Delivered','Stevie Wonder','📬']]}
+  ]},
+  'Baby Shower':{name:'Baby Bloom',acts:[
+    {name:'Warm-Up',emoji:'🥂',desc:'hello & gifts',tracks:[
+      ['Isn\'t She Lovely','Stevie Wonder','👶'],['What a Wonderful World','Louis Armstrong','🌈'],['You Are My Sunshine','Jimmie Davis','☀️'],['Three Little Birds','Bob Marley','🐦']]},
+    {name:'Dinner & Drift',emoji:'🍽️',desc:'snacks & stories',tracks:[
+      ['Here Comes the Sun','The Beatles','🌻'],['Brown Eyed Girl','Van Morrison','🍀'],['Count on Me','Bruno Mars','🤝'],['Island in the Sun','Weezer','🏝️']]},
+    {name:'Dance Floor',emoji:'🕺',desc:'games & giggles',tracks:[
+      ['Shake It Off','Taylor Swift','💃'],['Happy','Pharrell Williams','😄'],['I\'m a Believer','Smash Mouth','🎤'],['Walking on Sunshine','Katrina & the Waves','☀️'],['Best Day of My Life','American Authors','🎉']]},
+    {name:'Golden Hour',emoji:'🌅',desc:'soft & sweet',tracks:[
+      ['You\'ve Got a Friend','Carole King','🎹'],['Lean on Me','Bill Withers','🤗'],['A Million Dreams','The Greatest Showman Cast','🌠']]},
+    {name:'Grand Finale',emoji:'🎆',desc:'goodbyes with a smile',tracks:[
+      ['Somewhere Over the Rainbow','Israel Kamakawiwoʻole','🌈'],['Sweet Caroline','Neil Diamond','⚾']]}
+  ]},
+  'Anniversary':{name:'Anniversary Gold',acts:[
+    {name:'Warm-Up',emoji:'🥂',desc:'the golden couple arrives',tracks:[
+      ['At Last','Etta James','🌹'],['Just the Way You Are','Bruno Mars','💝'],['The Way You Look Tonight','Frank Sinatra','🎩'],['La Vie en Rose','Édith Piaf','🌹']]},
+    {name:'Dinner & Drift',emoji:'🍽️',desc:'toasts & memories',tracks:[
+      ['Fly Me to the Moon','Frank Sinatra','🌙'],['Moon River','Audrey Hepburn','🛶'],['Unforgettable','Nat King Cole','✨'],['Cheek to Cheek','Fred Astaire','💃']]},
+    {name:'Dance Floor',emoji:'🕺',desc:'everyone on their feet',tracks:[
+      ['September','Earth, Wind & Fire','🎷'],['Dancing Queen','ABBA','👑'],['Can\'t Take My Eyes Off You','Frankie Valli','😍'],['Sway','Dean Martin','💃'],['I Wanna Dance with Somebody','Whitney Houston','🎤']]},
+    {name:'Golden Hour',emoji:'🌅',desc:'their song',tracks:[
+      ['All of Me','John Legend','🎹'],['Thinking Out Loud','Ed Sheeran','🎸'],['Endless Love','Lionel Richie & Diana Ross','💞']]},
+    {name:'Grand Finale',emoji:'🎆',desc:'forever, encore',tracks:[
+      ['What a Wonderful World','Louis Armstrong','🌈'],['Signed, Sealed, Delivered','Stevie Wonder','📬']]}
+  ]},
+  'Graduation':{name:'Graduation Glow',acts:[
+    {name:'Warm-Up',emoji:'🥂',desc:'caps up, cameras out',tracks:[
+      ['Good Riddance (Time of Your Life)','Green Day','🎸'],['Hall of Fame','The Script ft. will.i.am','🏆'],['Firework','Katy Perry','🧨'],['Roar','Katy Perry','🦁']]},
+    {name:'Dinner & Drift',emoji:'🍽️',desc:'family speeches',tracks:[
+      ['Home','Phillip Phillips','🏡'],['The Climb','Miley Cyrus','⛰️'],['Brave','Sara Bareilles','🦋'],['Don\'t Stop Believin\'','Journey','🚌']]},
+    {name:'Dance Floor',emoji:'🕺',desc:'the after-party',tracks:[
+      ['Blinding Lights','The Weeknd','🌃'],['Levitating','Dua Lipa','🚀'],['Uptown Funk','Bruno Mars','🕺'],['Yeah!','Usher','🎤'],['Party Rock Anthem','LMFAO','🤖']]},
+    {name:'Golden Hour',emoji:'🌅',desc:'friends forever',tracks:[
+      ['See You Again','Wiz Khalifa ft. Charlie Puth','🕊️'],['Graduation (Friends Forever)','Vitamin C','🎓'],['I Lived','OneRepublic','🌟']]},
+    {name:'Grand Finale',emoji:'🎆',desc:'go chase it',tracks:[
+      ['We Are the Champions','Queen','👑'],['Celebration','Kool & the Gang','🎊']]}
+  ]},
+  'Corporate':{name:'Company Celebration',acts:[
+    {name:'Warm-Up',emoji:'🥂',desc:'networking, easy mode',tracks:[
+      ['Happy','Pharrell Williams','😄'],['Can\'t Stop the Feeling!','Justin Timberlake','✨'],['Walking on Sunshine','Katrina & the Waves','☀️'],['Best Day of My Life','American Authors','🎉']]},
+    {name:'Dinner & Drift',emoji:'🍽️',desc:'awards & small talk',tracks:[
+      ['Smooth','Santana ft. Rob Thomas','🎸'],['Sunday Morning','Maroon 5','☕'],['Budapest','George Ezra','🧳'],['Ho Hey','The Lumineers','🪕']]},
+    {name:'Dance Floor',emoji:'🕺',desc:'the floor opens',tracks:[
+      ['September','Earth, Wind & Fire','🎷'],['Uptown Funk','Bruno Mars','🕺'],['I Gotta Feeling','Black Eyed Peas','🎉'],['Dancing Queen','ABBA','👑'],['Shout','The Isley Brothers','📣']]},
+    {name:'Golden Hour',emoji:'🌅',desc:'wind down the night',tracks:[
+      ['Don\'t Stop Me Now','Queen','👑'],['Eye of the Tiger','Survivor','🐯'],['Ain\'t No Mountain High Enough','Marvin Gaye & Tammi Terrell','⛰️']]},
+    {name:'Grand Finale',emoji:'🎆',desc:'see you next year',tracks:[
+      ['Celebration','Kool & the Gang','🎊'],['Sweet Caroline','Neil Diamond','⚾']]}
+  ]},
+  'Just Because':{name:'Just Because',acts:[
+    {name:'Warm-Up',emoji:'🥂',desc:'why not?',tracks:[
+      ['Good Vibrations','The Beach Boys','🌊'],['Shake It Off','Taylor Swift','💃'],['Happy','Pharrell Williams','😄'],['Can\'t Stop the Feeling!','Justin Timberlake','✨']]},
+    {name:'Dinner & Drift',emoji:'🍽️',desc:'snacks & sunshine',tracks:[
+      ['Three Little Birds','Bob Marley','🐦'],['Here Comes the Sun','The Beatles','🌻'],['Better Together','Jack Johnson','🌊'],['Island in the Sun','Weezer','🏝️']]},
+    {name:'Dance Floor',emoji:'🕺',desc:'no reason needed',tracks:[
+      ['Uptown Funk','Bruno Mars','🕺'],['Dance Monkey','Tones and I','🐒'],['Blinding Lights','The Weeknd','🌃'],['I Wanna Dance with Somebody','Whitney Houston','💃'],['September','Earth, Wind & Fire','🎷']]},
+    {name:'Golden Hour',emoji:'🌅',desc:'cheers to us',tracks:[
+      ['Don\'t Stop Me Now','Queen','👑'],['Best Day of My Life','American Authors','🎉'],['Walking on Sunshine','Katrina & the Waves','☀️']]},
+    {name:'Grand Finale',emoji:'🎆',desc:'one more song',tracks:[
+      ['Sweet Caroline','Neil Diamond','⚾'],['Celebration','Kool & the Gang','🎊']]}
+  ]}
+};
+const MOMENTS=['Cake Cutting','First Dance','Golden Hour','Balloon Drop','Grand Finale'];
+
+let occ='Birthday';
+let vibe=VIBES[0];
+let cdRemaining=180, cdTotal=180, cdRunning=false, cdTimer=null, cdEnd=0;
+let noteClicks=0;
+
+/* ---------- pure helpers ---------- */
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function buildPlaylistName(o,v){return v.name+' '+PLAYLISTS[o].name;}
+function totalTracks(o){return PLAYLISTS[o].acts.reduce((n,a)=>n+a.tracks.length,0);}
+function estMinutes(o){return Math.round(totalTracks(o)*3.4);}
+function fmtTime(s){s=Math.max(0,Math.round(s));return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0');}
+function ytUrl(t,a){return 'https://www.youtube.com/results?search_query='+encodeURIComponent(t+' '+a);}
+function spUrl(t,a){return 'https://open.spotify.com/search/'+encodeURIComponent(t+' '+a);}
+function shareText(o,v){
+  const p=PLAYLISTS[o];
+  const lines=[];
+  p.acts.forEach(act=>{
+    const t=act.tracks[0];
+    lines.push(act.emoji+' '+act.name+': '+t[0]+' — '+t[1]+(act.tracks[1]?', '+act.tracks[1][0]:''));
+  });
+  return '🎵 '+buildPlaylistName(o,v)+' — my '+o+' party setlist ('+v.name+' vibe, '+totalTracks(o)+' tracks, ~'+estMinutes(o)+' min)'+
+    '\n'+lines.join('\n')+
+    '\nMake yours free: https://myeverlastingmemories.com/playlist.html';
+}
+function leadPayload(name,email,phone,evt,date,budget,extra){
+  const p=PLAYLISTS[occ];
+  return {
+    name,email,phone,
+    eventType:evt,
+    eventDate:date||'',
+    message:'🎵 The Party Playlist: planning a '+evt+(date?(' on '+date):'')+(budget?(' • budget '+budget):'')+' — setlist "'+buildPlaylistName(occ,vibe)+'" ('+vibe.name+' vibe · '+totalTracks(occ)+' tracks · ~'+estMinutes(occ)+' min)'+(extra?(' — '+extra):'')+' — wants decor that matches the music.',
+    source:'party-playlist',
+    type:'lead'
+  };
+}
+
+/* ---------- audio (all synthesized, no files) ---------- */
+let AC=null, master=null, muted=false;
+function ac(){
+  if(!AC){
+    AC=new (window.AudioContext||window.webkitAudioContext)();
+    master=AC.createGain();master.gain.value=1;master.connect(AC.destination);
+  }
+  if(AC.state==='suspended')AC.resume();
+  return AC;
+}
+function env(g,t,a,d,peak){g.gain.setValueAtTime(0.0001,t);g.gain.exponentialRampToValueAtTime(peak,t+a);g.gain.exponentialRampToValueAtTime(0.0001,t+a+d);}
+function tone(type,f,t0,dur,peak,slide){
+  if(muted)return;
+  const ctx=ac(),o=ctx.createOscillator(),g=ctx.createGain();
+  o.type=type;o.frequency.setValueAtTime(f,t0);
+  if(slide)o.frequency.exponentialRampToValueAtTime(Math.max(30,f+slide),t0+dur);
+  env(g,t0,0.01,dur,peak);o.connect(g);g.connect(master);o.start(t0);o.stop(t0+dur+0.05);
+}
+function noiseBurst(t0,dur,peak,freq){
+  if(muted)return;
+  const ctx=ac(),len=Math.floor(ctx.sampleRate*dur),buf=ctx.createBuffer(1,len,ctx.sampleRate),d=buf.getChannelData(0);
+  for(let i=0;i<len;i++)d[i]=Math.random()*2-1;
+  const src=ctx.createBufferSource();src.buffer=buf;
+  const f=ctx.createBiquadFilter();f.type='bandpass';f.frequency.value=freq;
+  const g=ctx.createGain();env(g,t0,0.01,dur,peak);
+  src.connect(f);f.connect(g);g.connect(master);src.start(t0);
+}
+const SOUNDS={
+  horn(){const t=ac().currentTime;tone('sawtooth',220,t,1.0,.22);tone('sawtooth',277.18,t,1.0,.2);tone('sawtooth',329.63,t,1.0,.22);tone('square',440,t,1.0,.08);},
+  applause(){const t=ac().currentTime;for(let i=0;i<9;i++)noiseBurst(t+i*0.11,0.09,0.12+Math.random()*0.1,1100+Math.random()*900);},
+  pop(){tone('sine',420,ac().currentTime,.18,.2,-340);},
+  whistle(){const t=ac().currentTime;tone('sine',1900,t,.16,.16,700);tone('sine',2600,t+.16,.22,.16,-700);},
+  drum(){const t=ac().currentTime;for(let i=0;i<10;i++)tone('triangle',140,t+i*(0.09-i*0.006),.06,.22);},
+  cheer(){
+    const t=ac().currentTime;
+    noiseBurst(t,1.3,.3,1000);
+    const ctx=ac();
+    const lfo=ctx.createOscillator(),lg=ctx.createGain();
+    lfo.frequency.value=3;lg.gain.value=600;lfo.connect(lg);
+    const g=ctx.createGain();env(g,t,.05,1.25,.3);
+    lg.connect(g);g.connect(master);lfo.start(t);lfo.stop(t+1.4);
+    tone('sawtooth',600,t,.5,.08,300);tone('sawtooth',700,t+.35,.5,.08,200);
+  }
+};
+function playSound(k){try{SOUNDS[k]();}catch(e){}}
+
+/* ---------- toast / confetti ---------- */
+function toast(msg){
+  let t=$('toastEl');
+  if(!t){t=document.createElement('div');t.id='toastEl';t.className='toast';document.body.appendChild(t);}
+  t.textContent=msg;t.classList.add('show');
+  clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove('show'),3200);
+}
+function confetti(n){
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  const colors=['#b91c1c','#e11d48','#C9A227','#f59e0b','#16a34a','#7c3aed'];
+  for(let i=0;i<n;i++){
+    const c=document.createElement('div');
+    c.className='confetti';
+    c.style.left=Math.random()*100+'vw';
+    c.style.background=colors[Math.floor(Math.random()*colors.length)];
+    c.style.animationDuration=(2.2+Math.random()*1.6)+'s';
+    c.style.animationDelay=(Math.random()*.4)+'s';
+    c.style.borderRadius=Math.random()>.5?'50%':'2px';
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),4200);
+  }
+}
+
+/* ---------- render ---------- */
+function renderChips(){
+  $('evChips').innerHTML=OCCASIONS.map(e=>`<button type="button" class="chip${e===occ?' on':''}" data-ev="${e}">${e}</button>`).join('');
+  $('evChips').querySelectorAll('.chip').forEach(b=>b.addEventListener('click',()=>{occ=b.dataset.ev;renderChips();renderSetlist();if($('fEvent'))$('fEvent').value=occ;toast('🎉 '+occ+' party — building your setlist!');}));
+  $('vibeChips').innerHTML=VIBES.map(v=>`<button type="button" class="vibe-chip${v.id===vibe.id?' on':''}" data-v="${v.id}"><span class="vibe-dot" style="background:${v.hex}"></span>${v.name}</button>`).join('');
+  $('vibeChips').querySelectorAll('.vibe-chip').forEach(b=>b.addEventListener('click',()=>{
+    vibe=VIBES.find(v=>v.id===b.dataset.v);renderChips();renderSetlist();
+    toast(vibe.emoji+' '+vibe.name+' — '+vibe.desc+'!');
+  }));
+}
+function renderSetlist(){
+  const p=PLAYLISTS[occ],n=totalTracks(occ);
+  $('slTitle').textContent=buildPlaylistName(occ,vibe);
+  $('slCount').textContent=n+' tracks';
+  $('slMeta').innerHTML='<b>'+esc(occ)+'</b> · '+vibe.emoji+' <b>'+esc(vibe.name)+'</b> vibe — '+vibe.desc+' · ~'+estMinutes(occ)+' min of music.';
+  $('slBody').innerHTML=p.acts.map(act=>`
+    <div class="act">
+      <div class="act-head"><span class="a-emoji">${act.emoji}</span><span class="a-name">${esc(act.name)}</span><span class="a-desc">${esc(act.desc)}</span></div>
+      ${act.tracks.map(t=>`
+        <div class="track">
+          <span class="t-emoji">${t[2]}</span>
+          <div class="t-main"><div class="t-title">${esc(t[0])}</div><div class="t-artist">${esc(t[1])}</div></div>
+          <div class="t-links">
+            <a class="yt" href="${ytUrl(t[0],t[1])}" target="_blank" rel="noopener" title="Play on YouTube">&#9654; YT</a>
+            <a class="sp" href="${spUrl(t[0],t[1])}" target="_blank" rel="noopener" title="Play on Spotify">&#127925; SP</a>
+          </div>
+        </div>`).join('')}
+    </div>`).join('');
+}
+/* ---------- countdown ---------- */
+function cdSet(secs){
+  cdTotal=Math.max(1,secs);cdRemaining=cdTotal;cdRunning=false;
+  if(cdTimer){clearInterval(cdTimer);cdTimer=null;}
+  $('cdDisplay').textContent=fmtTime(cdRemaining);
+  $('cdBar').style.width='100%';
+  $('cdStart').textContent='&#9654; Start';
+  $('cdDisplay').classList.remove('pulse');
+}
+function cdTick(){
+  cdRemaining=Math.max(0,(cdEnd-Date.now())/1000);
+  $('cdDisplay').textContent=fmtTime(cdRemaining);
+  $('cdBar').style.width=(cdRemaining/cdTotal*100)+'%';
+  if(cdRemaining<=10&&cdRemaining>0){tone('sine',1000,ac().currentTime,.06,.08);}
+  if(cdRemaining<=0){
+    cdRunning=false;clearInterval(cdTimer);cdTimer=null;
+    $('cdDisplay').textContent='00:00';
+    $('cdDisplay').classList.remove('pulse');
+    $('cdStart').textContent='&#9654; Start';
+    const m=$('cdLabel').textContent;
+    playSound('cheer');playSound('horn');
+    confetti(70);
+    toast('🎉 It\'s time — '+m+'! Go make the moment!');
+  }
+}
+function cdToggle(){
+  if(cdRunning){
+    cdRunning=false;clearInterval(cdTimer);cdTimer=null;
+    $('cdStart').textContent='&#9654; Start';
+    $('cdDisplay').classList.remove('pulse');
+    return;
+  }
+  if(cdRemaining<=0)cdSet(cdTotal);
+  cdRunning=true;cdEnd=Date.now()+cdRemaining*1000;
+  $('cdStart').textContent='&#10074;&#10074; Pause';
+  if(cdRemaining<=10)$('cdDisplay').classList.add('pulse');
+  cdTimer=setInterval(cdTick,250);
+}
+
+/* ---------- lead form ---------- */
+$('leadForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const name=$('fName').value.trim(),email=$('fEmail').value.trim(),phone=$('fPhone').value.trim();
+  const evt=$('fEvent').value,date=$('fDate').value,budget=$('fBudget').value;
+  const extra=$('fMsg').value.trim();
+  const payload=leadPayload(name,email,phone,evt,date,budget,extra);
+  const btn=$('submitBtn');
+  btn.disabled=true;btn.textContent='Sending…';
+  try{
+    const res=await fetch('/api/leads.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    if(!res.ok)throw new Error('bad status');
+    const m=$('formMsg');
+    m.className='msg ok';
+    m.textContent='🎉 Sent to Isabella! Expect a reply within 24 hours — she\'ll match the decor to your vibe.';
+    confetti(40);
+    e.target.reset();
+    setTimeout(()=>{m.className='msg';},8000);
+  }catch(err){
+    const m=$('formMsg');
+    m.className='msg err';
+    m.textContent='Hmm, that didn\'t go through. Please try again, or email Isabella directly at Hey.everlasting.memories@gmail.com';
+    setTimeout(()=>{m.className='msg';},7000);
+  }
+  btn.disabled=false;btn.textContent='🎈 Request My Balloon Quote';
+});
+
+/* ---------- share / print ---------- */
+function sharePlaylist(){
+  const txt=shareText(occ,vibe);
+  if(navigator.share){navigator.share({title:'My Party Playlist',text:txt,url:'https://myeverlastingmemories.com/playlist.html'}).catch(()=>{});}
+  else window.open('https://wa.me/?text='+encodeURIComponent(txt),'_blank');
+}
+function printSetlist(){
+  const p=PLAYLISTS[occ];
+  $('psName').textContent=buildPlaylistName(occ,vibe);
+  $('psMeta').textContent=' — '+occ+' · '+vibe.name+' vibe · '+totalTracks(occ)+' tracks · ~'+estMinutes(occ)+' min';
+  $('psActs').innerHTML=p.acts.map(act=>`
+    <div class="ps-act">${act.emoji} ${esc(act.name)} — ${esc(act.desc)}</div>
+    <table class="ps-table"><thead><tr><th style="width:24px">#</th><th>Song</th><th>Artist</th></tr></thead>
+    <tbody>${act.tracks.map((t,i)=>`<tr><td>${i+1}</td><td>${esc(t[0])}</td><td>${esc(t[1])}</td></tr>`).join('')}</tbody></table>`).join('');
+  window.print();
+}
+
+/* ---------- wire up ---------- */
+renderChips();
+renderSetlist();
+$('surpriseBtn').addEventListener('click',()=>{
+  occ=OCCASIONS[Math.floor(Math.random()*OCCASIONS.length)];
+  vibe=VIBES[Math.floor(Math.random()*VIBES.length)];
+  renderChips();renderSetlist();confetti(30);
+  toast('🎲 '+buildPlaylistName(occ,vibe)+' — enjoy!');
+});
+$('shareBtn').addEventListener('click',sharePlaylist);
+$('printBtn').addEventListener('click',printSetlist);
+$('cdStart').addEventListener('click',cdToggle);
+$('cdReset').addEventListener('click',()=>{cdRunning=false;if(cdTimer){clearInterval(cdTimer);cdTimer=null;}cdSet(cdTotal);});
+$('mChips').querySelectorAll('.mchip').forEach(b=>b.addEventListener('click',()=>{
+  $('mChips').querySelectorAll('.mchip').forEach(x=>x.classList.toggle('on',x===b));
+  $('cdLabel').textContent=b.dataset.m;
+  if(cdRunning){cdRunning=false;clearInterval(cdTimer);cdTimer=null;$('cdStart').textContent='&#9654; Start';}
+}));
+$('minChips').querySelectorAll('.mchip').forEach(b=>b.addEventListener('click',()=>{
+  $('minChips').querySelectorAll('.mchip').forEach(x=>x.classList.toggle('on',x===b));
+  cdSet(parseInt(b.dataset.min,10)*60);
+  toast('⏱️ Countdown set to '+b.dataset.min+' minutes.');
+}));
+$('sbGrid').querySelectorAll('.sb-btn').forEach(b=>b.addEventListener('click',()=>{playSound(b.dataset.s);}));
+$('muteBtn').addEventListener('click',()=>{
+  muted=!muted;
+  $('muteBtn').classList.toggle('on',!muted);
+  $('muteLbl').textContent=muted?'Sound off':'Sound on';
+  $('muteBtn').setAttribute('aria-checked',String(!muted));
+});
+$('logoNote').addEventListener('click',()=>{
+  noteClicks++;
+  if(noteClicks>=5){
+    noteClicks=0;confetti(50);
+    toast('🎧 DJ Isabella approves this setlist — now make the room match the music!');
+  }
+});
+/* nav dropdown toggle */
+document.querySelectorAll('.em-nav-drop-btn').forEach(btn=>{
+  btn.addEventListener('click',e=>{
+    e.stopPropagation();
+    const menu=btn.parentElement.querySelector('.em-nav-drop-menu');
+    document.querySelectorAll('.em-nav-drop-menu.open').forEach(m=>{if(m!==menu)m.classList.remove('open');});
+    menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded',String(menu.classList.contains('open')));
+  });
+});
+document.addEventListener('click',()=>document.querySelectorAll('.em-nav-drop-menu.open').forEach(m=>m.classList.remove('open')));
+
+/* ---------- boot ---------- */
+if($('fEvent'))$('fEvent').value=occ;
+cdSet(180);
+</script>
+</body>
+</html>
