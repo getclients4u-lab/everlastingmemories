@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Memory Capsule — Seal a Memory, Open It at the Party | Everlasting Memories — Balloon Art &amp; Event Decor</title>
+<meta name="description" content="Write a letter, a wish and a wild prediction, seal them in a balloon-wax capsule, and unlock them on party day. Free, private, in your browser.">
+<link rel="canonical" href="https://myeverlastingmemories.com/memory-capsule.html">
+<meta property="og:title" content="The Memory Capsule">
+<meta property="og:description" content="Some moments deserve to be saved until the big day. Write a letter to future you, a wish, and a party prediction — seal them with a balloon-wax stamp, and watch the countdown until they unlock. The first time-travel tool on the site.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://myeverlastingmemories.com/memory-capsule.html">
+<meta property="og:image" content="https://myeverlastingmemories.com/logo.jpg">
+<meta property="og:site_name" content="Everlasting Memories">
+<meta name="theme-color" content="#b91c1c">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="analytics.js" defer></script>
+<style>
+:root{
+  --c1:#b91c1c;      /* crimson */
+  --c2:#C9A227;      /* gold */
+  --c3:#e11d48;      /* rose */
+  --wax:#92400e;     /* wax-seal amber */
+  --bg:#fdf6f4;
+  --card:#ffffff;
+  --line:#f2d9d9;
+  --ink:#4c0519;
+  --soft:#9d6a6a;
+  --good:#16a34a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+.em-nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 22px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;flex-wrap:wrap}
+.em-nav-brand{font-weight:700;color:var(--c1);text-decoration:none;font-size:1rem;font-family:'Playfair Display',serif}
+.em-nav-links{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.em-nav-links a{color:var(--ink);text-decoration:none;font-size:.85rem;font-weight:500}
+.em-nav-links a:hover{color:var(--c2)}
+.em-nav-hot{color:var(--c2)!important;font-weight:700}
+.em-nav-drop{position:relative}
+.em-nav-drop-btn{background:none;border:none;font-family:'Inter',sans-serif;font-size:.85rem;font-weight:500;color:var(--ink);cursor:pointer;padding:4px 2px}
+.em-nav-drop-menu{display:none;position:absolute;right:0;top:calc(100%+8px);background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 34px rgba(185,28,28,.16);min-width:240px;padding:8px;z-index:60}
+.em-nav-drop-menu.open{display:block}
+.em-nav-drop-menu a{display:block;padding:8px 12px;border-radius:9px;font-size:.85rem;color:var(--ink);text-decoration:none}
+.em-nav-drop-menu a:hover{background:var(--bg)}
+.em-nav-cta{background:var(--c1);color:#fff!important;padding:9px 18px;border-radius:999px;font-weight:600;text-decoration:none;font-size:.85rem}
+.em-nav-cta:hover{background:#7f1d1d}
+header{max-width:960px;margin:0 auto;padding:44px 22px 10px;text-align:center}
+.home-link{display:inline-block;color:var(--c1);text-decoration:none;font-size:.85rem;font-weight:600;margin-bottom:14px}
+.badge{display:inline-block;background:linear-gradient(135deg,var(--wax),#d97706);color:#fff;padding:5px 16px;border-radius:999px;font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
+header h1{font-family:'Playfair Display',serif;font-size:2.3rem;color:var(--c1);margin-bottom:10px}
+header p{color:var(--soft);max-width:680px;margin:0 auto;font-size:.98rem}
+.container{max-width:960px;margin:0 auto;padding:0 22px 30px}
+.grid{display:grid;grid-template-columns:1fr 1.15fr;gap:22px;margin-top:22px}
+@media(max-width:860px){.grid{grid-template-columns:1fr}}
+/* ===== cards ===== */
+.card{background:var(--card);border-radius:18px;padding:22px;box-shadow:0 4px 24px rgba(185,28,28,.08);border:1px solid var(--line)}
+.card h2{font-size:1.05rem;color:var(--c1);margin-bottom:4px;font-family:'Playfair Display',serif}
+.card .sub{font-size:.8rem;color:var(--soft);margin-bottom:14px}
+.fg{margin-bottom:12px}
+.fg label{display:block;font-weight:600;font-size:.82rem;margin-bottom:4px;color:var(--c1)}
+.fg input,.fg textarea,.fg select{width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;font-size:.92rem;background:#fff;font-family:'Inter',sans-serif;color:var(--ink)}
+.fg input:focus,.fg textarea:focus,.fg select:focus{outline:none;border-color:var(--wax)}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:480px){.fg-row{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:4px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:6px 13px;font-size:.8rem;font-weight:600;color:var(--soft);cursor:pointer;transition:.2s;font-family:'Inter',sans-serif}
+.chip.on{border-color:var(--wax);background:var(--wax);color:#fff}
+.msg{display:none;border-radius:10px;padding:11px;font-size:.86rem;font-weight:500;margin-bottom:12px;text-align:center}
+.msg.ok{display:block;background:#fef7e6;border:1px solid #e3b23c;color:#7a5a10}
+.msg.err{display:block;background:#fdeeee;border:1px solid #e08a8a;color:#a33}
+.cta-btn{width:100%;border:none;border-radius:12px;padding:13px;font-size:.95rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:.2s;margin-top:4px}
+.cta-btn.primary{background:linear-gradient(135deg,var(--c1),var(--c3));color:#fff}
+.cta-btn.primary:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(185,28,28,.3)}
+.cta-btn.gold{background:linear-gradient(135deg,#b8860b,var(--c2));color:#fff}
+.cta-btn.gold:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(201,162,39,.35)}
+.cta-btn.wax{background:linear-gradient(135deg,var(--wax),#d97706);color:#fff}
+.cta-btn.wax:hover{transform:translateY(-1px);box-shadow:0 8px 22px rgba(146,64,14,.35)}
+.cta-btn.ghost{background:#fff;border:1.5px solid var(--line);color:var(--c1)}
+.cta-btn.ghost:hover{border-color:var(--wax)}
+.cta-btn:disabled{opacity:.6;cursor:wait;transform:none}
+.cta-btn.small{width:auto;padding:7px 14px;font-size:.8rem;margin:0}
+/* ===== capsule stage ===== */
+.stage-col{position:sticky;top:76px;align-self:start}
+@media(max-width:860px){.stage-col{position:static}}
+.stage{background:linear-gradient(160deg,#fff, #fdf0ec);border:1.5px solid var(--line);border-radius:22px;padding:26px 22px;text-align:center;position:relative;overflow:hidden}
+.stage::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 0%,rgba(201,162,39,.10),transparent 60%);pointer-events:none}
+.cap-name{font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--c1);font-weight:700;min-height:1.5em}
+.cap-code{font-size:.72rem;font-weight:700;letter-spacing:.14em;color:var(--wax);text-transform:uppercase;margin-top:2px}
+/* the capsule */
+.cap-wrap{position:relative;width:220px;height:230px;margin:16px auto 8px;cursor:pointer;user-select:none}
+.cap-bottle{position:absolute;left:50%;bottom:0;transform:translateX(-50%);width:150px;height:185px;background:linear-gradient(135deg,#fff8f3,#f5e3da);border:2px solid #e5c9b8;border-radius:26px 26px 40px 40px;box-shadow:inset -14px -18px 30px rgba(185,28,28,.08), 0 14px 30px rgba(185,28,28,.14);overflow:hidden}
+.cap-bottle::after{content:'';position:absolute;inset:8px;border:1.5px dashed rgba(201,162,39,.45);border-radius:18px 18px 32px 32px}
+.cap-glow{position:absolute;left:50%;bottom:26px;transform:translateX(-50%);width:110px;height:40px;background:radial-gradient(ellipse,rgba(201,162,39,.35),transparent 70%);border-radius:50%;filter:blur(4px);transition:.5s}
+.cap-glow.hot{background:radial-gradient(ellipse,rgba(233,168,38,.8),transparent 70%);animation:glowPulse 1.2s ease infinite}
+@keyframes glowPulse{0%,100%{transform:translateX(-50%) scale(1);opacity:.9}50%{transform:translateX(-50%) scale(1.25);opacity:1}}
+.cap-msg{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:118px;text-align:center;font-size:.72rem;font-weight:600;color:var(--soft);line-height:1.45;pointer-events:none}
+.cap-msg b{color:var(--c1)}
+/* wax seal */
+.seal{position:absolute;left:50%;top:8px;transform:translateX(-50%);width:86px;height:86px;z-index:5;transition:.4s}
+.seal.stamped{animation:sealDrop .55s cubic-bezier(.2,1.6,.4,1)}
+@keyframes sealDrop{0%{transform:translateX(-50%) translateY(-130px) rotate(-14deg);opacity:.4}60%{transform:translateX(-50%) translateY(6px) rotate(2deg)}80%{transform:translateX(-50%) translateY(-4px) rotate(-1deg)}100%{transform:translateX(-50%) translateY(0) rotate(0);opacity:1}}
+.seal.cracked{animation:sealCrack .5s ease forwards}
+@keyframes sealCrack{0%{transform:translateX(-50%) rotate(0) scale(1)}40%{transform:translateX(-50%) rotate(-8deg) scale(1.06)}100%{transform:translateX(-50%) rotate(0) scale(0) ;opacity:0}}
+.seal svg{width:100%;height:100%;filter:drop-shadow(0 6px 10px rgba(146,64,14,.35))}
+.cap-lid{position:absolute;left:50%;top:-2px;transform:translateX(-50%);width:168px;height:26px;background:linear-gradient(180deg,#e8c9a8,#d9b18a);border:2px solid #c9a276;border-radius:14px;z-index:4}
+/* countdown */
+.cd-display{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;color:var(--c1);text-align:center;line-height:1;margin:10px 0 4px;font-variant-numeric:tabular-nums;transition:.2s}
+.cd-display.pulse{animation:cdPulse 1s ease infinite}
+@keyframes cdPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+.cd-label{text-align:center;font-size:.78rem;font-weight:700;color:var(--wax);letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px;min-height:1.2em}
+.cd-bar{height:10px;background:var(--line);border-radius:999px;overflow:hidden;margin:8px 0 14px}
+.cd-bar span{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--wax),var(--c2));border-radius:999px;transition:width .3s linear}
+.stage-actions{display:flex;gap:9px;flex-wrap:wrap}
+.stage-actions button{flex:1;min-width:120px;border:none;border-radius:11px;padding:11px 8px;font-size:.8rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:.15s}
+.btn-open{background:linear-gradient(135deg,var(--wax),#d97706);color:#fff}
+.btn-open:hover{filter:brightness(1.06)}
+.btn-open:disabled{opacity:.45;cursor:not-allowed;filter:none}
+.btn-wa{background:#25D366;color:#fff}
+.btn-wa:hover{filter:brightness(1.05)}
+.btn-print{background:var(--c1);color:#fff}
+.btn-print:hover{filter:brightness(1.05)}
+/* ===== shelf ===== */
+.shelf{display:grid;gap:10px;margin-top:6px}
+.shelf-item{display:flex;align-items:center;gap:12px;border:1.5px solid var(--line);border-radius:14px;padding:12px 14px;background:#fff;transition:.15s}
+.shelf-item:hover{border-color:var(--wax)}
+.shelf-dot{flex:0 0 auto;width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--wax),#d97706);display:flex;align-items:center;justify-content:center;font-size:1.15rem;box-shadow:0 3px 8px rgba(146,64,14,.3)}
+.shelf-dot.open{background:linear-gradient(135deg,var(--good),#4ade80)}
+.shelf-main{flex:1;min-width:0}
+.shelf-name{font-size:.86rem;font-weight:700;color:var(--ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.shelf-meta{font-size:.72rem;color:var(--soft)}
+.shelf-meta b{color:var(--wax)}
+.shelf-btn{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:5px 12px;font-size:.72rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;color:var(--soft);transition:.15s}
+.shelf-btn:hover{border-color:var(--wax);color:var(--wax)}
+.shelf-btn.go{background:linear-gradient(135deg,var(--good),#22c55e);border-color:transparent;color:#fff}
+.empty-shelf{font-size:.8rem;color:var(--soft);text-align:center;padding:14px 0;border:1.5px dashed var(--line);border-radius:14px}
+/* ===== reveal ===== */
+.reveal-card{border:1.5px solid var(--line);border-radius:14px;padding:14px;margin-bottom:10px;background:#fff;text-align:left;opacity:0;transform:translateY(10px);transition:.5s}
+.reveal-card.show{opacity:1;transform:none}
+.reveal-card .r-emoji{font-size:1.3rem}
+.reveal-card .r-title{font-weight:700;color:var(--c1);font-size:.86rem;margin:2px 0 4px}
+.reveal-card .r-body{font-size:.88rem;color:var(--ink);white-space:pre-wrap;font-family:'Playfair Display',serif;font-style:italic;line-height:1.6}
+.verdict{display:flex;gap:8px;margin-top:10px;align-items:center;flex-wrap:wrap}
+.verdict button{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:5px 13px;font-size:.74rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;color:var(--soft);transition:.15s}
+.verdict button:hover{border-color:var(--good);color:var(--good)}
+.verdict button.yes.on{background:var(--good);border-color:var(--good);color:#fff}
+.verdict button.no.on{background:#dc2626;border-color:#dc2626;color:#fff}
+.verdict .v-done{font-size:.74rem;font-weight:700;color:var(--good)}
+/* ===== toast / confetti ===== */
+.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:12px 20px;border-radius:999px;font-size:.84rem;font-weight:600;opacity:0;pointer-events:none;transition:.3s;z-index:100;max-width:90vw;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.confetti{position:fixed;top:-12px;width:10px;height:14px;z-index:99;pointer-events:none;animation:confFall linear forwards}
+@keyframes confFall{0%{transform:translateY(0) rotate(0);opacity:1}100%{transform:translateY(105vh) rotate(720deg);opacity:.6}}
+@media (prefers-reduced-motion: reduce){.confetti{animation:none!important}.cd-display.pulse{animation:none!important}.seal.stamped{animation:none!important}}
+/* ===== print ===== */
+.print-sheet{display:none}
+@media print{
+  body *{visibility:hidden}
+  .print-sheet,.print-sheet *{visibility:visible}
+  .print-sheet{display:block;position:absolute;left:0;top:0;width:100%;padding:10mm}
+  .ps-head{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:#b91c1c;border-bottom:2px solid #C9A227;padding-bottom:4mm;margin-bottom:4mm}
+  .ps-head small{font-family:'Inter',sans-serif;font-size:10px;color:#9d6a6a;font-weight:500}
+  .ps-cap{font-size:11px;color:#92400e;font-weight:700;margin:3mm 0 1mm;letter-spacing:.08em;text-transform:uppercase}
+  .ps-note{font-size:11px;color:#4c0519;margin:2mm 0;font-family:'Playfair Display',serif;font-style:italic;white-space:pre-wrap;border-left:2px solid #C9A227;padding-left:3mm}
+  .no-print{display:none!important}
+}
+/* ===== faq / facts ===== */
+.faq-q{display:flex;justify-content:space-between;align-items:center;gap:10px;width:100%;background:none;border:none;font-family:'Inter',sans-serif;font-size:.92rem;font-weight:600;color:var(--c1);cursor:pointer;padding:13px 2px;text-align:left}
+.faq-a{display:none;font-size:.86rem;color:var(--soft);padding:0 2px 14px}
+.faq-a.open{display:block}
+.facts{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:22px}
+@media(max-width:560px){.facts{grid-template-columns:1fr}}
+.fact{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;font-size:.82rem;color:var(--soft)}
+.fact b{display:block;color:var(--c1);margin-bottom:3px;font-size:.84rem}
+footer{background:#fbecec;border-top:1px solid var(--line);text-align:center;padding:26px 20px;font-size:.84rem;color:var(--soft);margin-top:10px}
+footer a{color:var(--c1);text-decoration:none;font-weight:600}
+</style>
+</head>
+<body>
+<div class="em-nav" role="navigation" aria-label="Main navigation">
+  <a class="em-nav-brand" href="index.html">&#127881; Everlasting Memories</a>
+  <div class="em-nav-links">
+    <a href="services.html">Services</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="about.html">About</a>
+    <a href="faq.html">FAQ</a>
+    <a href="contact.html">Contact</a>
+    <a href="gift-card.html" class="em-nav-hot">Gift Cards</a>
+    <div class="em-nav-drop">
+      <button class="em-nav-drop-btn" type="button" aria-haspopup="true" aria-expanded="false">Tools &#9662;</button>
+      <div class="em-nav-drop-menu">
+          <a href="cost-estimator.html">Estimate Cost</a>
+          <a href="theme-generator.html">Theme Generator</a>
+          <a href="lookbook.html">Lookbook</a>
+          <a href="countdown.html">Countdown</a>
+          <a href="party-style-quiz.html">Party Style Quiz</a>
+          <a href="balloon-math.html">Balloon Math</a>
+          <a href="reserve-date.html">Reserve Your Date</a>
+          <a href="diy-vs-pro.html">DIY vs Pro</a>
+          <a href="palette-snap.html">Palette Snap</a>
+          <a href="name-garland.html">Balloon Letters</a>
+          <a href="budget-builder.html">Budget Builder</a>
+          <a href="transformations.html">The Big Reveal</a>
+          <a href="wedding-workshop.html">Wedding Workshop</a>
+          <a href="balloon-pop.html">Pop Party</a>
+          <a href="invitation-studio.html">Invitation Studio</a>
+          <a href="party-roadmap.html">Party Roadmap</a>
+          <a href="memory-wall.html">Memory Wall</a>
+          <a href="photo-booth.html">Golden Hour Booth</a>
+          <a href="garland-vision.html">Garland Vision</a>
+          <a href="photo-hunt.html">Party Photo Hunt</a>
+          <a href="guest-list.html">The Guest List</a>
+          <a href="playlist.html">Party Playlist</a>
+          <a href="memory-capsule.html" style="background:#92400e;color:#fff;">Memory Capsule</a>
+          <a href="referral.html">Refer &amp; Earn</a>
+        </div>
+    </div>
+  </div>
+  <a class="em-nav-cta" href="cost-estimator.html">Get a Quote</a>
+</div>
+
+<header>
+  <a href="index.html" class="home-link">&#8592; Back to Home</a>
+  <div class="badge">&#128302; New Tonight — The Memory Capsule</div>
+  <h1>&#128302; The Memory Capsule</h1>
+  <p>Some moments deserve to be saved until the big day. Write a letter to future you, a wish, and one gloriously confident party prediction — seal them in a capsule with a balloon-wax stamp, and let the countdown begin. It unlocks exactly when you choose: party day, or any day that matters. The first time-travel tool on the site. &#9201;</p>
+</header>
+
+<div class="container">
+
+  <div class="grid">
+    <!-- ============ CREATE + SHELF ============ -->
+    <div>
+      <div class="card" id="createCard">
+        <h2>&#128230; Create a capsule</h2>
+        <p class="sub">Three steps: name the day, write the memories, seal it shut. It lives only in your browser — nobody else can peek. &#128521;</p>
+        <div class="fg">
+          <label for="capEvent">What are we celebrating?</label>
+          <input id="capEvent" type="text" maxlength="40" placeholder="e.g. Sophia's Sweet 16">
+        </div>
+        <div class="fg">
+          <label>Occasion</label>
+          <div class="chips" id="occChips"></div>
+        </div>
+        <div class="fg">
+          <label>Open on… (the capsule unlocks this day)</label>
+          <div class="chips" id="dateChips" style="margin-bottom:8px">
+            <button class="chip" data-offset="0" type="button">&#127881; Party day</button>
+            <button class="chip" data-offset="30" type="button">&#127919; 1 month</button>
+            <button class="chip" data-offset="365" type="button">&#127979; 1 year</button>
+          </div>
+          <input id="capDate" type="date">
+        </div>
+        <div class="fg">
+          <label for="capLetter">&#128140; A letter to future you <span style="font-weight:500;color:var(--soft)">(or to the birthday person)</span></label>
+          <textarea id="capLetter" rows="3" maxlength="500" placeholder="Dear future us… on party day, I hope we remember how much we laughed planning this."></textarea>
+        </div>
+        <div class="fg">
+          <label for="capWish">&#127873; A wish for this day</label>
+          <textarea id="capWish" rows="2" maxlength="300" placeholder="I wish the room feels full of love, and the arch looks even better in person."></textarea>
+        </div>
+        <div class="fg">
+          <label for="capPrediction">&#128302; A party prediction <span style="font-weight:500;color:var(--soft)">(the fun one — you'll score it when it opens)</span></label>
+          <textarea id="capPrediction" rows="2" maxlength="300" placeholder="I predict: the cake gets destroyed in under 3 minutes, and Uncle Mike cries first."></textarea>
+        </div>
+        <button class="cta-btn wax" id="sealBtn">&#128081; Seal it with a balloon-wax stamp</button>
+        <p class="tip" style="font-size:.72rem;color:var(--soft);text-align:center;margin-top:10px">Tip: tap the capsule on the right five times for a secret. &#128064;</p>
+      </div>
+
+      <div class="card" style="margin-top:22px">
+        <h2>&#128722; Your capsule shelf</h2>
+        <p class="sub">Every sealed memory, waiting for its day. Capsules glow when they're ready to open.</p>
+        <div class="shelf" id="shelf"></div>
+      </div>
+    </div>
+
+    <!-- ============ THE CAPSULE + LEAD ============ -->
+    <div class="stage-col">
+      <div class="card">
+        <div class="stage">
+          <div class="cap-name" id="stageName">Your Memory Capsule</div>
+          <div class="cap-code" id="stageCode">&nbsp;</div>
+          <div class="cap-wrap" id="capWrap" title="Tap 5 times…">
+            <div class="cap-lid"></div>
+            <div class="seal" id="seal">
+              <svg viewBox="0 0 100 100" aria-hidden="true">
+                <defs>
+                  <radialGradient id="waxG" cx="35%" cy="30%" r="80%">
+                    <stop offset="0%" stop-color="#c2410c"/>
+                    <stop offset="55%" stop-color="#92400e"/>
+                    <stop offset="100%" stop-color="#7c2d12"/>
+                  </radialGradient>
+                </defs>
+                <circle cx="50" cy="50" r="44" fill="url(#waxG)" stroke="#7c2d12" stroke-width="3"/>
+                <circle cx="50" cy="50" r="44" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="5 4" opacity=".7"/>
+                <circle cx="50" cy="50" r="31" fill="none" stroke="#fcd9a8" stroke-width="1.6" opacity=".9"/>
+                <!-- balloon emblem -->
+                <ellipse cx="50" cy="38" rx="14" ry="17" fill="#fcd9a8" opacity=".95"/>
+                <path d="M50 55 L47 61 L53 61 Z" fill="#fcd9a8"/>
+                <path d="M50 61 Q46 68 48 74" stroke="#fcd9a8" stroke-width="1.4" fill="none"/>
+              </svg>
+            </div>
+            <div class="cap-bottle">
+              <div class="cap-glow" id="capGlow"></div>
+              <div class="cap-msg" id="capMsg">&#128230; Seal a memory to fill me up…</div>
+            </div>
+          </div>
+          <div class="cd-display" id="cdDisplay">--</div>
+          <div class="cd-label" id="cdLabel">seal a capsule to start the clock</div>
+          <div class="cd-bar" aria-hidden="true"><span id="cdBar"></span></div>
+          <div class="stage-actions">
+            <button class="btn-open" id="openBtn" disabled>&#128275; Open</button>
+            <button class="btn-wa" id="shareBtn">&#128172; Share</button>
+            <button class="btn-print" id="printBtn">&#128424; Print card</button>
+          </div>
+        </div>
+        <div id="revealHost" style="margin-top:14px"></div>
+      </div>
+
+      <!-- ============ LEAD ============ -->
+      <div class="card" style="margin-top:22px">
+        <h2>&#127881; Make the day worth the wait</h2>
+        <p class="sub">A sealed memory deserves a party that matches it. Tell Isabella the date and she'll reply within 24 hours with decor ideas and an honest quote — so the real day outshines even your best prediction.</p>
+        <div class="msg" id="formMsg"></div>
+        <form id="leadForm">
+          <div class="fg-row">
+            <div class="fg"><label for="fName">Name</label><input id="fName" type="text" required placeholder="Your name"></div>
+            <div class="fg"><label for="fEmail">Email</label><input id="fEmail" type="email" required placeholder="you@email.com"></div>
+          </div>
+          <div class="fg-row">
+            <div class="fg"><label for="fPhone">Phone (optional)</label><input id="fPhone" type="tel" placeholder="(203) 555-0123"></div>
+            <div class="fg"><label for="fEvent">Event type</label>
+              <select id="fEvent">
+                <option>Birthday</option><option>Wedding</option><option>Baby Shower</option>
+                <option>Anniversary</option><option>Graduation</option><option>Corporate</option><option>Just Because</option>
+              </select>
+            </div>
+          </div>
+          <div class="fg-row">
+            <div class="fg"><label for="fDate">Event date (optional)</label><input id="fDate" type="date"></div>
+            <div class="fg"><label for="fBudget">Budget (optional)</label>
+              <select id="fBudget">
+                <option value="">Not sure yet</option><option>Under $300</option><option>$300–$700</option>
+                <option>$700–$1,500</option><option>$1,500+</option>
+              </select>
+            </div>
+          </div>
+          <div class="fg"><label for="fMsg">What are you dreaming of? (optional)</label><textarea id="fMsg" rows="2" placeholder="e.g. A gold organic arch + garland for a 60-person anniversary dinner, candlelight vibe."></textarea></div>
+          <button class="cta-btn gold" id="submitBtn" type="submit">&#127873; Request My Balloon Quote</button>
+        </form>
+        <p class="lead-note" style="font-size:.74rem;color:var(--soft);text-align:center;margin-top:10px">No spam, no pressure — just ideas, honest prices, and a 24-hour reply.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ PRINT SHEET ============ -->
+  <div class="print-sheet" id="printSheet" aria-hidden="true">
+    <div class="ps-head">&#128302; <span id="psName">My Memory Capsule</span> <small id="psMeta"></small></div>
+    <div id="psBody"></div>
+    <p style="font-size:9px;color:#9d6a6a;margin-top:2mm">Printed from myeverlastingmemories.com/memory-capsule.html — Everlasting Memories, Balloon Art &amp; Event Decor. Sealed with a balloon-wax stamp, opened with confetti.</p>
+  </div>
+
+  <!-- ===== FAQ ===== -->
+  <h2 style="font-family:'Playfair Display',serif;color:var(--c1);margin:26px 2px 4px;font-size:1.4rem">Memory Capsule FAQ</h2>
+  <div class="card" style="margin-top:8px">
+    <div class="faq-item">
+      <button class="faq-q">Where do my memories actually live? <span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">In your browser, on your device — sealed in local storage, never uploaded, never sent anywhere. Even Isabella can't read it (she's very proud of that). Clear your browser data and the capsules vanish with it, so treat them like real keepsakes: they're yours, and only yours.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What happens on opening day? <span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">The capsule starts glowing the moment the clock hits zero. Tap <b>Open</b> — the wax seal cracks, confetti fires, and your letter, wish and prediction are revealed one by one. Then the real party game begins: score your prediction with a tap. <b>&#9989; came true</b> or <b>&#10060; not yet</b> — bragging rights are forever.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Can I open it early? <span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">The seal is stronger than your curiosity. &#128521; Early opening isn't possible — that's the whole point. But you can <b>delete</b> a capsule from your shelf anytime if you want a do-over, and seal a new one in ten seconds.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What makes a good prediction? <span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">Specific, slightly unhinged, and testable. "The cake gets destroyed in under 3 minutes." "Uncle Mike cries first." "Someone pops a balloon with their heel and the whole room jumps." Vague predictions are for people who are afraid of being right.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Can I print or share the capsule? <span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">Yes — <b>Print card</b> renders a beautiful keepsake card with your sealed code and all three messages (or the sealed state, if you'd rather keep the surprise for the big reveal). <b>Share</b> sends the countdown + prediction tease to your guests on WhatsApp — watch them argue about whether it'll come true.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">I'm planning the whole party — where do I start? <span class="faq-arrow">&#9660;</span></button>
+      <div class="faq-a">Plan the full event in 5 minutes with the <a href="party-roadmap.html" style="color:var(--c1);font-weight:600">Party Roadmap</a>, send invites from the <a href="invitation-studio.html" style="color:var(--c1);font-weight:600">Invitation Studio</a>, track replies on <a href="guest-list.html" style="color:var(--c1);font-weight:600">The Guest List</a>, build the soundtrack at the <a href="playlist.html" style="color:var(--c1);font-weight:600">Party Playlist Studio</a> — and seal the memory before the day even happens. Future you will be grateful.</div>
+    </div>
+  </div>
+
+  <!-- ===== FACTS ===== -->
+  <div class="facts">
+    <div class="fact"><b>&#128302; The first time-travel tool</b>every other tool plans the party — this one saves the party for future you.</div>
+    <div class="fact"><b>&#128081; Sealed with a balloon</b>the wax stamp carries the studio's balloon emblem — no two seals break the same way.</div>
+    <div class="fact"><b>&#128274; Truly private</b>capsules live only in your browser. No account, no cloud, no peekers — not even us.</div>
+    <div class="fact"><b>&#127881; 200+ events, 97% happy</b>every party Isabella decorates becomes a memory worth sealing — that's the whole business model.</div>
+  </div>
+
+</div>
+
+<footer>
+  <p><a href="index.html">Everlasting Memories</a> — Balloon Art &amp; Event Decor, Connecticut · <a href="tel:203-981-7244">203-981-7244</a> · <a href="contact.html">Contact</a> · <a href="https://instagram.com/everlasting.memories25" style="color:#C9A87C" target="_blank" rel="noopener">@everlasting.memories25</a></p>
+  <p style="margin-top:6px;">Every garland is hand-built and installed by Isabella — no templates, no shortcuts, no surprise fees.</p>
+  <p style="margin-top:8px;"><a href="memory-capsule.html" style="color:#92400e;font-weight:600;">Memory Capsule</a> · <a href="playlist.html" style="color:#b91c1c;font-weight:600;">Party Playlist</a> · <a href="guest-list.html" style="color:#1e3a8a;font-weight:600;">The Guest List</a> · <a href="photo-hunt.html" style="color:#a21caf;font-weight:600;">Party Photo Hunt</a> · <a href="photo-booth.html" style="color:#0369a1;font-weight:600;">Golden Hour Booth</a> · <a href="memory-wall.html" style="color:#b45309;font-weight:600;">Memory Wall</a> · <a href="party-roadmap.html" style="color:#0f766e;font-weight:600;">Party Roadmap</a> · <a href="invitation-studio.html" style="color:#312e81;font-weight:600;">Invitation Studio</a> · <a href="balloon-pop.html" style="color:#ea580c;font-weight:600;">Pop Party</a> · <a href="wedding-workshop.html" style="color:#9d174d;font-weight:600;">Wedding Workshop</a> · <a href="transformations.html" style="color:#7c3aed;font-weight:600;">The Big Reveal</a> · <a href="budget-builder.html" style="color:#2f7a52">Budget Balloonist</a> · <a href="referral.html" style="color:#C9A87C">Refer &amp; Earn</a></p>
+</footer>
+
+<script>
+/* ================= The Memory Capsule ================= */
+const $=id=>document.getElementById(id);
+const OCCASIONS=['Birthday','Wedding','Baby Shower','Anniversary','Graduation','Corporate','Just Because'];
+const KEY='em_capsules_v1';
+let capsules=[];
+let activeId=null;      // capsule currently shown on the stage
+let tickTimer=null;
+let tapCount=0, tapTimer=null;
+
+/* ---------- storage ---------- */
+function load(){try{capsules=JSON.parse(localStorage.getItem(KEY))||[];}catch(e){capsules=[];}}
+function save(){localStorage.setItem(KEY,JSON.stringify(capsules));}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+
+/* ---------- occasion chips ---------- */
+let occ='Birthday';
+(function(){
+  $('occChips').innerHTML=OCCASIONS.map(o=>`<button class="chip${o===occ?' on':''}" data-o="${o}" type="button">${o}</button>`).join('');
+  $('occChips').addEventListener('click',e=>{
+    const b=e.target.closest('.chip'); if(!b)return;
+    occ=b.dataset.o;
+    document.querySelectorAll('#occChips .chip').forEach(c=>c.classList.toggle('on',c===b));
+  });
+})();
+
+/* ---------- date quick chips ---------- */
+(function(){
+  const today=new Date(); today.setHours(0,0,0,0);
+  $('capDate').min=today.toISOString().split('T')[0];
+  $('dateChips').addEventListener('click',e=>{
+    const b=e.target.closest('.chip'); if(!b)return;
+    const off=parseInt(b.dataset.offset,10);
+    const d=new Date(); d.setHours(0,0,0,0); d.setDate(d.getDate()+off);
+    $('capDate').value=d.toISOString().split('T')[0];
+    document.querySelectorAll('#dateChips .chip').forEach(c=>c.classList.toggle('on',c===b));
+  });
+})();
+
+/* ---------- audio: wax-stamp thunk + crack + chime ---------- */
+let AC=null;
+function ac(){
+  if(!AC){AC=new (window.AudioContext||window.webkitAudioContext)();}
+  if(AC.state==='suspended')AC.resume();
+  return AC;
+}
+function thunk(){
+  try{
+    const ctx=ac(),t=ctx.currentTime;
+    const o=ctx.createOscillator(),g=ctx.createGain();
+    o.type='sine';o.frequency.setValueAtTime(160,t);o.frequency.exponentialRampToValueAtTime(55,t+.18);
+    g.gain.setValueAtTime(.5,t);g.gain.exponentialRampToValueAtTime(.001,t+.3);
+    o.connect(g);g.connect(ctx.destination);o.start(t);o.stop(t+.32);
+  }catch(e){}
+}
+function crack(){
+  try{
+    const ctx=ac(),t=ctx.currentTime;
+    [220,310,180].forEach((f,i)=>{
+      const o=ctx.createOscillator(),g=ctx.createGain();
+      o.type='triangle';o.frequency.setValueAtTime(f,t+i*.05);
+      g.gain.setValueAtTime(.28,t+i*.05);g.gain.exponentialRampToValueAtTime(.001,t+i*.05+.16);
+      o.connect(g);g.connect(ctx.destination);o.start(t+i*.05);o.stop(t+i*.05+.18);
+    });
+  }catch(e){}
+}
+function chime(){
+  try{
+    const ctx=ac(),t=ctx.currentTime;
+    [523.25,659.25,783.99,1046.5].forEach((f,i)=>{
+      const o=ctx.createOscillator(),g=ctx.createGain();
+      o.type='sine';o.frequency.value=f;
+      g.gain.setValueAtTime(.0001,t+i*.12);g.gain.exponentialRampToValueAtTime(.22,t+i*.12+.02);g.gain.exponentialRampToValueAtTime(.001,t+i*.12+.9);
+      o.connect(g);g.connect(ctx.destination);o.start(t+i*.12);o.stop(t+i*.12+1);
+    });
+  }catch(e){}
+}
+
+/* ---------- confetti ---------- */
+const CONF_COLORS=['#b91c1c','#C9A227','#e11d48','#92400e','#f472b6','#fbbf24'];
+function confetti(n=60){
+  for(let i=0;i<n;i++){
+    const c=document.createElement('div');
+    c.className='confetti';
+    c.style.left=Math.random()*100+'vw';
+    c.style.background=CONF_COLORS[Math.floor(Math.random()*CONF_COLORS.length)];
+    c.style.animationDuration=(2.2+Math.random()*2)+'s';
+    c.style.animationDelay=(Math.random()*.4)+'s';
+    c.style.transform='rotate('+Math.random()*360+'deg)';
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),5000);
+  }
+}
+
+/* ---------- toast ---------- */
+let toastTimer=null;
+function toast(msg){
+  const t=$('toast');t.textContent=msg;t.classList.add('show');
+  clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),3600);
+}
+
+/* ---------- helpers ---------- */
+function fmtDate(iso){
+  if(!iso)return '';
+  const d=new Date(iso+'T00:00:00');
+  return d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+}
+function daysUntil(iso){
+  const now=new Date();now.setHours(0,0,0,0);
+  const d=new Date(iso+'T00:00:00');
+  return Math.round((d-now)/86400000);
+}
+function codeGen(){
+  const chars='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  let s='';for(let i=0;i<4;i++)s+=chars[Math.floor(Math.random()*chars.length)];
+  return 'EM-'+s;
+}
+
+/* ---------- seal a new capsule ---------- */
+$('sealBtn').addEventListener('click',()=>{
+  const eventName=$('capEvent').value.trim()||'My Party';
+  const openDate=$('capDate').value;
+  const letter=$('capLetter').value.trim();
+  const wish=$('capWish').value.trim();
+  const prediction=$('capPrediction').value.trim();
+  if(!openDate){toast('📅 Pick an opening day first — the capsule needs a date to travel to.');return;}
+  const today=new Date();today.setHours(0,0,0,0);
+  const d=new Date(openDate+'T00:00:00');
+  if(d<today){toast('⏳ That day already sailed — pick today or a future date.');return;}
+  if(!letter&&!wish&&!prediction){toast('✍️ Write at least one memory — an empty capsule is just a fancy bottle.');return;}
+  const cap={
+    id:'c'+Date.now(),
+    code:codeGen(),
+    eventName,occ,openDate,
+    letter,wish,prediction,
+    sealedAt:new Date().toISOString(),
+    opened:false,openedAt:null,
+    verdict:null // null | true | false
+  };
+  capsules.push(cap);save();
+  activeId=cap.id;
+  // the stamp!
+  const seal=$('seal');
+  seal.classList.remove('cracked','stamped');
+  void seal.offsetWidth;
+  seal.classList.add('stamped');
+  thunk();
+  setTimeout(()=>{
+    toast('🔒 Sealed with a balloon-wax stamp. Time can\'t open this — only '+fmtDate(openDate)+' can.');
+    confetti(30);
+    renderAll();
+  },620);
+  $('capEvent').value='';$('capLetter').value='';$('capWish').value='';$('capPrediction').value='';
+  $('capDate').value='';
+});
+
+/* ---------- stage ---------- */
+function stageCap(id){
+  activeId=id;
+  const cap=capsules.find(c=>c.id===id);
+  if(!cap){resetStage();return;}
+  $('stageName').textContent=cap.eventName;
+  $('stageCode').textContent=cap.code+' · sealed '+fmtDate(cap.sealedAt.slice(0,10));
+  $('capMsg').innerHTML=cap.opened
+    ? '&#128302; Opened '+fmtDate(cap.openedAt.slice(0,10))+' — read it below!'
+    : '<b>'+esc(cap.eventName)+'</b><br>opens '+fmtDate(cap.openDate);
+  const glow=$('capGlow');
+  glow.classList.toggle('hot',!cap.opened&&daysUntil(cap.openDate)<=0);
+  const seal=$('seal');
+  if(cap.opened){seal.classList.add('cracked');}
+  else{seal.classList.remove('cracked');seal.style.opacity='1';}
+  const openBtn=$('openBtn');
+  openBtn.disabled=cap.opened||daysUntil(cap.openDate)>0;
+  openBtn.textContent=cap.opened?'🔓 Opened':'🔓 Open';
+  startTick();
+}
+
+function resetStage(){
+  activeId=null;
+  $('stageName').textContent='Your Memory Capsule';
+  $('stageCode').textContent='\u00a0';
+  $('capMsg').innerHTML='&#128230; Seal a memory to fill me up…';
+  $('capGlow').classList.remove('hot');
+  $('seal').classList.remove('cracked','stamped');
+  $('seal').style.opacity='1';
+  $('openBtn').disabled=true;
+  $('cdDisplay').textContent='--';
+  $('cdLabel').textContent='seal a capsule to start the clock';
+  $('cdBar').style.width='0%';
+}
+
+function startTick(){
+  clearInterval(tickTimer);
+  tick();
+  tickTimer=setInterval(tick,1000);
+}
+function tick(){
+  const cap=capsules.find(c=>c.id===activeId);
+  if(!cap){resetStage();return;}
+  const left=daysUntil(cap.openDate);
+  if(cap.opened){
+    $('cdDisplay').textContent='0d 00h 00m';
+    $('cdLabel').textContent='opened '+fmtDate(cap.openedAt.slice(0,10))+' 🎉';
+    $('cdBar').style.width='100%';
+    return;
+  }
+  const now=new Date();
+  const d=new Date(cap.openDate+'T00:00:00');
+  let ms=d-now;
+  if(ms<=0){
+    $('cdDisplay').textContent='0d 00h 00m';
+    $('cdLabel').textContent='it\'s time — the capsule is glowing!';
+    $('cdBar').style.width='100%';
+    $('openBtn').disabled=false;
+    $('capGlow').classList.add('hot');
+    if(!cap._chime){cap._chime=true;chime();confetti(50);toast('🎉 '+cap.eventName+' is today — the capsule is ready!');}
+    return;
+  }
+  const days=Math.floor(ms/86400000);
+  const hrs=Math.floor((ms%86400000)/3600000);
+  const mins=Math.floor((ms%3600000)/60000);
+  $('cdDisplay').textContent=days+'d '+String(hrs).padStart(2,'0')+'h '+String(mins).padStart(2,'0')+'m';
+  $('cdLabel').textContent=left===0?'opens today!':('until '+cap.eventName+' opens');
+  const total=Math.max(1,daysUntil(cap.openDate));
+  $('cdBar').style.width=Math.min(100,Math.max(2,(1-left/total)*100))+'%';
+}
+
+/* ---------- open ceremony ---------- */
+$('openBtn').addEventListener('click',()=>{
+  const cap=capsules.find(c=>c.id===activeId);
+  if(!cap||cap.opened||daysUntil(cap.openDate)>0)return;
+  cap.opened=true;
+  cap.openedAt=new Date().toISOString();
+  save();
+  crack();
+  const seal=$('seal');
+  seal.classList.add('cracked');
+  setTimeout(()=>{seal.style.opacity='0';},500);
+  confetti(90);
+  toast('🔓 The seal cracks… the memories are yours again. Welcome back to '+cap.eventName+'.');
+  renderAll();
+});
+
+/* ---------- reveal cards (under the stage) ---------- */
+function renderReveal(){
+  const cap=capsules.find(c=>c.id===activeId);
+  const host=document.getElementById('revealHost');
+  if(!host)return;
+  if(!cap||!cap.opened){
+    host.innerHTML='<p class="empty" style="font-size:.82rem;color:var(--soft);text-align:center;padding:10px 0 0">Opened capsules reveal their letter, wish and prediction here.</p>';
+    return;
+  }
+  const items=[
+    cap.letter?{e:'💌',t:'The letter',b:cap.letter}:null,
+    cap.wish?{e:'🎁',t:'The wish',b:cap.wish}:null,
+    cap.prediction?{e:'🔮',t:'The prediction',b:cap.prediction}:null
+  ].filter(Boolean);
+  host.innerHTML=items.map((it,i)=>`
+    <div class="reveal-card" id="rc${i}" style="animation-delay:${i*.25}s">
+      <div class="r-emoji">${it.e}</div>
+      <div class="r-title">${it.t}</div>
+      <div class="r-body">${esc(it.b)}</div>
+      ${it.t==='The prediction'?`
+        <div class="verdict" data-v="${i}">
+          <button class="yes${cap.verdict===true?' on':''}" type="button">✅ Came true</button>
+          <button class="no${cap.verdict===false?' on':''}" type="button">❌ Not yet</button>
+          <span class="v-done" style="${cap.verdict===null?'display:none':''}">${cap.verdict===true?'Scored: came true — bragging rights secured!':'Scored: not yet — the night is young.'}</span>
+        </div>`:''}
+    </div>`).join('');
+  items.forEach((_,i)=>{
+    const el=$('rc'+i);
+    if(el)setTimeout(()=>el.classList.add('show'),80+i*280);
+  });
+  host.querySelectorAll('.verdict button').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const verdict=btn.classList.contains('yes');
+      cap.verdict=verdict;save();
+      renderReveal();
+      toast(verdict?'✅ Called it! You are a prediction legend.':'❌ Not yet — the night is young.');
+    });
+  });
+}
+
+/* ---------- shelf ---------- */
+function renderShelf(){
+  const shelf=$('shelf');
+  if(!capsules.length){
+    shelf.innerHTML='<div class="empty-shelf">&#128230; No capsules yet. Seal your first memory above — future you says thanks.</div>';
+    return;
+  }
+  shelf.innerHTML=[...capsules].reverse().map(c=>{
+    const left=daysUntil(c.openDate);
+    const ready=!c.opened&&left<=0;
+    return `<div class="shelf-item" data-id="${c.id}">
+      <div class="shelf-dot${c.opened?' open':''}">${c.opened?'🔓':'🔒'}</div>
+      <div class="shelf-main">
+        <div class="shelf-name">${esc(c.eventName)}</div>
+        <div class="shelf-meta">${c.opened?'Opened '+fmtDate(c.openedAt.slice(0,10)):(ready?'<b>Ready to open!</b> · opens today':'opens '+fmtDate(c.openDate)+' · <b>'+left+'d</b> left')}</div>
+      </div>
+      <button class="shelf-btn ${ready?'go':''}" data-act="view" type="button">${ready?'Open':'View'}</button>
+      <button class="shelf-btn" data-act="del" type="button">🗑</button>
+    </div>`;
+  }).join('');
+  shelf.querySelectorAll('.shelf-item').forEach(item=>{
+    const id=item.dataset.id;
+    item.querySelector('[data-act="view"]').addEventListener('click',()=>{
+      const cap=capsules.find(c=>c.id===id);
+      if(!cap)return;
+      stageCap(id);
+      renderReveal();
+      if(!cap.opened&&daysUntil(cap.openDate)<=0)confetti(40);
+      item.scrollIntoView({behavior:'smooth',block:'nearest'});
+    });
+    item.querySelector('[data-act="del"]').addEventListener('click',()=>{
+      if(!confirm('Delete this capsule forever? The memories inside will be gone — no going back.'))return;
+      capsules=capsules.filter(c=>c.id!==id);
+      save();
+      if(activeId===id)resetStage();
+      renderAll();
+      toast('🗑 Capsule gone. Some memories are meant to be re-written anyway.');
+    });
+  });
+}
+
+/* ---------- share ---------- */
+$('shareBtn').addEventListener('click',()=>{
+  const cap=capsules.find(c=>c.id===activeId);
+  const name=cap?cap.eventName:'my party';
+  const left=cap?daysUntil(cap.openDate):0;
+  let txt;
+  if(!cap)txt='🔮 I\'m sealing a Memory Capsule for my next party — letters, wishes and wild predictions, locked until the big day. 🎈 Made with Everlasting Memories: https://myeverlastingmemories.com/memory-capsule.html';
+  else if(cap.opened)txt='🔓 We opened our Memory Capsule for '+name+'! The prediction inside: '+(cap.prediction?('"'+cap.prediction+'"'):'something brave')+'. 🎈 Everlasting Memories: https://myeverlastingmemories.com/memory-capsule.html';
+  else if(left<=0)txt='🎉 Today is the day! '+name+'\'s Memory Capsule is ready to open — letter, wish and a gloriously confident prediction inside. 🎈 https://myeverlastingmemories.com/memory-capsule.html';
+  else txt='🔮 I sealed a Memory Capsule for '+name+' — it opens in '+left+' day'+(left===1?'':'s')+'. Inside: a letter, a wish, and a prediction I\'m 100% sure about. (90% sure.) 🎈 https://myeverlastingmemories.com/memory-capsule.html';
+  if(navigator.share){navigator.share({title:'My Memory Capsule',text:txt,url:'https://myeverlastingmemories.com/memory-capsule.html'}).catch(()=>{});}
+  else window.open('https://wa.me/?text='+encodeURIComponent(txt),'_blank');
+});
+
+/* ---------- print ---------- */
+$('printBtn').addEventListener('click',()=>{
+  const cap=capsules.find(c=>c.id===activeId);
+  if(!cap){toast('Seal a capsule first — an empty keepsake card is just a sad piece of paper.');return;}
+  $('psName').textContent=cap.eventName;
+  $('psMeta').textContent=' — '+cap.code+' · sealed '+fmtDate(cap.sealedAt.slice(0,10))+' · opens '+fmtDate(cap.openDate);
+  const rows=[
+    cap.letter?['💌 The letter',cap.letter]:null,
+    cap.wish?['🎁 The wish',cap.wish]:null,
+    cap.prediction?['🔮 The prediction',cap.prediction]:null
+  ].filter(Boolean);
+  $('psBody').innerHTML=rows.map(r=>`<div class="ps-cap">${r[0]}</div><div class="ps-note">${esc(r[1])}</div>`).join('')
+    +`<div class="ps-cap" style="margin-top:4mm">${cap.opened?'Opened '+fmtDate(cap.openedAt.slice(0,10))+(cap.verdict!==null?' · prediction scored '+(cap.verdict?'✅ came true':'❌ not yet'):''):'Sealed — contents under wax until '+fmtDate(cap.openDate)+' 🔒'}</div>`;
+  window.print();
+});
+
+/* ---------- lead form ---------- */
+function leadPayload(name,email,phone,evt,date,budget,extra){
+  const cap=capsules.find(c=>c.id===activeId);
+  const capName=cap?cap.eventName:'';
+  const capCode=cap?cap.code:'';
+  const left=cap?daysUntil(cap.openDate):null;
+  return {
+    name,email,phone,
+    eventType:evt,
+    eventDate:date||'',
+    message:'🔮 The Memory Capsule: sealing memories for '+(capName||evt)+(capCode?' ['+capCode+']':'')+(left!==null?' — capsule opens in '+left+'d':'')+(date?(' — event '+date):'')+(budget?(' • budget '+budget):'')+' — letter, wish and a party prediction inside'+(extra?(' — '+extra):'')+' — wants the real day to outshine the prediction.',
+    source:'memory-capsule',
+    type:'lead'
+  };
+}
+$('leadForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const name=$('fName').value.trim(),email=$('fEmail').value.trim(),phone=$('fPhone').value.trim();
+  const evt=$('fEvent').value,date=$('fDate').value,budget=$('fBudget').value;
+  const extra=$('fMsg').value.trim();
+  const payload=leadPayload(name,email,phone,evt,date,budget,extra);
+  const btn=$('submitBtn');
+  btn.disabled=true;btn.textContent='Sending…';
+  try{
+    const res=await fetch('/api/leads.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    if(!res.ok)throw new Error('bad status');
+    const m=$('formMsg');
+    m.className='msg ok';
+    m.textContent='🎉 Sent to Isabella! Expect a reply within 24 hours — she\'ll make the day worth the wait.';
+    confetti(40);
+    e.target.reset();
+    setTimeout(()=>{m.className='msg';},8000);
+  }catch(err){
+    const m=$('formMsg');
+    m.className='msg err';
+    m.textContent='Hmm, that didn\'t go through. Please try again, or email Isabella directly at Hey.everlasting.memories@gmail.com';
+    setTimeout(()=>{m.className='msg';},7000);
+  }
+  btn.disabled=false;btn.textContent='🎈 Request My Balloon Quote';
+});
+
+/* ---------- easter egg: tap the capsule 5 times ---------- */
+$('capWrap').addEventListener('click',()=>{
+  tapCount++;
+  clearTimeout(tapTimer);
+  tapTimer=setTimeout(()=>{tapCount=0;},1600);
+  if(tapCount===5){
+    tapCount=0;
+    confetti(70);
+    toast('🤫 P.S. — Isabella\'s real party secret #9: the best memories are the ones you write down BEFORE the party starts. You\'re doing it right. 🎈');
+  }
+});
+
+/* ---------- nav dropdown ---------- */
+document.querySelector('.em-nav-drop-btn').addEventListener('click',()=>{
+  document.querySelector('.em-nav-drop-menu').classList.toggle('open');
+});
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.em-nav-drop'))document.querySelector('.em-nav-drop-menu').classList.remove('open');
+});
+
+/* ---------- faq ---------- */
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click',()=>{
+    const a=q.nextElementSibling;
+    a.classList.toggle('open');
+    q.querySelector('.faq-arrow').textContent=a.classList.contains('open')?'▲':'▼';
+  });
+});
+
+/* ---------- init ---------- */
+function renderAll(){
+  renderShelf();
+  renderReveal();
+  if(!activeId){
+    if(capsules.length){stageCap(capsules[capsules.length-1].id);renderReveal();}
+    else resetStage();
+  }else{
+    const still=capsules.find(c=>c.id===activeId);
+    if(!still){resetStage();renderReveal();}
+    else{stageCap(activeId);renderReveal();}
+  }
+}
+load();
+renderAll();
+</script>
+</body>
+</html>
