@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Party Day Timeline — Free Run of Show Generator | Everlasting Memories — Balloon Art &amp; Event Decor</title>
+<meta name="description" content="Build Isabella's hour-by-hour party run of show in seconds — live day-of mode, WhatsApp share, printable one-pager. Free forever.">
+<link rel="canonical" href="https://myeverlastingmemories.com/party-timeline.html">
+<meta property="og:title" content="The Party Day Timeline">
+<meta property="og:description" content="Every party has a plan. Now it has a schedule. Generate Isabella's hour-by-hour run of show — cake, first dance, golden hour, balloon drop — then follow it live on the day.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://myeverlastingmemories.com/party-timeline.html">
+<meta property="og:image" content="https://myeverlastingmemories.com/logo.jpg">
+<meta property="og:site_name" content="Everlasting Memories">
+<meta name="theme-color" content="#1e293b">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="analytics.js" defer></script>
+<style>
+:root{
+  --c1:#1e293b;      /* midnight slate */
+  --c2:#C9A227;      /* gold */
+  --c3:#475569;      /* slate */
+  --bg:#f8fafc;
+  --card:#ffffff;
+  --line:#e2e8f0;
+  --ink:#0f172a;
+  --soft:#64748b;
+  --good:#16a34a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+.em-nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 22px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;flex-wrap:wrap}
+.em-nav-brand{font-weight:700;color:var(--c1);text-decoration:none;font-size:1rem;font-family:'Playfair Display',serif}
+.em-nav-links{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.em-nav-links a{color:var(--ink);text-decoration:none;font-size:.85rem;font-weight:500}
+.em-nav-links a:hover{color:var(--c2)}
+.em-nav-hot{color:var(--c2)!important;font-weight:700}
+.em-nav-drop{position:relative}
+.em-nav-drop-btn{background:none;border:none;font-family:'Inter',sans-serif;font-size:.85rem;font-weight:500;color:var(--ink);cursor:pointer;padding:4px 2px}
+.em-nav-drop-menu{display:none;position:absolute;right:0;top:calc(100%+8px);background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 34px rgba(30,41,59,.16);min-width:240px;padding:8px;z-index:60}
+.em-nav-drop-menu.open{display:block}
+.em-nav-drop-menu a{display:block;padding:8px 12px;border-radius:9px;font-size:.85rem;color:var(--ink);text-decoration:none}
+.em-nav-drop-menu a:hover{background:var(--bg)}
+.em-nav-cta{background:var(--c1);color:#fff!important;padding:9px 18px;border-radius:999px;font-weight:600;text-decoration:none;font-size:.85rem}
+.em-nav-cta:hover{background:#0f172a}
+header{max-width:960px;margin:0 auto;padding:44px 22px 10px;text-align:center}
+.home-link{display:inline-block;color:var(--c1);text-decoration:none;font-size:.85rem;font-weight:600;margin-bottom:14px}
+.badge{display:inline-block;background:linear-gradient(135deg,var(--c1),var(--c3));color:#fff;padding:5px 16px;border-radius:999px;font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
+header h1{font-family:'Playfair Display',serif;font-size:2.3rem;color:var(--c1);margin-bottom:10px}
+header p{color:var(--soft);max-width:680px;margin:0 auto;font-size:.98rem}
+.container{max-width:960px;margin:0 auto;padding:0 22px 30px}
+.grid{display:grid;grid-template-columns:1fr 1.15fr;gap:22px;margin-top:22px}
+@media(max-width:860px){.grid{grid-template-columns:1fr}}
+/* ===== cards ===== */
+.card{background:var(--card);border-radius:18px;padding:22px;box-shadow:0 4px 24px rgba(30,41,59,.08);border:1px solid var(--line)}
+.card h2{font-size:1.05rem;color:var(--c1);margin-bottom:4px;font-family:'Playfair Display',serif}
+.card .sub{font-size:.8rem;color:var(--soft);margin-bottom:14px}
+.fg{margin-bottom:12px}
+.fg label{display:block;font-weight:600;font-size:.82rem;margin-bottom:4px;color:var(--c1)}
+.fg input,.fg textarea,.fg select{width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;font-size:.92rem;background:#fff;font-family:'Inter',sans-serif;color:var(--ink)}
+.fg input:focus,.fg textarea:focus,.fg select:focus{outline:none;border-color:var(--c2)}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:480px){.fg-row{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:4px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:6px 13px;font-size:.8rem;font-weight:600;color:var(--soft);cursor:pointer;transition:.2s;font-family:'Inter',sans-serif}
+.chip.on{border-color:var(--c1);background:var(--c1);color:#fff}
+.msg{display:none;border-radius:10px;padding:11px;font-size:.86rem;font-weight:500;margin-bottom:12px;text-align:center}
+.msg.ok{display:block;background:#fef7e6;border:1px solid #e3b23c;color:#7a5a10}
+.msg.err{display:block;background:#fdeeee;border:1px solid #e08a8a;color:#a33}
+.cta-btn{width:100%;border:none;border-radius:12px;padding:13px;font-size:.95rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:.2s;margin-top:4px}
+.cta-btn.primary{background:linear-gradient(135deg,var(--c1),var(--c3));color:#fff}
+.cta-btn.primary:hover{filter:brightness(1.12)}
+.cta-btn.gold{background:linear-gradient(135deg,var(--c2),#a8841f);color:#fff}
+.cta-btn.gold:hover{filter:brightness(1.1)}
+.cta-btn.ghost{background:#fff;border:1.5px solid var(--line);color:var(--c1)}
+.cta-btn.ghost:hover{border-color:var(--c2)}
+/* ===== timeline ===== */
+.tl-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.tl-title{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--c1)}
+.tl-sub{font-size:.78rem;color:var(--soft);margin-bottom:14px}
+.tl{position:relative;padding-left:0;list-style:none}
+.tl-item{position:relative;padding:12px 14px 12px 86px;border:1px solid var(--line);border-radius:14px;background:#fff;margin-bottom:10px;transition:.25s}
+.tl-item.now{border-color:var(--c2);box-shadow:0 0 0 3px rgba(201,162,39,.18)}
+.tl-item.goldglow{box-shadow:0 0 0 3px rgba(201,162,39,.45),0 0 34px rgba(201,162,39,.35)}
+.tl-time{position:absolute;left:12px;top:12px;background:var(--c1);color:#fff;border-radius:9px;padding:4px 8px;font-size:.72rem;font-weight:700;letter-spacing:.02em;text-align:center;min-width:58px}
+.tl-time small{display:block;font-weight:500;font-size:.62rem;opacity:.75}
+.tl-row{display:flex;align-items:flex-start;gap:8px;flex-wrap:wrap}
+.tl-emoji{font-size:1.15rem;line-height:1.2}
+.tl-name{font-weight:700;font-size:.92rem;color:var(--ink)}
+.tl-name a{color:inherit;text-decoration:none;border-bottom:1.5px dotted var(--c2)}
+.tl-name a:hover{color:var(--c1);border-bottom-style:solid}
+.tl-owner{font-size:.68rem;font-weight:600;background:var(--bg);border:1px solid var(--line);color:var(--soft);border-radius:999px;padding:2px 9px;white-space:nowrap}
+.tl-mins{font-size:.68rem;color:var(--soft);font-weight:600;white-space:nowrap}
+.tl-tip{font-size:.8rem;color:var(--soft);margin-top:5px}
+.tl-tip b{color:var(--c2)}
+.tl-ctrl{display:none;margin-top:9px;padding-top:9px;border-top:1px dashed var(--line);gap:7px;flex-wrap:wrap}
+.tl-item.edit .tl-ctrl{display:flex}
+.tl-ctrl button{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:4px 10px;font-size:.72rem;font-weight:600;color:var(--c1);cursor:pointer;font-family:'Inter',sans-serif}
+.tl-ctrl button:hover{border-color:var(--c2)}
+.tl-ctrl button.danger{color:#b91c1c}
+.empty{text-align:center;color:var(--soft);padding:26px 10px;font-size:.88rem}
+/* ===== live bar ===== */
+.livebar{display:none;align-items:center;gap:10px;background:linear-gradient(135deg,#1e293b,#334155);color:#fff;border-radius:14px;padding:12px 16px;margin-bottom:14px;flex-wrap:wrap}
+.livebar.show{display:flex}
+.live-dot{width:10px;height:10px;border-radius:50%;background:#f87171;animation:blink 1.2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.live-txt{font-size:.85rem;font-weight:600}
+.live-txt small{display:block;font-weight:500;opacity:.8;font-size:.74rem}
+.live-next{margin-left:auto;font-size:.8rem;text-align:right}
+.live-next b{color:var(--c2)}
+@media(max-width:560px){.live-next{margin-left:0;text-align:left}}
+/* ===== toast / confetti ===== */
+.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);background:var(--c1);color:#fff;padding:12px 22px;border-radius:999px;font-size:.86rem;font-weight:600;opacity:0;pointer-events:none;transition:.3s;z-index:99;box-shadow:0 10px 30px rgba(30,41,59,.35);max-width:92vw;text-align:center}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.confetti{position:fixed;top:-12px;width:10px;height:14px;z-index:99;pointer-events:none;animation:confFall linear forwards}
+@keyframes confFall{to{transform:translateY(105vh) rotate(720deg);opacity:.85}}
+@media (prefers-reduced-motion: reduce){.confetti{animation:none!important}.tl-item,.live-dot{transition:none!important;animation:none!important}}
+/* ===== faq ===== */
+.faq{margin-top:26px}
+.faq h2{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--c1);margin-bottom:14px}
+.faq-item{border:1px solid var(--line);border-radius:14px;background:#fff;margin-bottom:10px;overflow:hidden}
+.faq-q{width:100%;text-align:left;background:none;border:none;padding:14px 16px;font-size:.9rem;font-weight:700;color:var(--c1);cursor:pointer;font-family:'Inter',sans-serif;display:flex;justify-content:space-between;gap:10px}
+.faq-q:hover{color:var(--c2)}
+.faq-a{display:none;padding:0 16px 14px;font-size:.86rem;color:var(--soft)}
+.faq-item.open .faq-a{display:block}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:14px}
+.fact{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;font-size:.8rem;color:var(--soft)}
+.fact b{display:block;color:var(--c1);font-size:.86rem;margin-bottom:4px}
+/* ===== lead ===== */
+.lead-card{margin-top:26px}
+.lead-card h2{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--c1);margin-bottom:4px}
+.lead-card .sub{margin-bottom:14px}
+/* ===== footer ===== */
+footer{margin-top:40px;padding:26px 22px 34px;background:var(--c1);color:#cbd5e1;text-align:center;font-size:.8rem}
+footer a{color:#e2e8f0;text-decoration:none}
+footer a:hover{color:var(--c2)}
+footer .strip{margin-top:8px;font-size:.76rem;line-height:1.9}
+footer .strip a{color:#94a3b8}
+footer .strip a:hover{color:var(--c2)}
+/* ===== print card ===== */
+.print-card{display:none}
+@media print{
+  body *{visibility:hidden}
+  .print-card,.print-card *{visibility:visible}
+  .print-card{display:block;position:absolute;left:0;top:0;width:100%;padding:14px;color:#000;font-size:11px}
+  .print-card h1{font-size:17px;font-family:'Playfair Display',serif;margin-bottom:2px}
+  .print-card .pc-meta{font-size:10px;color:#444;margin-bottom:8px}
+  .print-card table{width:100%;border-collapse:collapse}
+  .print-card td,.print-card th{border:1px solid #999;padding:4px 6px;text-align:left;font-size:10px}
+  .print-card th{background:#eee}
+  .print-card .pc-foot{margin-top:8px;font-size:9px;color:#666}
+}
+</style>
+</head>
+<body>
+
+<nav class="em-nav">
+  <a class="em-nav-brand" href="index.html">&#127881; Everlasting Memories</a>
+  <div class="em-nav-links">
+    <a href="index.html">Home</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <div class="em-nav-drop">
+      <button class="em-nav-drop-btn" type="button" aria-haspopup="true" aria-expanded="false">Tools &#9662;</button>
+      <div class="em-nav-drop-menu">
+          <a href="cost-estimator.html">Estimate Cost</a>
+          <a href="theme-generator.html">Theme Generator</a>
+          <a href="lookbook.html">Lookbook</a>
+          <a href="countdown.html">Countdown</a>
+          <a href="party-style-quiz.html">Party Style Quiz</a>
+          <a href="balloon-math.html">Balloon Math</a>
+          <a href="reserve-date.html">Reserve Your Date</a>
+          <a href="diy-vs-pro.html">DIY vs Pro</a>
+          <a href="palette-snap.html">Palette Snap</a>
+          <a href="name-garland.html">Balloon Letters</a>
+          <a href="budget-builder.html">Budget Builder</a>
+          <a href="transformations.html">The Big Reveal</a>
+          <a href="wedding-workshop.html">Wedding Workshop</a>
+          <a href="balloon-pop.html">Pop Party</a>
+          <a href="invitation-studio.html">Invitation Studio</a>
+          <a href="party-roadmap.html">Party Roadmap</a>
+          <a href="memory-wall.html">Memory Wall</a>
+          <a href="photo-booth.html">Golden Hour Booth</a>
+          <a href="garland-vision.html">Garland Vision</a>
+          <a href="photo-hunt.html">Party Photo Hunt</a>
+          <a href="guest-list.html">The Guest List</a>
+          <a href="memory-capsule.html">Memory Capsule</a>
+          <a href="playlist.html">Party Playlist</a>
+          <a href="party-timeline.html" style="background:#1e293b;color:#fff;">Party Day Timeline</a>
+          <a href="referral.html">Refer &amp; Earn</a>
+        </div>
+    </div>
+  </div>
+  <a class="em-nav-cta" href="cost-estimator.html">Get a Quote</a>
+</nav>
+
+<header>
+  <a href="index.html" class="home-link">&#8592; Back to Home</a>
+  <div class="badge">&#9201; New Tonight — The Party Day Timeline</div>
+  <h1>&#9201; The Party Day Timeline</h1>
+  <p>You planned the party. Now run it like a pro. Isabella has decorated 200+ events — this is her hour-by-hour run of show: when guests arrive, when the cake comes out, when the light goes gold, when the balloons drop. Build it in seconds, follow it live on the day, share it with everyone who's helping. Free forever. &#127881;</p>
+</header>
+
+<div class="container">
+
+  <div class="livebar" id="liveBar">
+    <span class="live-dot"></span>
+    <span class="live-txt" id="liveTxt">LIVE — the party is happening now<small id="liveSub">Loading…</small></span>
+    <span class="live-next" id="liveNext"></span>
+  </div>
+
+  <div class="grid">
+
+    <!-- ===== left: build form ===== -->
+    <div class="card">
+      <h2>Build the run of show</h2>
+      <p class="sub">Pick your party — the schedule builds itself from Isabella's playbook.</p>
+      <div class="fg">
+        <label>What's the occasion?</label>
+        <div class="chips" id="occChips"></div>
+      </div>
+      <div class="fg"><label for="fName">Event name</label><input id="fName" type="text" placeholder="e.g. Sophia's 5th Birthday" maxlength="60"></div>
+      <div class="fg-row">
+        <div class="fg"><label for="fDate">Party date</label><input id="fDate" type="date"></div>
+        <div class="fg"><label for="fStart">Start time</label><input id="fStart" type="time" value="16:00"></div>
+      </div>
+      <div class="fg"><label for="fGuests">Guests (optional)</label><input id="fGuests" type="number" min="1" max="500" placeholder="e.g. 40"></div>
+      <button class="cta-btn primary" id="buildBtn">&#128293; Build My Timeline</button>
+      <button class="cta-btn ghost" id="surpriseBtn" style="margin-top:8px">&#127922; Surprise Me</button>
+      <p class="tip" style="font-size:.72rem;color:var(--soft);text-align:center;margin-top:10px">Every moment has a real tip from Isabella's event notebook. &#128172;</p>
+    </div>
+
+    <!-- ===== right: timeline output ===== -->
+    <div class="card">
+      <div class="tl-head">
+        <div>
+          <div class="tl-title" id="tlTitle">Your run of show</div>
+          <div class="tl-sub" id="tlSub">Pick an occasion and hit build.</div>
+        </div>
+        <div style="display:flex;gap:7px;flex-wrap:wrap">
+          <button class="cta-btn ghost" id="editBtn" style="width:auto;padding:7px 13px;font-size:.76rem">&#9998; Edit</button>
+          <button class="cta-btn ghost" id="printBtn" style="width:auto;padding:7px 13px;font-size:.76rem">&#128424; Print</button>
+          <button class="cta-btn gold" id="shareBtn" style="width:auto;padding:7px 13px;font-size:.76rem">&#128172; Share</button>
+        </div>
+      </div>
+      <div id="liveHint" style="display:none;font-size:.74rem;color:var(--c2);font-weight:600;margin-bottom:10px">&#128994; Live mode armed — open this page on party day and it follows the clock for you.</div>
+      <ol class="tl" id="tlList"></ol>
+      <div class="empty" id="tlEmpty">Your schedule will appear here.<br><span style="font-size:.78rem">No account, no files — it lives in your browser until the big day.</span></div>
+      <div id="addBox" style="display:none;margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)">
+        <div class="fg-row">
+          <div class="fg"><label for="cTitle">Custom moment</label><input id="cTitle" type="text" placeholder="e.g. Surprise dance-off" maxlength="40"></div>
+          <div class="fg"><label for="cMins">Minutes</label><input id="cMins" type="number" min="5" max="120" value="30"></div>
+        </div>
+        <button class="cta-btn ghost" id="addBtn" style="margin-top:6px">&#10133; Add to Timeline</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ===== lead ===== -->
+  <div class="card lead-card">
+    <h2>&#127873; Want Isabella to make this party real?</h2>
+    <p class="sub">Tell her about the event — she'll reply with a decor quote that matches the schedule. (She already knows what a golden hour looks like.)</p>
+    <form id="leadForm">
+      <div class="fg-row">
+        <div class="fg"><label for="fLeadName">Name</label><input id="fLeadName" type="text" required placeholder="Your name"></div>
+        <div class="fg"><label for="fLeadEmail">Email</label><input id="fLeadEmail" type="email" required placeholder="you@email.com"></div>
+      </div>
+      <div class="fg-row">
+        <div class="fg"><label for="fLeadPhone">Phone (optional)</label><input id="fLeadPhone" type="tel" placeholder="(203) 555-0123"></div>
+        <div class="fg"><label for="fLeadEvent">Event type</label>
+          <select id="fLeadEvent">
+            <option>Birthday</option><option>Wedding</option><option>Baby Shower</option>
+            <option>Anniversary</option><option>Graduation</option><option>Corporate</option><option>Just Because</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg-row">
+        <div class="fg"><label for="fLeadDate">Event date (optional)</label><input id="fLeadDate" type="date"></div>
+        <div class="fg"><label for="fLeadBudget">Budget (optional)</label>
+          <select id="fLeadBudget">
+            <option value="">Not sure yet</option><option>Under $300</option><option>$300–$700</option>
+            <option>$700–$1,500</option><option>$1,500+</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg"><label for="fLeadMsg">Your run of show (auto-filled — edit freely)</label><textarea id="fLeadMsg" rows="3"></textarea></div>
+      <div class="msg" id="formMsg"></div>
+      <button class="cta-btn gold" id="submitBtn" type="submit">&#127873; Request My Balloon Quote</button>
+    </form>
+  </div>
+
+  <!-- ===== faq ===== -->
+  <div class="faq">
+    <h2>Run of show, decoded</h2>
+    <div class="faq-item">
+      <button class="faq-q" type="button">What exactly is a "run of show"? <span>&#9660;</span></button>
+      <div class="faq-a">It's the entertainment industry's name for the hour-by-hour schedule of an event — who does what, and when. Wedding planners live by it, TV producers live by it, and Isabella lives by it: after 200+ decorated events, she's watched enough parties drift 45 minutes late to know the schedule is the difference between a good party and a great one.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Is this really Isabella's playbook? <span>&#9660;</span></button>
+      <div class="faq-a">Every template is built from how she actually runs events: cake 45 minutes after dinner (not before), golden hour photos in the last hour before sunset, the balloon drop as the finale — never the middle. The tips on each moment are real notes from her notebook. That's the whole point: 200+ events of timing wisdom, free.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">What if my party doesn't fit the template? <span>&#9660;</span></button>
+      <div class="faq-a">Tap Edit: shift any moment ±15 minutes, hide the ones you don't need, or add your own custom moments (that surprise dance-off? it deserves a slot). Your changes are saved in your browser, so the timeline you build today is the one that opens on party day.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Does it actually work on the day? <span>&#9660;</span></button>
+      <div class="faq-a">Yes — that's the secret weapon. Set the party date, then open this page on the day: a LIVE bar highlights the moment happening now, tells you what's up next, and chimes (WebAudio, mute-able) when it's time to move. No phone alarms, no "was that 8 or 9?".</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">How do I get this to my family / photographer / DJ? <span>&#9660;</span></button>
+      <div class="faq-a">One tap on Share sends the full timeline to WhatsApp — drop it in the family group, the vendor chat, anywhere. Prefer paper? Print renders a clean one-page run-of-show card: clipboard, pocket, done.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">How does this connect to booking Isabella? <span>&#9660;</span></button>
+      <div class="faq-a">The lead form below pre-fills with your event name, start time and headline moments — so when Isabella replies, she already knows your flow and can quote decor that fits it (and the <a href="reserve-date.html" style="color:var(--c1);font-weight:600">Reserve Your Date</a> calendar locks your day). Plan with the <a href="party-roadmap.html" style="color:var(--c1);font-weight:600">Party Roadmap</a>, schedule with this, celebrate with everything else.</div>
+    </div>
+  </div>
+
+  <!-- ===== facts ===== -->
+  <div class="facts">
+    <div class="fact"><b>&#128347; 45 minutes</b>is how late the average wedding runs without a run of show. Isabella's parties run on time — because the schedule is the decor of the day.</div>
+    <div class="fact"><b>&#127881; 200+ events, 97% happy</b>every timeline below is distilled from real parties Isabella has installed, styled and wrapped.</div>
+    <div class="fact"><b>&#127749; Golden hour is a moving target</b>the last hour before sunset shifts every day. Isabella checks the sunset time for every event date and schedules photos around it.</div>
+    <div class="fact"><b>&#128196; One page, one clipboard, zero chaos</b>the printable card fits in a pocket — because nobody reads a 6-page binder mid-party.</div>
+  </div>
+
+</div>
+
+<footer>
+  <p><a href="index.html">Everlasting Memories</a> — Balloon Art &amp; Event Decor, Connecticut · <a href="tel:203-981-7244">203-981-7244</a> · <a href="contact.html">Contact</a> · <a href="https://instagram.com/everlasting.memories25" style="color:#C9A87C" target="_blank" rel="noopener">@everlasting.memories25</a></p>
+  <p style="margin-top:6px;">Every garland is hand-built and installed by Isabella — no templates, no shortcuts, no surprise fees.</p>
+  <p class="strip"><a href="party-timeline.html" style="color:#fbbf24;font-weight:600;">Party Day Timeline</a> · <a href="memory-capsule.html" style="color:#92400e;font-weight:600;">Memory Capsule</a> · <a href="playlist.html" style="color:#b91c1c;font-weight:600;">Party Playlist</a> · <a href="guest-list.html" style="color:#1e3a8a;font-weight:600;">The Guest List</a> · <a href="photo-hunt.html" style="color:#a21caf;font-weight:600;">Party Photo Hunt</a> · <a href="photo-booth.html" style="color:#0369a1;font-weight:600;">Golden Hour Booth</a> · <a href="memory-wall.html" style="color:#b45309;font-weight:600;">Memory Wall</a> · <a href="party-roadmap.html" style="color:#0f766e;font-weight:600;">Party Roadmap</a> · <a href="invitation-studio.html" style="color:#312e81;font-weight:600;">Invitation Studio</a> · <a href="balloon-pop.html" style="color:#ea580c;font-weight:600;">Pop Party</a> · <a href="wedding-workshop.html" style="color:#9d174d;font-weight:600;">Wedding Workshop</a> · <a href="transformations.html" style="color:#7c3aed;font-weight:600;">The Big Reveal</a> · <a href="budget-builder.html" style="color:#2f7a52">Budget Balloonist</a> · <a href="referral.html" style="color:#C9A87C">Refer &amp; Earn</a></p>
+</footer>
+
+<!-- ===== print-only card ===== -->
+<div class="print-card" id="printCard">
+  <h1 id="pcTitle">Run of Show</h1>
+  <div class="pc-meta" id="pcMeta"></div>
+  <table>
+    <thead><tr><th style="width:70px">Time</th><th>Moment</th><th style="width:110px">Who</th><th style="width:60px">Mins</th></tr></thead>
+    <tbody id="pcBody"></tbody>
+  </table>
+  <div class="pc-foot">Printed from myeverlastingmemories.com/party-timeline.html — Everlasting Memories, Balloon Art &amp; Event Decor, Connecticut. Schedule by Isabella (203-981-7244).</div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ================= The Party Day Timeline ================= */
+const $=id=>document.getElementById(id);
+
+/* ---------- pure engine (Node-testable) ---------- */
+const OCCASIONS={
+  'Wedding':{start:960,emoji:'💍',items:[
+    ['🎈','Setup & decor touch-ups',30,'🎈 Isabella','quote','We install in the morning; this slot is just the final fluff — ribbons, stems, last-minute fluffing. Setup and take-down are always included.'],
+    ['🏠','Guest arrival & welcome drinks',30,'🏠 Host','guest','Put someone with a clipboard at the door — not the couple. The Guest List tool prints a door sheet.'],
+    ['💍','Ceremony',20,'🏠 Host','invite','Aim for 20 minutes max. After 25, guests start checking the exits — and the light.'],
+    ['🥂','Cocktail hour + photos',60,'📸 Photographer','booth','This is when we grab the couple shots — the arch is still pristine, the light is soft, nobody is crying yet.'],
+    ['✨','Grand entrance + first dance',15,'🏠 Host','playlist','Cue the DJ countdown for the first dance — a chime beats a finger tap any day.'],
+    ['🍽','Dinner service',45,'🍽 Catering','quote','Plated, not buffet, if you can swing it — it buys you back 20 minutes of dance floor.'],
+    ['🎂','Toasts + cake cutting',25,'🏠 Host','playlist','Keep toasts to three. The fourth toast is where timelines go to die.'],
+    ['🌇','Golden hour photos',30,'📸 Photographer','hunt','Golden hour is the last hour before sunset — this is THE slot. The Photo Hunt turns guests into a second shooter.'],
+    ['💃','Dance floor opens',60,'🎧 DJ','playlist','The first three songs decide the floor. No slow jams until it is warm.'],
+    ['🎈','Balloon drop + grand finale',15,'🎈 Isabella','reserve','The drop is the exclamation point. Guests remember the drop like they remember the kiss.'],
+    ['🌙','Send-off',15,'🏠 Host','wall','Sparklers at the door, balloons overhead. End on a peak — it is the last photo everyone posts.']
+  ]},
+  'Birthday':{start:840,emoji:'🎂',items:[
+    ['🎈','Setup & decor',60,'🎈 Isabella','quote','Garlands up, balloons floated, letters hung. The birthday kid must NOT see the entrance before this is done.'],
+    ['🏠','Guests arrive + welcome',15,'🏠 Host','invite','Station the birthday kid at the door — it is their moment, let them open it.'],
+    ['🎮','Party games',45,'🏠 Host','pop','Two games max, then free play. Kids have the attention span of a GIF.'],
+    ['🎂','Cake, candles & the wish',25,'🏠 Host','playlist','Light the candles AFTER everyone is seated and the phones are up. One take only.'],
+    ['🎁','Presents',30,'🏠 Host','guest','Assign a gift-notetaker — you will not remember who gave what tomorrow.'],
+    ['🌇','Golden hour photos',30,'📸 Photographer','hunt','Sunset light + balloon arch = the photos that get printed. Send the guests on the Photo Hunt.'],
+    ['🎈','Balloon drop finale',20,'🎈 Isabella','reserve','The drop ends the party on a high — then goodbyes take 10 minutes instead of 40.'],
+    ['🧺','Goodbyes + party favors',30,'🏠 Host','gift','Favors at the door, not the table — they are a goodbye gift, not a table setting.']
+  ]},
+  'Baby Shower':{start:780,emoji:'👶',items:[
+    ['🎈','Setup & decor',60,'🎈 Isabella','quote','Soft pastels, cloud clusters, a balloon "It\'s a…" reveal spot. We install and fluff, you relax.'],
+    ['🏠','Guests arrive + shower games',45,'🏠 Host','invite','Two games: one silly, one sweet. The "guess the baby food" game never fails.'],
+    ['🎁','Gift opening',30,'🏠 Host','guest','Gift notetaker + camera on the reactions — the parents-to-be will be too emotional to remember.'],
+    ['🍰','Cake + treats',30,'🏠 Host','playlist','The cake is the second most-photographed thing after mom. Give it its own table.'],
+    ['🌇','Golden hour photos',30,'📸 Photographer','booth','Mama-to-be glow + golden light + balloon arch. Print one for the nursery.'],
+    ['🎈','Grand reveal + balloon drop',30,'🎈 Isabella','reserve','Pink or blue drop reveal, or just a shower of gold — the finale photo writes the thank-you card.']
+  ]},
+  'Anniversary':{start:1020,emoji:'💞',items:[
+    ['🎈','Setup & decor',60,'🎈 Isabella','quote','Classy, not kitschy — golds, creams, a "N years" letter garland. This is a "remember when" party.'],
+    ['🥂','Guests arrive + welcome toast',30,'🏠 Host','invite','One toast at arrival sets the tone — "to 25 years, and to the next 25."'],
+    ['🍽','Dinner',60,'🍽 Catering','quote','Sit-down dinner for anniversaries — it is about conversation, not crowds.'],
+    ['🎂','Speeches + cake cutting',30,'🏠 Host','playlist','The kids\' speeches are the room-clearers (of tears). Keep the mic moving.'],
+    ['🌇','Golden hour photos',30,'📸 Photographer','hunt','Recreate their wedding-day pose under the arch. That photo will live on a mantle.'],
+    ['💃','First dance (or dance floor)',30,'🎧 DJ','playlist','Their song, their floor. Everyone watches, everyone cries, everyone dances after.'],
+    ['🎈','Balloon drop finale',20,'🎈 Isabella','reserve','A gold balloon drop over a slow dance — the "forever" moment of the night.']
+  ]},
+  'Graduation':{start:900,emoji:'🎓',items:[
+    ['🎈','Setup & decor',60,'🎈 Isabella','quote','School colors in balloons, a "Class of 2026" name garland, a photo wall that pops.'],
+    ['🎓','Grad arrival + welcome',15,'🏠 Host','invite','Cap on, gown on, entrance music on. This is the graduate\'s red carpet.'],
+    ['📸','Photo wall + cap toss',45,'📸 Photographer','booth','The cap toss happens ONCE — get everyone in position first, then throw. The Photo Hunt keeps the aunties busy.'],
+    ['🍽','Dinner / buffet',45,'🍽 Catering','quote','Buffet for grads — nobody sits still at a graduation.'],
+    ['🥂','Speeches + toast',15,'🏠 Host','playlist','Three speakers max: a parent, a mentor, the grad. Tissues on the table.'],
+    ['🎂','Cake + treats',30,'🏠 Host','gift','Diploma cookies + cap cupcakes. Yes, the tassel goes on the cupcake.'],
+    ['💃','Dance floor opens',30,'🎧 DJ','playlist','The grad\'s playlist runs the first hour — their party, their soundtrack.'],
+    ['🎈','Balloon drop finale',20,'🎈 Isabella','reserve','School colors raining down on the grad — the "we did it" moment.']
+  ]},
+  'Corporate':{start:1020,emoji:'🏢',items:[
+    ['🎈','Setup & decor',60,'🎈 Isabella','quote','Brand colors, elegant not loud — a statement arch at the entrance, columns by the stage.'],
+    ['🏢','Check-in + networking',30,'🏠 Host','invite','Name tags at the door, drinks in hand, ice broken. Thirty minutes of mingling warms the room.'],
+    ['🎤','Welcome + opening remarks',15,'🏠 Host','playlist','Keep it under 10 minutes. The room\'s attention budget is spent on the awards.'],
+    ['🍽','Dinner service',45,'🍽 Catering','quote','Plated dinner keeps the evening on rails — and the timeline on time.'],
+    ['🏆','Awards / recognition',15,'🏠 Host','gift','The highlight-reel moment. Confetti cannons optional but highly encouraged.'],
+    ['🎧','Entertainment / music',30,'🎧 DJ','playlist','Live music or a DJ flips the room from "networking" to "celebration".'],
+    ['🎈','Balloon drop finale',20,'🎈 Isabella','reserve','A branded balloon drop = the photo that fills next year\'s recap video.'],
+    ['👋','Wrap-up + goodbyes',30,'🏠 Host','wall','End on time, end on a high. Everyone remembers the night that ended with a drop.']
+  ]},
+  'Just Because':{start:900,emoji:'🎉',items:[
+    ['🎈','Setup & decor',60,'🎈 Isabella','quote','The best parties have no reason at all. Bright colors, big arch, zero expectations.'],
+    ['🏠','Friends arrive',15,'🏠 Host','invite','No agenda, no schedule pressure — that is the whole point. The timeline just keeps the food coming.'],
+    ['🧀','Snacks + drinks',45,'🏠 Host','quote','Grazing table > sit-down for a just-because party. People wander, people mingle.'],
+    ['🎮','Fun & games',30,'🏠 Host','pop','Balloon Pop Blitz is scientifically the best party game. (Scientifically.)'],
+    ['🌇','Golden hour photos',30,'📸 Photographer','hunt','Golden light + balloons + your people = the group chat\'s new profile pictures.'],
+    ['🎈','Balloon drop + confetti finale',20,'🎈 Isabella','reserve','Because why not? That is the theme of the whole party.']
+  ]}
+};
+const LINKS={
+  quote:'cost-estimator.html',invite:'invitation-studio.html',guest:'guest-list.html',
+  playlist:'playlist.html',booth:'photo-booth.html',hunt:'photo-hunt.html',pop:'balloon-pop.html',
+  reserve:'reserve-date.html',wall:'memory-wall.html',gift:'gift-card.html'
+};
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function fmtTime(m){m=((m%1440)+1440)%1440;const h=Math.floor(m/60),mm=m%60;const ap=h>=12?'PM':'AM';const h12=h%12===0?12:h%12;return h12+':'+String(mm).padStart(2,'0')+' '+ap;}
+function buildTimeline(occ,startMin,edits){
+  const t=OCCASIONS[occ];if(!t)return [];
+  const shift={},hidden={};
+  (edits||[]).forEach(e=>{if(e.i!=null){shift[e.i]=(shift[e.i]||0)+(e.shift||0);if(e.hidden)hidden[e.i]=true;}});
+  let items=[];
+  t.items.forEach((it,i)=>{
+    if(hidden[i])return;
+    items.push({i,emoji:it[0],title:it[1],mins:Math.max(5,it[2]+(shift[i]||0)),owner:it[3],link:it[4],tip:it[5]});
+  });
+  (edits||[]).forEach(e=>{
+    if(e.custom){items.push({i:null,emoji:'⭐',title:e.custom.title,mins:Math.max(5,e.custom.mins||30),owner:'🏠 Host',link:'quote',tip:e.custom.tip||'Your custom moment — own it.'});}
+  });
+  let cur=startMin;
+  items.forEach(it=>{it.start=cur;it.end=cur+it.mins;it.time=fmtTime(cur);cur=it.end;});
+  return items;
+}
+function smartLink(key){return LINKS[key]||'cost-estimator.html';}
+function keyMoments(items){
+  const heads=items.filter(it=>['playlist','hunt','reserve'].includes(it.link)).map(it=>it.title);
+  return heads.slice(0,3).join(', ')||(items[0]?items[0].title:'');
+}
+function leadPayload(name,email,phone,evt,date,budget,extra){
+  return {name,email,phone,eventType:evt,eventDate:date,budget,message:extra,source:'party-timeline',type:'lead'};
+}
+function shareText(occ,name,startMin,items){
+  const lines=['⏱ '+name+' — Run of Show','🎈 '+occ+' · starts '+fmtTime(startMin)+' · '+items.length+' moments',''];
+  items.forEach(it=>{lines.push(it.time+' — '+it.emoji+' '+it.title+' ('+it.mins+' min, '+it.owner+')');});
+  lines.push('','Made with the Party Day Timeline — Everlasting Memories 🎈 https://myeverlastingmemories.com/party-timeline.html');
+  return lines.join('\n');
+}
+function liveNow(items,dateStr,now){
+  if(!dateStr||!items.length)return {state:'idle'};
+  const d=new Date(dateStr+'T00:00:00');
+  const today=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+  if(d.getTime()!==today.getTime())return {state:'idle'};
+  const mins=now.getHours()*60+now.getMinutes()+now.getSeconds()/60;
+  const first=items[0],last=items[items.length-1];
+  if(mins<first.start)return {state:'before',start:first.start,mins};
+  if(mins>=last.end)return {state:'after'};
+  let idx=0;
+  for(let i=0;i<items.length;i++){if(mins>=items[i].start&&mins<items[i].end){idx=i;break;}}
+  const next=items[idx+1]||null;
+  return {state:'live',idx,next,msToNext:next?(next.start-mins)*60000:0,mins};
+}
+
+/* ---------- state ---------- */
+const KEY='em_tl_state_v1';
+let state=loadState();
+function loadState(){
+  try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&s.occasion)return s;}catch(e){}
+  return {occasion:'Birthday',name:'',date:'',startMin:960,guests:'',edits:[],built:false};
+}
+function saveState(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
+function currentItems(){return buildTimeline(state.occasion,state.startMin,state.edits);}
+
+/* ---------- ui ---------- */
+const OCC_KEYS=Object.keys(OCCASIONS);
+$('occChips').innerHTML=OCC_KEYS.map(o=>'<button class="chip'+(state.occasion===o?' on':'')+'" data-occ="'+esc(o)+'" type="button">'+OCCASIONS[o].emoji+' '+esc(o)+'</button>').join('');
+$('occChips').addEventListener('click',e=>{
+  const b=e.target.closest('.chip');if(!b)return;
+  state.occasion=b.dataset.occ;
+  state.startMin=OCCASIONS[state.occasion].start;
+  $('fStart').value=fmtTime(state.startMin).replace(/(AM|PM)/,'').trim().length===4?'0'+fmtTime(state.startMin).replace(/(AM|PM)/,'').trim():fmtTime(state.startMin).replace(/(AM|PM)/,'').trim();
+  document.querySelectorAll('#occChips .chip').forEach(c=>c.classList.toggle('on',c===b));
+  saveState();
+});
+function timeToMin(v){const p=(v||'').split(':');if(p.length<2)return 960;return (+p[0])*60+(+p[1]);}
+function render(){
+  const items=currentItems();
+  const built=state.built&&items.length>0;
+  $('tlTitle').textContent=built?(state.name||state.occasion)+' — Run of Show':'Your run of show';
+  $('tlSub').textContent=built?(state.occasion+' · starts '+fmtTime(state.startMin)+' · '+items.length+' moments · ~'+items.reduce((a,b)=>a+b.mins,0)+' min'):'Pick an occasion and hit build.';
+  $('tlEmpty').style.display=built?'none':'block';
+  const nowIdx=liveNow(items,state.date,new Date()).state==='live'?liveNow(items,state.date,new Date()).idx:-1;
+  $('tlList').innerHTML=items.map((it,k)=>{
+    const link=smartLink(it.link);
+    return '<li class="tl-item'+(k===nowIdx?' now':'')+'" data-k="'+k+'" data-emoji="'+esc(it.emoji)+'" data-title="'+esc(it.title)+'">'
+      +'<div class="tl-time">'+esc(it.time.replace(' ','<br><small>').replace('</small>','</small>'))+'</div>'
+      +'<div class="tl-row"><span class="tl-emoji">'+it.emoji+'</span>'
+      +'<span class="tl-name"><a href="'+link+'" target="_blank" rel="noopener" title="Open the tool for this moment">'+esc(it.title)+'</a></span>'
+      +'<span class="tl-owner">'+esc(it.owner)+'</span><span class="tl-mins">'+it.mins+' min</span></div>'
+      +'<div class="tl-tip"><b>Isabella\'s note:</b> '+esc(it.tip)+'</div>'
+      +'<div class="tl-ctrl">'
+      +'<button data-act="shift" data-d="-15">&#8722;15 min</button>'
+      +'<button data-act="shift" data-d="15">+15 min</button>'
+      +'<button data-act="hide">Hide</button>'
+      +(it.i==null?'<button data-act="del" class="danger">Remove</button>':'')
+      +'</div></li>';
+  }).join('');
+  $('liveHint').style.display=(built&&state.date)?'block':'none';
+}
+$('buildBtn').addEventListener('click',()=>{
+  state.name=$('fName').value.trim()||state.occasion;
+  state.date=$('fDate').value;
+  state.startMin=timeToMin($('fStart').value);
+  state.guests=$('fGuests').value.trim();
+  state.built=true;saveState();render();confetti(46);
+  toast('🎉 Your run of show is ready — '+currentItems().length+' moments, timed to the minute.');
+});
+$('surpriseBtn').addEventListener('click',()=>{
+  const keys=OCC_KEYS;
+  state.occasion=keys[Math.floor(Math.random()*keys.length)];
+  state.startMin=OCCASIONS[state.occasion].start;
+  const names=['The Big Surprise','Just Because Party','Celebration Night','The Good Times Bash','Mystery Fiesta'];
+  state.name=names[Math.floor(Math.random()*names.length)];
+  state.built=true;state.edits=[];
+  $('fName').value=state.name;$('fStart').value=fmtTime(state.startMin).replace(/(AM|PM)/,'').trim();
+  document.querySelectorAll('#occChips .chip').forEach(c=>c.classList.toggle('on',c.dataset.occ===state.occasion));
+  saveState();render();confetti(40);
+  toast('✨ '+state.name+' — a '+state.occasion.toLowerCase()+' with no reasons and no regrets.');
+});
+$('editBtn').addEventListener('click',()=>{
+  const on=$('tlList').classList.toggle('edit-mode');
+  document.querySelectorAll('.tl-item').forEach(it=>it.classList.toggle('edit',on));
+  $('editBtn').textContent=on?'✖ Done Editing':'✏️ Edit';
+  $('addBox').style.display=on?'block':'none';
+});
+$('tlList').addEventListener('click',e=>{
+  const btn=e.target.closest('button[data-act]');if(!btn)return;
+  const li=btn.closest('.tl-item');const k=+li.dataset.k;const act=btn.dataset.act;
+  if(act==='shift'){
+    const d=+btn.dataset.d;const items=currentItems();const orig=items[k];
+    const base=(OCCASIONS[state.occasion].items[orig.i]||[])[2]||30;
+    const curShift=state.edits.find(x=>x.i===orig.i&&x.shift)||{i:orig.i,shift:0};
+    if(!state.edits.includes(curShift))state.edits.push(curShift);
+    curShift.shift=Math.max(-(base-5),Math.min(120-base,curShift.shift+d));
+    saveState();render();
+  }else if(act==='hide'){
+    const items=currentItems();const orig=items[k];
+    if(orig.i!=null)state.edits.push({i:orig.i,hidden:true});
+    else state.edits=state.edits.filter(x=>!x.custom||x.custom.title!==orig.title);
+    saveState();render();
+  }else if(act==='del'){
+    const items=currentItems();const orig=items[k];
+    state.edits=state.edits.filter(x=>!x.custom||x.custom.title!==orig.title);
+    saveState();render();
+  }
+});
+$('addBtn').addEventListener('click',()=>{
+  const title=$('cTitle').value.trim();const mins=+$('cMins').value||30;
+  if(!title){toast('Give your moment a name first.');return;}
+  state.edits.push({custom:{title,mins}});
+  $('cTitle').value='';saveState();render();confetti(20);
+  toast('⭐ '+title+' added — '+fmtTime(currentItems()[currentItems().length-1].start)+' and beyond.');
+});
+$('printBtn').addEventListener('click',()=>{
+  const items=currentItems();
+  $('pcTitle').textContent=(state.name||state.occasion)+' — Run of Show';
+  $('pcMeta').textContent=state.occasion+' · starts '+fmtTime(state.startMin)+(state.date?' · '+state.date:'')+(state.guests?' · '+state.guests+' guests':'');
+  $('pcBody').innerHTML=items.map(it=>'<tr><td>'+esc(it.time)+'</td><td>'+it.emoji+' '+esc(it.title)+'</td><td>'+esc(it.owner)+'</td><td>'+it.mins+'</td></tr>').join('');
+  window.print();
+});
+$('shareBtn').addEventListener('click',()=>{
+  const txt=shareText(state.occasion,state.name||state.occasion,state.startMin,currentItems());
+  if(navigator.share){navigator.share({title:'My Run of Show',text:txt,url:'https://myeverlastingmemories.com/party-timeline.html'}).catch(()=>{});}
+  else window.open('https://wa.me/?text='+encodeURIComponent(txt),'_blank');
+});
+
+/* ---------- live mode ---------- */
+let liveTimer=null,lastIdx=-1,muted=false;
+function tickLive(){
+  const items=currentItems();
+  const lw=liveNow(items,state.date,new Date());
+  const bar=$('liveBar');
+  if(lw.state==='idle'){bar.classList.remove('show');return;}
+  bar.classList.add('show');
+  if(lw.state==='before'){
+    $('liveTxt').textContent='⏳ '+((state.name||state.occasion))+' starts at '+fmtTime(lw.start);
+    $('liveSub').textContent='Today is the day — the countdown is on.';
+    $('liveNext').innerHTML='';
+    lastIdx=-1;return;
+  }
+  if(lw.state==='after'){
+    $('liveTxt').textContent='🎉 That\'s a wrap!';
+    $('liveSub').textContent=(state.name||state.occasion)+' went off without a hitch.';
+    $('liveNext').innerHTML='';
+    return;
+  }
+  const it=items[lw.idx];
+  $('liveTxt').textContent='🔴 Now: '+it.emoji+' '+it.title;
+  $('liveSub').textContent='Started at '+it.time+' · ends '+fmtTime(it.end);
+  $('liveNext').innerHTML=lw.next?('Up next: <b>'+lw.next.emoji+' '+esc(lw.next.title)+'</b> in <b id="cdNext">'+Math.max(0,Math.ceil(lw.msToNext/60000))+' min</b>'):'That\'s the finale — enjoy it!';
+  if(lw.idx!==lastIdx){
+    if(lastIdx!==-1){chime();toast('⏰ Time for: '+items[lw.idx].title);confetti(26);}
+    lastIdx=lw.idx;
+  }
+}
+setInterval(tickLive,5000);tickLive();
+function chime(){
+  if(muted)return;
+  try{
+    const C=window.AudioContext||window.webkitAudioContext;if(!C)return;
+    const ctx=new C();const o=ctx.createOscillator(),g=ctx.createGain();
+    o.type='sine';o.frequency.value=880;g.gain.setValueAtTime(.001,ctx.currentTime);
+    g.gain.exponentialRampToValueAtTime(.18,ctx.currentTime+.02);
+    g.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.7);
+    o.connect(g);g.connect(ctx.destination);o.start();o.stop(ctx.currentTime+.75);
+    setTimeout(()=>{try{ctx.close();}catch(e){}},900);
+  }catch(e){}
+}
+document.addEventListener('keydown',e=>{if(e.key==='m'||e.key==='M'){muted=!muted;toast(muted?'🔇 Live chime muted':'🔊 Live chime on');}});
+
+/* ---------- easter egg: golden hour x5 ---------- */
+let goldClicks=0;
+$('tlList').addEventListener('click',e=>{
+  const li=e.target.closest('.tl-item');if(!li)return;
+  if(li.dataset.emoji==='🌇'||/golden hour/i.test(li.dataset.title)){
+    goldClicks++;
+    if(goldClicks>=5){
+      goldClicks=0;
+      li.classList.add('goldglow');
+      toast('🌇 Isabella\'s secret #10: golden hour is a moving target — she checks the sunset time for every event date and schedules photos around it. That\'s why her parties photograph like magazines.');
+      setTimeout(()=>li.classList.remove('goldglow'),6000);
+    }
+  }
+});
+
+/* ---------- lead form ---------- */
+function refreshLeadMsg(){
+  const items=currentItems();
+  const moments=keyMoments(items);
+  $('fLeadMsg').value='Run of show for '+(state.name||state.occasion)+' ('+state.occasion+', starts '+fmtTime(state.startMin)+', '+items.length+' moments: '+moments+'). Please quote decor'+(state.date?' for '+state.date:'')+(state.guests?' · '+state.guests+' guests':'')+'.';
+}
+$('fLeadEvent').addEventListener('change',()=>{state.occasion=$('fLeadEvent').value;saveState();});
+$('leadForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const name=$('fLeadName').value.trim(),email=$('fLeadEmail').value.trim(),phone=$('fLeadPhone').value.trim();
+  const evt=$('fLeadEvent').value,date=$('fLeadDate').value,budget=$('fLeadBudget').value;
+  refreshLeadMsg();
+  const extra=$('fLeadMsg').value.trim();
+  const payload=leadPayload(name,email,phone,evt,date,budget,extra);
+  const btn=$('submitBtn');
+  btn.disabled=true;btn.textContent='Sending…';
+  try{
+    const res=await fetch('/api/leads.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    if(!res.ok)throw new Error('bad status');
+    const m=$('formMsg');
+    m.className='msg ok';
+    m.textContent='🎉 Sent to Isabella! Expect a reply within 24 hours — she\'ll time the decor to your timeline.';
+    confetti(40);
+    e.target.reset();
+    setTimeout(()=>{m.className='msg';},8000);
+  }catch(err){
+    const m=$('formMsg');
+    m.className='msg err';
+    m.textContent='Hmm, that didn\'t go through. Please try again, or email Isabella directly at Hey.everlasting.memories@gmail.com';
+    setTimeout(()=>{m.className='msg';},7000);
+  }
+  btn.disabled=false;btn.textContent='🎈 Request My Balloon Quote';
+});
+
+/* ---------- faq ---------- */
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click',()=>{
+    const item=q.parentElement;
+    item.classList.toggle('open');
+    q.querySelector('span').textContent=item.classList.contains('open')?'▲':'▼';
+  });
+});
+
+/* ---------- nav dropdown ---------- */
+document.querySelectorAll('.em-nav-drop-btn').forEach(btn=>{
+  btn.addEventListener('click',e=>{
+    e.stopPropagation();
+    const menu=btn.parentElement.querySelector('.em-nav-drop-menu');
+    document.querySelectorAll('.em-nav-drop-menu.open').forEach(m=>{if(m!==menu)m.classList.remove('open');});
+    menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded',menu.classList.contains('open'));
+  });
+});
+document.addEventListener('click',()=>document.querySelectorAll('.em-nav-drop-menu.open').forEach(m=>m.classList.remove('open')));
+
+/* ---------- toast / confetti ---------- */
+let toastTimer=null;
+function toast(msg){
+  const t=$('toast');t.textContent=msg;t.classList.add('show');
+  clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),4200);
+}
+function confetti(n){
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  const colors=['#C9A227','#1e293b','#e11d48','#f59e0b','#64748b','#f43f5e'];
+  for(let i=0;i<n;i++){
+    const c=document.createElement('div');
+    c.className='confetti';
+    c.style.left=Math.random()*100+'vw';
+    c.style.background=colors[Math.floor(Math.random()*colors.length)];
+    c.style.animationDuration=(2.2+Math.random()*2)+'s';
+    c.style.animationDelay=(Math.random()*.5)+'s';
+    c.style.borderRadius=Math.random()>.5?'50%':'2px';
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),5200);
+  }
+}
+
+/* ---------- init ---------- */
+$('fName').value=state.name;$('fDate').value=state.date;
+$('fStart').value=fmtTime(state.startMin).replace(/(AM|PM)/,'').trim();
+$('fGuests').value=state.guests;
+$('fLeadEvent').value=state.occasion;
+$('fLeadDate').value=state.date;
+refreshLeadMsg();
+if(state.built)render();else{$('tlList').innerHTML='';$('tlEmpty').style.display='block';}
+</script>
+</body>
+</html>
