@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Golden Hour Finder — Sunset &amp; Golden Hour Calculator | Everlasting Memories — Balloon Art &amp; Event Decor</title>
+<meta name="description" content="Find the exact golden hour for your party date — sunrise, sunset, blue hour &amp; photo windows for 60+ cities. Free forever, no signup.">
+<link rel="canonical" href="https://myeverlastingmemories.com/golden-hour.html">
+<meta property="og:title" content="The Golden Hour Finder">
+<meta property="og:description" content="The light decides how your party photographs. Get the real sunrise, sunset and golden hour window for your exact date and city — the same check Isabella runs for every event — then time the arch, the cake and the balloon drop to the light.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://myeverlastingmemories.com/golden-hour.html">
+<meta property="og:image" content="https://myeverlastingmemories.com/logo.jpg">
+<meta property="og:site_name" content="Everlasting Memories">
+<meta name="theme-color" content="#4c1d95">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="analytics.js" defer></script>
+<style>
+:root{
+  --c1:#4c1d95;      /* dusk violet */
+  --c2:#C9A227;      /* gold */
+  --c3:#7c3aed;      /* violet */
+  --bg:#f8fafc;
+  --card:#ffffff;
+  --line:#e2e8f0;
+  --ink:#0f172a;
+  --soft:#64748b;
+  --good:#16a34a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+.em-nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 22px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;flex-wrap:wrap}
+.em-nav-brand{font-weight:700;color:var(--c1);text-decoration:none;font-size:1rem;font-family:'Playfair Display',serif}
+.em-nav-links{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.em-nav-links a{color:var(--ink);text-decoration:none;font-size:.85rem;font-weight:500}
+.em-nav-links a:hover{color:var(--c2)}
+.em-nav-hot{color:var(--c2)!important;font-weight:700}
+.em-nav-drop{position:relative}
+.em-nav-drop-btn{background:none;border:none;font-family:'Inter',sans-serif;font-size:.85rem;font-weight:500;color:var(--ink);cursor:pointer;padding:4px 2px}
+.em-nav-drop-menu{display:none;position:absolute;right:0;top:calc(100%+8px);background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 34px rgba(30,41,59,.16);min-width:240px;padding:8px;z-index:60}
+.em-nav-drop-menu.open{display:block}
+.em-nav-drop-menu a{display:block;padding:8px 12px;border-radius:9px;font-size:.85rem;color:var(--ink);text-decoration:none}
+.em-nav-drop-menu a:hover{background:var(--bg)}
+.em-nav-cta{background:var(--c1);color:#fff!important;padding:9px 18px;border-radius:999px;font-weight:600;text-decoration:none;font-size:.85rem}
+.em-nav-cta:hover{background:#3b1178}
+header{max-width:960px;margin:0 auto;padding:44px 22px 10px;text-align:center}
+.home-link{display:inline-block;color:var(--c1);text-decoration:none;font-size:.85rem;font-weight:600;margin-bottom:14px}
+.badge{display:inline-block;background:linear-gradient(135deg,var(--c1),var(--c3));color:#fff;padding:5px 16px;border-radius:999px;font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
+header h1{font-family:'Playfair Display',serif;font-size:2.3rem;color:var(--c1);margin-bottom:10px}
+header p{color:var(--soft);max-width:680px;margin:0 auto;font-size:.98rem}
+.container{max-width:960px;margin:0 auto;padding:0 22px 30px}
+.grid{display:grid;grid-template-columns:1fr 1.15fr;gap:22px;margin-top:22px}
+@media(max-width:860px){.grid{grid-template-columns:1fr}}
+/* ===== cards ===== */
+.card{background:var(--card);border-radius:18px;padding:22px;box-shadow:0 4px 24px rgba(30,41,59,.08);border:1px solid var(--line)}
+.card h2{font-size:1.05rem;color:var(--c1);margin-bottom:4px;font-family:'Playfair Display',serif}
+.card .sub{font-size:.8rem;color:var(--soft);margin-bottom:14px}
+.fg{margin-bottom:12px}
+.fg label{display:block;font-weight:600;font-size:.82rem;margin-bottom:4px;color:var(--c1)}
+.fg input,.fg textarea,.fg select{width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;font-size:.92rem;background:#fff;font-family:'Inter',sans-serif;color:var(--ink)}
+.fg input:focus,.fg textarea:focus,.fg select:focus{outline:none;border-color:var(--c2)}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:480px){.fg-row{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:4px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:6px 13px;font-size:.8rem;font-weight:600;color:var(--soft);cursor:pointer;transition:.2s;font-family:'Inter',sans-serif}
+.chip.on{border-color:var(--c1);background:var(--c1);color:#fff}
+.tip{font-size:.72rem;color:var(--soft);text-align:center;margin-top:10px}
+.msg{display:none;border-radius:10px;padding:11px;font-size:.86rem;font-weight:500;margin-bottom:12px;text-align:center}
+.msg.ok{display:block;background:#fef7e6;border:1px solid #e3b23c;color:#7a5a10}
+.msg.err{display:block;background:#fdeeee;border:1px solid #e08a8a;color:#a33}
+.cta-btn{width:100%;border:none;border-radius:12px;padding:13px;font-size:.95rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:.2s;margin-top:4px}
+.cta-btn.primary{background:linear-gradient(135deg,var(--c1),var(--c3));color:#fff}
+.cta-btn.primary:hover{filter:brightness(1.12)}
+.cta-btn.gold{background:linear-gradient(135deg,var(--c2),#a8841f);color:#fff}
+.cta-btn.gold:hover{filter:brightness(1.1)}
+.cta-btn.ghost{background:#fff;border:1.5px solid var(--line);color:var(--c1)}
+.cta-btn.ghost:hover{border-color:var(--c2)}
+/* ===== results ===== */
+.gh-hero{position:relative;border-radius:16px;overflow:hidden;margin-bottom:14px;background:linear-gradient(180deg,#2e1065,#4c1d95 55%,#b45309 88%,#C9A227);text-align:center;padding:26px 18px 20px;color:#fff}
+.gh-hero .gh-label{font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;opacity:.85;margin-bottom:6px}
+.gh-hero .gh-window{font-family:'Playfair Display',serif;font-size:2.1rem;font-weight:700;line-height:1.15;text-shadow:0 2px 18px rgba(0,0,0,.35)}
+.gh-hero .gh-window small{display:block;font-family:'Inter',sans-serif;font-size:.8rem;font-weight:600;letter-spacing:.04em;opacity:.9;margin-top:4px}
+.gh-hero .gh-meta{font-size:.78rem;opacity:.92;margin-top:10px}
+.gh-hero .gh-meta b{color:#fde68a}
+.gh-count{display:none;align-items:center;justify-content:center;gap:9px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:8px 16px;font-size:.82rem;font-weight:700;margin-top:12px}
+.gh-count.show{display:inline-flex}
+.gh-count .dot{width:9px;height:9px;border-radius:50%;background:#fbbf24;animation:blink 1.1s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.gh-rows{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-bottom:12px}
+@media(max-width:480px){.gh-rows{grid-template-columns:1fr}}
+.gh-row{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:10px 12px;display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:.82rem}
+.gh-row .k{color:var(--soft);font-weight:600}
+.gh-row .v{font-weight:700;color:var(--c1);text-align:right}
+.gh-row.gold{background:#fef7e6;border-color:#e3b23c}
+.gh-row.gold .v{color:#92600a}
+.gh-row.blue .v{color:#1d4ed8}
+.gh-tip{background:linear-gradient(135deg,#faf5ff,#fef7e6);border:1px solid #e9d5ff;border-radius:14px;padding:13px 15px;font-size:.84rem;color:#3b0764;margin-bottom:12px}
+.gh-tip b{color:#92600a}
+canvas#sunArc{width:100%;height:auto;display:block;border-radius:14px;border:1px solid var(--line);cursor:pointer;background:linear-gradient(180deg,#fef3c7,#fffbeb)}
+canvas#sunArc.hidden{display:none}
+.arc-hint{font-size:.68rem;color:var(--soft);text-align:center;margin-top:5px}
+/* ===== faq ===== */
+.faq{margin-top:26px}
+.faq h2{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--c1);margin-bottom:14px}
+.faq-item{border:1px solid var(--line);border-radius:14px;background:#fff;margin-bottom:10px;overflow:hidden}
+.faq-q{width:100%;text-align:left;background:none;border:none;padding:14px 16px;font-size:.9rem;font-weight:700;color:var(--c1);cursor:pointer;font-family:'Inter',sans-serif;display:flex;justify-content:space-between;gap:10px}
+.faq-q:hover{color:var(--c2)}
+.faq-a{display:none;padding:0 16px 14px;font-size:.86rem;color:var(--soft)}
+.faq-item.open .faq-a{display:block}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:14px}
+.fact{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;font-size:.8rem;color:var(--soft)}
+.fact b{display:block;color:var(--c1);font-size:.86rem;margin-bottom:4px}
+/* ===== lead ===== */
+.lead-card{margin-top:26px}
+.lead-card h2{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--c1);margin-bottom:4px}
+.lead-card .sub{margin-bottom:14px}
+/* ===== footer ===== */
+footer{margin-top:40px;padding:26px 22px 34px;background:var(--c1);color:#ddd6fe;text-align:center;font-size:.8rem}
+footer a{color:#ede9fe;text-decoration:none}
+footer a:hover{color:var(--c2)}
+footer .strip{margin-top:8px;font-size:.76rem;line-height:1.9}
+footer .strip a{color:#a78bfa}
+footer .strip a:hover{color:var(--c2)}
+/* ===== print card ===== */
+.print-card{display:none}
+@media print{
+  body *{visibility:hidden}
+  .print-card,.print-card *{visibility:visible}
+  .print-card{display:block;position:absolute;left:0;top:0;width:100%;padding:14px;color:#000;font-size:11px}
+  .print-card h1{font-size:17px;font-family:'Playfair Display',serif;margin-bottom:2px}
+  .print-card .pc-meta{font-size:10px;color:#444;margin-bottom:8px}
+  .print-card table{width:100%;border-collapse:collapse}
+  .print-card td,.print-card th{border:1px solid #999;padding:4px 6px;text-align:left;font-size:10px}
+  .print-card th{background:#eee}
+  .print-card .pc-foot{margin-top:8px;font-size:9px;color:#666}
+}
+/* ===== toast / confetti ===== */
+.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);background:var(--c1);color:#fff;padding:12px 22px;border-radius:999px;font-size:.86rem;font-weight:600;opacity:0;pointer-events:none;transition:.3s;z-index:99;box-shadow:0 10px 30px rgba(30,41,59,.35);max-width:92vw;text-align:center}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.confetti{position:fixed;top:-12px;width:10px;height:14px;z-index:99;pointer-events:none;animation:confFall linear forwards}
+@keyframes confFall{to{transform:translateY(105vh) rotate(720deg);opacity:.85}}
+@media (prefers-reduced-motion: reduce){.confetti{animation:none!important}.gh-count .dot,.live-dot{animation:none!important}}
+</style>
+</head>
+<body>
+
+<nav class="em-nav">
+  <a class="em-nav-brand" href="index.html">&#127881; Everlasting Memories</a>
+  <div class="em-nav-links">
+    <a href="index.html">Home</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <div class="em-nav-drop">
+      <button class="em-nav-drop-btn" type="button" aria-haspopup="true" aria-expanded="false">Tools &#9662;</button>
+      <div class="em-nav-drop-menu">
+          <a href="cost-estimator.html">Estimate Cost</a>
+          <a href="theme-generator.html">Theme Generator</a>
+          <a href="lookbook.html">Lookbook</a>
+          <a href="countdown.html">Countdown</a>
+          <a href="party-style-quiz.html">Party Style Quiz</a>
+          <a href="balloon-math.html">Balloon Math</a>
+          <a href="reserve-date.html">Reserve Your Date</a>
+          <a href="diy-vs-pro.html">DIY vs Pro</a>
+          <a href="palette-snap.html">Palette Snap</a>
+          <a href="name-garland.html">Balloon Letters</a>
+          <a href="budget-builder.html">Budget Builder</a>
+          <a href="transformations.html">The Big Reveal</a>
+          <a href="wedding-workshop.html">Wedding Workshop</a>
+          <a href="balloon-pop.html">Pop Party</a>
+          <a href="invitation-studio.html">Invitation Studio</a>
+          <a href="party-roadmap.html">Party Roadmap</a>
+          <a href="memory-wall.html">Memory Wall</a>
+          <a href="photo-booth.html">Golden Hour Booth</a>
+          <a href="garland-vision.html">Garland Vision</a>
+          <a href="photo-hunt.html">Party Photo Hunt</a>
+          <a href="guest-list.html">The Guest List</a>
+          <a href="memory-capsule.html">Memory Capsule</a>
+          <a href="playlist.html">Party Playlist</a>
+                    <a href="party-timeline.html">Party Day Timeline</a>
+          <a href="referral.html">Refer &amp; Earn</a>
+        </div>
+    </div>
+  </div>
+  <a class="em-nav-cta" href="cost-estimator.html">Get a Quote</a>
+</nav>
+
+<header>
+  <a href="index.html" class="home-link">&#8592; Back to Home</a>
+  <div class="badge">&#127749; New Tonight — The Golden Hour Finder</div>
+  <h1>&#127749; The Golden Hour Finder</h1>
+  <p>The light decides how your party photographs — and Isabella has been planning around it for 200+ events. Get the real sunrise, sunset and golden hour window for your exact date and city, then time the arch, the cake and the balloon drop to the light. Free forever, no signup. &#127881;</p>
+</header>
+
+<div class="container">
+
+  <div class="grid">
+
+    <!-- ===== left: build form ===== -->
+    <div class="card">
+      <h2>Find your golden hour</h2>
+      <p class="sub">Pick a date + place — the sun does the rest. (Real NOAA solar math, right in your browser.)</p>
+      <div class="fg"><label for="fDate">Party date</label><input id="fDate" type="date"></div>
+      <div class="fg">
+        <label for="citySearch">City (60+ built in)</label>
+        <input id="citySearch" type="text" list="cityList" placeholder="Type a city… e.g. Hartford, CT" autocomplete="off">
+        <datalist id="cityList"></datalist>
+      </div>
+      <div class="chips" id="quickChips">
+        <button class="chip on" data-city="Hartford, CT" type="button">&#127968; Hartford, CT</button>
+        <button class="chip" data-city="New York, NY" type="button">&#128509; New York, NY</button>
+        <button class="chip" data-city="New Haven, CT" type="button">&#127963; New Haven, CT</button>
+        <button class="chip" data-city="Stamford, CT" type="button">&#127960; Stamford, CT</button>
+        <button class="chip" id="geoBtn" type="button">&#128506; Use my location</button>
+      </div>
+      <div class="fg-row">
+        <div class="fg"><label for="fLat">Latitude (optional)</label><input id="fLat" type="number" step="any" min="-90" max="90" placeholder="e.g. 41.76"></div>
+        <div class="fg"><label for="fLon">Longitude (optional)</label><input id="fLon" type="number" step="any" min="-180" max="180" placeholder="e.g. -72.67"></div>
+      </div>
+      <div class="fg"><label for="tzSelect">Time zone (for custom coords)</label>
+        <select id="tzSelect">
+          <option value="America/New_York">(UTC-5) Eastern</option>
+          <option value="America/Chicago">(UTC-6) Central</option>
+          <option value="America/Denver">(UTC-7) Mountain</option>
+          <option value="America/Los_Angeles">(UTC-8) Pacific</option>
+          <option value="America/Anchorage">(UTC-9) Alaska</option>
+          <option value="Pacific/Honolulu">(UTC-10) Hawaii</option>
+          <option value="UTC">(UTC+0) London / UTC</option>
+          <option value="Europe/Berlin">(UTC+1) Berlin / Paris</option>
+          <option value="Europe/Athens">(UTC+2) Athens</option>
+          <option value="Europe/Moscow">(UTC+3) Moscow</option>
+          <option value="Asia/Dubai">(UTC+4) Dubai</option>
+          <option value="Asia/Kolkata">(UTC+5:30) Mumbai</option>
+          <option value="Asia/Singapore">(UTC+8) Singapore</option>
+          <option value="Asia/Tokyo">(UTC+9) Tokyo</option>
+          <option value="Australia/Sydney">(UTC+10) Sydney</option>
+          <option value="Pacific/Auckland">(UTC+12) Auckland</option>
+        </select>
+      </div>
+      <div class="fg">
+        <label>What's the occasion?</label>
+        <div class="chips" id="occChips"></div>
+      </div>
+      <button class="cta-btn primary" id="findBtn">&#127749; Find My Golden Hour</button>
+      <button class="cta-btn ghost" id="surpriseBtn" style="margin-top:8px">&#127922; Surprise Me</button>
+      <p class="tip">No data leaves your browser. The math is the same NOAA solar model used by photographers worldwide. &#128172;</p>
+    </div>
+
+    <!-- ===== right: results ===== -->
+    <div class="card">
+      <div class="tl-head" style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:6px">
+        <div>
+          <div class="tl-title" style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--c1)" id="ghTitle">Your golden hour</div>
+          <div class="tl-sub" style="font-size:.78rem;color:var(--soft);margin-bottom:6px" id="ghSub">Pick a date + city and hit Find.</div>
+        </div>
+        <div style="display:flex;gap:7px;flex-wrap:wrap">
+          <button class="cta-btn ghost" id="printBtn" style="width:auto;padding:7px 13px;font-size:.76rem">&#128424; Print</button>
+          <button class="cta-btn gold" id="shareBtn" style="width:auto;padding:7px 13px;font-size:.76rem">&#128172; Share</button>
+        </div>
+      </div>
+
+      <div class="gh-hero" id="ghHero">
+        <div class="gh-label">&#127749; Evening Golden Hour</div>
+        <div class="gh-window" id="ghWindow">—</div>
+        <div class="gh-meta" id="ghMeta"></div>
+        <div class="gh-count" id="ghCount"><span class="dot"></span><span id="ghCountTxt"></span></div>
+      </div>
+
+      <canvas id="sunArc" width="640" height="220" aria-label="Sun path diagram for your date"></canvas>
+      <p class="arc-hint">&#128075; The sun's path on your date — the gold band is the golden window. (Tap the sun 5 times for a secret.)</p>
+
+      <div class="gh-rows" id="ghRows"></div>
+      <div class="gh-tip" id="ghTip"></div>
+    </div>
+
+  </div>
+
+  <!-- ===== lead ===== -->
+  <div class="card lead-card">
+    <h2>&#127873; Want Isabella to time the decor to this light?</h2>
+    <p class="sub">She already checks the sunset for every event date — now you can hand her the exact window. Tell her about the party and she'll quote decor that catches the golden light.</p>
+    <form id="leadForm">
+      <div class="fg-row">
+        <div class="fg"><label for="fLeadName">Name</label><input id="fLeadName" type="text" required placeholder="Your name"></div>
+        <div class="fg"><label for="fLeadEmail">Email</label><input id="fLeadEmail" type="email" required placeholder="you@email.com"></div>
+      </div>
+      <div class="fg-row">
+        <div class="fg"><label for="fLeadPhone">Phone (optional)</label><input id="fLeadPhone" type="tel" placeholder="(203) 555-0123"></div>
+        <div class="fg"><label for="fLeadEvent">Event type</label>
+          <select id="fLeadEvent">
+            <option>Birthday</option><option>Wedding</option><option>Baby Shower</option>
+            <option>Anniversary</option><option>Graduation</option><option>Corporate</option><option>Just Because</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg-row">
+        <div class="fg"><label for="fLeadDate">Event date (optional)</label><input id="fLeadDate" type="date"></div>
+        <div class="fg"><label for="fLeadBudget">Budget (optional)</label>
+          <select id="fLeadBudget">
+            <option value="">Not sure yet</option><option>Under $300</option><option>$300–$700</option>
+            <option>$700–$1,500</option><option>$1,500+</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg"><label for="fLeadMsg">Your golden hour plan (auto-filled — edit freely)</label><textarea id="fLeadMsg" rows="3"></textarea></div>
+      <div class="msg" id="formMsg"></div>
+      <button class="cta-btn gold" id="submitBtn" type="submit">&#127873; Request My Balloon Quote</button>
+    </form>
+  </div>
+
+  <!-- ===== faq ===== -->
+  <div class="faq">
+    <h2>Golden hour, decoded</h2>
+    <div class="faq-item">
+      <button class="faq-q" type="button">What exactly is "golden hour"? <span>&#9660;</span></button>
+      <div class="faq-a">The stretch of time right after sunrise and right before sunset when the sun sits low (below 6° elevation) and its light travels through more atmosphere — which scatters the blue and leaves warm, soft, flattering gold. It's why every photographer, filmmaker and balloon artist fights for it. It's not literally an hour — most evenings it's 35–50 minutes.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">How accurate are these times? <span>&#9660;</span></button>
+      <div class="faq-a">The page runs the same NOAA solar model used by pro photographers and astronomy apps: true solar position with refraction correction, plus your city's real time zone and daylight saving. Expect ±2 minutes — more than enough to schedule a party (and far more accurate than "sometime around sunset").</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Why does golden hour move every day? <span>&#9660;</span></button>
+      <div class="faq-a">The earth is tilted 23.5° and racing around the sun. Sunset shifts ~1–2 minutes per day — later after the winter solstice, earlier after the summer one. That's why the sunset you "remember" from last year is wrong by 20 minutes, and why Isabella checks the real numbers for every single event date.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Does Isabella actually plan around this? <span>&#9660;</span></button>
+      <div class="faq-a">Yes — it's her notebook rule. Before every event she looks up the sunset time, then places the arch, the balloon drop and the photo moments to catch the light. Golden hour is the difference between party photos people post and party photos people print. (Her secret #10, straight from the <a href="party-timeline.html" style="color:var(--c1);font-weight:600">Party Day Timeline</a>.)</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">What if it's cloudy, or the party is indoors? <span>&#9660;</span></button>
+      <div class="faq-a">Clouds don't cancel golden hour — they soften it into a glowing, diffused version (often even more flattering). Indoors, golden hour means low warm light pouring through west-facing windows — so put the dessert table and the photo wall on the west side for the last hour of the day. The window still tells you when to aim for.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">How do I use this with the rest of the site? <span>&#9660;</span></button>
+      <div class="faq-a">Schedule the golden window into your <a href="party-timeline.html" style="color:var(--c1);font-weight:600">Party Day Timeline</a>, send guests on the <a href="photo-hunt.html" style="color:var(--c1);font-weight:600">Party Photo Hunt</a> during it, try on looks in the <a href="photo-booth.html" style="color:var(--c1);font-weight:600">Golden Hour Booth</a>, and let the <a href="playlist.html" style="color:var(--c1);font-weight:600">Party Playlist</a> soundtrack the drop. Then <a href="reserve-date.html" style="color:var(--c1);font-weight:600">Reserve Your Date</a> and let Isabella build the rest.</div>
+    </div>
+  </div>
+
+  <!-- ===== facts ===== -->
+  <div class="facts">
+    <div class="fact"><b>&#127749; 35–50 minutes</b>the real evening golden window — shorter than the name suggests, which is exactly why you schedule it.</div>
+    <div class="fact"><b>&#128197; ~1–2 min/day</b>how fast sunset shifts. The sunset you remember from last year is wrong by ~20 minutes.</div>
+    <div class="fact"><b>&#128248; The "magic twenty"</b>the last 20 minutes before sunset are the warmest, most flattering light of the day. Isabella schedules outdoor balloon drops inside it.</div>
+    <div class="fact"><b>&#127881; 200+ events, 97% happy</b>every one of them with the sunset checked in advance. That's the professional difference.</div>
+  </div>
+
+</div>
+
+<footer>
+  <p><a href="index.html">Everlasting Memories</a> — Balloon Art &amp; Event Decor, Connecticut · <a href="tel:203-981-7244">203-981-7244</a> · <a href="contact.html">Contact</a> · <a href="https://instagram.com/everlasting.memories25" style="color:#C9A87C" target="_blank" rel="noopener">@everlasting.memories25</a></p>
+  <p style="margin-top:6px;">Every garland is hand-built and installed by Isabella — no templates, no shortcuts, no surprise fees.</p>
+  <p class="strip"><a href="golden-hour.html" style="color:#a78bfa;font-weight:600;">Golden Hour Finder</a> · <a href="party-timeline.html" style="color:#fbbf24;font-weight:600;">Party Day Timeline</a> · <a href="memory-capsule.html" style="color:#92400e;font-weight:600;">Memory Capsule</a> · <a href="playlist.html" style="color:#b91c1c;font-weight:600;">Party Playlist</a> · <a href="guest-list.html" style="color:#1e3a8a;font-weight:600;">The Guest List</a> · <a href="photo-hunt.html" style="color:#a21caf;font-weight:600;">Party Photo Hunt</a> · <a href="photo-booth.html" style="color:#0369a1;font-weight:600;">Golden Hour Booth</a> · <a href="memory-wall.html" style="color:#b45309;font-weight:600;">Memory Wall</a> · <a href="party-roadmap.html" style="color:#0f766e;font-weight:600;">Party Roadmap</a> · <a href="invitation-studio.html" style="color:#312e81;font-weight:600;">Invitation Studio</a> · <a href="balloon-pop.html" style="color:#ea580c;font-weight:600;">Pop Party</a> · <a href="wedding-workshop.html" style="color:#9d174d;font-weight:600;">Wedding Workshop</a> · <a href="transformations.html" style="color:#7c3aed;font-weight:600;">The Big Reveal</a> · <a href="budget-builder.html" style="color:#2f7a52">Budget Balloonist</a> · <a href="referral.html" style="color:#C9A87C">Refer &amp; Earn</a></p>
+</footer>
+
+<!-- ===== print-only card ===== -->
+<div class="print-card" id="printCard">
+  <h1 id="pcTitle">Golden Hour Card</h1>
+  <div class="pc-meta" id="pcMeta"></div>
+  <table>
+    <thead><tr><th style="width:150px">Moment</th><th>Time</th></tr></thead>
+    <tbody id="pcBody"></tbody>
+  </table>
+  <div class="pc-foot" id="pcFoot">Printed from myeverlastingmemories.com/golden-hour.html — Everlasting Memories, Balloon Art &amp; Event Decor, Connecticut. Sun math: NOAA solar model, ±2 min. Isabella (203-981-7244).</div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ================= The Golden Hour Finder ================= */
+/* ===PURE-START=== */
+const $=id=>document.getElementById(id);
+
+/* ---------- solar engine (NOAA classic sunrise equation, pure) ---------- */
+const rad=d=>d*Math.PI/180, deg=r=>r*180/Math.PI;
+function norm360(x){return ((x%360)+360)%360;}
+function norm24(x){return ((x%24)+24)%24;}
+function dayOfYear(d){return Math.floor((d-new Date(d.getFullYear(),0,0))/86400000);}
+/* hours UTC when the sun's center crosses `zenith` (deg) on date d at lat/lon.
+   dir: +1 = rising, -1 = setting. null = no crossing that day (polar day/night). */
+function crossingUTC(d,lat,lon,zenith,dir){
+  const N=dayOfYear(d), lngHour=lon/15;
+  const approx=N+((dir>0?6:18)-lngHour)/24;
+  const M=(0.9856*approx)-3.289;
+  const L=norm360(M+(1.916*Math.sin(rad(M)))+(0.020*Math.sin(rad(2*M)))+282.634);
+  let RA=norm360(deg(Math.atan(0.91764*Math.tan(rad(L)))));
+  const Lq=Math.floor(L/90)*90, RAq=Math.floor(RA/90)*90;
+  RA=(RA+(Lq-RAq))/15;
+  const sinDec=0.39782*Math.sin(rad(L));
+  const cosDec=Math.cos(Math.asin(sinDec));
+  const cosH=(Math.cos(rad(zenith))-(sinDec*Math.sin(rad(lat))))/(cosDec*Math.cos(rad(lat)));
+  if(cosH>1||cosH<-1)return null;
+  let H=deg(Math.acos(cosH));
+  if(dir>0)H=360-H;
+  H/=15;
+  const T=H+RA-(0.06571*approx)-6.622;
+  return norm24(T-lngHour);
+}
+/* UTC offset (hours) for an IANA tz at a given instant — DST-aware. */
+function tzOffset(date,tz){
+  try{
+    const parts=new Intl.DateTimeFormat('en-US',{timeZone:tz,timeZoneName:'longOffset'}).formatToParts(date);
+    const v=(parts.find(p=>p.type==='timeZoneName')||{}).value||'UTC';
+    const m=v.match(/GMT([+-])(\d{1,2})(?::(\d{2}))?/);
+    if(!m)return 0;
+    return (m[1]==='-'?-1:1)*((+m[2])+(+(m[3]||0))/60);
+  }catch(e){return 0;}
+}
+/* local wall-clock hours (0-24) of a zenith crossing, or null. */
+function localTime(d,lat,lon,zenith,dir,tz){
+  const utcH=crossingUTC(d,lat,lon,zenith,dir);
+  if(utcH==null)return null;
+  const utcMs=Date.UTC(d.getFullYear(),d.getMonth(),d.getDate(),Math.floor(utcH),Math.round((utcH%1)*60));
+  return norm24(utcH+tzOffset(new Date(utcMs),tz));
+}
+/* The full day plan. zeniths: 90.833 = official sunrise/sunset,
+   84 = sun at 6° (golden hour edges), 96 = civil twilight (-6°). */
+function dayPlan(dateStr,lat,lon,tz){
+  const d=new Date(dateStr+'T12:00:00');
+  const sunrise=localTime(d,lat,lon,90.833,1,tz);
+  const sunset=localTime(d,lat,lon,90.833,-1,tz);
+  const ghM=localTime(d,lat,lon,84,1,tz);
+  const ghE=localTime(d,lat,lon,84,-1,tz);
+  const civS=localTime(d,lat,lon,96,1,tz);
+  const civE=localTime(d,lat,lon,96,-1,tz);
+  const dayLen=(sunrise!=null&&sunset!=null)?norm24(sunset-sunrise):null;
+  const ghEveLen=(ghE!=null&&sunset!=null)?norm24(sunset-ghE):null;
+  const ghMornLen=(ghM!=null&&sunrise!=null)?norm24(ghM-sunrise):null;
+  const blueLen=(civE!=null&&sunset!=null)?norm24(civE-sunset):null;
+  return {date:dateStr,lat,lon,tz,sunrise,sunset,ghM,ghE,civS,civE,dayLen,ghEveLen,ghMornLen,blueLen,
+    allDay:(ghE==null&&sunrise!=null),polar:(sunrise==null&&sunset==null)};
+}
+function fmtTime(h){
+  h=((h%24)+24)%24;
+  let m=Math.floor(h), s=Math.round((h-m)*60);
+  if(s===60){s=0;m++;}
+  const ap=m>=12?'PM':'AM', h12=m%12===0?12:m%12;
+  return h12+':'+String(s).padStart(2,'0')+' '+ap;
+}
+function fmtDur(h){const m=Math.round(h*60);return m+' min';}
+
+/* ---------- cities (lat, lon, IANA tz) ---------- */
+const CITIES={
+  'Hartford, CT':[41.7658,-72.6734,'America/New_York'],
+  'New Haven, CT':[41.3083,-72.9279,'America/New_York'],
+  'Stamford, CT':[41.0534,-73.5387,'America/New_York'],
+  'Bridgeport, CT':[41.1865,-73.1952,'America/New_York'],
+  'Danbury, CT':[41.3948,-73.4540,'America/New_York'],
+  'Norwalk, CT':[41.1177,-73.4079,'America/New_York'],
+  'Waterbury, CT':[41.5582,-73.0515,'America/New_York'],
+  'New London, CT':[41.3557,-72.0995,'America/New_York'],
+  'Greenwich, CT':[41.0262,-73.6282,'America/New_York'],
+  'Middletown, CT':[41.5623,-72.6506,'America/New_York'],
+  'Milford, CT':[41.2305,-73.0640,'America/New_York'],
+  'New York, NY':[40.7128,-74.0060,'America/New_York'],
+  'Albany, NY':[42.6526,-73.7562,'America/New_York'],
+  'Buffalo, NY':[42.8864,-78.8784,'America/New_York'],
+  'Syracuse, NY':[43.0481,-76.1474,'America/New_York'],
+  'Boston, MA':[42.3601,-71.0589,'America/New_York'],
+  'Worcester, MA':[42.2626,-71.8023,'America/New_York'],
+  'Springfield, MA':[42.1015,-72.5898,'America/New_York'],
+  'Providence, RI':[41.8240,-71.4128,'America/New_York'],
+  'Newark, NJ':[40.7357,-74.1724,'America/New_York'],
+  'Jersey City, NJ':[40.7178,-74.0431,'America/New_York'],
+  'Philadelphia, PA':[39.9526,-75.1652,'America/New_York'],
+  'Pittsburgh, PA':[40.4406,-79.9959,'America/New_York'],
+  'Harrisburg, PA':[40.2732,-76.8867,'America/New_York'],
+  'Wilmington, DE':[39.7447,-75.5484,'America/New_York'],
+  'Baltimore, MD':[39.2904,-76.6122,'America/New_York'],
+  'Washington, DC':[38.9072,-77.0369,'America/New_York'],
+  'Richmond, VA':[37.5407,-77.4360,'America/New_York'],
+  'Charlotte, NC':[35.2271,-80.8431,'America/New_York'],
+  'Raleigh, NC':[35.7796,-78.6382,'America/New_York'],
+  'Atlanta, GA':[33.7490,-84.3880,'America/New_York'],
+  'Miami, FL':[25.7617,-80.1918,'America/New_York'],
+  'Orlando, FL':[28.5384,-81.3789,'America/New_York'],
+  'Tampa, FL':[27.9506,-82.4572,'America/New_York'],
+  'Nashville, TN':[36.1627,-86.7816,'America/Chicago'],
+  'Memphis, TN':[35.1495,-90.0490,'America/Chicago'],
+  'Louisville, KY':[38.2527,-85.7585,'America/New_York'],
+  'Cleveland, OH':[41.4993,-81.6944,'America/New_York'],
+  'Columbus, OH':[39.9612,-82.9988,'America/New_York'],
+  'Cincinnati, OH':[39.1031,-84.5120,'America/New_York'],
+  'Detroit, MI':[42.3314,-83.0458,'America/New_York'],
+  'Indianapolis, IN':[39.7684,-86.1581,'America/New_York'],
+  'Chicago, IL':[41.8781,-87.6298,'America/Chicago'],
+  'Milwaukee, WI':[43.0389,-87.9065,'America/Chicago'],
+  'Minneapolis, MN':[44.9778,-93.2650,'America/Chicago'],
+  'St. Louis, MO':[38.6270,-90.1994,'America/Chicago'],
+  'Kansas City, MO':[39.0997,-94.5786,'America/Chicago'],
+  'New Orleans, LA':[29.9511,-90.0715,'America/Chicago'],
+  'Dallas, TX':[32.7767,-96.7970,'America/Chicago'],
+  'Houston, TX':[29.7604,-95.3698,'America/Chicago'],
+  'Austin, TX':[30.2672,-97.7431,'America/Chicago'],
+  'Oklahoma City, OK':[35.4676,-97.5164,'America/Chicago'],
+  'Denver, CO':[39.7392,-104.9903,'America/Denver'],
+  'Salt Lake City, UT':[40.7608,-111.8910,'America/Denver'],
+  'Albuquerque, NM':[35.0844,-106.6504,'America/Denver'],
+  'Phoenix, AZ':[33.4484,-112.0740,'America/Phoenix'],
+  'Las Vegas, NV':[36.1699,-115.1398,'America/Los_Angeles'],
+  'Los Angeles, CA':[34.0522,-118.2437,'America/Los_Angeles'],
+  'San Diego, CA':[32.7157,-117.1611,'America/Los_Angeles'],
+  'San Francisco, CA':[37.7749,-122.4194,'America/Los_Angeles'],
+  'Sacramento, CA':[38.5816,-121.4944,'America/Los_Angeles'],
+  'Portland, OR':[45.5152,-122.6784,'America/Los_Angeles'],
+  'Seattle, WA':[47.6062,-122.3321,'America/Los_Angeles'],
+  'Boise, ID':[43.6150,-116.2023,'America/Boise'],
+  'Honolulu, HI':[21.3069,-157.8583,'Pacific/Honolulu'],
+  'Anchorage, AK':[61.2181,-149.9003,'America/Anchorage'],
+  'Fairbanks, AK':[64.8378,-147.7164,'America/Anchorage'],
+  'Portland, ME':[43.6591,-70.2568,'America/New_York'],
+  'Burlington, VT':[44.4759,-73.2121,'America/New_York'],
+  'Manchester, NH':[42.9956,-71.4548,'America/New_York'],
+  'Toronto, Canada':[43.6532,-79.3832,'America/Toronto'],
+  'London, UK':[51.5074,-0.1278,'Europe/London'],
+  'Paris, France':[48.8566,2.3522,'Europe/Paris'],
+  'Sydney, Australia':[-33.8688,151.2093,'Australia/Sydney']
+};
+const CITY_KEYS=Object.keys(CITIES);
+function cityLookup(name){
+  if(!name)return null;
+  const k=CITY_KEYS.find(c=>c.toLowerCase()===String(name).trim().toLowerCase());
+  return k?{name:k,lat:CITIES[k][0],lon:CITIES[k][1],tz:CITIES[k][2]}:null;
+}
+function citySearch(q){
+  q=String(q||'').trim().toLowerCase();
+  if(!q)return CITY_KEYS.slice(0,8);
+  return CITY_KEYS.filter(c=>c.toLowerCase().includes(q)).slice(0,8);
+}
+
+/* ---------- occasion tips ---------- */
+const OCCASIONS={
+  'Wedding':['💍','Book the couple portraits in the last 40 minutes before sunset — the arch faces the light, the dress glows, nobody squints. Ceremony an hour before golden hour, portraits through it, first dance right after.'],
+  'Birthday':['🎂','Schedule the cake and the outdoor photos inside the window. The last 20 minutes — the "magic twenty" — are when the balloon arch photographs like a magazine cover.'],
+  'Baby Shower':['👶','Golden hour lands right around nap time for the little guests — so point the window at the cake table and the mama-to-be portraits instead. Soft light + soft colors = nursery-wall material.'],
+  'Anniversary':['💞','Recreate their wedding-day pose under the arch in the golden window. That single photo will live on a mantle for the next 25 years — worth planning the dinner around.'],
+  'Graduation':['🎓','Cap toss at golden hour. The tassels catch the light, the gowns go gold, and the "we did it" shot is the one that gets framed. Aim the photo wall west.'],
+  'Corporate':['🏢','Golden hour + the branded arch = the hero shot for next year\'s recap video. Schedule the awards or the ribbon moment inside the window — it photographs like a movie still.'],
+  'Just Because':['🎉','Golden hour + your people + balloons is the entire theme of the party. Put the drinks outside for the last hour of the day and let the light do the decorating.']
+};
+const OCC_KEYS=Object.keys(OCCASIONS);
+
+/* ---------- countdown state machine (pure) ---------- */
+function goldenState(plan,now){
+  if(!plan||!plan.date)return {state:'idle'};
+  const d=new Date(plan.date+'T00:00:00');
+  const today=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+  if(d.getTime()!==today.getTime())return {state:'idle'};
+  if(plan.polar)return {state:'polar'};
+  if(plan.allDay)return {state:'allday'};
+  const mins=now.getHours()*60+now.getMinutes()+now.getSeconds()/60;
+  const gs=plan.ghE*60, ss=plan.sunset*60;
+  if(mins<gs)return {state:'before',msTo:(gs-mins)*60000,start:plan.ghE};
+  if(mins<ss)return {state:'live',ends:plan.sunset};
+  return {state:'after',ended:plan.sunset,blueEnd:plan.civE};
+}
+
+/* ---------- share / lead / print text (pure) ---------- */
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function planLabel(plan,city){
+  if(plan.polar)return 'Polar light — the sun barely rises or sets';
+  if(plan.allDay)return 'Golden light all day — the sun never dips low';
+  return fmtTime(plan.ghE)+' \u2192 '+fmtTime(plan.sunset)+' (\u2248 '+fmtDur(plan.ghEveLen)+')';
+}
+function buildShareText(plan,city,occ){
+  const lines=['\uD83C\uDF05 Golden Hour for '+city+' on '+plan.date];
+  if(plan.polar){lines.push('The sun barely rises/sets — golden light is basically all day (or all night).');}
+  else if(plan.allDay){lines.push('The sun never dips below 6\u00B0 — golden light all day. Party whenever.');}
+  else{
+    lines.push('\u2728 Evening golden hour: '+fmtTime(plan.ghE)+' \u2192 '+fmtTime(plan.sunset)+' (\u2248 '+fmtDur(plan.ghEveLen)+')');
+    lines.push('\uD83C\uDF05 Morning golden hour: '+fmtTime(plan.sunrise)+' \u2192 '+fmtTime(plan.ghM)+' (\u2248 '+fmtDur(plan.ghMornLen)+')');
+  }
+  if(plan.sunrise!=null)lines.push('\u2600\uFE0F Sunrise '+fmtTime(plan.sunrise)+' \u00B7 Sunset '+fmtTime(plan.sunset)+' \u00B7 Day '+fmtDur(plan.dayLen));
+  if(plan.blueLen!=null)lines.push('\uD83C\uDF0C Blue hour after sunset: '+fmtTime(plan.sunset)+' \u2192 '+fmtTime(plan.civE));
+  if(occ)lines.push('\uD83C\uDF89 '+occ+' tip: '+(OCCASIONS[occ]?OCCASIONS[occ][1].slice(0,90)+'\u2026':'plan the photos inside the window.'));
+  lines.push('','Made with the Golden Hour Finder \u2014 Everlasting Memories \uD83C\uDF88 https://myeverlastingmemories.com/golden-hour.html');
+  return lines.join('\n');
+}
+function buildLeadMsg(plan,city,occ){
+  const bits=['Golden hour for '+occ+' on '+plan.date+' in '+city+': '+planLabel(plan,city)+'.'];
+  if(plan.sunrise!=null)bits.push('Sunrise '+fmtTime(plan.sunrise)+', sunset '+fmtTime(plan.sunset)+'.');
+  bits.push('Please quote balloon decor timed to this light.');
+  return bits.join(' ');
+}
+/* ===PURE-END=== */
+
+/* ---------- state ---------- */
+const KEY='em_gh_state_v1';
+function todayStr(){const d=new Date();return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');}
+function loadState(){
+  try{const s=JSON.parse(localStorage.getItem(KEY));if(s&&s.city)return s;}catch(e){}
+  return {date:todayStr(),city:'Hartford, CT',occ:'Birthday',built:false};
+}
+let state=loadState();
+function saveState(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
+function currentPlan(){
+  const c=cityLookup(state.city);
+  if(!c)return null;
+  return dayPlan(state.date,c.lat,c.lon,c.tz);
+}
+
+/* ---------- datalist + chips ---------- */
+$('cityList').innerHTML=CITY_KEYS.map(c=>'<option value="'+esc(c)+'"></option>').join('');
+$('occChips').innerHTML=OCC_KEYS.map(o=>'<button class="chip'+(state.occ===o?' on':'')+'" data-occ="'+esc(o)+'" type="button">'+OCCASIONS[o][0]+' '+esc(o)+'</button>').join('');
+$('occChips').addEventListener('click',e=>{
+  const b=e.target.closest('.chip');if(!b)return;
+  state.occ=b.dataset.occ;
+  document.querySelectorAll('#occChips .chip').forEach(c=>c.classList.toggle('on',c===b));
+  saveState();refreshLeadMsg();
+});
+$('quickChips').addEventListener('click',e=>{
+  const b=e.target.closest('.chip');if(!b)return;
+  if(b.id==='geoBtn'){useGeo();return;}
+  state.city=b.dataset.city;
+  $('citySearch').value=state.city;
+  document.querySelectorAll('#quickChips .chip').forEach(c=>c.classList.toggle('on',c===b));
+  saveState();
+});
+function useGeo(){
+  if(!navigator.geolocation){toast('Geolocation isn\'t available here — type a city instead.');return;}
+  toast('Locating you…');
+  navigator.geolocation.getCurrentPosition(pos=>{
+    const lat=+pos.coords.latitude.toFixed(4), lon=+pos.coords.longitude.toFixed(4);
+    let tz='America/New_York';
+    try{tz=Intl.DateTimeFormat().resolvedOptions().timeZone||tz;}catch(e){}
+    state.city='My location';
+    state.lat=lat;state.lon=lon;state.tz=tz;
+    $('citySearch').value='📍 My location ('+lat+', '+lon+')';
+    $('fLat').value=lat;$('fLon').value=lon;
+    saveState();findAndRender();
+    toast('✨ Found you — golden hour computed for your exact spot.');
+  },()=>toast('Couldn\'t get your location — type a city instead.'),{timeout:8000});
+}
+
+/* ---------- find ---------- */
+function resolveCity(){
+  const q=$('citySearch').value.trim();
+  const c=cityLookup(q);
+  if(c){state.city=c.name;state.lat=null;state.lon=null;state.tz=null;return c;}
+  const lat=parseFloat($('fLat').value), lon=parseFloat($('fLon').value);
+  if(!isNaN(lat)&&!isNaN(lon)&&lat>=-90&&lat<=90&&lon>=-180&&lon<=180){
+    state.city='Custom ('+lat+', '+lon+')';
+    state.lat=lat;state.lon=lon;state.tz=$('tzSelect').value;
+    return {name:state.city,lat,lon,tz:$('tzSelect').value};
+  }
+  const c2=cityLookup(state.city);
+  if(c2){$('citySearch').value=state.city;return c2;}
+  return null;
+}
+$('findBtn').addEventListener('click',findAndRender);
+$('citySearch').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();findAndRender();}});
+function findAndRender(){
+  const c=resolveCity();
+  if(!c){toast('Hmm, I don\'t know that city — pick one from the list or enter latitude/longitude.');return;}
+  state.date=$('fDate').value||todayStr();
+  $('fDate').value=state.date;
+  const plan=dayPlan(state.date,c.lat,c.lon,c.tz);
+  state.plan=plan;state.built=true;
+  saveState();render(plan,c);
+  const gs=goldenState(plan,new Date());
+  if(gs.state==='live'){confetti(34);toast('🌇 Golden hour is happening RIGHT NOW where you picked. Go outside!');}
+  else if(gs.state==='before'){toast('🌇 Golden hour on '+state.date+': '+fmtTime(plan.ghE)+' → '+fmtTime(plan.sunset)+' ('+fmtDur(plan.ghEveLen)+').');}
+  else{toast('🌇 Golden hour computed for '+state.city+' — '+planLabel(plan,state.city)+'.');}
+}
+
+/* ---------- render ---------- */
+function render(plan,c){
+  $('ghTitle').textContent=(state.occ?OCCASIONS[state.occ][0]+' ':'')+'Golden hour · '+c.name;
+  $('ghSub').textContent=state.date+(plan.polar?' · polar light':plan.allDay?' · golden all day':' · '+fmtDur(plan.ghEveLen)+' of evening gold');
+  if(plan.polar){
+    $('ghWindow').innerHTML='Polar light<small>The sun barely rises or sets — golden light is basically all day (or all night). Party on.</small>';
+    $('ghMeta').textContent='No sunrise/sunset on this date at '+c.name+'.';
+  }else if(plan.allDay){
+    $('ghWindow').innerHTML='All day gold<small>The sun never dips below 6° — golden light from dawn to dusk.</small>';
+    $('ghMeta').textContent=(plan.sunrise!=null?('Sunrise '+fmtTime(plan.sunrise)+' · '):'')+'Sunset '+(plan.sunset!=null?fmtTime(plan.sunset):'—')+' · Day '+fmtDur(plan.dayLen);
+  }else{
+    $('ghWindow').innerHTML=fmtTime(plan.ghE)+' → '+fmtTime(plan.sunset)+'<small>evening golden hour · ≈ '+fmtDur(plan.ghEveLen)+'</small>';
+    $('ghMeta').textContent='Sunrise '+fmtTime(plan.sunrise)+' · Sunset '+fmtTime(plan.sunset)+' · Day '+fmtDur(plan.dayLen);
+  }
+  let rows='';
+  const row=(k,v,cls)=>'<div class="gh-row'+(cls?' '+cls:'')+'"><span class="k">'+k+'</span><span class="v">'+v+'</span></div>';
+  if(plan.sunrise!=null)rows+=row('🌅 Sunrise',fmtTime(plan.sunrise));
+  if(plan.sunset!=null)rows+=row('🌇 Sunset',fmtTime(plan.sunset));
+  if(plan.ghM!=null)rows+=row('🌤 Morning golden hour',fmtTime(plan.sunrise)+' → '+fmtTime(plan.ghM)+' ('+fmtDur(plan.ghMornLen)+')');
+  if(plan.ghE!=null)rows+=row('✨ Evening golden hour',fmtTime(plan.ghE)+' → '+fmtTime(plan.sunset)+' ('+fmtDur(plan.ghEveLen)+')','gold');
+  if(plan.civE!=null)rows+=row('🌌 Blue hour',fmtTime(plan.sunset)+' → '+fmtTime(plan.civE)+' ('+fmtDur(plan.blueLen)+')','blue');
+  rows+=row('📏 Day length',fmtDur(plan.dayLen));
+  $('ghRows').innerHTML=rows;
+  const tip=OCCASIONS[state.occ]||OCCASIONS['Birthday'];
+  $('ghTip').innerHTML='<b>'+tip[0]+' Isabella\'s '+state.occ.toLowerCase()+' playbook:</b> '+esc(tip[1])+' <a href="photo-booth.html" style="color:var(--c1);font-weight:600">Try the look</a> · <a href="photo-hunt.html" style="color:var(--c1);font-weight:600">Photo Hunt</a> · <a href="golden-hour.html" style="color:#a78bfa;font-weight:600;">Golden Hour Finder</a> · <a href="party-timeline.html" style="color:var(--c1);font-weight:600">Timeline</a>';
+  drawSky(plan,new Date());
+  refreshLeadMsg();
+}
+
+/* ---------- canvas sun path ---------- */
+let sunPos=null, sunClicks=0;
+function drawSky(plan,now){
+  const cv=$('sunArc');
+  if(!cv||!cv.getContext)return;
+  const ctx=cv.getContext('2d');
+  if(!ctx)return;
+  try{
+    const W=cv.width,H=cv.height;
+    const horizonY=H*0.72, maxE=68, minE=-8;
+    const yOf=e=>horizonY-((e-minE)/(maxE-minE))*(horizonY-12);
+    const xOf=t=>(t/24)*W;
+    ctx.clearRect(0,0,W,H);
+    const sky=ctx.createLinearGradient(0,0,0,horizonY);
+    sky.addColorStop(0,'#2e1065');sky.addColorStop(.45,'#4c1d95');sky.addColorStop(.78,'#b45309');sky.addColorStop(1,'#C9A227');
+    ctx.fillStyle=sky;ctx.fillRect(0,0,W,horizonY);
+    ctx.fillStyle='#2a0e5e';ctx.fillRect(0,horizonY,W,H-horizonY);
+    if(!plan.polar){
+      const g0=yOf(0),g6=yOf(6);
+      ctx.fillStyle='rgba(253,230,138,.30)';
+      ctx.fillRect(0,g6,W,g0-g6);
+      const t0=plan.sunrise!=null?plan.sunrise:0, t1=plan.sunset!=null?plan.sunset:24;
+      ctx.strokeStyle='#fde68a';ctx.lineWidth=2.5;ctx.beginPath();
+      for(let m=t0*60;m<=t1*60;m+=5){
+        const t=m/60;
+        const e=plan.sunrise!=null&&plan.sunset!=null?maxE*Math.sin(Math.PI*(t-plan.sunrise)/(plan.sunset-plan.sunrise)):-minE;
+        const x=xOf(t),y=yOf(Math.max(minE,e));
+        m===t0*60?ctx.moveTo(x,y):ctx.lineTo(x,y);
+      }
+      ctx.stroke();
+      if(plan.ghE!=null){
+        ctx.strokeStyle='rgba(253,230,138,.8)';ctx.setLineDash([5,5]);ctx.lineWidth=1.5;ctx.beginPath();
+        ctx.moveTo(xOf(plan.ghE),yOf(6));ctx.lineTo(xOf(plan.ghE),yOf(-6));ctx.stroke();ctx.setLineDash([]);
+        ctx.fillStyle='#92600a';ctx.font='bold 11px Inter,sans-serif';ctx.textAlign='center';
+        ctx.fillText('golden hour',xOf((plan.ghE+plan.sunset)/2),yOf(6)-7);
+      }
+      if(plan.sunrise!=null){ctx.fillStyle='#fff';ctx.font='bold 11px Inter,sans-serif';ctx.textAlign='center';ctx.fillText('🌅 '+fmtTime(plan.sunrise),xOf(plan.sunrise),H-8);}
+      if(plan.sunset!=null){ctx.fillStyle='#fff';ctx.font='bold 11px Inter,sans-serif';ctx.textAlign='center';ctx.fillText('🌇 '+fmtTime(plan.sunset),xOf(plan.sunset),H-8);}
+    }
+    /* sun disc at current local time */
+    const mins=now.getHours()*60+now.getMinutes()+now.getSeconds()/60;
+    const t=mins/60;
+    let e=null;
+    if(!plan.polar&&plan.sunrise!=null&&plan.sunset!=null){
+      if(t>=plan.sunrise&&t<=plan.sunset)e=maxE*Math.sin(Math.PI*(t-plan.sunrise)/(plan.sunset-plan.sunrise));
+    }
+    const sx=e==null?xOf(plan.ghE!=null?plan.ghE:12):xOf(t);
+    const sy=e==null?yOf(0):yOf(e);
+    const glow=ctx.createRadialGradient(sx,sy,2,sx,sy,26);
+    glow.addColorStop(0,'rgba(255,236,179,.95)');glow.addColorStop(.45,'rgba(253,186,116,.55)');glow.addColorStop(1,'rgba(253,186,116,0)');
+    ctx.fillStyle=glow;ctx.beginPath();ctx.arc(sx,sy,26,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle='#fbbf24';ctx.beginPath();ctx.arc(sx,sy,11,0,Math.PI*2);ctx.fill();
+    ctx.fillStyle='#f59e0b';ctx.beginPath();ctx.arc(sx-3.5,sy-3,4,0,Math.PI*2);ctx.fill();
+    sunPos={x:sx,y:sy};
+  }catch(err){/* decorative only */}
+}
+$('sunArc').addEventListener('click',e=>{
+  if(!sunPos)return;
+  const r=e.target.getBoundingClientRect();
+  const x=(e.clientX-r.left)*(640/r.width), y=(e.clientY-r.top)*(220/r.height);
+  if(Math.hypot(x-sunPos.x,y-sunPos.y)<34){
+    sunClicks++;
+    if(sunClicks>=5){
+      sunClicks=0;
+      $('ghHero').style.boxShadow='0 0 0 3px rgba(201,162,39,.55), 0 0 46px rgba(201,162,39,.5)';
+      toast('🌇 Isabella\'s secret #11: the warmest light of the day is the last 20 minutes before sunset — the "magic twenty". She schedules every outdoor balloon drop and arch photo inside it.');
+      confetti(30);
+      setTimeout(()=>{$('ghHero').style.boxShadow='';},7000);
+    }
+  }
+});
+
+/* ---------- countdown ---------- */
+function tickCount(){
+  const plan=state.plan||currentPlan();
+  if(!plan){$('ghCount').classList.remove('show');return;}
+  const gs=goldenState(plan,new Date());
+  if(gs.state==='idle'){$('ghCount').classList.remove('show');return;}
+  $('ghCount').classList.add('show');
+  if(gs.state==='before'){
+    const m=Math.ceil(gs.msTo/60000);
+    const h=Math.floor(m/60),mm=m%60;
+    $('ghCountTxt').textContent='Golden hour starts in '+(h>0?h+'h ':'')+mm+'m — '+fmtTime(gs.start);
+  }else if(gs.state==='live'){
+    $('ghCountTxt').textContent='Golden hour is happening NOW — go outside! Ends '+fmtTime(gs.ends);
+  }else if(gs.state==='after'){
+    $('ghCountTxt').textContent='Golden hour ended at '+fmtTime(gs.ended)+(gs.blueEnd!=null?' — blue hour until '+fmtTime(gs.blueEnd):'');
+  }else if(gs.state==='allday'){
+    $('ghCountTxt').textContent='Golden light all day — party whenever you like.';
+  }else if(gs.state==='polar'){
+    $('ghCountTxt').textContent='Polar light — golden hour is basically all day (or all night).';
+  }
+}
+setInterval(tickCount,30000);
+
+/* ---------- surprise ---------- */
+$('surpriseBtn').addEventListener('click',()=>{
+  const cities=CITY_KEYS.filter(c=>/CT|NY|MA|RI|NJ/.test(c));
+  state.city=cities[Math.floor(Math.random()*cities.length)]||CITY_KEYS[Math.floor(Math.random()*CITY_KEYS.length)];
+  state.occ=OCC_KEYS[Math.floor(Math.random()*OCC_KEYS.length)];
+  state.date=todayStr();
+  $('citySearch').value=state.city;
+  $('fDate').value=state.date;
+  document.querySelectorAll('#occChips .chip').forEach(c=>c.classList.toggle('on',c.dataset.occ===state.occ));
+  document.querySelectorAll('#quickChips .chip').forEach(c=>c.classList.toggle('on',c.dataset.city===state.city));
+  const c=cityLookup(state.city);
+  state.plan=dayPlan(state.date,c.lat,c.lon,c.tz);state.built=true;
+  saveState();render(state.plan,c);confetti(36);
+  toast('✨ '+state.city+' on '+state.date+' — golden hour '+planLabel(state.plan,state.city)+'.');
+});
+
+/* ---------- share / print ---------- */
+$('shareBtn').addEventListener('click',()=>{
+  const plan=state.plan||currentPlan();
+  if(!plan){toast('Find your golden hour first — then share.');return;}
+  const txt=buildShareText(plan,state.city,state.occ);
+  if(navigator.share){navigator.share({title:'My Golden Hour',text:txt,url:'https://myeverlastingmemories.com/golden-hour.html'}).catch(()=>{});}
+  else window.open('https://wa.me/?text='+encodeURIComponent(txt),'_blank');
+});
+$('printBtn').addEventListener('click',()=>{
+  const plan=state.plan||currentPlan();
+  if(!plan){toast('Find your golden hour first — then print.');return;}
+  $('pcTitle').textContent='Golden Hour Card — '+state.city;
+  $('pcMeta').textContent=state.date+(state.occ?' · '+state.occ:'');
+  const rows=[];
+  if(plan.sunrise!=null)rows.push(['🌅 Sunrise',fmtTime(plan.sunrise)]);
+  if(plan.ghM!=null)rows.push(['🌤 Morning golden hour',fmtTime(plan.sunrise)+' → '+fmtTime(plan.ghM)+' ('+fmtDur(plan.ghMornLen)+')']);
+  if(plan.ghE!=null)rows.push(['✨ Evening golden hour',fmtTime(plan.ghE)+' → '+fmtTime(plan.sunset)+' ('+fmtDur(plan.ghEveLen)+')']);
+  if(plan.sunset!=null)rows.push(['🌇 Sunset',fmtTime(plan.sunset)]);
+  if(plan.civE!=null)rows.push(['🌌 Blue hour ends',fmtTime(plan.civE)]);
+  rows.push(['📏 Day length',fmtDur(plan.dayLen)]);
+  $('pcBody').innerHTML=rows.map(r=>'<tr><td>'+r[0]+'</td><td><b>'+r[1]+'</b></td></tr>').join('');
+  window.print();
+});
+
+/* ---------- lead form ---------- */
+function refreshLeadMsg(){
+  const plan=state.plan||currentPlan();
+  if(!plan)return;
+  $('fLeadMsg').value=buildLeadMsg(plan,state.city,state.occ);
+}
+$('fLeadEvent').addEventListener('change',()=>{state.occ=$('fLeadEvent').value;saveState();});
+$('leadForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const name=$('fLeadName').value.trim(),email=$('fLeadEmail').value.trim(),phone=$('fLeadPhone').value.trim();
+  const evt=$('fLeadEvent').value,date=$('fLeadDate').value,budget=$('fLeadBudget').value;
+  refreshLeadMsg();
+  const extra=$('fLeadMsg').value.trim();
+  const payload={name,email,phone,eventType:evt,eventDate:date,budget,message:extra,source:'golden-hour',type:'lead'};
+  const btn=$('submitBtn');
+  btn.disabled=true;btn.textContent='Sending…';
+  try{
+    const res=await fetch('/api/leads.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    if(!res.ok)throw new Error('bad status');
+    const m=$('formMsg');
+    m.className='msg ok';
+    m.textContent='🎉 Sent to Isabella! Expect a reply within 24 hours — she\'ll time the decor to your golden hour.';
+    confetti(40);
+    e.target.reset();
+    setTimeout(()=>{m.className='msg';},8000);
+  }catch(err){
+    const m=$('formMsg');
+    m.className='msg err';
+    m.textContent='Hmm, that didn\'t go through. Please try again, or email Isabella directly at Hey.everlasting.memories@gmail.com';
+    setTimeout(()=>{m.className='msg';},7000);
+  }
+  btn.disabled=false;btn.textContent='🎈 Request My Balloon Quote';
+});
+
+/* ---------- faq ---------- */
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click',()=>{
+    const item=q.parentElement;
+    item.classList.toggle('open');
+    q.querySelector('span').textContent=item.classList.contains('open')?'▲':'▼';
+  });
+});
+
+/* ---------- nav dropdown ---------- */
+document.querySelectorAll('.em-nav-drop-btn').forEach(btn=>{
+  btn.addEventListener('click',e=>{
+    e.stopPropagation();
+    const menu=btn.parentElement.querySelector('.em-nav-drop-menu');
+    document.querySelectorAll('.em-nav-drop-menu.open').forEach(m=>{if(m!==menu)m.classList.remove('open');});
+    menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded',menu.classList.contains('open'));
+  });
+});
+document.addEventListener('click',()=>document.querySelectorAll('.em-nav-drop-menu.open').forEach(m=>m.classList.remove('open')));
+
+/* ---------- toast / confetti ---------- */
+let toastTimer=null;
+function toast(msg){
+  const t=$('toast');t.textContent=msg;t.classList.add('show');
+  clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),5200);
+}
+function confetti(n){
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  const colors=['#C9A227','#4c1d95','#e11d48','#f59e0b','#fbbf24','#7c3aed'];
+  for(let i=0;i<n;i++){
+    const c=document.createElement('div');
+    c.className='confetti';
+    c.style.left=Math.random()*100+'vw';
+    c.style.background=colors[Math.floor(Math.random()*colors.length)];
+    c.style.animationDuration=(2.2+Math.random()*2)+'s';
+    c.style.animationDelay=(Math.random()*.5)+'s';
+    c.style.borderRadius=Math.random()>.5?'50%':'2px';
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),5200);
+  }
+}
+
+/* ---------- init ---------- */
+$('fDate').value=state.date;
+$('citySearch').value=state.city;
+$('fLeadDate').value=state.date;
+$('fLeadEvent').value=state.occ;
+const initCity=cityLookup(state.city);
+if(initCity){state.plan=dayPlan(state.date,initCity.lat,initCity.lon,initCity.tz);state.built=true;render(state.plan,initCity);}
+else{$('ghSub').textContent='Pick a date + city and hit Find.';}
+tickCount();
+</script>
+</body>
+</html>
