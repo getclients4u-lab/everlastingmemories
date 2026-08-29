@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Dessert Table Stylist — Design Your Dream Dessert Table | Everlasting Memories — Balloon Art &amp; Event Decor</title>
+<meta name="description" content="Style your dream dessert table in seconds — pick a palette, frame &amp; sweets, watch it build live with real prices. Free forever.">
+<link rel="canonical" href="https://myeverlastingmemories.com/dessert-table.html">
+<meta property="og:title" content="The Dessert Table Stylist">
+<meta property="og:description" content="The second-most-photographed spot at every party deserves its own designer. Build your dessert table piece by piece — frame, palette and sweets — watch the scene assemble live with the same honest prices Isabella puts in real quotes.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://myeverlastingmemories.com/dessert-table.html">
+<meta property="og:image" content="https://myeverlastingmemories.com/logo.jpg">
+<meta property="og:site_name" content="Everlasting Memories">
+<meta name="theme-color" content="#7c2d12">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="analytics.js" defer></script>
+<style>
+:root{
+  --c1:#7c2d12;      /* chocolate */
+  --c2:#C9A227;      /* gold */
+  --c3:#a16207;      /* caramel */
+  --bg:#fdf8f3;
+  --card:#ffffff;
+  --line:#eadfd2;
+  --ink:#22130b;
+  --soft:#7a5c45;
+  --good:#16a34a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+.em-nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 22px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;flex-wrap:wrap}
+.em-nav-brand{font-weight:700;color:var(--c1);text-decoration:none;font-size:1rem;font-family:'Playfair Display',serif}
+.em-nav-links{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.em-nav-links a{color:var(--ink);text-decoration:none;font-size:.85rem;font-weight:500}
+.em-nav-links a:hover{color:var(--c2)}
+.em-nav-hot{color:var(--c2)!important;font-weight:700}
+.em-nav-drop{position:relative}
+.em-nav-drop-btn{background:none;border:none;font-family:'Inter',sans-serif;font-size:.85rem;font-weight:500;color:var(--ink);cursor:pointer;padding:4px 2px}
+.em-nav-drop-menu{display:none;position:absolute;right:0;top:calc(100%+8px);background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 34px rgba(30,41,59,.16);min-width:240px;padding:8px;z-index:60}
+.em-nav-drop-menu.open{display:block}
+.em-nav-drop-menu a{display:block;padding:8px 12px;border-radius:9px;font-size:.85rem;color:var(--ink);text-decoration:none}
+.em-nav-drop-menu a:hover{background:var(--bg)}
+.em-nav-cta{background:var(--c1);color:#fff!important;padding:9px 18px;border-radius:999px;font-weight:600;text-decoration:none;font-size:.85rem}
+.em-nav-cta:hover{background:#5c1f0d}
+header{max-width:960px;margin:0 auto;padding:44px 22px 10px;text-align:center}
+.home-link{display:inline-block;color:var(--c1);text-decoration:none;font-size:.85rem;font-weight:600;margin-bottom:14px}
+.badge{display:inline-block;background:linear-gradient(135deg,var(--c1),var(--c3));color:#fff;padding:5px 16px;border-radius:999px;font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
+header h1{font-family:'Playfair Display',serif;font-size:2.3rem;color:var(--c1);margin-bottom:10px}
+header p{color:var(--soft);max-width:680px;margin:0 auto;font-size:.98rem}
+.container{max-width:960px;margin:0 auto;padding:0 22px 30px}
+.grid{display:grid;grid-template-columns:1fr 1.15fr;gap:22px;margin-top:22px}
+@media(max-width:860px){.grid{grid-template-columns:1fr}}
+/* ===== cards ===== */
+.card{background:var(--card);border-radius:18px;padding:22px;box-shadow:0 4px 24px rgba(30,41,59,.08);border:1px solid var(--line)}
+.card h2{font-size:1.05rem;color:var(--c1);margin-bottom:4px;font-family:'Playfair Display',serif}
+.card .sub{font-size:.8rem;color:var(--soft);margin-bottom:14px}
+.fg{margin-bottom:12px}
+.fg label{display:block;font-weight:600;font-size:.82rem;margin-bottom:4px;color:var(--c1)}
+.fg input,.fg textarea,.fg select{width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;font-size:.92rem;background:#fff;font-family:'Inter',sans-serif;color:var(--ink)}
+.fg input:focus,.fg textarea:focus,.fg select:focus{outline:none;border-color:var(--c2)}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:480px){.fg-row{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:4px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:6px 13px;font-size:.8rem;font-weight:600;color:var(--soft);cursor:pointer;transition:.2s;font-family:'Inter',sans-serif}
+.chip.on{border-color:var(--c1);background:var(--c1);color:#fff}
+.tip{font-size:.72rem;color:var(--soft);text-align:center;margin-top:10px}
+.msg{display:none;border-radius:10px;padding:11px;font-size:.86rem;font-weight:500;margin-bottom:12px;text-align:center}
+.msg.ok{display:block;background:#fef7e6;border:1px solid #e3b23c;color:#7a5a10}
+.msg.err{display:block;background:#fdeeee;border:1px solid #e08a8a;color:#a33}
+.cta-btn{width:100%;border:none;border-radius:12px;padding:13px;font-size:.95rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:.2s;margin-top:4px}
+.cta-btn.primary{background:linear-gradient(135deg,var(--c1),var(--c3));color:#fff}
+.cta-btn.primary:hover{filter:brightness(1.12)}
+.cta-btn.gold{background:linear-gradient(135deg,var(--c2),#a8841f);color:#fff}
+.cta-btn.gold:hover{filter:brightness(1.1)}
+.cta-btn.ghost{background:#fff;border:1.5px solid var(--line);color:var(--c1)}
+.cta-btn.ghost:hover{border-color:var(--c2)}
+/* ===== style cards ===== */
+.style-cards{display:grid;grid-template-columns:1fr;gap:9px;margin-bottom:4px}
+.style-card{border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;cursor:pointer;transition:.2s;background:#fff}
+.style-card:hover{border-color:var(--c2)}
+.style-card.on{border-color:var(--c1);background:#fdf3e7;box-shadow:0 0 0 2px rgba(124,45,18,.12)}
+.style-card .sc-name{font-weight:700;font-size:.85rem;color:var(--c1)}
+.style-card .sc-desc{font-size:.76rem;color:var(--soft);margin-top:2px}
+.style-card .sc-price{font-size:.74rem;font-weight:700;color:#92600a;margin-top:3px}
+.item-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:4px}
+@media(max-width:480px){.item-grid{grid-template-columns:1fr}}
+.item-tile{border:1.5px solid var(--line);border-radius:12px;padding:9px 11px;cursor:pointer;transition:.2s;background:#fff;display:flex;justify-content:space-between;align-items:center;gap:6px;font-size:.78rem;font-weight:600;color:var(--soft)}
+.item-tile:hover{border-color:var(--c2)}
+.item-tile.on{border-color:var(--c1);background:#fdf3e7;color:var(--c1)}
+.item-tile .it-price{color:#92600a;font-weight:700;white-space:nowrap}
+.stepper{display:flex;align-items:center;gap:10px}
+.stepper button{width:34px;height:34px;border-radius:10px;border:1.5px solid var(--line);background:#fff;font-size:1.05rem;font-weight:700;color:var(--c1);cursor:pointer;font-family:'Inter',sans-serif}
+.stepper button:hover{border-color:var(--c2)}
+.stepper .st-val{min-width:42px;text-align:center;font-weight:700;color:var(--c1)}
+/* ===== scene ===== */
+.scene-wrap{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--line);margin-bottom:14px;background:#fdf3e7}
+.scene-wrap svg{width:100%;height:auto;display:block}
+.scene-tag{position:absolute;top:10px;left:10px;background:rgba(124,45,18,.88);color:#fff;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px}
+.quote{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:12px}
+.quote .q-line{display:flex;justify-content:space-between;gap:10px;font-size:.82rem;padding:5px 0;border-bottom:1px dashed var(--line)}
+.quote .q-line:last-of-type{border-bottom:none}
+.quote .q-line .ql-k{color:var(--soft)}
+.quote .q-line .ql-v{font-weight:600;color:var(--ink);text-align:right}
+.quote .q-total{display:flex;justify-content:space-between;align-items:center;font-size:1.05rem;font-weight:800;color:var(--c1);padding-top:9px;margin-top:4px;border-top:2px solid var(--c1)}
+.quote .q-total .qt-price{font-family:'Playfair Display',serif;font-size:1.35rem}
+.quote-note{font-size:.7rem;color:var(--soft);margin-top:8px;text-align:center}
+/* ===== faq ===== */
+.faq{margin-top:26px}
+.faq h2{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--c1);margin-bottom:14px}
+.faq-item{border:1px solid var(--line);border-radius:14px;background:#fff;margin-bottom:10px;overflow:hidden}
+.faq-q{width:100%;text-align:left;background:none;border:none;padding:14px 16px;font-size:.9rem;font-weight:700;color:var(--c1);cursor:pointer;font-family:'Inter',sans-serif;display:flex;justify-content:space-between;gap:10px}
+.faq-q:hover{color:var(--c2)}
+.faq-a{display:none;padding:0 16px 14px;font-size:.86rem;color:var(--soft)}
+.faq-item.open .faq-a{display:block}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:14px}
+.fact{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;font-size:.8rem;color:var(--soft)}
+.fact b{display:block;color:var(--c1);font-size:.86rem;margin-bottom:4px}
+/* ===== lead ===== */
+.lead-card{margin-top:26px}
+.lead-card h2{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--c1);margin-bottom:4px}
+.lead-card .sub{margin-bottom:14px}
+/* ===== footer ===== */
+footer{margin-top:40px;padding:26px 22px 34px;background:var(--c1);color:#f3d9c8;text-align:center;font-size:.8rem}
+footer a{color:#fbe9dc;text-decoration:none}
+footer a:hover{color:var(--c2)}
+footer .strip{margin-top:8px;font-size:.76rem;line-height:1.9}
+footer .strip a{color:#f0c9a0}
+footer .strip a:hover{color:var(--c2)}
+/* ===== print card ===== */
+.print-card{display:none}
+@media print{
+  body *{visibility:hidden}
+  .print-card,.print-card *{visibility:visible}
+  .print-card{display:block;position:absolute;left:0;top:0;width:100%;padding:14px;color:#000;font-size:11px}
+  .print-card h1{font-size:17px;font-family:'Playfair Display',serif;margin-bottom:2px}
+  .print-card .pc-meta{font-size:10px;color:#444;margin-bottom:8px}
+  .print-card table{width:100%;border-collapse:collapse}
+  .print-card td,.print-card th{border:1px solid #999;padding:4px 6px;text-align:left;font-size:10px}
+  .print-card th{background:#eee}
+  .print-card .pc-foot{margin-top:8px;font-size:9px;color:#666}
+}
+/* ===== toast / confetti ===== */
+.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);background:var(--c1);color:#fff;padding:12px 22px;border-radius:999px;font-size:.86rem;font-weight:600;opacity:0;pointer-events:none;transition:.3s;z-index:99;box-shadow:0 10px 30px rgba(30,41,59,.35);max-width:92vw;text-align:center}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.confetti{position:fixed;top:-12px;width:10px;height:14px;z-index:99;pointer-events:none;animation:confFall linear forwards}
+@keyframes confFall{to{transform:translateY(105vh) rotate(720deg);opacity:.85}}
+@media (prefers-reduced-motion: reduce){.confetti{animation:none!important}}
+</style>
+</head>
+<body>
+
+<nav class="em-nav">
+  <a class="em-nav-brand" href="index.html">&#127881; Everlasting Memories</a>
+  <div class="em-nav-links">
+    <a href="index.html">Home</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <div class="em-nav-drop">
+      <button class="em-nav-drop-btn" type="button" aria-haspopup="true" aria-expanded="false">Tools &#9662;</button>
+      <div class="em-nav-drop-menu">
+          <a href="cost-estimator.html">Estimate Cost</a>
+          <a href="theme-generator.html">Theme Generator</a>
+          <a href="lookbook.html">Lookbook</a>
+          <a href="countdown.html">Countdown</a>
+          <a href="party-style-quiz.html">Party Style Quiz</a>
+          <a href="balloon-math.html">Balloon Math</a>
+          <a href="reserve-date.html">Reserve Your Date</a>
+          <a href="diy-vs-pro.html">DIY vs Pro</a>
+          <a href="palette-snap.html">Palette Snap</a>
+          <a href="name-garland.html">Balloon Letters</a>
+          <a href="budget-builder.html">Budget Builder</a>
+          <a href="transformations.html">The Big Reveal</a>
+          <a href="wedding-workshop.html">Wedding Workshop</a>
+          <a href="balloon-pop.html">Pop Party</a>
+          <a href="invitation-studio.html">Invitation Studio</a>
+          <a href="party-roadmap.html">Party Roadmap</a>
+          <a href="memory-wall.html">Memory Wall</a>
+          <a href="photo-booth.html">Golden Hour Booth</a>
+          <a href="garland-vision.html">Garland Vision</a>
+          <a href="photo-hunt.html">Party Photo Hunt</a>
+          <a href="guest-list.html">The Guest List</a>
+          <a href="memory-capsule.html">Memory Capsule</a>
+          <a href="playlist.html">Party Playlist</a>
+                    <a href="party-timeline.html">Party Day Timeline</a>
+          <a href="referral.html">Refer &amp; Earn</a>
+        </div>
+    </div>
+  </div>
+  <a class="em-nav-cta" href="cost-estimator.html">Get a Quote</a>
+</nav>
+
+<header>
+  <a href="index.html" class="home-link">&#8592; Back to Home</a>
+  <div class="badge">&#127856; New Tonight — The Dessert Table Stylist</div>
+  <h1>&#127856; The Dessert Table Stylist</h1>
+  <p>Guests photograph the dessert table more than almost anything else at a party — so Isabella always frames it like a star. Build yours piece by piece: pick the frame, the palette and the sweets, watch the whole scene assemble live, and see the same honest prices she puts in real quotes. Free forever, no signup. &#127881;</p>
+</header>
+
+<div class="container">
+
+  <div class="grid">
+
+    <!-- LEFT: controls -->
+    <div>
+      <div class="card">
+        <h2>&#127873; Build Your Table</h2>
+        <p class="sub">Every choice rebuilds the scene instantly. Start with the occasion — it tunes the recommendations.</p>
+
+        <div class="fg">
+          <label>Occasion</label>
+          <div class="chips" id="occasionChips"></div>
+        </div>
+
+        <div class="fg">
+          <label>Signature Palette</label>
+          <div class="chips" id="paletteChips"></div>
+        </div>
+
+        <div class="fg">
+          <label>Table Size</label>
+          <div class="chips" id="tableChips"></div>
+        </div>
+
+        <div class="fg">
+          <label>The Frame</label>
+          <div class="style-cards" id="frameCards"></div>
+        </div>
+
+        <div class="fg">
+          <label>Sweets &amp; Styling <span style="font-weight:400;color:var(--soft)">(tap to add)</span></label>
+          <div class="item-grid" id="itemGrid"></div>
+        </div>
+
+        <div class="fg">
+          <label>Matching Centerpieces for Guest Tables</label>
+          <div class="stepper">
+            <button type="button" id="cpMinus" aria-label="Fewer centerpieces">&#8722;</button>
+            <span class="st-val" id="cpVal">0</span>
+            <button type="button" id="cpPlus" aria-label="More centerpieces">+</button>
+            <span style="font-size:.76rem;color:var(--soft)">$40/table — Isabella's real price</span>
+          </div>
+        </div>
+
+        <button class="cta-btn ghost" id="surpriseBtn" type="button">&#127922; Surprise Me</button>
+      </div>
+
+      <!-- LEAD -->
+      <div class="card lead-card" id="leadCard">
+        <h2>&#128172; Make It Real</h2>
+        <p class="sub">Tell Isabella what you styled — she'll reply with an exact quote and her honest advice.</p>
+        <div class="msg" id="formMsg"></div>
+        <form id="leadForm">
+          <div class="fg-row">
+            <div class="fg"><label for="fName">Name</label><input id="fName" required maxlength="80" placeholder="Your name"></div>
+            <div class="fg"><label for="fPhone">Phone</label><input id="fPhone" required maxlength="30" placeholder="(203) 555-0123"></div>
+          </div>
+          <div class="fg"><label for="fEmail">Email</label><input id="fEmail" type="email" required maxlength="120" placeholder="you@example.com"></div>
+          <div class="fg-row">
+            <div class="fg"><label for="fEvent">Event Type</label><select id="fEvent"></select></div>
+            <div class="fg"><label for="fDate">Event Date</label><input id="fDate" type="date"></div>
+          </div>
+          <div class="fg"><label for="fBudget">Budget</label><select id="fBudget">
+            <option value="">Not sure yet</option>
+            <option>Under $500</option>
+            <option>$500 – $1,000</option>
+            <option>$1,000 – $1,500</option>
+            <option>$1,500+</option>
+          </select></div>
+          <div class="fg"><label for="fMsg">What are you dreaming of? (optional)</label><textarea id="fMsg" rows="2" placeholder="e.g. That Candy Counter Glow frame over a 6ft table for my daughter's birthday — with the donut wall!"></textarea></div>
+          <button class="cta-btn primary" type="submit">&#127881; Send My Table to Isabella</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- RIGHT: scene + quote -->
+    <div>
+      <div class="card">
+        <h2>&#127856; Your Dessert Table Scene</h2>
+        <p class="sub">Built live from the same looks Isabella installs — frame, garland, balloons and all.</p>
+
+        <div class="scene-wrap">
+          <span class="scene-tag" id="sceneTag">Dessert Table</span>
+          <div id="scene"></div>
+        </div>
+
+        <div class="quote" id="quoteBox"></div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px">
+          <button class="cta-btn gold" id="shareBtn" type="button">&#128172; Share on WhatsApp</button>
+          <button class="cta-btn ghost" id="printBtn" type="button">&#128424; Print Styling Card</button>
+        </div>
+        <p class="tip">&#128161; Tap the cake in the scene 5 times — Isabella hid something there.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq">
+    <h2>Dessert Table Questions, Answered</h2>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Is this really how Isabella prices dessert tables? <span>&#9662;</span></button>
+      <div class="faq-a">Yes — these are the same line items from her real quote sheet: the Candy Counter Glow dessert-table frame from $410, backdrops $550 + $45/ft, garlands $250 + $20/ft, and centerpieces $40/table. The sweets themselves come from your baker; what you're pricing here is the frame, the balloon work and the styling that makes the table unmissable. Your final quote is confirmed in writing within 24 hours and won't move after.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Why does the dessert table deserve its own designer? <span>&#9662;</span></button>
+      <div class="faq-a">After the arch, the dessert table is the most-photographed spot at a party — guests linger there, kids circle it, and every phone comes out for the cake cutting. Isabella's notebook rule: if it's going to be in 80% of the photos, frame it. That's exactly what the Candy Counter Glow frame does.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Can I mix a frame with a backdrop or garland? <span>&#9662;</span></button>
+      <div class="faq-a">The frame is the hero piece — pick one (frame, backdrop wall, or garland swoop) and Isabella will layer the rest around it. When you send your design, mention extras in the message: she'll quote the exact combination, and swapping pieces is always free before the design is confirmed.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Do the sweets come with it? <span>&#9662;</span></button>
+      <div class="faq-a">The table styling (stands, tiers, jars, the donut wall rig) is Isabella's work — the desserts are yours or your baker's. Her styling fee covers arranging everything so it photographs beautifully: heights, spacing, and the golden-rule that nothing blocks the cake.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">How do I turn this design into a booking? <span>&#9662;</span></button>
+      <div class="faq-a">Fill in the form with your design — it sends Isabella the exact scene you built. She replies within 24 hours with a written quote, then you can lock your date on <a href="reserve-date.html" style="color:var(--c1);font-weight:600">Reserve Your Date</a>. Weekends book fast: May–October Saturdays go first.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Where does this fit in the rest of the party planning? <span>&#9662;</span></button>
+      <div class="faq-a">The dessert table is the sweet finale of the whole chain: plan it in the <a href="party-roadmap.html" style="color:var(--c1);font-weight:600">Party Roadmap</a>, time the cake cutting with the <a href="party-timeline.html" style="color:var(--c1);font-weight:600">Party Day Timeline</a> and the <a href="playlist.html" style="color:var(--c1);font-weight:600">Party Playlist</a>'s DJ countdown, photograph it during golden hour (<a href="golden-hour.html" style="color:var(--c1);font-weight:600">Golden Hour Finder</a>), and let the <a href="photo-hunt.html" style="color:var(--c1);font-weight:600">Party Photo Hunt</a> send guests straight to it. One table, half the party's best photos.</div>
+    </div>
+  </div>
+
+  <!-- FACTS -->
+  <div class="facts">
+    <div class="fact"><b>2nd most-photographed</b>Spot after the arch — worth framing.</div>
+    <div class="fact"><b>From $410</b>The Candy Counter Glow frame — a real quote-sheet price.</div>
+    <div class="fact"><b>6 signature palettes</b>The exact looks Isabella builds for clients.</div>
+    <div class="fact"><b>24h replies</b>Written quotes, honest prices, zero surprises.</div>
+    <div class="fact"><b>200+ events</b>Isabella has styled tables at all of them.</div>
+  </div>
+
+</div>
+
+<footer>
+  <div>&#127881; Everlasting Memories — Balloon Art &amp; Event Decor, Connecticut</div>
+  <div style="margin-top:4px"><a href="contact.html">Contact</a> &middot; <a href="services.html">Services</a> &middot; <a href="gallery.html">Gallery</a> &middot; <a href="about.html">About</a></div>
+  <p class="strip"><a href="dessert-table.html" style="color:#f0c9a0;font-weight:600;">Dessert Table Stylist</a> · <a href="golden-hour.html" style="color:#a78bfa;font-weight:600;">Golden Hour Finder</a> · <a href="party-timeline.html" style="color:#fbbf24;font-weight:600;">Party Day Timeline</a> · <a href="memory-capsule.html" style="color:#92400e;font-weight:600;">Memory Capsule</a> · <a href="playlist.html" style="color:#b91c1c;font-weight:600;">Party Playlist</a> · <a href="guest-list.html" style="color:#1e3a8a;font-weight:600;">The Guest List</a> · <a href="photo-hunt.html" style="color:#a21caf;font-weight:600;">Party Photo Hunt</a> · <a href="photo-booth.html" style="color:#0369a1;font-weight:600;">Golden Hour Booth</a> · <a href="memory-wall.html" style="color:#b45309;font-weight:600;">Memory Wall</a> · <a href="party-roadmap.html" style="color:#0f766e;font-weight:600;">Party Roadmap</a> · <a href="invitation-studio.html" style="color:#312e81;font-weight:600;">Invitation Studio</a> · <a href="balloon-pop.html" style="color:#ea580c;font-weight:600;">Pop Party</a> · <a href="wedding-workshop.html" style="color:#9d174d;font-weight:600;">Wedding Workshop</a> · <a href="transformations.html" style="color:#7c3aed;font-weight:600;">The Big Reveal</a> · <a href="budget-builder.html" style="color:#2f7a52">Budget Balloonist</a> · <a href="referral.html" style="color:#C9A87C">Refer &amp; Earn</a></p>
+</footer>
+
+<div class="print-card" id="printCard">
+  <h1>Dessert Table Styling Card</h1>
+  <div class="pc-meta" id="pcMeta"></div>
+  <table id="pcTable"></table>
+  <div class="pc-foot">Everlasting Memories — Balloon Art &amp; Event Decor, Connecticut · myeverlastingmemories.com · Isabella replies to every inquiry within 24 hours.</div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ================= pure data ================= */
+const OCCASIONS=['Birthday','Wedding','Baby Shower','Anniversary','Graduation','Corporate','Just Because'];
+
+const PALETTES=[
+  {id:'romantic-bloom', name:'Romantic Bloom', colors:['#f4c6d4','#e88aa8','#d96a8f','#fdf0f4','#b95c7e']},
+  {id:'glam-gold',      name:'Glam Gold',      colors:['#C9A227','#e6c55c','#8a6d1f','#fdf6e3','#a37f1c']},
+  {id:'party-pop',      name:'Party Pop',      colors:['#ef4444','#f59e0b','#3b82f6','#22c55e','#a855f7']},
+  {id:'modern-muse',    name:'Modern Muse',    colors:['#1f2937','#6b7280','#e5e7eb','#111827','#9ca3af']},
+  {id:'boho-earth',     name:'Boho Earth',     colors:['#c2703d','#8a9a5b','#d9a066','#5c4a3a','#e8d5b7']},
+  {id:'winter-wonder',  name:'Winter Wonder',  colors:['#7dd3fc','#e0f2fe','#bae6fd','#94a3b8','#f0f9ff']}
+];
+
+const FRAMES=[
+  {id:'candy',    name:'The Candy Counter Glow', tag:'dessert-table frame',  desc:'the arch that makes the table unmissable', base:410, perFt:40, icon:'&#127855;'},
+  {id:'backdrop', name:'Balloon Backdrop Wall',  tag:'balloon wall behind',  desc:'a full wall of balloons behind the table', base:550, perFt:45, icon:'&#127880;'},
+  {id:'garland',  name:'Garland Swoop',          tag:'organic garland frame',desc:'an organic garland framing the table',    base:250, perFt:20, icon:'&#127752;'}
+];
+
+const ITEMS=[
+  {id:'cake',     name:'Cake on a stand',  price:45, icon:'&#127874;'},
+  {id:'cupcakes', name:'Cupcake tower',    price:35, icon:'&#129473;'},
+  {id:'macarons', name:'Macaron tower',    price:55, icon:'&#127853;'},
+  {id:'donuts',   name:'Donut wall',       price:75, icon:'&#127849;'},
+  {id:'jars',     name:'Candy jars ×3', price:25, icon:'&#127852;'},
+  {id:'fruit',    name:'Fruit &amp; drink station', price:40, icon:'&#127853;'}
+];
+
+const TABLE_SIZES=[4,6,8];
+
+/* ================= pure helpers ================= */
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
+
+function hexToRgb(hex){
+  const h=hex.replace('#','');
+  return {r:parseInt(h.slice(0,2),16),g:parseInt(h.slice(2,4),16),b:parseInt(h.slice(4,6),16)};
+}
+function mixHex(hex,amt){
+  const {r,g,b}=hexToRgb(hex);
+  const t=amt<0?0:255, p=Math.abs(amt);
+  const m=(c)=>Math.round(c+(t-c)*p);
+  return '#'+[m(r),m(g),m(b)].map(v=>v.toString(16).padStart(2,'0')).join('');
+}
+function lighten(hex,p){return mixHex(hex,Math.min(1,p/100));}
+function shade(hex,p){return mixHex(hex,-Math.min(1,p/100));}
+
+function seeded(seedStr){
+  let h=0;
+  for(let i=0;i<seedStr.length;i++) h=(h*31+seedStr.charCodeAt(i))>>>0;
+  return function(){ h=(h*1664525+1013904223)>>>0; return h/4294967296; };
+}
+
+/* ================= quote engine ================= */
+function computeQuote(st){
+  const fr=FRAMES.find(f=>f.id===st.frame)||FRAMES[0];
+  const ft=st.tableFt||6;
+  let framePrice;
+  if(fr.id==='candy'){
+    framePrice=fr.base+Math.max(0,(ft-6))*fr.perFt;      /* frame widens only past the 6ft baseline */
+  } else {
+    framePrice=fr.base+(ft+2)*fr.perFt;                   /* backdrop/garland span the table + 1ft each side */
+  }
+  const items=(st.items||[]).map(id=>{const it=ITEMS.find(i=>i.id===id);return {label:it.name.replace(/&amp;/g,'&'), price:it.price, id};});
+  const itemSum=items.reduce((s,i)=>s+i.price,0);
+  const cp=(st.centerpieces||0)*40;
+  const total=framePrice+itemSum+cp;
+  return {frame:fr, frameLabel:fr.name+' — '+ft+' ft table', framePrice, items, itemSum, cp, cpCount:st.centerpieces||0, total};
+}
+
+/* ================= SVG scene builder ================= */
+function balloon(cx,cy,r,color){
+  const hl='M'+(cx-r*0.32)+','+(cy-r*0.42)+' a'+(r*0.3)+','+(r*0.42)+' 0 0 1 '+(r*0.26)+','+(-r*0.38);
+  return '<g>'
+    +'<ellipse cx="'+cx+'" cy="'+cy+'" rx="'+r+'" ry="'+(r*1.15)+'" fill="'+color+'"/>'
+    +'<ellipse cx="'+(cx-r*0.32)+'" cy="'+(cy-r*0.42)+'" rx="'+(r*0.3)+'" ry="'+(r*0.42)+'" fill="rgba(255,255,255,.4)" transform="rotate(-18 '+(cx-r*0.32)+' '+(cy-r*0.42)+')"/>'
+    +'<polygon points="'+(cx-r*0.14)+','+(cy+r*1.05)+' '+(cx+r*0.14)+','+(cy+r*1.05)+' '+cx+','+(cy+r*1.28)+'" fill="'+shade(color,18)+'"/>'
+    +'<path d="M'+cx+','+(cy+r*1.28)+' q'+(r*0.15)+','+(r*0.6)+' '+(-r*0.1)+','+(r*1.1)+'" stroke="'+shade(color,30)+'" stroke-width="1" fill="none"/>'
+    +'</g>';
+}
+
+function garlandPath(x0,y0,x1,y1,cx,cy,colors,rnd){
+  let out='';
+  const steps=22;
+  for(let i=0;i<=steps;i++){
+    const t=i/steps;
+    const x=(1-t)*(1-t)*x0+2*(1-t)*t*cx+t*t*x1;
+    const y=(1-t)*(1-t)*y0+2*(1-t)*t*cy+t*t*y1;
+    const r=(rnd()<0.5?11:8)*(1+0.18*Math.sin(t*Math.PI*4));
+    out+=balloon(x,y,r,colors[Math.floor(rnd()*colors.length)]);
+  }
+  return out;
+}
+
+function sparkle(cx,cy,s,color){
+  return '<path d="M'+cx+','+(cy-s)+' L'+(cx+s*0.3)+','+(cy-s*0.3)+' L'+(cx+s)+','+cy+' L'+(cx+s*0.3)+','+(cy+s*0.3)+' L'+cx+','+(cy+s)+' L'+(cx-s*0.3)+','+(cy+s*0.3)+' L'+(cx-s)+','+cy+' L'+(cx-s*0.3)+','+(cy-s*0.3)+' Z" fill="'+color+'"/>';
+}
+
+function buildScene(st){
+  const pal=(PALETTES.find(p=>p.id===st.paletteId)||PALETTES[0]).colors;
+  const ft=st.tableFt||6;
+  const fr=FRAMES.find(f=>f.id===st.frame)||FRAMES[0];
+  const items=st.items||[];
+  const rnd=seeded((st.frame||'candy')+ft+(st.paletteId||'glam-gold')+items.join(','));
+  const W=220+ft*44;              /* table width px */
+  const CX=400;
+  const baseY=300;                /* tabletop line */
+  const half=W*0.30;
+
+  let svg='';
+  /* wall + floor */
+  svg+='<defs>'
+    +'<linearGradient id="wallG" x1="0" y1="0" x2="0" y2="1">'
+    +'<stop offset="0" stop-color="'+lighten(pal[0],88)+'"/>'
+    +'<stop offset="1" stop-color="'+lighten(pal[0],72)+'"/>'
+    +'</linearGradient>'
+    +'<linearGradient id="clothG" x1="0" y1="0" x2="0" y2="1">'
+    +'<stop offset="0" stop-color="'+pal[1]+'"/>'
+    +'<stop offset="1" stop-color="'+shade(pal[1],22)+'"/>'
+    +'</linearGradient>'
+    +'</defs>'
+    +'<rect x="0" y="0" width="800" height="300" fill="url(#wallG)"/>'
+    +'<rect x="0" y="300" width="800" height="120" fill="'+lighten(pal[3],62)+'"/>';
+
+  /* backdrop per frame */
+  const bx0=CX-W*0.62, bx1=CX+W*0.62, by0=48, by1=baseY-2;
+  if(fr.id==='candy'){
+    svg+='<path d="M'+bx0+','+by1+' V'+(by0+70)+' Q'+(CX-W*0.55)+','+by0+' '+(CX-W*0.28)+','+by0+' H'+(CX+W*0.28)+' Q'+(CX+W*0.55)+','+by0+' '+bx1+','+(by0+70)+' V'+by1+' Z" fill="#fff" stroke="'+pal[2]+'" stroke-width="10"/>';
+    svg+='<path d="M'+(bx0+26)+','+(by1-8)+' V'+(by0+64)+' Q'+(CX-W*0.5)+','+(by0+14)+' '+(CX-W*0.24)+','+(by0+14)+' H'+(CX+W*0.24)+' Q'+(CX+W*0.5)+','+(by0+14)+' '+(bx1-26)+','+(by0+64)+' V'+(by1-8)+' Z" fill="'+lighten(pal[0],70)+'"/>';
+    svg+='<rect x="'+(CX-150)+'" y="'+(by0+34)+'" width="300" height="34" rx="17" fill="'+pal[2]+'"/>';
+    svg+='<text x="'+CX+'" y="'+(by0+57)+'" text-anchor="middle" font-family="Playfair Display,serif" font-size="19" font-weight="700" fill="#fff" letter-spacing="3">EVERLASTING MEMORIES</text>';
+    /* balloon clusters on the arch corners */
+    [[bx0+20,by0+40,-1],[bx1-20,by0+40,1]].forEach(c=>{
+      for(let i=0;i<4;i++){
+        const a=Math.PI*(0.15+0.2*i);
+        svg+=balloon(c[0]+c[2]*Math.cos(a)*46, c[1]+Math.sin(a)*34, 13, pal[Math.floor(rnd()*pal.length)]);
+      }
+    });
+  } else if(fr.id==='backdrop'){
+    svg+='<rect x="'+bx0+'" y="'+by0+'" width="'+(bx1-bx0)+'" height="'+(by1-by0)+'" rx="14" fill="'+lighten(pal[0],80)+'"/>';
+    for(let row=0;row<5;row++){
+      for(let col=0;col<11;col++){
+        const x=bx0+22+col*((bx1-bx0-44)/10)+(rnd()-0.5)*4;
+        const y=by0+22+row*((by1-by0-44)/4)+(rnd()-0.5)*4;
+        svg+=balloon(x,y,13,pal[Math.floor(rnd()*pal.length)]);
+      }
+    }
+  } else {
+    svg+='<rect x="'+(bx0+30)+'" y="'+by0+'" width="'+(bx1-bx0-60)+'" height="'+(by1-by0)+'" rx="14" fill="'+lighten(pal[0],84)+'"/>';
+    svg+=garlandPath(bx0+10,by0+90,bx1-10,by0+90,CX,by0+160,pal,rnd);
+    svg+=garlandPath(bx0+20,by1,bx0+20,by0+40,CX-W*0.4,(by0+by1)/2,pal,rnd);
+    svg+=garlandPath(bx1-20,by1,bx1-20,by0+40,CX+W*0.4,(by0+by1)/2,pal,rnd);
+  }
+
+  /* floating balloons up top */
+  [[90,86],[210,54],[600,60],[715,92],[500,40]].forEach((b,i)=>{
+    svg+=balloon(b[0],b[1],13+i%2*3,pal[Math.floor(rnd()*pal.length)]);
+  });
+
+  /* table */
+  const tx0=CX-W/2, tx1=CX+W/2;
+  svg+='<ellipse cx="'+CX+'" cy="'+(baseY+58)+'" rx="'+(W/2+26)+'" ry="16" fill="rgba(0,0,0,.10)"/>';
+  svg+='<rect x="'+(tx0+14)+'" y="'+(baseY+30)+'" width="14" height="34" rx="4" fill="#6b4423"/>';
+  svg+='<rect x="'+(tx1-28)+'" y="'+(baseY+30)+'" width="14" height="34" rx="4" fill="#6b4423"/>';
+  svg+='<rect x="'+tx0+'" y="'+(baseY-8)+'" width="'+W+'" height="22" rx="8" fill="#8b5a2b"/>';
+  svg+='<rect x="'+tx0+'" y="'+(baseY-8)+'" width="'+W+'" height="7" rx="3.5" fill="#a06b36"/>';
+  svg+='<rect x="'+(CX-W*0.30)+'" y="'+(baseY+14)+'" width="'+(W*0.60)+'" height="48" rx="8" fill="url(#clothG)"/>';
+  svg+='<rect x="'+(CX-W*0.30)+'" y="'+(baseY+14)+'" width="'+(W*0.60)+'" height="10" rx="5" fill="'+pal[2]+'" opacity=".55"/>';
+  /* cloth scallops */
+  for(let i=0;i<6;i++){
+    svg+='<circle cx="'+(CX-W*0.24+i*(W*0.48/5))+'" cy="'+(baseY+62)+'" r="6" fill="'+shade(pal[1],14)+'"/>';
+  }
+
+  /* items on the table */
+  const slots=items.slice(0,6);
+  const n=slots.length;
+  slots.forEach((id,i)=>{
+    const x=n===1?CX:CX-half+ (n>1? (2*i/(n-1))*half : 0);
+    if(id==='cake'){
+      svg+='<rect x="'+(x-13)+'" y="'+(baseY-34)+'" width="26" height="18" rx="4" fill="#d9c7a7"/>'
+        +'<rect x="'+(x-9)+'" y="'+(baseY-42)+'" width="18" height="10" rx="3" fill="#c9b28c"/>'
+        +'<rect x="'+(x-30)+'" y="'+(baseY-70)+'" width="60" height="32" rx="9" fill="#fdf6ec"/>'
+        +'<rect x="'+(x-30)+'" y="'+(baseY-70)+'" width="60" height="11" rx="5" fill="'+pal[2]+'"/>'
+        +'<circle cx="'+x+'" cy="'+(baseY-74)+'" r="6" fill="#e63946"/>'
+        +'<rect x="'+(x-2)+'" y="'+(baseY-88)+'" width="4" height="16" rx="2" fill="#f59e0b"/>'
+        +'<path d="M'+x+','+(baseY-92)+' q4,-8 0,-12 q-4,4 0,12" fill="#fbbf24"/>';
+    } else if(id==='cupcakes'){
+      [-26,0,26].forEach((dx,i2)=>{
+        const cx2=x+dx;
+        svg+='<path d="M'+(cx2-11)+','+(baseY-14)+' L'+(cx2-8)+','+(baseY-26)+' H'+(cx2+8)+' L'+(cx2+11)+','+(baseY-14)+' Z" fill="'+pal[3]+'"/>'
+          +'<ellipse cx="'+cx2+'" cy="'+(baseY-30)+'" rx="11" ry="8" fill="'+(i2===1?pal[2]:pal[1])+'"/>'
+          +'<circle cx="'+(cx2-3)+'" cy="'+(baseY-33)+'" r="2.6" fill="rgba(255,255,255,.6)"/>';
+      });
+    } else if(id==='macarons'){
+      [-1,0,1].forEach((dy,i2)=>{
+        svg+='<ellipse cx="'+x+'" cy="'+(baseY-16-dy*11)+'" rx="15" ry="9" fill="'+(i2===1?pal[1]:pal[2])+'"/>'
+          +'<ellipse cx="'+x+'" cy="'+(baseY-14-dy*11)+'" rx="10" ry="5" fill="'+lighten(i2===1?pal[1]:pal[2],30)+'"/>';
+      });
+    } else if(id==='donuts'){
+      svg+='<rect x="'+(x-26)+'" y="'+(baseY-22)+'" width="52" height="9" rx="4" fill="#8b5a2b"/>'
+        +'<rect x="'+(x-26)+'" y="'+(baseY-30)+'" width="52" height="9" rx="4" fill="#a06b36"/>';
+      [-16,16].forEach(dx=>{
+        svg+='<circle cx="'+(x+dx)+'" cy="'+(baseY-36)+'" r="10" fill="'+(dx<0?pal[1]:pal[2])+'"/>'
+          +'<circle cx="'+(x+dx)+'" cy="'+(baseY-36)+'" r="3.6" fill="'+lighten(dx<0?pal[1]:pal[2],55)+'"/>';
+      });
+    } else if(id==='jars'){
+      [-20,0,20].forEach((dx,i2)=>{
+        const cx2=x+dx;
+        svg+='<rect x="'+(cx2-8)+'" y="'+(baseY-26)+'" width="16" height="22" rx="4" fill="'+(i2===1?pal[0]:pal[2])+'" opacity=".9"/>'
+          +'<rect x="'+(cx2-8)+'" y="'+(baseY-30)+'" width="16" height="6" rx="3" fill="'+pal[3]+'"/>'
+          +'<circle cx="'+(cx2-3)+'" cy="'+(baseY-16)+'" r="2" fill="#fff" opacity=".8"/>'
+          +'<circle cx="'+(cx2+3)+'" cy="'+(baseY-12)+'" r="2" fill="#fff" opacity=".8"/>';
+      });
+    } else if(id==='fruit'){
+      svg+='<path d="M'+(x-22)+','+(baseY-18)+' Q'+x+','+(baseY-40)+' '+(x+22)+','+(baseY-18)+' Z" fill="#7fb069"/>'
+        +'<circle cx="'+(x-10)+'" cy="'+(baseY-26)+'" r="7" fill="#e63946"/>'
+        +'<circle cx="'+(x+8)+'" cy="'+(baseY-28)+'" r="7" fill="#f4a261"/>'
+        +'<circle cx="'+x+'" cy="'+(baseY-20)+'" r="7" fill="#e88aa8"/>';
+    }
+  });
+
+  /* sparkles */
+  for(let i=0;i<8;i++){
+    svg+=sparkle(60+rnd()*680, 30+rnd()*230, 5+rnd()*4, pal[Math.floor(rnd()*pal.length)]);
+  }
+
+  return '<svg viewBox="0 0 800 420" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Dessert table styled with '+esc(pal[0])+'">'+svg+'</svg>';
+}
+
+/* ================= share / lead ================= */
+function designName(st){
+  const pal=(PALETTES.find(p=>p.id===st.paletteId)||PALETTES[0]).name;
+  const fr=FRAMES.find(f=>f.id===st.frame)||FRAMES[0];
+  return fr.name+' · '+pal+' · '+(st.tableFt||6)+'ft';
+}
+function buildShareText(st){
+  const q=computeQuote(st);
+  const items=q.items.map(i=>i.label).join(', ')||'sweets from my baker';
+  return 'I styled my '+(st.occasion||'party')+' dessert table with Everlasting Memories \u2728\n'
+    +designName(st)+'\n'
+    +q.frameLabel+' \u2014 $'+q.framePrice+'\n'
+    +'Sweets & styling: '+items+'\n'
+    +'Centerpieces: '+(q.cpCount?q.cpCount+' \u00d7 $40 = $'+q.cp:'none')+'\n'
+    +'Estimated total: $'+q.total+'\n'
+    +'Design yours free: https://myeverlastingmemories.com/dessert-table.html';
+}
+function leadPayload(st,form){
+  const q=computeQuote(st);
+  return {
+    source:'dessert-table',
+    type:'lead',
+    name:form.name, email:form.email, phone:form.phone,
+    eventType:form.eventType, eventDate:form.date, budget:form.budget,
+    message:'Dessert table design: '+designName(st)
+      +' | frame $'+q.framePrice
+      +' | items: '+(q.items.map(i=>i.label).join(', ')||'none')
+      +' | centerpieces: '+q.cpCount
+      +' | est. total $'+q.total
+      +(form.msg?' | notes: '+form.msg:'')
+  };
+}
+
+/* ================= DOM ================= */
+const $=id=>document.getElementById(id);
+let state={occasion:'Birthday', paletteId:'glam-gold', tableFt:6, frame:'candy', items:['cake','cupcakes','macarons'], centerpieces:0};
+let cakeTaps=0;
+
+function renderOccasions(){
+  $('occasionChips').innerHTML=OCCASIONS.map(o=>'<button type="button" class="chip'+(state.occasion===o?' on':'')+'" data-occ="'+o+'">'+o+'</button>').join('');
+}
+function renderPalettes(){
+  $('paletteChips').innerHTML=PALETTES.map(p=>'<button type="button" class="chip'+(state.paletteId===p.id?' on':'')+'" data-pal="'+p.id+'" title="'+p.name+'">'+p.name+'</button>').join('');
+}
+function renderTables(){
+  $('tableChips').innerHTML=TABLE_SIZES.map(t=>'<button type="button" class="chip'+(state.tableFt===t?' on':'')+'" data-ft="'+t+'">'+t+' ft</button>').join('');
+}
+function renderFrames(){
+  $('frameCards').innerHTML=FRAMES.map(f=>'<div class="style-card'+(state.frame===f.id?' on':'')+'" data-frame="'+f.id+'">'
+    +'<div class="sc-name">'+f.icon+' '+f.name+'</div>'
+    +'<div class="sc-desc">'+f.tag+' \u2014 '+f.desc+'</div>'
+    +'<div class="sc-price">from $'+f.base+(f.perFt?' + $'+f.perFt+'/ft over 6ft':'')+'</div></div>').join('');
+}
+function renderItems(){
+  $('itemGrid').innerHTML=ITEMS.map(it=>'<div class="item-tile'+(state.items.includes(it.id)?' on':'')+'" data-item="'+it.id+'">'
+    +'<span>'+it.icon+' '+it.name+'</span><span class="it-price">$'+it.price+'</span></div>').join('');
+}
+function renderEventSelect(){
+  $('fEvent').innerHTML='<option value="">Select event type</option>'+OCCASIONS.map(o=>'<option'+(state.occasion===o?' selected':'')+'>'+o+'</option>').join('');
+}
+function renderQuote(){
+  const q=computeQuote(state);
+  let html='';
+  html+='<div class="q-line"><span class="ql-k">'+esc(q.frame.name)+' ('+(state.tableFt||6)+' ft)</span><span class="ql-v">$'+q.framePrice+'</span></div>';
+  q.items.forEach(i=>{html+='<div class="q-line"><span class="ql-k">'+esc(i.label)+'</span><span class="ql-v">$'+i.price+'</span></div>';});
+  if(q.cpCount) html+='<div class="q-line"><span class="ql-k">Centerpieces \u00d7 '+q.cpCount+' ($40/table)</span><span class="ql-v">$'+q.cp+'</span></div>';
+  html+='<div class="q-total"><span>Estimated total</span><span class="qt-price">$'+q.total+'</span></div>';
+  $('quoteBox').innerHTML=html+'<div class="quote-note">Same line items Isabella uses in real quotes \u2014 confirmed in writing within 24h.</div>';
+}
+function renderScene(){
+  $('scene').innerHTML=buildScene(state);
+  const cake=$('scene').querySelectorAll('ellipse[fill="#fdf6ec"]');
+  cake.forEach(el=>{el.style.cursor='pointer';el.addEventListener('click',onCakeTap);});
+}
+function render(){
+  renderOccasions();renderPalettes();renderTables();renderFrames();renderItems();renderQuote();renderScene();renderEventSelect();
+  $('cpVal').textContent=state.centerpieces;
+}
+
+function onCakeTap(){
+  cakeTaps++;
+  if(cakeTaps===5){
+    cakeTaps=0;
+    toast('You found Isabella\u2019s secret #12: the dessert table is the SECOND most-photographed spot after the arch \u2014 which is why she always frames it. \u2728');
+    burst(40);
+  }
+}
+
+/* events */
+document.addEventListener('click',e=>{
+  const occ=e.target.closest('[data-occ]');
+  if(occ){state.occasion=occ.dataset.occ;render();return;}
+  const pal=e.target.closest('[data-pal]');
+  if(pal){state.paletteId=pal.dataset.pal;render();return;}
+  const ft=e.target.closest('[data-ft]');
+  if(ft){state.tableFt=+ft.dataset.ft;render();return;}
+  const fr=e.target.closest('[data-frame]');
+  if(fr){state.frame=fr.dataset.frame;render();return;}
+  const it=e.target.closest('[data-item]');
+  if(it){
+    const id=it.dataset.item;
+    state.items=state.items.includes(id)?state.items.filter(x=>x!==id):[...state.items,id].slice(0,6);
+    render();return;
+  }
+});
+
+$('cpMinus').addEventListener('click',()=>{state.centerpieces=Math.max(0,state.centerpieces-1);$('cpVal').textContent=state.centerpieces;renderQuote();});
+$('cpPlus').addEventListener('click',()=>{state.centerpieces=Math.min(8,state.centerpieces+1);$('cpVal').textContent=state.centerpieces;renderQuote();});
+$('surpriseBtn').addEventListener('click',()=>{
+  state.occasion=OCCASIONS[Math.floor(Math.random()*OCCASIONS.length)];
+  state.paletteId=PALETTES[Math.floor(Math.random()*PALETTES.length)].id;
+  state.tableFt=TABLE_SIZES[Math.floor(Math.random()*TABLE_SIZES.length)];
+  state.frame=FRAMES[Math.floor(Math.random()*FRAMES.length)].id;
+  state.items=ITEMS.map(i=>i.id).sort(()=>Math.random()-0.5).slice(0,3+Math.floor(Math.random()*3));
+  state.centerpieces=Math.random()<0.5?Math.floor(Math.random()*4):0;
+  render();burst(46);
+  toast('Surprise! Isabella styled one for you \u2014 tap anything to tweak it. \u2728');
+});
+$('shareBtn').addEventListener('click',()=>{
+  const txt=buildShareText(state);
+  const url='https://wa.me/?text='+encodeURIComponent(txt);
+  window.open(url,'_blank');
+});
+$('printBtn').addEventListener('click',()=>{
+  const q=computeQuote(state);
+  $('pcMeta').textContent='Design: '+designName(state)+' \u00b7 Occasion: '+(state.occasion||'Party')+' \u00b7 Built '+new Date().toLocaleDateString();
+  let rows='<tr><th>Item</th><th>Price</th></tr>';
+  rows+='<tr><td>'+esc(q.frameLabel)+'</td><td>$'+q.framePrice+'</td></tr>';
+  q.items.forEach(i=>{rows+='<tr><td>'+esc(i.label)+'</td><td>$'+i.price+'</td></tr>';});
+  if(q.cpCount) rows+='<tr><td>Centerpieces \u00d7 '+q.cpCount+'</td><td>$'+q.cp+'</td></tr>';
+  rows+='<tr><th>Estimated total</th><th>$'+q.total+'</th></tr>';
+  $('pcTable').innerHTML=rows;
+  window.print();
+});
+
+/* lead form */
+$('leadForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const msg=$('formMsg');
+  msg.className='msg';
+  const payload=leadPayload(state,{
+    name:$('fName').value.trim(),email:$('fEmail').value.trim(),phone:$('fPhone').value.trim(),
+    eventType:$('fEvent').value,date:$('fDate').value,budget:$('fBudget').value,msg:$('fMsg').value.trim()
+  });
+  if(!payload.name||!payload.email||!payload.phone){msg.className='msg err';msg.textContent='Please fill in name, email and phone so Isabella can reply.';return;}
+  try{
+    const r=await fetch('/api/leads.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    if(!r.ok) throw new Error('bad status');
+    msg.className='msg ok';
+    msg.textContent='\u2728 Sent! Isabella will reply within 24 hours with your exact quote.';
+    burst(60);
+    e.target.reset();
+    renderEventSelect();
+  }catch(err){
+    msg.className='msg err';
+    msg.textContent='Something hiccuped sending this \u2014 please try again, or email hello@myeverlastingmemories.com directly.';
+  }
+});
+
+/* nav dropdown */
+document.querySelectorAll('.em-nav-drop-btn').forEach(btn=>{
+  btn.addEventListener('click',e=>{
+    e.stopPropagation();
+    const menu=btn.nextElementSibling;
+    const open=menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open?'true':'false');
+  });
+});
+document.addEventListener('click',()=>{
+  document.querySelectorAll('.em-nav-drop-menu.open').forEach(m=>{
+    m.classList.remove('open');
+    const b=m.previousElementSibling;
+    if(b) b.setAttribute('aria-expanded','false');
+  });
+});
+
+/* faq */
+document.querySelectorAll('.faq-q').forEach(q=>{
+  q.addEventListener('click',()=>q.parentElement.classList.toggle('open'));
+});
+
+/* toast + confetti */
+let toastTimer=null;
+function toast(t){
+  const el=$('toast');
+  el.textContent=t;
+  el.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>el.classList.remove('show'),4200);
+}
+function burst(n){
+  const reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce) return;
+  const colors=['#7c2d12','#C9A227','#e88aa8','#8a9a5b','#e63946','#f4a261'];
+  for(let i=0;i<n;i++){
+    const c=document.createElement('div');
+    c.className='confetti';
+    c.style.left=Math.random()*100+'vw';
+    c.style.background=colors[Math.floor(Math.random()*colors.length)];
+    c.style.animationDuration=(2.2+Math.random()*2.2)+'s';
+    c.style.transform='rotate('+Math.random()*360+'deg)';
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),5000);
+  }
+}
+
+render();
+
+if(typeof module!=='undefined'&&module.exports){
+  module.exports={OCCASIONS,PALETTES,FRAMES,ITEMS,TABLE_SIZES,esc,hexToRgb,mixHex,lighten,shade,seeded,computeQuote,buildScene,designName,buildShareText,leadPayload,balloon,garlandPath,sparkle};
+}
+</script>
+</body>
+</html>

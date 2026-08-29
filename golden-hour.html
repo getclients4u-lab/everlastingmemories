@@ -179,6 +179,7 @@ footer .strip a:hover{color:var(--c2)}
           <a href="guest-list.html">The Guest List</a>
           <a href="memory-capsule.html">Memory Capsule</a>
           <a href="playlist.html">Party Playlist</a>
+<a href="dessert-table.html" style="background:#7c2d12;color:#fff;">Dessert Table Stylist</a>
                     <a href="party-timeline.html">Party Day Timeline</a>
           <a href="referral.html">Refer &amp; Earn</a>
         </div>
@@ -689,7 +690,7 @@ function render(plan,c){
   rows+=row('📏 Day length',fmtDur(plan.dayLen));
   $('ghRows').innerHTML=rows;
   const tip=OCCASIONS[state.occ]||OCCASIONS['Birthday'];
-  $('ghTip').innerHTML='<b>'+tip[0]+' Isabella\'s '+state.occ.toLowerCase()+' playbook:</b> '+esc(tip[1])+' <a href="photo-booth.html" style="color:var(--c1);font-weight:600">Try the look</a> · <a href="photo-hunt.html" style="color:var(--c1);font-weight:600">Photo Hunt</a> · <a href="golden-hour.html" style="color:#a78bfa;font-weight:600;">Golden Hour Finder</a> · <a href="party-timeline.html" style="color:var(--c1);font-weight:600">Timeline</a>';
+  $('ghTip').innerHTML='<b>'+tip[0]+' Isabella\'s '+state.occ.toLowerCase()+' playbook:</b> '+esc(tip[1])+' <a href="photo-booth.html" style="color:var(--c1);font-weight:600">Try the look</a> · <a href="photo-hunt.html" style="color:var(--c1);font-weight:600">Photo Hunt</a> · <a href="golden-hour.html" style="color:#a78bfa;font-weight:600;">Golden Hour Finder</a> · <a href="dessert-table.html" style="color:#f0c9a0;font-weight:600;">Dessert Table Stylist</a> · <a href="party-timeline.html" style="color:var(--c1);font-weight:600">Timeline</a>';
   drawSky(plan,new Date());
   refreshLeadMsg();
 }
