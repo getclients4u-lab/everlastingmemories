@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Operation: Surprise — The Stealth Party Planner | Everlasting Memories — Balloon Art &amp; Event Decor</title>
+<meta name="description" content="Plan a surprise party without getting caught: codename generator, decoy cover stories, stealth checklist &amp; reveal countdown. Free forever.">
+<link rel="canonical" href="https://myeverlastingmemories.com/surprise-planner.html">
+<meta property="og:title" content="Operation: Surprise — The Stealth Party Planner">
+<meta property="og:description" content="The hardest party to plan is the one nobody can talk about. Get a codename, a bulletproof cover story, a 10-point stealth checklist and a live reveal countdown — straight from the notebook of a decorator who has pulled off 50+ surprise reveals.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://myeverlastingmemories.com/surprise-planner.html">
+<meta property="og:image" content="https://myeverlastingmemories.com/logo.jpg">
+<meta property="og:site_name" content="Everlasting Memories">
+<meta name="theme-color" content="#0f1b3d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="analytics.js" defer></script>
+<style>
+:root{
+  --c1:#0f1b3d;      /* midnight navy */
+  --c2:#C9A227;      /* gold */
+  --c3:#1e3a8a;      /* navy light */
+  --bg:#f4f1ea;      /* aged paper */
+  --card:#ffffff;
+  --line:#ddd6c8;
+  --ink:#16181f;
+  --soft:#5b5f6e;
+  --good:#16a34a;
+  --red:#b91c1c;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+.em-nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 22px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;flex-wrap:wrap}
+.em-nav-brand{font-weight:700;color:var(--c1);text-decoration:none;font-size:1rem;font-family:'Playfair Display',serif}
+.em-nav-links{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.em-nav-links a{color:var(--ink);text-decoration:none;font-size:.85rem;font-weight:500}
+.em-nav-links a:hover{color:var(--c2)}
+.em-nav-hot{color:var(--c2)!important;font-weight:700}
+.em-nav-drop{position:relative}
+.em-nav-drop-btn{background:none;border:none;font-family:'Inter',sans-serif;font-size:.85rem;font-weight:500;color:var(--ink);cursor:pointer;padding:4px 2px}
+.em-nav-drop-menu{display:none;position:absolute;right:0;top:calc(100%+8px);background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 34px rgba(30,41,59,.16);min-width:240px;padding:8px;z-index:60}
+.em-nav-drop-menu.open{display:block}
+.em-nav-drop-menu a{display:block;padding:8px 12px;border-radius:9px;font-size:.85rem;color:var(--ink);text-decoration:none}
+.em-nav-drop-menu a:hover{background:var(--bg)}
+.em-nav-cta{background:var(--c1);color:#fff!important;padding:9px 18px;border-radius:999px;font-weight:600;text-decoration:none;font-size:.85rem}
+.em-nav-cta:hover{background:#0a1230}
+header{max-width:960px;margin:0 auto;padding:44px 22px 10px;text-align:center}
+.home-link{display:inline-block;color:var(--c1);text-decoration:none;font-size:.85rem;font-weight:600;margin-bottom:14px}
+.badge{display:inline-block;background:linear-gradient(135deg,var(--c1),var(--c3));color:#fff;padding:5px 16px;border-radius:999px;font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
+header h1{font-family:'Playfair Display',serif;font-size:2.3rem;color:var(--c1);margin-bottom:10px}
+header p{color:var(--soft);max-width:680px;margin:0 auto;font-size:.98rem}
+.container{max-width:960px;margin:0 auto;padding:0 22px 30px}
+.grid{display:grid;grid-template-columns:1fr 1.15fr;gap:22px;margin-top:22px}
+@media(max-width:860px){.grid{grid-template-columns:1fr}}
+/* ===== cards ===== */
+.card{background:var(--card);border-radius:18px;padding:22px;box-shadow:0 4px 24px rgba(30,41,59,.08);border:1px solid var(--line)}
+.card h2{font-size:1.05rem;color:var(--c1);margin-bottom:4px;font-family:'Playfair Display',serif}
+.card .sub{font-size:.8rem;color:var(--soft);margin-bottom:14px}
+.fg{margin-bottom:12px}
+.fg label{display:block;font-weight:600;font-size:.82rem;margin-bottom:4px;color:var(--c1)}
+.fg input,.fg textarea,.fg select{width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;font-size:.92rem;background:#fff;font-family:'Inter',sans-serif;color:var(--ink)}
+.fg input:focus,.fg textarea:focus,.fg select:focus{outline:none;border-color:var(--c2)}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:480px){.fg-row{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:4px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:6px 13px;font-size:.8rem;font-weight:600;color:var(--soft);cursor:pointer;transition:.2s;font-family:'Inter',sans-serif}
+.chip.on{border-color:var(--c1);background:var(--c1);color:#fff}
+.tip{font-size:.72rem;color:var(--soft);text-align:center;margin-top:10px}
+.msg{display:none;border-radius:10px;padding:11px;font-size:.86rem;font-weight:500;margin-bottom:12px;text-align:center}
+.msg.ok{display:block;background:#f0fdf4;border:1px solid #86efac;color:#14532d}
+.msg.err{display:block;background:#fdeeee;border:1px solid #e08a8a;color:#a33}
+.cta-btn{width:100%;border:none;border-radius:12px;padding:13px;font-size:.95rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:.2s;margin-top:4px}
+.cta-btn.primary{background:linear-gradient(135deg,var(--c1),var(--c3));color:#fff}
+.cta-btn.primary:hover{filter:brightness(1.15)}
+.cta-btn.gold{background:linear-gradient(135deg,var(--c2),#a8841f);color:#fff}
+.cta-btn.gold:hover{filter:brightness(1.1)}
+.cta-btn.ghost{background:#fff;border:1.5px solid var(--line);color:var(--c1)}
+.cta-btn.ghost:hover{border-color:var(--c2)}
+.cta-btn.red{background:linear-gradient(135deg,#b91c1c,#7f1d1d);color:#fff}
+.cta-btn.red:hover{filter:brightness(1.12)}
+/* ===== dossier ===== */
+.dossier{border:1.5px solid var(--c1);border-radius:16px;overflow:hidden;margin-bottom:14px;background:#fff}
+.dossier-head{background:linear-gradient(135deg,var(--c1),var(--c3));color:#fff;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.dossier-head .dh-title{font-weight:700;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase}
+.dossier-head .dh-stamp{font-family:'Courier New',monospace;font-size:.68rem;font-weight:700;color:#fde68a;border:1.5px dashed #fde68a;padding:3px 8px;border-radius:6px;transform:rotate(-4deg);cursor:pointer;user-select:none}
+.dossier-body{padding:14px 16px}
+.d-row{display:flex;justify-content:space-between;gap:10px;font-size:.84rem;padding:7px 0;border-bottom:1px dashed var(--line)}
+.d-row:last-of-type{border-bottom:none}
+.d-row .dk{color:var(--soft);font-weight:500}
+.d-row .dv{font-weight:700;color:var(--ink);text-align:right}
+.d-row .dv.gold{color:#92600a}
+.d-codename{text-align:center;padding:12px 8px;background:#f8f6f0;border:1.5px dashed var(--c2);border-radius:12px;margin-bottom:10px}
+.d-codename .dc-label{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);font-weight:700}
+.d-codename .dc-name{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--c1);font-weight:700;margin-top:2px}
+/* ===== cover stories ===== */
+.story-cards{display:grid;grid-template-columns:1fr;gap:9px;margin-bottom:4px}
+.story-card{border:1.5px solid var(--line);border-radius:12px;padding:10px 12px;cursor:pointer;transition:.2s;background:#fff}
+.story-card:hover{border-color:var(--c2)}
+.story-card.on{border-color:var(--c1);background:#f3f4fb;box-shadow:0 0 0 2px rgba(15,27,61,.12)}
+.story-card .sc-name{font-weight:700;font-size:.85rem;color:var(--c1)}
+.story-card .sc-desc{font-size:.76rem;color:var(--soft);margin-top:2px}
+.story-card .sc-tip{font-size:.72rem;color:#92600a;margin-top:4px;font-style:italic}
+.decoy-box{display:none;background:#f8f6f0;border:1.5px solid var(--line);border-radius:12px;padding:12px;margin-top:10px}
+.decoy-box.show{display:block}
+.decoy-box .db-label{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);font-weight:700;margin-bottom:6px}
+.decoy-box .db-text{font-size:.86rem;white-space:pre-wrap;color:var(--ink);line-height:1.6;margin-bottom:10px}
+/* ===== checklist ===== */
+.check-item{display:flex;gap:10px;align-items:flex-start;padding:9px 10px;border:1.5px solid var(--line);border-radius:12px;margin-bottom:8px;cursor:pointer;transition:.2s;background:#fff}
+.check-item:hover{border-color:var(--c2)}
+.check-item.on{border-color:var(--good);background:#f0fdf4}
+.check-item .ci-box{width:20px;height:20px;min-width:20px;border-radius:6px;border:2px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:.7rem;font-weight:800;color:#fff;margin-top:1px;transition:.2s}
+.check-item.on .ci-box{background:var(--good);border-color:var(--good)}
+.check-item .ci-text{font-size:.82rem;color:var(--ink);line-height:1.45}
+.check-item.on .ci-text{color:#14532d}
+.progress{margin:12px 0 4px}
+.progress .p-label{display:flex;justify-content:space-between;font-size:.72rem;font-weight:700;color:var(--soft);margin-bottom:5px}
+.progress .p-bar{height:10px;border-radius:999px;background:var(--line);overflow:hidden}
+.progress .p-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--good),#4ade80);transition:width .3s;width:0}
+.leak-meter{font-size:.78rem;font-weight:700;text-align:center;margin-top:8px;padding:8px;border-radius:10px}
+.leak-meter.high{background:#fdeeee;color:#a33;border:1px solid #e08a8a}
+.leak-meter.mid{background:#fef7e6;color:#7a5a10;border:1px solid #e3b23c}
+.leak-meter.low{background:#f0fdf4;color:#14532d;border:1px solid #86efac}
+/* ===== countdown ===== */
+.cd-wrap{text-align:center;padding:6px 0 2px}
+.cd-nums{display:flex;justify-content:center;gap:8px;margin:10px 0 6px}
+.cd-cell{background:linear-gradient(135deg,var(--c1),var(--c3));color:#fff;border-radius:12px;padding:10px 6px;min-width:64px}
+.cd-cell .n{font-size:1.5rem;font-weight:800;font-variant-numeric:tabular-nums;line-height:1.1}
+.cd-cell .l{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;opacity:.75;margin-top:2px}
+.cd-zero{display:none;font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--red);font-weight:700;margin:10px 0 4px}
+.cd-zero.show{display:block}
+/* ===== signals ===== */
+.sig-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:4px}
+@media(max-width:480px){.sig-grid{grid-template-columns:1fr}}
+.sig{border:1.5px solid var(--line);border-radius:12px;padding:9px 11px;font-size:.76rem;background:#fff}
+.sig b{display:block;color:var(--c1);font-size:.8rem;margin-bottom:2px}
+.sig span{color:var(--soft)}
+/* ===== rsvp ===== */
+.rsvp-line{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:8px 0;border-bottom:1px dashed var(--line);font-size:.86rem}
+.rsvp-line:last-of-type{border-bottom:none}
+.rsvp-line .rl-k{font-weight:600;color:var(--ink)}
+.rsvp-line .rl-v{font-weight:800;color:var(--c1);min-width:46px;text-align:center}
+.stepper{display:flex;align-items:center;gap:8px}
+.stepper button{width:30px;height:30px;border-radius:9px;border:1.5px solid var(--line);background:#fff;font-size:1rem;font-weight:700;color:var(--c1);cursor:pointer;font-family:'Inter',sans-serif}
+.stepper button:hover{border-color:var(--c2)}
+/* ===== faq ===== */
+.faq{margin-top:26px}
+.faq h2{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--c1);margin-bottom:14px}
+.faq-item{border:1px solid var(--line);border-radius:14px;background:#fff;margin-bottom:10px;overflow:hidden}
+.faq-q{width:100%;text-align:left;background:none;border:none;padding:14px 16px;font-size:.9rem;font-weight:700;color:var(--c1);cursor:pointer;font-family:'Inter',sans-serif;display:flex;justify-content:space-between;gap:10px}
+.faq-q:hover{color:var(--c2)}
+.faq-a{display:none;padding:0 16px 14px;font-size:.86rem;color:var(--soft)}
+.faq-item.open .faq-a{display:block}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:14px}
+.fact{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;font-size:.8rem;color:var(--soft)}
+.fact b{display:block;color:var(--c1);font-size:.86rem;margin-bottom:4px}
+/* ===== lead ===== */
+.lead-card{margin-top:26px}
+.lead-card h2{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--c1);margin-bottom:4px}
+.lead-card .sub{margin-bottom:14px}
+/* ===== footer ===== */
+footer{margin-top:40px;padding:26px 22px 34px;background:var(--c1);color:#dbe4f5;text-align:center;font-size:.8rem}
+footer a{color:#e8edf9;text-decoration:none}
+footer a:hover{color:var(--c2)}
+footer .strip{margin-top:8px;font-size:.76rem;line-height:1.9}
+footer .strip a{color:#c7d2ee}
+footer .strip a:hover{color:var(--c2)}
+/* ===== print card ===== */
+.print-card{display:none}
+@media print{
+  body *{visibility:hidden}
+  .print-card,.print-card *{visibility:visible}
+  .print-card{display:block;position:absolute;left:0;top:0;width:100%;padding:14px;color:#000;font-size:11px}
+  .print-card h1{font-size:17px;font-family:'Playfair Display',serif;margin-bottom:2px}
+  .print-card .pc-meta{font-size:10px;color:#444;margin-bottom:8px}
+  .print-card table{width:100%;border-collapse:collapse}
+  .print-card td,.print-card th{border:1px solid #999;padding:4px 6px;text-align:left;font-size:10px}
+  .print-card th{background:#eee}
+  .print-card .pc-foot{margin-top:8px;font-size:9px;color:#666}
+}
+/* ===== toast / confetti ===== */
+.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);background:var(--c1);color:#fff;padding:12px 22px;border-radius:999px;font-size:.86rem;font-weight:600;opacity:0;pointer-events:none;transition:.3s;z-index:99;box-shadow:0 10px 30px rgba(30,41,59,.35);max-width:92vw;text-align:center}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.confetti{position:fixed;top:-12px;width:10px;height:14px;z-index:99;pointer-events:none;animation:confFall linear forwards}
+@keyframes confFall{to{transform:translateY(105vh) rotate(720deg);opacity:.85}}
+@media (prefers-reduced-motion: reduce){.confetti{animation:none!important}}
+</style>
+</head>
+<body>
+
+<nav class="em-nav">
+  <a class="em-nav-brand" href="index.html">&#127881; Everlasting Memories</a>
+  <div class="em-nav-links">
+    <a href="index.html">Home</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <div class="em-nav-drop">
+      <button class="em-nav-drop-btn" type="button" aria-haspopup="true" aria-expanded="false">Tools &#9662;</button>
+      <div class="em-nav-drop-menu">
+          <a href="cost-estimator.html">Estimate Cost</a>
+          <a href="theme-generator.html">Theme Generator</a>
+          <a href="lookbook.html">Lookbook</a>
+          <a href="countdown.html">Countdown</a>
+          <a href="party-style-quiz.html">Party Style Quiz</a>
+          <a href="balloon-math.html">Balloon Math</a>
+          <a href="reserve-date.html">Reserve Your Date</a>
+          <a href="diy-vs-pro.html">DIY vs Pro</a>
+          <a href="palette-snap.html">Palette Snap</a>
+          <a href="name-garland.html">Balloon Letters</a>
+          <a href="budget-builder.html">Budget Builder</a>
+          <a href="transformations.html">The Big Reveal</a>
+          <a href="wedding-workshop.html">Wedding Workshop</a>
+          <a href="balloon-pop.html">Pop Party</a>
+          <a href="invitation-studio.html">Invitation Studio</a>
+          <a href="party-roadmap.html">Party Roadmap</a>
+          <a href="memory-wall.html">Memory Wall</a>
+          <a href="photo-booth.html">Golden Hour Booth</a>
+          <a href="garland-vision.html">Garland Vision</a>
+          <a href="photo-hunt.html">Party Photo Hunt</a>
+          <a href="guest-list.html">The Guest List</a>
+          <a href="memory-capsule.html">Memory Capsule</a>
+          <a href="playlist.html">Party Playlist</a>
+                    <a href="party-timeline.html">Party Day Timeline</a>
+          <a href="referral.html">Refer &amp; Earn</a>
+        </div>
+    </div>
+  </div>
+  <a class="em-nav-cta" href="cost-estimator.html">Get a Quote</a>
+</nav>
+
+<header>
+  <a href="index.html" class="home-link">&#8592; Back to Home</a>
+  <div class="badge">&#129518; New Tonight — Operation: Surprise</div>
+  <h1>&#129518; Operation: Surprise — The Stealth Party Planner</h1>
+  <p>The hardest party to plan is the one nobody can talk about. This is the site's first covert-ops tool: give it the guest of honor, and it generates a mission codename, three bulletproof cover stories, a 10-point stealth checklist, lookout signals, and a live countdown to the big reveal. Built from the notebook of a decorator who has quietly pulled off 50+ surprise parties. &#127881;</p>
+</header>
+
+<div class="container">
+
+  <div class="grid">
+
+    <!-- LEFT: mission controls -->
+    <div>
+      <div class="card">
+        <h2>&#128274; Mission Setup</h2>
+        <p class="sub">Everything below is classified. Enter the target's name and the occasion.</p>
+
+        <div class="fg">
+          <label>Guest of honor (the target)</label>
+          <input id="fTarget" maxlength="60" placeholder="e.g. Mom, Jake, Grandma Rose" value="Mom">
+        </div>
+
+        <div class="fg">
+          <label>Occasion</label>
+          <div class="chips" id="occasionChips"></div>
+        </div>
+
+        <div class="fg-row">
+          <div class="fg">
+            <label>Reveal date</label>
+            <input id="fDate" type="date">
+          </div>
+          <div class="fg">
+            <label>Reveal time</label>
+            <input id="fTime" type="time" value="18:00">
+          </div>
+        </div>
+
+        <button class="cta-btn primary" id="newMissionBtn" type="button">&#128274; Generate New Mission</button>
+      </div>
+
+      <div class="card" style="margin-top:16px">
+        <h2>&#129351; Mission Codename</h2>
+        <p class="sub">Every good op needs a name. Yours is generated with the occasion.</p>
+        <div class="d-codename">
+          <div class="dc-label">Operation</div>
+          <div class="dc-name" id="opName">—</div>
+          <div class="dc-label" style="margin-top:8px">Target codename</div>
+          <div class="dc-name" id="targetCode" style="font-size:1.1rem">—</div>
+        </div>
+        <button class="cta-btn ghost" id="regenCodeBtn" type="button">&#127922; Re-roll Codenames</button>
+      </div>
+
+      <div class="card" style="margin-top:16px">
+        <h2>&#129520; Cover Stories</h2>
+        <p class="sub">Three believable decoys — pick the one they'll actually believe.</p>
+        <div class="story-cards" id="storyCards"></div>
+        <button class="cta-btn ghost" id="regenStoryBtn" type="button">&#127922; Re-roll Stories</button>
+        <div class="decoy-box" id="decoyBox">
+          <div class="db-label">&#128172; Decoy text — send this the day before</div>
+          <div class="db-text" id="decoyText"></div>
+          <button class="cta-btn gold" id="decoyShareBtn" type="button">&#128172; Send on WhatsApp</button>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:16px">
+        <h2>&#128737; Stealth Checklist</h2>
+        <p class="sub">Ten moves between you and a flawless reveal. Tap to complete.</p>
+        <div id="checkList"></div>
+        <div class="progress">
+          <div class="p-label"><span>Stealth readiness</span><span id="pPct">0%</span></div>
+          <div class="p-bar"><div class="p-fill" id="pFill"></div></div>
+        </div>
+        <div class="leak-meter high" id="leakMeter">&#128680; LEAK RISK: HIGH — the target is 100% going to find out</div>
+      </div>
+    </div>
+
+    <!-- RIGHT: dossier + reveal -->
+    <div>
+      <div class="card">
+        <div class="dossier">
+          <div class="dossier-head">
+            <span class="dh-title">&#128220; Mission Dossier</span>
+            <span class="dh-stamp" id="stamp" title="CLASSIFIED">TOP SECRET</span>
+          </div>
+          <div class="dossier-body" id="dossierBody"></div>
+        </div>
+
+        <div class="cd-wrap">
+          <div class="dc-label" style="font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);font-weight:700">&#9203; Time to reveal</div>
+          <div class="cd-nums" id="cdNums">
+            <div class="cd-cell"><div class="n" id="cdD">0</div><div class="l">days</div></div>
+            <div class="cd-cell"><div class="n" id="cdH">0</div><div class="l">hours</div></div>
+            <div class="cd-cell"><div class="n" id="cdM">0</div><div class="l">min</div></div>
+            <div class="cd-cell"><div class="n" id="cdS">0</div><div class="l">sec</div></div>
+          </div>
+          <div class="cd-zero" id="cdZero">&#127881; IT'S TIME — GO GO GO! &#127881;</div>
+          <button class="cta-btn red" id="revealBtn" type="button">&#127881; SURPRISE!</button>
+        </div>
+
+        <div class="sig-grid" style="margin-top:14px">
+          <div class="sig"><b>&#128021; "The eagle has landed"</b><span>Target is 10 minutes out</span></div>
+          <div class="sig"><b>&#128230; "Package delivered"</b><span>Target is at the door — hide now</span></div>
+          <div class="sig"><b>&#128293; "Code red"</b><span>Target is early — full lockdown</span></div>
+          <div class="sig"><b>&#127881; "Balloons up"</b><span>Decor is live, everyone in position</span></div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:14px">
+          <button class="cta-btn gold" id="shareBtn" type="button">&#128172; Share Mission Brief</button>
+          <button class="cta-btn ghost" id="printBtn" type="button">&#128424; Print Brief</button>
+        </div>
+        <p class="tip">&#128161; Tap the TOP SECRET stamp 5 times — Isabella hid a secret there.</p>
+      </div>
+
+      <div class="card" style="margin-top:16px">
+        <h2>&#129349; Secret RSVP Tally</h2>
+        <p class="sub">Who's in — without the target ever knowing. Quick tap tally.</p>
+        <div class="rsvp-line"><span class="rl-k">&#9989; Confirmed (quietly)</span><div class="stepper"><button type="button" data-rsvp="yes" data-d="-1">&#8722;</button><span class="rl-v" id="rsvYes">0</span><button type="button" data-rsvp="yes" data-d="1">+</button></div></div>
+        <div class="rsvp-line"><span class="rl-k">&#129300; Maybe / playing it cool</span><div class="stepper"><button type="button" data-rsvp="maybe" data-d="-1">&#8722;</button><span class="rl-v" id="rsvMaybe">0</span><button type="button" data-rsvp="maybe" data-d="1">+</button></div></div>
+        <div class="rsvp-line"><span class="rl-k">&#129300; Can't make it (sworn to silence)</span><div class="stepper"><button type="button" data-rsvp="no" data-d="-1">&#8722;</button><span class="rl-v" id="rsvNo">0</span><button type="button" data-rsvp="no" data-d="1">+</button></div></div>
+        <p class="tip" style="margin-top:8px">Tally lives in this browser only. Burn after reading. &#128274;</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- LEAD -->
+  <div class="card lead-card" id="leadCard">
+    <h2>&#127881; Make the Reveal Unforgettable</h2>
+    <p class="sub">Tell Isabella the op details — she'll quietly plan the decor drop so nothing leaks before the big moment.</p>
+    <div class="msg" id="formMsg"></div>
+    <form id="leadForm">
+      <div class="fg-row">
+        <div class="fg"><label for="fName">Name</label><input id="fName" required maxlength="80" placeholder="Your name"></div>
+        <div class="fg"><label for="fPhone">Phone</label><input id="fPhone" required maxlength="30" placeholder="(203) 555-0123"></div>
+      </div>
+      <div class="fg"><label for="fEmail">Email</label><input id="fEmail" type="email" required maxlength="120" placeholder="you@example.com"></div>
+      <div class="fg-row">
+        <div class="fg"><label for="fEvent">Occasion</label><select id="fEvent"></select></div>
+        <div class="fg"><label for="fDate2">Reveal Date</label><input id="fDate2" type="date"></div>
+      </div>
+      <div class="fg"><label for="fBudget">Decor Budget</label><select id="fBudget">
+        <option value="">Not sure yet</option>
+        <option>Under $500</option>
+        <option>$500 – $1,000</option>
+        <option>$1,000 – $1,500</option>
+        <option>$1,500+</option>
+      </select></div>
+      <div class="fg"><label for="fMsg">Mission notes (optional)</label><textarea id="fMsg" rows="2" placeholder="e.g. The reveal is in the backyard, target arrives at 6pm — decor must be installed by 4pm with zero trace."></textarea></div>
+      <button class="cta-btn primary" type="submit">&#128274; Request a Quiet Quote</button>
+    </form>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq">
+    <h2>Surprise Party Intel, Answered</h2>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Why do I need a codename and a cover story? <span>&#9662;</span></button>
+      <div class="faq-a">Because the number-one way surprises die is the target asking "so what are we doing?" and someone — usually the planner — panicking and telling the truth. A codename keeps group texts vague ("Operation prep meeting, 5pm") and a cover story gives everyone one boring, agreed answer. Isabella's rule from 50+ surprise reveals: the decoy isn't optional, it's the whole plan.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Is this really how Isabella plans surprise parties? <span>&#9662;</span></button>
+      <div class="faq-a">The 10-point checklist is distilled from her real playbook: decor delivered in unmarked bags, inflated off-site so the house stays clean, guests parked down the street, group chat renamed to something dull, and a lookout with code words. Roughly one in four parties she decorates is a surprise reveal — she's had balloons hidden in trunks, closets and once, memorably, in a neighbor's garage.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">How does the decor get in without the target noticing? <span>&#9662;</span></button>
+      <div class="faq-a">That's the quiet-quote part: tell Isabella the reveal time, and she schedules the install for when the target is guaranteed out — the decoy text gets them out of the house, the install team is in and out in under two hours, and the garage door stays closed until the big moment. Timing is coordinated with your lookout signals, not a minute sooner.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">What if the target shows up early? <span>&#9662;</span></button>
+      <div class="faq-a">You've got the code words for that: "code red" goes out on the group chat, everyone goes silent, lights off, and the target walks into a very calm, very empty living room. It's the oldest trick in the book — the more normal the house looks, the less they suspect. (This is also why Isabella never installs more than a few hours ahead.)</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">What happens after the reveal? <span>&#9662;</span></button>
+      <div class="faq-a">The party! That's when the rest of the toolbox takes over: run the <a href="party-timeline.html" style="color:var(--c1);font-weight:600">Party Day Timeline</a> so the night has a rhythm, cue the <a href="playlist.html" style="color:var(--c1);font-weight:600">Party Playlist</a> for the entrance, catch the <a href="golden-hour.html" style="color:var(--c1);font-weight:600">Golden Hour Finder</a> for the photo moment, and send guests to the <a href="photo-hunt.html" style="color:var(--c1);font-weight:600">Party Photo Hunt</a> so every angle gets captured. The surprise is the opening act — the memory is the show.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">How do I turn this into a real booking? <span>&#9662;</span></button>
+      <div class="faq-a">Fill in the form with your mission details — it sends Isabella the occasion, reveal date and your notes. She replies within 24 hours with a written quote and a suggested decor-drop time, then you lock the date on <a href="reserve-date.html" style="color:var(--c1);font-weight:600">Reserve Your Date</a>. Weekends book fast, and surprise dates are the first to go: May–October Saturdays vanish.</div>
+    </div>
+  </div>
+
+  <!-- FACTS -->
+  <div class="facts">
+    <div class="fact"><b>1 in 4 events</b>Isabella decorates is a surprise reveal.</div>
+    <div class="fact"><b>10-point checklist</b>The exact stealth moves from her playbook.</div>
+    <div class="fact"><b>3 decoys</b>Cover stories per occasion — pick the believable one.</div>
+    <div class="fact"><b>24h replies</b>Quiet quotes, honest prices, zero leaks.</div>
+    <div class="fact"><b>&lt;2h installs</b>Decor drops timed to the minute while the target is out.</div>
+  </div>
+
+</div>
+
+<footer>
+  <div>&#127881; Everlasting Memories — Balloon Art &amp; Event Decor, Connecticut</div>
+  <div style="margin-top:4px"><a href="contact.html">Contact</a> &middot; <a href="services.html">Services</a> &middot; <a href="gallery.html">Gallery</a> &middot; <a href="about.html">About</a></div>
+  <p class="strip"><a href="surprise-planner.html" style="color:#c7d2ee;font-weight:600;">Operation: Surprise</a> · <a href="dessert-table.html" style="color:#f0c9a0;font-weight:600;">Dessert Table Stylist</a> · <a href="golden-hour.html" style="color:#a78bfa;font-weight:600;">Golden Hour Finder</a> · <a href="party-timeline.html" style="color:#fbbf24;font-weight:600;">Party Day Timeline</a> · <a href="memory-capsule.html" style="color:#92400e;font-weight:600;">Memory Capsule</a> · <a href="playlist.html" style="color:#b91c1c;font-weight:600;">Party Playlist</a> · <a href="guest-list.html" style="color:#1e3a8a;font-weight:600;">The Guest List</a> · <a href="photo-hunt.html" style="color:#a21caf;font-weight:600;">Party Photo Hunt</a> · <a href="photo-booth.html" style="color:#0369a1;font-weight:600;">Golden Hour Booth</a> · <a href="memory-wall.html" style="color:#b45309;font-weight:600;">Memory Wall</a> · <a href="party-roadmap.html" style="color:#0f766e;font-weight:600;">Party Roadmap</a> · <a href="invitation-studio.html" style="color:#312e81;font-weight:600;">Invitation Studio</a> · <a href="balloon-pop.html" style="color:#ea580c;font-weight:600;">Pop Party</a> · <a href="wedding-workshop.html" style="color:#9d174d;font-weight:600;">Wedding Workshop</a> · <a href="transformations.html" style="color:#7c3aed;font-weight:600;">The Big Reveal</a> · <a href="budget-builder.html" style="color:#2f7a52">Budget Balloonist</a> · <a href="referral.html" style="color:#C9A87C">Refer &amp; Earn</a></p>
+</footer>
+
+<div class="print-card" id="printCard">
+  <h1>Operation: Surprise — Mission Brief</h1>
+  <div class="pc-meta" id="pcMeta"></div>
+  <table id="pcTable"></table>
+  <div class="pc-foot">Everlasting Memories — Balloon Art &amp; Event Decor, Connecticut · myeverlastingmemories.com · Isabella replies to every inquiry within 24 hours. This document will self-destruct. (It won't.)</div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ================= pure data ================= */
+const OCCASIONS=['Birthday','Wedding','Anniversary','Graduation','Baby Shower','Corporate','Just Because'];
+
+const CODE_A=['Golden','Silent','Velvet','Crimson','Midnight','Paper','Secret','Lucky','Whisper','Blushing'];
+const CODE_B=['Balloon','Falcon','Owl','Comet','Lantern','Firefly','Cake','Kite','Heron','Firework'];
+const TARGET_CODE=['The Guest of Honor','The VIP','The Star','The Surprisee','The One','The Legend','The Birthday Bird'];
+
+const COVER_STORIES={
+  'Birthday':[
+    {name:'The "Quiet Dinner" Decoy',desc:'You\u2019re taking them out for a calm, early dinner — just the two of you. No reason to dress up... or is there?',tip:'Most believable when you name the actual restaurant. Pick one they love so they don\u2019t argue.',decoy:'I booked us a table at your favorite spot for a quiet dinner \u2014 just the two of us. No occasion, I promise. Wear something comfy, we might take a little walk after.'},
+    {name:'The "Errand Run" Decoy',desc:'You need their help picking up something heavy for the house. Takes 20 minutes. They never see the party coming.',tip:'Pair with a real errand bag in the car \u2014 the visual sells it.',decoy:'Can you help me pick up that new armchair today? It\u2019s heavy and I can\u2019t do it alone. 20 minutes, then we grab a bite \u2014 my treat.'},
+    {name:'The "Surprise For Someone Else" Decoy',desc:'You\u2019re helping a friend throw a surprise for THEIR mom. Can they come along for moral support?',tip:'The meta-move: they\u2019ll spend the whole ride guessing who it is. It\u2019s them.',decoy:'My friend is throwing a surprise party for her mom and needs backup. Can you come with me to help set up? You\u2019re so much better at this than I am.'}
+  ],
+  'Wedding':[
+    {name:'The "Vendor Check-In" Decoy',desc:'The venue/caterer needs a final signature and you can\u2019t do it alone. Ten minutes, then dinner nearby.',tip:'Wedding couples are used to vendor errands \u2014 this one lands every time.',decoy:'The venue just called \u2014 one last signature needed on the contract and they close in an hour. Can you come with me? We\u2019ll grab dinner after, I promise.'},
+    {name:'The "Date Night" Decoy',desc:'A surprise date night \u2014 you booked their favorite spot. Little do they know the party is the date.',tip:'Keep the destination vague: "it\u2019s a surprise" is the cover story itself.',decoy:'Surprise date night tonight \u2014 I booked us somewhere nice. Don\u2019t ask where, just put on something cute and be ready by 5:30.'},
+    {name:'The "Fitting/Rehearsal" Decoy',desc:'One last fitting or rehearsal check \u2014 boring, believable, and gets them in the car with a nice outfit on.',tip:'Bonus: they\u2019ll dress up, which makes the reveal photos better.',decoy:'The tailor says your suit needs one final adjustment before the big day. 15 minutes, I\u2019ll drive \u2014 then we can do whatever you want.'}
+  ],
+  'Anniversary':[
+    {name:'The "Photo Session" Decoy',desc:'You booked a casual couple\u2019s photo session to celebrate. Bring a change of clothes \u2014 "maybe we\u2019ll grab dinner after."',tip:'The outfit change request is the perfect planted detail.',decoy:'I booked us a casual photo session today to celebrate us \u2014 20 minutes, golden hour. Bring a change of clothes in case we grab dinner after.'},
+    {name:'The "Anniversary Dinner" Decoy',desc:'A quiet anniversary dinner at a new place you\u2019ve been meaning to try. Romantic, simple, completely false.',tip:'Say you got a gift card \u2014 it explains why you\u2019re so insistent on the plan.',decoy:'Happy anniversary! I got a gift card to that new place you\u2019ve been dying to try \u2014 tonight, 6pm. Just us, I promise.'},
+    {name:'The "Errand + Treat" Decoy',desc:'A boring errand followed by ice cream at their favorite spot. Low expectations, maximum surprise.',tip:'Low expectations are the secret weapon of every great reveal.',decoy:'I have to drop something off at the post office and then I\u2019m grabbing ice cream at your favorite spot \u2014 come with me?'}
+  ],
+  'Graduation':[
+    {name:'The "Career Fair" Decoy',desc:'A networking event or career fair \u2014 free food, casual clothes. They\u2019ll groan, then show up.',tip:'Grads expect to be dragged to boring adult things. Use it.',decoy:'There\u2019s a networking mixer tonight with free food \u2014 I know, I know. Come with me for an hour and then we\u2019re out. Casual clothes.'},
+    {name:'The "Family Dinner" Decoy',desc:'A regular family dinner at grandma\u2019s. "Everyone\u2019s already there, we\u2019re just late."',tip:'The "everyone\u2019s waiting" line creates urgency and kills questions.',decoy:'Grandma says dinner is early tonight and everyone\u2019s already there \u2014 we\u2019re late again. Meet me at the car in 10?'},
+    {name:'The "Campus Errand" Decoy',desc:'They need to pick up their cap/gown or return a book. Quick stop, then you\u2019re done.',tip:'Keep them in the car the whole time \u2014 momentum is your friend.',decoy:'They said your cap and gown are in for pickup \u2014 we should grab them before the office closes. I\u2019ll drive, 10 minutes tops.'}
+  ],
+  'Baby Shower':[
+    {name:'The "Registry Run" Decoy',desc:'You need help picking out a gift for a mutual friend\u2019s shower. "You have better taste than me."',tip:'Flattery is the most reliable decoy ever invented.',decoy:'I have NO idea what to get for the baby shower this weekend. You have way better taste than me \u2014 come help me pick something out? Then lunch, my treat.'},
+    {name:'The "Lunch With Friends" Decoy',desc:'A casual lunch with the usual crew. No occasion. Just lunch.',tip:'The more ordinary the plan, the less the target dresses up \u2014 which is why you add the outfit hint.',decoy:'The usual crew is doing a casual lunch today \u2014 nothing fancy, just catching up. Wear something cute anyway, you know how they are with photos.'},
+    {name:'The "Spa/Self-Care" Decoy',desc:'You booked them a mani-pedi or massage as a treat. "You\u2019ve earned it."',tip:'They\u2019ll arrive relaxed and glowing \u2014 perfect reveal photos.',decoy:'I booked you a little self-care session this afternoon \u2014 you\u2019ve earned it, seriously. I\u2019ll pick you up after so you can put your feet up.'}
+  ],
+  'Corporate':[
+    {name:'The "Off-Site Meeting" Decoy',desc:'A last-minute off-site at the boss\u2019s house. "Bring your laptop, it\u2019s a strategy thing."',tip:'Coworkers will genuinely believe it \u2014 keep the group chat formal.',decoy:'Last-minute off-site at 5:30 \u2014 the boss wants a quick strategy session before the quarter closes. Bring your laptop. It\u2019ll be quick, I\u2019m told.'},
+    {name:'The "Client Dinner" Decoy',desc:'A client wants to celebrate the deal over dinner. "Wear the nice shirt."',tip:'The dress code instruction is the tell that something\u2019s up \u2014 make it feel routine.',decoy:'The client wants to celebrate closing the deal with dinner tonight. Wear the nice shirt \u2014 I\u2019ll swing by and pick you up at 6.'},
+    {name:'The "Team Building" Decoy',desc:'Mandatory fun. "It\u2019s the quarterly team-building thing, you know the drill."',tip:'Everyone hates team building \u2014 zero suspicion, maximum groaning, perfect cover.',decoy:'The quarterly team-building thing got moved to tonight. I know, I know \u2014 mandatory fun. At least there\u2019ll be food. I\u2019ll get you at 6.'}
+  ],
+  'Just Because':[
+    {name:'The "You Won Something" Decoy',desc:'A store called \u2014 they won a raffle they don\u2019t remember entering. Pickup takes five minutes.',tip:'Absurd but effective: people believe free stuff faster than anything else.',decoy:'Random call today \u2014 you won some raffle you don\u2019t even remember entering! They said pickup is tonight before they close. I\u2019ll drive.'},
+    {name:'The "Movie Night" Decoy',desc:'A low-key movie night at a friend\u2019s place. "Bring a blanket, it\u2019s a double feature."',tip:'Casual, cozy, and completely wrong \u2014 the ideal setup.',decoy:'Movie night at Sam\u2019s tonight \u2014 double feature, blankets encouraged. Snacks covered. Come over around 6!'},
+    {name:'The "Let\u2019s Just Drive" Decoy',desc:'"Get in the car, I want to show you something." No plan, no details, just vibes.',tip:'For targets who love spontaneity. The mystery IS the cover story.',decoy:'Get in the car \u2014 I want to show you something. No questions, it\u2019s a surprise. Wear something nice.'}
+  ]
+};
+
+const CHECKLIST=[
+  {id:'c1',text:'Pick a codename and tell NO ONE the real plan in group chats — vague texts only.'},
+  {id:'c2',text:'Send the decoy text the day before. Let them reply "ok!" and screenshot it for the group.'},
+  {id:'c3',text:'Arrange the decor drop for when the target is 100% out — install window &lt; 2 hours.'},
+  {id:'c4',text:'Keep decor in unmarked bags or a neighbor\u2019s garage. No balloons visible from the driveway.'},
+  {id:'c5',text:'Tell guests to park at least one street away and walk over in pairs, not a caravan.'},
+  {id:'c6',text:'Rename the group chat to something boring: "Book Club" or "Carpool."'},
+  {id:'c7',text:'Assign a lookout with code words. Rehearse "the eagle has landed" and "code red."'},
+  {id:'c8',text:'Hide the cake/centerpiece where the target won\u2019t look: trunk, closet, or neighbor\u2019s fridge.'},
+  {id:'c9',text:'Stage the reveal spot: clear the doorway, pick the music cue, set the camera on a tripod.'},
+  {id:'c10',text:'Agree on the surprise line. One person says "SURPRISE!" — everyone else just yells.'}
+];
+
+/* ================= helpers ================= */
+function esc(s){
+  return String(s==null?'':s)
+    .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+function pick(arr,seed){
+  const i=seed!=null?seed:Math.floor(Math.random()*arr.length);
+  return arr[i%arr.length];
+}
+function pick3(arr,seed){
+  const out=[];const n=arr.length;
+  let s=seed!=null?seed:Math.floor(Math.random()*99999);
+  while(out.length<Math.min(3,n)){
+    const it=arr[s%n];s=(s*31+7)%n;
+    if(!out.includes(it)) out.push(it);
+  }
+  return out;
+}
+function genCodename(occasion){
+  const s=Math.floor(Math.random()*99999);
+  const a=pick(CODE_A,s);
+  const b=pick(CODE_B,Math.floor(s/7));
+  const t=pick(TARGET_CODE,Math.floor(s/13));
+  return {op:'Operation '+a+' '+b,target:t};
+}
+function genStories(occasion){
+  const list=COVER_STORIES[occasion]||COVER_STORIES['Birthday'];
+  return pick3(list,Math.floor(Math.random()*99999));
+}
+function buildDecoyText(st,story){
+  const when=st.date?new Date(st.date+'T'+(st.time||'18:00')).toLocaleDateString(undefined,{weekday:'long',month:'long',day:'numeric'}):'the big day';
+  return 'Hey '+st.target+' \u2014 quick heads up for '+when+': '+story.decoy+'\n\n'
+    +'No need to dress up (okay, maybe a little). I\u2019ll pick you up. Love you! \u2764\ufe0f';
+}
+function buildDossier(st){
+  const rows=[];
+  rows.push(['Occasion',st.occasion]);
+  rows.push(['Target',st.target]);
+  rows.push(['Operation',st.op]);
+  rows.push(['Target codename',st.targetCode]);
+  if(st.date) rows.push(['Reveal',new Date(st.date+'T'+(st.time||'18:00')).toLocaleString(undefined,{weekday:'short',month:'short',day:'numeric',hour:'numeric',minute:'2-digit'})]);
+  rows.push(['Cover story',st.story?st.story.name:'—']);
+  rows.push(['Guests in',st.rsvp.yes+st.rsvp.maybe]);
+  return rows;
+}
+function buildShareText(st){
+  const d=new Date(st.date+'T'+(st.time||'18:00'));
+  return 'Shh... I\u2019m throwing a surprise '+st.occasion.toLowerCase()+' for '+st.target+'! \ud83e\udd78\n'
+    +st.op+' \u2014 target codename: '+st.targetCode+'\n'
+    +'Reveal: '+d.toLocaleString(undefined,{weekday:'short',month:'short',day:'numeric',hour:'numeric',minute:'2-digit'})+'\n'
+    +'Cover story: '+(st.story?st.story.name:'TBD')+'\n'
+    +'Stealth readiness: '+st.checkDone+'/10 \u2014 '+(st.checkDone>=8?'locked down \ud83d\udd10':'still work to do \ud83d\ude35')+'\n'
+    +'Plan your own op (free): https://myeverlastingmemories.com/surprise-planner.html';
+}
+function leadPayload(st,form){
+  const d=st.date?new Date(st.date+'T'+(st.time||'18:00')):null;
+  return {
+    source:'surprise-planner',
+    type:'lead',
+    name:form.name, email:form.email, phone:form.phone,
+    eventType:st.occasion, eventDate:st.date, budget:form.budget,
+    message:'Surprise party op: '+st.op
+      +' | target: '+st.target
+      +' | reveal: '+(d?d.toLocaleString():'TBD')
+      +' | cover story: '+(st.story?st.story.name:'none')
+      +' | stealth: '+st.checkDone+'/10'
+      +' | quiet RSVP: '+st.rsvp.yes+' yes / '+st.rsvp.maybe+' maybe'
+      +(form.msg?' | notes: '+form.msg:'')
+  };
+}
+function fmtCountdown(ms){
+  if(ms<=0) return {d:0,h:0,m:0,s:0,zero:true};
+  const s=Math.floor(ms/1000);
+  return {d:Math.floor(s/86400),h:Math.floor(s%86400/3600),m:Math.floor(s%3600/60),s:s%60,zero:false};
+}
+function leakLevel(done){
+  if(done>=8) return {k:'low',t:'\ud83d\udd10 LEAK RISK: LOW — they\u2019ll never see it coming'};
+  if(done>=5) return {k:'mid',t:'\u2699\ufe0f LEAK RISK: MEDIUM — tighten the loose ends'};
+  return {k:'high',t:'\ud83d\udea8 LEAK RISK: HIGH — the target is 100% going to find out'};
+}
+
+module.exports={OCCASIONS,CODE_A,CODE_B,TARGET_CODE,COVER_STORIES,CHECKLIST,esc,pick,pick3,genCodename,genStories,buildDecoyText,buildDossier,buildShareText,leadPayload,fmtCountdown,leakLevel};
+
+/* ================= DOM ================= */
+const $=id=>document.getElementById(id);
+const today=new Date();
+const defaultDate=new Date(today.getTime()+7*86400000).toISOString().slice(0,10);
+
+let state={
+  target:'Mom', occasion:'Birthday',
+  date:defaultDate, time:'18:00',
+  op:'Operation Golden Balloon', targetCode:'The Guest of Honor',
+  story:null, stories:[],
+  check:{}, rsvp:{yes:0,maybe:0,no:0},
+  revealAt:null
+};
+let stampTaps=0;
+
+/* ===== init ===== */
+function init(){
+  $('fTarget').value=state.target;
+  $('fDate').value=state.date;
+  $('fTime').value=state.time;
+  renderOccasions();
+  renderEventSelect();
+  renderStories(true);
+  renderCodename();
+  renderChecklist();
+  renderDossier();
+  renderRsvp();
+  startClock();
+}
+function renderOccasions(){
+  $('occasionChips').innerHTML=OCCASIONS.map(o=>'<button type="button" class="chip'+(state.occasion===o?' on':'')+'" data-occ="'+o+'">'+o+'</button>').join('');
+}
+function renderEventSelect(){
+  $('fEvent').innerHTML='<option value="">Select occasion</option>'+OCCASIONS.map(o=>'<option'+(state.occasion===o?' selected':'')+'>'+o+'</option>').join('');
+}
+function renderCodename(){
+  $('opName').textContent=state.op;
+  $('targetCode').textContent=state.targetCode;
+}
+function renderStories(force){
+  if(force||!state.stories.length||state.stories.length<3){
+    state.stories=genStories(state.occasion);
+  }
+  $('storyCards').innerHTML=state.stories.map((s,i)=>'<div class="story-card'+(state.story===s?' on':'')+'" data-story="'+i+'">'
+    +'<div class="sc-name">'+esc(s.name)+'</div>'
+    +'<div class="sc-desc">'+esc(s.desc)+'</div>'
+    +'<div class="sc-tip">\ud83d\udca1 '+esc(s.tip)+'</div></div>').join('');
+  updateDecoy();
+}
+function updateDecoy(){
+  const box=$('decoyBox');
+  if(state.story){
+    box.classList.add('show');
+    $('decoyText').textContent=buildDecoyText(state,state.story);
+  }else{
+    box.classList.remove('show');
+  }
+}
+function renderChecklist(){
+  $('checkList').innerHTML=CHECKLIST.map(c=>'<div class="check-item'+(state.check[c.id]?' on':'')+'" data-check="'+c.id+'">'
+    +'<div class="ci-box">'+(state.check[c.id]?'\u2713':'')+'</div>'
+    +'<div class="ci-text">'+esc(c.text)+'</div></div>').join('');
+  const done=CHECKLIST.filter(c=>state.check[c.id]).length;
+  $('pPct').textContent=Math.round(done/CHECKLIST.length*100)+'%';
+  $('pFill').style.width=Math.round(done/CHECKLIST.length*100)+'%';
+  const lk=leakLevel(done);
+  const m=$('leakMeter');
+  m.className='leak-meter '+lk.k;
+  m.textContent=lk.t;
+  state.checkDone=done;
+}
+function renderDossier(){
+  const rows=buildDossier(state);
+  $('dossierBody').innerHTML=rows.map(r=>'<div class="d-row"><span class="dk">'+esc(r[0])+'</span><span class="dv'+(r[0]==='Operation'?' gold':'')+'">'+esc(r[1])+'</span></div>').join('');
+}
+function renderRsvp(){
+  $('rsvYes').textContent=state.rsvp.yes;
+  $('rsvMaybe').textContent=state.rsvp.maybe;
+  $('rsvNo').textContent=state.rsvp.no;
+}
+function startClock(){
+  setInterval(tick,1000);
+  tick();
+}
+function tick(){
+  const d=state.date?new Date(state.date+'T'+(state.time||'18:00')):null;
+  if(!d||isNaN(d.getTime())) return;
+  const ms=d.getTime()-Date.now();
+  const f=fmtCountdown(ms);
+  $('cdD').textContent=f.d;
+  $('cdH').textContent=String(f.h).padStart(2,'0');
+  $('cdM').textContent=String(f.m).padStart(2,'0');
+  $('cdS').textContent=String(f.s).padStart(2,'0');
+  $('cdZero').classList.toggle('show',f.zero);
+}
+
+/* ===== toast / confetti ===== */
+let toastTimer=null;
+function toast(msg){
+  const t=$('toast');
+  t.textContent=msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>t.classList.remove('show'),4200);
+}
+function burst(n){
+  const colors=['#C9A227','#1e3a8a','#b91c1c','#16a34a','#f59e0b','#e11d48'];
+  for(let i=0;i<(n||40);i++){
+    const el=document.createElement('div');
+    el.className='confetti';
+    el.style.left=Math.random()*100+'vw';
+    el.style.background=colors[i%colors.length];
+    el.style.animationDuration=(1.6+Math.random()*1.6)+'s';
+    el.style.transform='rotate('+Math.random()*360+'deg)';
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(),3400);
+  }
+}
+
+/* ===== events ===== */
+document.addEventListener('click',e=>{
+  const occ=e.target.closest('[data-occ]');
+  if(occ){state.occasion=occ.dataset.occ;renderOccasions();renderEventSelect();renderStories(true);renderDossier();return;}
+  const st=e.target.closest('[data-story]');
+  if(st){state.story=state.stories[+st.dataset.story];renderStories();renderDossier();return;}
+  const ch=e.target.closest('[data-check]');
+  if(ch){state.check[ch.dataset.check]=!state.check[ch.dataset.check];renderChecklist();return;}
+  const rsvpBtn=e.target.closest('[data-rsvp]');
+  if(rsvpBtn){
+    const k=rsvpBtn.dataset.rsvp,d=+rsvpBtn.dataset.d;
+    state.rsvp[k]=Math.max(0,state.rsvp[k]+d);
+    renderRsvp();renderDossier();return;
+  }
+});
+$('fTarget').addEventListener('input',e=>{state.target=e.target.value.trim()||'Mom';renderDossier();});
+$('fDate').addEventListener('change',e=>{state.date=e.target.value;renderDossier();});
+$('fTime').addEventListener('change',e=>{state.time=e.target.value;renderDossier();});
+$('newMissionBtn').addEventListener('click',()=>{
+  state.target=$('fTarget').value.trim()||'Mom';
+  state.date=$('fDate').value||defaultDate;
+  state.time=$('fTime').value||'18:00';
+  const c=genCodename(state.occasion);
+  state.op=c.op;state.targetCode=c.target;
+  state.story=null;
+  state.check={};state.rsvp={yes:0,maybe:0,no:0};
+  renderCodename();renderStories(true);renderChecklist();renderDossier();renderRsvp();
+  toast('New mission generated. The target suspects nothing. \ud83d\udd10');
+  burst(30);
+});
+$('regenCodeBtn').addEventListener('click',()=>{
+  const c=genCodename(state.occasion);
+  state.op=c.op;state.targetCode=c.target;
+  renderCodename();renderDossier();
+  toast('Codenames re-rolled. \ud83c\udf89');
+});
+$('regenStoryBtn').addEventListener('click',()=>{
+  state.stories=genStories(state.occasion);
+  state.story=null;
+  renderStories();renderDossier();
+  toast('Three fresh cover stories. Pick your favorite. \ud83e\udd78');
+});
+$('decoyShareBtn').addEventListener('click',()=>{
+  const txt=buildDecoyText(state,state.story);
+  const url='https://wa.me/?text='+encodeURIComponent(txt);
+  window.open(url,'_blank');
+});
+$('revealBtn').addEventListener('click',()=>{
+  burst(120);
+  toast('SURPRISE!!! \ud83c\udf89\ud83c\udf88 They\u2019ll never forget this one.');
+  try{
+    const Ctx=window.AudioContext||window.webkitAudioContext;
+    if(Ctx){
+      const ctx=new Ctx();
+      const notes=[523.25,659.25,783.99,1046.5];
+      notes.forEach((f,i)=>{
+        const o=ctx.createOscillator(),g=ctx.createGain();
+        o.type='square';o.frequency.value=f;
+        o.connect(g);g.connect(ctx.destination);
+        const t=ctx.currentTime+i*0.14;
+        g.gain.setValueAtTime(0.0001,t);
+        g.gain.exponentialRampToValueAtTime(0.25,t+0.02);
+        g.gain.exponentialRampToValueAtTime(0.0001,t+0.12);
+        o.start(t);o.stop(t+0.15);
+      });
+    }
+  }catch(err){/* audio optional */}
+});
+$('shareBtn').addEventListener('click',()=>{
+  const txt=buildShareText(state);
+  const url='https://wa.me/?text='+encodeURIComponent(txt);
+  window.open(url,'_blank');
+});
+$('printBtn').addEventListener('click',()=>{
+  const rows=buildDossier(state);
+  $('pcMeta').textContent='Mission: '+state.op+' \u00b7 Target: '+state.target+' \u00b7 Built '+new Date().toLocaleDateString();
+  let html='<tr><th>Field</th><th>Detail</th></tr>';
+  rows.forEach(r=>{html+='<tr><td>'+esc(r[0])+'</td><td>'+esc(r[1])+'</td></tr>';});
+  html+='<tr><th>Stealth readiness</th><th>'+state.checkDone+'/10</th></tr>';
+  html+='<tr><th>Guests in</th><th>'+(state.rsvp.yes+state.rsvp.maybe)+'</th></tr>';
+  $('pcTable').innerHTML=html;
+  window.print();
+});
+$('stamp').addEventListener('click',()=>{
+  stampTaps++;
+  if(stampTaps===5){
+    stampTaps=0;
+    toast('You found Isabella\u2019s secret #13: for surprise parties, decor arrives in the TRUNK, never the front seat \u2014 the target always checks the front seat first. \ud83d\ude98\ud83c\udf88');
+    burst(50);
+  }
+});
+
+/* lead form */
+$('leadForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const msg=$('formMsg');
+  msg.className='msg';
+  const payload=leadPayload(state,{
+    name:$('fName').value.trim(),email:$('fEmail').value.trim(),phone:$('fPhone').value.trim(),
+    budget:$('fBudget').value,msg:$('fMsg').value.trim()
+  });
+  if(!payload.name||!payload.email||!payload.phone){msg.className='msg err';msg.textContent='Please fill in name, email and phone so Isabella can reply.';return;}
+  try{
+    const r=await fetch('/api/leads.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    if(!r.ok) throw new Error('bad status');
+    msg.className='msg ok';
+    msg.textContent='\u2728 Sent! Isabella will reply within 24 hours \u2014 quietly. Your cover is intact.';
+    burst(60);
+    e.target.reset();
+    renderEventSelect();
+  }catch(err){
+    msg.className='msg err';
+    msg.textContent='Something hiccuped sending this \u2014 please try again, or email hello@myeverlastingmemories.com directly.';
+  }
+});
+
+/* nav dropdown */
+document.querySelectorAll('.em-nav-drop-btn').forEach(btn=>{
+  btn.addEventListener('click',e=>{
+    e.stopPropagation();
+    const menu=btn.nextElementSibling;
+    const open=menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open?'true':'false');
+  });
+});
+document.addEventListener('click',()=>{
+  document.querySelectorAll('.em-nav-drop-menu.open').forEach(m=>{
+    m.classList.remove('open');
+    const b=m.previousElementSibling;
+    if(b) b.setAttribute('aria-expanded','false');
+  });
+});
+
+init();
+</script>
+</body>
+</html>
