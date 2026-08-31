@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The After-Glow — Thank-You Note &amp; Review Studio | Everlasting Memories</title>
+<meta name="description" content="The party's over — now make it last. Generate a beautiful thank-you note in seconds, plus a ready-to-post 5-star review and a referral nudge. Isabella's real post-party playbook, free.">
+<meta name="keywords" content="thank you note generator, party thank you notes, balloon decor Connecticut, Everlasting Memories, post party follow up, review request">
+<meta property="og:title" content="The After-Glow — Thank-You Note &amp; Review Studio">
+<meta property="og:description" content="Write the thank-you note in seconds, turn it into a 5-star review, and send the referral that books the next party. Isabella's real post-party playbook.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://myeverlastingmemories.com/after-glow.html">
+<meta property="og:image" content="https://myeverlastingmemories.com/gallery.html">
+<meta property="og:site_name" content="Everlasting Memories">
+<meta name="theme-color" content="#be185d">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="analytics.js" defer></script>
+<style>
+:root{
+  --c1:#be185d;      /* dusk pink */
+  --c2:#C9A227;      /* gold */
+  --c3:#9d174d;      /* deep rose */
+  --bg:#fdf6f1;      /* warm ivory */
+  --card:#ffffff;
+  --line:#ead9d0;
+  --ink:#1f1a1c;
+  --soft:#6b5d63;
+  --good:#16a34a;
+  --red:#b91c1c;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+.em-nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 22px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;flex-wrap:wrap}
+.em-nav-brand{font-weight:700;color:var(--c1);text-decoration:none;font-size:1rem;font-family:'Playfair Display',serif}
+.em-nav-links{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.em-nav-links a{color:var(--ink);text-decoration:none;font-size:.85rem;font-weight:500}
+.em-nav-links a:hover{color:var(--c2)}
+.em-nav-hot{color:var(--c2)!important;font-weight:700}
+.em-nav-drop{position:relative}
+.em-nav-drop-btn{background:none;border:none;font-family:'Inter',sans-serif;font-size:.85rem;font-weight:500;color:var(--ink);cursor:pointer;padding:4px 2px}
+.em-nav-drop-menu{display:none;position:absolute;right:0;top:calc(100%+8px);background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 34px rgba(30,41,59,.16);min-width:240px;padding:8px;z-index:60}
+.em-nav-drop-menu.open{display:block}
+.em-nav-drop-menu a{display:block;padding:8px 12px;border-radius:9px;font-size:.85rem;color:var(--ink);text-decoration:none}
+.em-nav-drop-menu a:hover{background:var(--bg)}
+.em-nav-cta{background:var(--c1);color:#fff!important;padding:9px 18px;border-radius:999px;font-weight:600;text-decoration:none;font-size:.85rem}
+.em-nav-cta:hover{background:#8f1148}
+header{max-width:960px;margin:0 auto;padding:44px 22px 10px;text-align:center}
+.home-link{display:inline-block;color:var(--c1);text-decoration:none;font-size:.85rem;font-weight:600;margin-bottom:14px}
+.badge{display:inline-block;background:linear-gradient(135deg,var(--c1),var(--c3));color:#fff;padding:5px 16px;border-radius:999px;font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
+header h1{font-family:'Playfair Display',serif;font-size:2.3rem;color:var(--c1);margin-bottom:10px}
+header p{color:var(--soft);max-width:680px;margin:0 auto;font-size:.98rem}
+.container{max-width:960px;margin:0 auto;padding:0 22px 30px}
+.grid{display:grid;grid-template-columns:1fr 1.15fr;gap:22px;margin-top:22px}
+@media(max-width:860px){.grid{grid-template-columns:1fr}}
+/* ===== cards ===== */
+.card{background:var(--card);border-radius:18px;padding:22px;box-shadow:0 4px 24px rgba(30,41,59,.08);border:1px solid var(--line)}
+.card h2{font-size:1.05rem;color:var(--c1);margin-bottom:4px;font-family:'Playfair Display',serif}
+.card .sub{font-size:.8rem;color:var(--soft);margin-bottom:14px}
+.fg{margin-bottom:12px}
+.fg label{display:block;font-size:.74rem;font-weight:700;color:var(--soft);margin-bottom:5px;letter-spacing:.03em}
+.fg input,.fg select,.fg textarea{width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;font-size:.88rem;font-family:'Inter',sans-serif;background:#fff;color:var(--ink)}
+.fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:var(--c1);box-shadow:0 0 0 3px rgba(190,24,93,.12)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:7px 14px;font-size:.8rem;font-weight:600;color:var(--ink);cursor:pointer;transition:.18s;font-family:'Inter',sans-serif}
+.chip:hover{border-color:var(--c2)}
+.chip.on{background:var(--c1);border-color:var(--c1);color:#fff}
+.tip{font-size:.74rem;color:var(--soft);font-style:italic;margin-top:8px}
+.cta-btn{width:100%;padding:13px;border:none;border-radius:12px;font-size:.92rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:.18s}
+.cta-btn.primary{background:linear-gradient(135deg,var(--c1),var(--c3));color:#fff}
+.cta-btn.primary:hover{filter:brightness(1.08)}
+.cta-btn.ghost{background:#fff;border:1.5px solid var(--line);color:var(--c1)}
+.cta-btn.ghost:hover{border-color:var(--c1)}
+/* ===== preview ===== */
+.note-card{background:linear-gradient(160deg,#fffdfb,#fdf1ec);border:1px solid var(--line);border-radius:18px;padding:26px 24px;box-shadow:0 6px 30px rgba(190,24,93,.10)}
+.note-card .nc-occasion{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--c2);font-weight:800;margin-bottom:8px}
+.note-card h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--c1);margin-bottom:10px}
+.note-card .nc-body{font-size:.88rem;color:var(--ink);white-space:pre-wrap;line-height:1.75;font-family:'Playfair Display',serif}
+.note-card .nc-sign{margin-top:14px;font-family:'Playfair Display',serif;font-style:italic;font-size:.9rem;color:var(--c1)}
+.note-card .nc-foot{margin-top:14px;padding-top:10px;border-top:1px dashed var(--line);font-size:.68rem;color:var(--soft)}
+.note-actions{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.note-actions .cta-btn{flex:1;min-width:120px;padding:10px;font-size:.8rem}
+/* ===== review / referral ===== */
+.side-box{border:1.5px solid var(--line);border-radius:14px;padding:14px;margin-top:12px;background:#fff}
+.side-box .sb-label{font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);font-weight:700;margin-bottom:6px}
+.side-box .sb-text{font-size:.84rem;white-space:pre-wrap;line-height:1.6;color:var(--ink)}
+.side-box .sb-act{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.side-box .sb-act .cta-btn{flex:1;min-width:110px;padding:9px;font-size:.76rem}
+.stars{color:var(--c2);letter-spacing:2px;font-size:1rem}
+/* ===== lead ===== */
+.lead-card{margin-top:26px}
+.lead-card h2{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--c1);margin-bottom:4px}
+.lead-card .sub{margin-bottom:14px}
+.msg{display:none;padding:11px 14px;border-radius:10px;font-size:.84rem;font-weight:600;margin-top:10px}
+.msg.ok{display:block;background:#f0fdf4;color:#14532d;border:1px solid #86efac}
+.msg.err{display:block;background:#fdeeee;color:#7f1d1d;border:1px solid #fca5a5}
+/* ===== faq ===== */
+.faq{margin-top:26px}
+.faq h2{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--c1);margin-bottom:14px}
+.faq-item{border:1px solid var(--line);border-radius:14px;background:#fff;margin-bottom:10px;overflow:hidden}
+.faq-q{width:100%;text-align:left;background:none;border:none;padding:14px 16px;font-size:.9rem;font-weight:700;color:var(--c1);cursor:pointer;font-family:'Inter',sans-serif;display:flex;justify-content:space-between;gap:10px}
+.faq-q:hover{color:var(--c2)}
+.faq-a{display:none;padding:0 16px 14px;font-size:.86rem;color:var(--soft)}
+.faq-item.open .faq-a{display:block}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-top:14px}
+.fact{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px;font-size:.8rem;color:var(--soft)}
+.fact b{display:block;color:var(--c1);font-size:.86rem;margin-bottom:4px}
+/* ===== footer ===== */
+footer{margin-top:40px;padding:26px 22px 34px;background:var(--c1);color:#fdeef4;text-align:center;font-size:.8rem}
+footer a{color:#fdeef4;text-decoration:none}
+footer a:hover{color:var(--c2)}
+footer .strip{margin-top:8px;font-size:.76rem;line-height:1.9}
+footer .strip a{color:#fbcfe8}
+footer .strip a:hover{color:var(--c2)}
+/* ===== print card ===== */
+.print-card{display:none}
+@media print{
+  body *{visibility:hidden}
+  .print-card,.print-card *{visibility:visible}
+  .print-card{display:block;position:absolute;left:0;top:0;width:100%;padding:14px;color:#000;font-size:11px}
+  .print-card h1{font-size:17px;font-family:'Playfair Display',serif;margin-bottom:2px}
+  .print-card .pc-meta{font-size:10px;color:#444;margin-bottom:8px}
+  .print-card .pc-note{font-family:'Playfair Display',serif;font-size:13px;line-height:1.7;margin:10px 0;white-space:pre-wrap}
+  .print-card .pc-foot{margin-top:8px;font-size:9px;color:#666}
+}
+/* ===== toast / confetti ===== */
+.toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);background:var(--c1);color:#fff;padding:12px 22px;border-radius:999px;font-size:.86rem;font-weight:600;opacity:0;pointer-events:none;transition:.3s;z-index:99;box-shadow:0 10px 30px rgba(30,41,59,.35);max-width:92vw;text-align:center}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.confetti{position:fixed;top:-12px;width:10px;height:14px;z-index:99;pointer-events:none;animation:confFall linear forwards}
+@keyframes confFall{to{transform:translateY(105vh) rotate(720deg);opacity:.85}}
+@media (prefers-reduced-motion: reduce){.confetti{animation:none!important}}
+</style>
+</head>
+<body>
+
+<nav class="em-nav">
+  <a class="em-nav-brand" href="index.html">&#127881; Everlasting Memories</a>
+  <div class="em-nav-links">
+    <a href="index.html">Home</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <div class="em-nav-drop">
+      <button class="em-nav-drop-btn" type="button" aria-haspopup="true" aria-expanded="false">Tools &#9662;</button>
+      <div class="em-nav-drop-menu">
+          <a href="after-glow.html" style="background:#be185d;color:#fff;">The After-Glow</a>
+          <a href="cost-estimator.html">Estimate Cost</a>
+          <a href="theme-generator.html">Theme Generator</a>
+          <a href="lookbook.html">Lookbook</a>
+          <a href="countdown.html">Countdown</a>
+          <a href="party-style-quiz.html">Party Style Quiz</a>
+          <a href="balloon-math.html">Balloon Math</a>
+          <a href="reserve-date.html">Reserve Your Date</a>
+          <a href="diy-vs-pro.html">DIY vs Pro</a>
+          <a href="palette-snap.html">Palette Snap</a>
+          <a href="name-garland.html">Balloon Letters</a>
+          <a href="budget-builder.html">Budget Builder</a>
+          <a href="transformations.html">The Big Reveal</a>
+          <a href="wedding-workshop.html">Wedding Workshop</a>
+          <a href="balloon-pop.html">Pop Party</a>
+          <a href="invitation-studio.html">Invitation Studio</a>
+          <a href="party-roadmap.html">Party Roadmap</a>
+          <a href="memory-wall.html">Memory Wall</a>
+          <a href="photo-booth.html">Golden Hour Booth</a>
+          <a href="garland-vision.html">Garland Vision</a>
+          <a href="photo-hunt.html">Party Photo Hunt</a>
+          <a href="guest-list.html">The Guest List</a>
+          <a href="memory-capsule.html">Memory Capsule</a>
+          <a href="playlist.html">Party Playlist</a>
+          <a href="party-timeline.html">Party Day Timeline</a>
+          <a href="surprise-planner.html">Operation: Surprise</a>
+          <a href="referral.html">Refer &amp; Earn</a>
+        </div>
+    </div>
+  </div>
+  <a class="em-nav-cta" href="cost-estimator.html">Get a Quote</a>
+</nav>
+
+<header>
+  <a href="index.html" class="home-link">&#8592; Back to Home</a>
+  <div class="badge">&#10024; New Tonight — The After-Glow</div>
+  <h1>&#10024; The After-Glow — Thank-You Note &amp; Review Studio</h1>
+  <p>The party's over. The memory isn't. This is the site's first post-party tool: tell it about the celebration and it writes a heartfelt thank-you note in seconds, turns it into a ready-to-post 5-star review for Isabella, and sends the referral that books the next party. Built on her real rule: every client gets a handwritten thank-you within 48 hours of their event. &#127881;</p>
+</header>
+
+<div class="container">
+
+  <div class="grid">
+    <!-- LEFT: controls -->
+    <div>
+      <div class="card">
+        <h2>The Party That Was</h2>
+        <div class="sub">A few details, and the note writes itself.</div>
+        <div class="fg">
+          <label for="occ">What was the occasion?</label>
+          <div class="chips" id="occChips"></div>
+        </div>
+        <div class="fg"><label for="party">Party name <span style="font-weight:400">(e.g. Maya's Sweet 16)</span></label><input id="party" type="text" placeholder="Maya's Sweet 16" maxlength="60"></div>
+        <div class="fg"><label for="host">Your name <span style="font-weight:400">(the signature)</span></label><input id="host" type="text" placeholder="The Johnson Family" maxlength="60"></div>
+        <div class="fg"><label for="date">Date of the party</label><input id="date" type="date"></div>
+        <div class="fg"><label for="guests">How many guests came?</label><input id="guests" type="number" min="0" max="2000" placeholder="30" inputmode="numeric"></div>
+        <div class="fg">
+          <label for="highlight">The moment to remember</label>
+          <textarea id="highlight" rows="2" placeholder="e.g. when everyone sang at the candle moment" maxlength="160"></textarea>
+        </div>
+        <button class="cta-btn ghost" id="surpriseBtn" type="button">&#127922; Surprise Me — pick a highlight</button>
+        <p class="tip">&#128161; Tap the &#10024; sparkle 5 times — Isabella hid a secret there.</p>
+      </div>
+
+      <div class="card" style="margin-top:18px">
+        <h2>Choose Your Tone</h2>
+        <div class="sub">Three ways to say thank you — all of them you.</div>
+        <div class="chips" id="toneChips"></div>
+      </div>
+
+      <!-- review + referral -->
+      <div class="card" style="margin-top:18px">
+        <h2>The Follow-Up That Books the Next Party</h2>
+        <div class="sub">Gratitude is the best marketing there is.</div>
+        <div class="side-box">
+          <div class="sb-label">&#11088; The 5-Star Review (ready to post)</div>
+          <div class="sb-text stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+          <div class="sb-text" id="reviewText" style="margin-top:4px"></div>
+          <div class="sb-act">
+            <button class="cta-btn ghost" id="copyReviewBtn" type="button">&#128203; Copy Review</button>
+            <button class="cta-btn primary" id="shareReviewBtn" type="button">&#128172; Share on WhatsApp</button>
+          </div>
+        </div>
+        <div class="side-box">
+          <div class="sb-label">&#127881; The Referral Nudge</div>
+          <div class="sb-text" id="referralText"></div>
+          <div class="sb-act">
+            <a class="cta-btn primary" href="referral.html" style="text-align:center;text-decoration:none;">&#127873; Refer &amp; Earn $25 Off</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: preview + lead -->
+    <div>
+      <div class="card">
+        <h2>Your Thank-You Note</h2>
+        <div class="sub">Live preview — edit the highlight above and it rewrites itself.</div>
+        <div class="note-card">
+          <div class="nc-occasion" id="ncOccasion">Birthday</div>
+          <h3 id="ncSubject">Thank You for Making It Magical</h3>
+          <div class="nc-body" id="ncBody">Your note will appear here as you type.</div>
+          <div class="nc-sign" id="ncSign">— The Johnson Family</div>
+          <div class="nc-foot" id="ncFoot">Everlasting Memories · Balloon Art &amp; Event Decor, Connecticut</div>
+        </div>
+        <div class="note-actions">
+          <button class="cta-btn ghost" id="copyBtn" type="button">&#128203; Copy Note</button>
+          <button class="cta-btn ghost" id="waBtn" type="button">&#128172; WhatsApp</button>
+          <button class="cta-btn primary" id="printBtn" type="button">&#128424; Print Card</button>
+        </div>
+      </div>
+
+      <div class="card lead-card">
+        <h2>Book the Next Celebration</h2>
+        <div class="sub">Isabella sends a handwritten thank-you to every client within 48 hours. Tell her about your party — and what's next.</div>
+        <form id="leadForm">
+          <div class="fg"><label for="fName">Your name *</label><input id="fName" type="text" maxlength="60" autocomplete="name"></div>
+          <div class="fg"><label for="fEmail">Email *</label><input id="fEmail" type="email" maxlength="80" autocomplete="email"></div>
+          <div class="fg"><label for="fPhone">Phone *</label><input id="fPhone" type="tel" maxlength="20" autocomplete="tel"></div>
+          <div class="fg"><label for="fEvent">What's the next celebration?</label>
+            <select id="fEvent">
+              <option value="">— pick one —</option>
+              <option>Birthday</option><option>Wedding</option><option>Anniversary</option>
+              <option>Baby Shower</option><option>Graduation</option><option>Corporate</option>
+              <option>Just Because</option><option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="fg"><label for="fDate">Next event date (if you know it)</label><input id="fDate" type="date"></div>
+          <div class="fg"><label for="fBudget">Balloon budget</label>
+            <select id="fBudget">
+              <option value="">— pick a range —</option>
+              <option>$200–$400</option><option>$400–$700</option><option>$700–$1,000</option>
+              <option>$1,000–$1,500</option><option>$1,500+</option><option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="fg"><label for="fMsg">Anything else? (optional)</label><textarea id="fMsg" rows="2" placeholder="e.g. We're hoping for a spring date — the same colors as this year!"></textarea></div>
+          <button class="cta-btn primary" type="submit">&#127881; Send It — Plan the Next One</button>
+          <div class="msg" id="formMsg"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq">
+    <h2>The After-Glow, Explained</h2>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Why does a decor site have a thank-you note tool? <span>&#9662;</span></button>
+      <div class="faq-a">Because the party doesn't end when the balloons come down — the memory does. Isabella's rule, straight from her notebook: every client gets a handwritten thank-you within 48 hours of their event. It's why her clients remember her, recommend her, and book her again. This tool turns that same moment into a review and a referral — the two things that keep a small business glowing.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Is this really how Isabella follows up with clients? <span>&#9662;</span></button>
+      <div class="faq-a">Genuinely, yes. She writes a physical note by hand, mentions one specific moment from the party (guests always love being remembered), and drops in a gentle "know anyone planning something?" — because roughly one in three of her bookings arrives through a referral. The note is her cheapest marketing and her best.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">What if I'm terrible with words? <span>&#9662;</span></button>
+      <div class="faq-a">That's the whole point — you don't have to be. Pick the occasion, drop in one real moment (or hit "Surprise Me"), choose a tone that sounds like you, and it writes a note that reads like you. You can edit every word before you send it. It's a warm start, not a finished script.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">How does the review draft help me? <span>&#9662;</span></button>
+      <div class="faq-a">If Isabella made your party glow, a 5-star review is the best way to say thanks — it's what lets other families find her. The draft fills in your party details and highlight automatically, so posting it on Google or Facebook takes about ten seconds. Reviews are the #1 reason new clients book her, so you're literally paying the glow forward.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">How do I send the note? <span>&#9662;</span></button>
+      <div class="faq-a">However you like: copy it into a text or email, share it straight to WhatsApp, or hit Print Card for a clean one-page thank-you you can fold into a card. For the full Isabella effect, write it by hand — but the words are yours to use, free, forever.</div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">How do I turn this into the next booking? <span>&#9662;</span></button>
+      <div class="faq-a">Fill in the form below — it tells Isabella what you celebrated and what's coming next, and she replies within 24 hours with a written quote. Then lock the date on <a href="reserve-date.html" style="color:var(--c1);font-weight:600">Reserve Your Date</a>. And if you know someone planning a party, <a href="referral.html" style="color:var(--c1);font-weight:600">Refer &amp; Earn</a> — you both get $25 off.</div>
+    </div>
+  </div>
+
+  <!-- FACTS -->
+  <div class="facts">
+    <div class="fact"><b>48 hours</b>Isabella's handwritten thank-you window after every event.</div>
+    <div class="fact"><b>1 in 3 bookings</b>Arrives through a referral — the after-glow pays rent.</div>
+    <div class="fact"><b>3 tones</b>Warm, playful, elegant — pick the one that sounds like you.</div>
+    <div class="fact"><b>10 seconds</b>To post the 5-star review draft it writes for you.</div>
+    <div class="fact"><b>$25 off</b>Both sides, every referral, no fine print.</div>
+  </div>
+
+</div>
+
+<footer>
+  <div>&#127881; Everlasting Memories — Balloon Art &amp; Event Decor, Connecticut</div>
+  <div style="margin-top:4px"><a href="contact.html">Contact</a> &middot; <a href="services.html">Services</a> &middot; <a href="gallery.html">Gallery</a> &middot; <a href="about.html">About</a></div>
+  <p class="strip"><a href="after-glow.html" style="color:#f9a8d4;font-weight:600;">The After-Glow</a> · <a href="surprise-planner.html" style="color:#c7d2ee;font-weight:600;">Operation: Surprise</a> · <a href="dessert-table.html" style="color:#f0c9a0;font-weight:600;">Dessert Table Stylist</a> · <a href="golden-hour.html" style="color:#a78bfa;font-weight:600;">Golden Hour Finder</a> · <a href="party-timeline.html" style="color:#fbbf24;font-weight:600;">Party Day Timeline</a> · <a href="memory-capsule.html" style="color:#92400e;font-weight:600;">Memory Capsule</a> · <a href="playlist.html" style="color:#b91c1c;font-weight:600;">Party Playlist</a> · <a href="guest-list.html" style="color:#1e3a8a;font-weight:600;">The Guest List</a> · <a href="photo-hunt.html" style="color:#a21caf;font-weight:600;">Party Photo Hunt</a> · <a href="photo-booth.html" style="color:#0369a1;font-weight:600;">Golden Hour Booth</a> · <a href="memory-wall.html" style="color:#b45309;font-weight:600;">Memory Wall</a> · <a href="party-roadmap.html" style="color:#0f766e;font-weight:600;">Party Roadmap</a> · <a href="invitation-studio.html" style="color:#312e81;font-weight:600;">Invitation Studio</a> · <a href="balloon-pop.html" style="color:#ea580c;font-weight:600;">Pop Party</a> · <a href="wedding-workshop.html" style="color:#9d174d;font-weight:600;">Wedding Workshop</a> · <a href="transformations.html" style="color:#7c3aed;font-weight:600;">The Big Reveal</a> · <a href="budget-builder.html" style="color:#2f7a52">Budget Balloonist</a> · <a href="referral.html" style="color:#C9A87C">Refer &amp; Earn</a></p>
+</footer>
+
+<div class="print-card" id="printCard">
+  <h1>Thank You — {party}</h1>
+  <div class="pc-meta" id="pcMeta"></div>
+  <div class="pc-note" id="pcNote"></div>
+  <div class="pc-foot">Everlasting Memories — Balloon Art &amp; Event Decor, Connecticut · myeverlastingmemories.com · Isabella replies to every inquiry within 24 hours. The glow is free; the balloons are the fun part.</div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ================= pure data ================= */
+const OCCASIONS=['Birthday','Wedding','Anniversary','Graduation','Baby Shower','Corporate','Just Because'];
+const TONES=['Warm & Cozy','Sweet & Playful','Elegant & Polished'];
+
+const HIGHLIGHT_IDEAS={
+  'Birthday':['the candle moment when everyone sang','the toast that made the whole room laugh','the dance circle that wouldn\u2019t quit','the photo wall full of silly faces','the cake reveal in the dark'],
+  'Wedding':['the first dance under the arch','the speeches that made everyone cry happy tears','the sparkler exit at the very end','the dance floor at full tilt','that quiet moment between the vows'],
+  'Anniversary':['the toast to forever','the slideshow of all our years together','the slow dance with the old crowd','the moment the kids joined in','the candlelit walk down memory lane'],
+  'Graduation':['the cap toss','the proud-parent photo that says it all','the speech that brought the house down','the group photo with the whole crew','the surprise visit from their favorite teacher'],
+  'Baby Shower':['the tiny shoes display','the advice cards from every guest','the moment the grandparents held the onesie','the cake that matched the theme perfectly','the reveal that had everyone cheering'],
+  'Corporate':['the team toast','the awards that made everyone proud','the group photo with all the new hires','the speech that summed up the year','the karaoke finale nobody saw coming'],
+  'Just Because':['the spontaneous dance party','the midnight snack run','the group photo at golden hour','the story that had everyone in stitches','the quiet moment on the porch']
+};
+
+const NOTE_TEMPLATES={
+  'Birthday':{
+    'Warm & Cozy':{subject:'Thank You for Making It Magical',body:'Dear friends,\n\nThank you for making {party} so special. Your presence, your laughter, and the way you all came together meant the world to {host}. {highlight} \u2014 I\u2019m still smiling about it.\n\nWith love,\n{host}'},
+    'Sweet & Playful':{subject:'Best Party Ever. Seriously.',body:'Party people! \ud83c\udf89\n\n{party} was officially the best one yet \u2014 and that\u2019s because YOU showed up. {highlight} \u2014 my cheeks hurt from smiling. Thank you for making {host} feel like the star they are.\n\nLove you all!\n{host}'},
+    'Elegant & Polished':{subject:'A Note of Thanks',body:'Dear guests,\n\nIt was a joy to celebrate {party} with you. Your warmth and generosity made the evening truly memorable, and {highlight} was a moment we will treasure.\n\nWith sincere gratitude,\n{host}'}
+  },
+  'Wedding':{
+    'Warm & Cozy':{subject:'Our Hearts Are Still Full',body:'Dear friends and family,\n\nOur hearts are still full from {party}. Thank you for traveling, for dancing, for the tears and the laughter. {highlight} \u2014 we\u2019ll replay that moment forever.\n\nWith love,\n{host}'},
+    'Sweet & Playful':{subject:'We Did It! \ud83e\udd42',body:'We did it! \ud83e\udd42\n\n{party} was everything we dreamed and more \u2014 because of YOU. {highlight} had everyone on the floor. Thank you for being part of our story.\n\nLove,\n{host}'},
+    'Elegant & Polished':{subject:'With Deepest Gratitude',body:'Dear guests,\n\n{host} and I are deeply grateful for your presence at our wedding. Your kindness and joy made the celebration complete, and {highlight} will remain a cherished memory.\n\nWith heartfelt thanks,\n{host}'}
+  },
+  'Anniversary':{
+    'Warm & Cozy':{subject:'Thank You for Celebrating Us',body:'Dear friends,\n\nThank you for helping us celebrate {party}. Looking around the room at the people we love most \u2014 {highlight} \u2014 reminded us exactly why this journey is so sweet.\n\nWith love,\n{host}'},
+    'Sweet & Playful':{subject:'A Night to Remember \ud83d\udc95',body:'{party} was a night to remember! \ud83d\udc95\n\n{highlight} \u2014 and having all of you there made it perfect. Thank you for celebrating love with us.\n\nXOXO,\n{host}'},
+    'Elegant & Polished':{subject:'Celebrating This Milestone',body:'Dear guests,\n\nIt was an honor to celebrate this milestone with you. Your presence added grace to an already meaningful evening, and {highlight} was the evening\u2019s finest moment.\n\nWith appreciation,\n{host}'}
+  },
+  'Graduation':{
+    'Warm & Cozy':{subject:'Thank You for the Cheers',body:'Dear friends and family,\n\nThank you for celebrating {party} with us! Your pride and encouragement meant everything to {host}. {highlight} \u2014 a moment we\u2019ll carry forever.\n\nWith gratitude,\n{host}'},
+    'Sweet & Playful':{subject:'WE DID IT! \ud83c\udf93',body:'WE DID IT! \ud83c\udf93\n\n{party} was a blast \u2014 {highlight} had us all cheering. Thank you for showing up for {host}\u2019s big moment. Next stop: the world!\n\nLove,\n{host} & fam'},
+    'Elegant & Polished':{subject:'A Milestone, Shared',body:'Dear guests,\n\nWe are grateful for your presence at {party}. Your support has been a cornerstone of this achievement, and {highlight} was a proud moment we will long remember.\n\nWith sincere thanks,\n{host}'}
+  },
+  'Baby Shower':{
+    'Warm & Cozy':{subject:'Showered With Love',body:'Dear friends,\n\nThank you for showering us with love at {party}! Your advice, your gifts, your joy \u2014 {highlight} \u2014 made us feel so ready and so loved.\n\nWith love,\n{host}'},
+    'Sweet & Playful':{subject:'What a Shower! \ud83c\udf7c',body:'What a shower! \ud83c\udf7c\n\n{party} was absolutely perfect \u2014 {highlight} had me in tears (the happy kind!). Thank you for spoiling the little one already. We\u2019re so lucky.\n\nLove,\n{host}'},
+    'Elegant & Polished':{subject:'With Heartfelt Gratitude',body:'Dear guests,\n\nYour generosity and warmth at {party} touched us deeply. {highlight} was a moment we will cherish as we prepare for this new chapter.\n\nWith heartfelt gratitude,\n{host}'}
+  },
+  'Corporate':{
+    'Warm & Cozy':{subject:'Thank You, Team',body:'Dear team,\n\nThank you for making {party} such a success! Your energy, your ideas, your laughter \u2014 {highlight} \u2014 reminded us why this team is special.\n\nOnward and upward,\n{host}'},
+    'Sweet & Playful':{subject:'10/10, Would Celebrate Again',body:'Team, {party} was a 10/10! \ud83c\udf89\n\n{highlight} \u2014 proof that we work hard AND celebrate hard. Thanks for bringing the energy.\n\nYou\u2019re the best,\n{host}'},
+    'Elegant & Polished':{subject:'A Note of Appreciation',body:'Dear colleagues,\n\nWe are grateful for your participation in {party}. Your contributions made the occasion both productive and memorable, and {highlight} was a standout moment.\n\nWith appreciation,\n{host}'}
+  },
+  'Just Because':{
+    'Warm & Cozy':{subject:'No Reason Needed',body:'Dear friends,\n\nSometimes the best parties need no reason at all. {party} was exactly that \u2014 and {highlight} made it unforgettable. Thank you for your friendship.\n\nWith love,\n{host}'},
+    'Sweet & Playful':{subject:'Just Because \u2014 The Best Kind',body:'No occasion needed! \ud83c\udf88\n\n{party} was pure joy \u2014 {highlight} had me laughing all night. Thank you for being the kind of people who make \u201cjust because\u201d the best kind of party.\n\nLove,\n{host}'},
+    'Elegant & Polished':{subject:'An Evening to Remember',body:'Dear guests,\n\nThank you for an evening of effortless joy at {party}. {highlight} was a reminder of how much we value your company.\n\nWith warm regards,\n{host}'}
+  }
+};
+
+const REVIEW_TEMPLATES={
+  'Birthday':    'We booked Everlasting Memories for {party} and Isabella\u2019s team turned the space into pure magic. {highlight} \u2014 the balloons were stunning, the setup was seamless, and every photo came out glowing. If you\u2019re planning an event in Connecticut, book her. You won\u2019t regret it.',
+  'Wedding':     'Isabella\u2019s decor made our wedding {party} absolutely unforgettable. {highlight} \u2014 the arch was breathtaking and the whole room looked like a magazine spread. Professional, punctual, and worth every penny. Five stars isn\u2019t enough.',
+  'Anniversary': 'For {party}, Everlasting Memories created the warmest, most beautiful setting. {highlight} \u2014 the details were perfect and our guests are still talking about the decor. Thank you, Isabella!',
+  'Graduation':  'Everlasting Memories made {party} feel like a real milestone celebration. {highlight} \u2014 the setup was gorgeous, on time, and exactly what we imagined. Highly recommend for any grad!',
+  'Baby Shower': 'Isabella decorated our baby shower {party} and it was beyond adorable. {highlight} \u2014 everything matched perfectly and she handled every detail. Our guests couldn\u2019t stop taking photos!',
+  'Corporate':   'We\u2019ve used Everlasting Memories for {party} and the team delivered flawlessly. {highlight} \u2014 professional, creative, and the decor elevated the whole event. Our go-to for every occasion now.',
+  'Just Because':'Everlasting Memories turned our {party} into something truly special. {highlight} \u2014 Isabella\u2019s designs are art. If you\u2019re in Connecticut, this is the decorator to call.'
+};
+
+const REFERRAL_TEXT='Know someone planning a party? Share the glow \u2014 you both get $25 off your next Everlasting Memories booking. It\u2019s how one party becomes two.';
+
+/* ================= pure functions ================= */
+function esc(s){
+  return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+function pick(arr){return arr[Math.floor(Math.random()*arr.length)];}
+function fill(tpl,data){
+  return tpl.replace(/\{party\}/g,data.party||'the party')
+            .replace(/\{host\}/g,data.host||'The Family')
+            .replace(/\{highlight\}/g,data.highlight||'the way everyone came together');
+}
+function fmtDate(iso){
+  if(!iso) return '';
+  try{
+    const d=new Date(iso+'T12:00:00');
+    if(isNaN(d)) return '';
+    return d.toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'});
+  }catch(e){return '';}
+}
+function buildNote(state){
+  const tpl=NOTE_TEMPLATES[state.occasion]&&NOTE_TEMPLATES[state.occasion][state.tone]
+    || NOTE_TEMPLATES['Birthday']['Warm & Cozy'];
+  const data={party:state.party.trim(),host:state.host.trim(),highlight:state.highlight.trim()};
+  const body=fill(tpl.body,data);
+  const sign=state.host.trim()?('— '+state.host.trim()):'— The Family';
+  return {subject:tpl.subject,body:body,sign:sign};
+}
+function buildReview(state){
+  const tpl=REVIEW_TEMPLATES[state.occasion]||REVIEW_TEMPLATES['Just Because'];
+  const party=state.party.trim()||'our celebration';
+  return fill(tpl,{party:party,highlight:(state.highlight.trim()||'the decor was stunning')}).replace(/\{party\}/g,party);
+}
+function buildReferral(){return REFERRAL_TEXT;}
+function buildShareText(note,review,state){
+  return 'Thank-you note for '+state.party.trim()+':\n\n'+note.subject+'\n\n'+note.body+'\n\n\u2b50 Review draft:\n'+review+'\n\n\u2014 Made with the After-Glow at Everlasting Memories \u2014 myeverlastingmemories.com';
+}
+function leadPayload(state,form){
+  const note=buildNote(state);
+  const review=buildReview(state);
+  return {
+    source:'after-glow',
+    type:'lead',
+    name:form.name,email:form.email,phone:form.phone,
+    eventType:form.eventType||state.occasion,
+    eventDate:form.eventDate||state.date,
+    budget:form.budget||'',
+    occasion:state.occasion,
+    party:state.party.trim(),
+    guests:state.guests||'',
+    tone:state.tone,
+    highlight:state.highlight.trim(),
+    noteSubject:note.subject,
+    noteBody:note.body,
+    reviewDraft:review,
+    message:form.msg||''
+  };
+}
+function sampleState(){
+  const occasion=pick(OCCASIONS);
+  const tone=pick(TONES);
+  return {occasion:occasion,tone:tone,party:'',host:'',date:'',guests:'',highlight:pick(HIGHLIGHT_IDEAS[occasion]||[]),sample:true};
+}
+
+module.exports={OCCASIONS,TONES,HIGHLIGHT_IDEAS,NOTE_TEMPLATES,REVIEW_TEMPLATES,REFERRAL_TEXT,esc,pick,fill,fmtDate,buildNote,buildReview,buildReferral,buildShareText,leadPayload,sampleState};
+</script>
+<script>
+/* ================= dom glue ================= */
+const $=id=>document.getElementById(id);
+const toastEl=$('toast');
+let toastTimer=null;
+function toast(msg){
+  toastEl.textContent=msg;
+  toastEl.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>toastEl.classList.remove('show'),4200);
+}
+function burst(n){
+  if(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  for(let i=0;i<n;i++){
+    const el=document.createElement('div');
+    el.className='confetti';
+    el.style.left=Math.random()*100+'vw';
+    el.style.background=['#be185d','#C9A227','#f9a8d4','#9d174d','#fbbf24','#fff'][Math.floor(Math.random()*6)];
+    el.style.animationDuration=(0.9+Math.random()*1.4)+'s';
+    el.style.transform='rotate('+Math.random()*360+'deg)';
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(),3000);
+  }
+}
+const state={occasion:'Birthday',tone:'Warm & Cozy',party:'',host:'',date:'',guests:'',highlight:''};
+
+/* chips */
+function renderChips(){
+  const oc=$('occChips');oc.innerHTML='';
+  OCCASIONS.forEach(o=>{
+    const b=document.createElement('button');b.type='button';b.className='chip'+(o===state.occasion?' on':'');
+    b.textContent=o;
+    b.addEventListener('click',()=>{state.occasion=o;renderChips();renderAll();});
+    oc.appendChild(b);
+  });
+  const tc=$('toneChips');tc.innerHTML='';
+  TONES.forEach(t=>{
+    const b=document.createElement('button');b.type='button';b.className='chip'+(t===state.tone?' on':'');
+    b.textContent=t;
+    b.addEventListener('click',()=>{state.tone=t;renderChips();renderAll();});
+    tc.appendChild(b);
+  });
+}
+/* inputs */
+function bindInput(id,key){
+  $(id).addEventListener('input',e=>{state[key]=e.target.value;renderAll();});
+}
+/* render */
+function renderAll(){
+  const note=buildNote(state);
+  $('ncOccasion').textContent=state.occasion+(state.tone?' \u00b7 '+state.tone:'');
+  $('ncSubject').textContent=note.subject;
+  $('ncBody').textContent=note.body;
+  $('ncSign').textContent=note.sign;
+  const guests=state.guests?state.guests+' guests':'your guests';
+  const date=fmtDate(state.date);
+  $('ncFoot').textContent='Everlasting Memories \u00b7 '+guests+(date?' \u00b7 '+date:'')+' \u00b7 Connecticut';
+  const review=buildReview(state);
+  $('reviewText').textContent=review;
+  $('referralText').textContent=buildReferral();
+}
+function currentNote(){return buildNote(state);}
+function currentReview(){return buildReview(state);}
+
+/* actions */
+$('surpriseBtn').addEventListener('click',()=>{
+  const ideas=HIGHLIGHT_IDEAS[state.occasion]||[];
+  const h=pick(ideas);
+  state.highlight=h;
+  $('highlight').value=h;
+  renderAll();
+  toast('\u2728 Highlight locked in \u2014 now it\u2019s personal.');
+  burst(24);
+});
+$('copyBtn').addEventListener('click',async()=>{
+  const note=currentNote();
+  const text=note.subject+'\n\n'+note.body+'\n\n'+note.sign;
+  try{await navigator.clipboard.writeText(text);toast('\u2705 Note copied \u2014 go make someone\u2019s day.');}
+  catch(e){toast('Couldn\u2019t copy \u2014 select the text and copy manually.');}
+});
+$('waBtn').addEventListener('click',()=>{
+  const note=currentNote();
+  const text=note.subject+'\n\n'+note.body+'\n\n'+note.sign;
+  window.open('https://wa.me/?text='+encodeURIComponent(text),'_blank','noopener');
+});
+$('copyReviewBtn').addEventListener('click',async()=>{
+  try{await navigator.clipboard.writeText(currentReview());toast('\u2b50 Review copied \u2014 ten seconds to post. Thank you!');}
+  catch(e){toast('Couldn\u2019t copy \u2014 select and copy manually.');}
+});
+$('shareReviewBtn').addEventListener('click',()=>{
+  const text='\u2b50\u2b50\u2b50\u2b50\u2b50\n\n'+currentReview();
+  window.open('https://wa.me/?text='+encodeURIComponent(text),'_blank','noopener');
+});
+$('printBtn').addEventListener('click',()=>{
+  const note=currentNote();
+  const guests=state.guests?state.guests+' guests':'';
+  $('printCard').querySelector('h1').textContent='Thank You \u2014 '+(state.party.trim()||'Our Celebration');
+  $('pcMeta').textContent=[state.occasion,state.host.trim(),fmtDate(state.date),guests].filter(Boolean).join(' \u00b7 ');
+  $('pcNote').textContent=note.subject+'\n\n'+note.body+'\n\n'+note.sign;
+  window.print();
+});
+
+/* lead form */
+$('leadForm').addEventListener('submit',async e=>{
+  e.preventDefault();
+  const msg=$('formMsg');
+  msg.className='msg';
+  const payload=leadPayload(state,{
+    name:$('fName').value.trim(),email:$('fEmail').value.trim(),phone:$('fPhone').value.trim(),
+    eventType:$('fEvent').value,eventDate:$('fDate').value,budget:$('fBudget').value,msg:$('fMsg').value.trim()
+  });
+  if(!payload.name||!payload.email||!payload.phone){msg.className='msg err';msg.textContent='Please fill in name, email and phone so Isabella can reply.';return;}
+  try{
+    const r=await fetch('/api/leads.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    if(!r.ok) throw new Error('bad status');
+    msg.className='msg ok';
+    msg.textContent='\u2728 Sent! Isabella will reply within 24 hours \u2014 and the after-glow officially has a sequel.';
+    burst(60);
+    e.target.reset();
+  }catch(err){
+    msg.className='msg err';
+    msg.textContent='Something hiccuped sending this \u2014 please try again, or email Hey.everlasting.memories@gmail.com directly.';
+  }
+});
+
+/* secret #14 */
+let sparkTaps=0;
+document.addEventListener('click',e=>{
+  if(e.target.closest('.nc-occasion')||e.target.closest('.badge')){
+    sparkTaps++;
+    if(sparkTaps===5){
+      sparkTaps=0;
+      toast('You found Isabella\u2019s secret #14: she writes every thank-you note BY HAND, within 48 hours \u2014 and mentions one specific moment so it feels like magic. It\u2019s the cheapest marketing she has, and it\u2019s why 1 in 3 bookings is a referral. \u2728');
+      burst(50);
+    }
+  }
+});
+
+/* faq */
+document.querySelectorAll('.faq-q').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item=btn.parentElement;
+    const open=item.classList.toggle('open');
+    btn.querySelector('span').textContent=open?'\u25b2':'\u25be';
+  });
+});
+
+/* nav dropdown */
+document.querySelectorAll('.em-nav-drop-btn').forEach(btn=>{
+  btn.addEventListener('click',e=>{
+    e.stopPropagation();
+    const menu=btn.nextElementSibling;
+    const open=menu.classList.toggle('open');
+    btn.setAttribute('aria-expanded',open?'true':'false');
+  });
+});
+document.addEventListener('click',()=>{
+  document.querySelectorAll('.em-nav-drop-menu.open').forEach(m=>{
+    m.classList.remove('open');
+    const b=m.previousElementSibling;
+    if(b) b.setAttribute('aria-expanded','false');
+  });
+});
+
+/* init */
+renderChips();
+bindInput('party','party');
+bindInput('host','host');
+bindInput('date','date');
+bindInput('guests','guests');
+bindInput('highlight','highlight');
+renderAll();
+</script>
+</body>
+</html>
