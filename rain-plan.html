@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Rain Plan — Weather-Proof Your Party Day | Everlasting Memories</title>
+<meta name="description" content="The Rain Plan — the site’s first weather tool. Pick your party month and setup, and get a real rain-risk read for Connecticut plus Isabella’s Plan B playbook to weather-proof your balloons, arch, and dessert table.">
+<meta name="keywords" content="rain plan, weather-proof party, outdoor party rain backup, CT event weather, balloon decor rain, party Plan B, Everlasting Memories">
+<meta property="og:title" content="The Rain Plan — Weather-Proof Your Party Day">
+<meta property="og:description" content="The site’s first weather tool: a real rain-risk read for your CT party month plus Isabella’s Plan B playbook for balloons, arches, and dessert tables.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://myeverlastingmemories.com/rain-plan.html">
+<meta property="og:image" content="https://myeverlastingmemories.com/gallery.html">
+<meta property="og:site_name" content="Everlasting Memories">
+<meta name="theme-color" content="#0284c7">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="analytics.js" defer></script>
+<style>
+:root{
+  --c1:#0284c7;      /* storm sky blue */
+  --c2:#C9A227;      /* lightning gold */
+  --c3:#0c4a6e;      /* deep storm */
+  --bg:#fdf6f1;      /* warm ivory */
+  --card:#ffffff;
+  --line:#ead9d0;
+  --ink:#1f1a1c;
+  --soft:#6b5d63;
+  --good:#16a34a;
+  --red:#b91c1c;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+.em-nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 22px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;flex-wrap:wrap}
+.em-nav-brand{font-weight:700;color:var(--c1);text-decoration:none;font-size:1rem;font-family:'Playfair Display',serif}
+.em-nav-links{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.em-nav-links a{color:var(--ink);text-decoration:none;font-size:.85rem;font-weight:500}
+.em-nav-links a:hover{color:var(--c2)}
+.em-nav-hot{color:var(--c2)!important;font-weight:700}
+.em-nav-drop{position:relative}
+.em-nav-drop-btn{background:none;border:none;font-family:'Inter',sans-serif;font-size:.85rem;font-weight:500;color:var(--ink);cursor:pointer;padding:4px 2px}
+.em-nav-drop-menu{display:none;position:absolute;right:0;top:calc(100%+8px);background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 34px rgba(30,41,59,.16);min-width:240px;padding:8px;z-index:60}
+.em-nav-drop-menu.open{display:block}
+.em-nav-drop-menu a{display:block;padding:8px 12px;border-radius:9px;font-size:.85rem;color:var(--ink);text-decoration:none}
+.em-nav-drop-menu a:hover{background:var(--bg)}
+.em-nav-cta{background:var(--c1);color:#fff!important;padding:9px 18px;border-radius:999px;font-weight:600;text-decoration:none;font-size:.85rem}
+.em-nav-cta:hover{background:#075985}
+header{max-width:960px;margin:0 auto;padding:44px 22px 10px;text-align:center}
+.home-link{display:inline-block;color:var(--c1);text-decoration:none;font-size:.85rem;font-weight:600;margin-bottom:14px}
+.badge{display:inline-block;background:linear-gradient(135deg,var(--c1),var(--c3));color:#fff;padding:5px 16px;border-radius:999px;font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px}
+header h1{font-family:'Playfair Display',serif;font-size:2.3rem;color:var(--c1);margin-bottom:10px}
+header p{color:var(--soft);max-width:680px;margin:0 auto;font-size:.98rem}
+.container{max-width:960px;margin:0 auto;padding:0 22px 30px}
+.grid{display:grid;grid-template-columns:1fr 1.5fr;gap:22px;margin-top:22px}
+@media(max-width:860px){.grid{grid-template-columns:1fr}}
+/* ===== cards ===== */
+.card{background:var(--card);border-radius:18px;padding:22px;box-shadow:0 4px 24px rgba(30,41,59,.08);border:1px solid var(--line)}
+.card h2{font-size:1.05rem;color:var(--c1);margin-bottom:4px;font-family:'Playfair Display',serif}
+.card .sub{font-size:.8rem;color:var(--soft);margin-bottom:14px}
+.fg{margin-bottom:12px}
+.fg label{display:block;font-size:.74rem;font-weight:700;color:var(--soft);margin-bottom:5px;letter-spacing:.03em}
+.fg input,.fg select,.fg textarea{width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;font-size:.88rem;font-family:'Inter',sans-serif;background:#fff;color:var(--ink)}
+.fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:var(--c1);box-shadow:0 0 0 3px rgba(2,132,199,.12)}
+.cta-btn{width:100%;padding:13px;border:none;border-radius:12px;font-size:.92rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:.18s}
+.cta-btn.primary{background:linear-gradient(135deg,var(--c1),var(--c3));color:#fff}
+.cta-btn.primary:hover{filter:brightness(1.08)}
+.cta-btn.ghost{background:#fff;border:1.5px solid var(--line);color:var(--c1)}
+.cta-btn.ghost:hover{border-color:var(--c1)}
+.cta-btn.gold{background:linear-gradient(135deg,var(--c2),#a97f14);color:#fff}
+.cta-btn.gold:hover{filter:brightness(1.08)}
+.cta-btn.small{padding:9px 14px;font-size:.8rem;width:auto;border-radius:10px}
+.tip{font-size:.74rem;color:var(--soft);font-style:italic;margin-top:8px}
+/* ===== stats ===== */
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 4px}
+.stat{flex:1;min-width:110px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px;text-align:center}
+.stat b{display:block;font-size:1.3rem;color:var(--c1);font-family:'Playfair Display',serif}
+.stat span{font-size:.7rem;color:var(--soft);text-transform:uppercase;letter-spacing:.06em;font-weight:700}
+/* ===== guest pool ===== */
+.pool{display:flex;flex-wrap:wrap;gap:8px;min-height:60px;padding:10px;border:1.5px dashed var(--line);border-radius:14px;background:#fffdfb;margin-bottom:12px}
+.guest{background:#fff;border:1.5px solid var(--line);border-radius:999px;padding:7px 14px;font-size:.8rem;font-weight:600;color:var(--ink);cursor:grab;user-select:none;transition:.15s;display:inline-flex;align-items:center;gap:7px}
+.guest:hover{border-color:var(--c1);box-shadow:0 3px 12px rgba(2,132,199,.14)}
+.guest.dragging{opacity:.45;transform:scale(.97)}
+.guest .x{color:var(--red);font-weight:800;cursor:pointer;font-size:.85rem;padding:0 2px}
+.guest .x:hover{color:#7f1d1d}
+.guest .tag{font-size:.62rem;background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:1px 7px;color:var(--soft);font-weight:700}
+/* ===== tables ===== */
+.tables{display:flex;flex-direction:column;gap:16px;margin-top:4px}
+.table-card{background:#fffdfb;border:1.5px solid var(--line);border-radius:18px;padding:16px;position:relative}
+.table-card .tc-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px;flex-wrap:wrap}
+.table-card .tc-name{font-family:'Playfair Display',serif;font-weight:700;color:var(--c1);font-size:1rem;display:flex;align-items:center;gap:8px}
+.table-card .tc-name input{border:1px solid var(--line);border-radius:8px;padding:4px 8px;font-family:'Playfair Display',serif;font-size:.9rem;width:130px;color:var(--c1);font-weight:700}
+.table-card .tc-meta{font-size:.72rem;color:var(--soft)}
+.table-card .tc-actions{display:flex;gap:6px;align-items:center}
+.icon-btn{background:none;border:1.5px solid var(--line);border-radius:9px;width:30px;height:30px;cursor:pointer;font-size:.85rem;color:var(--soft);transition:.15s;font-family:'Inter',sans-serif}
+.icon-btn:hover{border-color:var(--c1);color:var(--c1)}
+.seats{display:flex;flex-wrap:wrap;gap:8px;min-height:44px;padding:8px;border:1.5px dashed var(--line);border-radius:14px;background:#fff;align-items:center}
+.seat-slot{width:118px;height:36px;border:1.5px dashed var(--line);border-radius:999px;display:flex;align-items:center;justify-content:center;font-size:.72rem;color:#d8c4cd;font-weight:600}
+.table-card.over{border-color:var(--c2);box-shadow:0 0 0 3px rgba(201,162,39,.18)}
+.table-card.full .seats{border-color:#cfe8d6;background:#f6fbf7}
+/* ===== print ===== */
+.print-area{display:none}
+@media print{
+  body *{visibility:hidden}
+  .print-area,.print-area *{visibility:visible}
+  .print-area{display:block;position:absolute;inset:0;padding:24px;background:#fff}
+  .print-area h2{font-family:'Playfair Display',serif;color:#be185d;font-size:1.4rem;margin-bottom:4px}
+  .print-area .pa-sub{font-size:.8rem;color:#666;margin-bottom:18px}
+  .pa-grid{display:flex;flex-wrap:wrap;gap:18px}
+  .pa-table{border:1.5px solid #e2c9d4;border-radius:14px;padding:12px 16px;min-width:170px}
+  .pa-table .pt-name{font-weight:800;color:#be185d;font-size:.9rem;border-bottom:1px solid #f0dce4;padding-bottom:6px;margin-bottom:8px}
+  .pa-table .pt-g{font-size:.78rem;color:#333;line-height:1.7}
+  .pa-foot{margin-top:20px;font-size:.7rem;color:#888;border-top:1px solid #eee;padding-top:8px}
+  .no-print{display:none!important}
+}
+/* ===== rain plan components (night 38) ===== */
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:4px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:6px 13px;font-size:.78rem;font-weight:600;color:var(--ink);cursor:pointer;transition:.15s;font-family:'Inter',sans-serif}
+.chip:hover{border-color:var(--c1)}
+.chip.on{background:linear-gradient(135deg,var(--c1),var(--c3));border-color:transparent;color:#fff;box-shadow:0 3px 10px rgba(2,132,199,.25)}
+.meter-wrap{margin:14px 0 6px}
+.meter{height:14px;background:#e7eef5;border-radius:999px;overflow:hidden;border:1px solid var(--line)}
+.meter-fill{height:100%;width:0%;border-radius:999px;transition:width .45s cubic-bezier(.16,1,.3,1),background .3s}
+.meter-labels{display:flex;justify-content:space-between;font-size:.62rem;font-weight:700;color:var(--soft);letter-spacing:.05em;text-transform:uppercase;margin-top:5px}
+.side-box{background:#f2f8fd;border:1px solid #dbeaf5;border-left:4px solid var(--c2);border-radius:12px;padding:12px 14px;margin-top:12px}
+.side-box .sb-label{font-size:.72rem;font-weight:800;color:var(--c3);letter-spacing:.04em;text-transform:uppercase;margin-bottom:6px}
+.side-box .sb-text{font-size:.84rem;color:var(--ink)}
+.level-badge{display:inline-block;background:var(--c3);color:#fff;padding:3px 12px;border-radius:999px;font-size:.72rem;font-weight:800;letter-spacing:.05em}
+.plan-list{margin:4px 0 0;padding-left:18px}
+.plan-list li{font-size:.82rem;color:var(--ink);margin-bottom:7px;line-height:1.5}
+.plan-list li::marker{color:var(--c2);font-weight:700}
+.note-actions{display:flex;gap:9px;margin-top:14px}
+.note-actions .cta-btn{width:auto;flex:1;padding:11px 8px;font-size:.82rem}
+@media(max-width:520px){.note-actions{flex-direction:column}}
+@media print{.print-area h2{color:#0284c7!important}.pa-row{font-size:.82rem;margin:0 0 8px;line-height:1.55}.pa-row b{color:#0c4a6e}.print-area ul{padding-left:18px;margin:4px 0 10px}.print-area li{font-size:.8rem;margin-bottom:5px}}
+/* ===== toast ===== */
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--ink);color:#fff;padding:12px 22px;border-radius:999px;font-size:.85rem;font-weight:600;opacity:0;transition:.3s;z-index:99;box-shadow:0 10px 30px rgba(0,0,0,.25);max-width:90vw;text-align:center}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+/* ===== footer ===== */
+footer{margin-top:40px;padding:26px 22px 34px;background:var(--c1);color:#fdeef4;text-align:center;font-size:.8rem}
+footer a{color:#fdeef4;text-decoration:none}
+footer a:hover{color:var(--c2)}
+footer .strip{margin-top:8px;font-size:.76rem;line-height:1.9}
+footer .strip a{color:#fbcfe8}
+footer .strip a:hover{color:var(--c2)}
+.empty-state{text-align:center;color:var(--soft);font-size:.8rem;padding:14px 6px;font-style:italic}
+</style>
+</head>
+<body>
+
+<nav class="em-nav">
+  <a class="em-nav-brand" href="index.html">&#127881; Everlasting Memories</a>
+  <div class="em-nav-links">
+    <a href="index.html">Home</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <div class="em-nav-drop">
+      <button class="em-nav-drop-btn" type="button" aria-haspopup="true" aria-expanded="false">Tools &#9662;</button>
+      <div class="em-nav-drop-menu">
+          
+          <a href="rain-plan.html" style="background:#0284c7;color:#fff;">The Rain Plan</a>
+<a href="seating-chart.html" style="background:#be185d;color:#fff;">The Seating Chart Studio</a>
+          <a href="after-glow.html">The After-Glow</a>
+          <a href="cost-estimator.html">Estimate Cost</a>
+          <a href="theme-generator.html">Theme Generator</a>
+          <a href="lookbook.html">Lookbook</a>
+          <a href="countdown.html">Countdown</a>
+          <a href="party-style-quiz.html">Party Style Quiz</a>
+          <a href="balloon-math.html">Balloon Math</a>
+          <a href="reserve-date.html">Reserve Your Date</a>
+          <a href="diy-vs-pro.html">DIY vs Pro</a>
+          <a href="palette-snap.html">Palette Snap</a>
+          <a href="name-garland.html">Balloon Letters</a>
+          <a href="budget-builder.html">Budget Builder</a>
+          <a href="transformations.html">The Big Reveal</a>
+          <a href="wedding-workshop.html">Wedding Workshop</a>
+          <a href="balloon-pop.html">Pop Party</a>
+          <a href="invitation-studio.html">Invitation Studio</a>
+          <a href="party-roadmap.html">Party Roadmap</a>
+          <a href="memory-wall.html">Memory Wall</a>
+          <a href="photo-booth.html">Golden Hour Booth</a>
+          <a href="garland-vision.html">Garland Vision</a>
+          <a href="photo-hunt.html">Party Photo Hunt</a>
+          <a href="guest-list.html">The Guest List</a>
+          <a href="memory-capsule.html">Memory Capsule</a>
+          <a href="playlist.html">Party Playlist</a>
+          <a href="party-timeline.html">Party Day Timeline</a>
+          <a href="surprise-planner.html">Operation: Surprise</a>
+          <a href="referral.html">Refer &amp; Earn</a>
+        </div>
+    </div>
+  </div>
+  <a class="em-nav-cta" href="cost-estimator.html">Get a Quote</a>
+</nav>
+
+<header>
+  <a href="index.html" class="home-link">&#8592; Back to Home</a>
+  <div class="badge">&#9925; New Tonight — The Rain Plan</div>
+  <h1>&#9748; The Rain Plan — Weather-Proof Your Party Day</h1>
+  <p>Connecticut weather doesn&#8217;t ask permission. This is the site&#8217;s first weather tool: tell it your party month and how your setup lives outdoors, and it gives you a real rain-risk read for Connecticut &#8212; built on NOAA climate normals, not guesses &#8212; plus Isabella&#8217;s Plan&nbsp;B playbook for keeping latex, helium, arches, and dessert tables safe when the sky opens. Because the best party is the one you planned for rain. &#127783;</p>
+</header>
+
+<div class="container">
+
+  <div class="grid">
+    <!-- LEFT: controls -->
+    <div>
+      <div class="card">
+        <h2>The Party You&#8217;re Planning</h2>
+        <div class="sub">Month + setup = your weather reality check.</div>
+        <div class="fg">
+          <label for="monthChips">What month is the party?</label>
+          <div class="chips" id="monthChips"></div>
+        </div>
+        <div class="fg">
+          <label>Where does the party live?</label>
+          <div class="chips" id="venueChips"></div>
+        </div>
+        <div class="fg">
+          <label>If rain threatens, can you move under cover?</label>
+          <div class="chips" id="backupChips"></div>
+        </div>
+        <div class="fg">
+          <label>What&#8217;s outdoors that matters? <span style="font-weight:400">(tap all that apply)</span></label>
+          <div class="chips" id="exposedChips"></div>
+        </div>
+        <p class="tip">&#128161; Tap the &#9748; umbrella 5 times — Isabella hid a secret there.</p>
+      </div>
+
+      <!-- facts -->
+      <div class="card" style="margin-top:18px">
+        <h2>CT Weather, Straight Up</h2>
+        <div class="sub">Real Hartford normals (NOAA 1991&#8211;2020), so you plan with facts.</div>
+        <div class="stats">
+          <div class="stat"><b>44&#8243;</b><span>rain / year</span></div>
+          <div class="stat"><b>Feb</b><span>driest month</span></div>
+          <div class="stat"><b>May</b><span>wettest month</span></div>
+          <div class="stat"><b>50&#176;F</b><span>latex danger line</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: output + lead -->
+    <div>
+      <div class="card">
+        <h2>Your Rain Risk Read</h2>
+        <div class="sub">Typical for the month — always check the 7-day forecast before your date.</div>
+        <div class="meter-wrap">
+          <div class="meter" id="riskMeter"><div class="meter-fill" id="riskFill"></div></div>
+          <div class="meter-labels"><span>Low</span><span>Guarded</span><span>High</span><span>Extreme</span></div>
+        </div>
+        <div class="side-box">
+          <div class="sb-label"><span id="levelBadge" class="level-badge">&#128994; LOW</span> <span id="scoreTxt" style="float:right;color:var(--soft);font-size:.75rem;">risk score</span></div>
+          <div class="sb-text" id="verdictTxt">Pick your month and setup to get the read.</div>
+        </div>
+        <div class="side-box">
+          <div class="sb-label">&#127777; Typical Weather — <span id="monthName">this month</span></div>
+          <div class="sb-text" id="climateTxt">&#128200; Loading normals…</div>
+        </div>
+        <div class="side-box">
+          <div class="sb-label">&#128203; The Plan B Playbook</div>
+          <ul class="plan-list" id="planList"></ul>
+        </div>
+        <div class="side-box">
+          <div class="sb-label">&#127880; Isabella&#8217;s Weather Rules</div>
+          <ul class="plan-list" id="ruleList"></ul>
+        </div>
+        <div class="note-actions">
+          <button class="cta-btn ghost" id="printBtn" type="button">&#128424; Print Rain Plan</button>
+          <button class="cta-btn ghost" id="waBtn" type="button">&#128172; WhatsApp</button>
+          <button class="cta-btn gold" id="surpriseBtn" type="button">&#127788; Surprise Me</button>
+        </div>
+      </div>
+
+      <!-- lead -->
+      <div class="card" style="margin-top:18px">
+        <h2>Ask Isabella to Weather-Proof Your Date</h2>
+        <div class="sub">Every outdoor setup gets a rain drill — free with your quote.</div>
+        <div class="fg"><label for="leadName">Your name</label><input id="leadName" type="text" placeholder="Jordan" maxlength="60"></div>
+        <div class="fg"><label for="leadContact">Email or phone</label><input id="leadContact" type="text" placeholder="you@email.com" maxlength="80"></div>
+        <div class="fg"><label for="leadMsg">Your date &amp; question <span style="font-weight:400">(optional)</span></label><textarea id="leadMsg" rows="2" placeholder="June 14, backyard wedding — is a tent worth it?" maxlength="300"></textarea></div>
+        <button class="cta-btn primary" id="leadBtn" type="button">&#128231; Send — Get My Rain Plan</button>
+        <p class="tip" id="leadTip">Replies fast — usually within a few hours, always by hand.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<footer>
+  <div>&#127881; Everlasting Memories — Balloon Art &amp; Event Decor, Connecticut</div>
+  <div style="margin-top:4px"><a href="contact.html">Contact</a> &middot; <a href="services.html">Services</a> &middot; <a href="gallery.html">Gallery</a> &middot; <a href="about.html">About</a></div>
+  <p class="strip"><a href="rain-plan.html" style="color:#7dd3fc;font-weight:600;">The Rain Plan</a> · <a href="seating-chart.html" style="color:#f9a8d4;font-weight:600;">The Seating Chart Studio</a> · <a href="after-glow.html" style="color:#f9a8d4;font-weight:600;">The After-Glow</a> · <a href="surprise-planner.html" style="color:#c7d2ee;font-weight:600;">Operation: Surprise</a> · <a href="dessert-table.html" style="color:#f0c9a0;font-weight:600;">Dessert Table Stylist</a> · <a href="golden-hour.html" style="color:#a78bfa;font-weight:600;">Golden Hour Finder</a> · <a href="party-timeline.html" style="color:#fbbf24;font-weight:600;">Party Day Timeline</a> · <a href="memory-capsule.html" style="color:#92400e;font-weight:600;">Memory Capsule</a> · <a href="playlist.html" style="color:#b91c1c;font-weight:600;">Party Playlist</a> · <a href="guest-list.html" style="color:#1e3a8a;font-weight:600;">The Guest List</a> · <a href="photo-hunt.html" style="color:#a21caf;font-weight:600;">Party Photo Hunt</a> · <a href="photo-booth.html" style="color:#0369a1;font-weight:600;">Golden Hour Booth</a> · <a href="memory-wall.html" style="color:#b45309;font-weight:600;">Memory Wall</a> · <a href="party-roadmap.html" style="color:#0f766e;font-weight:600;">Party Roadmap</a> · <a href="invitation-studio.html" style="color:#312e81;font-weight:600;">Invitation Studio</a> · <a href="balloon-pop.html" style="color:#ea580c;font-weight:600;">Pop Party</a> · <a href="wedding-workshop.html" style="color:#9d174d;font-weight:600;">Wedding Workshop</a> · <a href="transformations.html" style="color:#7c3aed;font-weight:600;">The Big Reveal</a> · <a href="budget-builder.html" style="color:#2f7a52">Budget Balloonist</a> · <a href="referral.html" style="color:#C9A87C">Refer &amp; Earn</a></p>
+</footer>
+
+<div class="toast" id="toastEl"></div>
+
+<!-- printable chart -->
+<div class="print-area" id="printArea">
+  <h2>&#9748; The Rain Plan — Weather-Proof Your Party Day</h2>
+  <div class="pa-sub" id="paSub">Everlasting Memories — Balloon Art &amp; Event Decor · myeverlastingmemories.com</div>
+  <div id="paBody"></div>
+  <div class="pa-foot">Risk read based on NOAA Hartford CT climate normals (1991&#8211;2020) · always confirm with the 7-day forecast · Everlasting Memories, Connecticut</div>
+</div>
+
+<script>
+/* ============================================================
+   The Rain Plan — Night 38
+   Pure vanilla JS, zero dependencies, works fully offline.
+   Climate: NOAA 1991-2020 normals, Hartford CT (USClimateData).
+   ============================================================ */
+const LS_KEY='em_rainplan_v1';
+
+/* Hartford CT NOAA normals: hiF, loF, precip inches */
+const CLIMATE=[
+  {m:'January',hi:35,lo:16,p:3.66},
+  {m:'February',hi:38,lo:19,p:2.64},
+  {m:'March',hi:47,lo:27,p:3.62},
+  {m:'April',hi:58,lo:38,p:3.82},
+  {m:'May',hi:70,lo:48,p:3.98},
+  {m:'June',hi:79,lo:58,p:3.82},
+  {m:'July',hi:84,lo:63,p:3.94},
+  {m:'August',hi:82,lo:61,p:3.82},
+  {m:'September',hi:74,lo:53,p:3.82},
+  {m:'October',hi:63,lo:40,p:3.90},
+  {m:'November',hi:51,lo:31,p:3.78},
+  {m:'December',hi:39,lo:22,p:3.43}
+];
+
+const VENUES=[
+  {id:'outdoor',label:'\u{1F304} Fully outdoor'},
+  {id:'tent',label:'\u{26FA} Tent / canopy'},
+  {id:'mix',label:'\u{1F3E1} Indoor-outdoor mix'},
+  {id:'indoor',label:'\u{1F3E0} Fully indoor'}
+];
+const BACKUPS=[
+  {id:'yes',label:'\u2705 Yes — can move under cover'},
+  {id:'maybe',label:'\u{1F937} Maybe — it\u2019s complicated'},
+  {id:'no',label:'\u274C No — locked to the site'}
+];
+const EXPOSED=[
+  {id:'arch',label:'\u{1F388} Balloon arch'},
+  {id:'garland',label:'\u{1F33F} Balloon garland'},
+  {id:'dessert',label:'\u{1F9C1} Dessert table'},
+  {id:'photo',label:'\u{1F4F8} Photo backdrop'},
+  {id:'helium',label:'\u{1F388} Helium bouquets'}
+];
+
+let state={month:new Date().getMonth(),venue:'outdoor',backup:'maybe',exposed:['arch','garland']};
+
+/* ---------- pure engine ---------- */
+function wetScore(idx){ // 0..100 within CT's own 12-month range
+  const ps=CLIMATE.map(c=>c.p), lo=Math.min(...ps), hi=Math.max(...ps);
+  return Math.round(((CLIMATE[idx].p-lo)/(hi-lo))*100);
+}
+function venueFactor(v){return {outdoor:1,tent:0.55,mix:0.35,indoor:0.08}[v]||1;}
+function backupFactor(b){return {yes:0.55,maybe:0.8,no:1}[b]||1;}
+function riskScore(m,v,b){return Math.min(100,Math.round(wetScore(m)*venueFactor(v)*backupFactor(b)));}
+function riskLevel(s){return s<25?'LOW':s<50?'GUARDED':s<75?'HIGH':'EXTREME';}
+function verdict(level,mName){
+  const v={
+    LOW:'Green light — ' + mName + ' is one of Connecticut\u2019s lower-risk months, and your setup has cover. Keep a casual eye on the 7-day forecast; no heroics needed.',
+    GUARDED:'Pack the umbrella. ' + mName + ' in CT can throw a shower at a sunny forecast \u2014 and your setup has partial exposure. Decide your under-cover move this week, not the day before.',
+    HIGH:'This is a \u201Cwatch closely\u201D month. Typical rain for ' + mName + ' plus your exposure adds up: lock the Plan B location now, prep the rain drill, and set a T-48h forecast alarm.',
+    EXTREME:'Treat this like a thunderstorm drill. For ' + mName + ', an exposed setup is the riskiest play in CT \u2014 the plan isn\u2019t \u201Cif it rains,\u201D it\u2019s \u201Cwhen, and where do we go.\u201D Isabella has done this 200+ times; she\u2019ll tell you straight what\u2019s worth it.'
+  }[level];
+  return v;
+}
+function monthRank(idx){
+  const ps=CLIMATE.map(c=>c.p), lo=Math.min(...ps), hi=Math.max(...ps);
+  const p=CLIMATE[idx].p;
+  if(p===lo)return 'driest month of the CT year';
+  if(p===hi)return 'wettest month of the CT year';
+  return 'middle of the CT pack';
+}
+function climateLine(idx){
+  const c=CLIMATE[idx];
+  return 'Typical ' + c.m + ': high ' + c.hi + '\u00B0F / low ' + c.lo + '\u00B0F, about ' + c.p.toFixed(2) + '\u2033 of rain \u2014 the ' + monthRank(idx) + '.';
+}
+function planSteps(level){
+  const base=[
+    'T-7 days: save the 7-day forecast; if a wet system is brewing, text Isabella \u2014 she blocks setup windows around it.',
+    'T-48h: confirm your under-cover spot (porch, garage, tent, indoor room) and who helps move what.',
+    'T-24h: final go/no-go. Over 60% rain at your setup hour? Flip to Plan B tonight, not tomorrow.',
+    'Morning of: balloons inflate last. Latex goes up 1\u20132h before guests \u2014 never the night before.',
+    'Rain rule: if it\u2019s actively raining at setup, decor goes up under cover first. Wet latex gets heavy, cloudy, and sad.'
+  ];
+  if(level==='LOW')return base.slice(0,3);
+  if(level==='GUARDED')return base.slice(0,4);
+  return base;
+}
+const RULES=[
+  'Latex hates cold: below ~50\u00B0F it gets brittle and helium shrinks \u2014 arches look deflated by dinner. Ask for foil or air-filled accents in winter.',
+  'Heat is sneaky: above ~85\u00B0F latex expands and pops faster in direct sun. Shade the arch, inflate late, keep spares in the car.',
+  'Rain + latex = heavy, cloudy balloons. Organic-style garlands (no helium) shrug off drizzle better than anything helium-filled.',
+  'Wind over ~15 mph is the arch killer. Extra anchor weight, lower profile, or move it behind the house \u2014 not \u201Cwe\u2019ll see.\u201D',
+  'Humidity makes latex tacky and collects on the outside \u2014 normal, not defective. Wipe gently, never rub.',
+  'Foil balloons are the cold-weather heroes: they hold helium for days and don\u2019t care about 40\u00B0F.',
+  'The dessert table\u2019s enemy is direct sun, not just rain. UV fades colors and melts buttercream \u2014 shade it either way.',
+  'Isabella\u2019s rule: every outdoor install gets a rain drill before the forecast even matters. Plan B is planned at booking, not at 6am.'
+];
+function exposedRules(exposed){
+  const ids=new Set(exposed||[]);
+  const out=[];
+  if(ids.has('arch')||ids.has('garland')||ids.has('helium'))out.push(RULES[0],RULES[1],RULES[2],RULES[3],RULES[5]);
+  if(ids.has('dessert'))out.push(RULES[6]);
+  out.push(RULES[4],RULES[7]);
+  return out;
+}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function buildShareText(st){
+  const lvl=riskLevel(riskScore(st.month,st.venue,st.backup));
+  return '\u2601\uFE0F My Rain Plan (Everlasting Memories): ' + CLIMATE[st.month].m + ' party, ' + lvl + ' risk. ' + climateLine(st.month) + ' Plan B ready: ' + 'https://myeverlastingmemories.com/rain-plan.html';
+}
+function leadPayload(st){
+  return {source:'rain-plan',type:'lead',month:CLIMATE[st.month].m,venue:st.venue,backup:st.backup,exposed:(st.exposed||[]).join(','),risk:riskLevel(riskScore(st.month,st.venue,st.backup))};
+}
+const sampleState={month:5,venue:'outdoor',backup:'no',exposed:['arch','dessert','helium']};
+
+/* ---------- persistence ---------- */
+function load(){
+  try{
+    const raw=localStorage.getItem(LS_KEY);
+    if(raw){const s=JSON.parse(raw);if(s&&typeof s.month==='number')state=s;return;}
+  }catch(e){}
+  state={month:new Date().getMonth(),venue:'outdoor',backup:'maybe',exposed:['arch','garland']};
+}
+function save(){try{localStorage.setItem(LS_KEY,JSON.stringify(state));}catch(e){}}
+
+/* ---------- render ---------- */
+function renderChips(container,items,getSel,onPick){
+  const el=document.getElementById(container);
+  el.innerHTML=items.map(it=>{
+    const sel=getSel(it.id);
+    return '<button type="button" class="chip'+(sel?' on':'')+'" data-id="'+it.id+'">'+it.label+'</button>';
+  }).join('');
+  el.querySelectorAll('.chip').forEach(b=>b.addEventListener('click',()=>onPick(b.dataset.id)));
+}
+function renderAll(){
+  renderChips('monthChips',CLIMATE.map((c,i)=>({id:String(i),label:c.m})),id=>String(state.month)===id,id=>{state.month=+id;save();renderAll();});
+  renderChips('venueChips',VENUES,v=>state.venue===v,id=>{state.venue=id;save();renderAll();});
+  renderChips('backupChips',BACKUPS,b=>state.backup===b,id=>{state.backup=id;save();renderAll();});
+  renderChips('exposedChips',EXPOSED,e=>state.exposed.includes(e.id),id=>{
+    state.exposed=state.exposed.includes(id)?state.exposed.filter(x=>x!==id):[...state.exposed,id];
+    save();renderAll();
+  });
+  const score=riskScore(state.month,state.venue,state.backup);
+  const lvl=riskLevel(score);
+  const fill=document.getElementById('riskFill');
+  fill.style.width=score+'%';
+  fill.style.background=lvl==='EXTREME'?'#dc2626':lvl==='HIGH'?'#ea580c':lvl==='GUARDED'?'#C9A227':'#059669';
+  document.getElementById('levelBadge').textContent=(lvl==='LOW'?'\u{1F7E2} ':lvl==='GUARDED'?'\u{1F7E1} ':lvl==='HIGH'?'\u{1F7E0} ':'\u{1F534} ')+lvl;
+  document.getElementById('scoreTxt').textContent='risk score '+score+'/100';
+  document.getElementById('verdictTxt').textContent=verdict(lvl,CLIMATE[state.month].m);
+  document.getElementById('monthName').textContent=CLIMATE[state.month].m;
+  document.getElementById('climateTxt').textContent=climateLine(state.month);
+  const pl=document.getElementById('planList');
+  pl.innerHTML=planSteps(lvl).map(s=>'<li>'+esc(s)+'</li>').join('');
+  const rl=document.getElementById('ruleList');
+  rl.innerHTML=exposedRules(state.exposed).map(s=>'<li>'+esc(s)+'</li>').join('');
+  renderPrint();
+}
+function renderPrint(){
+  const pa=document.getElementById('paBody');
+  const score=riskScore(state.month,state.venue,state.backup);
+  const lvl=riskLevel(score);
+  const v=VENUES.find(x=>x.id===state.venue);
+  const b=BACKUPS.find(x=>x.id===state.backup);
+  const ex=state.exposed.map(id=>{const e=EXPOSED.find(x=>x.id===id);return e?e.label.replace(/^\S+\s/,''):id;}).join(', ');
+  pa.innerHTML=
+    '<div class="pa-row"><b>Party month:</b> '+esc(CLIMATE[state.month].m)+' &nbsp;&nbsp; <b>Risk:</b> '+lvl+' ('+score+'/100)</div>'+
+    '<div class="pa-row"><b>Setup:</b> '+esc(v?v.label.replace(/^\S+\s/,''):state.venue)+' &nbsp;&nbsp; <b>Cover backup:</b> '+esc(b?b.label.replace(/^\S+\s/,''):state.backup)+'</div>'+
+    '<div class="pa-row"><b>Outdoors:</b> '+esc(ex||'—')+'</div>'+
+    '<div class="pa-row"><b>Typical weather:</b> '+esc(climateLine(state.month))+'</div>'+
+    '<div class="pa-row"><b>Plan B:</b></div><ul>'+planSteps(lvl).map(s=>'<li>'+esc(s)+'</li>').join('')+'</ul>';
+}
+
+/* ---------- toast + confetti ---------- */
+let toastTimer;
+function toast(msg){
+  const t=document.getElementById('toastEl');
+  t.textContent=msg;t.classList.add('show');
+  clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),2600);
+}
+function burst(){
+  const colors=['#0284c7','#C9A227','#7dd3fc','#ffffff'];
+  for(let i=0;i<26;i++){
+    const d=document.createElement('div');
+    d.style.cssText='position:fixed;left:50%;top:55%;width:10px;height:10px;border-radius:50%;z-index:999;pointer-events:none;background:'+colors[i%colors.length]+';transform:translate(-50%,-50%);transition:all .9s cubic-bezier(.16,1,.3,1);opacity:1;';
+    document.body.appendChild(d);
+    requestAnimationFrame(()=>{
+      d.style.transform='translate('+((Math.random()*440-220))+'px,'+((Math.random()*360-180))+'px) rotate(360deg) scale('+(Math.random()*1.4+.4)+')';
+      d.style.opacity='0';
+    });
+    setTimeout(()=>d.remove(),950);
+  }
+}
+
+/* ---------- secret #15 (5 taps on the umbrella) ---------- */
+let taps=0,tapTimer;
+function secret(){
+  taps++;
+  clearTimeout(tapTimer);
+  tapTimer=setTimeout(()=>taps=0,1200);
+  if(taps===5){
+    taps=0;burst();
+    toast('\u2610\uFE0F Isabella\u2019s secret #15: she has never lost a setup to a storm \u2014 because every outdoor quote includes a rain drill and a Plan B spot, planned before the forecast even exists. Balloons are her business; weather is just the guest list she plans around.');
+  }
+}
+
+/* ---------- boot ---------- */
+function bind(){
+  load();
+  renderAll();
+  document.querySelector('.badge').addEventListener('click',secret);
+  document.getElementById('surpriseBtn').addEventListener('click',()=>{
+    state.month=Math.floor(Math.random()*12);
+    state.venue=['outdoor','tent','mix','indoor'][Math.floor(Math.random()*4)];
+    state.backup=['yes','maybe','no'][Math.floor(Math.random()*3)];
+    save();renderAll();burst();toast('Rolled the dice: '+CLIMATE[state.month].m+' \u00B7 '+state.venue+' \u00B7 backup: '+state.backup);
+  });
+  document.getElementById('printBtn').addEventListener('click',()=>window.print());
+  document.getElementById('waBtn').addEventListener('click',()=>{
+    const txt=buildShareText(state);
+    window.open('https://wa.me/?text='+encodeURIComponent(txt),'_blank');
+  });
+  document.getElementById('leadBtn').addEventListener('click',async()=>{
+    const name=document.getElementById('leadName').value.trim();
+    const contact=document.getElementById('leadContact').value.trim();
+    const msg=document.getElementById('leadMsg').value.trim();
+    if(!name||!contact){toast('\u26A0\uFE0F Add your name and email/phone first.');return;}
+    const tip=document.getElementById('leadTip');
+    tip.textContent='Sending\u2026';
+    try{
+      const payload=Object.assign({name:name,contact:contact,message:msg||('Rain plan request \u2014 '+CLIMATE[state.month].m)},leadPayload(state));
+      const r=await fetch('/api/leads.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+      if(!r.ok)throw new Error('bad status');
+      tip.textContent='\u2705 Sent! Isabella replies by hand \u2014 usually within a few hours.';
+      document.getElementById('leadName').value='';
+      document.getElementById('leadContact').value='';
+      document.getElementById('leadMsg').value='';
+      burst();
+    }catch(e){
+      tip.textContent='\u26A0\uFE0F Couldn\u2019t send right now \u2014 email isabella@myeverlastingmemories.com instead.';
+    }
+  });
+}
+if(typeof document!=='undefined'&&document.getElementById){bind();}
+if(typeof module!=='undefined'&&module.exports){module.exports={CLIMATE,VENUES,BACKUPS,EXPOSED,wetScore,venueFactor,backupFactor,riskScore,riskLevel,verdict,climateLine,planSteps,exposedRules,esc,buildShareText,leadPayload,sampleState};}
+</script>
+</body>
+</html>
