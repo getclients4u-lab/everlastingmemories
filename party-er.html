@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Party ER — Rescue Your Party Day | Everlasting Memories</title>
+<meta name="description" content="The Party ER — the site’s first day-of rescue tool. Something just broke at your party? Tap the crisis and get Isabella’s real 3-step fix, her while-you-wait tip, and the crash-cart checklist from her truck. Built from 200+ events.">
+<meta name="keywords" content="party emergency, balloon rescue, day of party help, popped balloon fix, arch leaning, helium ran out, party crisis, crash cart checklist, Everlasting Memories">
+<meta property="og:title" content="The Party ER — Rescue Your Party Day">
+<meta property="og:description" content="The site’s first day-of rescue tool: tap your crisis, get Isabella’s real 3-step fix from 200+ events, and build your crash cart before the party needs it.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://myeverlastingmemories.com/party-er.html">
+<meta property="og:image" content="https://myeverlastingmemories.com/gallery.html">
+<meta property="og:site_name" content="Everlasting Memories">
+<meta name="theme-color" content="#059669">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="analytics.js" defer></script>
+<style>
+:root{
+  --c1:#059669;      /* crash-cart emerald */
+  --c2:#C9A227;      /* monitor gold */
+  --c3:#065f46;      /* deep emerald */
+  --bg:#f1f7f3;      /* ER ivory */
+  --card:#ffffff;
+  --line:#d5e6dc;
+  --ink:#16231c;
+  --soft:#5c6b62;
+  --crit:#dc2626;
+  --ser:#d97706;
+  --ok:#16a34a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+.em-nav{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 22px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;flex-wrap:wrap}
+.em-nav-brand{font-weight:700;color:var(--c1);text-decoration:none;font-size:1rem;font-family:'Playfair Display',serif}
+.em-nav-links{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.em-nav-links a{color:var(--ink);text-decoration:none;font-size:.85rem;font-weight:500}
+.em-nav-links a:hover{color:var(--c2)}
+.em-nav-hot{color:var(--c2)!important;font-weight:700}
+.em-nav-drop{position:relative}
+.em-nav-drop-btn{background:none;border:none;font-family:'Inter',sans-serif;font-size:.85rem;font-weight:500;color:var(--ink);cursor:pointer;padding:4px 2px}
+.em-nav-drop-menu{display:none;position:absolute;right:0;top:calc(100%+8px);background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 12px 34px rgba(30,41,59,.16);min-width:240px;padding:8px;z-index:60}
+.em-nav-drop-menu.open{display:block}
+.em-nav-drop-menu a{display:block;padding:8px 12px;border-radius:9px;font-size:.85rem;color:var(--ink);text-decoration:none}
+.em-nav-drop-menu a:hover{background:var(--bg)}
+.em-nav-cta{background:var(--c1);color:#fff!important;padding:9px 18px;border-radius:999px;font-weight:600;text-decoration:none;font-size:.85rem}
+.em-nav-cta:hover{background:#047857}
+header{max-width:1000px;margin:0 auto;padding:44px 22px 8px;text-align:center}
+.home-link{display:inline-block;color:var(--c1);text-decoration:none;font-size:.85rem;font-weight:600;margin-bottom:14px}
+.badge{display:inline-block;background:linear-gradient(135deg,var(--c1),var(--c3));color:#fff;padding:5px 16px;border-radius:999px;font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:16px;cursor:pointer}
+header h1{font-family:'Playfair Display',serif;font-size:2.3rem;color:var(--c1);margin-bottom:10px}
+header p{color:var(--soft);max-width:720px;margin:0 auto;font-size:.98rem}
+.pulse-wrap{max-width:520px;margin:14px auto 0}
+.ecg{width:100%;height:56px;display:block}
+.ecg polyline{fill:none;stroke:var(--c1);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:600;stroke-dashoffset:600;animation:ecg 5.2s linear infinite}
+@keyframes ecg{0%{stroke-dashoffset:600}18%{stroke-dashoffset:0}70%{stroke-dashoffset:0}100%{stroke-dashoffset:-600}}
+.pulse-cap{font-size:.68rem;color:var(--soft);letter-spacing:.18em;text-transform:uppercase;font-weight:700;margin-top:2px}
+.container{max-width:1000px;margin:0 auto;padding:0 22px 30px}
+.grid{display:grid;grid-template-columns:1.45fr 1fr;gap:22px;margin-top:20px}
+@media(max-width:860px){.grid{grid-template-columns:1fr}}
+/* ===== cards ===== */
+.card{background:var(--card);border-radius:18px;padding:22px;box-shadow:0 4px 24px rgba(30,41,59,.08);border:1px solid var(--line);margin-bottom:18px}
+.card h2{font-size:1.05rem;color:var(--c1);margin-bottom:4px;font-family:'Playfair Display',serif}
+.card .sub{font-size:.8rem;color:var(--soft);margin-bottom:14px}
+.fg{margin-bottom:12px}
+.fg label{display:block;font-size:.74rem;font-weight:700;color:var(--soft);margin-bottom:5px;letter-spacing:.03em}
+.fg input,.fg select,.fg textarea{width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;font-size:.88rem;font-family:'Inter',sans-serif;background:#fff;color:var(--ink)}
+.fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:var(--c1);box-shadow:0 0 0 3px rgba(5,150,105,.12)}
+.cta-btn{width:100%;padding:13px;border:none;border-radius:12px;font-size:.92rem;font-weight:700;cursor:pointer;font-family:'Inter',sans-serif;transition:.18s}
+.cta-btn.primary{background:linear-gradient(135deg,var(--c1),var(--c3));color:#fff}
+.cta-btn.primary:hover{filter:brightness(1.08)}
+.cta-btn.ghost{background:#fff;border:1.5px solid var(--line);color:var(--c1)}
+.cta-btn.ghost:hover{border-color:var(--c1)}
+.cta-btn.gold{background:linear-gradient(135deg,var(--c2),#a97f14);color:#fff}
+.cta-btn.gold:hover{filter:brightness(1.08)}
+.cta-btn.small{padding:9px 14px;font-size:.8rem;width:auto;border-radius:10px}
+.cta-btn.blue{background:linear-gradient(135deg,#0ea5e9,#1e3a8a);color:#fff}
+.cta-btn.blue:hover{filter:brightness(1.1)}
+.tip{font-size:.74rem;color:var(--soft);font-style:italic;margin-top:8px}
+/* ===== triage board ===== */
+.board{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-top:4px}
+.crisis-btn{background:#fff;border:1.5px solid var(--line);border-radius:14px;padding:12px 8px;cursor:pointer;transition:.16s;font-family:'Inter',sans-serif;text-align:center;display:flex;flex-direction:column;align-items:center;gap:5px}
+.crisis-btn:hover{border-color:var(--c1);transform:translateY(-2px);box-shadow:0 6px 16px rgba(5,150,105,.14)}
+.crisis-btn.on{background:linear-gradient(135deg,var(--c1),var(--c3));border-color:transparent;color:#fff}
+.crisis-btn .cb-emoji{font-size:1.45rem;line-height:1}
+.crisis-btn .cb-name{font-size:.76rem;font-weight:700;line-height:1.25}
+.crisis-btn .cb-sev{font-size:.6rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.crisis-btn.on .cb-sev{color:#d1fae5}
+.sev-legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px;font-size:.7rem;color:var(--soft);font-weight:600}
+.sev-legend .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px}
+/* ===== protocol ===== */
+.pill{display:inline-block;padding:4px 14px;border-radius:999px;font-size:.72rem;font-weight:800;letter-spacing:.05em;color:#fff;margin-bottom:10px}
+.protocol-title{font-family:'Playfair Display',serif;font-size:1.35rem;color:var(--ink);margin-bottom:2px}
+.protocol-emoji{font-size:1.2rem}
+.symp{font-size:.84rem;color:var(--soft);margin:6px 0 12px;font-style:italic}
+.er-label{font-size:.72rem;font-weight:800;color:var(--c3);letter-spacing:.06em;text-transform:uppercase;margin:12px 0 6px}
+.move-list{margin:0;padding-left:20px}
+.move-list li{font-size:.85rem;margin-bottom:8px;line-height:1.5}
+.move-list li::marker{color:var(--c2);font-weight:800}
+.er-box{background:#f0faf5;border:1px solid #d3ecdf;border-left:4px solid var(--c2);border-radius:12px;padding:10px 14px;margin-top:12px}
+.er-box .eb-label{font-size:.68rem;font-weight:800;color:var(--c3);letter-spacing:.05em;text-transform:uppercase;margin-bottom:4px}
+.er-box .eb-text{font-size:.82rem;color:var(--ink)}
+.er-note{font-size:.8rem;color:var(--soft);font-style:italic;margin-top:14px;border-top:1px dashed var(--line);padding-top:10px}
+.link-chip{display:inline-flex;align-items:center;gap:6px;background:var(--bg);border:1.5px solid var(--line);color:var(--c1);text-decoration:none;font-size:.78rem;font-weight:700;border-radius:999px;padding:7px 14px;margin-top:12px;transition:.15s}
+.link-chip:hover{border-color:var(--c1);background:#fff}
+.note-actions{display:flex;gap:9px;margin-top:14px}
+.note-actions .cta-btn{width:auto;flex:1;padding:11px 8px;font-size:.82rem}
+@media(max-width:520px){.note-actions{flex-direction:column}}
+/* ===== stats ===== */
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 4px}
+.stat{flex:1;min-width:110px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:12px;text-align:center}
+.stat b{display:block;font-size:1.3rem;color:var(--c1);font-family:'Playfair Display',serif}
+.stat span{font-size:.7rem;color:var(--soft);text-transform:uppercase;letter-spacing:.06em;font-weight:700}
+/* ===== crash cart ===== */
+.kit-group{margin-bottom:6px}
+.kit-group .kg-name{font-size:.7rem;font-weight:800;color:var(--c3);text-transform:uppercase;letter-spacing:.07em;margin:10px 0 4px}
+.kit-item{display:flex;align-items:center;gap:9px;padding:6px 8px;border-radius:10px;font-size:.82rem;cursor:pointer;user-select:none}
+.kit-item:hover{background:var(--bg)}
+.kit-item input{accent-color:var(--c1);width:15px;height:15px;cursor:pointer}
+.kit-item.done span{text-decoration:line-through;color:var(--soft)}
+.kit-progress{height:10px;background:#e3efe8;border-radius:999px;overflow:hidden;margin:10px 0 4px}
+.kit-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--c1),var(--c2));border-radius:999px;transition:width .35s}
+.kit-pct{font-size:.72rem;color:var(--soft);font-weight:700;text-align:right}
+/* ===== code blue overlay ===== */
+.blue-overlay{position:fixed;inset:0;background:rgba(6,78,59,.94);color:#fff;z-index:200;display:none;align-items:center;justify-content:center;flex-direction:column;text-align:center;padding:24px}
+.blue-overlay.open{display:flex}
+.blue-balloon{font-size:4.2rem;transition:transform 4s ease-in-out;will-change:transform}
+.blue-text{font-family:'Playfair Display',serif;font-size:1.6rem;margin-top:10px;max-width:520px}
+.blue-sub{font-size:.92rem;color:#a7f3d0;margin-top:8px;max-width:480px}
+.blue-btn{margin-top:22px;background:#fff;color:#065f46;border:none;border-radius:999px;padding:12px 28px;font-weight:800;font-family:'Inter',sans-serif;font-size:.9rem;cursor:pointer}
+/* ===== toast ===== */
+.toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--ink);color:#fff;padding:12px 22px;border-radius:999px;font-size:.85rem;font-weight:600;opacity:0;transition:.3s;z-index:99;box-shadow:0 10px 30px rgba(0,0,0,.25);max-width:90vw;text-align:center}
+.toast.show{transform:translateX(-50%) translateY(0);opacity:1}
+/* ===== footer ===== */
+footer{margin-top:34px;padding:26px 22px 34px;background:var(--c1);color:#ecfdf5;text-align:center;font-size:.8rem}
+footer a{color:#ecfdf5;text-decoration:none}
+footer a:hover{color:var(--c2)}
+footer .strip{margin-top:8px;font-size:.76rem;line-height:1.9}
+footer .strip a{color:#d1fae5}
+footer .strip a:hover{color:var(--c2)}
+/* ===== print ===== */
+.print-area{display:none}
+@media print{
+  body *{visibility:hidden}
+  .print-area,.print-area *{visibility:visible}
+  .print-area{display:block;position:absolute;inset:0;padding:26px;background:#fff}
+  .print-area h2{font-family:'Playfair Display',serif;color:#059669;font-size:1.45rem;margin-bottom:4px}
+  .print-area .pa-sub{font-size:.8rem;color:#555;margin-bottom:16px}
+  .pa-row{font-size:.82rem;margin:0 0 8px;line-height:1.55}
+  .pa-row b{color:#065f46}
+  .print-area ul{padding-left:18px;margin:4px 0 10px}
+  .print-area li{font-size:.8rem;margin-bottom:5px}
+  .pa-kit{display:flex;flex-wrap:wrap;gap:16px;margin-top:14px}
+  .pa-kit-col{min-width:200px}
+  .pa-kit-col h4{font-size:.78rem;color:#065f46;text-transform:uppercase;letter-spacing:.06em;border-bottom:1px solid #eee;padding-bottom:4px;margin-bottom:6px}
+  .pa-kit-col p{font-size:.76rem;color:#333;line-height:1.6;margin:0}
+  .pa-foot{margin-top:18px;font-size:.68rem;color:#888;border-top:1px solid #eee;padding-top:8px}
+  .no-print{display:none!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .ecg polyline{animation:none;stroke-dashoffset:0}
+  .crisis-btn:hover{transform:none}
+  .blue-balloon{transition:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="em-nav">
+  <a class="em-nav-brand" href="index.html">&#127881; Everlasting Memories</a>
+  <div class="em-nav-links">
+    <a href="index.html">Home</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <div class="em-nav-drop">
+      <button class="em-nav-drop-btn" type="button" aria-haspopup="true" aria-expanded="false">Tools &#9662;</button>
+      <div class="em-nav-drop-menu">
+          
+          <a href="party-er.html" style="background:#059669;color:#fff;">The Party ER</a>
+<a href="rain-plan.html" style="background:#0284c7;color:#fff;">The Rain Plan</a>
+<a href="seating-chart.html" style="background:#be185d;color:#fff;">The Seating Chart Studio</a>
+          <a href="after-glow.html">The After-Glow</a>
+          <a href="cost-estimator.html">Estimate Cost</a>
+          <a href="theme-generator.html">Theme Generator</a>
+          <a href="lookbook.html">Lookbook</a>
+          <a href="countdown.html">Countdown</a>
+          <a href="party-style-quiz.html">Party Style Quiz</a>
+          <a href="balloon-math.html">Balloon Math</a>
+          <a href="reserve-date.html">Reserve Your Date</a>
+          <a href="diy-vs-pro.html">DIY vs Pro</a>
+          <a href="palette-snap.html">Palette Snap</a>
+          <a href="name-garland.html">Balloon Letters</a>
+          <a href="budget-builder.html">Budget Builder</a>
+          <a href="transformations.html">The Big Reveal</a>
+          <a href="wedding-workshop.html">Wedding Workshop</a>
+          <a href="balloon-pop.html">Pop Party</a>
+          <a href="invitation-studio.html">Invitation Studio</a>
+          <a href="party-roadmap.html">Party Roadmap</a>
+          <a href="memory-wall.html">Memory Wall</a>
+          <a href="photo-booth.html">Golden Hour Booth</a>
+          <a href="garland-vision.html">Garland Vision</a>
+          <a href="photo-hunt.html">Party Photo Hunt</a>
+          <a href="guest-list.html">The Guest List</a>
+          <a href="memory-capsule.html">Memory Capsule</a>
+          <a href="playlist.html">Party Playlist</a>
+          <a href="party-timeline.html">Party Day Timeline</a>
+          <a href="surprise-planner.html">Operation: Surprise</a>
+          <a href="referral.html">Refer &amp; Earn</a>
+        </div>
+    </div>
+  </div>
+  <a class="em-nav-cta" href="cost-estimator.html">Get a Quote</a>
+</nav>
+
+<header>
+  <a href="index.html" class="home-link">&#8592; Back to Home</a>
+  <div class="badge" title="Tap 5 times for a secret">&#128661; New Tonight — The Party ER</div>
+  <h1>&#129657; The Party ER — Rescue Your Party Day</h1>
+  <p>Every tool on this site helps you <em>plan</em> the party. This one is for the moment the plan meets reality — the balloon that pops in the heat, the arch that leans, the helium that runs out, the cousin who arrives 40 minutes early. It&#8217;s the site&#8217;s first day-of rescue room: tap the crisis that&#8217;s happening, and get Isabella&#8217;s real 3-step fix from 200+ events — plus the crash-cart checklist she keeps in her truck. Because the best parties aren&#8217;t the ones where nothing goes wrong. They&#8217;re the ones where somebody knew what to do. &#128657;</p>
+  <div class="pulse-wrap" aria-hidden="true">
+    <svg class="ecg" viewBox="0 0 520 56" preserveAspectRatio="none">
+      <polyline points="0,28 60,28 78,28 90,10 102,46 114,28 160,28 178,28 190,8 202,48 214,28 260,28 278,28 290,10 302,46 314,28 360,28 378,28 390,8 402,48 414,28 460,28 478,28 490,12 500,44 520,28"/>
+    </svg>
+    <div class="pulse-cap">Party pulse: steady &#10084;</div>
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <h2>&#128680; Triage Board — what broke?</h2>
+    <div class="sub">Tap the closest card. Isabella&#8217;s seen all of these — more than once.</div>
+    <div class="board" id="crisisBoard"></div>
+    <div class="sev-legend">
+      <span><span class="dot" style="background:#dc2626"></span>Code Red — act now</span>
+      <span><span class="dot" style="background:#d97706"></span>Watch closely</span>
+      <span><span class="dot" style="background:#16a34a"></span>Handleable — breathe</span>
+    </div>
+    <p class="tip">&#128161; Tap the &#128661; badge 5 times — Isabella hid secret #16 there.</p>
+  </div>
+
+  <div class="grid">
+    <!-- LEFT: protocol -->
+    <div>
+      <div class="card">
+        <div><span class="pill" id="sevPill">&#128994; HANDLEABLE</span></div>
+        <h2 class="protocol-title"><span class="protocol-emoji" id="crisisEmoji"></span> <span id="crisisTitle"></span></h2>
+        <div class="sub" id="crisisSub">Isabella&#8217;s field protocol</div>
+        <div class="symp" id="sympTxt"></div>
+        <div class="er-label">&#128138; Isabella&#8217;s move</div>
+        <ol class="move-list" id="moveList"></ol>
+        <div class="er-box">
+          <div class="eb-label">&#9203; While you wait</div>
+          <div class="eb-text" id="waitTxt"></div>
+        </div>
+        <div class="er-box">
+          <div class="eb-label">&#128270; Never again</div>
+          <div class="eb-text" id="neverTxt"></div>
+        </div>
+        <a class="link-chip" id="linkChip" href="#">&#128279; Related tool</a>
+        <div class="er-note" id="noteTxt"></div>
+        <div class="note-actions no-print">
+          <button class="cta-btn ghost" id="waBtn" type="button">&#128172; WhatsApp</button>
+          <button class="cta-btn ghost" id="printBtn" type="button">&#128424; Print Protocol</button>
+          <button class="cta-btn gold" id="drillBtn" type="button">&#129302; Run a Drill</button>
+        </div>
+      </div>
+
+      <!-- lead -->
+      <div class="card">
+        <h2>Stress-Test My Party — Free</h2>
+        <div class="sub">Every quote includes Isabella&#8217;s rescue audit: she finds the crisis before the party does.</div>
+        <div class="fg"><label for="leadName">Your name</label><input id="leadName" type="text" placeholder="Jordan" maxlength="60"></div>
+        <div class="fg"><label for="leadContact">Email or phone</label><input id="leadContact" type="text" placeholder="you@email.com" maxlength="80"></div>
+        <div class="fg"><label for="leadEvent">Event type</label>
+          <select id="leadEvent">
+            <option value="Birthday">Birthday</option>
+            <option value="Wedding">Wedding</option>
+            <option value="Baby Shower">Baby Shower</option>
+            <option value="Anniversary">Anniversary</option>
+            <option value="Graduation">Graduation</option>
+            <option value="Corporate">Corporate</option>
+            <option value="Just Because">Just Because</option>
+          </select>
+        </div>
+        <div class="fg"><label for="leadMsg">Your date &amp; story <span style="font-weight:400">(optional)</span></label><textarea id="leadMsg" rows="2" placeholder="Sept 19 backyard birthday — I do NOT want a repeat of today." maxlength="300"></textarea></div>
+        <button class="cta-btn primary" id="leadBtn" type="button">&#128231; Send — Get My Rescue Audit</button>
+        <p class="tip" id="leadTip">Replies fast — usually within a few hours, always by hand.</p>
+      </div>
+    </div>
+
+    <!-- RIGHT: code blue + crash cart + facts -->
+    <div>
+      <div class="card" style="background:linear-gradient(135deg,#0ea5e9,#1e3a8a);color:#fff;border:none;">
+        <h2 style="color:#fff">&#128653; Code Blue — panic button</h2>
+        <div class="sub" style="color:#bae6fd">For the moment you forget every plan you ever made.</div>
+        <button class="cta-btn blue" id="blueBtn" type="button" style="background:rgba(255,255,255,.18);border:1.5px solid rgba(255,255,255,.5);color:#fff;">&#128653; I&#8217;m Panicking — Start Code Blue</button>
+        <p class="tip" style="color:#bae6fd">30 seconds of breathing. Isabella has fixed worse at 200+ parties. Probably.</p>
+      </div>
+
+      <div class="card">
+        <h2>&#128665; The Crash Cart</h2>
+        <div class="sub">Isabella&#8217;s real truck checklist — build yours before the party needs it.</div>
+        <div class="kit-progress"><div class="kit-fill" id="kitFill"></div></div>
+        <div class="kit-pct" id="kitPct">0% loaded</div>
+        <div id="kitList"></div>
+        <div class="note-actions no-print">
+          <button class="cta-btn ghost" id="kitWaBtn" type="button">&#128172; Share My Kit</button>
+        </div>
+        <p class="tip">&#128424; Print the page and the crash cart rides along as a checklist.</p>
+      </div>
+
+      <div class="card">
+        <h2>The ER Record</h2>
+        <div class="sub">From Isabella&#8217;s install notebook.</div>
+        <div class="stats">
+          <div class="stat"><b>30+</b><span>rescues mid-setup</span></div>
+          <div class="stat"><b>9 min</b><span>record backdrop swap</span></div>
+          <div class="stat"><b>2</b><span>helium tanks, always</span></div>
+          <div class="stat"><b>0</b><span>parties missed — ever</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div>&#127881; Everlasting Memories — Balloon Art &amp; Event Decor, Connecticut</div>
+  <div style="margin-top:4px"><a href="contact.html">Contact</a> &middot; <a href="services.html">Services</a> &middot; <a href="gallery.html">Gallery</a> &middot; <a href="about.html">About</a></div>
+  <p class="strip"><a href="party-er.html" style="color:#a7f3d0;font-weight:600;">The Party ER</a> · <a href="rain-plan.html" style="color:#7dd3fc;font-weight:600;">The Rain Plan</a> · <a href="seating-chart.html" style="color:#f9a8d4;font-weight:600;">The Seating Chart Studio</a> · <a href="after-glow.html" style="color:#f9a8d4;font-weight:600;">The After-Glow</a> · <a href="surprise-planner.html" style="color:#c7d2ee;font-weight:600;">Operation: Surprise</a> · <a href="dessert-table.html" style="color:#f0c9a0;font-weight:600;">Dessert Table Stylist</a> · <a href="golden-hour.html" style="color:#a78bfa;font-weight:600;">Golden Hour Finder</a> · <a href="party-timeline.html" style="color:#fbbf24;font-weight:600;">Party Day Timeline</a> · <a href="memory-capsule.html" style="color:#92400e;font-weight:600;">Memory Capsule</a> · <a href="playlist.html" style="color:#b91c1c;font-weight:600;">Party Playlist</a> · <a href="guest-list.html" style="color:#1e3a8a;font-weight:600;">The Guest List</a> · <a href="photo-hunt.html" style="color:#a21caf;font-weight:600;">Party Photo Hunt</a> · <a href="photo-booth.html" style="color:#0369a1;font-weight:600;">Golden Hour Booth</a> · <a href="memory-wall.html" style="color:#b45309;font-weight:600;">Memory Wall</a> · <a href="party-roadmap.html" style="color:#0f766e;font-weight:600;">Party Roadmap</a> · <a href="invitation-studio.html" style="color:#312e81;font-weight:600;">Invitation Studio</a> · <a href="balloon-pop.html" style="color:#ea580c;font-weight:600;">Pop Party</a> · <a href="wedding-workshop.html" style="color:#9d174d;font-weight:600;">Wedding Workshop</a> · <a href="transformations.html" style="color:#7c3aed;font-weight:600;">The Big Reveal</a> · <a href="budget-builder.html" style="color:#2f7a52">Budget Balloonist</a> · <a href="referral.html" style="color:#C9A87C">Refer &amp; Earn</a></p>
+</footer>
+
+<div class="toast" id="toastEl"></div>
+
+<!-- code blue overlay -->
+<div class="blue-overlay" id="blueOverlay" role="dialog" aria-label="Code blue breathing exercise">
+  <div class="blue-balloon" id="blueBalloon">&#127881;</div>
+  <div class="blue-text" id="blueText">Breathe in&#8230;</div>
+  <div class="blue-sub" id="blueSub">4 seconds in. You&#8217;ve handled worse Mondays.</div>
+  <button class="blue-btn no-print" id="blueClose" type="button" style="display:none">&#128680; OK — show me the triage board</button>
+</div>
+
+<!-- printable rescue card -->
+<div class="print-area" id="printArea">
+  <h2>&#129657; The Party ER — Rescue Card</h2>
+  <div class="pa-sub" id="paSub">Everlasting Memories — Balloon Art &amp; Event Decor · myeverlastingmemories.com</div>
+  <div id="paBody"></div>
+  <div class="pa-foot">Protocols distilled from Isabella&#8217;s install notebook — 200+ events, 30+ mid-setup rescues, 0 parties missed. For anything structural, call a human: Isabella answers.</div>
+</div>
+
+<script>
+/* ============================================================
+   The Party ER — Night 39
+   Pure vanilla JS, zero dependencies, works fully offline.
+   Triage protocols distilled from Isabella's install notebook.
+   ============================================================ */
+var LS_KIT='em_er_kit_v1';
+var LS_CRISIS='em_er_crisis_v1';
+
+var CRISES=[
+  {id:'heat',emoji:'\u{1FAE0}',name:'Popping in the heat',sev:'ser',
+   symptom:'Latex balloons are snapping in direct sun — usually one every few minutes as the day heats up.',
+   move:['Get the arch and garlands out of direct sun NOW — a shade umbrella, a tree, or 10 feet of relocation can save the whole design.','Swap the hottest spots to 16-inch or foil balloons — 11-inch latex expands and pops above roughly 85\u00B0F.','Inflate replacements slightly soft — about 90% — so they have room to grow in the heat.'],
+   wait:'Fill a backup cluster indoors and bring it out only when the sun shifts off the setup.',
+   never:'Isabella inflates latex last — 1\u20132 hours before guests, never the night before — and her truck always carries spares in the party colors.',
+   link:{href:'rain-plan.html',label:'The Rain Plan — her full heat &amp; cold rules'},
+   note:'Balloons don\u2019t sweat. They pop. It\u2019s their one flaw.'},
+  {id:'lean',emoji:'\u{1F5FC}',name:'The arch is leaning',sev:'crit',
+   symptom:'The arch is tilting — usually toward the exact spot the photographer is about to stand.',
+   move:['Clear everyone from under it, then weight every leg right now — 25 lb of sandbag or water weight per leg, minimum.','Anchor the crown with clear fishing line to a fence, post, or wall anchor so it can\u2019t travel any further.','Re-check in 30 minutes — a lean always reappears in the first hour if the weight was wrong.'],
+   wait:'Put a planter or chair near the base so nobody wanders into the fall zone.',
+   never:'Legs are weighted at install, before the arch is \u201Cdone\u201D — physics first, fluffing second.',
+   link:{href:'transformations.html',label:'The Big Reveal — what a straight arch should look like'},
+   note:'An arch is 90% physics and 10% pretty. Isabella weights first, always.'},
+  {id:'helium',emoji:'\u{1F388}',name:'The helium ran out',sev:'crit',
+   symptom:'The tank hisses empty with bouquets still waiting to float.',
+   move:['Stop the panic and count what\u2019s left — most \u201Cdisasters\u201D are two bouquets away from fine.','Turn the floats into air-filled clusters: on stands, tied to chair backs, tucked into the dessert frame. Guests can\u2019t tell.','Move the remaining helium to the highest-photo moment — the cake table or the entrance — and let the rest go air-filled.'],
+   wait:'An air-filled cluster on a stick looks intentional. It is now.',
+   never:'Isabella\u2019s truck carries two tanks, and her rule is one tank per ~100 latex floats — count before you fill.',
+   link:{href:'balloon-math.html',label:'Balloon Math — floats per tank &amp; sizing'},
+   note:'Helium never runs out at a party. It runs out before the party — which is why two tanks live in the truck.'},
+  {id:'late',emoji:'\u{1F3C3}',name:'Decor late, guests in 1h',sev:'crit',
+   symptom:'The setup is behind and the first guests arrive in 60 minutes.',
+   move:['Triage in this order: the entrance first — it\u2019s the first photo — then the focal wall behind the cake, then everything else.','If it\u2019s Isabella\u2019s crew, text her the ETA — she re-routes installs for a living and has fixed worse.','Create a guest buffer: someone greets at the door, drinks come out first, and the decor finishes behind the party.'],
+   wait:'Point the photographer at the cake corner — one finished focal point beats five half-finished ones.',
+   never:'Installs are scheduled two hours before doors open, with the plan confirmed in writing 24 hours out.',
+   link:{href:'party-timeline.html',label:'Party Day Timeline — the run-of-show that keeps crews on time'},
+   note:'Guests remember three things: the entrance, the cake shot, and the dance floor. Triage in that order.'},
+  {id:'timeline',emoji:'\u{1F570}\uFE0F',name:'Running 30+ min late',sev:'ser',
+   symptom:'Dinner ran long, the toasts are stacking up, and golden hour is packing its bags.',
+   move:['Cut the fourth toast — toasts past three are where timelines go to die.','Move the cake cutting earlier and let dinner overlap the dancing — nobody has ever complained the party started early.','Tell the DJ or playlist the new hard stops: golden hour and the finale are the two moments you can\u2019t reschedule.'],
+   wait:'If you\u2019re running late, push the big photos to golden hour — the light forgives everything.',
+   never:'A run-of-show with built-in buffers keeps the whole day 30 minutes ahead instead of behind.',
+   link:{href:'party-timeline.html',label:'Party Day Timeline — build your run-of-show'},
+   note:'A timeline is a suggestion until the cake is cut. Then it\u2019s law.'},
+  {id:'crowd',emoji:'\u{1F465}',name:'Way more guests came',sev:'ser',
+   symptom:'The \u201Cwe\u2019re casual, no RSVPs\u201D crowd arrived — all 14 extra cousins included.',
+   move:['Count real heads first — the honest math is confirmed guests plus half the maybes.','Open the overflow plan: 8-tops become 10-tops, centerpieces shift to the dessert table, chairs appear from everywhere.','Turn the dessert table into a two-sided buffet line so the crowd flows instead of queues.'],
+   wait:'Switch the photo booth and photo hunt to groups of six so the lines keep moving.',
+   never:'Isabella prices rooms by headcount for a reason — track plus-ones so the plan matches the party.',
+   link:{href:'seating-chart.html',label:'Seating Chart Studio — rebalance tables in seconds'},
+   note:'Every host says \u201Cno RSVPs.\u201D Every host also has 14 extra cousins.'},
+  {id:'cake',emoji:'\u{1F382}',name:'Cake melting in the sun',sev:'ser',
+   symptom:'The buttercream is soft, the chocolate is glossy, and the dessert table is facing the sun.',
+   move:['Move the table into shade NOW — ten feet can save a cake.','If it\u2019s already soft, serve early: cutting the cake before dinner beats serving fondue.','Put melt-proof sweets — cookies, macarons, cake pops — on the sunny side and the fragile stuff inside.'],
+   wait:'Set up a small indoor dessert side-table for the melt-prone items.',
+   never:'Dessert tables get shade at install, every time — UV fades the decor and melts the frosting in equal measure.',
+   link:{href:'dessert-table.html',label:'Dessert Table Stylist — plan the setup with shade in mind'},
+   note:'The sun is the dessert table\u2019s archenemy. It doesn\u2019t even need the rain\u2019s help.'},
+  {id:'rain',emoji:'\u{1F327}\uFE0F',name:'The sky just opened',sev:'crit',
+   symptom:'The first drop hits the arch 20 minutes before photos.',
+   move:['Execute the Plan B you picked weeks ago — under cover first, always.','Rescue in order: helium floats indoors first, then the arch (a porch overhang works), then the dessert frame.','Rain-soaked latex gets heavy and cloudy — replace it, don\u2019t wipe it.'],
+   wait:'Towels at every door, a \u201Cwet shoes\u201D basket, and someone to flip the playlist to cozy.',
+   never:'Every Isabella outdoor install has a rain drill planned at booking — weather is just the guest list she plans around.',
+   link:{href:'rain-plan.html',label:'The Rain Plan — storm risk and Plan B before the date'},
+   note:'Rain isn\u2019t the enemy. Unplanned rain is the enemy.'},
+  {id:'pop',emoji:'\u{1F4A5}',name:'The backdrop got popped',sev:'ser',
+   symptom:'A guest, a selfie stick, or a rogue elbow just took out a balloon in the photo wall.',
+   move:['Don\u2019t panic — it\u2019s one balloon, not the design.','Pop the neighbor on each side so the gap is clean, then fill it with the color-matched spare.','Isabella\u2019s crews carry spares for every install — the record for swapping an 8-foot backdrop is nine minutes.'],
+   wait:'Move the photo line to the other end of the wall while you fix it.',
+   never:'Spares live in the trunk — the trunk is the crash cart.',
+   link:{href:'photo-booth.html',label:'Golden Hour Booth — the backdrop\u2019s best friend'},
+   note:'A popped balloon is a nine-minute problem. A popped balloon with no spare is a party problem.'},
+  {id:'letters',emoji:'\u{1F524}',name:'The name letters fell',sev:'ok',
+   symptom:'\u201CSOPHIA\u201D is now \u201COPHIA\u201D on the floor.',
+   move:['Catch the letters and check what failed — the hook, the tape, or the wall.','Re-hang heavy letters with fishing line through the top holes; lightweight foam gets heavy-duty command strips.','Level with your phone camera, not your eyeball.'],
+   wait:'Stack the letters in order so the re-hang takes two minutes, not ten.',
+   never:'Letters get two attachment points whenever guests will be within reach — one is a wish, two is a plan.',
+   link:{href:'name-garland.html',label:'Balloon Letter Studio — spell it right the first time'},
+   note:'Letters fall in order of inconvenience. Usually the first letter of the birthday kid\u2019s name.'},
+  {id:'wind',emoji:'\u{1F4A8}',name:'The wind picked up',sev:'ser',
+   symptom:'The flags are straight out and the garlands are doing the wave.',
+   move:['Lower the profile: tall helium comes down first, air-filled can stay.','Add weight to every base — above ~15 mph is arch-killer territory.','Move the party to the leeward side of the house if you can — decor dies on the windward side.'],
+   wait:'Planters, coolers, and chairs make excellent temporary anchors.',
+   never:'Extra anchor weight is standard on Isabella\u2019s installs, not an option — wind is the guest that never RSVPs.',
+   link:{href:'rain-plan.html',label:'The Rain Plan — wind rules for outdoor setups'},
+   note:'Wind is the only guest that never RSVPs and never leaves.'},
+  {id:'reveal',emoji:'\u{1F381}',name:'Surprise arrived early',sev:'crit',
+   symptom:'The guest of honor just pulled in — 40 minutes early, keys in hand.',
+   move:['Go Code Red: someone intercepts with the decoy errand — a walk, a phone call, \u201Cyou left something in the car.\u201D','Freeze the group chat: no posts, no tags, no \u201Churry up, they\u2019re here.\u201D','Flip the playlist to normal and keep the decor covered until the reveal moment.'],
+   wait:'If the decor is behind a door or curtain, keep it there — out of sight is out of mind.',
+   never:'Every surprise gets a decoy plan at booking — the code-red drill exists for exactly this.',
+   link:{href:'surprise-planner.html',label:'Operation: Surprise — the covert-ops planner'},
+   note:'The surprise isn\u2019t ruined until they see the arch. Until then, it\u2019s improv.'},
+  {id:'other',emoji:'\u{1F198}',name:'Something else broke',sev:'ok',
+   symptom:'It\u2019s not on the board, but it is definitely broken.',
+   move:['Breathe first — hit Code Blue and take 30 seconds. Panic is the 13th crisis.','Ask the three questions: is it plugged in, is there tape, is there a spare? 80% of party emergencies are one of those.','Call Isabella — the phone is answered by a human who has rescued 30+ setups mid-party.'],
+   wait:'Text a photo — she can talk most fixes through in 60 seconds.',
+   never:'The free quote includes a full stress-test audit — it catches the unknown unknowns before the party does.',
+   link:{href:'contact.html',label:'Contact Isabella — a human answers'},
+   note:'\u201CIt\u2019ll be fine\u201D is how 90% of her 7am calls start. \u201CI should have called you first\u201D is how they end.'}
+];
+
+var SEV={
+  crit:{label:'CODE RED',color:'#dc2626',emoji:'\u{1F6A8}'},
+  ser:{label:'WATCH CLOSELY',color:'#d97706',emoji:'\u26A0\uFE0F'},
+  ok:{label:'HANDLEABLE',color:'#16a34a',emoji:'\u{1F642}'}
+};
+
+var KIT=[
+  {id:'sandbags',g:'Weights &amp; anchors',label:'Sandbags \u00D74'},
+  {id:'waterw',g:'Weights &amp; anchors',label:'Water weights \u00D72'},
+  {id:'line',g:'Weights &amp; anchors',label:'Fishing line, 50 ft'},
+  {id:'strips',g:'Weights &amp; anchors',label:'Heavy command strips \u00D78'},
+  {id:'l11',g:'Balloon spares',label:'11\u2033 latex \u00D720, party colors'},
+  {id:'l16',g:'Balloon spares',label:'16\u2033 latex \u00D76'},
+  {id:'foil',g:'Balloon spares',label:'Foil balloons \u00D73'},
+  {id:'pump',g:'Balloon spares',label:'Hand pump'},
+  {id:'dots',g:'Balloon spares',label:'Balloon glue dots \u00D750'},
+  {id:'scissors',g:'Tools',label:'Scissors'},
+  {id:'ladder',g:'Tools',label:'Step ladder'},
+  {id:'tape',g:'Tools',label:'Packing tape'},
+  {id:'ties',g:'Tools',label:'Cable ties \u00D720'},
+  {id:'hooks',g:'Tools',label:'Spare hooks \u00D76'},
+  {id:'mist',g:'Comfort &amp; cover',label:'Misting bottle'},
+  {id:'umbrella',g:'Comfort &amp; cover',label:'Shade umbrella'},
+  {id:'towels',g:'Comfort &amp; cover',label:'Towels \u00D74'},
+  {id:'cord',g:'Comfort &amp; cover',label:'Extension cord'},
+  {id:'number',g:'Lifelines',label:'Isabella\u2019s number saved'},
+  {id:'bookmark',g:'Lifelines',label:'This page bookmarked'}
+];
+
+var state={crisis:'pop'};
+
+/* ---------- pure engine ---------- */
+function getCrisis(id){return CRISES.find(function(c){return c.id===id;})||CRISES[CRISES.length-1];}
+function sevInfo(sev){return SEV[sev]||SEV.ok;}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function kitGroups(){var out=[],seen={};KIT.forEach(function(k){if(!seen[k.g]){seen[k.g]=1;out.push(k.g);}});return out;}
+function kitProgress(checked){
+  var have=0;KIT.forEach(function(k){if(checked.indexOf(k.id)!==-1)have++;});
+  return {have:have,total:KIT.length,pct:KIT.length?Math.round(have/KIT.length*100):0};
+}
+function buildShareText(id){
+  var c=getCrisis(id);
+  return '\u{1F6A8} My party just hit \u201C'+c.name+'\u201D and I\u2019m working Isabella\u2019s Party ER board. First move: '+c.move[0]+' Bookmark this before your party: https://myeverlastingmemories.com/party-er.html';
+}
+function buildKitShare(checked){
+  var p=kitProgress(checked);
+  return 'My party crash cart is '+p.pct+'% loaded ('+p.have+'/'+p.total+') \u2014 built from Isabella\u2019s real truck list. Build yours: https://myeverlastingmemories.com/party-er.html';
+}
+function leadPayload(id,eventType){
+  var c=getCrisis(id);
+  return {source:'party-er',type:'lead',crisis:c.name,severity:sevInfo(c.sev).label,eventType:eventType||''};
+}
+function drillIndex(){return Math.floor(Math.random()*CRISES.length);}
+var sampleCrisis='lean';
+
+/* ---------- persistence ---------- */
+function load(){
+  try{
+    var raw=localStorage.getItem(LS_CRISIS);
+    if(raw){var s=JSON.parse(raw);if(s&&s.crisis)state=s;return;}
+  }catch(e){}
+  state={crisis:'pop'};
+}
+function save(){try{localStorage.setItem(LS_CRISIS,JSON.stringify(state));}catch(e){}}
+function loadKit(){try{var raw=localStorage.getItem(LS_KIT);if(raw){var a=JSON.parse(raw);if(Array.isArray(a))return a.filter(function(id){return KIT.some(function(k){return k.id===id;});});}}catch(e){}return [];}
+function saveKit(a){try{localStorage.setItem(LS_KIT,JSON.stringify(a));}catch(e){}}
+
+/* ---------- render ---------- */
+function renderBoard(){
+  var el=document.getElementById('crisisBoard');
+  el.innerHTML=CRISES.map(function(c){
+    var s=sevInfo(c.sev);
+    return '<button type="button" class="crisis-btn'+(state.crisis===c.id?' on':'')+'" data-id="'+c.id+'" aria-pressed="'+(state.crisis===c.id?'true':'false')+'">'+
+      '<span class="cb-emoji">'+c.emoji+'</span><span class="cb-name">'+esc(c.name)+'</span>'+
+      '<span class="cb-sev" style="color:'+(state.crisis===c.id?'#d1fae5':s.color)+'">'+s.emoji+' '+s.label+'</span></button>';
+  }).join('');
+  el.querySelectorAll('.crisis-btn').forEach(function(b){
+    b.addEventListener('click',function(){state.crisis=b.dataset.id;save();renderAll();});
+  });
+}
+function renderProtocol(){
+  var c=getCrisis(state.crisis),s=sevInfo(c.sev);
+  var pill=document.getElementById('sevPill');
+  pill.textContent=s.emoji+' '+s.label;
+  pill.style.background=s.color;
+  document.getElementById('crisisEmoji').textContent=c.emoji;
+  document.getElementById('crisisTitle').textContent=c.name;
+  document.getElementById('sympTxt').textContent='\u201C'+c.symptom+'\u201D';
+  document.getElementById('moveList').innerHTML=c.move.map(function(m){return '<li>'+esc(m)+'</li>';}).join('');
+  document.getElementById('waitTxt').textContent=c.wait;
+  document.getElementById('neverTxt').textContent=c.never;
+  document.getElementById('noteTxt').textContent='\u2014 ER note: '+c.note;
+  var chip=document.getElementById('linkChip');
+  chip.href=c.link.href;
+  chip.innerHTML='\u{1F517} '+c.link.label;
+  renderPrint();
+}
+function renderKit(){
+  var checked=loadKit();
+  var p=kitProgress(checked);
+  var fill=document.getElementById('kitFill');
+  fill.style.width=p.pct+'%';
+  document.getElementById('kitPct').textContent=p.pct+'% loaded ('+p.have+'/'+p.total+')';
+  var el=document.getElementById('kitList');
+  var html='';
+  kitGroups().forEach(function(g){
+    html+='<div class="kit-group"><div class="kg-name">'+g+'</div>';
+    KIT.forEach(function(k){
+      if(k.g!==g)return;
+      var on=checked.indexOf(k.id)!==-1;
+      html+='<label class="kit-item'+(on?' done':'')+'"><input type="checkbox" data-id="'+k.id+'"'+(on?' checked':'')+'><span>'+k.label+'</span></label>';
+    });
+    html+='</div>';
+  });
+  el.innerHTML=html;
+  el.querySelectorAll('input[type=checkbox]').forEach(function(box){
+    box.addEventListener('change',function(){
+      var cur=loadKit();
+      var id=box.dataset.id;
+      var next=box.checked?(cur.indexOf(id)===-1?cur.concat([id]):cur):cur.filter(function(x){return x!==id;});
+      saveKit(next);
+      renderKit();
+    });
+  });
+}
+function renderPrint(){
+  var c=getCrisis(state.crisis),s=sevInfo(c.sev);
+  var pa=document.getElementById('paBody');
+  pa.innerHTML=
+    '<div class="pa-row"><b>Diagnosis:</b> '+s.emoji+' '+esc(s.label)+' \u2014 '+esc(c.name)+'</div>'+
+    '<div class="pa-row"><b>Symptom:</b> '+esc(c.symptom)+'</div>'+
+    '<div class="pa-row"><b>Isabella\u2019s move:</b></div><ol>'+c.move.map(function(m){return '<li>'+esc(m)+'</li>';}).join('')+'</ol>'+
+    '<div class="pa-row"><b>While you wait:</b> '+esc(c.wait)+'</div>'+
+    '<div class="pa-row"><b>Never again:</b> '+esc(c.never)+'</div>'+
+    '<div class="pa-row"><b>Crash cart check:</b></div>'+
+    '<div class="pa-kit">'+kitGroups().map(function(g){
+      return '<div class="pa-kit-col"><h4>'+g+'</h4><p>'+
+        KIT.filter(function(k){return k.g===g;}).map(function(k){return '\u2610 '+k.label;}).join('<br>')+
+        '</p></div>';
+    }).join('')+'</div>';
+}
+function renderAll(){renderBoard();renderProtocol();renderKit();}
+
+/* ---------- toast + confetti ---------- */
+var toastTimer;
+function toast(msg){
+  var t=document.getElementById('toastEl');
+  t.textContent=msg;t.classList.add('show');
+  clearTimeout(toastTimer);toastTimer=setTimeout(function(){t.classList.remove('show');},2800);
+}
+function burst(){
+  var colors=['#059669','#C9A227','#6ee7b7','#ffffff'];
+  for(var i=0;i<26;i++){
+    var d=document.createElement('div');
+    d.style.cssText='position:fixed;left:50%;top:55%;width:10px;height:10px;border-radius:50%;z-index:999;pointer-events:none;background:'+colors[i%colors.length]+';transform:translate(-50%,-50%);transition:all .9s cubic-bezier(.16,1,.3,1);opacity:1;';
+    document.body.appendChild(d);
+    requestAnimationFrame(function(){
+      d.style.transform='translate('+((Math.random()*440-220))+'px,'+((Math.random()*360-180))+'px) rotate(360deg) scale('+(Math.random()*1.4+.4)+')';
+      d.style.opacity='0';
+    });
+    setTimeout(function(){d.remove();},950);
+  }
+}
+
+/* ---------- secret #16 (5 taps on the badge) ---------- */
+var taps=0,tapTimer;
+function secret(){
+  taps++;
+  clearTimeout(tapTimer);
+  tapTimer=setTimeout(function(){taps=0;},1200);
+  if(taps===5){
+    taps=0;burst();
+    toast('Isabella\u2019s secret #16: her truck IS a party ER \u2014 two helium tanks, color-matched spares for every install, and a 9-minute record swapping a popped 8ft backdrop. In 200+ events she\u2019s never missed a party \u2014 but she\u2019s rescued 30+ of them mid-setup.');
+  }
+}
+
+/* ---------- code blue ---------- */
+var reduced=false;
+function sleep(ms){return new Promise(function(r){setTimeout(r,ms);});}
+async function codeBlue(){
+  var ov=document.getElementById('blueOverlay');
+  var txt=document.getElementById('blueText');
+  var sub=document.getElementById('blueSub');
+  var ball=document.getElementById('blueBalloon');
+  var closeBtn=document.getElementById('blueClose');
+  ov.classList.add('open');
+  closeBtn.style.display='none';
+  for(var i=0;i<3;i++){
+    txt.textContent='Breathe in\u2026';
+    sub.textContent='4 seconds in. You\u2019ve handled worse Mondays.';
+    if(!reduced)ball.style.transform='scale(1.55)';
+    await sleep(4000);
+    txt.textContent='Hold\u2026';
+    sub.textContent='Hold it. The balloons can wait.';
+    await sleep(4000);
+    txt.textContent='Breathe out\u2026';
+    sub.textContent='6 seconds out. Let the panic go with it.';
+    if(!reduced)ball.style.transform='scale(1)';
+    await sleep(6000);
+  }
+  txt.textContent='Steady. You\u2019ve got this.';
+  sub.textContent='Isabella has fixed worse at 200+ parties. Probably. Now \u2014 what broke?';
+  closeBtn.style.display='inline-block';
+}
+
+/* ---------- boot ---------- */
+function bind(){
+  load();
+  renderAll();
+  document.querySelector('.badge').addEventListener('click',secret);
+  document.getElementById('blueBtn').addEventListener('click',codeBlue);
+  document.getElementById('blueClose').addEventListener('click',function(){
+    document.getElementById('blueOverlay').classList.remove('open');
+  });
+  document.getElementById('drillBtn').addEventListener('click',function(){
+    state.crisis=CRISES[drillIndex()].id;save();renderAll();burst();
+    toast('Drill: '+getCrisis(state.crisis).name+' \u2014 what\u2019s your move?');
+  });
+  document.getElementById('printBtn').addEventListener('click',function(){window.print();});
+  document.getElementById('waBtn').addEventListener('click',function(){
+    window.open('https://wa.me/?text='+encodeURIComponent(buildShareText(state.crisis)),'_blank');
+  });
+  document.getElementById('kitWaBtn').addEventListener('click',function(){
+    window.open('https://wa.me/?text='+encodeURIComponent(buildKitShare(loadKit())),'_blank');
+  });
+  document.getElementById('leadBtn').addEventListener('click',async function(){
+    var name=document.getElementById('leadName').value.trim();
+    var contact=document.getElementById('leadContact').value.trim();
+    var msg=document.getElementById('leadMsg').value.trim();
+    var ev=document.getElementById('leadEvent').value;
+    if(!name||!contact){toast('\u26A0\uFE0F Add your name and email/phone first.');return;}
+    var tip=document.getElementById('leadTip');
+    tip.textContent='Sending\u2026';
+    try{
+      var c=getCrisis(state.crisis);
+      var payload=Object.assign({name:name,contact:contact,message:msg||('Just survived \u201C'+c.name+'\u201D on the ER board \u2014 never again.')},leadPayload(state.crisis,ev));
+      var r=await fetch('/api/leads.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+      if(!r.ok)throw new Error('bad status');
+      tip.textContent='\u2705 Sent! Isabella replies by hand \u2014 usually within a few hours.';
+      document.getElementById('leadName').value='';
+      document.getElementById('leadContact').value='';
+      document.getElementById('leadMsg').value='';
+      burst();
+    }catch(e){
+      tip.textContent='\u26A0\uFE0F Couldn\u2019t send right now \u2014 email isabella@myeverlastingmemories.com instead.';
+    }
+  });
+  if(typeof window!=='undefined'&&window.matchMedia){reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;}
+}
+if(typeof document!=='undefined'&&document.getElementById){bind();}
+if(typeof module!=='undefined'&&module.exports){module.exports={CRISES,SEV,KIT,getCrisis,sevInfo,esc,kitGroups,kitProgress,buildShareText,buildKitShare,leadPayload,drillIndex,sampleCrisis};}
+</script>
+</body>
+</html>
