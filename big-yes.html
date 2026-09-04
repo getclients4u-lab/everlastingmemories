@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Big Yes — Proposal Moment Planner | Everlasting Memories</title>
+<meta name="description" content="Plan the proposal moment with Isabella's real playbook: pick the scene, the words, the golden hour, the photographer hideout and the ring logistics — then book the wedding with the same team. The Big Yes — Everlasting Memories.">
+<meta name="theme-color" content="#a8526b">
+<meta property="og:title" content="The Big Yes — Proposal Moment Planner | Everlasting Memories">
+<meta property="og:description" content="The site's first proposal tool. Plan the scene, the words, the golden hour and the photographer hideout — then let the same team decorate the wedding.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--c1:#a8526b;--c2:#C9A227;--c3:#7c3047;--bg:#fdf6f1;--line:#ecd9d0;--ink:#241a1a;--soft:#6f5a5e;--good:#1a7f4e;--bad:#b3261e}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.serif{font-family:'Playfair Display',Georgia,serif}
+a{color:var(--c1);text-decoration:none}
+a:hover{opacity:.85}
+/* nav */
+.em-nav{display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:14px 22px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.em-nav-brand{font-family:'Playfair Display',serif;font-weight:700;font-size:1.15rem;color:var(--ink);margin-right:auto}
+.em-nav-brand span{color:var(--c1)}
+.em-nav a.nav-link{font-size:.85rem;font-weight:600;color:var(--ink);padding:6px 8px;border-radius:8px}
+.em-nav a.nav-link:hover{background:var(--bg)}
+.em-nav-cta{background:linear-gradient(135deg,var(--c1),var(--c3));color:#fff!important;padding:9px 16px;border-radius:999px;font-weight:600;font-size:.85rem;box-shadow:0 4px 14px rgba(168,82,107,.35)}
+.em-nav-cta:hover{opacity:.92}
+.dd-wrap{position:relative}
+.dd-btn{background:none;border:1px solid var(--line);border-radius:999px;padding:8px 16px;font:600 .85rem 'Inter',sans-serif;color:var(--ink);cursor:pointer;display:flex;align-items:center;gap:6px}
+.dd-btn:hover{background:var(--bg)}
+.dd-menu{display:none;position:absolute;top:calc(100% + 8px);left:0;min-width:230px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 18px 40px rgba(36,26,26,.14);padding:8px;z-index:60}
+.dd-menu.open{display:block}
+.dd-menu a{display:block;padding:8px 12px;border-radius:9px;font-size:.84rem;font-weight:500;color:var(--ink)}
+.dd-menu a:hover{background:var(--bg)}
+.dd-menu a.styled{color:#fff!important;font-weight:600}
+.dd-menu .dd-tag{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);padding:8px 12px 4px}
+/* hero */
+.hero{max-width:1100px;margin:0 auto;padding:34px 22px 10px}
+.home-link{display:inline-block;font-size:.82rem;font-weight:600;color:var(--c1);margin-bottom:16px}
+.badge{display:inline-block;background:linear-gradient(135deg,var(--c1),var(--c3));color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:14px;cursor:pointer;user-select:none}
+.hero h1{font-size:clamp(2.1rem,5vw,3.3rem);line-height:1.1;color:var(--c3)}
+.hero .sub{margin-top:12px;max-width:760px;color:var(--soft);font-size:1.02rem}
+.hero .sub b{color:var(--ink)}
+/* layout */
+.container{max-width:1100px;margin:0 auto;padding:22px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 10px 30px rgba(36,26,26,.05)}
+.card h2{font-size:1.35rem;color:var(--c3);margin-bottom:4px}
+.card .kicker{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c1);margin-bottom:2px}
+.card .hint{font-size:.82rem;color:var(--soft);margin-bottom:14px}
+.fg{margin-bottom:14px}
+.fg label{display:block;font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ink);margin-bottom:5px}
+.fg input,.fg select,.fg textarea{width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;font:500 .92rem 'Inter',sans-serif;background:#fff;color:var(--ink)}
+.fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:var(--c1)}
+.fg textarea{min-height:64px;resize:vertical}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:520px){.fg-row{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;font:600 .82rem 'Inter',sans-serif;color:var(--ink);cursor:pointer;transition:all .15s}
+.chip:hover{border-color:var(--c1);color:var(--c1)}
+.chip.on{background:linear-gradient(135deg,var(--c1),var(--c3));border-color:transparent;color:#fff;box-shadow:0 4px 12px rgba(168,82,107,.3)}
+.chip .px{display:block;font-size:.66rem;font-weight:600;opacity:.85}
+.scene-desc{margin-top:10px;background:var(--bg);border:1px dashed var(--line);border-radius:12px;padding:12px 14px;font-size:.86rem}
+.scene-desc b{color:var(--c3)}
+/* output */
+.note-card{background:linear-gradient(160deg,#fffdfb,#fbeef0);border:1px solid var(--line);border-radius:18px;padding:22px;min-height:300px;position:relative}
+.note-card .nc-tag{font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--c1)}
+.note-card .nc-occasion{font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--c3);margin:2px 0 10px}
+.note-card .nc-subject{font-size:.8rem;font-weight:700;color:var(--soft);margin-bottom:6px}
+.note-card .nc-body{font-size:.92rem;white-space:pre-line}
+.note-card .nc-sign{font-family:'Playfair Display',serif;font-size:1.05rem;margin-top:12px;color:var(--c3)}
+.note-card .nc-foot{margin-top:14px;padding-top:10px;border-top:1px dashed var(--line);font-size:.78rem;color:var(--soft)}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.btn{border:none;border-radius:999px;padding:11px 18px;font:600 .85rem 'Inter',sans-serif;cursor:pointer;transition:all .15s}
+.btn-p{background:linear-gradient(135deg,var(--c1),var(--c3));color:#fff;box-shadow:0 4px 14px rgba(168,82,107,.3)}
+.btn-p:hover{opacity:.92}
+.btn-g{background:#fff;border:1.5px solid var(--line);color:var(--ink)}
+.btn-g:hover{border-color:var(--c1);color:var(--c1)}
+.btn-wa{background:#25D366;color:#fff}
+.btn-wa:hover{opacity:.9}
+.btn-print{background:var(--ink);color:#fff}
+.btn-print:hover{opacity:.88}
+/* plan list */
+.plan-list{list-style:none}
+.plan-list li{display:flex;gap:10px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:.86rem}
+.plan-list li:last-child{border-bottom:none}
+.plan-list .t{font-weight:700;color:var(--c3);white-space:nowrap;min-width:64px}
+.plan-list .x{color:var(--soft)}
+.tip{margin-top:12px;background:#fdf3d7;border:1px solid #ecd9a8;border-radius:12px;padding:12px 14px;font-size:.84rem}
+.tip b{color:#8a6d1f}
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:26px 0}
+@media(max-width:760px){.facts{grid-template-columns:repeat(2,1fr)}}
+.fact{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;text-align:center}
+.fact .n{font-family:'Playfair Display',serif;font-size:1.7rem;color:var(--c1);line-height:1.1}
+.fact .l{font-size:.74rem;color:var(--soft);margin-top:4px;line-height:1.35}
+/* faq */
+.faq details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin-bottom:10px}
+.faq summary{font-weight:600;cursor:pointer;font-size:.92rem;color:var(--ink)}
+.faq summary:hover{color:var(--c1)}
+.faq details p{margin-top:10px;font-size:.87rem;color:var(--soft)}
+/* lead */
+.lead-card{background:linear-gradient(160deg,var(--c3),#4d1e2e);color:#fff;border-radius:20px;padding:28px;margin-top:8px}
+.lead-card h2{color:#fff}
+.lead-card .kicker{color:#f2c6d2}
+.lead-card .hint{color:#e7c9d2}
+.lead-card label{color:#f5dfe5}
+.lead-card input,.lead-card select,.lead-card textarea{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#fff}
+.lead-card input::placeholder,.lead-card textarea::placeholder{color:rgba(255,255,255,.55)}
+.lead-card input:focus,.lead-card select:focus,.lead-card textarea:focus{border-color:#f2c6d2}
+.lead-card select option{color:var(--ink)}
+.lead-card .btn-p{background:#fff;color:var(--c3)}
+.lead-card .fine{font-size:.74rem;color:#e7c9d2;margin-top:10px}
+/* footer */
+footer{background:var(--c3);color:#fff;margin-top:34px;padding:26px 22px 30px}
+footer .strip{font-size:.78rem;line-height:2;color:rgba(255,255,255,.75)}
+footer .strip a{color:#f2c6d2;font-weight:600;margin-right:2px}
+footer .foot-brand{font-family:'Playfair Display',serif;font-size:1.1rem;margin-top:14px}
+footer .foot-brand span{color:#f2c6d2}
+footer .copy{font-size:.72rem;color:rgba(255,255,255,.6);margin-top:6px}
+/* print card */
+.print-card{display:none}
+@media print{
+  body{background:#fff}
+  .em-nav,.actions,.lead-card,.facts,.faq,.hero .sub,.home-link,.badge,footer{display:none!important}
+  .container{max-width:100%}
+  .grid{grid-template-columns:1fr}
+  .print-card{display:block;background:#fff;border:2px solid var(--c3);border-radius:14px;padding:20px;margin-bottom:16px}
+  .print-card .pc-title{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--c3)}
+  .print-card .pc-meta{font-size:.78rem;color:#555;margin:4px 0 10px}
+  .print-card .pc-line{font-size:.9rem;margin:6px 0;white-space:pre-line}
+  .card,.note-card{box-shadow:none;border:1px solid #ccc}
+}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(120%);background:var(--ink);color:#fff;padding:12px 22px;border-radius:999px;font-size:.85rem;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.25);transition:transform .3s;z-index:99}
+.toast.show{transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<nav class="em-nav">
+  <div class="em-nav-brand"><a href="index.html" style="color:inherit">Everlasting <span>Memories</span></a></div>
+  <a class="nav-link" href="gallery.html">Gallery</a>
+  <a class="nav-link" href="services.html">Services</a>
+  <a class="nav-link" href="about.html">About</a>
+  <a class="nav-link" href="faq.html">FAQ</a>
+  <div class="dd-wrap">
+    <button class="dd-btn" id="ddBtn" aria-haspopup="true" aria-expanded="false">Tools ▾</button>
+    <div class="dd-menu" id="ddMenu">
+      <div class="dd-tag">Newest</div>
+      <a href="big-yes.html" class="styled" style="background:#a8526b">The Big Yes</a>
+      <a href="party-er.html" class="styled" style="background:#059669">The Party ER</a>
+      <a href="rain-plan.html" class="styled" style="background:#0284c7">The Rain Plan</a>
+      <div class="dd-tag">All tools</div>
+      <a href="after-glow.html">The After-Glow</a>
+      <a href="seating-chart.html">Seating Chart Studio</a>
+      <a href="surprise-planner.html">Operation: Surprise</a>
+      <a href="dessert-table.html">Dessert Table Stylist</a>
+      <a href="golden-hour.html">Golden Hour Finder</a>
+      <a href="party-timeline.html">Party Day Timeline</a>
+      <a href="memory-capsule.html">Memory Capsule</a>
+      <a href="playlist.html">Party Playlist Studio</a>
+      <a href="guest-list.html">The Guest List</a>
+      <a href="photo-hunt.html">Party Photo Hunt</a>
+      <a href="photo-booth.html">Golden Hour Booth</a>
+      <a href="memory-wall.html">Memory Wall</a>
+      <a href="party-roadmap.html">Party Roadmap</a>
+      <a href="invitation-studio.html">Invitation Studio</a>
+      <a href="balloon-pop.html">Pop Party</a>
+      <a href="wedding-workshop.html">Wedding Workshop</a>
+      <a href="transformations.html">The Big Reveal</a>
+      <a href="budget-builder.html">Budget Balloonist</a>
+      <a href="referral.html">Refer &amp; Earn</a>
+      <a href="cost-estimator.html">Cost Estimator</a>
+      <a href="theme-generator.html">Theme Generator</a>
+      <a href="lookbook.html">Lookbook</a>
+      <a href="countdown.html">Countdown</a>
+      <a href="party-style-quiz.html">Party Style Quiz</a>
+      <a href="balloon-math.html">Balloon Math</a>
+      <a href="name-garland.html">Balloon Letter Studio</a>
+      <a href="palette-snap.html">Palette Snap</a>
+      <a href="diy-vs-pro.html">DIY or Dazzle</a>
+      <a href="reserve-date.html">Reserve Your Date</a>
+      <a href="gift-card.html">Gift Card Studio</a>
+    </div>
+  </div>
+  <a class="em-nav-cta" href="contact.html">Get a Quote</a>
+</nav>
+
+<header class="hero">
+  <a class="home-link" href="index.html">← Back to Everlasting Memories</a><br>
+  <span class="badge" id="secretBadge" title="💍">💍 New Tonight — The Big Yes</span>
+  <h1>The Big Yes</h1>
+  <p class="sub">The site's first <b>proposal moment planner</b>. Pick the scene, the words and the golden hour — Isabella's real playbook from the proposals she's secretly styled. Then, when she says yes (she will), the <b>same team</b> is already your wedding vendor. 💍</p>
+</header>
+
+<div class="container">
+  <div class="grid">
+    <!-- LEFT: controls -->
+    <div>
+      <div class="card" style="margin-bottom:18px">
+        <div class="kicker">Step 1</div>
+        <h2>Pick the scene</h2>
+        <p class="hint">Real setups from Isabella's truck — tap one.</p>
+        <div class="chips" id="sceneChips"></div>
+        <div class="scene-desc" id="sceneDesc"></div>
+      </div>
+
+      <div class="card" style="margin-bottom:18px">
+        <div class="kicker">Step 2</div>
+        <h2>Your story</h2>
+        <p class="hint">These fill the words she'll remember forever.</p>
+        <div class="fg-row">
+          <div class="fg"><label for="inYour">Your name</label><input id="inYour" placeholder="Alex"></div>
+          <div class="fg"><label for="inTheir">Their name</label><input id="inTheir" placeholder="Sam"></div>
+        </div>
+        <div class="fg-row">
+          <div class="fg"><label for="inYears">Years together</label><input id="inYears" type="number" min="1" max="60" value="3"></div>
+          <div class="fg"><label for="inDate">Proposal date</label><input id="inDate" type="date"></div>
+        </div>
+        <div class="fg"><label for="inMemory">One memory that says "us"</label><input id="inMemory" placeholder="The rainy day we got lost and laughed for hours…"></div>
+        <div class="fg"><label for="inVibe">The vibe</label>
+          <select id="inVibe">
+            <option value="golden">Golden hour — soft, warm, magic light</option>
+            <option value="evening">Evening — candles and string lights</option>
+            <option value="sunset">Sunset — right before the sky turns</option>
+            <option value="morning">Morning — fresh, private, just us</option>
+          </select>
+        </div>
+        <div class="fg"><label for="inBudget">Decor budget</label>
+          <select id="inBudget">
+            <option value="250">Under $250 — the sweet corner pop</option>
+            <option value="600" selected>$250–$600 — letters or a small arch</option>
+            <option value="1200">$600–$1,200 — the full golden-hour scene</option>
+            <option value="1200+">$1,200+ — the room that stops time</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="kicker">Step 3</div>
+        <h2>Choose the words</h2>
+        <p class="hint">Isabella's rule: 60 seconds, one question, zero pressure.</p>
+        <div class="chips" id="toneChips"></div>
+        <div class="tip" style="margin-top:14px"><b>Isabella's tip:</b> practice the first line out loud 5 times. The rest comes from your memory line — that's why we put it in.</div>
+      </div>
+    </div>
+
+    <!-- RIGHT: output -->
+    <div>
+      <div class="card">
+        <div class="kicker">Your moment card</div>
+        <h2 id="outTitle">The scene is loading…</h2>
+        <div class="note-card" style="margin-top:12px">
+          <div class="nc-tag">The Big Yes — Moment Card</div>
+          <div class="nc-occasion" id="ncOccasion">—</div>
+          <div class="nc-subject" id="ncSubject">—</div>
+          <div class="nc-body" id="ncBody">—</div>
+          <div class="nc-sign" id="ncSign">—</div>
+          <div class="nc-foot" id="ncFoot">—</div>
+        </div>
+        <div class="actions">
+          <button class="btn btn-p" id="btnSurprise">🎲 Surprise me</button>
+          <button class="btn btn-g" id="btnCopy">📋 Copy</button>
+          <button class="btn btn-wa" id="btnWa">WhatsApp</button>
+          <button class="btn btn-print" id="btnPrint">🖨 Print</button>
+        </div>
+        <div style="margin-top:16px">
+          <div class="kicker">The run sheet</div>
+          <ul class="plan-list" id="runList"></ul>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:18px">
+        <div class="kicker">The ring logistics</div>
+        <h2>Before you kneel</h2>
+        <ul class="plan-list" id="ringList"></ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- facts -->
+  <div class="facts">
+    <div class="fact"><div class="n">14</div><div class="l">proposal moments Isabella has secretly styled</div></div>
+    <div class="fact"><div class="n">14/14</div><div class="l">said yes — so far, a perfect record 💍</div></div>
+    <div class="fact"><div class="n">11</div><div class="l">of those couples booked their wedding with her</div></div>
+    <div class="fact"><div class="n">90 min</div><div class="l">setup, then the van vanishes before she arrives</div></div>
+  </div>
+
+  <!-- lead form -->
+  <div class="lead-card" id="leadCard">
+    <div class="kicker">The Big Yes</div>
+    <h2>Lock in the moment (and the wedding)</h2>
+    <p class="hint">Tell Isabella the plan. She'll reply within 24 hours with a quote, a date hold, and her photographer-hideout map. Every proposal quote includes a free wedding consult — she decorates the question <i>and</i> the answer.</p>
+    <form id="leadForm">
+      <div class="fg-row">
+        <div class="fg"><label for="fName">Your name</label><input id="fName" required placeholder="Alex"></div>
+        <div class="fg"><label for="fEmail">Email</label><input id="fEmail" type="email" required placeholder="you@email.com"></div>
+      </div>
+      <div class="fg-row">
+        <div class="fg"><label for="fPhone">Phone</label><input id="fPhone" type="tel" placeholder="(203) 555-0100"></div>
+        <div class="fg"><label for="fEvent">Event type</label>
+          <select id="fEvent">
+            <option value="Proposal / Engagement" selected>Proposal / Engagement 💍</option>
+            <option value="Wedding">Wedding (the sequel!)</option>
+            <option value="Birthday">Birthday</option>
+            <option value="Baby Shower">Baby Shower</option>
+            <option value="Anniversary">Anniversary</option>
+            <option value="Just Because">Just Because</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg-row">
+        <div class="fg"><label for="fDate">Event date</label><input id="fDate" type="date"></div>
+        <div class="fg"><label for="fBudget">Budget</label>
+          <select id="fBudget">
+            <option value="Under $500">Under $500</option>
+            <option value="$500–$1,000" selected>$500–$1,000</option>
+            <option value="$1,000–$2,000">$1,000–$2,000</option>
+            <option value="$2,000+">$2,000+</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg"><label for="fMsg">Tell her the plan</label><textarea id="fMsg" placeholder="Scene, date, vibe, and if she knows you're asking…"></textarea></div>
+      <button class="btn btn-p" type="submit">Send the plan →</button>
+      <p class="fine">No spam, no pressure — just a human reply from Isabella. She keeps every secret in the trunk. 🤫</p>
+    </form>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq" style="margin-top:26px">
+    <h2 style="font-size:1.5rem;color:var(--c3);margin-bottom:12px">The Big Yes — FAQ</h2>
+    <details open>
+      <summary>Does Isabella really do proposals?</summary>
+      <p>Yes — secretly. The van arrives, decor goes up, the van leaves, and no one's the wiser. Her record: 14 styled proposals, 14 yeses, and 11 of those couples came back for their wedding decor. The proposal is how a lot of her weddings start.</p>
+    </details>
+    <details>
+      <summary>How does the decor stay a secret?</summary>
+      <p>Isabella coordinates with you (and one trusted friend, max). She needs 90 minutes on site and a text when you're 10 minutes out. The photographer hides in the pre-arranged spot — usually the same corner as the dessert table, the second-most-photographed spot at any event.</p>
+    </details>
+    <details>
+      <summary>What if it rains?</summary>
+      <p>That's what the Rain Plan is for. Isabella checks the 10-day forecast before she loads the truck, and she'll suggest the indoor swap days ahead. She's moved three proposals inside and all three still ended in yes.</p>
+    </details>
+    <details>
+      <summary>When should we book?</summary>
+      <p>Golden hour is the magic twenty minutes before sunset — and it books fast. Lock your date at least 3–4 weeks out; peak season (spring and fall) needs 6–8 weeks. <a href="reserve-date.html">Reserve your date</a> to hold it.</p>
+    </details>
+    <details>
+      <summary>What if I can't find the words?</summary>
+      <p>The moment card above writes them for you — three tones, your names, your memory. Practice the first line out loud five times. Sixty seconds is all you need. She's not counting sentences; she's counting on you.</p>
+    </details>
+    <details>
+      <summary>And after she says yes…?</summary>
+      <p>You call Isabella — same design family, one less vendor to hunt. She'll walk you straight into the <a href="wedding-workshop.html">Wedding Workshop</a> with your proposal scene as the starting palette. One team, from the question to the aisle.</p>
+    </details>
+  </div>
+</div>
+
+<!-- print card -->
+<div class="print-card" id="printCard">
+  <div class="pc-title">💍 The Big Yes — Moment Card</div>
+  <div class="pc-meta" id="pcMeta">Everlasting Memories · myeverlastingmemories.com</div>
+  <div class="pc-line" id="pcLine">—</div>
+</div>
+
+<footer>
+  <p class="strip">
+    <a href="big-yes.html" style="color:#f2c6d2;font-weight:600">The Big Yes</a> ·
+    <a href="party-er.html" style="color:#a7f3d0;font-weight:600">The Party ER</a> ·
+    <a href="rain-plan.html" style="color:#7dd3fc;font-weight:600">The Rain Plan</a> ·
+    <a href="seating-chart.html" style="color:#f9a8d4;font-weight:600">Seating Chart Studio</a> ·
+    <a href="after-glow.html" style="color:#f9a8d4;font-weight:600">The After-Glow</a> ·
+    <a href="surprise-planner.html" style="color:#a5b4fc;font-weight:600">Operation: Surprise</a> ·
+    <a href="dessert-table.html" style="color:#f0c9a0;font-weight:600">Dessert Table Stylist</a> ·
+    <a href="golden-hour.html" style="color:#c4b5fd;font-weight:600">Golden Hour Finder</a> ·
+    <a href="party-timeline.html" style="color:#cbd5e1;font-weight:600">Party Day Timeline</a> ·
+    <a href="wedding-workshop.html" style="color:#f9a8d4;font-weight:600">Wedding Workshop</a> ·
+    <a href="cost-estimator.html" style="color:#fcd34d;font-weight:600">Cost Estimator</a> ·
+    <a href="guest-list.html" style="color:#93c5fd;font-weight:600">The Guest List</a> ·
+    <a href="playlist.html" style="color:#fca5a5;font-weight:600">Party Playlist Studio</a> ·
+    <a href="name-garland.html" style="color:#f9a8d4;font-weight:600">Balloon Letter Studio</a> ·
+    <a href="invitation-studio.html" style="color:#a5b4fc;font-weight:600">Invitation Studio</a> ·
+    <a href="party-roadmap.html" style="color:#5eead4;font-weight:600">Party Roadmap</a> ·
+    <a href="memory-wall.html" style="color:#fcd34d;font-weight:600">Memory Wall</a> ·
+    <a href="photo-booth.html" style="color:#7dd3fc;font-weight:600">Golden Hour Booth</a> ·
+    <a href="photo-hunt.html" style="color:#f0abfc;font-weight:600">Party Photo Hunt</a> ·
+    <a href="memory-capsule.html" style="color:#fca5a5;font-weight:600">Memory Capsule</a> ·
+    <a href="balloon-pop.html" style="color:#fdba74;font-weight:600">Pop Party</a> ·
+    <a href="transformations.html" style="color:#c4b5fd;font-weight:600">The Big Reveal</a> ·
+    <a href="budget-builder.html" style="color:#86efac;font-weight:600">Budget Balloonist</a> ·
+    <a href="referral.html" style="color:#fde68a;font-weight:600">Refer &amp; Earn</a> ·
+    <a href="gift-card.html" style="color:#f9a8d4;font-weight:600">Gift Card Studio</a> ·
+    <a href="reserve-date.html" style="color:#93c5fd;font-weight:600">Reserve Your Date</a> ·
+    <a href="diy-vs-pro.html" style="color:#fdba74;font-weight:600">DIY or Dazzle</a> ·
+    <a href="palette-snap.html" style="color:#f0abfc;font-weight:600">Palette Snap</a> ·
+    <a href="balloon-math.html" style="color:#86efac;font-weight:600">Balloon Math</a> ·
+    <a href="party-style-quiz.html" style="color:#f9a8d4;font-weight:600">Party Style Quiz</a> ·
+    <a href="countdown.html" style="color:#93c5fd;font-weight:600">Big Day Countdown</a> ·
+    <a href="lookbook.html" style="color:#c4b5fd;font-weight:600">Lookbook</a> ·
+    <a href="theme-generator.html" style="color:#fde68a;font-weight:600">Theme Generator</a> ·
+    <a href="faq.html" style="color:#f2c6d2;font-weight:600">FAQ</a>
+  </p>
+  <p class="foot-brand">Everlasting <span>Memories</span> — balloons &amp; moments that last</p>
+  <p class="copy">Isabella's notebook says the fourth toast is where timelines go to die — but the first yes is where forever starts. 💍</p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============ pure data + logic (Node-testable) ============ */
+var SCENES=[
+ {id:'letters',emoji:'💌',name:'The Marry Me Letters',price:'from $180',
+  desc:'MARRY ME? in Isabella\'s balloon letters, petals on the floor, fairy lights on the trees. The classic that makes her phone ring.',
+  includes:['9-letter custom garland','20 ft petal path','fairy-light wrap','90-min secret setup'],
+  tip:'Isabella\'s real note: letters photograph best facing the golden hour — light hits the words, not the back of them.'},
+ {id:'arch',emoji:'🌅',name:'The Golden Hour Arch',price:'$350 + $25/ft',
+  desc:'An organic arch where the light is warmest, timed to the magic twenty minutes before sunset. The "she\'ll remember the light" scene.',
+  includes:['organic arch','petal & candle base','golden-hour timing map','photographer hideout marked'],
+  tip:'Her record: arch up in 90 minutes, van gone 10 minutes before you arrive. The sunset does the rest.'},
+ {id:'backdrop',emoji:'📸',name:'The Backdrop Reveal',price:'$550 + $45/ft',
+  desc:'A full balloon backdrop with WILL YOU MARRY ME? — built for the photo that becomes the engagement announcement.',
+  includes:['backdrop wall','letter accent','ring-box shelf styling','post-yes confetti moment'],
+  tip:'Every couple she\'s done this for posted the backdrop photo within the hour. Free marketing, gorgeous memories.'},
+ {id:'petals',emoji:'🕯️',name:'The Candlelit Petal Path',price:'$340',
+  desc:'Columns of balloons, a path of petals, a circle of candles. Intimate, indoor-proof, and devastatingly romantic.',
+  includes:['2 balloon columns','petal path','LED candle circle','vibe lighting'],
+  tip:'The rain-plan special — this scene lives happily indoors, so the forecast can\'t ruin it.'},
+ {id:'room',emoji:'✨',name:'The Full Room of Yes',price:'from $1,100',
+  desc:'The whole room becomes the question: arch, letters, columns, petals, candles. For the yes that deserves a standing ovation.',
+  includes:['arch + letters + 2 columns','petal path & candle circle','full-room styling','setup while you\'re "running errands"'],
+  tip:'Her favorite part: hiding the photographer behind the dessert table — the second-most-photographed spot at any event.'},
+ {id:'corner',emoji:'🥂',name:'The Sweet Corner Pop',price:'from $150',
+  desc:'A just-us corner: a small letters moment or a bouquet pop with petals. Quiet, brave, perfectly you.',
+  includes:['letters or bouquet moment','petal scatter','30-min micro setup'],
+  tip:'Sometimes the smallest scene says it loudest. She\'s seen a $150 corner end in a $4,000 wedding booking.'}
+];
+var TONES=[
+ {id:'short',name:'Short & Sweet',blurb:'Thirty seconds. One line. All heart.'},
+ {id:'story',name:'The Story of Us',blurb:'Weaves your memory line into the ask.'},
+ {id:'funny',name:'Funny & Nervous',blurb:'Honest nerves, one joke, then the question.'}
+];
+function pickScene(id){return SCENES.find(function(s){return s.id===id})||SCENES[0];}
+function pickTone(id){return TONES.find(function(t){return t.id===id})||TONES[0];}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function fmtDate(d){if(!d)return'';var p=d.split('-');if(p.length!==3)return d;var mo=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];return mo[+p[1]-1]+' '+ (+p[2]) + ', ' + p[0];}
+function vibeText(v){return {golden:'golden hour',evening:'evening candlelight',sunset:'sunset',morning:'a fresh morning'}[v]||v;}
+function buildWords(st){
+  var tone=pickTone(st.tone);
+  var scene=pickScene(st.scene);
+  var their=esc(st.their)||'you';
+  var your=esc(st.your)||'me';
+  var years=st.years||3;
+  var mem=esc(st.memory);
+  var yTxt=years===1?'one year':years+' years';
+  var lines=[];
+  if(tone.id==='short'){
+    lines.push(their+', I could have planned this for another '+yTxt+'.');
+    lines.push('But I ran out of reasons to wait — and I found this '+vibeText(st.vibe)+' and this '+scene.name.toLowerCase()+'… and I only wanted it with you.');
+    if(mem)lines.push('I keep thinking about '+mem+'.');
+    lines.push('So — will you marry me?');
+  } else if(tone.id==='story'){
+    lines.push(their+', '+yTxt+' ago I didn\'t know my favorite sound was your laugh.');
+    if(mem)lines.push('I knew for sure when '+mem+'.');
+    lines.push('I asked Isabella to build this '+scene.name.toLowerCase()+' because I wanted the outside to finally look like the inside of my head when I think about you.');
+    lines.push('Every day with you is the best scene I\'ve ever been in. Will you marry me?');
+  } else {
+    lines.push('Okay. Deep breath. '+their+', I rehearsed this in the car and I still forgot the first line.');
+    lines.push('What I remember is '+mem+', and that '+yTxt+' with you is somehow both too fast and not fast enough.');
+    lines.push('Isabella keeps asking if you\'ve said yes yet — so, for her: will you marry me?');
+  }
+  return {subject:'The question I\'ve been practicing',body:lines.join('\n'),sign:'— '+your};
+}
+function buildRun(st){
+  var scene=pickScene(st.scene);
+  var rows=[];
+  rows.push(['T-90 min','Isabella\'s van arrives. '+scene.name+' goes up silently.']);
+  rows.push(['T-30 min','Van gone. Photographer in the hideout. Ring box: your left pocket (never the knee you kneel on).']);
+  rows.push(['T-10 min','You\'re in position. Phone on silent. First line rehearsed — out loud, five times.']);
+  rows.push(['T-0','The question. '+ (st.vibe==='golden'||st.vibe==='sunset'?'Golden light, right on schedule.':'Your moment, your light.')]);
+  rows.push(['T+2 min','She said yes. (She will.) Confetti moment if you added it — photographer is already catching it.']);
+  rows.push(['T+30 min','Text Isabella: "She said yes." She\'s been waiting — the wedding consult is on her.']);
+  return rows;
+}
+function buildRing(){
+  return [
+    ['Ring box','Left pocket. The knee you drop is the right one — never keep the box on the kneeling side.'],
+    ['Photographer','Pre-hidden 30 min early. Same corner as the dessert table, second-most-photographed spot.'],
+    ['Phone','Silent. No exceptions. The photo comes from the hideout, not your pocket.'],
+    ['Witness','One trusted friend knows the plan. Everyone else finds out with her.'],
+    ['Plan B','Rain? Isabella\'s Rain Plan moves the scene indoors days ahead — she checks the 10-day forecast first.'],
+    ['The words','Sixty seconds. Your memory line. One question. That\'s the whole script.']
+  ];
+}
+function buildShare(st){
+  var w=buildWords(st);var scene=pickScene(st.scene);
+  return '💍 THE BIG YES — my proposal plan\n\nScene: '+scene.name+' ('+scene.price+')\nDate: '+(fmtDate(st.date)||'TBD')+' · '+vibeText(st.vibe)+'\n\n'+w.body+'\n\n'+w.sign+'\n\nPlanned with Everlasting Memories — and yes, they do the wedding too.';
+}
+function leadPayload(st){
+  var scene=pickScene(st.scene);
+  return {source:'big-yes',eventType:'Proposal / Engagement',eventDate:st.date||'',budget:st.budget||'',message:'Scene: '+scene.name+' ('+scene.price+'). Vibe: '+vibeText(st.vibe)+'. Years together: '+(st.years||'')+'. Memory: '+(st.memory||'')+'.'};
+}
+function sampleState(){return {scene:'letters',tone:'story',your:'Alex',their:'Sam',years:3,memory:'the rainy day we got lost and laughed for hours',date:'2026-10-10',vibe:'golden',budget:'$600–$1,000'};}
+/* ============ DOM glue (browser only) ============ */
+if(typeof document!=='undefined'){
+function $(id){return document.getElementById(id);}
+function toast(m){var t=$('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove('show');},2600);}
+function renderChips(id,items,active,fn){
+  var el=$(id);el.innerHTML='';
+  items.forEach(function(it){
+    var b=document.createElement('button');
+    b.className='chip'+(it.id===active?' on':'');
+    b.type='button';
+    b.innerHTML=esc(it.name)+(it.price?'<span class="px">'+esc(it.price)+'</span>':'');
+    b.onclick=function(){fn(it.id);};
+    el.appendChild(b);
+  });
+}
+function renderSceneDesc(id){
+  var s=pickScene(state.scene);
+  $('sceneDesc').innerHTML='<b>'+s.emoji+' '+esc(s.name)+' — '+esc(s.price)+'</b><br>'+esc(s.desc)+'<br><br><b>Includes:</b> '+s.includes.map(esc).join(' · ')+'<br><i>'+esc(s.tip)+'</i>';
+}
+function renderAll(){
+  var st=state;
+  $('ncOccasion').textContent=pickScene(st.scene).name+' · '+pickTone(st.tone).name;
+  var w=buildWords(st);
+  $('ncSubject').textContent=w.subject;
+  $('ncBody').textContent=w.body;
+  $('ncSign').textContent=w.sign;
+  $('ncFoot').textContent=(fmtDate(st.date)?'📅 '+fmtDate(st.date)+' · ':'')+'🌅 '+vibeText(st.vibe)+' · '+pickScene(st.scene).price+' · 💍 "she said yes" protocol armed';
+  $('outTitle').textContent=pickScene(st.scene).emoji+' '+pickScene(st.scene).name;
+  var run=buildRun(st);
+  $('runList').innerHTML=run.map(function(r){return '<li><span class="t">'+esc(r[0])+'</span><span class="x">'+esc(r[1])+'</span></li>';}).join('');
+  $('ringList').innerHTML=buildRing().map(function(r){return '<li><span class="t">'+esc(r[0])+'</span><span class="x">'+esc(r[1])+'</span></li>';}).join('');
+  $('pcLine').textContent='Scene: '+pickScene(st.scene).name+' ('+pickScene(st.scene).price+')\nDate: '+(fmtDate(st.date)||'TBD')+' · '+vibeText(st.vibe)+'\n\n'+w.body+'\n\n'+w.sign+'\n\nEverlasting Memories · myeverlastingmemories.com';
+}
+function surprise(){var ids=SCENES.map(function(s){return s.id;});var tids=TONES.map(function(t){return t.id;});state.scene=ids[Math.floor(Math.random()*ids.length)];state.tone=tids[Math.floor(Math.random()*tids.length)];var names=['Sam','Jordan','Riley','Casey','Taylor','Avery'];state.their=names[Math.floor(Math.random()*names.length)];renderChips('sceneChips',SCENES,state.scene,setScene);renderChips('toneChips',TONES,state.tone,setTone);renderSceneDesc(state.scene);renderAll();toast('🎲 New scene, new words — say it like this one.');}
+function setScene(id){state.scene=id;renderChips('sceneChips',SCENES,state.scene,setScene);renderSceneDesc(id);renderAll();}
+function setTone(id){state.tone=id;renderChips('toneChips',TONES,state.tone,setTone);renderAll();}
+function collectState(){state.your=$('inYour').value.trim();state.their=$('inTheir').value.trim();state.years=parseInt($('inYears').value,10)||3;state.memory=$('inMemory').value.trim();state.date=$('inDate').value;state.vibe=$('inVibe').value;state.budget=$('inBudget').value;return state;}
+var state=sampleState();
+renderChips('sceneChips',SCENES,state.scene,setScene);
+renderChips('toneChips',TONES,state.tone,setTone);
+renderSceneDesc(state.scene);
+['inYour','inTheir','inYears','inMemory','inDate','inVibe','inBudget'].forEach(function(id){$(id).addEventListener('input',function(){collectState();renderAll();});});
+$('btnSurprise').addEventListener('click',surprise);
+$('btnCopy').addEventListener('click',function(){collectState();var w=buildWords(state);var txt=w.body+'\n\n'+w.sign;if(navigator.clipboard){navigator.clipboard.writeText(txt).then(function(){toast('📋 Moment card copied');});}else{toast('Copy: '+txt.slice(0,40)+'…');}});
+$('btnWa').addEventListener('click',function(){collectState();var url='https://wa.me/?text='+encodeURIComponent(buildShare(state));window.open(url,'_blank');});
+$('btnPrint').addEventListener('click',function(){collectState();renderAll();window.print();});
+$('ddBtn').addEventListener('click',function(){var m=$('ddMenu');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'));});
+document.addEventListener('click',function(e){var w=$('ddWrap')||document.querySelector('.dd-wrap');if(w&&!w.contains(e.target)){$('ddMenu').classList.remove('open');}});
+/* easter egg: secret #17 — five taps on the badge */
+var taps=0,tapT=null;
+$('secretBadge').addEventListener('click',function(){
+  taps++;clearTimeout(tapT);tapT=setTimeout(function(){taps=0;},1600);
+  if(taps>=5){taps=0;
+    var s=pickScene(state.scene);
+    $('ncBody').textContent='Isabella\'s secret #17: she\'s styled 14 proposals and all 14 said yes — her real trick is the hideout. The photographer is always pre-hidden behind the dessert table (the second-most-photographed spot at any event), and the ring box rides in the LEFT pocket, because you always drop the right knee. She keeps a spare ring box in her truck, just in case. 🤫💍';
+    $('ncSubject').textContent='🤫 Secret #17 unlocked — Isabella\'s proposal playbook';
+    $('ncSign').textContent='— Everlasting Memories';
+    toast('🤫 Secret #17 unlocked');
+  }
+});
+/* lead form */
+$('leadForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  collectState();
+  var btn=this.querySelector('button[type=submit]');btn.disabled=true;btn.textContent='Sending…';
+  var payload=leadPayload(state);
+  payload.name=$('fName').value.trim();payload.email=$('fEmail').value.trim();payload.phone=$('fPhone').value.trim();
+  payload.eventDate=$('fDate').value||payload.eventDate;payload.budget=$('fBudget').value||payload.budget;
+  payload.message=($('fMsg').value.trim()?$('fMsg').value.trim()+' — ':'')+payload.message;
+  fetch('/api/leads.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+    .then(function(r){return r.json();})
+    .then(function(){toast('💌 Sent! Isabella replies within 24h.');btn.disabled=false;btn.textContent='Send the plan →';$('leadForm').reset();})
+    .catch(function(){toast('⚠️ Couldn\'t send — email hello@myeverlastingmemories.com');btn.disabled=false;btn.textContent='Send the plan →';});
+});
+}
+if (typeof module!=='undefined' && module.exports){
+  module.exports={SCENES:SCENES,TONES:TONES,pickScene:pickScene,pickTone:pickTone,esc:esc,fmtDate:fmtDate,vibeText:vibeText,buildWords:buildWords,buildRun:buildRun,buildRing:buildRing,buildShare:buildShare,leadPayload:leadPayload,sampleState:sampleState};
+}
+</script>
+</body>
+</html>
