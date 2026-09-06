@@ -3,17 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Nest — Baby Shower Moment Planner | Everlasting Memories</title>
-<meta name="description" content="Plan the baby shower moment with Isabella's real playbook: the mom-to-be backdrop, the nest arch, the dessert-table nest — sage, butter and zero stress for the guest of honor. The Nest — Everlasting Memories.">
-<meta name="theme-color" content="#6b8f71">
-<meta property="og:title" content="The Nest — Baby Shower Moment Planner | Everlasting Memories">
-<meta property="og:description" content="The site's first baby shower planner. Pick the nest — backdrop, arch, dessert-table cloud — and Isabella builds it in sage and butter while the surprise stays a secret for the mom-to-be.">
+<title>The Smash Hit — First Birthday Moment Planner | Everlasting Memories</title>
+<meta name="description" content="Plan the first-birthday cake smash with Isabella's real playbook: the smash stage, the One-der wall, the wipe-down station — 20 minutes of chaos and one perfect photo of the baby discovering cake. The Smash Hit — Everlasting Memories.">
+<meta name="theme-color" content="#ff8c42">
+<meta property="og:title" content="The Smash Hit — First Birthday Moment Planner | Everlasting Memories">
+<meta property="og:description" content="The site's first first-birthday planner. Pick the smash — stage, One-der wall, guest cake table — and Isabella builds the 20 minutes every parent replays forever. The mess is on her.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--c1:#6b8f71;--c2:#e9c46a;--c3:#3f5a3f;--bg:#faf8f1;--line:#e7e0cc;--ink:#2b2a20;--soft:#6d6b57;--good:#1a7f4e;--bad:#b3261e}
+:root{--c1:#ff8c42;--c2:#4ecdc4;--c3:#8a3d1a;--bg:#fff8ef;--line:#f6e2c8;--ink:#3d2417;--soft:#96705a;--good:#1a7f4e;--bad:#b3261e}
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
 h1,h2,h3,.serif{font-family:'Playfair Display',Georgia,serif}
@@ -193,9 +193,9 @@ footer .copy{font-size:.72rem;color:rgba(255,255,255,.6);margin-top:6px}
 
 <header class="hero">
   <a class="home-link" href="index.html">← Back to Everlasting Memories</a><br>
-  <span class="badge" id="secretBadge" title="🎈">🍼 New Tonight — The Nest</span>
-  <h1>The Nest</h1>
-  <p class="sub">The site's first <b>baby shower moment planner</b>. Pick the nest — the mom-to-be backdrop, the nest arch, the dessert-table cloud — and Isabella builds it in sage and butter while the guest of honor suspects nothing. 40+ showers styled, zero moms who lifted a finger. 🍼</p>
+  <span class="badge" id="secretBadge" title="🎂">🎂 New Tonight — The Smash Hit</span>
+  <h1>The Smash Hit</h1>
+  <p class="sub">The site's first <b>cake-smash moment planner</b>. Pick the setup — the smash stage, the One-der wall, the guest cake table — and Isabella builds the 20 minutes every parent replays forever. 200+ parties, one very happy baby, and the mess is on her. 🎂</p>
 </header>
 
 <div class="container">
@@ -204,8 +204,8 @@ footer .copy{font-size:.72rem;color:rgba(255,255,255,.6);margin-top:6px}
     <div>
       <div class="card" style="margin-bottom:18px">
         <div class="kicker">Step 1</div>
-        <h2>Pick the nest</h2>
-        <p class="hint">Real shower setups from Isabella's truck — tap one.</p>
+        <h2>Pick the smash</h2>
+        <p class="hint">Real smash setups from Isabella's truck — tap one.</p>
         <div class="chips" id="sceneChips"></div>
         <div class="scene-desc" id="sceneDesc"></div>
       </div>
@@ -213,30 +213,30 @@ footer .copy{font-size:.72rem;color:rgba(255,255,255,.6);margin-top:6px}
       <div class="card" style="margin-bottom:18px">
         <div class="kicker">Step 2</div>
         <h2>The guest of honor</h2>
-        <p class="hint">The mom-to-be, the date, and the little details.</p>
+        <p class="hint">The birthday kid, the date, and the little details.</p>
         <div class="fg-row">
           <div class="fg"><label for="inYour">Your name (host)</label><input id="inYour" placeholder="Alex"></div>
-          <div class="fg"><label for="inTheir">Mom-to-be's name</label><input id="inTheir" placeholder="Sam"></div>
+          <div class="fg"><label for="inTheir">Birthday kid's name</label><input id="inTheir" placeholder="Sam"></div>
         </div>
         <div class="fg-row">
-          <div class="fg"><label for="inYears">Due date month</label><input id="inYears" type="number" min="1" max="12" value="6"></div>
-          <div class="fg"><label for="inDate">Shower date</label><input id="inDate" type="date"></div>
+          <div class="fg"><label for="inYears">Birthday month</label><input id="inYears" type="number" min="1" max="12" value="6"></div>
+          <div class="fg"><label for="inDate">Party date</label><input id="inDate" type="date"></div>
         </div>
-        <div class="fg"><label for="inMemory">Theme or sweet detail? (optional)</label><input id="inMemory" placeholder="Woodland animals, sunflowers, "she loves brunch"…"></div>
+        <div class="fg"><label for="inMemory">Theme or smash flavor? (optional)</label><input id="inMemory" placeholder=""Wild One" jacket, strawberry smash cake…"></div>
         <div class="fg"><label for="inVibe">The vibe</label>
           <select id="inVibe">
-            <option value="golden">Garden party — soft, warm, magic light</option>
-            <option value="backyard">Backyard brunch — lawn games and lemonade</option>
+            <option value="golden">Sunny afternoon — the classic smash light</option>
+            <option value="backyard">Backyard bash — bubbles and lawn games</option>
             <option value="indoor">Indoor cozy — the rain-proof classic</option>
             <option value="evening">Evening — string lights and cameras out</option>
           </select>
         </div>
         <div class="fg"><label for="inBudget">Decor budget</label>
           <select id="inBudget">
-            <option value="250">Under $250 — a sweet corner nest</option>
-            <option value="600" selected>$250–$600 — the backdrop or the letters</option>
-            <option value="1200">$600–$1,200 — arch, cloud and table, the works</option>
-            <option value="1200+">$1,200+ — the whole venue becomes the nest</option>
+            <option value="250">Under $250 — a sweet corner smash</option>
+            <option value="600" selected>$250–$600 — the stage or the wall</option>
+            <option value="1200">$600–$1,200 — stage, wall and table, the works</option>
+            <option value="1200+">$1,200+ — the whole yard becomes the smash studio</option>
           </select>
         </div>
       </div>
@@ -253,10 +253,10 @@ footer .copy{font-size:.72rem;color:rgba(255,255,255,.6);margin-top:6px}
     <!-- RIGHT: output -->
     <div>
       <div class="card">
-        <div class="kicker">Your nest card</div>
-        <h2 id="outTitle">The nest is loading…</h2>
+        <div class="kicker">Your smash card</div>
+        <h2 id="outTitle">The smash is loading…</h2>
         <div class="note-card" style="margin-top:12px">
-          <div class="nc-tag">The Nest — Shower Card</div>
+          <div class="nc-tag">The Smash Hit — Birthday Card</div>
           <div class="nc-occasion" id="ncOccasion">—</div>
           <div class="nc-subject" id="ncSubject">—</div>
           <div class="nc-body" id="ncBody">—</div>
@@ -276,8 +276,8 @@ footer .copy{font-size:.72rem;color:rgba(255,255,255,.6);margin-top:6px}
       </div>
 
       <div class="card" style="margin-top:18px">
-        <div class="kicker">The nest checklist</div>
-        <h2>Before the guests arrive</h2>
+        <div class="kicker">The smash rules</div>
+        <h2>Before the cake hits the mat</h2>
         <ul class="plan-list" id="ringList"></ul>
       </div>
     </div>
@@ -293,9 +293,9 @@ footer .copy{font-size:.72rem;color:rgba(255,255,255,.6);margin-top:6px}
 
   <!-- lead form -->
   <div class="lead-card" id="leadCard">
-    <div class="kicker">The Nest</div>
-    <h2>Lock in the nest — and the surprise stays secret</h2>
-    <p class="hint">Tell Isabella the plan. She'll reply within 24 hours with a quote and a date hold. She builds every nest in sage, butter and cream — and the theme stays between you and her until the mom-to-be walks in. She never asks. You never spoil it.</p>
+    <div class="kicker">The Smash Hit</div>
+    <h2>Lock in the smash — and the mess is on us</h2>
+    <p class="hint">Tell Isabella the plan. She'll reply within 24 hours with a quote and a date hold. She brings the stage, the pedestal, the washable mat and the wipe-down station — plus a second, hidden smash cupcake, just in case. You bring the camera and the baby. She never asks why the cake is on the floor.</p>
     <form id="leadForm">
       <div class="fg-row">
         <div class="fg"><label for="fName">Your name</label><input id="fName" required placeholder="Alex"></div>
@@ -305,9 +305,10 @@ footer .copy{font-size:.72rem;color:rgba(255,255,255,.6);margin-top:6px}
         <div class="fg"><label for="fPhone">Phone</label><input id="fPhone" type="tel" placeholder="(203) 555-0100"></div>
         <div class="fg"><label for="fEvent">Event type</label>
           <select id="fEvent">
-            <option value="Baby Shower 🍼" selected>Baby Shower 🍼</option>
-            <option value="Sprinkle (Baby #2)">Sprinkle (Baby #2)</option>
+            <option value="First Birthday 🎂" selected>First Birthday 🎂</option>
             <option value="Birthday">Birthday</option>
+            <option value="Baby Shower 🍼">Baby Shower 🍼</option>
+            <option value="Sprinkle (Baby #2)">Sprinkle (Baby #2)</option>
             <option value="Wedding">Wedding</option>
             <option value="Anniversary">Anniversary</option>
             <option value="Just Because">Just Because</option>
@@ -327,50 +328,51 @@ footer .copy{font-size:.72rem;color:rgba(255,255,255,.6);margin-top:6px}
       </div>
       <div class="fg"><label for="fMsg">Tell her the plan</label><textarea id="fMsg" placeholder="Scene, date, vibe, and if she knows you're asking…"></textarea></div>
       <button class="btn btn-p" type="submit">Send the plan →</button>
-      <p class="fine">No spam, no pressure — just a human reply from Isabella. Your surprise is safe with her: 40+ showers, 0 spoilers. 🤫</p>
+      <p class="fine">No spam, no pressure — just a human reply from Isabella. 200+ parties in her notebook, 0 ruined outfits — hers or yours. 🤫</p>
     </form>
   </div>
 
   <!-- FAQ -->
   <div class="faq" style="margin-top:26px">
-    <h2 style="font-size:1.5rem;color:var(--c3);margin-bottom:12px">The Nest — FAQ</h2>
+    <h2 style="font-size:1.5rem;color:var(--c3);margin-bottom:12px">The Smash Hit — FAQ</h2>
     <details open>
-      <summary>Does Isabella really do baby showers?</summary>
-      <p>Yes — 40+ of them, and counting. Mom-to-be backdrops, nest arches, dessert-table clouds, sprinkle sets: it's balloon decor with the guest of honor in the middle. The shower is how a lot of her gender reveals end — same truck, same team, <a href="powder-pop.html">the Powder Pop</a> included.</p>
+      <summary>Does Isabella really do cake smashes?</summary>
+      <p>Yes — 200+ parties, and the smash is the most-booked 20 minutes in her notebook. It's how the family funnel ends: the <a href="big-yes.html">Big Yes</a>, the <a href="powder-pop.html">Powder Pop</a>, the <a href="nest.html">Nest</a>, and now the smash. Same truck, same team — she's just traded the arch for a washable mat.</p>
     </details>
     <details>
-      <summary>How does the surprise stay a surprise?</summary>
-      <p>Only the host knows — and Isabella never asks the mom a thing. She builds every scene in sage, butter and cream, and the theme stays in the group chat until the walk-in. Even her crew doesn't see the full nest until it's up.</p>
+      <summary>What if the baby won't smash?</summary>
+      <p>Then the baby won't smash — and that's fine. Roughly one in ten wants nothing to do with the cake, so Isabella flips to the "gentle smash": clean hands, one fingertip of frosting, and the portrait that follows is often the keeper. Her rule, hard and fast: never force the hand into the cake.</p>
     </details>
     <details>
-      <summary>What if it rains?</summary>
-      <p>Backdrops and dessert-table nests live happily indoors — that's the <a href="rain-plan.html">Rain Plan</a> special. If the sky argues, Isabella swaps the garden arch for a doorway nest and the party moves inside without missing a beat.</p>
+      <summary>Is the mess really that bad?</summary>
+      <p>The washable mat catches about 90% of it, and the wipe-down station handles the rest — warm-water basins, washcloths, towels, a backup outfit. Isabella has cleaned up after 200+ babies; your rug is safe, and so is the guest of honor's favorite onesie.</p>
     </details>
     <details>
       <summary>When should we book?</summary>
-      <p>Shower season books fast — lock your date 2–3 weeks out, and 4–6 weeks in peak season. <a href="reserve-date.html">Reserve your date</a> to hold it. And if the baby's coming sooner than planned, call anyway: her record is a 48-hour turnaround.</p>
+      <p>First birthdays book 3–4 weeks out, and the smash cake baker needs a 2-week head start. Lock your date early — smash season is every weekend. <a href="reserve-date.html">Reserve your date</a> to hold it, and call anyway if you're late: her record is a 48-hour turnaround.</p>
     </details>
     <details>
-      <summary>Shower or sprinkle — what's the difference?</summary>
-      <p>A sprinkle is baby #2 or #3: smaller, sweeter, and the guest of honor already has the gear. Isabella's Sprinkle Set is the mini nest — the backdrop, the cloud and the letters, half the balloons, all the love. Tell her which one you're planning and she'll size it to match.</p>
+      <summary>Smash cake or guest cake — what's the difference?</summary>
+      <p>The smash cake is real and delicious but small — built to be destroyed. The guest cake is the full-size one the adults eat at the table while the show runs on the mat. Two cakes, one rule: the guests never touch the smash cake, and the baby never touches the guest cake. Everyone leaves happy.</p>
     </details>
     <details>
-      <summary>And after the shower…?</summary>
-      <p>The first birthday! Same truck, same team. Isabella can roll the nest palette straight into your <a href="cost-estimator.html">birthday estimate</a> — and the thank-you notes practically write themselves with the <a href="after-glow.html">After-Glow</a>. One team, from the nest to the nursery.</p>
+      <summary>What comes after the smash?</summary>
+      <p>The thank-you notes practically write themselves with the <a href="after-glow.html">After-Glow</a>, and the photos deserve a <a href="memory-capsule.html">Memory Capsule</a>. Baby #2 on the way? Isabella's Encore Smash is ready — and if it's a surprise on the way, the <a href="powder-pop.html">Powder Pop</a> starts the whole funnel over again.</p>
     </details>
   </div>
 </div>
 
 <!-- print card -->
 <div class="print-card" id="printCard">
-  <div class="pc-title">🍼 The Nest — Shower Card</div>
+  <div class="pc-title">🎂 The Smash Hit — Birthday Card</div>
   <div class="pc-meta" id="pcMeta">Everlasting Memories · myeverlastingmemories.com</div>
   <div class="pc-line" id="pcLine">—</div>
 </div>
 
 <footer>
   <p class="strip">
-    <a href="smash.html" style="color:#ffcfa8;font-weight:600">The Smash Hit</a> · <a href="nest.html" style="color:#cfe0c4;font-weight:600">The Nest</a> ·
+    <a href="smash.html" style="color:#ffcfa8;font-weight:600">The Smash Hit</a> ·
+    <a href="nest.html" style="color:#cfe0c4;font-weight:600">The Nest</a> ·
     <a href="powder-pop.html" style="color:#f9a8d4;font-weight:600">The Powder Pop</a> ·
     <a href="big-yes.html" style="color:#f2c6d2;font-weight:600">The Big Yes</a> ·
     <a href="party-er.html" style="color:#a7f3d0;font-weight:600">The Party ER</a> ·
@@ -408,7 +410,7 @@ footer .copy{font-size:.72rem;color:rgba(255,255,255,.6);margin-top:6px}
     <a href="faq.html" style="color:#f2c6d2;font-weight:600">FAQ</a>
   </p>
   <p class="foot-brand">Everlasting <span>Memories</span> — balloons &amp; moments that last</p>
-  <p class="copy">Isabella's notebook says the best shower decoration is the mom finally sitting down — the nest is just her way of making sure she stays. 🍼</p>
+  <p class="copy">Isabella's notebook says the smash was never about the cake — it's the one photo where the baby discovers that cake is edible. The cake is just the excuse. 🎂</p>
 </footer>
 
 <div class="toast" id="toast"></div>
@@ -416,101 +418,101 @@ footer .copy{font-size:.72rem;color:rgba(255,255,255,.6);margin-top:6px}
 <script>
 /* ============ pure data + logic (Node-testable) ============ */
 var SCENES=[
- {id:'arch',emoji:'🏛️',name:'The Nest Arch',price:'$350 + $25/ft',
-  desc:'The entrance: a sage-and-butter organic arch the guests walk through to reach the guest of honor. The shower starts the second she sees it.',
-  includes:['duo-tone organic arch','greenery & blooms','entry styling','photo timing map'],
-  tip:'Isabella\'s real rule: the arch goes up first and the mom walks through it last — her walk-in is the whole show.'},
- {id:'backdrop',emoji:'👑',name:'The Mom-To-Be Backdrop',price:'$550 + $45/ft',
-  desc:'The throne wall: a full balloon backdrop behind the guest of honor\'s chair, sized for the "she\'s glowing" portraits.',
-  includes:['backdrop wall','the throne chair styling','letter accent','family photo moments'],
-  tip:'Every mom-to-be backdrop Isabella has built got posted before the cake was cut. Free marketing, gorgeous memory.'},
- {id:'table',emoji:'🧁',name:'The Dessert Table Nest',price:'from $240',
-  desc:'The sweet table dressed to match the nest — cake, cookies and the mom\'s favorites front and center.',
-  includes:['dessert table styling','balloon accents','cake-stand risers','signage'],
-  tip:'Put the mom\'s favorite treat on the tallest stand. She\'ll notice. Everyone will photograph it.'},
- {id:'cloud',emoji:'☁️',name:'The Gift Table Cloud',price:'from $220',
-  desc:'A soft balloon cloud floating over the gift table — the second-most-photographed spot at every shower.',
-  includes:['balloon cloud ceiling cluster','ribbon drops','gift table linen styling'],
-  tip:'Clouds hide the ugly truth: wrapping paper chaos. Isabella styles the table, you hide the tape.'},
- {id:'letters',emoji:'🔤',name:'The "Oh Baby" Letters',price:'from $180',
-  desc:'Giant letters that spell the mood — unveiled beside the throne for the announcement shot.',
-  includes:['letter set in sage & butter','balloon cloud','unveil cloth & timing'],
-  tip:'Letters + the mom\'s first sit-down = the announcement photo. Same light trick as her proposal scenes.'},
- {id:'sprinkle',emoji:'✨',name:'The Sprinkle Set',price:'from $260',
-  desc:'Baby #2 or #3? Smaller, sweeter, half the balloons — the mini nest for the family that has been here before.',
-  includes:['mini arch or backdrop','sprinkle cloud','letter accent','kid-friendly extras for the big sibling'],
-  tip:'Sprinkles should feel lighter, not smaller — Isabella adds one "big sibling" balloon extra every time.'}
+ {id:'studio',emoji:'🎂',name:'The Smash Stage',price:'$220 + $40/ft',
+  desc:'The center ring: a washable mat, a low cake pedestal and a balloon backdrop — built for one 20-minute show: the baby vs. the cake.',
+  includes:['smash pedestal & mat','balloon backdrop','the decoy-cake spot','camera sightline map'],
+  tip:'Isabella\'s real rule: the smash cake is a decoy — guests eat the real one at the table. The baby gets 20 minutes, tops; minute 4 is when the magic photo happens.'},
+ {id:'wall',emoji:'🎈',name:'The One-der Wall',price:'$450 + $35/ft',
+  desc:'The backdrop wall behind the smash — a giant number 1 in balloons, sized for the birthday portraits.',
+  includes:['balloon backdrop wall','giant "1" accent','high-chair styling','family portrait moments'],
+  tip:'The wall goes up first, the "1" goes up last — the reveal of the number is the second-most-replayed moment after the smash itself.'},
+ {id:'table',emoji:'🧁',name:'The Guest Cake Table',price:'from $180',
+  desc:'The adults\' table: a real, full-size cake and coffee while the baby performs for the camera ten feet away.',
+  includes:['guest cake & stand','table styling & risers','coffee corner','favor staging'],
+  tip:'Guests never eat the smash cake — Isabella\'s rule, no exceptions. The guest cake is how the party keeps going after the show.'},
+ {id:'bath',emoji:'🛁',name:'The Wipe-Down Station',price:'from $90',
+  desc:'The unsung hero: warm-water basins, washcloths, towels and a backup outfit — staged off-camera for minute 6.',
+  includes:['warm-water basins','washcloth & towel kit','backup onesie & bib','outfit-change zone'],
+  tip:'Wet wipes lose to warm water every time — Isabella tests the water on her own wrist like a bottle. 200+ babies, zero tears about temperature.'},
+ {id:'bubble',emoji:'🫧',name:'The Birthday Bubble',price:'from $160',
+  desc:'A balloon cloud and banner floating over the gift table — the calm corner of the party while the chaos happens on the mat.',
+  includes:['balloon cloud cluster','"One" banner','gift table styling','ribbon drops'],
+  tip:'Clouds hide wrapping-paper chaos and give the grown-ups somewhere to stand. Isabella styles the table; you hide the tape.'},
+ {id:'encore',emoji:'🎬',name:'The Encore Smash',price:'from $200',
+  desc:'Baby #2 or #3? Smaller, calmer, half the balloons — the sequel smash for the family that has been here before.',
+  includes:['mini stage & mat','encore balloon cloud','number accent','big-sibling balloon extra'],
+  tip:'Encores should feel lighter, not smaller — Isabella adds one "big sibling" balloon every single time. The sequel always outsmiles the original.'}
 ];
 var TONES=[
- {id:'bestie',name:'The Bestie Brigade',blurb:'You and the friend squad — she thinks it\'s brunch. It\'s brunch with a nest in it.'},
- {id:'family',name:'The Family Nest',blurb:'Grandmas, aunts, cousins — the matriarchy assembles, and mom walks into a hug.'},
- {id:'partner',name:'The Partner Plot',blurb:'You\'re the partner. She thinks it\'s a quiet date. Surprise.'}
+ {id:'first',name:'The First-Timers',blurb:'Baby #1. Everything is a big deal — that\'s the whole point. The smash is the most-replayed 20 minutes of your life.'},
+ {id:'vets',name:'The Party Veterans',blurb:'You\'ve done this before. The encore smash — same joy, half the panic, and you already know where the towels are.'},
+ {id:'village',name:'The Village',blurb:'Grandparents, aunts, uncles, the whole crew — everyone shows up to watch the baby do the one thing babies are best at.'}
 ];
 function pickScene(id){return SCENES.find(function(s){return s.id===id})||SCENES[0];}
 function pickTone(id){return TONES.find(function(t){return t.id===id})||TONES[0];}
 function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
 function fmtDate(d){if(!d)return'';var p=d.split('-');if(p.length!==3)return d;var mo=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];return mo[+p[1]-1]+' '+ (+p[2]) + ', ' + p[0];}
-function vibeText(v){return {golden:'a garden party',backyard:'a backyard brunch',indoor:'indoors, cozy and warm',evening:'evening string lights'}[v]||v;}
+function vibeText(v){return {golden:'a sunny afternoon smash',backyard:'a backyard bubble bash',indoor:'indoors, cozy and warm',evening:'evening string lights'}[v]||v;}
 function buildWords(st){
   var tone=pickTone(st.tone);
   var scene=pickScene(st.scene);
-  var your=esc(st.your)||'Jordan';
+  var your=esc(st.your)||'Alex';
   var their=esc(st.their)||'Maya';
   var month=st.years||9;
   var moNames=['','January','February','March','April','May','June','July','August','September','October','November','December'];
   var moTxt=moNames[month]||('month '+month);
   var det=esc(st.memory);
   var lines=[];
-  if(tone.id==='bestie'){
-    lines.push(their+', you thought this was brunch. It is brunch — with a nest in it.');
-    lines.push('For '+moTxt+' the squad has been plotting with Isabella on a secret, and we only almost slipped, like, four times.');
-    lines.push('We asked her to build '+scene.name.toLowerCase()+' because you deserve a room that feels like a group hug.');
-    if(det)lines.push('And the '+det+' detail? She nailed it. Obviously.');
-    lines.push('So sit down, put your feet up, and let us love you. That\'s an order.');
-  } else if(tone.id==='family'){
-    lines.push('From the family that loves her most: welcome to the nest.');
-    lines.push('We have been keeping this from you since '+moTxt+' — which, for this family, is a genuine miracle.');
-    if(det)lines.push('We told Isabella about the '+det+'. She said "say less."');
-    lines.push('You have carried this little one; from today, we carry you. Sit, eat, open presents, repeat.');
+  if(tone.id==='first'){
+    lines.push(their+', one year ago you were the size of a loaf of bread. Today you are a cake-level threat.');
+    lines.push('We started planning this party back in '+moTxt+' — which, in first-time-parent years, is basically a lifetime.');
+    lines.push('Isabella built '+scene.name.toLowerCase()+' just for you, and we only peeked at the cake, like, seven times.');
+    if(det)lines.push('We told her about the '+det+'. She said "say less."');
+    lines.push('So go on. Touch it. Squish it. This is the one mess in your whole life we are begging you to make.');
+  } else if(tone.id==='vets'){
+    lines.push(their+', round two. Your big sibling smashed a cake at exactly this age, and the bar is high — we believe in you.');
+    lines.push('We have been planning your encore since '+moTxt+', and this time we even remembered to buy the towels.');
+    if(det)lines.push('Isabella worked the '+det+' in. She remembers what the first smash taught her: you.');
+    lines.push('No pressure, but the sequel has to out-smash the original. The whole family is watching. Smash on.');
   } else {
-    lines.push(their+', you thought tonight was just us. It\'s us — plus everyone who loves you.');
-    lines.push('I have been planning this with Isabella since '+moTxt+', and I only almost spoiled it twice.');
-    if(det)lines.push('The '+det+' theme was my idea. The balloons were all hers.');
-    lines.push('You are going to be an incredible mom. Welcome to your nest, my love.');
+    lines.push('From everyone who has loved you for a whole year: happy birthday, '+their+'.');
+    lines.push('We have been keeping this party a secret since '+moTxt+' — which, with this family, is a genuine miracle.');
+    if(det)lines.push('We told Isabella about the '+det+'. She said "the good kind of trouble."');
+    lines.push('The village is here, the cake is on the mat, and the cameras are ready. Smash away, little one. That\'s an order.');
   }
-  return {subject:tone.id==='partner'?'The surprise speech — from the heart':(tone.id==='family'?'The family welcome speech':'The brunch reveal speech'),body:lines.join('\n'),sign:'— '+your+(tone.id==='bestie'?' + the bestie brigade':(tone.id==='family'?' & the whole family nest':''))};
+  return {subject:tone.id==='vets'?'The encore smash speech — from the veterans':(tone.id==='village'?'The village welcome speech':'The first-birthday toast — from the heart'),body:lines.join('\n'),sign:'— '+your+(tone.id==='first'?' + one slightly terrified first-time parent':(tone.id==='vets'?' + the party veterans':' & the whole village'))};
 }
 function buildRun(st){
   var scene=pickScene(st.scene);
   var rows=[];
-  rows.push(['T-90 min','Isabella\'s van arrives. '+scene.name+' goes up — sage, butter, greenery.']);
-  rows.push(['T-60 min','The mom-to-be backdrop is finished. The dessert table nest is next.']);
-  rows.push(['T-30 min','Guests arrive. Host briefing: where the gifts go, where the games happen, who\'s on photo duty.']);
-  rows.push(['T-10 min','The decoy is in motion — the mom is 10 minutes out and still thinks it\'s brunch.']);
-  rows.push(['T-0','She walks in. Phones up. This is the moment the whole nest was built for.']);
-  rows.push(['T+30 min','Games and gifts — the nest checklist keeps the flow, mom stays seated.']);
-  rows.push(['T+2h','Isabella packs up quietly. The mom doesn\'t lift a finger. That\'s the rule.']);
+  rows.push(['T-90 min','Isabella\'s van arrives. '+scene.name+' goes up — mat, pedestal, backdrop.']);
+  rows.push(['T-60 min','The backdrop wall is finished. The guest cake table is next. The smash cake is placed. Nobody touches it.']);
+  rows.push(['T-30 min','Guests arrive. Briefing: who films, who wipes, who distracts. Nap math is confirmed — the baby is in the sweet spot.']);
+  rows.push(['T-10 min','The baby is up, fed and 45 minutes past the nap — prime smash window. Camera batteries double-checked.']);
+  rows.push(['T-0','THE SMASH. Camera rolling, phones down, 20 minutes on the clock. Minute 4 is the money shot.']);
+  rows.push(['T+25 min','Wipe-down station time. Backup outfit on. The guests finally get their cake.']);
+  rows.push(['T+2h','Isabella packs up quietly. The mat rolls away, the mess disappears — the photos stay forever.']);
   return rows;
 }
 function buildRing(){
   return [
-    ['The decoy','Someone must get the mom-to-be out of the house — coffee, brunch, "just a quick errand." Her walk-in is the whole show.'],
-    ['The mom kit','Tissues, blotting papers, safety pins and a spare white onesie live in Isabella\'s truck. Three moms have needed it.'],
-    ['The gift table','Cloud above, table below — pen and tags ready. Guests forget to label gifts; Isabella never lets them forget.'],
-    ['The games','Keep it to three. The best shower games are the ones where the mom gets to sit and laugh.'],
-    ['The photos','Position the shooter opposite the door. The walk-in face is the shot; everything else is a bonus.'],
-    ['The rule','Mom doesn\'t lift a finger. Not for the cake, not for the gifts, not once. That\'s the nest rule.']
+    ['The nap math','The smash lands 45–60 minutes after the nap. A tired baby won\'t smash — they\'ll cry. Isabella reschedules around the nap, never the other way.'],
+    ['The decoy cake','The smash cake is real but small. The guests eat the full cake at the table. Never let a guest "help" by cutting the smash cake.'],
+    ['The warm water','Wet wipes lose. Warm water and washcloths win. Isabella tests it on her own wrist like a bottle — every single time.'],
+    ['The backup outfit','One backup onesie, one backup bib, and one backup smash cupcake live in the truck. The cupcake has been deployed 14 times.'],
+    ['The camera','One shooter, low angle, 20 minutes max. Phones down for everyone else — the photos are the whole point of the mess.'],
+    ['The rule','The baby decides when the smash ends. Never force the hand into the cake — the "gentle smash" portrait is often the keeper.']
   ];
 }
 function buildShare(st){
   var w=buildWords(st);var scene=pickScene(st.scene);
-  return '🍼 THE NEST — our baby shower plan\n\nNest: '+scene.name+' ('+scene.price+')\nDate: '+(fmtDate(st.date)||'TBD')+' · '+vibeText(st.vibe)+'\n\n'+w.body+'\n\n'+w.sign+'\n\nPlanned with Everlasting Memories — sage, butter, and the mom doesn\'t lift a finger.';
+  return '🎂 THE SMASH HIT — our first-birthday plan\n\nSetup: '+scene.name+' ('+scene.price+')\nDate: '+(fmtDate(st.date)||'TBD')+' · '+vibeText(st.vibe)+'\n\n'+w.body+'\n\n'+w.sign+'\n\nPlanned with Everlasting Memories — 20 minutes of chaos, one perfect photo, and the mess is on us.';
 }
 function leadPayload(st){
   var scene=pickScene(st.scene);
-  return {source:'nest',eventType:'Baby Shower',eventDate:st.date||'',budget:st.budget||'',message:'Nest: '+scene.name+' ('+scene.price+'). Vibe: '+vibeText(st.vibe)+'. Due month: '+(st.years||'')+'. Theme/detail: '+(st.memory||'none')+'.'};
+  return {source:'smash',eventType:'First Birthday',eventDate:st.date||'',budget:st.budget||'',message:'Smash: '+scene.name+' ('+scene.price+'). Vibe: '+vibeText(st.vibe)+'. Birthday month: '+(st.years||'')+'. Theme/flavor: '+(st.memory||'none')+'.'};
 }
-function sampleState(){return {scene:'arch',tone:'bestie',your:'Jordan',their:'Maya',years:9,memory:'woodland-animal nursery',date:'2026-10-17',vibe:'garden',budget:'600'};}
+function sampleState(){return {scene:'studio',tone:'first',your:'Alex',their:'Maya',years:9,memory:'strawberry smash cake',date:'2026-12-05',vibe:'golden',budget:'600'};}
 /* ============ DOM glue (browser only) ============ */
 if(typeof document!=='undefined'){
 function $(id){return document.getElementById(id);}
@@ -537,14 +539,14 @@ function renderAll(){
   $('ncSubject').textContent=w.subject;
   $('ncBody').textContent=w.body;
   $('ncSign').textContent=w.sign;
-  $('ncFoot').textContent=(fmtDate(st.date)?'📅 '+fmtDate(st.date)+' · ':'')+'🌿 '+vibeText(st.vibe)+' · '+pickScene(st.scene).price+' · 🍼 guest-of-honor protocol armed';
+  $('ncFoot').textContent=(fmtDate(st.date)?'📅 '+fmtDate(st.date)+' · ':'')+'🎂 '+vibeText(st.vibe)+' · '+pickScene(st.scene).price+' · 🎬 20-minute smash protocol armed';
   $('outTitle').textContent=pickScene(st.scene).emoji+' '+pickScene(st.scene).name;
   var run=buildRun(st);
   $('runList').innerHTML=run.map(function(r){return '<li><span class="t">'+esc(r[0])+'</span><span class="x">'+esc(r[1])+'</span></li>';}).join('');
   $('ringList').innerHTML=buildRing().map(function(r){return '<li><span class="t">'+esc(r[0])+'</span><span class="x">'+esc(r[1])+'</span></li>';}).join('');
-  $('pcLine').textContent='Nest: '+pickScene(st.scene).name+' ('+pickScene(st.scene).price+')\nDate: '+(fmtDate(st.date)||'TBD')+' · '+vibeText(st.vibe)+'\n\n'+w.body+'\n\n'+w.sign+'\n\nEverlasting Memories · myeverlastingmemories.com';
+  $('pcLine').textContent='Smash: '+pickScene(st.scene).name+' ('+pickScene(st.scene).price+')\nDate: '+(fmtDate(st.date)||'TBD')+' · '+vibeText(st.vibe)+'\n\n'+w.body+'\n\n'+w.sign+'\n\nEverlasting Memories · myeverlastingmemories.com';
 }
-function surprise(){var ids=SCENES.map(function(s){return s.id;});var tids=TONES.map(function(t){return t.id;});state.scene=ids[Math.floor(Math.random()*ids.length)];state.tone=tids[Math.floor(Math.random()*tids.length)];var names=['Maya','Priya','Sofia','Chloe','Amara','Hannah'];state.their=names[Math.floor(Math.random()*names.length)];renderChips('sceneChips',SCENES,state.scene,setScene);renderChips('toneChips',TONES,state.tone,setTone);renderSceneDesc(state.scene);renderAll();toast('🎲 New nest, new plan — roll with it.');}
+function surprise(){var ids=SCENES.map(function(s){return s.id;});var tids=TONES.map(function(t){return t.id;});state.scene=ids[Math.floor(Math.random()*ids.length)];state.tone=tids[Math.floor(Math.random()*tids.length)];var names=['Maya','Leo','Nora','Finn','Luna','Theo'];state.their=names[Math.floor(Math.random()*names.length)];renderChips('sceneChips',SCENES,state.scene,setScene);renderChips('toneChips',TONES,state.tone,setTone);renderSceneDesc(state.scene);renderAll();toast('🎲 New smash, new plan — roll with it.');}
 function setScene(id){state.scene=id;renderChips('sceneChips',SCENES,state.scene,setScene);renderSceneDesc(id);renderAll();}
 function setTone(id){state.tone=id;renderChips('toneChips',TONES,state.tone,setTone);renderAll();}
 function collectState(){state.your=$('inYour').value.trim();state.their=$('inTheir').value.trim();state.years=parseInt($('inYears').value,10)||9;state.memory=$('inMemory').value.trim();state.date=$('inDate').value;state.vibe=$('inVibe').value;state.budget=$('inBudget').value;return state;}
@@ -554,20 +556,20 @@ renderChips('toneChips',TONES,state.tone,setTone);
 renderSceneDesc(state.scene);
 ['inYour','inTheir','inYears','inMemory','inDate','inVibe','inBudget'].forEach(function(id){$(id).addEventListener('input',function(){collectState();renderAll();});});
 $('btnSurprise').addEventListener('click',surprise);
-$('btnCopy').addEventListener('click',function(){collectState();var w=buildWords(state);var txt=w.body+'\n\n'+w.sign;if(navigator.clipboard){navigator.clipboard.writeText(txt).then(function(){toast('📋 Nest card copied');});}else{toast('Copy: '+txt.slice(0,40)+'…');}});
+$('btnCopy').addEventListener('click',function(){collectState();var w=buildWords(state);var txt=w.body+'\n\n'+w.sign;if(navigator.clipboard){navigator.clipboard.writeText(txt).then(function(){toast('📋 Smash card copied');});}else{toast('Copy: '+txt.slice(0,40)+'…');}});
 $('btnWa').addEventListener('click',function(){collectState();var url='https://wa.me/?text='+encodeURIComponent(buildShare(state));window.open(url,'_blank');});
 $('btnPrint').addEventListener('click',function(){collectState();renderAll();window.print();});
 $('ddBtn').addEventListener('click',function(){var m=$('ddMenu');m.classList.toggle('open');this.setAttribute('aria-expanded',m.classList.contains('open'));});
 document.addEventListener('click',function(e){var w=$('ddWrap')||document.querySelector('.dd-wrap');if(w&&!w.contains(e.target)){$('ddMenu').classList.remove('open');}});
-/* easter egg: secret #19 — five taps on the badge */
+/* easter egg: secret #20 — five taps on the badge */
 var taps=0,tapT=null;
 $('secretBadge').addEventListener('click',function(){
   taps++;clearTimeout(tapT);tapT=setTimeout(function(){taps=0;},1600);
   if(taps>=5){taps=0;
-    $('ncBody').textContent='Isabella\'s secret #19: every nest arch hides one tiny surprise — a single mini balloon tucked into the greenery, always in the mom-to-be\'s favorite color. She never points it out; the mom always finds it herself, usually mid-photo, and it\'s the one balloon she\'s allowed to take home. In 40+ showers, no mom has ever missed it. And the spare pacifier in her truck? It\'s been used twice — once for a guest\'s baby, once for the grandma who forgot hers. 🤫🍼';
-    $('ncSubject').textContent='🤫 Secret #19 unlocked — Isabella\'s nest playbook';
+    $('ncBody').textContent='Isabella\'s secret #20: tucked behind every smash stage mat is a spare smash cupcake — deployed 14 times in 200+ parties, most famously when a golden retriever ate the original in four seconds flat. The wipe-down water is always tested on her own wrist first, like a bottle. But her favorite trick: she photographs the empty pedestal at minute zero, because in twenty years the mess will be the memory — and the clean cake photo is the "before" of the best story the family tells. 🤫🎂';
+    $('ncSubject').textContent='🤫 Secret #20 unlocked — Isabella\'s smash playbook';
     $('ncSign').textContent='— Everlasting Memories';
-    toast('🤫 Secret #19 unlocked');
+    toast('🤫 Secret #20 unlocked');
   }
 });
 /* lead form */
