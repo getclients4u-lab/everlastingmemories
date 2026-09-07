@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Launch Pad — Corporate Event &amp; Office Party Planner | Everlasting Memories</title>
+<meta name="description" content="Plan corporate events &amp; office parties in brand colors: balloon logo walls, arches, after-hours installs, priced per guest. Everlasting Memories.">
+<meta name="theme-color" content="#1e3a8a">
+<meta property="og:title" content="The Launch Pad — Corporate Event & Office Party Planner | Everlasting Memories">
+<meta property="og:description" content="The site's first corporate-event tool. Pick the mission — product launch, office holiday party, grand opening — and Isabella builds the brand-color room after hours, priced per guest. Balloons in the boardroom, HR approved.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--c1:#1e3a8a;--c2:#C9A227;--c3:#0f1b3d;--bg:#f6f7fb;--line:#e2e6f0;--ink:#16213e;--soft:#5c6b8a;--good:#1a7f4e;--bad:#b3261e}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.serif{font-family:'Playfair Display',Georgia,serif}
+a{color:var(--c1);text-decoration:none}
+a:hover{opacity:.85}
+/* nav */
+.em-nav{display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:14px 22px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.em-nav-brand{font-family:'Playfair Display',serif;font-weight:700;font-size:1.15rem;color:var(--ink);margin-right:auto}
+.em-nav-brand span{color:var(--c1)}
+.em-nav a.nav-link{font-size:.85rem;font-weight:600;color:var(--ink);padding:6px 8px;border-radius:8px}
+.em-nav a.nav-link:hover{background:var(--bg)}
+.em-nav-cta{background:linear-gradient(135deg,var(--c1),var(--c3));color:#fff!important;padding:9px 16px;border-radius:999px;font-weight:600;font-size:.85rem;box-shadow:0 4px 14px rgba(30,58,138,.35)}
+.em-nav-cta:hover{opacity:.92}
+.dd-wrap{position:relative}
+.dd-btn{background:none;border:1px solid var(--line);border-radius:999px;padding:8px 16px;font:600 .85rem 'Inter',sans-serif;color:var(--ink);cursor:pointer;display:flex;align-items:center;gap:6px}
+.dd-btn:hover{background:var(--bg)}
+.dd-menu{display:none;position:absolute;top:calc(100% + 8px);left:0;min-width:230px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 18px 40px rgba(36,26,26,.14);padding:8px;z-index:60}
+.dd-menu.open{display:block}
+.dd-menu a{display:block;padding:8px 12px;border-radius:9px;font-size:.84rem;font-weight:500;color:var(--ink)}
+.dd-menu a:hover{background:var(--bg)}
+.dd-menu a.styled{color:#fff!important;font-weight:600}
+.dd-menu .dd-tag{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);padding:8px 12px 4px}
+/* hero */
+.hero{max-width:1100px;margin:0 auto;padding:34px 22px 10px}
+.home-link{display:inline-block;font-size:.82rem;font-weight:600;color:var(--c1);margin-bottom:16px}
+.badge{display:inline-block;background:linear-gradient(135deg,var(--c1),var(--c3));color:#fff;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:14px;cursor:pointer;user-select:none}
+.hero h1{font-size:clamp(2.1rem,5vw,3.3rem);line-height:1.1;color:var(--c3)}
+.hero .sub{margin-top:12px;max-width:760px;color:var(--soft);font-size:1.02rem}
+.hero .sub b{color:var(--ink)}
+/* layout */
+.container{max-width:1100px;margin:0 auto;padding:22px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 10px 30px rgba(36,26,26,.05)}
+.card h2{font-size:1.35rem;color:var(--c3);margin-bottom:4px}
+.card .kicker{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c1);margin-bottom:2px}
+.card .hint{font-size:.82rem;color:var(--soft);margin-bottom:14px}
+.fg{margin-bottom:14px}
+.fg label{display:block;font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ink);margin-bottom:5px}
+.fg input,.fg select,.fg textarea{width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;font:500 .92rem 'Inter',sans-serif;background:#fff;color:var(--ink)}
+.fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:var(--c1)}
+.fg textarea{min-height:64px;resize:vertical}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:520px){.fg-row{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;font:600 .82rem 'Inter',sans-serif;color:var(--ink);cursor:pointer;transition:all .15s}
+.chip:hover{border-color:var(--c1);color:var(--c1)}
+.chip.on{background:linear-gradient(135deg,var(--c1),var(--c3));border-color:transparent;color:#fff;box-shadow:0 4px 12px rgba(30,58,138,.3)}
+.chip .px{display:block;font-size:.66rem;font-weight:600;opacity:.85}
+.scene-desc{margin-top:10px;background:var(--bg);border:1px dashed var(--line);border-radius:12px;padding:12px 14px;font-size:.86rem}
+.scene-desc b{color:var(--c3)}
+/* range */
+.range-wrap{display:flex;align-items:center;gap:14px}
+.range-wrap input[type=range]{flex:1;accent-color:var(--c1);height:34px}
+.guest-read{min-width:74px;text-align:center;background:linear-gradient(135deg,var(--c1),var(--c3));color:#fff;border-radius:12px;padding:8px 10px;font-weight:700;font-size:.95rem}
+.guest-read small{display:block;font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;opacity:.85}
+/* multi-zone */
+.zone{display:flex;gap:12px;align-items:flex-start;border:1.5px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:10px;cursor:pointer;transition:all .15s;background:#fff}
+.zone:hover{border-color:var(--c1)}
+.zone.on{border-color:var(--c1);background:#eef2ff;box-shadow:0 0 0 1px var(--c1)}
+.zone .z-emoji{font-size:1.4rem;line-height:1.3}
+.zone .z-body{flex:1}
+.zone .z-name{font-weight:700;font-size:.9rem;color:var(--c3)}
+.zone .z-name .z-check{float:right;color:var(--good);font-weight:700}
+.zone .z-desc{font-size:.78rem;color:var(--soft);margin-top:2px}
+.zone .z-meta{font-size:.72rem;font-weight:600;color:var(--c1);margin-top:3px}
+/* output */
+.quote-card{background:linear-gradient(160deg,#fff,#eef2ff);border:1px solid var(--line);border-radius:18px;padding:22px;min-height:300px;position:relative}
+.quote-card .qc-tag{font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--c1)}
+.quote-card .qc-occasion{font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--c3);margin:2px 0 10px}
+.quote-card .qc-para{font-size:.9rem;color:var(--ink);margin-bottom:10px}
+.quote-card .qc-para b{color:var(--c3)}
+.metric{display:flex;align-items:center;gap:14px;background:linear-gradient(135deg,var(--c1),var(--c3));color:#fff;border-radius:14px;padding:14px 16px;margin:12px 0}
+.metric .m-num{font-family:'Playfair Display',serif;font-size:1.9rem;line-height:1}
+.metric .m-txt{font-size:.78rem;line-height:1.45;color:#dbe4ff}
+.metric .m-txt b{color:#ffd76a}
+.qtable{width:100%;border-collapse:collapse;font-size:.84rem}
+.qtable th{text-align:left;font-size:.66rem;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);padding:6px 0;border-bottom:1px solid var(--line)}
+.qtable td{padding:6px 0;border-bottom:1px dashed var(--line)}
+.qtable td.amt{text-align:right;font-weight:700;white-space:nowrap}
+.qtable tr.total td{border-bottom:none;font-weight:800;color:var(--c3);padding-top:10px;font-size:.95rem}
+.qtable tr.total td.amt{color:var(--c1);font-family:'Playfair Display',serif;font-size:1.3rem}
+.qtable .q-note{font-size:.72rem;color:var(--soft);font-weight:500}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.btn{border:none;border-radius:999px;padding:11px 18px;font:600 .85rem 'Inter',sans-serif;cursor:pointer;transition:all .15s}
+.btn-p{background:linear-gradient(135deg,var(--c1),var(--c3));color:#fff;box-shadow:0 4px 14px rgba(30,58,138,.3)}
+.btn-p:hover{opacity:.92}
+.btn-g{background:#fff;border:1.5px solid var(--line);color:var(--ink)}
+.btn-g:hover{border-color:var(--c1);color:var(--c1)}
+.btn-wa{background:#25D366;color:#fff}
+.btn-wa:hover{opacity:.9}
+.btn-print{background:var(--ink);color:#fff}
+.btn-print:hover{opacity:.88}
+/* plan list */
+.plan-list{list-style:none}
+.plan-list li{display:flex;gap:10px;padding:9px 0;border-bottom:1px dashed var(--line);font-size:.86rem}
+.plan-list li:last-child{border-bottom:none}
+.plan-list .t{font-weight:700;color:var(--c3);white-space:nowrap;min-width:64px}
+.plan-list .x{color:var(--soft)}
+.tip{margin-top:12px;background:#fdf3d7;border:1px solid #ecd9a8;border-radius:12px;padding:12px 14px;font-size:.84rem}
+.tip b{color:#8a6d1f}
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:26px 0}
+@media(max-width:760px){.facts{grid-template-columns:repeat(2,1fr)}}
+.fact{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;text-align:center}
+.fact .n{font-family:'Playfair Display',serif;font-size:1.7rem;color:var(--c1);line-height:1.1}
+.fact .l{font-size:.74rem;color:var(--soft);margin-top:4px;line-height:1.35}
+/* faq */
+.faq details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin-bottom:10px}
+.faq summary{font-weight:600;cursor:pointer;font-size:.92rem;color:var(--ink)}
+.faq summary:hover{color:var(--c1)}
+.faq details p{margin-top:10px;font-size:.87rem;color:var(--soft)}
+/* lead */
+.lead-card{background:linear-gradient(160deg,var(--c3),#1e3a8a);color:#fff;border-radius:20px;padding:28px;margin-top:8px}
+.lead-card h2{color:#fff}
+.lead-card .kicker{color:#ffd76a}
+.lead-card .hint{color:#dbe4ff}
+.lead-card label{color:#dbe4ff}
+.lead-card input,.lead-card select,.lead-card textarea{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#fff}
+.lead-card input::placeholder,.lead-card textarea::placeholder{color:rgba(255,255,255,.55)}
+.lead-card input:focus,.lead-card select:focus,.lead-card textarea:focus{border-color:#ffd76a}
+.lead-card select option{color:var(--ink)}
+.lead-card .btn-p{background:#fff;color:var(--c3)}
+.lead-card .fine{font-size:.74rem;color:#dbe4ff;margin-top:10px}
+/* footer */
+footer{background:var(--c3);color:#fff;margin-top:34px;padding:26px 22px 30px}
+footer .strip{font-size:.78rem;line-height:2;color:rgba(255,255,255,.75)}
+footer .strip a{color:#f2c6d2;font-weight:600;margin-right:2px}
+footer .foot-brand{font-family:'Playfair Display',serif;font-size:1.1rem;margin-top:14px}
+footer .foot-brand span{color:#ffd76a}
+footer .copy{font-size:.72rem;color:rgba(255,255,255,.6);margin-top:6px}
+/* print card */
+.print-card{display:none}
+@media print{
+  body{background:#fff}
+  .em-nav,.actions,.lead-card,.facts,.faq,.hero .sub,.home-link,.badge,footer{display:none!important}
+  .container{max-width:100%}
+  .grid{grid-template-columns:1fr}
+  .print-card{display:block;background:#fff;border:2px solid var(--c3);border-radius:14px;padding:20px;margin-bottom:16px}
+  .print-card .pc-title{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--c3)}
+  .print-card .pc-meta{font-size:.78rem;color:#555;margin:4px 0 10px}
+  .print-card .pc-line{font-size:.9rem;margin:6px 0;white-space:pre-line}
+  .card,.quote-card{box-shadow:none;border:1px solid #ccc}
+}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(120%);background:var(--ink);color:#fff;padding:12px 22px;border-radius:999px;font-size:.85rem;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.25);transition:transform .3s;z-index:99}
+.toast.show{transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<nav class="em-nav">
+  <div class="em-nav-brand"><a href="index.html" style="color:inherit">Everlasting <span>Memories</span></a></div>
+  <a class="nav-link" href="gallery.html">Gallery</a>
+  <a class="nav-link" href="services.html">Services</a>
+  <a class="nav-link" href="about.html">About</a>
+  <a class="nav-link" href="faq.html">FAQ</a>
+  <div class="dd-wrap">
+    <button class="dd-btn" id="ddBtn" aria-haspopup="true" aria-expanded="false">Tools ▾</button>
+    <div class="dd-menu" id="ddMenu">
+      <div class="dd-tag">Newest</div>
+      <a href="launch-pad.html" class="styled" style="background:#1e3a8a">The Launch Pad</a>
+      <a href="smash.html" class="styled" style="background:#ff8c42">The Smash Hit</a>
+      <a href="nest.html" class="styled" style="background:#6b8f71">The Nest</a>
+      <a href="powder-pop.html" class="styled" style="background:#ec4899">The Powder Pop</a>
+      <a href="big-yes.html" class="styled" style="background:#a8526b">The Big Yes</a>
+      <a href="party-er.html" class="styled" style="background:#059669">The Party ER</a>
+      <a href="rain-plan.html" class="styled" style="background:#0284c7">The Rain Plan</a>
+      <div class="dd-tag">All tools</div>
+      <a href="after-glow.html">The After-Glow</a>
+      <a href="seating-chart.html">Seating Chart Studio</a>
+      <a href="surprise-planner.html">Operation: Surprise</a>
+      <a href="dessert-table.html">Dessert Table Stylist</a>
+      <a href="golden-hour.html">Golden Hour Finder</a>
+      <a href="party-timeline.html">Party Day Timeline</a>
+      <a href="memory-capsule.html">Memory Capsule</a>
+      <a href="playlist.html">Party Playlist Studio</a>
+      <a href="guest-list.html">The Guest List</a>
+      <a href="photo-hunt.html">Party Photo Hunt</a>
+      <a href="photo-booth.html">Golden Hour Booth</a>
+      <a href="memory-wall.html">Memory Wall</a>
+      <a href="party-roadmap.html">Party Roadmap</a>
+      <a href="invitation-studio.html">Invitation Studio</a>
+      <a href="balloon-pop.html">Pop Party</a>
+      <a href="wedding-workshop.html">Wedding Workshop</a>
+      <a href="transformations.html">The Big Reveal</a>
+      <a href="budget-builder.html">Budget Balloonist</a>
+      <a href="referral.html">Refer &amp; Earn</a>
+      <a href="cost-estimator.html">Cost Estimator</a>
+      <a href="theme-generator.html">Theme Generator</a>
+      <a href="lookbook.html">Lookbook</a>
+      <a href="countdown.html">Countdown</a>
+      <a href="party-style-quiz.html">Party Style Quiz</a>
+      <a href="balloon-math.html">Balloon Math</a>
+      <a href="name-garland.html">Balloon Letter Studio</a>
+      <a href="palette-snap.html">Palette Snap</a>
+      <a href="diy-vs-pro.html">DIY or Dazzle</a>
+      <a href="reserve-date.html">Reserve Your Date</a>
+      <a href="gift-card.html">Gift Card Studio</a>
+    </div>
+  </div>
+  <a class="em-nav-cta" href="contact.html">Get a Quote</a>
+</nav>
+
+<header class="hero">
+  <a class="home-link" href="index.html">← Back to Everlasting Memories</a><br>
+  <span class="badge" id="secretBadge" title="💼">💼 New Tonight — The Launch Pad</span>
+  <h1>The Launch Pad</h1>
+  <p class="sub">The site's first <b>corporate-event planner</b>. Pick the mission — product launch, office holiday party, grand opening, team milestone — and Isabella builds the room in your brand colors, installed after hours, priced <b>per guest</b> with the math the CFO actually asks for. Structured garlands, logo walls, and zero glitter in the server room. Same truck, different dress code. 💼</p>
+</header>
+
+<div class="container">
+  <div class="grid">
+    <!-- LEFT: controls -->
+    <div>
+      <div class="card" style="margin-bottom:18px">
+        <div class="kicker">Step 1</div>
+        <h2>Pick the mission</h2>
+        <p class="hint">The company occasions Isabella actually decorates — tap one.</p>
+        <div class="chips" id="missionChips"></div>
+        <div class="scene-desc" id="missionDesc"></div>
+      </div>
+
+      <div class="card" style="margin-bottom:18px">
+        <div class="kicker">Step 2</div>
+        <h2>Set the headcount</h2>
+        <p class="hint">Guest count drives table math, build size and the per-guest number.</p>
+        <div class="range-wrap">
+          <input type="range" id="inGuests" min="10" max="500" step="5" value="120" aria-label="Guest count">
+          <div class="guest-read"><span id="guestNum">120</span><small id="tierLabel">XL</small></div>
+        </div>
+        <div class="scene-desc" style="margin-top:12px" id="scaleDesc"></div>
+      </div>
+
+      <div class="card" style="margin-bottom:18px">
+        <div class="kicker">Step 3</div>
+        <h2>Choose the install zones</h2>
+        <p class="hint">Tap every zone you want — the quote scales to the headcount. Pick at least one.</p>
+        <div id="zoneList"></div>
+      </div>
+
+      <div class="card">
+        <div class="kicker">Step 4</div>
+        <h2>The brand &amp; the tone</h2>
+        <p class="hint">Who's signing, and how the brief should sound.</p>
+        <div class="fg-row">
+          <div class="fg"><label for="inCompany">Company name</label><input id="inCompany" placeholder="Nimbus Labs"></div>
+          <div class="fg"><label for="inYour">Your name</label><input id="inYour" placeholder="Alex"></div>
+        </div>
+        <div class="fg-row">
+          <div class="fg"><label for="inDate">Event date</label><input id="inDate" type="date"></div>
+          <div class="fg"><label for="inPalette">Brand palette</label>
+            <select id="inPalette"></select>
+          </div>
+        </div>
+        <div class="fg"><label for="inVibe">The tone of the brief</label></div>
+        <div class="chips" id="toneChips"></div>
+        <div class="tip" style="margin-top:14px"><b>Isabella's tip:</b> the CFO won't ask "why balloons?" if the number is per guest. She prices every zone so the room makes sense to the person who signs the invoice — and so it photographs like it cost three times as much.</div>
+      </div>
+    </div>
+
+    <!-- RIGHT: output -->
+    <div>
+      <div class="card">
+        <div class="kicker">Your mission brief</div>
+        <h2 id="outTitle">The briefing room is loading…</h2>
+        <div class="quote-card" style="margin-top:12px">
+          <div class="qc-tag">The Launch Pad — Mission Brief</div>
+          <div class="qc-occasion" id="qcOccasion">—</div>
+          <div id="qcParas"></div>
+          <div class="metric" id="metricBox">
+            <div class="m-num" id="mNum">$0.00</div>
+            <div class="m-txt" id="mTxt">per guest — the number the CFO checks first</div>
+          </div>
+          <div class="kicker">Itemized quote</div>
+          <table class="qtable" id="qTable"></table>
+        </div>
+        <div class="actions">
+          <button class="btn btn-p" id="btnSurprise">🎲 Surprise me</button>
+          <button class="btn btn-g" id="btnCopy">📋 Copy</button>
+          <button class="btn btn-wa" id="btnWa">WhatsApp</button>
+          <button class="btn btn-print" id="btnPrint">🖨 Print</button>
+        </div>
+        <div style="margin-top:16px">
+          <div class="kicker">The night-shift run sheet</div>
+          <ul class="plan-list" id="runList"></ul>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:18px">
+        <div class="kicker">The office-proof rules</div>
+        <h2>Before the balloons enter the building</h2>
+        <ul class="plan-list" id="rulesList"></ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- facts -->
+  <div class="facts">
+    <div class="fact"><div class="n">≈$28</div><div class="l">per guest for a full branded room at 120 — less than the passed apps, alive in photos for years</div></div>
+    <div class="fact"><div class="n">6 PM</div><div class="l">installs start after close; the office opens at 8 AM with zero meeting disruption</div></div>
+    <div class="fact"><div class="n">48h</div><div class="l">logo &amp; design approval turnaround — vector files, transparent backgrounds, no excuses</div></div>
+    <div class="fact"><div class="n">9/10</div><div class="l">corporate clients who rebook the next year — holiday parties return like snow</div></div>
+  </div>
+
+  <!-- lead form -->
+  <div class="lead-card" id="leadCard">
+    <div class="kicker">The Launch Pad</div>
+    <h2>Brief Isabella — the invoice comes with a photo wall</h2>
+    <p class="hint">Tell her the mission. She'll reply within 24 hours with a written quote and a date hold. Structured garlands in your brand colors, installed after hours, torn down before anyone asks — and the only thing left behind is the photo the CEO posts.</p>
+    <form id="leadForm">
+      <div class="fg-row">
+        <div class="fg"><label for="fName">Your name</label><input id="fName" required placeholder="Alex"></div>
+        <div class="fg"><label for="fEmail">Email</label><input id="fEmail" type="email" required placeholder="you@company.com"></div>
+      </div>
+      <div class="fg-row">
+        <div class="fg"><label for="fPhone">Phone</label><input id="fPhone" type="tel" placeholder="(203) 555-0100"></div>
+        <div class="fg"><label for="fEvent">Event type</label>
+          <select id="fEvent">
+            <option value="Product Launch 🚀">Product Launch 🚀</option>
+            <option value="Office Holiday Party 🎄">Office Holiday Party 🎄</option>
+            <option value="Team Milestone 🎉">Team Milestone 🎉</option>
+            <option value="Grand Opening ✂️">Grand Opening ✂️</option>
+            <option value="Client Appreciation 🤝">Client Appreciation 🤝</option>
+            <option value="Company Anniversary 🏆">Company Anniversary 🏆</option>
+            <option value="Corporate Event 💼">Corporate Event 💼</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg-row">
+        <div class="fg"><label for="fDate">Event date</label><input id="fDate" type="date"></div>
+        <div class="fg"><label for="fBudget">Budget</label>
+          <select id="fBudget">
+            <option value="Under $1,000">Under $1,000</option>
+            <option value="$1,000–$2,500">$1,000–$2,500</option>
+            <option value="$2,500–$5,000" selected>$2,500–$5,000</option>
+            <option value="$5,000+">$5,000+</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg"><label for="fMsg">Tell her the mission</label><textarea id="fMsg" placeholder="The zone list, the headcount, the brand colors — or just 'make it look expensive but not wasteful.'"></textarea></div>
+      <button class="btn btn-p" type="submit">Send the brief →</button>
+      <p class="fine">No spam, no pressure — just a human reply from Isabella. Structured garlands are her most-requested 2026 build, and corporate clients are the ones who come back every year. 🤫</p>
+    </form>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq" style="margin-top:26px">
+    <h2 style="font-size:1.5rem;color:var(--c3);margin-bottom:12px">The Launch Pad — FAQ</h2>
+    <details open>
+      <summary>Does Isabella really do corporate events?</summary>
+      <p>Yes — structured garlands are literally built for "corporate events, product launches, and formal celebrations" (her words on the <a href="services.html">services page</a>). The Launch Pad is the first tool dedicated to that side of her notebook: same truck as the <a href="smash.html">Smash Hit</a>, but the dress code changes and the balloons match your brand guidelines instead of a nursery theme.</p>
+    </details>
+    <details>
+      <summary>Why is everything priced per guest?</summary>
+      <p>Because that's the number the person signing the invoice understands fastest. A room that totals $3,300 for 120 people reads as "about $28 a head" — cheaper than the catering, and the photo wall outlives the canapés. Isabella itemizes everything in writing within 24 hours anyway; the per-guest figure is just the translation layer between decor and the budget review.</p>
+    </details>
+    <details>
+      <summary>Can you really use our logo?</summary>
+      <p>Yes — logo walls and logo accents are standard, with one rule: send the vector file (AI/SVG/PDF) with a transparent background at least 48 hours ahead. A stretched, pixelated PNG logo is the single thing Isabella won't defend in the group photo. Brand colors get matched in latex within the limits of physics and helium.</p>
+    </details>
+    <details>
+      <summary>When should a company book for the holidays?</summary>
+      <p>Office holiday parties book fastest: December dates are mostly gone by mid-November, and Isabella's rule of thumb is to book by Halloween for December and by early September for November. Product launches and grand openings need 3–4 weeks for the logo approval + design pass. If your date is closer than that, call anyway — her record turnaround is 48 hours.</p>
+    </details>
+    <details>
+      <summary>What if the office has rules about decor?</summary>
+      <p>She's heard them all. Fire marshal clearances, no open flames, HR-approved wording, glitter bans — the <a href="#rulesList">office-proof rules</a> above are the real checklist from her corporate installs. She installs after hours, keeps every exit and aisle clear, and leaves the espresso machine exactly where the espresso machine lives.</p>
+    </details>
+    <details>
+      <summary>What goes with a corporate build?</summary>
+      <p>The <a href="playlist.html">Party Playlist Studio</a> sets the room's soundtrack, the <a href="photo-booth.html">Golden Hour Booth</a> gives the photo wall a job, the <a href="party-timeline.html">Party Day Timeline</a> schedules the agenda, and the <a href="after-glow.html">After-Glow</a> writes the client thank-yous. Companies rebook — and when they do, the <a href="referral.html">Refer &amp; Earn</a> credit applies to them too.</p>
+    </details>
+  </div>
+</div>
+
+<!-- print card -->
+<div class="print-card" id="printCard">
+  <div class="pc-title">💼 The Launch Pad — Mission Brief</div>
+  <div class="pc-meta" id="pcMeta">Everlasting Memories · myeverlastingmemories.com</div>
+  <div class="pc-line" id="pcLine">—</div>
+</div>
+
+<footer>
+  <p class="strip">
+    <a href="launch-pad.html" style="color:#c7d2fe;font-weight:600">The Launch Pad</a> ·
+    <a href="smash.html" style="color:#ffcfa8;font-weight:600">The Smash Hit</a> ·
+    <a href="nest.html" style="color:#cfe0c4;font-weight:600">The Nest</a> ·
+    <a href="powder-pop.html" style="color:#f9a8d4;font-weight:600">The Powder Pop</a> ·
+    <a href="big-yes.html" style="color:#f2c6d2;font-weight:600">The Big Yes</a> ·
+    <a href="party-er.html" style="color:#a7f3d0;font-weight:600">The Party ER</a> ·
+    <a href="rain-plan.html" style="color:#7dd3fc;font-weight:600">The Rain Plan</a> ·
+    <a href="seating-chart.html" style="color:#f9a8d4;font-weight:600">Seating Chart Studio</a> ·
+    <a href="after-glow.html" style="color:#f9a8d4;font-weight:600">The After-Glow</a> ·
+    <a href="surprise-planner.html" style="color:#a5b4fc;font-weight:600">Operation: Surprise</a> ·
+    <a href="dessert-table.html" style="color:#f0c9a0;font-weight:600">Dessert Table Stylist</a> ·
+    <a href="golden-hour.html" style="color:#c4b5fd;font-weight:600">Golden Hour Finder</a> ·
+    <a href="party-timeline.html" style="color:#cbd5e1;font-weight:600">Party Day Timeline</a> ·
+    <a href="wedding-workshop.html" style="color:#f9a8d4;font-weight:600">Wedding Workshop</a> ·
+    <a href="cost-estimator.html" style="color:#fcd34d;font-weight:600">Cost Estimator</a> ·
+    <a href="guest-list.html" style="color:#93c5fd;font-weight:600">The Guest List</a> ·
+    <a href="playlist.html" style="color:#fca5a5;font-weight:600">Party Playlist Studio</a> ·
+    <a href="name-garland.html" style="color:#f9a8d4;font-weight:600">Balloon Letter Studio</a> ·
+    <a href="invitation-studio.html" style="color:#a5b4fc;font-weight:600">Invitation Studio</a> ·
+    <a href="party-roadmap.html" style="color:#5eead4;font-weight:600">Party Roadmap</a> ·
+    <a href="memory-wall.html" style="color:#fcd34d;font-weight:600">Memory Wall</a> ·
+    <a href="photo-booth.html" style="color:#7dd3fc;font-weight:600">Golden Hour Booth</a> ·
+    <a href="photo-hunt.html" style="color:#f0abfc;font-weight:600">Party Photo Hunt</a> ·
+    <a href="memory-capsule.html" style="color:#fca5a5;font-weight:600">Memory Capsule</a> ·
+    <a href="balloon-pop.html" style="color:#fdba74;font-weight:600">Pop Party</a> ·
+    <a href="transformations.html" style="color:#c4b5fd;font-weight:600">The Big Reveal</a> ·
+    <a href="budget-builder.html" style="color:#86efac;font-weight:600">Budget Balloonist</a> ·
+    <a href="referral.html" style="color:#fde68a;font-weight:600">Refer &amp; Earn</a> ·
+    <a href="gift-card.html" style="color:#f9a8d4;font-weight:600">Gift Card Studio</a> ·
+    <a href="reserve-date.html" style="color:#93c5fd;font-weight:600">Reserve Your Date</a> ·
+    <a href="diy-vs-pro.html" style="color:#fdba74;font-weight:600">DIY or Dazzle</a> ·
+    <a href="palette-snap.html" style="color:#f0abfc;font-weight:600">Palette Snap</a> ·
+    <a href="balloon-math.html" style="color:#86efac;font-weight:600">Balloon Math</a> ·
+    <a href="party-style-quiz.html" style="color:#f9a8d4;font-weight:600">Party Style Quiz</a> ·
+    <a href="countdown.html" style="color:#93c5fd;font-weight:600">Big Day Countdown</a> ·
+    <a href="lookbook.html" style="color:#c4b5fd;font-weight:600">Lookbook</a> ·
+    <a href="theme-generator.html" style="color:#fde68a;font-weight:600">Theme Generator</a> ·
+    <a href="faq.html" style="color:#f2c6d2;font-weight:600">FAQ</a>
+  </p>
+  <p class="foot-brand">Everlasting <span>Memories</span> — balloons &amp; moments that last</p>
+  <p class="copy">Isabella's notebook says the corporate room runs on the same rule as the baby shower: build it like it's the only photo anyone will keep. The CFO just needs a number per guest; the CEO needs a wall that survives the group photo. 💼</p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============ pure data + logic (Node-testable) ============ */
+var MISSIONS=[
+ {id:'launch',emoji:'🚀',name:'Product Launch',tag:'launches & releases',
+  desc:'The room goes live before the product does. Isabella frames the stage, the demo corner and the wall behind the announcement.',
+  hook:'Every launch has two moments: the one on the slide deck and the one people photograph before the doors open. Isabella builds the second one.',
+  season:'books 3–4 weeks out; launch-day installs are her specialty'},
+ {id:'holiday',emoji:'🎄',name:'Office Holiday Party',tag:'the Q4 classic',
+  desc:'The one event the whole company attends. Structured garlands, brand colors with winter accents, and a photo wall that outlives the eggnog.',
+  hook:'The December party is the one night the whole company shows up — and the photo wall is what they talk about in March.',
+  season:'December dates mostly gone by mid-November; book by Halloween'},
+ {id:'milestone',emoji:'🎉',name:'Team Milestone',tag:'record quarters & retirements',
+  desc:'The record quarter, the new office, the legend\u2019s retirement party. Celebrations the team actually earned.',
+  hook:'A milestone the team earned deserves a room that says so before the speeches do.',
+  season:'2–3 weeks out; retirement roasts need the legend\u2019s family looped in'},
+ {id:'opening',emoji:'✂️',name:'Grand Opening',tag:'ribbon cuttings & first customers',
+  desc:'The arch the first customer walks through, the wall behind the ribbon, the lobby that has to impress before the coffee does.',
+  hook:'The first customer forms the whole opinion in the first thirty seconds — before the handshake, even.',
+  season:'aligns with the build-out; Isabella installs the night before'},
+ {id:'clients',emoji:'🤝',name:'Client Appreciation',tag:'dinners & open houses',
+  desc:'The event that says "we noticed you" — understated, polished, and unmistakably on-brand.',
+  hook:'Clients forgive a lot in a party; they never forgive a logo wall in the wrong font. On-brand is the whole brief.',
+  season:'evening events; install before close, doors at 6'},
+ {id:'anniversary',emoji:'🏆',name:'Company Anniversary',tag:'X years in the making',
+  desc:'Ten, twenty, fifty years is a story worth a wall. Isabella builds the timeline in balloons and the number in latex.',
+  hook:'An anniversary is a story the company tells itself — Isabella just hangs it where everyone can see it.',
+  season:'founders\u2019 stories wanted for the wall; book 3–4 weeks out'}
+];
+var ZONES=[
+ {id:'wall',emoji:'🖼️',name:'The Logo Wall',baseFt:6,base:670,perFt:45,
+  desc:'The photo backdrop: structured balloons in brand colors with your logo panel — where every attendee gets photographed.',
+  includes:['brand-color backdrop','logo panel','6–18 ft by headcount','the CEO\u2019s LinkedIn cover factory'],
+  tip:'The logo goes at eye level, never above the tallest person in the group photo. Isabella learned that one from a CEO who shall remain 5\u20194\u2033.'},
+ {id:'arch',emoji:'🌉',name:'The Brand Arch',baseFt:10,base:450,perFt:22,
+  desc:'The structured entry garland — the arrival moment that makes the room feel like an event before the first hello.',
+  includes:['structured arch','brand-color blend','10–22 ft by headcount','doorway framing'],
+  tip:'Structured, not organic: corporate says "intentional." The arch is where she uses the most balloons per foot and the least apology.'},
+ {id:'stage',emoji:'🎤',name:'The Stage Set',baseFt:8,base:420,perFt:30,
+  desc:'Framing for the speaker, the podium or the announcement — so the stage reads "event" even before anyone speaks.',
+  includes:['stage wings','podium dressing','8–20 ft by headcount','speaker backdrop tie-in'],
+  tip:'She dresses the stage sides first and the podium last — the reveal of the full frame is the speaker\u2019s first "wow" of the night.'},
+ {id:'sky',emoji:'☁️',name:'The Skyline',baseFt:8,base:220,perFt:18,
+  desc:'Ceiling clouds or a lobby cluster — the trick that makes a rented hall feel designed instead of just decorated.',
+  includes:['ceiling cloud run','lobby cluster','8–24 ft by headcount','height-safe rigging'],
+  tip:'High ceilings are the cheapest upgrade in the building: clouds lift the eye, and nobody photographs the drop ceiling again.'},
+ {id:'tables',emoji:'🍽️',name:'The Table Scape',baseFt:0,base:0,perFt:0,
+  desc:'Centerpieces for the tables — one per table, sized to the headcount. The line item the CFO can count on a spreadsheet.',
+  includes:['one centerpiece per table','brand-color florals & latex','candles optional (fire-marshal approved)','the count-the-line-items zone'],
+  tip:'Round tables seat ten; Isabella prices the Table Scape per table so the spreadsheet matches the room. CFOs love a number that divides evenly.'},
+ {id:'moment',emoji:'📸',name:'The Photo Moment',baseFt:0,base:180,perFt:0,
+  desc:'The flat-rate hashtag frame and selfie-wall add-on — the corner where the Instagram content happens.',
+  includes:['hashtag frame','selfie-wall cluster','#YourCompanyParty accent','flat rate, no math'],
+  tip:'One flat rate, one rule: the hashtag goes on the frame BEFORE the event. A photo wall without a hashtag is a missed connection.'}
+];
+var TONES=[
+ {id:'startup',name:'🚀 The Startup',blurb:'Fast, loud, screenshot-ready. The room that makes people post before the demo ends.'},
+ {id:'agency',name:'💼 The Agency',blurb:'Polished, on-brand, memorable. First impressions are billable and this room invoices well.'},
+ {id:'enterprise',name:'🏛 The Enterprise',blurb:'Measured, proper, on budget. The numbers are itemized; the only surprise is how good it looks.'}
+];
+var PALETTES=[
+ {id:'romantic',name:'🌸 Romantic Bloom',hex:'#f9a8d4'},
+ {id:'glam',name:'✨ Glam Gold',hex:'#C9A227'},
+ {id:'party',name:'🎉 Party Pop',hex:'#f472b6'},
+ {id:'muse',name:'🎨 Modern Muse',hex:'#312e81'},
+ {id:'boho',name:'🌿 Boho Earth',hex:'#7c5c3a'},
+ {id:'winter',name:'❄️ Winter Wonder',hex:'#38bdf8'}
+];
+var TIERS=['S','M','L','XL','XXL'];
+var FT={wall:[6,8,10,14,18],arch:[10,12,14,18,22],stage:[8,10,12,16,20],sky:[8,10,12,16,24]};
+function pickMission(id){return MISSIONS.find(function(m){return m.id===id})||MISSIONS[0];}
+function pickTone(id){return TONES.find(function(t){return t.id===id})||TONES[0];}
+function pickPalette(id){return PALETTES.find(function(p){return p.id===id})||PALETTES[0];}
+function pickZone(id){return ZONES.find(function(z){return z.id===id})||null;}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function fmtDate(d){if(!d)return'';var p=d.split('-');if(p.length!==3)return d;var mo=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];return mo[+p[1]-1]+' '+ (+p[2]) + ', ' + p[0];}
+function money(n){return '$'+(Math.round(n)).toString().replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+function tierIdx(g){return g<25?0:g<50?1:g<100?2:g<250?3:4;}
+function tierOf(g){return TIERS[tierIdx(g)];}
+function tablesOf(g){return Math.max(2,Math.round(g/10));}
+function zoneFt(z,g){if(z.id==='wall'||z.id==='arch'||z.id==='stage'||z.id==='sky'){return FT[z.id][tierIdx(g)];}return 0;}
+function zoneCost(z,g){
+  if(z.id==='moment'){return 180;}
+  if(z.id==='tables'){return tablesOf(g)*38;}
+  var ft=zoneFt(z,g);
+  return z.base+(ft-z.baseFt)*z.perFt;
+}
+function zoneSizeTxt(z,g){
+  if(z.id==='tables'){return tablesOf(g)+' tables';}
+  if(z.id==='moment'){return 'flat rate';}
+  return zoneFt(z,g)+' ft';
+}
+function buildQuote(st){
+  var g=Math.max(10,Math.min(500,Math.round(st.guests)||120));
+  var lines=[];var total=0;
+  ZONES.forEach(function(z){
+    if(st.zones.indexOf(z.id)===-1){return;}
+    var cost=zoneCost(z,g);total+=cost;
+    lines.push({id:z.id,name:z.name,emoji:z.emoji,size:zoneSizeTxt(z,g),cost:cost,math:zoneMathTxt(z,g,cost)});
+  });
+  return {lines:lines,total:total,perGuest:(total>0&&g>0)?(total/g):0,guests:g,tier:tierOf(g),tables:tablesOf(g),count:lines.length};
+}
+function zoneMathTxt(z,g,cost){
+  if(z.id==='moment'){return 'flat rate';}
+  if(z.id==='tables'){return tablesOf(g)+' tables × $38';}
+  var ft=zoneFt(z,g);
+  if(ft<=z.baseFt){return 'base '+money(z.base);}
+  return money(z.base)+' + '+(ft-z.baseFt)+' ft × $'+z.perFt;
+}
+function zoneSummary(q){
+  if(q.count===0){return 'no zones yet';}
+  return q.lines.map(function(l){return l.emoji+' '+l.name+' ('+l.size+')';}).join(', ');
+}
+function buildBrief(st,q){
+  var m=pickMission(st.mission);var t=pickTone(st.tone);var p=pickPalette(st.palette);
+  var company=esc(st.company)||'the company';var your=esc(st.your)||'the host';
+  var paras=[];
+  paras.push({b:true,text:m.hook});
+  var pg=q.perGuest>0?money(q.perGuest)+' per guest':'\u201cnot yet priced\u201d';
+  var first;
+  if(t.id==='startup'){
+    first='So '+company+' is throwing a '+m.name.toLowerCase()+'. Isabella builds the room in '+p.name.replace(/^[^\s]+\s/,'')+' — structured garlands in brand colors, installed after hours, gone before stand-up — and prices it at '+pg+', which is the only math the finance team will check.';
+  }else if(t.id==='agency'){
+    first='For '+company+'\u2019s '+m.name.toLowerCase()+', first impressions are billable: '+zoneSummary(q)+', styled in '+p.name.replace(/^[^\s]+\s/,'')+', on-brand down to the logo panel. Installed after hours at '+pg+' — the room does the greeting before the first handshake.';
+  }else{
+    first='In support of '+company+'\u2019s '+m.name.toLowerCase()+', Isabella proposes a measured, on-brand installation: '+zoneSummary(q)+', in '+p.name.replace(/^[^\s]+\s/,'')+', itemized above and quoted at '+pg+'. All work occurs after business hours; the office opens untouched.';
+  }
+  paras.push({b:false,text:first});
+  var closer;
+  if(t.id==='startup'){
+    closer='HR approved the copy, the CFO approved the number, and the photo wall is already rehearsing. '+your+' signs; Isabella builds; the group photo does the rest.';
+  }else if(t.id==='agency'){
+    closer='The invoice arrives itemized, the install runs on the night-shift schedule, and the only surprise is how good it looks. '+your+' brings the guests; Isabella brings the room they remember.';
+  }else{
+    closer='Itemization, scheduling and approvals are detailed below. '+your+' may reach Isabella directly for the written quote; she replies within 24 hours, and the room will be ready when the doors open.';
+  }
+  paras.push({b:false,text:closer});
+  return paras;
+}
+function buildRun(st){
+  var m=pickMission(st.mission);
+  var rows=[];
+  rows.push(['T-14 days','Site walk + floor plan. Fire-marshal clearances, exit paths, and where the extension cords are allowed to live.']);
+  rows.push(['T-7 days','Brand palette matched, '+zoneSummary(st.guests?buildQuote(st):{count:0,lines:[]}).split(', ')[0]+' approved in writing. Sample photo to the committee.']);
+  rows.push(['T-48h','Logo files in (vector, transparent). The design pass lands; Isabella replies within 48 hours, always.']);
+  rows.push(['T-1 · 6 PM','Van arrives after close. Build order: arch first, wall second, tables last — so nothing blocks the build.']);
+  rows.push(['T-1 · 9:30 PM','Lights test, walk-through photos straight to the CEO\u2019s phone, alarm re-armed. Office opens at 8 AM untouched.']);
+  rows.push(['T-0 · 8 AM','Fifteen-minute touch-up before doors. Nothing says "we tried" like a wilting balloon at 9 AM — so she\u2019s back before the first coffee.']);
+  rows.push(['T+1 · 7 AM','Teardown before the office opens. The only evidence: the photos and the invoice.']);
+  return rows;
+}
+function buildRules(){
+  return [
+    ['The 36-inch rule','Every exit and aisle keeps 36" clear. The fire marshal writes this one; Isabella just enforces it before he has to.'],
+    ['The glitter clause','Zero glitter. The office will still be finding it at next year\u2019s holiday party.'],
+    ['The HR filter','HR approves the words; Isabella hangs the letters. Nothing on the wall that anyone could read wrong on a bad day.'],
+    ['The 48-hour logo','Vector file, transparent background, 48 hours ahead. A stretched PNG is the one thing she won\u2019t defend in the group photo.'],
+    ['The no-flame rule','No open flames near the latex — and the espresso machine is not a staging surface. Neither is the photocopier.'],
+    ['The after-hours rule','Installs happen when the office is empty. The ping-pong table becomes a ladder zone and goes back exactly where it was.']];
+}
+function buildShare(st){
+  var m=pickMission(st.mission);var q=buildQuote(st);var b=buildBrief(st,q);
+  var lines=['💼 THE LAUNCH PAD — '+m.name.toUpperCase()+' brief for '+(st.company||'the company'),
+    'Headcount: '+q.guests+' ('+q.tier+') · '+(fmtDate(st.date)||'date TBD'),
+    'Zones: '+zoneSummary(q),
+    'Total: '+money(q.total)+' · '+(q.perGuest>0?money(q.perGuest)+' per guest':'pick a zone')];
+  b.forEach(function(p){lines.push('');lines.push((p.b?'':'')+p.text);});
+  lines.push('');lines.push('Planned with Everlasting Memories — balloons in the boardroom, CFO approved. · myeverlastingmemories.com');
+  return lines.join('\n');
+}
+function leadPayload(st){
+  var m=pickMission(st.mission);var q=buildQuote(st);
+  return {source:'launch-pad',eventType:m.name+' '+m.emoji,eventDate:st.date||'',budget:st.budget||'',
+    message:'Headcount: '+q.guests+' ('+q.tier+'). Zones: '+zoneSummary(q)+'. Quote: '+money(q.total)+' ('+(q.perGuest>0?money(q.perGuest)+'/guest':'n/a')+'). Palette: '+pickPalette(st.palette).name+'. Company: '+(st.company||'—')+'. Tone: '+pickTone(st.tone).name+'.'};
+}
+function sampleState(){return {mission:'launch',guests:120,zones:['wall','arch','tables','moment'],company:'Nimbus Labs',your:'Alex',date:'2026-11-14',palette:'glam',tone:'startup',budget:'$2,500–$5,000'};}
+/* ============ DOM glue (browser only) ============ */
+if(typeof document!=='undefined'){
+function $(id){return document.getElementById(id);}
+function toast(m){var t=$('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove('show');},2600);}
+function renderChips(id,items,active,fn){
+  var el=$(id);el.innerHTML='';
+  items.forEach(function(it){
+    var b=document.createElement('button');
+    b.className='chip'+(it.id===active?' on':'');
+    b.type='button';
+    b.innerHTML=esc(it.name)+(it.tag?'<span class="px">'+esc(it.tag)+'</span>':'');
+    b.onclick=function(){fn(it.id);};
+    el.appendChild(b);
+  });
+}
+function renderZones(){
+  var el=$('zoneList');el.innerHTML='';
+  ZONES.forEach(function(z){
+    var on=state.zones.indexOf(z.id)!==-1;
+    var d=document.createElement('div');
+    d.className='zone'+(on?' on':'');
+    d.setAttribute('role','button');d.setAttribute('tabindex','0');d.setAttribute('aria-pressed',on?'true':'false');
+    d.innerHTML='<div class="z-emoji">'+z.emoji+'</div><div class="z-body"><div class="z-name">'+esc(z.name)+(on?'<span class="z-check">✓ selected</span>':'')+'</div><div class="z-desc">'+esc(z.desc)+'</div><div class="z-meta">'+esc(zoneMeta(z))+'</div></div>';
+    var tog=function(){toggleZone(z.id);};
+    d.onclick=tog;
+    d.onkeydown=function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();tog();}};
+    el.appendChild(d);
+  });
+}
+function zoneMeta(z){
+  if(z.id==='moment'){return '$180 flat · includes: '+z.includes.join(' · ');}
+  if(z.id==='tables'){return '$38/table · scales to headcount · includes: '+z.includes.join(' · ');}
+  return 'from '+money(z.base)+' · $'+z.perFt+'/ft past '+z.baseFt+' ft · includes: '+z.includes.join(' · ');
+}
+function renderMissionDesc(){
+  var m=pickMission(state.mission);
+  $('missionDesc').innerHTML='<b>'+m.emoji+' '+esc(m.name)+' — '+esc(m.tag)+'</b><br>'+esc(m.desc)+'<br><br><b>Timing:</b> '+esc(m.season);
+}
+function renderScaleDesc(){
+  var g=Math.max(10,Math.min(500,Math.round(state.guests)||120));
+  var t=tablesOf(g);
+  $('guestNum').textContent=g;
+  $('tierLabel').textContent=tierOf(g);
+  $('scaleDesc').innerHTML='<b>Tier '+tierOf(g)+' · '+g+' guests</b><br>≈ '+t+' round tables · linear zones sized to the room · per-guest math below.';
+  $('inGuests').value=g;
+}
+function renderAll(){
+  var st=state;
+  var m=pickMission(st.mission);var t=pickTone(st.tone);
+  var q=buildQuote(st);
+  $('qcOccasion').textContent=m.emoji+' '+m.name+' · Tier '+q.tier+' ('+q.guests+' guests)';
+  $('outTitle').textContent=m.emoji+' '+m.name+' — '+(esc(st.company)||'your company');
+  var paras=buildBrief(st,q);
+  $('qcParas').innerHTML=paras.map(function(p){return '<p class="qc-para">'+(p.b?'<b>':'')+p.text+(p.b?'</b>':'')+'</p>';}).join('');
+  $('mNum').textContent=q.perGuest>0?money(q.perGuest)+'/guest':'\u2014';
+  $('mTxt').textContent=q.count===0?'pick at least one zone — or hit Surprise me':'per guest — the CFO metric. Total: '+money(q.total)+' for '+q.guests+' guests';
+  var rows='';
+  if(q.count===0){
+    rows='<tr><td colspan="2" style="padding:10px 0;color:var(--soft)">No zones selected yet. Tap the zones you want on the left — the quote scales to the headcount.</td></tr>';
+  }else{
+    q.lines.forEach(function(l){
+      rows+='<tr><td>'+l.emoji+' <b>'+esc(l.name)+'</b><br><span class="q-note">'+esc(l.size)+' · '+esc(l.math)+'</span></td><td class="amt">'+money(l.cost)+'</td></tr>';
+    });
+  }
+  rows+='<tr class="total"><td>Estimated total'+(q.count?' <span class="q-note">— confirmed in writing within 24h</span>':'')+'</td><td class="amt">'+money(q.total)+'</td></tr>';
+  $('qTable').innerHTML='<tr><th>Install zone</th><th style="text-align:right">Estimate</th></tr>'+rows;
+  var run=buildRun(st);
+  $('runList').innerHTML=run.map(function(r){return '<li><span class="t">'+esc(r[0])+'</span><span class="x">'+esc(r[1])+'</span></li>';}).join('');
+  $('rulesList').innerHTML=buildRules().map(function(r){return '<li><span class="t">'+esc(r[0])+'</span><span class="x">'+esc(r[1])+'</span></li>';}).join('');
+  var pc='Mission: '+m.emoji+' '+m.name+' ('+q.guests+' guests, Tier '+q.tier+')\nCompany: '+(st.company||'—')+' · Date: '+(fmtDate(st.date)||'TBD')+'\nZones: '+zoneSummary(q)+'\nTotal: '+money(q.total)+(q.perGuest>0?' ('+money(q.perGuest)+' per guest)':'')+'\n\n'+paras.map(function(p){return p.text;}).join('\n\n')+'\n\nEverlasting Memories · myeverlastingmemories.com';
+  $('pcLine').textContent=pc;
+}
+function toggleZone(id){
+  var i=state.zones.indexOf(id);
+  if(i===-1){state.zones.push(id);}else{state.zones.splice(i,1);}
+  renderZones();renderAll();
+}
+function surprise(){
+  state.mission=MISSIONS[Math.floor(Math.random()*MISSIONS.length)].id;
+  state.tone=TONES[Math.floor(Math.random()*TONES.length)].id;
+  state.palette=PALETTES[Math.floor(Math.random()*PALETTES.length)].id;
+  var gs=[25,60,120,200,350];state.guests=gs[Math.floor(Math.random()*gs.length)];
+  var all=ZONES.map(function(z){return z.id;});
+  var n=2+Math.floor(Math.random()*3);
+  var pick=all.slice();for(var i=pick.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var tmp=pick[i];pick[i]=pick[j];pick[j]=tmp;}
+  state.zones=pick.slice(0,Math.min(n,pick.length));
+  var cos=['Aster & Co.','Brightline Digital','The Forge Studio','Harbor & Main','Northbeam','Copperfield Foods'];state.company=cos[Math.floor(Math.random()*cos.length)];
+  var names=['Alex','Jordan','Sam','Casey','Riley'];state.your=names[Math.floor(Math.random()*names.length)];
+  renderChips('missionChips',MISSIONS,state.mission,setMission);
+  renderChips('toneChips',TONES,state.tone,setTone);
+  renderMissionDesc();renderZones();renderScaleDesc();renderAll();
+  $('inCompany').value=state.company;$('inYour').value=state.your;$('inPalette').value=state.palette;
+  toast('🎲 New mission, new brief — the CFO will survive it.');
+}
+function setMission(id){state.mission=id;renderChips('missionChips',MISSIONS,state.mission,setMission);renderMissionDesc();renderAll();}
+function setTone(id){state.tone=id;renderChips('toneChips',TONES,state.tone,setTone);renderAll();}
+function collectState(){
+  state.company=$('inCompany').value.trim();
+  state.your=$('inYour').value.trim();
+  state.date=$('inDate').value;
+  state.palette=$('inPalette').value;
+  state.guests=parseInt($('inGuests').value,10)||120;
+  renderScaleDesc();
+  return state;
+}
+var state=sampleState();
+renderChips('missionChips',MISSIONS,state.mission,setMission);
+renderChips('toneChips',TONES,state.tone,setTone);
+(function(){
+  var sel=$('inPalette');
+  PALETTES.forEach(function(p){var o=document.createElement('option');o.value=p.id;o.textContent=p.name;sel.appendChild(o);});
+  sel.value=state.palette;
+})();
+renderMissionDesc();renderZones();renderScaleDesc();renderAll();
+$('inCompany').value=state.company;$('inYour').value=state.your;$('inDate').value=state.date;
+['inCompany','inYour','inDate','inPalette'].forEach(function(id){$(id).addEventListener('input',function(){collectState();renderAll();});});
+$('inGuests').addEventListener('input',function(){state.guests=parseInt(this.value,10)||120;renderScaleDesc();renderAll();});
+$('btnSurprise').addEventListener('click',surprise);
+$('btnCopy').addEventListener('click',function(){collectState();var q=buildQuote(state);var b=buildBrief(state,q);var txt=(state.company||'The company')+' brief:\n\n'+b.map(function(p){return p.text;}).join('\n\n')+'\n\nTotal: '+money(q.total)+(q.perGuest>0?' ('+money(q.perGuest)+'/guest)':'');if(navigator.clipboard){navigator.clipboard.writeText(txt).then(function(){toast('📋 Mission brief copied');});}else{toast('Copy: '+txt.slice(0,40)+'…');}});
+$('btnWa').addEventListener('click',function(){collectState();var url='https://wa.me/?text='+encodeURIComponent(buildShare(state));window.open(url,'_blank');});
+$('btnPrint').addEventListener('click',function(){collectState();window.print();});
+$('ddBtn').addEventListener('click',function(e){e.stopPropagation();$('ddMenu').classList.toggle('open');this.setAttribute('aria-expanded',$('ddMenu').classList.contains('open'));});
+document.addEventListener('click',function(e){if(!e.target.closest('.dd-wrap')){$('ddMenu').classList.remove('open');$('ddBtn').setAttribute('aria-expanded','false');}});
+var taps=0,tapT=null;
+$('secretBadge').addEventListener('click',function(){
+  taps++;clearTimeout(tapT);tapT=setTimeout(function(){taps=0;},1600);
+  if(taps>=5){taps=0;
+    $('qcOccasion').textContent='🤫 Secret #21 unlocked — Isabella\'s corporate playbook';
+    $('qcParas').innerHTML='<p class="qc-para"><b>Isabella\'s secret #21:</b> her biggest single invoice was never a wedding — it was a fintech office holiday party. The CEO\'s brief: "make it look expensive but not wasteful." One structured arch, one logo wall, forty centerpieces, navy and gold everywhere. The CFO posted the group-photo wall to LinkedIn and it out-liked the earnings call. Every December since, the invoice arrives before the first snowflake. Companies don\'t rebook balloons — they rebook the photo the CEO posts. 🤫💼</p>';
+    $('mNum').textContent='9/10';
+    $('mTxt').textContent='corporate clients who rebook the next year — the real product is the photo';
+    toast('🤫 Secret #21 unlocked');
+  }
+});
+/* lead form */
+$('leadForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  collectState();
+  var btn=this.querySelector('button[type=submit]');btn.disabled=true;btn.textContent='Sending…';
+  var payload=leadPayload(state);
+  payload.name=$('fName').value.trim();payload.email=$('fEmail').value.trim();payload.phone=$('fPhone').value.trim();
+  payload.eventDate=$('fDate').value||payload.eventDate;payload.budget=$('fBudget').value||payload.budget;
+  payload.message=($('fMsg').value.trim()?$('fMsg').value.trim()+' — ':'')+payload.message;
+  fetch('/api/leads.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+    .then(function(r){return r.json();})
+    .then(function(){toast('💌 Sent! Isabella replies within 24h.');btn.disabled=false;btn.textContent='Send the brief →';$('leadForm').reset();})
+    .catch(function(){toast('⚠️ Couldn\'t send — email hello@myeverlastingmemories.com');btn.disabled=false;btn.textContent='Send the brief →';});
+});
+}
+if (typeof module!=='undefined' && module.exports){
+  module.exports={MISSIONS:MISSIONS,ZONES:ZONES,TONES:TONES,PALETTES:PALETTES,TIERS:TIERS,pickMission:pickMission,pickTone:pickTone,pickPalette:pickPalette,pickZone:pickZone,esc:esc,fmtDate:fmtDate,money:money,tierOf:tierOf,tablesOf:tablesOf,zoneFt:zoneFt,zoneCost:zoneCost,zoneSizeTxt:zoneSizeTxt,zoneMathTxt:zoneMathTxt,zoneSummary:zoneSummary,buildQuote:buildQuote,buildBrief:buildBrief,buildRun:buildRun,buildRules:buildRules,buildShare:buildShare,leadPayload:leadPayload,sampleState:sampleState};
+}
+
+</script>
+</body>
+</html>
