@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Raised Glass — Toast &amp; Speech Writer | Everlasting Memories</title>
+<meta name="description" content="Write the wedding toast, birthday speech or retirement roast in four beats, timed to the 90-second rule, with a built-in teleprompter. Everlasting Memories.">
+<meta name="theme-color" content="#241b12">
+<meta property="og:title" content="The Raised Glass — Toast &amp; Speech Writer | Everlasting Memories">
+<meta property="og:description" content="The site's first toast & speech writer. Pick the occasion and your seat at the table — best person, proud parent, host, retiree, even the couple themselves — and The Raised Glass writes the words in four beats, timed to Isabella's 90-second rule, with a built-in teleprompter for the big night.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--c1:#8a6d2f;--c2:#C9A227;--c3:#241b12;--bg:#faf6ec;--line:#e9dfc8;--ink:#2b2113;--soft:#7a6f5a;--good:#1a7f4e;--bad:#b3261e}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.serif{font-family:'Playfair Display',Georgia,serif}
+a{color:var(--c1);text-decoration:none}
+a:hover{opacity:.85}
+/* nav */
+.em-nav{display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:14px 22px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.em-nav-brand{font-family:'Playfair Display',serif;font-weight:700;font-size:1.15rem;color:var(--ink);margin-right:auto}
+.em-nav-brand span{color:var(--c1)}
+.em-nav a.nav-link{font-size:.85rem;font-weight:600;color:var(--ink);padding:6px 8px;border-radius:8px}
+.em-nav a.nav-link:hover{background:var(--bg)}
+.em-nav-cta{background:linear-gradient(135deg,var(--c3),#4a3826);color:#fff!important;padding:9px 16px;border-radius:999px;font-weight:600;font-size:.85rem;box-shadow:0 4px 14px rgba(36,27,18,.35)}
+.em-nav-cta:hover{opacity:.92}
+.dd-wrap{position:relative}
+.dd-btn{background:none;border:1px solid var(--line);border-radius:999px;padding:8px 16px;font:600 .85rem 'Inter',sans-serif;color:var(--ink);cursor:pointer;display:flex;align-items:center;gap:6px}
+.dd-btn:hover{background:var(--bg)}
+.dd-menu{display:none;position:absolute;top:calc(100% + 8px);left:0;min-width:230px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 18px 40px rgba(36,26,26,.14);padding:8px;z-index:60}
+.dd-menu.open{display:block}
+.dd-menu a{display:block;padding:8px 12px;border-radius:9px;font-size:.84rem;font-weight:500;color:var(--ink)}
+.dd-menu a:hover{background:var(--bg)}
+.dd-menu a.styled{color:#fff!important;font-weight:600}
+.dd-menu .dd-tag{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);padding:8px 12px 4px}
+/* hero */
+.hero{max-width:1100px;margin:0 auto;padding:34px 22px 10px}
+.home-link{display:inline-block;font-size:.82rem;font-weight:600;color:var(--c1);margin-bottom:16px}
+.badge{display:inline-block;background:linear-gradient(135deg,var(--c3),#4a3826);color:#f3e3b8;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:14px;cursor:pointer;user-select:none}
+.hero h1{font-size:clamp(2.1rem,5vw,3.3rem);line-height:1.1;color:var(--c3)}
+.hero .sub{margin-top:12px;max-width:780px;color:var(--soft);font-size:1.02rem}
+.hero .sub b{color:var(--ink)}
+/* layout */
+.container{max-width:1100px;margin:0 auto;padding:22px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 10px 30px rgba(36,26,26,.05)}
+.card h2{font-size:1.35rem;color:var(--c3);margin-bottom:4px}
+.card .kicker{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c1);margin-bottom:2px}
+.card .hint{font-size:.82rem;color:var(--soft);margin-bottom:14px}
+.fg{margin-bottom:14px}
+.fg label{display:block;font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ink);margin-bottom:5px}
+.fg input,.fg select,.fg textarea{width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;font:500 .92rem 'Inter',sans-serif;background:#fff;color:var(--ink)}
+.fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:var(--c1)}
+.fg textarea{min-height:70px;resize:vertical}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:520px){.fg-row{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;font:600 .82rem 'Inter',sans-serif;color:var(--ink);cursor:pointer;transition:all .15s}
+.chip:hover{border-color:var(--c1);color:var(--c1)}
+.chip.on{background:linear-gradient(135deg,var(--c3),#4a3826);border-color:transparent;color:#f3e3b8;box-shadow:0 4px 12px rgba(36,27,18,.3)}
+.chip .px{display:block;font-size:.66rem;font-weight:600;opacity:.85}
+.chip.on .px{opacity:.8}
+.scene-desc{margin-top:10px;background:var(--bg);border:1px dashed var(--line);border-radius:12px;padding:12px 14px;font-size:.86rem}
+.scene-desc b{color:var(--c3)}
+/* range */
+.range-wrap{display:flex;align-items:center;gap:14px}
+.range-wrap input[type=range]{flex:1;accent-color:var(--c3);height:34px}
+.guest-read{min-width:70px;text-align:center;background:linear-gradient(135deg,var(--c3),#4a3826);color:#f3e3b8;border-radius:12px;padding:8px 10px;font-weight:700;font-size:.95rem}
+.guest-read small{display:block;font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;opacity:.85}
+/* toast output */
+.out-card{background:linear-gradient(165deg,#2b2013,#3a2c18);color:#f5ead0;border-radius:22px;padding:26px;box-shadow:0 16px 40px rgba(36,27,18,.22);position:sticky;top:84px}
+.out-card .oc-head{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:6px}
+.out-card .oc-occasion{display:inline-block;background:rgba(255,255,255,.12);color:#f3e3b8;border-radius:999px;padding:4px 12px;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.out-card h2{color:#fff;font-size:1.5rem}
+.out-card .oc-sub{color:#cbbf9e;font-size:.8rem;margin-bottom:16px}
+.beat{display:flex;gap:12px;margin-bottom:14px;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.bnum{flex:0 0 auto;width:26px;height:26px;border-radius:50%;background:#f3e3b8;color:#2b2013;font-weight:800;font-size:.78rem;display:flex;align-items:center;justify-content:center;margin-top:2px}
+.blabel{font-size:.66rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#d8b96a;margin-bottom:2px}
+.btext{font-size:.96rem;line-height:1.62;color:#f5ead0}
+.btext .fill{background:rgba(216,185,106,.22);padding:0 3px;border-radius:4px;font-style:italic}
+/* meters */
+.meter{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.14)}
+.mstat{background:rgba(255,255,255,.08);border-radius:12px;padding:8px 12px;text-align:center;min-width:86px}
+.mstat b{display:block;font-size:1rem;color:#fff}
+.mstat small{font-size:.62rem;text-transform:uppercase;letter-spacing:.06em;color:#cbbf9e}
+.fit{flex:1;min-width:160px;text-align:right;font-size:.8rem;font-weight:600}
+.fit.good{color:#8fe0b0}
+.fit.trim{color:#ffc9a0}
+.fit.room{color:#c9d6ff}
+/* action buttons */
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.btn{border:none;border-radius:999px;padding:11px 18px;font:700 .85rem 'Inter',sans-serif;cursor:pointer;transition:all .15s;background:#fff;color:#2b2013}
+.btn:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(0,0,0,.18)}
+.btn.primary{background:linear-gradient(135deg,#f3e3b8,#d8b96a);color:#2b2013}
+.btn.ghost{background:rgba(255,255,255,.1);color:#f5ead0;border:1px solid rgba(255,255,255,.25)}
+.btn.ghost:hover{background:rgba(255,255,255,.18)}
+/* quote */
+.quote{background:#fff;border-left:4px solid var(--c2);border-radius:0 16px 16px 0;padding:18px 20px;margin:24px 0;font-style:italic;color:var(--soft);font-size:.92rem}
+.quote b{color:var(--c3);font-style:normal}
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:26px 0}
+@media(max-width:800px){.facts{grid-template-columns:repeat(2,1fr)}}
+.fact{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px;text-align:center}
+.fact .f-num{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:700;color:var(--c3);display:block}
+.fact .f-txt{font-size:.76rem;color:var(--soft);margin-top:4px}
+/* faq */
+.faq{margin:8px 0 26px}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin-bottom:10px}
+.faq summary{font-weight:700;font-size:.92rem;cursor:pointer;color:var(--c3)}
+.faq details p{font-size:.86rem;color:var(--soft);margin-top:8px}
+/* lead card */
+.lead-card{background:linear-gradient(160deg,#241b12,#4a3826);color:#fff;border-radius:20px;padding:28px;margin-top:8px}
+.lead-card h2{color:#fff}
+.lead-card .kicker{color:#e8c877}
+.lead-card .hint{color:#e3d9bd}
+.lead-card label{color:#e3d9bd}
+.lead-card input,.lead-card select,.lead-card textarea{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#fff}
+.lead-card input::placeholder,.lead-card textarea::placeholder{color:rgba(255,255,255,.55)}
+.lead-card input:focus,.lead-card select:focus,.lead-card textarea:focus{border-color:#e8c877}
+.lead-card select option{color:var(--ink)}
+.lead-card .btn-p{background:#fff;color:var(--c3)}
+.lead-card .fine{font-size:.74rem;color:#e3d9bd;margin-top:10px}
+/* footer */
+footer{background:var(--c3);color:#fff;margin-top:34px;padding:26px 22px 30px}
+footer .strip{font-size:.78rem;line-height:2;color:rgba(255,255,255,.75)}
+footer .strip a{color:#eed9a6;font-weight:600;margin-right:2px}
+footer .foot-brand{font-family:'Playfair Display',serif;font-size:1.1rem;margin-top:14px}
+footer .foot-brand span{color:#ffd76a}
+footer .copy{font-size:.72rem;color:rgba(255,255,255,.6);margin-top:6px}
+/* print card */
+.print-card{display:none}
+@media print{
+  body{background:#fff}
+  .em-nav,.actions,.lead-card,.facts,.faq,.hero .sub,.home-link,.badge,footer,.quote{display:none!important}
+  .container{max-width:100%}
+  .grid{grid-template-columns:1fr}
+  .print-card{display:block;background:#fff;border:2px solid var(--c3);border-radius:14px;padding:20px;margin-bottom:16px}
+  .print-card .pc-title{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--c3)}
+  .print-card .pc-meta{font-size:.78rem;color:#555;margin:4px 0 10px}
+  .print-card .pc-line{font-size:.9rem;margin:6px 0;white-space:pre-line}
+  .card,.out-card{box-shadow:none}
+}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(120%);background:var(--ink);color:#fff;padding:12px 22px;border-radius:999px;font-size:.85rem;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.25);transition:transform .3s;z-index:99}
+.toast.show{transform:translateX(-50%) translateY(0)}
+/* teleprompter overlay */
+#prompter{display:none;position:fixed;inset:0;background:#171009;z-index:200;flex-direction:column}
+#prompter.on{display:flex}
+.prom-bar{position:absolute;top:0;left:0;height:4px;background:#d8b96a;width:0%;transition:width .2s linear;z-index:3}
+.prom-top{display:flex;align-items:center;gap:8px;padding:12px 16px;background:rgba(36,27,18,.92);border-bottom:1px solid rgba(243,227,184,.15);flex-wrap:wrap}
+.prom-top .pt-title{font-family:'Playfair Display',serif;color:#f3e3b8;font-weight:600;margin-right:auto;font-size:.95rem}
+.prom-btn{background:rgba(243,227,184,.12);color:#f3e3b8;border:1px solid rgba(243,227,184,.25);border-radius:10px;padding:7px 13px;font:700 .8rem 'Inter',sans-serif;cursor:pointer}
+.prom-btn:hover{background:rgba(243,227,184,.22)}
+.prom-btn.play{background:#d8b96a;color:#171009;border-color:#d8b96a}
+.prom-body{flex:1;overflow-y:auto;padding:30px 10vw 34vh;display:flex;align-items:flex-start;justify-content:flex-start;scrollbar-width:none}
+.prom-body::-webkit-scrollbar{display:none}
+.prom-text{color:#f7edd6;font-size:2.1rem;line-height:1.5;font-weight:500;max-width:900px;transition:font-size .15s}
+.prom-text.s1{font-size:1.5rem}.prom-text.s2{font-size:1.8rem}.prom-text.s3{font-size:2.1rem}.prom-text.s4{font-size:2.6rem}.prom-text.s5{font-size:3.2rem}
+.prom-speed{color:#cbbf9e;font-size:.74rem;font-weight:600;padding:0 4px}
+</style>
+</head>
+<body>
+<nav class="em-nav">
+  <div class="em-nav-brand"><a href="index.html" style="color:inherit">Everlasting <span>Memories</span></a></div>
+  <a class="nav-link" href="gallery.html">Gallery</a>
+  <a class="nav-link" href="services.html">Services</a>
+  <a class="nav-link" href="about.html">About</a>
+  <a class="nav-link" href="faq.html">FAQ</a>
+  <div class="dd-wrap">
+    <button class="dd-btn" id="ddBtn" aria-haspopup="true" aria-expanded="false">Tools ▾</button>
+    <div class="dd-menu" id="ddMenu">
+      <div class="dd-tag">Newest</div>
+      <a href="raised-glass.html" class="styled" style="background:#241b12">The Raised Glass</a>
+      <a href="launch-pad.html" class="styled" style="background:#1e3a8a">The Launch Pad</a>
+      <a href="smash.html" class="styled" style="background:#ff8c42">The Smash Hit</a>
+      <a href="nest.html" class="styled" style="background:#6b8f71">The Nest</a>
+      <a href="powder-pop.html" class="styled" style="background:#ec4899">The Powder Pop</a>
+      <a href="big-yes.html" class="styled" style="background:#a8526b">The Big Yes</a>
+      <a href="party-er.html" class="styled" style="background:#059669">The Party ER</a>
+      <a href="rain-plan.html" class="styled" style="background:#0284c7">The Rain Plan</a>
+      <div class="dd-tag">All tools</div>
+      <a href="after-glow.html">The After-Glow</a>
+      <a href="seating-chart.html">Seating Chart Studio</a>
+      <a href="surprise-planner.html">Operation: Surprise</a>
+      <a href="dessert-table.html">Dessert Table Stylist</a>
+      <a href="golden-hour.html">Golden Hour Finder</a>
+      <a href="party-timeline.html">Party Day Timeline</a>
+      <a href="memory-capsule.html">Memory Capsule</a>
+      <a href="playlist.html">Party Playlist Studio</a>
+      <a href="guest-list.html">The Guest List</a>
+      <a href="photo-hunt.html">Party Photo Hunt</a>
+      <a href="photo-booth.html">Golden Hour Booth</a>
+      <a href="memory-wall.html">Memory Wall</a>
+      <a href="party-roadmap.html">Party Roadmap</a>
+      <a href="invitation-studio.html">Invitation Studio</a>
+      <a href="balloon-pop.html">Pop Party</a>
+      <a href="wedding-workshop.html">Wedding Workshop</a>
+      <a href="transformations.html">The Big Reveal</a>
+      <a href="budget-builder.html">Budget Balloonist</a>
+      <a href="referral.html">Refer &amp; Earn</a>
+      <a href="cost-estimator.html">Cost Estimator</a>
+      <a href="theme-generator.html">Theme Generator</a>
+      <a href="lookbook.html">Lookbook</a>
+      <a href="countdown.html">Countdown</a>
+      <a href="party-style-quiz.html">Party Style Quiz</a>
+      <a href="balloon-math.html">Balloon Math</a>
+      <a href="name-garland.html">Balloon Letter Studio</a>
+      <a href="palette-snap.html">Palette Snap</a>
+      <a href="diy-vs-pro.html">DIY or Dazzle</a>
+      <a href="reserve-date.html">Reserve Your Date</a>
+      <a href="gift-card.html">Gift Card Studio</a>
+    </div>
+  </div>
+  <a class="em-nav-cta" href="contact.html">Get a Quote</a>
+</nav>
+
+<header class="hero">
+  <a class="home-link" href="index.html">← Back to Everlasting Memories</a><br>
+  <span class="badge" id="secretBadge" title="🥂">🥂 New Tonight — The Raised Glass</span>
+  <h1>The Raised Glass</h1>
+  <p class="sub">The site's first <b>toast &amp; speech writer</b>. Pick the occasion and your seat at the table — best person, proud parent, host, retiree, even the couple themselves — and it writes the words in <b>four beats</b>, timed to the <b>90-second rule</b> Isabella swears by. Rehearse in the built-in <b>teleprompter</b>, print the pocket card, and raise the glass before the fourth toast kills the timeline. 🥂</p>
+</header>
+
+<div class="container">
+  <div class="grid">
+    <!-- LEFT: controls -->
+    <div>
+      <div class="card" style="margin-bottom:18px">
+        <div class="kicker">Step 1</div>
+        <h2>Pick the occasion</h2>
+        <p class="hint">The room you're standing up in — tap one.</p>
+        <div class="chips" id="occChips"></div>
+        <div class="scene-desc" id="occDesc"></div>
+      </div>
+
+      <div class="card" style="margin-bottom:18px">
+        <div class="kicker">Step 2</div>
+        <h2>Who's speaking?</h2>
+        <p class="hint">Your seat at the table decides the voice of the toast.</p>
+        <div class="chips" id="roleChips"></div>
+        <div class="scene-desc" id="roleDesc"></div>
+        <div class="fg-row" style="margin-top:14px">
+          <div class="fg"><label for="inYour">Your name</label><input id="inYour" placeholder="Alex"></div>
+          <div class="fg"><label id="hLabel" for="inHonoree">They're celebrating</label><input id="inHonoree" placeholder="Sam &amp; Alex"></div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:18px">
+        <div class="kicker">Step 3</div>
+        <h2>The story moment</h2>
+        <p class="hint">Optional — a real memory makes it unforgettable. Leave it blank and Isabella's engine picks a story frame for you.</p>
+        <div class="fg"><textarea id="inStory" placeholder="The time they… (your own words beat any template)"></textarea></div>
+        <div class="chips" id="seedChips"></div>
+        <div style="margin-top:10px">
+          <button class="btn" id="btnSeed" type="button" style="background:var(--bg);color:var(--c3);border:1.5px solid var(--line)">🎲 Surprise me with a story</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="kicker">Step 4</div>
+        <h2>The tone &amp; the clock</h2>
+        <p class="hint">How it should sound — and how long you want to be on your feet.</p>
+        <div class="chips" id="toneChips" style="margin-bottom:16px"></div>
+        <div class="fg">
+          <label for="inSecs">Target length — <span id="secRead">75</span> seconds</label>
+          <div class="range-wrap">
+            <input type="range" id="inSecs" min="30" max="150" step="5" value="75" aria-label="Target seconds">
+            <div class="guest-read"><span id="secNum">75</span><small>sec</small></div>
+          </div>
+        </div>
+        <div class="fg">
+          <label for="inPace">Speaking pace — <span id="paceRead">130</span> words/min</label>
+          <div class="range-wrap">
+            <input type="range" id="inPace" min="110" max="170" step="5" value="130" aria-label="Speaking pace">
+            <div class="guest-read"><span id="paceNum">130</span><small>wpm</small></div>
+          </div>
+        </div>
+        <p class="hint" style="margin-top:8px">Isabella's golden zone: <b>45–90 seconds</b> — about 100–200 words at a natural pace. The room remembers the clink, not the conclusion.</p>
+      </div>
+    </div>
+
+    <!-- RIGHT: live toast -->
+    <div>
+      <div class="out-card">
+        <div class="oc-head">
+          <span class="oc-occasion" id="ocOccasion">🥂 Wedding · Best Person</span>
+        </div>
+        <h2 id="outTitle">Your toast</h2>
+        <p class="oc-sub" id="ocSub">Four beats · written for Sam &amp; Alex · Warm &amp; Witty</p>
+        <div id="beats"></div>
+        <div class="meter">
+          <div class="mstat"><b id="mWords">0</b><small>words</small></div>
+          <div class="mstat"><b id="mSecs">0s</b><small>at pace</small></div>
+          <div class="mstat"><b id="mTarget">75s</b><small>target</small></div>
+          <div class="fit" id="mFit">🎯 Right on time</div>
+        </div>
+        <div class="actions">
+          <button class="btn primary" id="btnPrompter" type="button">🎤 Teleprompter</button>
+          <button class="btn" id="btnRebuild" type="button" style="background:#f3e3b8;color:#2b2013">🔁 Rebuild</button>
+          <button class="btn ghost" id="btnCopy" type="button">📋 Copy</button>
+          <button class="btn ghost" id="btnWa" type="button">💬 WhatsApp</button>
+          <button class="btn ghost" id="btnPrint" type="button">🖨️ Pocket card</button>
+        </div>
+      </div>
+
+      <div class="quote">
+        <b>Isabella's rule of the clink:</b> "The best toast I ever heard was ninety seconds long. The worst was nine minutes. Guess which couple still gets teased at every family dinner. Say it, raise the glass, sit down — the room loves you for it." — from her event notebook, page one.
+      </div>
+    </div>
+  </div>
+
+  <!-- facts -->
+  <div class="facts" id="factsRow"></div>
+
+  <!-- FAQ -->
+  <div class="faq">
+    <details>
+      <summary>Do I have to read it word for word?</summary>
+      <p>No — but you shouldn't memorize it either. Read it once into the <a href="#btnPrompter">teleprompter</a> and let it scroll at your pace, or print the pocket card and keep it in your palm. The best speakers look up between beats: greeting, story, heart, raise — four glances, four breaths, done.</p>
+    </details>
+    <details>
+      <summary>How long should a toast actually be?</summary>
+      <p>45 to 90 seconds — about 100 to 200 words at a natural 130 wpm. Isabella's notebook rule: three toasts max, and the fourth toast is where timelines go to die. If your speech needs more than 150 seconds, it's not a toast anymore; it's a keynote, and the cake is getting cold.</p>
+    </details>
+    <details>
+      <summary>What if I'm not funny?</summary>
+      <p>Then pick <b>Heartfelt</b> and stop worrying. The room never remembers whether you made them laugh; they remember whether you made them feel something. Warmth lands every time — humor is just the garnish.</p>
+    </details>
+    <details>
+      <summary>Can it write a roast?</summary>
+      <p>The <b>Playful</b> tone gives you roast-with-a-hug — a wink, never a wound. Real roasts need a decade of trust behind them. If you have to ask whether the honoree can take it, they can't. Keep it kind; the group chat can be ruthless later.</p>
+    </details>
+    <details>
+      <summary>Why does a balloon company have a toast writer?</summary>
+      <p>Because Isabella stands through the toast block at every wedding she decorates — 60+ weddings, 400+ toasts — and she's seen the room go quiet for the good ones and die for the long ones. She decorates the room <i>and</i> she knows what happens in it. The <a href="party-timeline.html">Party Day Timeline</a> schedules the toast block before the dance floor opens for the same reason.</p>
+    </details>
+    <details>
+      <summary>What goes with a great toast?</summary>
+      <p>The <a href="playlist.html">Party Playlist Studio</a> cues the music to fade under the clink, the <a href="photo-booth.html">Golden Hour Booth</a> catches the raised glasses, the <a href="after-glow.html">After-Glow</a> writes the thank-yous the next day — and if it's a first birthday, the <a href="smash.html">Smash Hit</a> makes sure the cake moment the parents toast to is camera-ready.</p>
+    </details>
+  </div>
+
+  <!-- lead card -->
+  <div class="lead-card" id="leadCard">
+    <div class="kicker">The Raised Glass</div>
+    <h2>Planning the night the toasts happen?</h2>
+    <p class="hint">Tell Isabella what you're celebrating. She'll reply within 24 hours — and her timeline protects the toast block like it protects the cake.</p>
+    <form id="leadForm">
+      <div class="fg-row">
+        <div class="fg"><label for="fName">Your name</label><input id="fName" required placeholder="Alex"></div>
+        <div class="fg"><label for="fEmail">Email</label><input id="fEmail" type="email" required placeholder="you@email.com"></div>
+      </div>
+      <div class="fg-row">
+        <div class="fg"><label for="fPhone">Phone</label><input id="fPhone" type="tel" placeholder="(203) 555-0100"></div>
+        <div class="fg"><label for="fEvent">Event type</label>
+          <select id="fEvent">
+            <option value="Wedding 🥂">Wedding 🥂</option>
+            <option value="Birthday 🎂">Birthday 🎂</option>
+            <option value="Anniversary 💞">Anniversary 💞</option>
+            <option value="Retirement 🏖️">Retirement 🏖️</option>
+            <option value="Graduation 🎓">Graduation 🎓</option>
+            <option value="Corporate / Holiday 🎄">Corporate / Holiday 🎄</option>
+            <option value="Just Because 🥃">Just Because 🥃</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg-row">
+        <div class="fg"><label for="fDate">Event date</label><input id="fDate" type="date"></div>
+        <div class="fg"><label for="fBudget">Budget</label>
+          <select id="fBudget">
+            <option value="">Not sure yet</option>
+            <option value="Under $1,000">Under $1,000</option>
+            <option value="$1,000–$2,500">$1,000–$2,500</option>
+            <option value="$2,500–$5,000">$2,500–$5,000</option>
+            <option value="$5,000+">$5,000+</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg"><label for="fMsg">Anything else? (guest count, venue, the honoree's vibe…)</label><textarea id="fMsg" placeholder="About 80 guests, garden tent, they love a good story…"></textarea></div>
+      <button class="btn btn-p" type="submit" style="width:100%;padding:14px;font-size:.95rem">💌 Send Isabella the details →</button>
+      <p class="fine">No spam, no list — just a reply from a real person within 24 hours. The toast is yours to keep either way.</p>
+    </form>
+  </div>
+</div>
+
+<!-- print card -->
+<div class="print-card" id="printCard">
+  <div class="pc-title">🥂 The Raised Glass — Toast Card</div>
+  <div class="pc-meta" id="pcMeta">Everlasting Memories · myeverlastingmemories.com</div>
+  <div class="pc-line" id="pcLine">—</div>
+</div>
+
+<footer>
+  <p class="strip">
+    <a href="raised-glass.html" style="color:#eed9a6;font-weight:600">The Raised Glass</a> ·
+    <a href="launch-pad.html" style="color:#c7d2fe;font-weight:600">The Launch Pad</a> ·
+    <a href="smash.html" style="color:#ffcfa8;font-weight:600">The Smash Hit</a> ·
+    <a href="nest.html" style="color:#cfe0c4;font-weight:600">The Nest</a> ·
+    <a href="powder-pop.html" style="color:#f9a8d4;font-weight:600">The Powder Pop</a> ·
+    <a href="big-yes.html" style="color:#f2c6d2;font-weight:600">The Big Yes</a> ·
+    <a href="party-er.html" style="color:#a7f3d0;font-weight:600">The Party ER</a> ·
+    <a href="rain-plan.html" style="color:#7dd3fc;font-weight:600">The Rain Plan</a> ·
+    <a href="seating-chart.html" style="color:#f9a8d4;font-weight:600">Seating Chart Studio</a> ·
+    <a href="after-glow.html" style="color:#f9a8d4;font-weight:600">The After-Glow</a> ·
+    <a href="surprise-planner.html" style="color:#a5b4fc;font-weight:600">Operation: Surprise</a> ·
+    <a href="dessert-table.html" style="color:#f0c9a0;font-weight:600">Dessert Table Stylist</a> ·
+    <a href="golden-hour.html" style="color:#c4b5fd;font-weight:600">Golden Hour Finder</a> ·
+    <a href="party-timeline.html" style="color:#cbd5e1;font-weight:600">Party Day Timeline</a> ·
+    <a href="wedding-workshop.html" style="color:#f9a8d4;font-weight:600">Wedding Workshop</a> ·
+    <a href="cost-estimator.html" style="color:#fcd34d;font-weight:600">Cost Estimator</a> ·
+    <a href="guest-list.html" style="color:#93c5fd;font-weight:600">The Guest List</a> ·
+    <a href="playlist.html" style="color:#fca5a5;font-weight:600">Party Playlist Studio</a> ·
+    <a href="name-garland.html" style="color:#f9a8d4;font-weight:600">Balloon Letter Studio</a> ·
+    <a href="invitation-studio.html" style="color:#a5b4fc;font-weight:600">Invitation Studio</a> ·
+    <a href="party-roadmap.html" style="color:#5eead4;font-weight:600">Party Roadmap</a> ·
+    <a href="memory-wall.html" style="color:#fcd34d;font-weight:600">Memory Wall</a> ·
+    <a href="photo-booth.html" style="color:#7dd3fc;font-weight:600">Golden Hour Booth</a> ·
+    <a href="photo-hunt.html" style="color:#f0abfc;font-weight:600">Party Photo Hunt</a> ·
+    <a href="memory-capsule.html" style="color:#fca5a5;font-weight:600">Memory Capsule</a> ·
+    <a href="balloon-pop.html" style="color:#fdba74;font-weight:600">Pop Party</a> ·
+    <a href="transformations.html" style="color:#c4b5fd;font-weight:600">The Big Reveal</a> ·
+    <a href="budget-builder.html" style="color:#86efac;font-weight:600">Budget Balloonist</a> ·
+    <a href="referral.html" style="color:#fde68a;font-weight:600">Refer &amp; Earn</a> ·
+    <a href="gift-card.html" style="color:#f9a8d4;font-weight:600">Gift Card Studio</a> ·
+    <a href="reserve-date.html" style="color:#93c5fd;font-weight:600">Reserve Your Date</a> ·
+    <a href="diy-vs-pro.html" style="color:#fdba74;font-weight:600">DIY or Dazzle</a> ·
+    <a href="palette-snap.html" style="color:#f0abfc;font-weight:600">Palette Snap</a> ·
+    <a href="balloon-math.html" style="color:#86efac;font-weight:600">Balloon Math</a> ·
+    <a href="party-style-quiz.html" style="color:#f9a8d4;font-weight:600">Party Style Quiz</a> ·
+    <a href="countdown.html" style="color:#93c5fd;font-weight:600">Big Day Countdown</a> ·
+    <a href="lookbook.html" style="color:#c4b5fd;font-weight:600">Lookbook</a> ·
+    <a href="theme-generator.html" style="color:#fde68a;font-weight:600">Theme Generator</a> ·
+    <a href="faq.html" style="color:#f2c6d2;font-weight:600">FAQ</a>
+  </p>
+  <p class="foot-brand">Everlasting <span>Memories</span> — balloons &amp; moments that last</p>
+  <p class="copy">Isabella's notebook says the room goes quiet for exactly two things: the first look and the first toast. She decorates for one and times the other — ninety seconds, four beats, one clink. 🥂</p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<!-- teleprompter -->
+<div id="prompter" role="dialog" aria-label="Teleprompter">
+  <div class="prom-bar" id="promBar"></div>
+  <div class="prom-top">
+    <span class="pt-title">🎤 The Raised Glass — Teleprompter</span>
+    <span class="prom-speed" id="promPace">130 wpm</span>
+    <button class="prom-btn" id="tpRestart" type="button">⏮ Restart</button>
+    <button class="prom-btn play" id="tpPlay" type="button">⏸ Pause</button>
+    <button class="prom-btn" id="tpMinus" type="button">A−</button>
+    <button class="prom-btn" id="tpPlus" type="button">A+</button>
+    <button class="prom-btn" id="tpSlow" type="button">−wpm</button>
+    <button class="prom-btn" id="tpFast" type="button">+wpm</button>
+    <button class="prom-btn" id="tpClose" type="button">✕ Close</button>
+  </div>
+  <div class="prom-body" id="promBody"><div class="prom-text s3" id="promText"></div></div>
+</div>
+
+<script>
+/* ============ pure data + logic (Node-testable) ============ */
+function wordsOf(s){return String(s||'').trim().split(/\s+/).filter(Boolean).length;}
+function hashStr(s){var h=1779033703^s.length;for(var i=0;i<s.length;i++){h=Math.imul(h^s.charCodeAt(i),3432918353);h=h<<13|h>>>19;}h=Math.imul(h^(h>>>16),2246822507);h=Math.imul(h^(h>>>13),3266489909);return (h^=h>>>16)>>>0;}
+function rngOf(seed){return function(){seed|=0;seed=seed+0x6D2B79F5|0;var t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return ((t^t>>>14)>>>0)/4294967296;};}
+function pickIdx(seed,arr,salt){if(!arr.length){return 0;}var r=rngOf(hashStr(String(seed)+':'+salt));return Math.floor(r()*arr.length);}
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function firstSentence(s){var best=-1;['.','!','?'].forEach(function(ch){var i=s.indexOf(ch);if(i>-1&&(best===-1||i<best)){best=i;}});if(best===-1){return s;}return s.slice(0,best+1);}
+function fill(txt,st){return String(txt).split('{Y}').join(st.your).split('{H}').join(st.honoree);}
+
+var TONES=[
+ {id:'heartfelt',emoji:'🤍',name:'Heartfelt',desc:'Warm, from the chest — the room feels it'},
+ {id:'witty',emoji:'😄',name:'Warm &amp; Witty',desc:'Light, with the room laughing along'},
+ {id:'playful',emoji:'😜',name:'Playful',desc:'Roast-with-a-hug — a wink, never a wound'},
+ {id:'short',emoji:'⏱️',name:'Short &amp; Sweet',desc:'In, out, clink — under a minute'}
+];
+
+var RAISES={
+ heartfelt:['To {H} — with all our love!','To {H}!','To {H} — cheers, from all of us!'],
+ witty:['To {H} — cheers, and clap like you mean it!','To {H} — raise ’em high!','To {H}!'],
+ playful:['To {H} — you’re welcome for that speech!','To {H} — don’t make me do this again next year!','To {H} — now let’s eat!'],
+ short:['To {H}!']
+};
+var FRAMES={
+ heartfelt:['And I have a story that proves it.','Let me tell you why I mean it.','And here’s the story I always tell about {H}.'],
+ witty:['Naturally, there’s a story.','And because you all knew this was coming — the story.','Let me share the story that explains everything.'],
+ playful:['Brace yourselves — the story.','You knew there’d be a story. Here it is.','This next part is why they warned you about me.'],
+ short:[]
+};
+var EXTRA={
+ heartfelt:['And that, more than anything, is why this room is full of people who love {H}.','And I know I speak for everyone here when I say: we are all better for knowing {H}.'],
+ witty:['And honestly? {H} would hate all this attention — which is exactly why we’re giving it to them.','Some people wait a lifetime for a moment like this. {H} built one, and then invited us all.'],
+ playful:['And if you believe half of what I said, I’ve done my job.','I could go on. I won’t — the bar tab has limits.'],
+ short:[]
+};
+
+var OCCASIONS=[
+ {id:'wedding',emoji:'🥂',name:'Wedding',
+  desc:'The room Isabella decorates most — and the block of the night she guards hardest.',
+  hLabel:'The couple (e.g., Sam &amp; Alex)',
+  facts:[['3 toasts max','the 4th is where timelines go to die'],['60+ weddings styled','she’s heard 400+ toasts stand up'],['Toast block first','runs before the dance floor opens'],['45–90 seconds','the range every great toast lives in']],
+  roles:[
+   {id:'best',name:'Best Person',emoji:'🎙️',desc:'The keeper of the stories — equal parts heart and keeper of the mic.',
+    op:['Good evening, everyone. For those who don’t know me, I’m {Y} — and I’ve been lucky enough to call {H} my person for a long time now.','Hi everyone, I’m {Y}. {H} asked me to say a few words — which is code for “keep it under four minutes or the DJ cuts my mic.”','Evening, all. I’m {Y}, the one {H} trusts with the stories they’d never tell their parents. Tonight, I’m being merciful. Mostly.'],
+    heart:['Here’s what I know about {H}: they love hard, they show up early, and they make everyone around them feel like the main character. That isn’t luck — that’s a choice they make every single day.','{H} is the friend who remembers your coffee order, your dog’s birthday, and the exact moment you needed a call — and somehow still had time to fall head over heels.','I’ve watched {H} plan this day with military precision and a Pinterest board the size of a small country. The one thing they never had to plan? Each other. That part was obvious to all of us years ago.'],
+    close:['So tonight I raise my glass to {H} — to the life you’re building, the home you’ve already become, and the two of you, together, at last. We love you both.','To {H}: may your arguments be short, your adventures long, and your group chat forever full of us. Cheers to you both.','To {H} — you two are the best plot twist either family ever saw. Don’t screw it up. Cheers!'],
+    seed:['The story I tell everyone is the time {H} drove four hours in a snowstorm for a friend with a broken heart — and then refused to let anyone call it a big deal. That’s {H} in one sentence: quietly heroic, loudly loved.','I’ll never forget the first time {H} introduced me to their person. They were so nervous they rehearsed the meeting three times — and then talked about them the whole ride home. I knew that night. We all did.','One moment sums {H} up: at their own engagement party, they spent half the night making sure the quietest person in the room felt included. The party is never really about {H} — except tonight. Tonight it is.']},
+   {id:'parent',name:'Parent of the Couple',emoji:'💛',desc:'The longest love story in the room — theirs started first.',
+    op:['Good evening, everyone. I’m {Y} — and I have the unfair advantage of having known {H} since before they could reach the cookie jar.','Hello, all. I’m {Y}, parent of one half of tonight’s very good decision. I’ve been waiting to give this toast since the first time they announced: “we’re just friends.”','Evening, everyone. I’m {Y}. Raising {H} gave me grey hair, a full heart, and tonight, the best seat in the house.'],
+    heart:['People ask me what it’s like to watch your child fall in love. I tell them: it’s like watching them learn to walk again — the same wobble, the same wonder, and the same sudden, beautiful running.','I’ve seen {H} grow from the kid who needed a nightlight into the person who is someone’s whole world now. And the person they chose? Worth every bit of the wait.','As parents, we spend eighteen years hoping we raised them right — and then one day they bring home the person who proves we did. Tonight I’d like to thank {H}’s partner for making our kid this happy. It’s the best report card we ever got.'],
+    close:['So to {H}, and to the family you’re starting tonight: you carry our names, our stories, and all our love with you. We could not be prouder. To you both.','To {H} — you were our greatest adventure, and now you’re each other’s. Cheers to a lifetime of them.','To {H}: our house rules still apply — call when you land, eat before you visit, and be as happy as you look tonight, forever. Cheers!'],
+    seed:['I remember the day {H} came home and couldn’t stop smiling for no reason at all. We didn’t need to be told — parents know that smile. We just waited, very patiently, for the introduction.','The moment I knew? {H} was teaching their partner our family’s secret recipe — and suddenly it wasn’t our secret anymore. It was theirs. That’s when I understood: our family just got bigger.','When {H} was small, they swore they’d never get married — no one could ever be as fun as our family dinners, they said. Tonight proves they found someone who comes close. Welcome to the table. Forever.']},
+   {id:'couple',name:'The Couple (thank-you)',emoji:'🥂',desc:'One of the two, toasting the room that built them.',
+    op:['Good evening, everyone. I’m {Y} — and on behalf of {H} and me: thank you. Thank you for traveling, for the toasts, for being the reason this room feels like home.','Hi, everyone — I’m {Y}, the one who cried first tonight. {H} and I have been dreaming about this room full of you for a very long time.','Hello, all. I’m {Y}. Quick update from the two of us: the wedding was perfect, the marriage starts tomorrow, and tonight belongs to everyone who got us here.'],
+    heart:['We stand here because of you — the parents who built us, the friends who carried us, the family who never let distance matter. Every love story is really a village story, and ours has the best village in the world.','A wedding is just a party until the people you love walk in. Then it’s a promise — and you’ve all kept yours, from the first phone call to the last dance.','We planned centerpieces for months, but the one thing we couldn’t plan was this: the exact sound of everyone we love laughing in one room. Thank you for the best sound in the world.'],
+    close:['So here’s our toast — to you. To the people who made us, who shaped us, who showed up. We are your greatest project, and we intend to make you proud. To our village!','To our family and friends: you’re the reason tonight sparkles. We love you — and yes, the open bar was intentional. Cheers!','To everyone here: thank you for the best night of our lives. We’ll pay you back in babysitting requests. Cheers — we love you all!'],
+    seed:['I have to tell you about the moment {H} and I knew. It wasn’t a sunset or a proposal — it was a Tuesday, takeout on the floor, laughing until we couldn’t breathe. I remember thinking: I want this exact feeling for the rest of my life.','When we told our families we were engaged, one of them cried, one pretended not to — and then both asked the same question: “when do we all meet?” Tonight is the answer. Thank you for coming home to us.','Some of you have known us since we were kids. Some of you met us last year. Every single one of you is a chapter in how we got here — and we’re so grateful you showed up for the sequel.']},
+   {id:'guest',name:'A Wedding Guest',emoji:'💌',desc:'The friend who’s been waiting years for this night.',
+    op:['Good evening, everyone. I’m {Y} — a friend of {H}, and one of the many people who have been waiting years for this exact night.','Hi, I’m {Y}. I’m the friend who’s been hearing about {H}’s person for so long that I feel like I’ve known them for years — and tonight I finally get to meet the legend.','Hello, everyone — I’m {Y}. {H} promised me there’d be dancing and that I wouldn’t have to speak. One of those was a lie. You can guess which.'],
+    heart:['What I admire most about {H} is how they love their people — with full attention, no scorekeeping, always room for one more at the table. Seeing them loved this way, in return, is the happiest ending to a friendship story I know.','Some friends make your life better; {H} rearranged mine. Watching them find their person — and watching that person adore them back — is the best thing I’ve seen in years.','I’ve known {H} through bad haircuts, questionable playlists, and at least three “this is the one” announcements. The difference tonight? This time they’re right — and they know it. Look at them. Everyone’s right.'],
+    close:['So to {H}: thank you for letting us witness this. May your love be your anchor, your home be full, and your door — like your heart — always open. To the happy couple!','To {H} and their person: here’s to the life you’re building and the friends who’ll be there for all of it. Cheers!','To {H}: I promise to be the guest who RSVPs on time, dances too early, and tells this story for decades. To the couple — and to round two! Cheers!'],
+    seed:['The {H} I know is the friend who shows up — to moves, to milestones, to two a.m. phone calls. So when they told me about their person, I had one question: “does this one show up too?” The answer, I’m thrilled to say, has been yes — every single day since.','I’ll never forget {H} telling me they’d found “the one” — again — and me rolling my eyes, until they described how their person makes them feel calm. Calm. I’d never heard {H} use that word in their life. That’s when I started saving for the gift.','Every love story has a moment the friends all point to. Ours is the night {H} introduced their person to the group chat — and instead of the usual interrogation, we all just… approved. Instantly. That never happens.']}
+  ]},
+ {id:'birthday',emoji:'🎂',name:'Birthday',
+  desc:'From first birthdays to fiftieth — the toast before the cake is the whole job.',
+  hLabel:'The birthday person (e.g., Mia)',
+  facts:[['60 seconds of love','then the cake — the wait is real'],['First birthday?','see The Smash Hit for the cake moment'],['The parent toast','is the photo everyone saves'],['Under 90 seconds','the candle wait is real']],
+  roles:[
+   {id:'parent',name:'Parent',emoji:'💛',desc:'First fan, personal chef, proudest person in the room.',
+    op:['Hello, everyone — I’m {Y}, and the small (or not-so-small) person we’re celebrating is my {H}.','Hi, all — I’m {Y}. Officially I’m here to say a few words about {H}. Unofficially, I’ve been waiting all year to brag in public.','Hey, everyone — I’m {Y}, also known as {H}’s first fan, personal chef, and most embarrassing photographer.'],
+    heart:['Watching {H} grow has been the great privilege of my life — every birthday a new version, every version somehow better than the last. Today I just want the world to know how proud I am to be theirs.','{H} has this way of lighting up a room without trying — must be the birthday candles. But truly: the kindness, the humor, the way they treat people — I’d claim credit, but honestly, they came out that way.','Raising {H} has been my finest work and my hardest laugh. They argue like a lawyer, hug like a teddy bear, and somehow still think I know everything. I do not correct this.'],
+    close:['So here’s to {H} — to the year behind and the one ahead. You are my greatest joy. Happy birthday, my love. To {H}!','To {H}: may this year bring you everything you’ve been dreaming of — and may you always save me a dance. Happy birthday!','To {H} — you’re the reason today exists. Stay exactly who you are, just older and wiser. Happy birthday — the cake is legally mine after this speech. Cheers!'],
+    seed:['I’ll never forget the day {H} was born — I’ve told the story a thousand times, and I’ll tell it a thousand more. What I remember most isn’t the chaos; it’s the instant I realized my whole heart was suddenly walking around outside my body.','When {H} was little, they asked me what the best part of being a parent was. I said: “watching you figure out the world.” Today, watching them figure it out — still curious, still kind — I realize the answer hasn’t changed. Not once.','Every year I think I’ve seen {H}’s best year, and every year they prove me wrong — this one most of all. They keep growing into the person they always wanted to be, and I keep getting the front-row seat.']},
+   {id:'friend',name:'Best Friend',emoji:'🎈',desc:'The group-chat keeper, the road-trip copilot, the speech-giver.',
+    op:['Hi, everyone — I’m {Y}, and {H} is my favorite person to celebrate, which is convenient, because it’s their birthday.','Hello, all — I’m {Y}, the friend {H} keeps around for the group chats, the road trips, and this speech, apparently.','Hey, everyone — I’m {Y}. {H} and I have a deal: they let me embarrass them one night a year, and tonight’s the night.'],
+    heart:['Here’s the thing about {H}: they make ordinary days feel like occasions. Birthdays are just the one day a year the rest of the world catches up to how I feel about them every day.','I’ve known {H} through terrible haircuts, questionable decisions, and at least three “this is my last slice” lies. Through all of it, they’ve been the most loyal person I know — and tonight we celebrate them.','{H} is the friend who will tell you the truth, then help you hide the evidence. Best friend, therapist, alibi — they do it all. Today we just add “birthday royalty.”'],
+    close:['So to {H}: thank you for being my person. May this year bring you everything you give the rest of us — joy, honesty, and someone who always shows up. Happy birthday!','To {H} — here’s to another year of adventures, inside jokes, and us still being each other’s favorite. Happy birthday!','To {H}: may your year be as good as you are — which is very, very good. And remember: I knew you before you were cool. Cheers!'],
+    seed:['I’ll never forget the year {H} planned my birthday when I was having the worst month of my life. They didn’t ask; they just showed up with cake and my favorite people. That’s {H} — and today, the universe returns the favor.','Some friendships are measured in years; ours is measured in stories. The one I tell most: the time {H} talked me into the terrible idea that turned out to be the best night of my life. They have a gift for those.','{H} once said their superpower is “knowing when a friend needs a call.” They have never once been wrong. Today, the call is for them — happy birthday, you wonderful human.']},
+   {id:'partner',name:'Partner',emoji:'💘',desc:'The lucky one who gets to do this every day — tonight, out loud.',
+    op:['Hello, everyone — I’m {Y}, and I have the honor of being {H}’s partner in crime, in life, and in tonight’s celebrations.','Hi, all — I’m {Y}. I’m the lucky one who gets to celebrate {H} every day — tonight I just get to do it out loud.','Hey, everyone — I’m {Y}. {H} told me to keep this short and sweet. I told them I’d try. We both know how this goes.'],
+    heart:['Loving {H} has been the easiest thing I’ve ever done. They love with their whole self, they make a home out of any room, and every day with them feels like a reason to celebrate.','People ask me what it’s like to be with {H}. I tell them: it’s like having a favorite song on repeat — one you never get tired of. Today the whole world gets to hear it.','{H} has exactly two settings: chaos and cozy — and I’m in love with both. They make me laugh until my face hurts, and then they make me tea. I am very, very lucky.'],
+    close:['So to {H}, my favorite person: happy birthday. Thank you for choosing me to share your days. Here’s to many more candles, and to us. To {H}!','To {H}: you’re my today and all my tomorrows. Happy birthday, my love — the adventure continues. Cheers!','To {H}: another year of you is the best gift I could ask for. I love you — now let’s eat cake. Cheers!'],
+    seed:['The moment I knew {H} was the one wasn’t grand — it was a Tuesday, them laughing at something silly, and me thinking: I want to hear that laugh for the rest of my life. Every birthday since has just confirmed it.','Last year, {H} spent their own birthday making sure everyone else had a good time — that’s them in a nutshell. So this year, my only job is making sure they feel as loved as they make everyone else feel.']}
+  ]},
+ {id:'anniversary',emoji:'💞',name:'Anniversary',
+  desc:'The milestone nights — gold balloons, and words that have earned their weight.',
+  hLabel:'The couple (e.g., Mom &amp; Dad)',
+  facts:[['The spouse toast','is the only script the night needs'],['25th &amp; 50th','she’s hung the gold for both'],['Children’s toast first','then the dancing'],['Two minutes max','the longest love, shortest speech']],
+  roles:[
+   {id:'spouse',name:'Spouse',emoji:'💞',desc:'Decades in — every word comes with history attached.',
+    op:['Good evening, everyone. I’m {Y} — and for more years than I can count without smiling, I’ve been {H}’s partner.','Hello, everyone — I’m {Y}. {H} and I have been married long enough that we finish each other’s sentences — and sometimes each other’s snacks.','Hi, all — I’m {Y}. They say marriage is a journey. Ours has been a road trip: wrong turns, great playlists, and {H} navigating the whole thing with snacks.'],
+    heart:['After all these years, here’s what I know: {H} still makes my heart skip — and now it isn’t just love, it’s history. Every wrinkle, every grey hair, every inside joke is a chapter only the two of us can read.','People ask me the secret to a long marriage. I tell them: marry your best friend, then spend decades becoming even better friends. That’s been my strategy, and it’s working beautifully.','The secret to our marriage? {H} thinks I’m funny, and I think they’re perfect. We’re both wrong, and we’re both too in love to care.'],
+    close:['So to {H}, my love, my home, my favorite person: thank you for every year, every challenge, every laugh. Here’s to us — and to all the years still to come. To us!','To {H} — my past, my present, my favorite future. Happy anniversary, my love. Cheers to forever, one year at a time.','To {H}: same person, same promise, better every year. I’d marry you all over again — and I’d win you all over again. Cheers to us!'],
+    seed:['I’ll never forget our first anniversary — no money, a borrowed kitchen, and {H} making me a card because they couldn’t afford one. I still have it. It’s worth more than every gift since, because that’s the year we learned we could build a life out of love and cardboard.','The story I tell most is the year everything went wrong — the job, the car, the plans — and {H} just said: “we’ll figure it out. Together.” We did. That’s the whole marriage in one sentence: we figure it out, together.']},
+   {id:'child',name:'Child',emoji:'💛',desc:'The living proof of their love story — with receipts.',
+    op:['Hello, everyone — I’m {Y}, and I’m lucky enough to call {H} my parents.','Hi, all — I’m {Y}, their kid — the project they’re most proud of and the reason they needed that second coffee machine.','Hey, everyone — I’m {Y}. Some kids get a bedtime story; I got two storytellers for parents. Tonight I get to tell their story.'],
+    heart:['Everything good in me, I got from {H}. They taught me what love looks like when it stays — through hard years, ordinary Tuesdays, and every single school play. Their love is the foundation of my whole life.','Growing up with {H}, I thought every house had that much laughter. I know now: that was them. They made ordinary life feel like a celebration — and I’m forever grateful.','My parents’ love story is the reason I believe in love. They bicker over directions, finish each other’s sentences, and still hold hands like teenagers. Honestly, it’s disgusting. I aspire to it.'],
+    close:['So to {H}: thank you for the life you gave me, the love you modeled, and the home I’ll always belong to. Happy anniversary — I love you both. To {H}!','To {H}: you’re my first and best example of love. Here’s to many more years of you two being disgustingly adorable. Cheers!','To {H}: thanks for making me believe in forever. Now please keep it up so I can keep bragging about you. Cheers — love you!'],
+    seed:['My favorite story about {H} isn’t from a vacation — it’s from a random Tuesday, watching them slow-dance in the kitchen while dinner burned. That’s the love I grew up with: undirected, unperformed, completely real.','When I was little, I asked {H} how they knew they were in love. They said: “because every plan I make has them in it.” I’ve never forgotten that. Happy anniversary — you’re still in every plan.']}
+  ]},
+ {id:'retirement',emoji:'🏖️',name:'Retirement',
+  desc:'The farewell that isn’t an ending — the room just gets bigger from here.',
+  hLabel:'The retiree (e.g., Uncle Joe)',
+  facts:[['Roasts land best','at 90 seconds flat'],['3 stories max','one work, one funny, one from the heart'],['The farewell wall','she styles it — speeches fill it'],['Thank, don’t recap','the retiree’s own golden rule']],
+  roles:[
+   {id:'colleague',name:'Colleague',emoji:'🤝',desc:'The work spouse who survived every reorg with them.',
+    op:['Good evening, everyone. I’m {Y} — and for more meetings, deadlines, and coffee runs than I can count, I’ve had the pleasure of working alongside {H}.','Hello, all — I’m {Y}. They asked me to speak about {H}. Fair warning: HR has approved this speech, which means the best stories stay in the vault.','Hi, everyone — I’m {Y}. {H} and I have survived three reorganizations, two office moves, and one infamous team-building retreat. We’re basically war buddies.'],
+    heart:['Here’s what {H} taught us without ever giving a lecture: work is better when you’re kind, excellence is quiet, and the person who makes the team feel like a team is the one you can’t replace. That’s {H}.','{H} has a superpower: they make the hard days lighter and the good days memorable. The office will be quieter, sure — but mostly it’ll just be less fun without them.','{H} is the colleague who actually reads your emails, remembers your kids’ names, and brings the good snacks to every meeting. We’re not losing a coworker; we’re losing our snack dealer and our moral compass.'],
+    close:['So to {H}: thank you for the mentorship, the laughter, and the example. Retirement isn’t the end of your impact — it’s the beginning of your reward. To {H}!','To {H}: the office won’t be the same, but your hammock will be thrilled. Cheers to the next chapter!','To {H}: enjoy sleeping in, but know the door — and the group chat — are always open. Retirement looks good on you already. Cheers!'],
+    seed:['I’ll never forget my first week on the job: I was terrified, and {H} was the first person to introduce themselves, walk me to the right floor, and tell me where the good coffee was. That small kindness set the tone for my entire career — and it’s the tone {H} set for this whole office.','The story that defines {H}: during the worst project we ever ran, when everyone was running on fumes, {H} showed up with breakfast for the whole team — and a one-page plan that saved the project. They’ve been saving our projects, and our sanity, ever since.']},
+   {id:'retiree',name:'The Retiree',emoji:'🎤',desc:'Their last speech at the podium — make it count, keep it short.',
+    op:['Hello, everyone. I’m {Y} — and after more years than my knees care to admit, this is my last official speech. I figured I’d save the best one for you.','Hi, everyone — I’m {Y}. For decades you’ve heard me in meetings. Tonight, no agenda, no action items — just gratitude.','Hey, all — I’m {Y}. The company gave me a clock. I’m choosing to read it as: “time to go have fun.” But first — thank you.'],
+    heart:['What I’ll miss most isn’t the work — it’s the people. The teams who taught me patience, the colleagues who became friends, the young ones who kept me curious. You made the work worth doing, every single day.','They say you don’t remember the meetings, you remember the people. I’ve been lucky: I got both — good work and better humans. Thank you for the best career a person could ask for.','I spent decades teaching people the ropes. Truth is, you all taught me more: how to listen, how to laugh at the absurd, and how to leave while the leaving’s good — which, for the record, is now.'],
+    close:['So my final ask: keep being kind to each other, keep making the new folks feel welcome, and every once in a while, do something worth telling stories about. Thank you — and I’ll see you at happy hour. To all of you!','To my work family: thank you for the memories, the mentorship, and the cake. This isn’t goodbye — it’s just the after-party. Cheers!','To everyone here: you made the grind a gift. I’m off to perfect my golf swing and my napping technique. Don’t call me — I’ll send postcards. Cheers!'],
+    seed:['I’ll never forget my first day here — terrified, twenty-something, convinced I’d be found out. A senior colleague sat me down and said: “nobody knows what they’re doing; we’re all just learning out loud.” That kindness became my whole philosophy. Tonight, I pass it on to you.','The moment I’m proudest of isn’t a launch or a bonus — it’s the time a young teammate told me I was the reason they didn’t quit. If I leave one legacy, let it be that: somewhere, someone stayed because someone stayed kind.']}
+  ]},
+ {id:'graduation',emoji:'🎓',name:'Graduation',
+  desc:'Cap-and-gown season is Isabella’s June rush — the speeches are half the party.',
+  hLabel:'The graduate (e.g., Mia)',
+  facts:[['Graduate speech:','thank first, reflect second'],['Proud-parent rule:','under two minutes, zero tears required'],['June rush','cap-and-gown parties book fast'],['End on the future','never on the past']],
+  roles:[
+   {id:'parent',name:'Proud Parent',emoji:'💛',desc:'Years of carpool, one diploma, infinite pride.',
+    op:['Hello, everyone — I’m {Y}, and I have the enormous pleasure of being {H}’s parent.','Hi, all — I’m {Y}. {H} asked me to speak — which means I’ve finally been promoted from “embarrassing parent” to “official speaker.”','Hey, everyone — I’m {Y}. I’ve been bragging about {H} for years with no audience. Thank you for finally being a captive one.'],
+    heart:['We watched {H} fall down, get up, and get up again — and tonight, they’re standing taller than we ever dared to dream. Our pride doesn’t fit in words; it barely fits in this room.','{H} made it look easy. It wasn’t. Behind that diploma are late nights, hard mornings, and a kid who refused to quit — and we have never been prouder of anyone in our lives.','Raising {H} has been like watching a rocket: terrifying, exhilarating, and absolutely worth every grey hair. Tonight the launch is official — and the whole world is their orbit.'],
+    close:['So to {H}: this diploma is yours, but the village behind it is ours — and we will brag about this day forever. Congratulations, graduate. We love you. To {H}!','To {H}: the world is lucky to get you. Go be amazing — and call your mother. Cheers!','To {H}: we always knew you’d fly; we just didn’t know we’d need binoculars. Congratulations — we’re so proud. Cheers!'],
+    seed:['I’ll never forget the night {H} almost quit — exhausted, doubting everything. We didn’t say much; we just sat with them until the doubt passed. The next morning they got up and went again. That night is this diploma. That’s who {H} is: they get up.','When {H} was small, they asked me what they’d be when they grew up. I said: “anything you want — just be useful and kind.” Tonight, looking at the person they’ve become, I can officially say: assignment complete. With honors.']},
+   {id:'grad',name:'The Graduate',emoji:'🎤',desc:'The thank-you speech — the one they’ll replay for years.',
+    op:['Hello, everyone — I’m {Y}. Standing here, I’m supposed to sum up years of work in a few minutes. I’ll do my best; my professors taught me to edit.','Hi, all — I’m {Y}. Thanks for coming to watch me finally prove that I was, in fact, doing homework in my room.','Hey, everyone — I’m {Y}. Four years ago I couldn’t find my classes; today I can find my way into the future. Growth!'],
+    heart:['This degree has my name on it, but it was earned by everyone in this room — the family who believed first, the friends who stayed late, the mentors who answered every panicked email. Thank you for lending me your belief until I found my own.','Every late night, every exam, every “I can’t do this” — I got through them because someone in this room had already told me I could. You were right. Don’t let it go to your heads.','I’d like to thank my family for the support, my friends for the study breaks, and the library for never judging me. Also coffee — this degree is forty percent caffeine, and I regret nothing.'],
+    close:['So here’s my promise: I’ll take the lessons, the love, and the belief you gave me — and pay them forward. Thank you for everything. To my family, my friends, my village — this one’s for you!','To everyone who got me here: thank you. The degree is mine; the credit is yours. Here’s to the next chapter — you’re all invited.','To my family and friends: you invested in me, and I intend to be the best return you ever get. Thank you — and yes, I’ll visit. Cheers!'],
+    seed:['I’ll never forget the night before my hardest exam: I was sure I’d fail. Someone I love didn’t give me a pep talk — they just sat with me, ordered food, and said “whatever happens, we’re proud.” I passed. But even if I hadn’t, I’d still be rich in that moment.','The moment this all became real wasn’t the ceremony — it was watching my family’s faces from the stage. Every sacrifice they made flashed through my head: every early morning, every “we’re fine, focus on you.” This degree is theirs. I’m just the one who gets to wear the hat.']}
+  ]},
+ {id:'corporate',emoji:'🎄',name:'Corporate / Holiday',
+  desc:'The office party and team milestones — where she installs after hours.',
+  hLabel:'The team (e.g., the whole crew)',
+  facts:[['90 seconds of human','not slides — the holiday toast rule'],['Host speech first','opens the room, keeps it short'],['Book by Halloween','December dates go fast'],['The CFO’s toast','is often the best of the night']],
+  roles:[
+   {id:'host',name:'The Host',emoji:'🎄',desc:'Manager or founder — the one who sets the room’s temperature.',
+    op:['Good evening, everyone — I’m {Y}. Welcome to our annual gathering — the one night we trade spreadsheets for sparkle.','Hi, all — I’m {Y}. Official welcome: coats off, ties optional, and yes, that is real mistletoe. HR approved.','Hey, team — I’m {Y}. Management wanted a speech; I wanted a nap. We compromised: a short speech and a long open bar.'],
+    heart:['Before the food, the photos, and the dancing — I want to say this plainly: this team is the reason I love coming to work. The wins, the hard months, the way you show up for each other — I see it all, and I’m grateful for all of it.','Every year I think we’ve peaked, and every year you prove me wrong. The work is great, but the people are the point — and tonight is our night to celebrate exactly that.','Statistically, this team has survived more reorganizations than most small countries. You adapt, you laugh, you deliver — and somehow you still RSVP yes to the party. That’s why you’re the best team in the building. Don’t tell the other floors.'],
+    close:['So here’s my toast: to this team, to the year behind us, and to the one ahead. Thank you for everything you do — tonight, you’ve earned every bit of it. To the team!','To the team: here’s to the work we’re proud of and the people we actually like. Happy holidays — you’ve earned it. Cheers!','To us: may next year be kind, the bonuses be fat, and the group chat stay legendary. Cheers, team — I mean it. To us!'],
+    seed:['I’ll never forget this past year’s biggest win — the one everyone said was impossible. We pulled it off not because of any single hero, but because this team has a habit of showing up for each other. That’s the thing I’m most proud to toast tonight.','The story that defines this team: during the worst deadline of the year, three different people quietly covered for a teammate having a rough week — no memo, no credit, just kindness. That’s this place. That’s why I’m grateful to lead it.']},
+   {id:'teammate',name:'The Teammate',emoji:'🥂',desc:'The one who knows where the bodies of skipped toasts are buried.',
+    op:['Good evening, everyone — I’m {Y}. I’ve been asked to say a few words about the team that makes the work worth it.','Hi, all — I’m {Y}. I was told this toast is optional and non-binding, but I’ve seen the team group chat; I know where the bodies of skipped toasts are buried.','Hey, everyone — I’m {Y}. They gave the speech slot to someone who’s been here long enough to know where the good stories are. Lucky you.'],
+    heart:['What I appreciate most about this team is how we treat each other on the ordinary days — the check-ins, the help without being asked, the laughter in the kitchen. That isn’t culture on a poster; that’s us, and I’m proud of it.','We spend more waking hours with our coworkers than with almost anyone — so it matters that ours are kind, sharp, and funny. It matters, and I’m grateful for it every day.','This team is the only group of people who understand my coffee order, my meeting face, and my “I’m fine” voice. You’re my work family — for better or worse. Mostly better. Occasionally “remember the retreat.”'],
+    close:['So here’s to the people who make the ordinary days good and the hard days survivable: thank you. Working with you is the best part of the job. To the team!','To the team: here’s to another year of inside jokes and outside wins. You’re the best part of the job. Cheers!','To us: may we keep hitting our numbers and missing nothing that matters. Cheers to the team — the real MVP. To us!'],
+    seed:['I’ll never forget my first week here — I knew no one, and by Friday I had lunch plans for the next month. That’s this team: they don’t wait for you to belong; they just decide you do. It’s the best welcome I’ve ever had, and I’ve never forgotten it.','The moment I knew this team was special: someone’s parent was sick, and within an hour, three people had quietly rearranged their week to cover. No one asked. That isn’t a team — that’s a safety net, and I’m honored to be in it.']}
+  ]}
+];
+
+function pickOccasion(id){for(var i=0;i<OCCASIONS.length;i++){if(OCCASIONS[i].id===id){return OCCASIONS[i];}}return OCCASIONS[0];}
+function pickRole(occ,id){for(var i=0;i<occ.roles.length;i++){if(occ.roles[i].id===id){return occ.roles[i];}}return occ.roles[0];}
+function pickTone(id){for(var i=0;i<TONES.length;i++){if(TONES[i].id===id){return TONES[i];}}return TONES[0];}
+function allowedIdx(tone,kind,list){
+  if(tone==='heartfelt'){return [0,1];}
+  if(tone==='witty'){return [0,1];}
+  if(tone==='playful'){return [1,2];}
+  if(tone==='short'){var best=0;for(var i=1;i<list.length;i++){if(wordsOf(list[i])<wordsOf(list[best])){best=i;}}return [best];}
+  return [0,1,2];
+}
+function sub(list,idxs){var out=[];idxs.forEach(function(i){if(list[i]!==undefined){out.push(list[i]);}});return out;}
+function pickLine(seed,salt,list,tone,terse){
+  var pool=sub(list,allowedIdx(tone,'x',list));
+  var line=pool[pickIdx(seed,pool,salt)];
+  if(terse){line=firstSentence(line);}
+  return line;
+}
+function buildToast(st){
+  var occ=pickOccasion(st.occasion);
+  var role=pickRole(occ,st.role);
+  var tone=pickTone(st.tone);
+  var your=String(st.your||'your name').trim()||'your name';
+  var hon=String(st.honoree||(st.role==='couple'?'my person':'the person we’re celebrating')).trim()||(st.role==='couple'?'my person':'the person we’re celebrating');
+  var filled={your:your,honoree:hon};
+  var targetW=Math.max(30,Math.round((st.secs||75)*(st.pace||130)/60));
+  var tier = tone.id==='short' ? (targetW<260?'terse':'classic') : (targetW<110?'terse':(targetW<230?'classic':'full'));
+  var saltBase=String(st.seed||1);
+  var riff=st.riff||{};
+  function salt(k){return saltBase+':'+k+':'+(riff[k]||0);}
+  var greeting=pickLine(salt('g'),'g',role.op,tone.id,tier==='terse');
+  var storyRaw=String(st.story||'').trim();
+  var storyTxt;
+  if(storyRaw){
+    storyTxt=storyRaw;
+    if(tier!=='terse'){
+      var fr=FRAMES[tone.id];
+      if(fr&&fr.length){storyTxt=fr[pickIdx(salt('f'),fr,'f')]+' '+storyTxt;}
+    }
+  }else{
+    storyTxt=role.seed[pickIdx(salt('s'),role.seed,'s')];
+  }
+  var heart=pickLine(salt('h'),'h',role.heart,tone.id,tier==='terse');
+  if(tier==='full'){
+    var ex=EXTRA[tone.id];
+    if(ex&&ex.length){heart=heart+' '+ex[pickIdx(salt('x'),ex,'x')];}
+  }
+  var closer=pickLine(salt('c'),'c',role.close,tone.id,tier==='terse');
+  var raisePool=RAISES[tone.id]||RAISES.heartfelt;
+  var raise=raisePool[pickIdx(salt('r'),raisePool,'r')];
+  var beats=[
+    {label:'The Greeting',text:fill(greeting,filled)},
+    {label:'The Story',text:fill(storyTxt,filled)},
+    {label:'The Heart',text:fill(heart,filled)},
+    {label:'The Raise',text:fill(raise,filled)}
+  ];
+  var text=beats.map(function(b){return b.text;}).join('\n\n');
+  var words=wordsOf(text);
+  var pace=st.pace||130;
+  var secs=Math.max(1,Math.round(words*60/pace));
+  var ratio=secs/(st.secs||75);
+  var fit = ratio<=1.15&&ratio>=0.7 ? {key:'good',txt:'🎯 Right on time'} : (ratio>1.15?{key:'trim',txt:'✂️ Trim the story — target '+(st.secs||75)+'s'}:{key:'room',txt:'➕ Room to breathe — the room won’t mind a touch more'});
+  return {occasion:occ,role:role,tone:tone,beats:beats,text:text,words:words,secs:secs,pace:pace,target:(st.secs||75),tier:tier,fit:fit};
+}
+function buildShare(st){
+  var t=buildToast(st);
+  var lines=['🥂 THE RAISED GLASS — '+t.occasion.emoji+' '+t.occasion.name+' · '+t.role.name+' · '+t.tone.name,
+    '~'+t.words+' words · about '+t.secs+'s at '+t.pace+' wpm'];
+  t.beats.forEach(function(b){lines.push('');lines.push(b.label+':');lines.push(b.text);});
+  lines.push('');lines.push('Written with Everlasting Memories — balloons & moments that last · myeverlastingmemories.com');
+  return lines.join('\n');
+}
+function leadPayload(st){
+  var t=buildToast(st);
+  return {source:'raised-glass',eventType:t.occasion.name+' '+t.occasion.emoji,eventDate:st.date||'',
+    message:'Toast planned: '+t.role.name+' for '+(st.honoree||'—')+' at a '+t.occasion.name.toLowerCase()+' · tone: '+t.tone.name+' · '+t.words+' words (~'+t.secs+'s @ '+t.pace+' wpm)'+(st.story?' · personal story included':'')};
+}
+function sampleState(){
+  return {occasion:'wedding',role:'best',your:'Alex',honoree:'Sam & Alex',story:'',tone:'witty',secs:75,pace:130,seed:7,riff:{}};
+}
+/* ============ DOM glue (browser only) ============ */
+if(typeof document!=='undefined'){
+function $(id){return document.getElementById(id);}
+function toast(m){var t=$('toast');t.textContent=m;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove('show');},2600);}
+function renderChips(id,items,active,fn,withDesc){
+  var el=$(id);el.innerHTML='';
+  items.forEach(function(it){
+    var b=document.createElement('button');
+    b.className='chip'+(it.id===active?' on':'');
+    b.type='button';
+    b.innerHTML=esc(it.emoji+' '+it.name)+(it.desc&&withDesc?'<span class="px">'+esc(it.desc)+'</span>':'');
+    b.onclick=function(){fn(it.id);};
+    el.appendChild(b);
+  });
+}
+function renderOccDesc(){
+  var o=pickOccasion(state.occasion);
+  $('occDesc').innerHTML='<b>'+o.emoji+' '+esc(o.name)+'</b><br>'+esc(o.desc);
+}
+function renderRoleDesc(){
+  var o=pickOccasion(state.occasion);var r=pickRole(o,state.role);
+  $('roleDesc').innerHTML='<b>'+r.emoji+' '+esc(r.name)+'</b><br>'+esc(r.desc);
+  $('hLabel').textContent='They’re celebrating';
+  if(o.hLabel){$('hLabel').textContent=o.hLabel.replace(/&amp;/g,'&').replace(/&/g,'&');}
+}
+function renderSeeds(){
+  var o=pickOccasion(state.occasion);var r=pickRole(o,state.role);
+  var el=$('seedChips');el.innerHTML='';
+  r.seed.forEach(function(s,i){
+    var b=document.createElement('button');
+    b.className='chip';b.type='button';
+    b.textContent='📖 Story '+(i+1);
+    b.onclick=function(){state.story=fill(s,{your:state.your,honoree:state.honoree});$('inStory').value=state.story;renderAll();toast('📖 Story added — edit it if you like');};
+    el.appendChild(b);
+  });
+}
+function renderFacts(){
+  var o=pickOccasion(state.occasion);
+  $('factsRow').innerHTML=o.facts.map(function(f){return '<div class="fact"><span class="f-num">'+esc(f[0])+'</span><span class="f-txt">'+esc(f[1])+'</span></div>';}).join('');
+}
+function renderAll(){
+  var t=buildToast(state);
+  var o=t.occasion,r=t.role,tn=t.tone;
+  $('ocOccasion').textContent=o.emoji+' '+o.name+' · '+r.name;
+  $('outTitle').textContent=(r.emoji+' '+r.name).trim();
+  $('ocSub').textContent='Four beats · for '+(state.honoree||'them')+' · '+tn.name;
+  var el=$('beats');el.innerHTML='';
+  var labels=['The Greeting','The Story','The Heart','The Raise'];
+  t.beats.forEach(function(b,i){
+    var d=document.createElement('div');d.className='beat';
+    var num=document.createElement('div');num.className='bnum';num.textContent=String(i+1);
+    var body=document.createElement('div');body.style.flex='1';
+    var lab=document.createElement('div');lab.className='blabel';lab.textContent=labels[i]||b.label;
+    var tx=document.createElement('div');tx.className='btext';tx.textContent=b.text;
+    body.appendChild(lab);body.appendChild(tx);
+    d.appendChild(num);d.appendChild(body);
+    el.appendChild(d);
+  });
+  $('mWords').textContent=t.words;
+  $('mSecs').textContent='~'+t.secs+'s';
+  $('mTarget').textContent=t.target+'s';
+  var fit=$('mFit');fit.textContent=t.fit.txt;
+  fit.className='fit '+t.fit.key;
+  var pc='🥂 Toast for '+(state.honoree||'—')+' — '+o.name+' · '+r.name+' · '+tn.name+' (~'+t.secs+'s at '+t.pace+' wpm)\n\n'+t.text+'\n\nEverlasting Memories · myeverlastingmemories.com';
+  $('pcLine').textContent=pc;
+  $('pcMeta').textContent='Everlasting Memories · myeverlastingmemories.com · '+o.name+' — '+r.name;
+}
+function setOccasion(id){state.occasion=id;var o=pickOccasion(state.occasion);state.role=o.roles[0].id;state.riff={};renderChips('occChips',OCCASIONS,state.occasion,setOccasion,true);renderChips('roleChips',o.roles,state.role,setRole,false);renderOccDesc();renderRoleDesc();renderSeeds();renderFacts();renderAll();}
+function setRole(id){state.role=id;state.riff={};renderChips('roleChips',pickOccasion(state.occasion).roles,state.role,setRole,false);renderRoleDesc();renderSeeds();renderAll();}
+function setTone(id){state.tone=id;renderChips('toneChips',TONES,state.tone,setTone,false);renderAll();}
+function collectNames(){
+  state.your=$('inYour').value.trim()||'Alex';
+  state.honoree=$('inHonoree').value.trim()||'them';
+}
+function surprise(){
+  var oi=Math.floor(Math.random()*OCCASIONS.length);
+  state.occasion=OCCASIONS[oi].id;
+  var o=OCCASIONS[oi];
+  state.role=o.roles[Math.floor(Math.random()*o.roles.length)].id;
+  state.tone=TONES[Math.floor(Math.random()*TONES.length)].id;
+  var secs=[45,60,75,90,120];state.secs=secs[Math.floor(Math.random()*secs.length)];
+  state.pace=130;
+  state.seed=Math.floor(Math.random()*99999)+1;
+  state.riff={};
+  collectNames();
+  state.story='';
+  $('inStory').value='';
+  var names=['Alex','Jordan','Sam','Casey','Riley','Morgan'];state.your=names[Math.floor(Math.random()*names.length)];
+  var hos=['Sam & Alex','Mia','Mom & Dad','Uncle Joe','The whole crew'];state.honoree=hos[Math.floor(Math.random()*hos.length)];
+  $('inYour').value=state.your;$('inHonoree').value=state.honoree;
+  renderChips('occChips',OCCASIONS,state.occasion,setOccasion,true);
+  renderChips('roleChips',o.roles,state.role,setRole,false);
+  renderChips('toneChips',TONES,state.tone,setTone,false);
+  $('inSecs').value=state.secs;$('secNum').textContent=state.secs;$('secRead').textContent=state.secs;
+  renderOccDesc();renderRoleDesc();renderSeeds();renderFacts();renderAll();
+  toast('🎲 New occasion, new seat, new words — go get ’em.');
+}
+function rebuild(){
+  state.seed=Math.floor(Math.random()*99999)+1;
+  state.riff={};
+  renderAll();
+  toast('🔁 Fresh take — same occasion, new words');
+}
+function riffBeat(k){
+  state.riff[k]=(state.riff[k]||0)+1;
+  renderAll();
+}
+var state=sampleState();
+renderChips('occChips',OCCASIONS,state.occasion,setOccasion,true);
+renderChips('roleChips',pickOccasion(state.occasion).roles,state.role,setRole,false);
+renderChips('toneChips',TONES,state.tone,setTone,false);
+renderOccDesc();renderRoleDesc();renderSeeds();renderFacts();renderAll();
+$('inYour').value=state.your;$('inHonoree').value=state.honoree;
+['inYour','inHonoree'].forEach(function(id){$(id).addEventListener('input',function(){collectNames();renderAll();});});
+$('inStory').addEventListener('input',function(){state.story=this.value;renderAll();});
+$('inSecs').addEventListener('input',function(){state.secs=parseInt(this.value,10)||75;$('secNum').textContent=state.secs;$('secRead').textContent=state.secs;renderAll();});
+$('inPace').addEventListener('input',function(){state.pace=parseInt(this.value,10)||130;$('paceNum').textContent=state.pace;$('paceRead').textContent=state.pace;renderAll();});
+$('btnSeed').addEventListener('click',function(){
+  var o=pickOccasion(state.occasion);var r=pickRole(o,state.role);
+  var s=r.seed[Math.floor(Math.random()*r.seed.length)];
+  state.story=fill(s,{your:state.your,honoree:state.honoree});
+  $('inStory').value=state.story;renderAll();
+  toast('📖 Story added — make it yours');
+});
+$('btnRebuild').addEventListener('click',rebuild);
+$('btnCopy').addEventListener('click',function(){collectNames();var txt=buildToast(state).text;if(navigator.clipboard){navigator.clipboard.writeText(txt).then(function(){toast('📋 Toast copied');});}else{toast('Copy: '+txt.slice(0,40)+'…');}});
+$('btnWa').addEventListener('click',function(){collectNames();var url='https://wa.me/?text='+encodeURIComponent(buildShare(state));window.open(url,'_blank');});
+$('btnPrint').addEventListener('click',function(){collectNames();renderAll();window.print();});
+/* beat riff: tap a beat label chip to re-roll just that beat */
+document.addEventListener('click',function(e){
+  var b=e.target.closest('.beat');
+  if(b&&e.target.classList.contains('blabel')){
+    var idx=Array.prototype.indexOf.call(b.parentNode.children,b);
+    var keys=['g','s','h','r'];
+    riffBeat(keys[idx]||'g');
+    toast('🔁 New '+(['greeting','story','heart','raise'][idx]||'line'));
+  }
+});
+$('ddBtn').addEventListener('click',function(e){e.stopPropagation();$('ddMenu').classList.toggle('open');this.setAttribute('aria-expanded',$('ddMenu').classList.contains('open'));});
+document.addEventListener('click',function(e){if(!e.target.closest('.dd-wrap')){$('ddMenu').classList.remove('open');$('ddBtn').setAttribute('aria-expanded','false');}});
+var taps=0,tapT=null;
+$('secretBadge').addEventListener('click',function(){
+  taps++;clearTimeout(tapT);tapT=setTimeout(function(){taps=0;},1600);
+  if(taps>=5){taps=0;
+    $('outTitle').textContent='🤫 Secret #22 — Isabella’s rule of the clink';
+    $('ocSub').textContent='from her event notebook — the page she dog-ears at every wedding';
+    $('beats').innerHTML='<div class="beat"><div class="bnum">🥂</div><div><div class="blabel">The secret</div><div class="btext">Isabella counts toasts the way other planners count chairs. She’s stood through 400+ of them across 60+ weddings, and her notebook rule hasn’t changed in years: the toasts that land all run 45 to 90 seconds — about 100 to 200 words at speaking pace — and she schedules the toast block <b style="color:#f3e3b8">before</b> the dance floor opens, because the fourth toast is where timelines go to die. Her quiet trick at every wedding: she stands near the DJ, watches the speaker’s glass, and the instant it comes up, she nods — the music fades to nothing, the room goes quiet on its own, and the speaker gets the one thing every toast needs: a room that’s actually listening. 🤫🥂</div></div></div>';
+    $('mWords').textContent='90';
+    $('mSecs').textContent='~90s';
+    $('mTarget').textContent='golden';
+    $('mFit').textContent='🤫 Secret #22 unlocked';
+    $('mFit').className='fit good';
+    toast('🤫 Secret #22 unlocked');
+  }
+});
+/* teleprompter */
+var prom={on:false,playing:false,n:0,acc:0,timer:null,size:3};
+function promWords(){return buildToast(state).text.split(/\s+/).filter(Boolean);}
+function promRender(){
+  var words=promWords();
+  var show=Math.min(prom.n,words.length);
+  $('promText').textContent=words.slice(0,show).join(' ');
+  $('promBar').style.width=(words.length?Math.round(show/words.length*100):0)+'%';
+  var box=$('promBody');
+  if(box.scrollHeight>box.clientHeight+20){box.scrollTop=box.scrollHeight;}
+  if(show>=words.length){promStop(true);}
+}
+function promTick(){
+  prom.acc+=(state.pace||130)/600;
+  while(prom.acc>=1){prom.acc-=1;prom.n++;}
+  promRender();
+  var sc=$('promText');if(sc.scrollHeight>sc.clientHeight+40){sc.parentElement.scrollTop=sc.scrollHeight;}
+}
+function promStart(){if(prom.timer){clearInterval(prom.timer);}prom.playing=true;prom.timer=setInterval(promTick,100);$('tpPlay').textContent='⏸ Pause';$('tpPlay').classList.add('play');}
+function promStop(done){if(prom.timer){clearInterval(prom.timer);prom.timer=null;}prom.playing=false;$('tpPlay').textContent='▶ Play';$('tpPlay').classList.remove('play');if(!done){$('promText').parentElement.scrollTop=0;}}
+function promToggle(){if(!prom.playing){if(prom.n>=promWords().length){prom.n=0;prom.acc=0;}promStart();}else{promStop();}}
+function promOpen(){
+  collectNames();
+  prom.n=0;prom.acc=0;
+  promRender();
+  $('promPace').textContent=(state.pace||130)+' wpm';
+  $('promText').className='prom-text s3';
+  prom.size=3;
+  $('prompter').classList.add('on');
+  promStart();
+}
+function promClose(){promStop();$('prompter').classList.remove('on');}
+$('btnPrompter').addEventListener('click',promOpen);
+$('tpPlay').addEventListener('click',promToggle);
+$('tpRestart').addEventListener('click',function(){prom.n=0;prom.acc=0;promRender();if(!prom.playing){promStart();}else{promTick();}});
+$('tpClose').addEventListener('click',promClose);
+$('tpMinus').addEventListener('click',function(){prom.size=Math.max(1,prom.size-1);$('promText').className='prom-text s'+prom.size;});
+$('tpPlus').addEventListener('click',function(){prom.size=Math.min(5,prom.size+1);$('promText').className='prom-text s'+prom.size;});
+$('tpSlow').addEventListener('click',function(){state.pace=Math.max(80,(state.pace||130)-10);$('promPace').textContent=state.pace+' wpm';$('inPace').value=state.pace;$('paceNum').textContent=state.pace;$('paceRead').textContent=state.pace;});
+$('tpFast').addEventListener('click',function(){state.pace=Math.min(220,(state.pace||130)+10);$('promPace').textContent=state.pace+' wpm';$('inPace').value=state.pace;$('paceNum').textContent=state.pace;$('paceRead').textContent=state.pace;});
+document.addEventListener('keydown',function(e){
+  if(!prom.on){return;}
+  if(e.key==='Escape'){promClose();}
+  if(e.key===' '){e.preventDefault();promToggle();}
+});
+/* lead form */
+$('leadForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  collectNames();
+  var btn=this.querySelector('button[type=submit]');btn.disabled=true;btn.textContent='Sending…';
+  var payload=leadPayload(state);
+  payload.name=$('fName').value.trim();payload.email=$('fEmail').value.trim();payload.phone=$('fPhone').value.trim();
+  payload.eventDate=$('fDate').value||payload.eventDate;payload.budget=$('fBudget').value||'';
+  payload.message=($('fMsg').value.trim()?$('fMsg').value.trim()+' — ':'')+payload.message;
+  fetch('/api/leads.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+    .then(function(r){return r.json();})
+    .then(function(){toast('💌 Sent! Isabella replies within 24h.');btn.disabled=false;btn.textContent='💌 Send Isabella the details →';$('leadForm').reset();})
+    .catch(function(){toast('⚠️ Couldn’t send — email hello@myeverlastingmemories.com');btn.disabled=false;btn.textContent='💌 Send Isabella the details →';});
+});
+}
+if (typeof module!=='undefined' && module.exports){
+  module.exports={TONES:TONES,OCCASIONS:OCCASIONS,RAISES:RAISES,FRAMES:FRAMES,EXTRA:EXTRA,wordsOf:wordsOf,esc:esc,firstSentence:firstSentence,fill:fill,pickOccasion:pickOccasion,pickRole:pickRole,pickTone:pickTone,buildToast:buildToast,buildShare:buildShare,leadPayload:leadPayload,sampleState:sampleState};
+}
+</script>
+</body>
+</html>
