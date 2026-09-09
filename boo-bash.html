@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Boo Bash — Halloween Party Planner | Everlasting Memories</title>
+<meta name="description" content="Plan the Halloween party Isabella would throw: pick the vibe, set the scare dial, and get the hour-by-hour Dusk Run Sheet, decor recipe with real prices, games board, and candy math that never runs out.">
+<meta name="theme-color" content="#1b1033">
+<meta property="og:title" content="The Boo Bash — Halloween Party Planner | Everlasting Memories">
+<meta property="og:description" content="The site's first Halloween & spooky-season planner. Four vibes — Family Spooktacular, Haunted Hangout, Midnight Masquerade, Trunk-or-Treat Takeover — one scare dial, and Isabella's hour-by-hour Dusk Run Sheet builds itself: decor reveal at sunset, candy window, costume cauldron, and the witching-hour wind-down.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--c1:#d9480f;--c2:#8b5cf6;--c3:#1b1033;--bg:#faf7ff;--line:#e6dcf5;--ink:#241a3d;--soft:#6d6287;--good:#1a7f4e;--bad:#b3261e}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.serif{font-family:'Playfair Display',Georgia,serif}
+a{color:var(--c1);text-decoration:none}
+a:hover{opacity:.85}
+/* nav */
+.em-nav{display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:14px 22px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.em-nav-brand{font-family:'Playfair Display',serif;font-weight:700;font-size:1.15rem;color:var(--ink);margin-right:auto}
+.em-nav-brand span{color:var(--c1)}
+.em-nav a.nav-link{font-size:.85rem;font-weight:600;color:var(--ink);padding:6px 8px;border-radius:8px}
+.em-nav a.nav-link:hover{background:var(--bg)}
+.em-nav-cta{background:linear-gradient(135deg,var(--c3),#4c1d95);color:#fff!important;padding:9px 16px;border-radius:999px;font-weight:600;font-size:.85rem;box-shadow:0 4px 14px rgba(27,16,51,.35)}
+.em-nav-cta:hover{opacity:.92}
+.dd-wrap{position:relative}
+.dd-btn{background:none;border:1px solid var(--line);border-radius:999px;padding:8px 16px;font:600 .85rem 'Inter',sans-serif;color:var(--ink);cursor:pointer;display:flex;align-items:center;gap:6px}
+.dd-btn:hover{background:var(--bg)}
+.dd-menu{display:none;position:absolute;top:calc(100% + 8px);left:0;min-width:230px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 18px 40px rgba(27,16,51,.14);padding:8px;z-index:60}
+.dd-menu.open{display:block}
+.dd-menu a{display:block;padding:8px 12px;border-radius:9px;font-size:.84rem;font-weight:500;color:var(--ink)}
+.dd-menu a:hover{background:var(--bg)}
+.dd-menu a.styled{color:#fff!important;font-weight:600}
+.dd-menu .dd-tag{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);padding:8px 12px 4px}
+/* hero */
+.hero{max-width:1100px;margin:0 auto;padding:34px 22px 10px}
+.home-link{display:inline-block;font-size:.82rem;font-weight:600;color:var(--c1);margin-bottom:16px}
+.badge{display:inline-block;background:linear-gradient(135deg,var(--c3),#4c1d95);color:#ffcf9e;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:14px;cursor:pointer;user-select:none}
+.hero h1{font-size:clamp(2.1rem,5vw,3.3rem);line-height:1.1;color:var(--c3)}
+.hero .sub{margin-top:12px;max-width:800px;color:var(--soft);font-size:1.02rem}
+.hero .sub b{color:var(--ink)}
+/* layout */
+.container{max-width:1100px;margin:0 auto;padding:22px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 10px 30px rgba(27,16,51,.05)}
+.card h2{font-size:1.35rem;color:var(--c3);margin-bottom:4px}
+.card .kicker{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c1);margin-bottom:2px}
+.card .hint{font-size:.82rem;color:var(--soft);margin-bottom:14px}
+.fg{margin-bottom:14px}
+.fg label{display:block;font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ink);margin-bottom:5px}
+.fg input,.fg select,.fg textarea{width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;font:500 .92rem 'Inter',sans-serif;background:#fff;color:var(--ink)}
+.fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:var(--c1)}
+.fg textarea{min-height:70px;resize:vertical}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:520px){.fg-row{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;font:600 .82rem 'Inter',sans-serif;color:var(--ink);cursor:pointer;transition:all .15s}
+.chip:hover{border-color:var(--c1);color:var(--c1)}
+.chip.on{background:linear-gradient(135deg,var(--c3),#4c1d95);border-color:transparent;color:#ffe3c2;box-shadow:0 4px 12px rgba(27,16,51,.3)}
+.chip .px{display:block;font-size:.66rem;font-weight:600;opacity:.85}
+.chip.on .px{opacity:.8}
+.scene-desc{margin-top:10px;background:var(--bg);border:1px dashed var(--line);border-radius:12px;padding:12px 14px;font-size:.86rem}
+.scene-desc b{color:var(--c3)}
+/* range */
+.range-wrap{display:flex;align-items:center;gap:14px}
+.range-wrap input[type=range]{flex:1;accent-color:var(--c3);height:34px}
+.guest-read{min-width:86px;text-align:center;background:linear-gradient(135deg,var(--c3),#4c1d95);color:#ffe3c2;border-radius:12px;padding:8px 10px;font-weight:700;font-size:.95rem}
+.guest-read small{display:block;font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;opacity:.85}
+.scare-line{margin-top:12px;background:var(--bg);border:1px dashed var(--line);border-radius:12px;padding:10px 14px;font-size:.83rem}
+.scare-line b{color:var(--c3)}
+.clamp-note{margin-top:8px;font-size:.78rem;font-weight:600;color:var(--bad);display:none}
+/* dusk run sheet output */
+.out-card{background:linear-gradient(165deg,#17102b,#2a1a4e);color:#f3e8ff;border-radius:22px;padding:26px;box-shadow:0 16px 40px rgba(27,16,51,.28);position:sticky;top:84px}
+.out-card .oc-head{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:6px}
+.out-card .oc-occasion{display:inline-block;background:rgba(255,255,255,.12);color:#ffcf9e;border-radius:999px;padding:4px 12px;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.out-card h2{color:#fff;font-size:1.5rem}
+.out-card .oc-sub{color:#c9b8ea;font-size:.8rem;margin-bottom:16px}
+.slot{display:flex;gap:12px;margin-bottom:13px;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.stime{flex:0 0 auto;min-width:58px;text-align:center;background:rgba(255,138,0,.16);border:1px solid rgba(255,138,0,.4);color:#ffb347;border-radius:10px;padding:6px 4px;font-weight:800;font-size:.72rem;line-height:1.2;align-self:flex-start}
+.stime small{display:block;font-size:.58rem;text-transform:uppercase;letter-spacing:.06em;opacity:.9;font-weight:700}
+.slot-body .slabel{font-size:.68rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:#ffb347;margin-bottom:2px}
+.slot-body .stext{font-size:.9rem;line-height:1.58;color:#efe4ff}
+.slot-body .stext b{color:#fff}
+.meter{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.14)}
+.mstat{background:rgba(255,255,255,.08);border-radius:12px;padding:8px 12px;text-align:center;min-width:86px}
+.mstat b{display:block;font-size:1rem;color:#fff}
+.mstat small{font-size:.62rem;text-transform:uppercase;letter-spacing:.06em;color:#c9b8ea}
+/* action buttons */
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.btn{border:none;border-radius:999px;padding:11px 18px;font:700 .85rem 'Inter',sans-serif;cursor:pointer;transition:all .15s;background:#fff;color:#1b1033}
+.btn:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(0,0,0,.18)}
+.btn.primary{background:linear-gradient(135deg,#ffb347,#ff8a00);color:#1b1033}
+.btn.ghost{background:rgba(255,255,255,.1);color:#f3e8ff;border:1px solid rgba(255,255,255,.25)}
+.btn.ghost:hover{background:rgba(255,255,255,.18)}
+/* quote */
+.quote{background:#fff;border-left:4px solid var(--c2);border-radius:0 16px 16px 0;padding:18px 20px;margin:24px 0;font-style:italic;color:var(--soft);font-size:.92rem}
+.quote b{color:var(--c3);font-style:normal}
+/* wide cards */
+.wide{margin-top:22px}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:22px}
+@media(max-width:900px){.duo{grid-template-columns:1fr}}
+.price-item{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;padding:11px 0;border-bottom:1px dashed var(--line)}
+.price-item:last-child{border-bottom:none}
+.price-item .pi-name{font-weight:700;color:var(--ink);font-size:.92rem}
+.price-item .pi-price{font-weight:800;color:var(--c1);font-size:.88rem;white-space:nowrap}
+.price-item .pi-note{flex-basis:100%;font-size:.8rem;color:var(--soft)}
+.game{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:12px 14px;margin-bottom:10px}
+.game .g-top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.game .g-name{font-weight:700;font-size:.88rem;color:var(--c3)}
+.game .g-age{font-size:.66rem;font-weight:700;background:#fff;border:1px solid var(--line);color:var(--soft);border-radius:999px;padding:2px 8px;white-space:nowrap}
+.game .g-d{font-size:.8rem;color:var(--soft);margin-top:3px}
+.spooks{font-size:.66rem;letter-spacing:.06em;color:var(--soft);margin-top:5px}
+.spooks .dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#e6dcf5;margin-right:3px;vertical-align:middle}
+.spooks .dot.on{background:var(--c1)}
+.bignum{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;color:var(--c3);line-height:1.05}
+.bignum small{font-size:1rem;color:var(--soft);font-weight:600}
+.split{display:flex;height:12px;border-radius:999px;overflow:hidden;margin:10px 0 4px}
+.split i{display:block}
+.legend{font-size:.72rem;color:var(--soft);display:flex;gap:14px;flex-wrap:wrap}
+.legend span b{color:var(--ink)}
+/* facts */
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:26px 0}
+@media(max-width:800px){.facts{grid-template-columns:repeat(2,1fr)}}
+.fact{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px;text-align:center}
+.fact .f-num{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:700;color:var(--c3);display:block}
+.fact .f-txt{font-size:.76rem;color:var(--soft);margin-top:4px}
+/* faq */
+.faq{margin:8px 0 26px}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin-bottom:10px}
+.faq summary{font-weight:700;font-size:.92rem;cursor:pointer;color:var(--c3)}
+.faq details p{font-size:.86rem;color:var(--soft);margin-top:8px}
+/* lead card */
+.lead-card{background:linear-gradient(160deg,#1b1033,#4c1d95);color:#fff;border-radius:20px;padding:28px;margin-top:8px}
+.lead-card h2{color:#fff}
+.lead-card .kicker{color:#ffb347}
+.lead-card .hint{color:#ddd0f5}
+.lead-card label{color:#ddd0f5}
+.lead-card input,.lead-card select,.lead-card textarea{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#fff}
+.lead-card input::placeholder,.lead-card textarea::placeholder{color:rgba(255,255,255,.55)}
+.lead-card input:focus,.lead-card select:focus,.lead-card textarea:focus{border-color:#ffb347}
+.lead-card select option{color:var(--ink)}
+.lead-card .btn-p{background:#ffb347;color:#1b1033}
+.lead-card .fine{font-size:.74rem;color:#ddd0f5;margin-top:10px}
+/* footer */
+footer{background:var(--c3);color:#fff;margin-top:34px;padding:26px 22px 30px}
+footer .strip{font-size:.78rem;line-height:2;color:rgba(255,255,255,.75)}
+footer .strip a{color:#d8b4fe;font-weight:600;margin-right:2px}
+footer .foot-brand{font-family:'Playfair Display',serif;font-size:1.1rem;margin-top:14px}
+footer .foot-brand span{color:#ffb347}
+footer .copy{font-size:.72rem;color:rgba(255,255,255,.6);margin-top:6px}
+/* print */
+@media print{
+  .em-nav,.actions,.lead-card,.facts,.faq,.hero .sub,.home-link,.badge,footer,.quote,.duo,.wide{display:none!important}
+  .grid{grid-template-columns:1fr!important}
+  .grid>div:first-child{display:none!important}
+  body{background:#fff}
+  .out-card{position:static!important;box-shadow:none;border:2px solid #1b1033;border-radius:8px;color:#1b1033;background:#fff}
+  .out-card h2,.slot-body .stext,.mstat b{color:#1b1033}
+  .out-card .oc-sub,.mstat small,.slot-body .stext{color:#444}
+  .oc-occasion{color:#1b1033!important;border:1px solid #1b1033!important;background:#fff!important}
+  .stime{color:#1b1033!important;border-color:#1b1033!important;background:#fff!important}
+  .stime small{color:#444}
+  .slot-body .slabel{color:#1b1033}
+}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(120%);background:var(--ink);color:#fff;padding:12px 22px;border-radius:999px;font-size:.85rem;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.25);transition:transform .3s;z-index:99}
+.toast.show{transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<nav class="em-nav">
+  <div class="em-nav-brand"><a href="index.html" style="color:inherit">Everlasting <span>Memories</span></a></div>
+  <a class="nav-link" href="gallery.html">Gallery</a>
+  <a class="nav-link" href="services.html">Services</a>
+  <a class="nav-link" href="about.html">About</a>
+  <a class="nav-link" href="faq.html">FAQ</a>
+  <div class="dd-wrap">
+    <button class="dd-btn" id="ddBtn" aria-haspopup="true" aria-expanded="false">Tools ▾</button>
+    <div class="dd-menu" id="ddMenu">
+      <div class="dd-tag">Newest</div>
+      <a href="boo-bash.html" class="styled" style="background:#2e1065">The Boo Bash</a>
+      <a href="raised-glass.html" class="styled" style="background:#241b12">The Raised Glass</a>
+      <a href="launch-pad.html" class="styled" style="background:#1e3a8a">The Launch Pad</a>
+      <a href="smash.html" class="styled" style="background:#ff8c42">The Smash Hit</a>
+      <a href="nest.html" class="styled" style="background:#6b8f71">The Nest</a>
+      <a href="powder-pop.html" class="styled" style="background:#ec4899">The Powder Pop</a>
+      <a href="big-yes.html" class="styled" style="background:#a8526b">The Big Yes</a>
+      <a href="party-er.html" class="styled" style="background:#059669">The Party ER</a>
+      <a href="rain-plan.html" class="styled" style="background:#0284c7">The Rain Plan</a>
+      <div class="dd-tag">All tools</div>
+      <a href="after-glow.html">The After-Glow</a>
+      <a href="seating-chart.html">Seating Chart Studio</a>
+      <a href="surprise-planner.html">Operation: Surprise</a>
+      <a href="dessert-table.html">Dessert Table Stylist</a>
+      <a href="golden-hour.html">Golden Hour Finder</a>
+      <a href="party-timeline.html">Party Day Timeline</a>
+      <a href="memory-capsule.html">Memory Capsule</a>
+      <a href="playlist.html">Party Playlist Studio</a>
+      <a href="guest-list.html">The Guest List</a>
+      <a href="photo-hunt.html">Party Photo Hunt</a>
+      <a href="photo-booth.html">Golden Hour Booth</a>
+      <a href="memory-wall.html">Memory Wall</a>
+      <a href="party-roadmap.html">Party Roadmap</a>
+      <a href="invitation-studio.html">Invitation Studio</a>
+      <a href="balloon-pop.html">Pop Party</a>
+      <a href="wedding-workshop.html">Wedding Workshop</a>
+      <a href="transformations.html">The Big Reveal</a>
+      <a href="budget-builder.html">Budget Balloonist</a>
+      <a href="referral.html">Refer &amp; Earn</a>
+      <a href="cost-estimator.html">Cost Estimator</a>
+      <a href="theme-generator.html">Theme Generator</a>
+      <a href="lookbook.html">Lookbook</a>
+      <a href="countdown.html">Countdown</a>
+      <a href="party-style-quiz.html">Party Style Quiz</a>
+      <a href="balloon-math.html">Balloon Math</a>
+      <a href="name-garland.html">Balloon Letter Studio</a>
+      <a href="palette-snap.html">Palette Snap</a>
+      <a href="diy-vs-pro.html">DIY or Dazzle</a>
+      <a href="reserve-date.html">Reserve Your Date</a>
+      <a href="gift-card.html">Gift Card Studio</a>
+    </div>
+  </div>
+  <a class="em-nav-cta" href="contact.html">Get a Quote</a>
+</nav>
+
+<header class="hero">
+  <a class="home-link" href="index.html">← Back to Everlasting Memories</a><br>
+  <span class="badge" id="secretBadge" title="🎃">🎃 New Tonight — The Boo Bash</span>
+  <h1>The Boo Bash</h1>
+  <p class="sub">The site's first <b>Halloween &amp; spooky-season planner</b>. Pick the vibe — family spooktacular, haunted hangout, midnight masquerade, or trunk-or-treat takeover — set the <b>scare dial</b>, and Isabella's engine builds the whole night: the <b>Dusk Run Sheet</b> timed from your start, the decor recipe with real prices, the games board, the costume cauldron, and <b>candy math that never runs out</b>. October books fast — her calendar is usually full by mid-September. 🎃</p>
+</header>
+
+<div class="container">
+  <div class="grid">
+    <!-- LEFT: controls -->
+    <div>
+      <div class="card" style="margin-bottom:18px">
+        <div class="kicker">Step 1</div>
+        <h2>Pick the vibe</h2>
+        <p class="hint">The kind of spooky you're throwing — tap one.</p>
+        <div class="chips" id="vibeChips"></div>
+        <div class="scene-desc" id="vibeDesc"></div>
+      </div>
+
+      <div class="card" style="margin-bottom:18px">
+        <div class="kicker">Step 2</div>
+        <h2>The crowd</h2>
+        <p class="hint">Who's coming — and when the front door opens.</p>
+        <div class="fg">
+          <label for="inGuests">Guest count — <span id="guestRead">60</span></label>
+          <div class="range-wrap">
+            <input type="range" id="inGuests" min="10" max="200" step="5" value="60" aria-label="Guest count">
+            <div class="guest-read"><span id="guestNum">60</span><small>guests</small></div>
+          </div>
+        </div>
+        <div class="fg" style="margin-top:6px">
+          <label>Party starts</label>
+          <div class="chips" id="startChips" style="margin-bottom:0"></div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:18px">
+        <div class="kicker">Step 3</div>
+        <h2>The scare dial</h2>
+        <p class="hint">How much nightmare is on the menu. Isabella will cap it if your vibe says the littles are watching.</p>
+        <div class="fg">
+          <label for="inScare">Spook level — <span id="scareRead">7</span></label>
+          <div class="range-wrap">
+            <input type="range" id="inScare" min="1" max="10" step="1" value="7" aria-label="Scare dial">
+            <div class="guest-read" id="scareLabel" style="min-width:150px">Proper Creeps</div>
+          </div>
+        </div>
+        <div class="scare-line" id="scareLine"></div>
+        <div class="clamp-note" id="clampNote"></div>
+      </div>
+
+      <div class="card">
+        <div class="kicker">Step 4</div>
+        <h2>The candy window</h2>
+        <p class="hint">Will trick-or-treaters be knocking? Set the expected count — 0 means a private bash with the bowl inside.</p>
+        <div class="fg">
+          <label for="inTreaters">Expected trick-or-treaters — <span id="treaterRead">0</span></label>
+          <div class="range-wrap">
+            <input type="range" id="inTreaters" min="0" max="300" step="5" value="0" aria-label="Trick-or-treaters">
+            <div class="guest-read"><span id="treaterNum">0</span><small>ghosts</small></div>
+          </div>
+        </div>
+        <p class="hint" style="margin-bottom:0" id="candyPrev"></p>
+      </div>
+    </div>
+
+    <!-- RIGHT: live Dusk Run Sheet -->
+    <div>
+      <div class="out-card">
+        <div class="oc-head">
+          <span class="oc-occasion" id="ocOccasion">🎃 Family Spooktacular · Gentle Spooks</span>
+        </div>
+        <h2 id="outTitle">The Dusk Run Sheet</h2>
+        <p class="oc-sub" id="ocSub">Hour by hour · 60 guests · doors at 5:00 PM</p>
+        <div id="timeline"></div>
+        <div class="meter">
+          <div class="mstat"><b id="mStart">5:00 PM</b><small>doors</small></div>
+          <div class="mstat"><b id="mSunset">5:47 PM</b><small>sunset</small></div>
+          <div class="mstat"><b id="mEnd">9:05 PM</b><small>lights out</small></div>
+          <div class="mstat"><b id="mCandy">0 pcs</b><small id="mCandyLbl">candy</small></div>
+        </div>
+        <div class="actions">
+          <button class="btn primary" id="btnRebuild" type="button">🎲 Rebuild</button>
+          <button class="btn ghost" id="btnCopy" type="button">📋 Copy</button>
+          <button class="btn ghost" id="btnWa" type="button">💬 WhatsApp</button>
+          <button class="btn ghost" id="btnPrint" type="button">🖨️ Pocket run sheet</button>
+        </div>
+      </div>
+
+      <div class="quote">
+        <b>Isabella's October rule:</b> "October 31 is the one night a year the whole street throws the party together — the arch goes up at the house with the best lawn, and everyone else just brings candy and chaos. I've styled forty-plus Octobers, and the ones that work all start the same way: decor at dusk, candy early, lights out on a high note. The night should end while they still want more." — from her event notebook, October section.
+      </div>
+    </div>
+  </div>
+
+  <!-- decor recipe -->
+  <div class="card wide">
+    <div class="kicker">The Decor Recipe</div>
+    <h2 id="decorTitle">The Front-Yard Recipe</h2>
+    <p class="hint" id="decorHint">Isabella's real build for this vibe — every piece is a balloon piece she's actually installed, priced the way she quotes it.</p>
+    <div id="decorList"></div>
+    <div class="scene-desc" id="decorTier" style="margin-top:14px"></div>
+  </div>
+
+  <!-- games + candy -->
+  <div class="duo">
+    <div class="card">
+      <div class="kicker">The Games Board</div>
+      <h2 id="gamesTitle">Tonight's Games</h2>
+      <p class="hint">Age-tagged, scare-rated, and sequenced so the energy peaks at dusk and coasts to lights-out.</p>
+      <div id="gamesList"></div>
+      <div class="scene-desc" id="gamesRule"></div>
+    </div>
+    <div class="card">
+      <div class="kicker">Candy Math</div>
+      <h2>The Bowl, Solved</h2>
+      <p class="hint">Isabella's formula: one fistful per ghost ≈ 3 pieces, plus a 20% buffer for the second wave — and the good candy goes out first.</p>
+      <div style="display:flex;gap:26px;align-items:baseline;flex-wrap:wrap">
+        <div><span class="bignum" id="cmPieces">0</span> <small>pieces</small></div>
+        <div><span class="bignum" id="cmBags">0</span> <small>share bags</small></div>
+      </div>
+      <div class="split" id="cmSplit"><i style="width:60%;background:#2e1065"></i><i style="width:40%;background:#ff8a00"></i></div>
+      <div class="legend">
+        <span><b id="cmChoc">0% chocolate</b> — the favorites</span>
+        <span><b id="cmFruit">0% fruity</b> — the backups</span>
+      </div>
+      <div class="scene-desc" id="cmRule" style="margin-top:12px"></div>
+    </div>
+  </div>
+
+  <!-- costume cauldron + trivia-ish -->
+  <div class="duo">
+    <div class="card">
+      <div class="kicker">The Costume Cauldron</div>
+      <h2 id="ccTitle">Contest Categories</h2>
+      <p class="hint">Announce them before the parade — parents need time to stage-manage. Isabella brings the ribbons.</p>
+      <div class="chips" id="ccCats"></div>
+      <div class="scene-desc" id="ccLine" style="margin-top:12px"></div>
+    </div>
+    <div class="card">
+      <div class="kicker">The Dusk Drop</div>
+      <h2>Why It Starts at Sunset</h2>
+      <p class="hint">The single most important moment of a Halloween party isn't a game — it's the reveal.</p>
+      <p style="font-size:.9rem;color:var(--soft)">The yard sits there all afternoon looking like a yard. Then the sun goes down, the arch lights flip, the fog rolls at ankle height, and the whole house <b style="color:var(--c3)">wakes up at once</b> — that gasp is the party's opening chord. On October 31 in Connecticut the sun sets at <b style="color:var(--c3)">5:47 PM</b>, so Isabella schedules the reveal for 5:47 sharp — timer, not memory. Latecomers miss the magic and spend the night hearing about it.</p>
+      <div class="scene-desc" style="margin-top:12px">Her timer trick: the arch lights are on a cheap outlet timer set to sunset week — the yard flips itself on even if she's still inside tying a bow. She's never missed a dusk drop in forty-plus Octobers.</div>
+    </div>
+  </div>
+
+  <!-- facts -->
+  <div class="facts">
+    <div class="fact"><span class="f-num">40+</span><span class="f-txt">spooky-season parties styled — Isabella's October book since year one</span></div>
+    <div class="fact"><span class="f-num">5:47 PM</span><span class="f-txt">Oct 31 sunset in CT — the Dusk Drop runs right then, timer or no timer</span></div>
+    <div class="fact"><span class="f-num">3 pcs</span><span class="f-txt">per fistful, plus a 20% buffer — candy math that never runs dry at 7 PM</span></div>
+    <div class="fact"><span class="f-num">11 min</span><span class="f-txt">is all an unattended candy bowl survives — Isabella has timed it</span></div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq">
+    <details>
+      <summary>Is Halloween decor really a balloon thing?</summary>
+      <p>More than you'd think. Spider webs, pumpkin patches, graveyard backdrops, BOO letters — Isabella builds almost all of it in latex and vinyl, because balloons are the one material that goes up in an afternoon and comes down without a scratch on the lawn. October is her third-busiest month after June and December, and the dates book out by mid-September. If you're reading this in October and she's free, treat it like a sign.</p>
+    </details>
+    <details>
+      <summary>Fog machines and balloons — don't they fight?</summary>
+      <p>They can. Fog is cold, wet condensation, and latex doesn't love it — park a machine under a fresh arch and you'll hear pops all night. Isabella's rule: the machine sits <b>six feet back and low</b>, pointed along the floor, never up at the balloons. Fog at ankle height reads spookier anyway — it's the difference between a haunted yard and a car wash.</p>
+    </details>
+    <details>
+      <summary>How much candy do I actually need?</summary>
+      <p>One fistful per ghost is about three pieces. Estimate your trick-or-treaters, multiply by three, add a 20% buffer for the second wave — that's your number (the Candy Math panel does it for you). Send the good stuff out first; the last hour gets the pieces you don't mind keeping. And never leave a bowl unattended on the step — Isabella has timed the void: <b>11 minutes</b>, and it's gone, bowl sometimes included.</p>
+    </details>
+    <details>
+      <summary>Can you do a Halloween wedding or a spooky sweet sixteen?</summary>
+      <p>She has, and they're glorious — black-tie costumes, a masquerade arch, a first dance under blacklight. The <a href="big-yes.html">Big Yes</a> handles the proposal side and the <a href="raised-glass.html">Raised Glass</a> writes a toast that lands before midnight. October weddings book a year out, so tell her the date through the form and she'll tell you straight if it's real.</p>
+    </details>
+    <details>
+      <summary>We're doing trunk-or-treat for our church / school / HOA — can you scale?</summary>
+      <p>That's the Trunk-or-Treat Takeover vibe — she brings the lot arch, per-trunk pops for up to twenty trunks, pumpkin columns lining the drive lane, and the candy-route letters so families know where the magic starts. She's styled lot events from 15 trunks to 60, and the same rule applies: per-trunk pops, not per-car chaos.</p>
+    </details>
+    <details>
+      <summary>What if it rains on the 31st?</summary>
+      <p>October in Connecticut is a coin flip, which is exactly why the <a href="rain-plan.html">Rain Plan</a> exists — it has a month-by-month storm-risk meter for any party date, plus the Plan B playbook. The Boo Bash is the recipe; the Rain Plan is the umbrella. If the sky opens, Isabella's indoor October move is a blacklight bog in the garage and the movie pit in the living room — the scare walk just gets shorter and wetter.</p>
+    </details>
+    <details>
+      <summary>Who wins the costume contest?</summary>
+      <p>Everyone under ten — Isabella brings twenty ribbons and a category for every kid, because the real contest is which parent cries first. Older crews get real stakes: applause voting, ties broken by the host, and one Judge's Choice that's secretly rigged for the quietest costume in the room. Announce categories before the parade; a parent with a mission is a beautiful thing.</p>
+    </details>
+  </div>
+
+  <!-- lead card -->
+  <div class="lead-card" id="leadCard">
+    <div class="kicker">The Boo Bash</div>
+    <h2>Claim your October date?</h2>
+    <p class="hint">Tell Isabella what you're throwing. She'll reply within 24 hours — and if the date's still free, she'll hold it for you while you think.</p>
+    <form id="leadForm">
+      <div class="fg-row">
+        <div class="fg"><label for="fName">Your name</label><input id="fName" required placeholder="Alex"></div>
+        <div class="fg"><label for="fEmail">Email</label><input id="fEmail" type="email" required placeholder="you@email.com"></div>
+      </div>
+      <div class="fg-row">
+        <div class="fg"><label for="fPhone">Phone</label><input id="fPhone" type="tel" placeholder="(203) 555-0100"></div>
+        <div class="fg"><label for="fEvent">Event type</label>
+          <select id="fEvent">
+            <option value="Halloween Party 🎃">Halloween Party 🎃</option>
+            <option value="Trunk-or-Treat 🚗">Trunk-or-Treat 🚗</option>
+            <option value="Costume Party 🦇">Costume Party 🦇</option>
+            <option value="Halloween Wedding 💍">Halloween Wedding 💍</option>
+            <option value="Fall Festival 🍂">Fall Festival 🍂</option>
+            <option value="Just Because 🕸️">Just Because 🕸️</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg-row">
+        <div class="fg"><label for="fDate">Event date</label><input id="fDate" type="date"></div>
+        <div class="fg"><label for="fBudget">Budget</label>
+          <select id="fBudget">
+            <option value="">Not sure yet</option>
+            <option value="Under $1,000">Under $1,000</option>
+            <option value="$1,000–$2,500">$1,000–$2,500</option>
+            <option value="$2,500–$5,000">$2,500–$5,000</option>
+            <option value="$5,000+">$5,000+</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg"><label for="fMsg">Anything else? (guest count, venue, how scary you're willing to get…)</label><textarea id="fMsg" placeholder="About 60 guests, front yard + garage, kids from 3 to 10, medium scary…"></textarea></div>
+      <button class="btn btn-p" type="submit" style="width:100%;padding:14px;font-size:.95rem">🎃 Send Isabella the details →</button>
+      <p class="fine">No spam, no list — just a reply from a real person within 24 hours. The run sheet is yours to keep either way.</p>
+    </form>
+  </div>
+</div>
+
+<!-- print card -->
+<div class="print-card" id="printCard" style="display:none">
+  <div class="pc-title">🎃 The Boo Bash — Pocket Run Sheet</div>
+  <div class="pc-meta" id="pcMeta">Everlasting Memories · myeverlastingmemories.com</div>
+  <div class="pc-line" id="pcLine">—</div>
+</div>
+
+<footer>
+  <p class="strip">
+    <a href="boo-bash.html" style="color:#d8b4fe;font-weight:600">The Boo Bash</a> ·
+    <a href="raised-glass.html" style="color:#eed9a6;font-weight:600">The Raised Glass</a> ·
+    <a href="launch-pad.html" style="color:#c7d2fe;font-weight:600">The Launch Pad</a> ·
+    <a href="smash.html" style="color:#ffcfa8;font-weight:600">The Smash Hit</a> ·
+    <a href="nest.html" style="color:#cfe0c4;font-weight:600">The Nest</a> ·
+    <a href="powder-pop.html" style="color:#f9a8d4;font-weight:600">The Powder Pop</a> ·
+    <a href="big-yes.html" style="color:#f2c6d2;font-weight:600">The Big Yes</a> ·
+    <a href="party-er.html" style="color:#a7f3d0;font-weight:600">The Party ER</a> ·
+    <a href="rain-plan.html" style="color:#7dd3fc;font-weight:600">The Rain Plan</a> ·
+    <a href="seating-chart.html" style="color:#f9a8d4;font-weight:600">Seating Chart Studio</a> ·
+    <a href="after-glow.html" style="color:#f9a8d4;font-weight:600">The After-Glow</a> ·
+    <a href="surprise-planner.html" style="color:#a5b4fc;font-weight:600">Operation: Surprise</a> ·
+    <a href="dessert-table.html" style="color:#f0c9a0;font-weight:600">Dessert Table Stylist</a> ·
+    <a href="golden-hour.html" style="color:#c4b5fd;font-weight:600">Golden Hour Finder</a> ·
+    <a href="party-timeline.html" style="color:#cbd5e1;font-weight:600">Party Day Timeline</a> ·
+    <a href="wedding-workshop.html" style="color:#f9a8d4;font-weight:600">Wedding Workshop</a> ·
+    <a href="cost-estimator.html" style="color:#fcd34d;font-weight:600">Cost Estimator</a> ·
+    <a href="guest-list.html" style="color:#93c5fd;font-weight:600">The Guest List</a> ·
+    <a href="playlist.html" style="color:#fca5a5;font-weight:600">Party Playlist Studio</a> ·
+    <a href="name-garland.html" style="color:#f9a8d4;font-weight:600">Balloon Letter Studio</a> ·
+    <a href="invitation-studio.html" style="color:#a5b4fc;font-weight:600">Invitation Studio</a> ·
+    <a href="party-roadmap.html" style="color:#5eead4;font-weight:600">Party Roadmap</a> ·
+    <a href="memory-wall.html" style="color:#fcd34d;font-weight:600">Memory Wall</a> ·
+    <a href="photo-booth.html" style="color:#7dd3fc;font-weight:600">Golden Hour Booth</a> ·
+    <a href="photo-hunt.html" style="color:#f0abfc;font-weight:600">Party Photo Hunt</a> ·
+    <a href="memory-capsule.html" style="color:#fca5a5;font-weight:600">Memory Capsule</a> ·
+    <a href="balloon-pop.html" style="color:#fdba74;font-weight:600">Pop Party</a> ·
+    <a href="transformations.html" style="color:#c4b5fd;font-weight:600">The Big Reveal</a> ·
+    <a href="budget-builder.html" style="color:#86efac;font-weight:600">Budget Balloonist</a> ·
+    <a href="referral.html" style="color:#fde68a;font-weight:600">Refer &amp; Earn</a> ·
+    <a href="gift-card.html" style="color:#f9a8d4;font-weight:600">Gift Card Studio</a> ·
+    <a href="reserve-date.html" style="color:#93c5fd;font-weight:600">Reserve Your Date</a> ·
+    <a href="diy-vs-pro.html" style="color:#fdba74;font-weight:600">DIY or Dazzle</a> ·
+    <a href="palette-snap.html" style="color:#f0abfc;font-weight:600">Palette Snap</a> ·
+    <a href="balloon-math.html" style="color:#86efac;font-weight:600">Balloon Math</a> ·
+    <a href="party-style-quiz.html" style="color:#f9a8d4;font-weight:600">Party Style Quiz</a> ·
+    <a href="countdown.html" style="color:#93c5fd;font-weight:600">Big Day Countdown</a> ·
+    <a href="lookbook.html" style="color:#c4b5fd;font-weight:600">Lookbook</a> ·
+    <a href="theme-generator.html" style="color:#fde68a;font-weight:600">Theme Generator</a> ·
+    <a href="faq.html" style="color:#f2c6d2;font-weight:600">FAQ</a>
+  </p>
+  <p class="foot-brand">Everlasting <span>Memories</span> — balloons &amp; moments that last</p>
+  <p class="copy">Isabella's October notebook: the Dusk Drop runs on an outlet timer, the fog sits six feet from the arch, and the candy bowl is never left alone — the void takes it in 11 minutes flat. 🎃</p>
+</footer>
+
+<div class="toast" id="toast"></div>
+<script>
+(function(){
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function pad(n){return (n<10?'0':'')+n;}
+function fmtTime(m){var h=Math.floor(m/60),mm=m%60,ap=h>=12?'PM':'AM',hh=h%12;if(hh===0){hh=12;}return hh+':'+pad(mm)+' '+ap;}
+
+var BANDS={
+  1:{name:'Gentle Spooks',emoji:'👻',line:'Lights stay bright, fog stays ankle-low, and every scare has a hug after — Isabella’s rule for the under-ten set. The goal is giggles with a shiver on top, never the other way around.'},
+  2:{name:'Proper Creeps',emoji:'🕷️',line:'Jump scares scheduled, fog rolling, lights low — the yard becomes a haunted house with a snack table and a clearly marked exit. The exit sign is what makes it fun.'},
+  3:{name:'Sleep-Loss Zone',emoji:'🦇',line:'Full dark, actors welcome, nothing genuinely scary after 10 PM unless the adults signed the waiver — they always do, then they thank her at the door.'}
+};
+
+var VIBES={
+  family:{
+    id:'family',emoji:'🎃',name:'Family Spooktacular',tag:'little goblins · ages 2–10',
+    minBand:1,maxBand:1,starts:[17],
+    desc:'The classic front-yard Halloween — costumes, candy, zero nightmares. Isabella’s most-booked October date: the littles run the show, the grown-ups work the porch, and the scariest thing all night is the group photo.',
+    offsets:[0,47,80,125,175,220,245],
+    run:[
+      {label:'First Costumes at the Gate',d:'Doors at 5:00 and the candy table runs first — the daylight hour belongs to the grown-ups with the cider. Rule one of a spooktacular: nobody cries before the group photo, and nobody misses the reveal.'},
+      {label:'The Dusk Drop',d:'The arch lights are on a cheap outlet timer set to sunset week — at 5:47 they flip on their own, guests or no guests: pumpkins glow, the web arch shimmers, and the littles gasp on cue. This is the moment the whole night is selling.'},
+      {label:'The Candy Window',d:'Door duty moves to the grown-ups on the porch while the yard party runs. The good candy goes out FIRST; the last hour gets the pieces you don’t mind keeping.'},
+      {label:'The Costume Parade',d:'March around the yard, strike a pose at the graveyard backdrop. Every kid wins a category — Isabella brings twenty ribbons, and the real contest is which parent cries first.'},
+      {label:'The Friendly Scare Walk',d:'One lap through the spooky-but-sweet zone: fog at the ankles only, no jump scares, every scare has a hug after. Ages 2–10 field-tested, zero overnights.'},
+      {label:'Hot Cider & The Movie Pit',d:'Blankets down on the driveway, glow sticks on, the not-too-scary feature rolling. The sugar curve meets its only match: sitting.'},
+      {label:'Lights Out on a High Note',d:'Last candy pass, last photo, porch light off while they still want more. Isabella’s rule: a kid who leaves wanting next year is a return customer.'}
+    ],
+    decor:[
+      {n:'The Spider’s-Web Arch',p:'$350 + $25/ft',d:'The front-yard centerpiece: white-and-violet webs in balloon form, lit from below. Every family photo gets the arch in it whether they planned to or not.'},
+      {n:'The Friendly Graveyard Backdrop',p:'$550 + $45/ft',d:'The photo wall — tombstones in latex, mist at the base, zero gore. This is where the parade poses and the parents cry.'},
+      {n:'Pumpkin Patch Columns',p:'$120 + $18/ft',d:'Framing the walkway to the door — they double as the candy-route markers for the littlest ghosts.'},
+      {n:'“BOO!” Letters',p:'from $180',d:'The word the kids shout for the camera — five feet of violet and pumpkin, pure October.'},
+      {n:'The Full Front-Yard Takeover',p:'from $1,100',d:'Arch + backdrop + columns + letters + lighting and the dusk timer, installed by noon so the yard can “appear” the moment the party starts.'}
+    ],
+    games:[
+      {n:'The Pumpkin Patch Hunt',a:'2–6',d:'Ten mini pumpkins hidden around the yard — finders trade them at the candy table for a fistful of the good stuff.',s:1},
+      {n:'The Web Crawl',a:'3–8',d:'Crepe-paper web strung across the driveway; crawl under without breaking a strand. One break = one spooky sound from the grown-up “ghost” at the end.',s:1},
+      {n:'Mummy Wrap Relay',a:'4–10',d:'Teams of two — one roll of toilet paper, one very still kid, ninety seconds. The mummy who holds still longest takes the title.',s:1},
+      {n:'Bobbing for Donuts',a:'5–10',d:'Donuts on strings, hands behind backs — the no-drowning alternative to apples, and twice as funny.',s:1}
+    ],
+    cats:['Best Tiny Scare','Best Family Theme','Most Creative DIY','Funniest Costume','Best Group Effort'],
+    ccLine:'Every kid under ten gets a ribbon — Isabella brings twenty, because the real contest is which parent cries first. Announce the categories before the parade; a parent with a mission is a beautiful thing.'
+  },
+  haunt:{
+    id:'haunt',emoji:'🕷️',name:'The Haunted Hangout',tag:'tweens & teens · sleepover energy',
+    minBand:2,maxBand:3,starts:[18,19],
+    desc:'Too old for trick-or-treat, too young for the masquerade — the tween-and-teen crew gets a night that’s actually scary in a safe way. Sleepover optional, bragging rights required.',
+    offsets:[0,20,45,90,150,210,240],
+    run:[
+      {label:'The Dusk Drop',d:'Blacklights on, fog rolling, phones in pockets — the hangout starts the second the yard turns. House rule: what happens in the fog stays in the fog, unless it makes the group chat.'},
+      {label:'The Dare Rotation',d:'A truth-or-dare ladder with one rung per guest — the dares escalate exactly one notch per round, so everyone survives and nobody’s phone survives intact.'},
+      {label:'The Haunted Hallway Run',d:'Teams of two, ninety seconds, the garage-turned-gauntlet in the dark. The run is timed; the screaming is not.'},
+      {label:'The Candy Raid',d:'The buffet window: candy buffet, nacho bar, and the good soda. Fifteen minutes of glorious chaos, then the sugar does the DJing.'},
+      {label:'The Midnight Movie',d:'The one movie everyone claims they can handle. They cannot. That’s the point.'},
+      {label:'The Scare-Cam Replay',d:'The best screams reviewed on the big screen — the group votes Most Dramatic Performance of the Night, and the winner gets the last slice of pizza.'},
+      {label:'The Wind-Down',d:'Lights on, music down, couch pile formed. Isabella’s rule: end while they’re still whispering about it — that’s what they’ll tell everyone Monday.'}
+    ],
+    decor:[
+      {n:'The Blacklight Bog',p:'from $450',d:'A room or garage corner gone glow: white balloons, neon webs, everything that burns under UV. The single most-photographed thing of the night.'},
+      {n:'The Spider’s-Web Arch',p:'$350 + $25/ft',d:'The entry piece — in this vibe it’s the “you sure about this?” door. They are sure. They’re terrified, and they’re sure.'},
+      {n:'The Fog Runway',p:'from $180',d:'Two machines on timers, six feet back from any latex, low and slow. Ankle fog reads haunted; face fog reads fire hazard.'},
+      {n:'The Graveyard Backdrop',p:'$550 + $45/ft',d:'The photo wall for the group shots that will absolutely be everyone’s profile picture in the morning.'},
+      {n:'The Full Haunted Hangout',p:'from $1,100',d:'Bog + arch + runway + backdrop + lighting, installed before the guests arrive so the reveal does the work.'}
+    ],
+    games:[
+      {n:'The Scream-Off Meter',a:'10+',d:'The phone app that measures screams — highest decibels win the round. The winner is always the quietest kid, which is the joke.',s:2},
+      {n:'The Dare Ladder',a:'10+',d:'One rung per guest, escalating exactly one notch per round — engineered so everyone survives and nobody’s dignity does.',s:2},
+      {n:'The Basement Gauntlet',a:'11+',d:'Ninety seconds, a dark hallway, one “haunt” hiding mid-route. Teams of two; the scream is the timestamp.',s:3},
+      {n:'The Midnight Movie Vote',a:'10+',d:'Everyone votes for the movie they can handle. They cannot. That’s the game.',s:2}
+    ],
+    cats:['Best DIY Build','Best Group Costume','Funniest','Most Extra','The Scream-Off Title'],
+    ccLine:'Applause voting, ties broken by the host, and one Judge’s Choice secretly rigged for the quietest costume in the room — the loudest kid will still demand a recount.'
+  },
+  masq:{
+    id:'masq',emoji:'🦇',name:'Midnight Masquerade',tag:'grown-ups · costume ball · extra',
+    minBand:2,maxBand:3,starts:[19,20],
+    desc:'The grown-up Halloween — costumes with a tailor, drinks with a theme, decor that could pass for a wedding if the wedding was haunted. Isabella’s favorite night of the year: the adults finally get the party they’ve been throwing for their kids.',
+    offsets:[0,30,75,120,180,240,300],
+    run:[
+      {label:'The Entrance Reveal',d:'The first impression is the decor’s opening number: fog on the steps, the masquerade arch lit, blacklight glow beyond the door. Guests arrive to a reveal, not a walkway.'},
+      {label:'The Costume Arrival',d:'The first hour is the show — every new guest is an entrance. Isabella’s trick: a soft spotlight at the door so the costumes land like arrivals at the Met Gala, which is exactly what this is.'},
+      {label:'The Signature Pour',d:'The themed cocktail hour — blackberry bourbon “Vampire’s Punch” and a zero-proof “Witch’s Brew” for the designated drivers. The bar glow is the second-most-photographed thing tonight.'},
+      {label:'The Cauldron Contest',d:'Judging by applause at the top of the night — before the punch gets too deep for fair voting. Categories went out on the invite so the good costumes actually showed up.'},
+      {label:'The Masquerade Set',d:'The dance block under the arch, fog low, blacklight catching the white accents. This is the part the wedding clients always ask about afterward.'},
+      {label:'The Late-Night Candy Course',d:'The dessert-and-candy spread lands at eleven — the sugar second wind before midnight. Full-size bars only; the adults earned them.'},
+      {label:'The Witching Hour',d:'Midnight toast, one group photo under the arch, lights up shortly after. Isabella’s rule for adult parties: end at the peak, not the puddle — the after-party is the driveway, and it’s on them.'}
+    ],
+    decor:[
+      {n:'The Midnight Masquerade Arch',p:'$350 + $25/ft',d:'Black and violet with white-veil accents — the entrance reveal and the photo anchor. Reads “ballroom,” not “haunted house.”'},
+      {n:'The Column Corridor',p:'$120 + $18/ft',d:'A corridor of columns leading in — the walk that turns every entrance into an entrance.'},
+      {n:'The Reveal Backdrop',p:'$550 + $45/ft',d:'The full photo wall at the far end — masks, couples, and the group shot that quietly becomes the holiday card.'},
+      {n:'The Blacklight Bar Accent',p:'from $450',d:'Glow top, neon ice, white florals that burn violet under UV. The bar becomes the room’s second sun.'},
+      {n:'The Full Room',p:'from $1,100',d:'Arch + corridor + backdrop + bar glow + lighting — the whole room done like a wedding that got haunted, in the best way.'}
+    ],
+    games:[
+      {n:'The Entrance Spotlight',a:'21+',d:'Every guest gets the door moment — two seconds of light and applause as they step in. No names announced; the mystery is the point.',s:2},
+      {n:'Masked Introductions',a:'21+',d:'Introduce yourself as your costume — one lie, one truth. The room votes, and the best liar buys the next round.',s:2},
+      {n:'The Applause-Off',a:'21+',d:'Contest judging by applause meter — the host’s phone held high, the room roaring. Ties are broken by the DJ’s judgment, which is final and wrong.',s:2},
+      {n:'The Midnight Toast',a:'21+',d:'At the stroke of twelve, one toast — the Raised Glass can write it, but honestly the room’s best line wins the night.',s:2}
+    ],
+    cats:['Best Mask & Prosthetics','Best Couple or Group','Best Vintage Hollywood','Funniest','Judge’s Choice'],
+    ccLine:'Categories went out with the invite so the serious costumes show up — applause voting, ties broken by the host, and the Judge’s Choice always goes to the quietest room-shaker.'
+  },
+  trunk:{
+    id:'trunk',emoji:'🚗',name:'Trunk-or-Treat Takeover',tag:'community lot · 20+ trunks · school / church / HOA',
+    minBand:1,maxBand:2,starts:[16,17],
+    desc:'The community takeover: twenty trunks, one lot, zero doorbells. Churches, schools, HOAs and main streets run this with Isabella’s per-trunk pops and one glorious lot arch — Halloween for the whole neighborhood in two hours flat.',
+    offsets:[0,20,45,80,120,160,200],
+    run:[
+      {label:'The Lot Arch Drop',d:'The reveal is the lot entrance: the arch goes up at the drive lane, pumpkin columns line the route — families see the magic before they see a single trunk.'},
+      {label:'Trunks Open',d:'Twenty trunks, twenty themes, one rule: candy at the trunk, not on the ground. The lot hums — Halloween with the training wheels off and the tailgates down.'},
+      {label:'The Parade Lap',d:'One organized lap so no family misses a trunk — two brave route masters with glow-stick wands keep the flow moving and the littlest ghosts from orbiting.'},
+      {label:'The Applause Vote at the Arch',d:'The crowd votes by applause at the arch — best trunk theme and best costume, announced before the candy rush while the voting is still fair-ish.'},
+      {label:'The Candy Rush',d:'The last hour is chaos by design: trunks empty their stashes, kids trade favorites, and the full-size bar at trunk seven becomes legendary.'},
+      {label:'The Lot Lights-On',d:'Lights up, trunks close, one group photo under the arch. The lot clears in twenty minutes — Isabella’s cleanup rule: end on time and the venue loves you forever.'},
+      {label:'The Afterglow',d:'Families walk the candy home while the crew breaks down. What got styled in an afternoon comes down in an hour — no glitter left behind, ever.'}
+    ],
+    decor:[
+      {n:'The Lot Arch',p:'$350 + $25/ft',d:'The entrance marker at the drive lane — the “you’re here” moment that makes a parking lot feel like a main street.'},
+      {n:'Per-Trunk Pops',p:'from $150 each',d:'Columns and web accents for up to twenty trunks — each trunk gets its own frame, themed or not.'},
+      {n:'The Pumpkin Patch Lane',p:'$120 + $18/ft',d:'Columns lining the walk route between trunk rows — keeps the flow moving and the photos framed.'},
+      {n:'The Candy-Route “BOO!”',p:'from $180',d:'The letters mark the start of the route; the arch marks the finish. No lost ghosts, no loops.'},
+      {n:'The Full Lot Takeover',p:'from $1,100',d:'Arch + pops for twenty trunks + lane columns + letters + lighting — installed by 2 PM, revealed the moment the lot opens.'}
+    ],
+    games:[
+      {n:'The Trunk Theme Vote',a:'all ages',d:'Best-themed trunk by crowd applause at the arch — the prize is bragging rights plus the full-size-bar tax at trunk seven.',s:1},
+      {n:'The Costume Lap',a:'all ages',d:'One organized parade lap past every trunk so each family gets its applause — route masters keep it moving.',s:1},
+      {n:'The Trade Table',a:'all ages',d:'A folding table at the center for candy trading — the night’s economy, self-regulated by kids who take fairness very seriously.',s:1},
+      {n:'The Glow-Stick Hunt',a:'3–10',d:'Twenty glow sticks hidden around the lot perimeter after dark — the littlest ghosts find them while the big kids guard the trunk candy.',s:2}
+    ],
+    cats:['Best Trunk Theme','Best Candy Setup','Crowd Favorite Trunk','Best Costume (kid)','Best Costume (grown-up)'],
+    ccLine:'Vote by applause at the arch halfway through — announce the categories when the trunks open so the competitive families bring their A-game to trunk seven.'
+  }
+};
+
+var state={vibe:'family',guests:60,start:17,scare:7,treaters:0};
+
+function bandOf(scare){return scare<=3?1:(scare<=7?2:3);}
+function clampBand(v,band){return Math.max(v.minBand,Math.min(v.maxBand,band));}
+function piecesOf(T){return Math.ceil(T*3*1.2);}
+function bagsOf(T){var p=piecesOf(T);return Math.ceil(p/60);}
+function tierOf(g){return g<=40?'pop':(g<=100?'full':'block');}
+function tierName(t){return t==='pop'?'The Front-Yard Pop':(t==='full'?'The Full Recipe':'The Block Party Build');}
+function tierText(t){return t==='pop'?'Under 40 guests: pick the anchor piece — usually the arch — plus one accent. This is the tier most October backyards actually book.'
+  :(t==='full'?'40–100 guests: the whole board above. This is the tier that makes the street slow down and the neighbors ask for her card.'
+  :'100+ guests: the full recipe plus a second arch or backdrop at the far end, so the party flows in two zones instead of one mob.');}
+
+function chipHTML(emoji,name,tag,on){
+  return '<button type="button" class="chip'+(on?' on':'')+'" data-v="'+name+'">'+emoji+' '+esc(name)+(tag?'<span class="px">'+esc(tag)+'</span>':'')+'</button>';
+}
+function buildStartChips(){
+  var v=VIBES[state.vibe];
+  $('startChips').innerHTML=v.starts.map(function(h){
+    var lbl=(h>12?h-12:h)+':00 '+(h>=12?'PM':'PM');
+    var on=h===state.start?' on':'';
+    return '<button type="button" class="chip'+on+'" data-h="'+h+'">'+lbl+'</button>';
+  }).join('');
+}
+function buildVibeChips(){
+  $('vibeChips').innerHTML=Object.keys(VIBES).map(function(k){
+    var v=VIBES[k];
+    return chipHTML(v.emoji,v.name,v.tag,k===state.vibe);
+  }).join('');
+}
+
+function render(){
+  var v=VIBES[state.vibe];
+  var raw=bandOf(state.scare);
+  var band=clampBand(v,raw);
+  var clamped=band!==raw;
+  var B=BANDS[band];
+  var t0=state.start*60;
+
+  /* vibe chips + desc */
+  buildVibeChips();
+  buildStartChips();
+  $('vibeDesc').innerHTML='<b>'+v.emoji+' '+esc(v.name)+'</b> — '+esc(v.desc);
+  $('guestRead').textContent=state.guests;
+  $('guestNum').textContent=state.guests;
+  $('scareRead').textContent=state.scare;
+  $('scareLabel').textContent=B.emoji+' '+B.name+(clamped?' (capped)':'');
+  $('scareLine').innerHTML='<b>'+B.name+':</b> '+esc(B.line);
+  $('clampNote').style.display=clamped?'block':'none';
+  $('clampNote').textContent='Isabella capped this one: the dial says '+BANDS[raw].name+', but '+v.name+' is a '+BANDS[band].name+' night — the littles are watching. (Throw a Midnight Masquerade if you want the full sleep-loss package.)';
+
+  /* treaters */
+  var T=state.treaters;
+  $('treaterRead').textContent=T;
+  $('treaterNum').textContent=T;
+  if(T===0){
+    $('candyPrev').innerHTML='Private bash — no door duty. The bowl stays inside, and the run sheet gets its hour back.';
+  }else{
+    $('candyPrev').innerHTML='≈ <b>'+piecesOf(T)+' pieces</b> · <b>'+bagsOf(T)+' share bags</b> (~60 pcs each) — one fistful per ghost, plus the 20% buffer.';
+  }
+
+  /* header + timeline */
+  $('ocOccasion').textContent=v.emoji+' '+v.name+' · '+B.name+(clamped?' (capped)':'');
+  $('ocSub').textContent='Hour by hour · '+state.guests+' guests · doors at '+fmtTime(t0);
+  $('timeline').innerHTML=v.run.map(function(s,i){
+    return '<div class="slot"><div class="stime">'+fmtTime(t0+v.offsets[i])+'<small>PM</small></div><div class="slot-body"><div class="slabel">'+esc(s.label)+'</div><div class="stext">'+esc(s.d)+'</div></div></div>';
+  }).join('');
+  $('mStart').textContent=fmtTime(t0);
+  $('mSunset').textContent='5:47 PM';
+  $('mEnd').textContent=fmtTime(t0+v.offsets[v.offsets.length-1]);
+  if(T===0){$('mCandy').textContent='—';$('mCandyLbl').textContent='bowl in';}
+  else{$('mCandy').textContent=piecesOf(T)+' pcs';$('mCandyLbl').textContent='candy';}
+
+  /* decor */
+  $('decorTitle').textContent=v.emoji+' '+v.name+' Recipe';
+  $('decorHint').innerHTML='Isabella’s real build for <b>'+esc(v.name)+'</b> — every piece is a balloon piece she’s actually installed, priced the way she quotes it. For '+state.guests+' guests, that’s the <b>'+tierName(tierOf(state.guests))+'</b> tier.';
+  $('decorList').innerHTML=v.decor.map(function(d){
+    return '<div class="price-item"><span class="pi-name">'+esc(d.n)+'</span><span class="pi-price">'+esc(d.p)+'</span><span class="pi-note">'+esc(d.d)+'</span></div>';
+  }).join('');
+  $('decorTier').innerHTML='<b>'+tierName(tierOf(state.guests))+'</b> — '+tierText(tierOf(state.guests));
+
+  /* games: headliner = closest to current band */
+  var games=v.games.slice().sort(function(a,b){return Math.abs(a.s-band)-Math.abs(b.s-band);});
+  $('gamesList').innerHTML=games.map(function(g,i){
+    var dots='';for(var x=1;x<=3;x++){dots+='<span class="dot'+(x<=g.s?' on':'')+'"></span>';}
+    var star=(Math.abs(g.s-band)===0)?' <span style="font-size:.62rem;background:#fff;border:1px solid var(--line);color:var(--c1);border-radius:999px;padding:1px 7px;font-weight:700">TONIGHT’S HEADLINER</span>':'';
+    return '<div class="game"><div class="g-top"><span class="g-name">'+esc(g.n)+'</span><span class="g-age">'+esc(g.a)+'</span></div><div class="g-d">'+esc(g.d)+'</div><div class="spooks">'+dots+' spook level '+g.s+'</div>'+star+'</div>';
+  }).join('');
+  $('gamesRule').innerHTML='<b>House rule · '+B.name+':</b> '+esc(B.line);
+
+  /* candy math panel */
+  if(T===0){
+    $('cmPieces').textContent='0';$('cmBags').textContent='0';
+    $('cmSplit').innerHTML='<i style="width:100%;background:#e6dcf5"></i>';
+    $('cmChoc').textContent='0% chocolate';$('cmFruit').textContent='0% fruity';
+    $('cmRule').innerHTML='<b>No door duty tonight.</b> The bowl stays inside and the run sheet gets its hour back. Isabella’s rule either way: never leave the bowl unattended on the step — the void takes it in 11 minutes flat, bowl sometimes included.';
+  }else{
+    var p=piecesOf(T),bags=bagsOf(T),choc=Math.round(p*.6),fruit=p-choc;
+    $('cmPieces').textContent=p;$('cmBags').textContent=bags;
+    $('cmSplit').innerHTML='<i style="width:60%;background:#2e1065"></i><i style="width:40%;background:#ff8a00"></i>';
+    $('cmChoc').textContent='60% chocolate';$('cmFruit').textContent='40% fruity';
+    $('cmRule').innerHTML='<b>'+T+' ghosts × 3 pieces per fistful × 1.2 buffer = '+p+' pieces</b> — about '+bags+' share bags (~60 pcs each). Send the chocolate out first; the last hour gets the fruity backups, and nobody remembers by Monday.';
+  }
+
+  /* costume cauldron */
+  $('ccTitle').textContent=v.emoji+' '+v.name+' · Categories';
+  $('ccCats').innerHTML=v.cats.map(function(c){return '<span class="chip" style="cursor:default">'+esc(c)+'</span>';}).join('');
+  $('ccLine').innerHTML=esc(v.ccLine);
+}
+
+/* -------- actions -------- */
+function toast(msg){var t=$('toast');t.textContent=msg;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove('show');},2600);}
+
+function summaryText(){
+  var v=VIBES[state.vibe];var band=clampBand(v,bandOf(state.scare));var t0=state.start*60;
+  var lines=['🎃 THE BOO BASH — '+v.name.toUpperCase(),'• '+state.guests+' guests · doors '+fmtTime(t0)+' · '+BANDS[band].name,'• Dusk Drop at doors · sunset 5:47 PM · lights out '+fmtTime(t0+v.offsets[v.offsets.length-1]),''];
+  v.run.forEach(function(s,i){lines.push(fmtTime(t0+v.offsets[i])+' — '+s.label);});
+  lines.push('','Plan it for real: myeverlastingmemories.com/boo-bash.html');
+  return lines.join('\n');
+}
+$('btnRebuild').addEventListener('click',function(){
+  var keys=Object.keys(VIBES);var k=keys[Math.floor(Math.random()*keys.length)];var v=VIBES[k];
+  state.vibe=k;
+  state.start=v.starts[Math.floor(Math.random()*v.starts.length)];
+  state.scare=1+Math.floor(Math.random()*10);
+  state.guests=(v.id==='trunk'?80+Math.floor(Math.random()*13)*10:(v.id==='family'?20+Math.floor(Math.random()*13)*5:(v.id==='masq'?40+Math.floor(Math.random()*17)*5:15+Math.floor(Math.random()*11)*5)));
+  state.treaters=(v.id==='trunk'?150+Math.floor(Math.random()*16)*10:(v.id==='family'?Math.random()<.5?0:60+Math.floor(Math.random()*20)*5:0));
+  $('inGuests').value=state.guests;$('inScare').value=state.scare;$('inTreaters').value=state.treaters;
+  render();toast('🎲 Fresh plan, rolled for '+v.name+'.');
+});
+$('btnCopy').addEventListener('click',function(){
+  var t=summaryText();
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){toast('📋 Run sheet copied!');});}
+  else{var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);toast('📋 Run sheet copied!');}
+});
+$('btnWa').addEventListener('click',function(){
+  window.open('https://wa.me/?text='+encodeURIComponent(summaryText()),'_blank');
+});
+$('btnPrint').addEventListener('click',function(){window.print();});
+
+/* -------- controls -------- */
+$('vibeChips').addEventListener('click',function(e){
+  var b=e.target.closest('button');if(!b||!b.dataset.v)return;
+  state.vibe=Object.keys(VIBES).filter(function(k){return VIBES[k].name===b.dataset.v;})[0];
+  state.start=VIBES[state.vibe].starts[0];
+  render();
+});
+$('startChips').addEventListener('click',function(e){
+  var b=e.target.closest('button');if(!b||!b.dataset.h)return;
+  state.start=parseInt(b.dataset.h,10);render();
+});
+$('inGuests').addEventListener('input',function(){state.guests=parseInt(this.value,10)||60;render();});
+$('inScare').addEventListener('input',function(){state.scare=parseInt(this.value,10)||7;render();});
+$('inTreaters').addEventListener('input',function(){state.treaters=parseInt(this.value,10)||0;render();});
+
+/* -------- nav dropdown -------- */
+$('ddBtn').addEventListener('click',function(e){e.stopPropagation();$('ddMenu').classList.toggle('open');});
+document.addEventListener('click',function(){ $('ddMenu').classList.remove('open'); });
+
+/* -------- secret #23 -------- */
+var taps=0;
+$('secretBadge').addEventListener('click',function(){
+  taps++;
+  if(taps<5){return;}
+  taps=0;
+  var html='<div class="slot"><div class="stime">SECRET<small>#23</small></div><div class="slot-body"><div class="slabel">Isabella’s October notebook, page one</div><div class="stext">The Dusk Drop isn’t luck — the arch lights sit on an outlet timer set to sunset week, so the yard flips itself on at <b style="color:#ffb347">5:47 PM</b> even if she’s still inside tying a bow. The fog machine always sits <b style="color:#ffb347">six feet back</b> from the arch: fog is cold condensation, and latex doesn’t love it — she learned that the year a $900 arch rained on a first date. The candy rule, verbatim: one fistful per ghost, plus 20% buffer, good stuff first, and <b style="color:#ffb347">never an unattended bowl</b> — she timed the void once: 11 minutes, gone, bowl sometimes included. And the contest trick: she announces categories <i>before</i> the parade, because a parent with a mission is a beautiful thing. Her favorite October note ever, from a six-year-old vampire: “Best party ever. I only cried twice.” 🤫🎃</div></div></div>';
+  var tl=$('timeline');tl.innerHTML=html+tl.innerHTML;
+  toast('🕵️ Secret #23 unlocked');
+});
+
+/* -------- lead form -------- */
+function leadPayload(){
+  var v=VIBES[state.vibe];var band=clampBand(v,bandOf(state.scare));
+  return {
+    source:'boo-bash',
+    eventType:v.emoji+' '+v.name+' · '+BANDS[band].name,
+    eventDate:'',
+    message:'Vibe: '+v.name+' · Guests: '+state.guests+' · Doors: '+fmtTime(state.start*60)+' · Scare dial: '+state.scare+' ('+BANDS[band].name+(band!==bandOf(state.scare)?', capped':'')+') · Trick-or-treaters expected: '+state.treaters
+  };
+}
+$('leadForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var btn=this.querySelector('button[type=submit]');btn.disabled=true;btn.textContent='Sending…';
+  var payload=leadPayload();
+  payload.name=$('fName').value.trim();payload.email=$('fEmail').value.trim();payload.phone=$('fPhone').value.trim();
+  payload.eventDate=$('fDate').value||'';payload.budget=$('fBudget').value||'';
+  payload.message=($('fMsg').value.trim()?$('fMsg').value.trim()+' — ':'')+payload.message;
+  fetch('/api/leads.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+    .then(function(r){return r.json();})
+    .then(function(){toast('🎃 Sent! Isabella replies within 24h.');btn.disabled=false;btn.textContent='🎃 Send Isabella the details →';$('leadForm').reset();})
+    .catch(function(){toast('⚠️ Couldn’t send — email hello@myeverlastingmemories.com');btn.disabled=false;btn.textContent='🎃 Send Isabella the details →';});
+});
+
+render();
+if (typeof module!=='undefined' && module.exports){
+  module.exports={VIBES:VIBES,BANDS:BANDS,bandOf:bandOf,clampBand:clampBand,piecesOf:piecesOf,bagsOf:bagsOf,tierOf:tierOf,state:state,summaryText:summaryText,fmtTime:fmtTime,esc:esc,render:render};
+}
+})();
+</script>
+</body>
+</html>
