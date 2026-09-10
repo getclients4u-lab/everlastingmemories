@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Favor Bar — Party Favor Studio | Everlasting Memories</title>
+<meta name="description" content="Pick the favors, set the guest count, write one tag line — and get exact quantities, the real cost per guest, and a printable sheet of personalized favor tags.">
+<meta name="theme-color" content="#2e1065">
+<meta property="og:title" content="The Favor Bar — Party Favor Studio | Everlasting Memories">
+<meta property="og:description" content="The site's first party-favor studio. Pick mini balloon buddies, candy bags, seed packets, bubbles and more, set your guest count, write one tag line — and get the exact quantities, the cost per guest, and a cut-and-tie sheet of personalized favor tags.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--c1:#7c3aed;--c2:#84cc16;--c3:#2e1065;--c3b:#3b0764;--bg:#fbfdf4;--line:#e6e2f2;--ink:#241a3d;--soft:#6d6287;--good:#1a7f4e;--bad:#b3261e}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.serif{font-family:'Playfair Display',Georgia,serif}
+a{color:var(--c1);text-decoration:none}
+a:hover{opacity:.85}
+/* nav */
+.em-nav{display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:14px 22px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.em-nav-brand{font-family:'Playfair Display',serif;font-weight:700;font-size:1.15rem;color:var(--ink);margin-right:auto}
+.em-nav-brand span{color:var(--c1)}
+.em-nav a.nav-link{font-size:.85rem;font-weight:600;color:var(--ink);padding:6px 8px;border-radius:8px}
+.em-nav a.nav-link:hover{background:var(--bg)}
+.em-nav-cta{background:linear-gradient(135deg,var(--c3),#6d28d9);color:#ecfccb!important;padding:9px 16px;border-radius:999px;font-weight:600;font-size:.85rem;box-shadow:0 4px 14px rgba(46,16,101,.35)}
+.dd-wrap{position:relative}
+.dd-btn{background:none;border:1px solid var(--line);border-radius:999px;padding:8px 16px;font:600 .85rem 'Inter',sans-serif;color:var(--ink);cursor:pointer;display:flex;align-items:center;gap:6px}
+.dd-btn:hover{background:var(--bg)}
+.dd-menu{display:none;position:absolute;top:calc(100% + 8px);left:0;min-width:230px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 18px 40px rgba(46,16,101,.14);padding:8px;z-index:60;max-height:70vh;overflow:auto}
+.dd-menu.open{display:block}
+.dd-menu a{display:block;padding:8px 12px;border-radius:9px;font-size:.84rem;font-weight:500;color:var(--ink)}
+.dd-menu a:hover{background:var(--bg)}
+.dd-menu a.styled{color:#fff!important;font-weight:600}
+.dd-menu .dd-tag{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);padding:8px 12px 4px}
+/* hero */
+.hero{max-width:1120px;margin:0 auto;padding:34px 22px 10px}
+.home-link{display:inline-block;font-size:.82rem;font-weight:600;color:var(--c1);margin-bottom:16px}
+.badge{display:inline-block;background:linear-gradient(135deg,var(--c3),#6d28d9);color:#d9f99d;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:14px;cursor:pointer;user-select:none}
+.hero h1{font-size:clamp(2.1rem,5vw,3.3rem);line-height:1.1;color:var(--c3)}
+.hero .sub{margin-top:12px;max-width:820px;color:var(--soft);font-size:1.02rem}
+.hero .sub b{color:var(--ink)}
+/* layout */
+.container{max-width:1120px;margin:0 auto;padding:22px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 10px 30px rgba(46,16,101,.05)}
+.card h2{font-size:1.35rem;color:var(--c3);margin-bottom:4px}
+.card .kicker{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c1);margin-bottom:2px}
+.card .hint{font-size:.82rem;color:var(--soft);margin-bottom:14px}
+.fg{margin-bottom:14px}
+.fg label{display:block;font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ink);margin-bottom:5px}
+.fg input,.fg select,.fg textarea{width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;font:500 .92rem 'Inter',sans-serif;background:#fff;color:var(--ink)}
+.fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:var(--c1)}
+.fg textarea{min-height:64px;resize:vertical}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:520px){.fg-row{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;font:600 .82rem 'Inter',sans-serif;color:var(--ink);cursor:pointer;transition:all .15s}
+.chip:hover{border-color:var(--c1);color:var(--c1)}
+.chip.on{background:linear-gradient(135deg,var(--c3),#6d28d9);border-color:transparent;color:#ecfccb;box-shadow:0 4px 12px rgba(46,16,101,.3)}
+.chip .px{display:block;font-size:.66rem;font-weight:600;opacity:.85}
+.chip.on .px{opacity:.8}
+/* favor picker */
+.fav-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:520px){.fav-grid{grid-template-columns:1fr}}
+.favp{border:1.5px solid var(--line);background:#fff;border-radius:14px;padding:11px 13px;cursor:pointer;transition:all .15s;text-align:left}
+.favp:hover{border-color:var(--c1);transform:translateY(-1px)}
+.favp.on{border-color:var(--c1);background:linear-gradient(180deg,#f7f3ff,#fff);box-shadow:0 6px 18px rgba(124,58,237,.14)}
+.favp .fp-top{display:flex;align-items:center;gap:8px}
+.favp .fp-emoji{font-size:1.35rem}
+.favp .fp-name{font-weight:700;font-size:.86rem;color:var(--c3);flex:1}
+.favp .fp-price{font-weight:800;font-size:.8rem;color:var(--c1);white-space:nowrap}
+.favp .fp-note{font-size:.75rem;color:var(--soft);margin-top:5px}
+.favp .fp-tier{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--soft)}
+.favp.on .fp-tier{color:var(--c1)}
+.range-wrap{display:flex;align-items:center;gap:14px}
+.range-wrap input[type=range]{flex:1;accent-color:var(--c3);height:34px}
+.guest-read{min-width:96px;text-align:center;background:linear-gradient(135deg,var(--c3),#6d28d9);color:#ecfccb;border-radius:12px;padding:8px 10px;font-weight:700;font-size:.95rem}
+.guest-read small{display:block;font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;opacity:.85}
+.note-line{margin-top:10px;background:var(--bg);border:1px dashed var(--line);border-radius:12px;padding:10px 14px;font-size:.83rem}
+.note-line b{color:var(--c3)}
+.fit-note{margin-top:8px;font-size:.78rem;font-weight:600}
+.fit-note.good{color:var(--good)}
+.fit-note.warn{color:var(--bad)}
+/* output card */
+.out-card{background:linear-gradient(165deg,#2e1065,#3b0764);color:#f3e8ff;border-radius:22px;padding:26px;box-shadow:0 16px 40px rgba(46,16,101,.28);position:sticky;top:84px}
+.out-card .oc-head{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:6px}
+.out-card .oc-occasion{display:inline-block;background:rgba(255,255,255,.12);color:#d9f99d;border-radius:999px;padding:4px 12px;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.out-card h2{color:#fff;font-size:1.5rem}
+.out-card .oc-sub{color:#c9b8ea;font-size:.8rem;margin-bottom:16px}
+.shelf{background:rgba(255,255,255,.06);border:1px dashed rgba(255,255,255,.22);border-radius:16px;padding:14px;display:flex;flex-wrap:wrap;gap:10px;min-height:96px;align-items:flex-start}
+.fav-card{background:#fff;border-radius:12px;padding:10px 12px;min-width:126px;max-width:170px;flex:1 1 126px;box-shadow:0 6px 16px rgba(0,0,0,.22);animation:pop .25s ease;position:relative;overflow:hidden}
+.fav-card .fc-emoji{font-size:1.5rem}
+.fav-card .fc-name{font-weight:700;font-size:.76rem;color:#241a3d;line-height:1.25;margin-top:2px}
+.fav-card .fc-tag{margin-top:7px;border-radius:8px;padding:6px 8px;font-size:.66rem;font-weight:700;text-align:center;color:#fff;line-height:1.3;font-family:'Playfair Display',serif}
+.fav-card .fc-sign{font-size:.6rem;color:#6d6287;text-align:center;margin-top:4px;font-style:italic}
+@keyframes pop{from{opacity:0;transform:translateY(6px) scale(.96)}to{opacity:1;transform:none}}
+.shelf-empty{color:#c9b8ea;font-size:.85rem;font-style:italic;padding:8px 4px}
+.meter{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.14)}
+.mstat{background:rgba(255,255,255,.08);border-radius:12px;padding:8px 12px;text-align:center;min-width:92px}
+.mstat b{display:block;font-size:1.05rem;color:#fff}
+.mstat small{font-size:.62rem;text-transform:uppercase;letter-spacing:.06em;color:#c9b8ea}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.btn{border:none;border-radius:999px;padding:11px 18px;font:700 .85rem 'Inter',sans-serif;cursor:pointer;transition:all .15s;background:#fff;color:#2e1065}
+.btn:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(0,0,0,.18)}
+.btn.primary{background:linear-gradient(135deg,#bef264,#84cc16);color:#2e1065}
+.btn.ghost{background:rgba(255,255,255,.1);color:#f3e8ff;border:1px solid rgba(255,255,255,.25)}
+.btn.ghost:hover{background:rgba(255,255,255,.18)}
+/* quote */
+.quote{background:#fff;border-left:4px solid var(--c2);border-radius:0 16px 16px 0;padding:18px 20px;margin:24px 0;font-style:italic;color:var(--soft);font-size:.92rem}
+.quote b{color:var(--c3);font-style:normal}
+/* wide cards */
+.wide{margin-top:22px}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:22px}
+@media(max-width:900px){.duo{grid-template-columns:1fr}}
+.price-item{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;padding:11px 0;border-bottom:1px dashed var(--line)}
+.price-item:last-child{border-bottom:none}
+.price-item .pi-name{font-weight:700;color:var(--ink);font-size:.92rem}
+.price-item .pi-qty{font-weight:800;color:var(--c3);font-size:.86rem;white-space:nowrap}
+.price-item .pi-price{font-weight:800;color:var(--c1);font-size:.88rem;white-space:nowrap;margin-left:auto}
+.price-item .pi-note{flex-basis:100%;font-size:.8rem;color:var(--soft)}
+.bignum{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;color:var(--c3);line-height:1.05}
+.bignum small{font-size:1rem;color:var(--soft);font-weight:600}
+.legend{font-size:.72rem;color:var(--soft);display:flex;gap:14px;flex-wrap:wrap;margin-top:4px}
+.legend span b{color:var(--ink)}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:26px 0}
+@media(max-width:800px){.facts{grid-template-columns:repeat(2,1fr)}}
+.fact{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px;text-align:center}
+.fact .f-num{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:700;color:var(--c3);display:block}
+.fact .f-txt{font-size:.76rem;color:var(--soft);margin-top:4px}
+.faq{margin:8px 0 26px}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin-bottom:10px}
+.faq summary{font-weight:700;font-size:.92rem;cursor:pointer;color:var(--c3)}
+.faq details p{font-size:.86rem;color:var(--soft);margin-top:8px}
+/* tag sheet (print) */
+.tagsheet{display:grid;grid-template-columns:repeat(3,1fr);gap:41px 24px;margin:16px 0 8px}
+.tag{border:1.5px dashed var(--line);border-radius:10px;padding:14px 10px;text-align:center;position:relative;background:#fff}
+.tag .tg-emoji{font-size:1.1rem}
+.tag .tg-line{font-family:'Playfair Display',serif;font-weight:700;font-size:.92rem;margin-top:4px;line-height:1.3}
+.tag .tg-sign{font-size:.75rem;font-style:italic;color:var(--soft);margin-top:3px}
+.tag .tg-hole{position:absolute;top:-7px;left:50%;transform:translateX(-50%);width:14px;height:14px;border:1.5px dashed var(--line);border-radius:50%;background:var(--bg)}
+.tag .tg-cut{position:absolute;bottom:-40px;left:0;right:0;text-align:center;font-size:.62rem;color:#c9bfe0;letter-spacing:.12em}
+.value-strip{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.value-pill{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:.76rem;color:var(--soft)}
+.value-pill b{color:var(--c3)}
+/* lead card */
+.lead-card{background:linear-gradient(160deg,#2e1065,#3b0764);color:#fff;border-radius:20px;padding:28px;margin-top:8px}
+.lead-card h2{color:#fff}
+.lead-card .kicker{color:#bef264}
+.lead-card .hint{color:#ddd0f5}
+.lead-card label{color:#ddd0f5}
+.lead-card input,.lead-card select,.lead-card textarea{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#fff}
+.lead-card input::placeholder,.lead-card textarea::placeholder{color:rgba(255,255,255,.55)}
+.lead-card input:focus,.lead-card select:focus,.lead-card textarea:focus{border-color:#bef264}
+.lead-card select option{color:var(--ink)}
+.lead-card .btn-p{background:#bef264;color:#2e1065}
+.lead-card .fine{font-size:.74rem;color:#ddd0f5;margin-top:10px}
+/* footer */
+footer{background:var(--c3);color:#fff;margin-top:34px;padding:26px 22px 30px}
+footer .strip{font-size:.78rem;line-height:2;color:rgba(255,255,255,.75)}
+footer .strip a{color:#d8b4fe;font-weight:600;margin-right:2px}
+footer .foot-brand{font-family:'Playfair Display',serif;font-size:1.1rem;margin-top:14px}
+footer .foot-brand span{color:#bef264}
+footer .copy{font-size:.72rem;color:rgba(255,255,255,.6);margin-top:6px}
+/* print */
+@media print{
+  .em-nav,.actions,.lead-card,.facts,.faq,.hero,.home-link,.badge,footer,.quote,.duo,.wide,.grid,.no-print,.value-strip,.toast{display:none!important}
+  body{background:#fff}
+  .print-only{display:block!important}
+  .tag{border-color:#999}
+  .tag .tg-line{color:#111}
+}
+.print-only{display:none}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(120%);background:var(--ink);color:#fff;padding:12px 22px;border-radius:999px;font-size:.85rem;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.25);transition:transform .3s;z-index:99}
+.toast.show{transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<nav class="em-nav">
+  <div class="em-nav-brand"><a href="index.html" style="color:inherit">Everlasting <span>Memories</span></a></div>
+  <a class="nav-link" href="gallery.html">Gallery</a>
+  <a class="nav-link" href="services.html">Services</a>
+  <a class="nav-link" href="about.html">About</a>
+  <a class="nav-link" href="faq.html">FAQ</a>
+  <div class="dd-wrap">
+    <button class="dd-btn" id="ddBtn" aria-haspopup="true" aria-expanded="false">Tools ▾</button>
+    <div class="dd-menu" id="ddMenu">
+      <div class="dd-tag">Newest</div>
+      <a href="favor-bar.html" class="styled" style="background:#2e1065">The Favor Bar</a>
+      <a href="boo-bash.html" class="styled" style="background:#2e1065">The Boo Bash</a>
+      <a href="raised-glass.html" class="styled" style="background:#241b12">The Raised Glass</a>
+      <a href="launch-pad.html" class="styled" style="background:#1e3a8a">The Launch Pad</a>
+      <a href="smash.html" class="styled" style="background:#ff8c42">The Smash Hit</a>
+      <a href="nest.html" class="styled" style="background:#6b8f71">The Nest</a>
+      <a href="powder-pop.html" class="styled" style="background:#ec4899">The Powder Pop</a>
+      <a href="big-yes.html" class="styled" style="background:#a8526b">The Big Yes</a>
+      <a href="party-er.html" class="styled" style="background:#059669">The Party ER</a>
+      <a href="rain-plan.html" class="styled" style="background:#0284c7">The Rain Plan</a>
+      <div class="dd-tag">All tools</div>
+      <a href="after-glow.html">The After-Glow</a>
+      <a href="seating-chart.html">Seating Chart Studio</a>
+      <a href="surprise-planner.html">Operation: Surprise</a>
+      <a href="dessert-table.html">Dessert Table Stylist</a>
+      <a href="golden-hour.html">Golden Hour Finder</a>
+      <a href="party-timeline.html">Party Day Timeline</a>
+      <a href="memory-capsule.html">Memory Capsule</a>
+      <a href="playlist.html">Party Playlist Studio</a>
+      <a href="guest-list.html">The Guest List</a>
+      <a href="photo-hunt.html">Party Photo Hunt</a>
+      <a href="photo-booth.html">Golden Hour Booth</a>
+      <a href="memory-wall.html">Memory Wall</a>
+      <a href="party-roadmap.html">Party Roadmap</a>
+      <a href="invitation-studio.html">Invitation Studio</a>
+      <a href="balloon-pop.html">Pop Party</a>
+      <a href="wedding-workshop.html">Wedding Workshop</a>
+      <a href="transformations.html">The Big Reveal</a>
+      <a href="budget-builder.html">Budget Balloonist</a>
+      <a href="referral.html">Refer &amp; Earn</a>
+      <a href="cost-estimator.html">Cost Estimator</a>
+      <a href="theme-generator.html">Theme Generator</a>
+      <a href="lookbook.html">Lookbook</a>
+      <a href="countdown.html">Countdown</a>
+      <a href="party-style-quiz.html">Party Style Quiz</a>
+      <a href="balloon-math.html">Balloon Math</a>
+      <a href="name-garland.html">Balloon Letter Studio</a>
+      <a href="palette-snap.html">Palette Snap</a>
+      <a href="diy-vs-pro.html">DIY or Dazzle</a>
+      <a href="reserve-date.html">Reserve Your Date</a>
+      <a href="gift-card.html">Gift Card Studio</a>
+    </div>
+  </div>
+  <a class="em-nav-cta" href="contact.html">Get a Quote</a>
+</nav>
+
+<header class="hero">
+  <a class="home-link" href="index.html">← Back to Everlasting Memories</a><br>
+  <span class="badge" id="secretBadge" title="🎈">🎈 New Tonight — The Favor Bar</span>
+  <h1>The Favor Bar</h1>
+  <p class="sub">Every party has a last moment — the one where a guest reaches for the door and you hand them <b>something small and theirs</b>. The Favor Bar is the site's first <b>party-favor studio</b>: pick the favors, set the guest count, write one tag line, and it sizes the whole run — exact quantities, the real cost per guest, and a <b>cut-and-tie sheet of personalized favor tags</b> you can print tonight. Isabella's rule: nobody leaves empty-handed, and nobody leaves with a bag that crinkles during the toast. 🎈</p>
+</header>
+
+<div class="container">
+  <div class="grid">
+    <!-- LEFT: controls -->
+    <div>
+      <div class="card" style="margin-bottom:18px">
+        <div class="kicker">Step 1</div>
+        <h2>Pick the occasion</h2>
+        <p class="hint">It sets the tag wording, the sign-off, and a starter mix of favors you can change in a tap.</p>
+        <div class="chips" id="occChips"></div>
+        <div class="note-line" id="occNote"></div>
+      </div>
+
+      <div class="card" style="margin-bottom:18px">
+        <div class="kicker">Step 2</div>
+        <h2>The crowd</h2>
+        <p class="hint">How many hands are leaving with something.</p>
+        <div class="fg">
+          <label for="inGuests">Guest count — <span id="guestRead">50</span></label>
+          <div class="range-wrap">
+            <input type="range" id="inGuests" min="5" max="200" step="5" value="50" aria-label="Guest count">
+            <div class="guest-read"><span id="guestNum">50</span><small>guests</small></div>
+          </div>
+        </div>
+        <div class="note-line" id="bufferNote"></div>
+      </div>
+
+      <div class="card" style="margin-bottom:18px">
+        <div class="kicker">Step 3</div>
+        <h2>Build the bar</h2>
+        <p class="hint">Tap the favors you want on the table. Mix a keepsake with a classic — Isabella's parties always give one thing to eat and one thing to keep.</p>
+        <div class="fav-grid" id="favGrid"></div>
+        <div class="note-line" id="mixNote"></div>
+      </div>
+
+      <div class="card">
+        <div class="kicker">Step 4</div>
+        <h2>The tag</h2>
+        <p class="hint">One line. It goes on every favor and every tag on the sheet.</p>
+        <div class="fg">
+          <label for="inTag">Tag line</label>
+          <input id="inTag" maxlength="60" placeholder="Thanks for celebrating with us!">
+        </div>
+        <div class="fg">
+          <label for="inSign">Sign-off</label>
+          <input id="inSign" maxlength="40" placeholder="— the newlyweds">
+        </div>
+        <div class="fit-note" id="tagFit"></div>
+        <div class="fg" style="margin-top:14px">
+          <label>Tag color</label>
+          <div class="chips" id="palChips" style="margin-bottom:0"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: live favor bar -->
+    <div>
+      <div class="out-card">
+        <div class="oc-head">
+          <span class="oc-occasion" id="ocOccasion">🎂 Birthday · Grape Soda</span>
+        </div>
+        <h2 id="outTitle">The Favor Bar</h2>
+        <p class="oc-sub" id="ocSub">50 guests · 4 favors on the table</p>
+        <div class="shelf" id="shelf"></div>
+        <div class="meter">
+          <div class="mstat"><b id="mFavors">0</b><small>favors made</small></div>
+          <div class="mstat"><b id="mQty">0</b><small>per favor type</small></div>
+          <div class="mstat"><b id="mPer">$0</b><small>per guest</small></div>
+          <div class="mstat"><b id="mTotal">$0</b><small>total</small></div>
+        </div>
+        <div class="actions">
+          <button class="btn primary" id="btnRebuild" type="button">🎲 Surprise me</button>
+          <button class="btn ghost" id="btnCopy" type="button">📋 Copy</button>
+          <button class="btn ghost" id="btnWa" type="button">💬 WhatsApp</button>
+          <button class="btn ghost" id="btnPrint" type="button">🖨️ Tag sheet</button>
+        </div>
+      </div>
+
+      <div class="quote">
+        <b>Isabella's favor rule:</b> "A favor isn't a gift, it's a thank-you with a handle. It should be in their hand before they've found their keys, it should have their name or your name on it, and it should still be on the kitchen windowsill a month later. I've watched five hundred parties end — the ones people talk about are the ones where every single guest left with something that said <i>we're glad you came</i>." — from her event notebook, favors page.
+      </div>
+    </div>
+  </div>
+
+  <!-- favor math -->
+  <div class="card wide">
+    <div class="kicker">The Favor Math</div>
+    <h2 id="mathTitle">What the Bar Costs</h2>
+    <p class="hint" id="mathHint">Every favor, sized to your guest count plus the 10% buffer Isabella never skips.</p>
+    <div id="mathList"></div>
+    <div class="note-line" id="mathVerdict" style="margin-top:14px"></div>
+  </div>
+
+  <!-- mix + tag sheet -->
+  <div class="duo">
+    <div class="card">
+      <div class="kicker">The Mix</div>
+      <h2>Eat One, Keep One</h2>
+      <p class="hint">Isabella builds every favor bar from two halves — something to enjoy at the party, and something to live on after it.</p>
+      <div class="value-strip" id="mixStrip"></div>
+      <div class="note-line" id="mixVerdict" style="margin-top:14px"></div>
+    </div>
+    <div class="card">
+      <div class="kicker">The Tag Sheet</div>
+      <h2 id="sheetTitle">Cut, Punch, Tie</h2>
+      <p class="hint">Nine tags per sheet, dashed cut lines and a punch hole at the top. Print it, clip it, tie it — the whole bar gets personalized in one sitting.</p>
+      <div class="tagsheet" id="tagSheet"></div>
+      <div class="note-line">Isabella's tying trick: <b>one hole, one ribbon, one knot</b> — no bows, because a bow comes undone in a coat pocket before the guest reaches the car. Say the tag line out loud once before you print; if it doesn't sound like you, it isn't done.</div>
+    </div>
+  </div>
+
+  <!-- facts -->
+  <div class="facts">
+    <div class="fact"><span class="f-num">10%</span><span class="f-txt">buffer on every favor run — because someone always brings a plus-one nobody counted</span></div>
+    <div class="fact"><span class="f-num">$4–6</span><span class="f-txt">per guest is the sweet spot — generous to receive, sane to pay</span></div>
+    <div class="fact"><span class="f-num">1 line</span><span class="f-txt">is all a great favor tag needs — more words get less kept</span></div>
+    <div class="fact"><span class="f-num">9 / sheet</span><span class="f-txt">tags per printed sheet — the whole bar personalized in one sitting</span></div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq">
+    <details>
+      <summary>Why do party favors matter so much?</summary>
+      <p>Because the favor is the last thing that happens. The party fades into a blur of photos and songs, but the thing in their hand on the ride home is the receipt for the whole night. Isabella has watched five hundred parties end, and the ones people rave about aren't the most expensive — they're the ones where <b>every single guest left with something that said “we're glad you came.”</b> It costs a few dollars and it buys a feeling that lasts on the kitchen windowsill for a year.</p>
+    </details>
+    <details>
+      <summary>How many favors do I actually need?</summary>
+      <p>One per guest, plus a 10% buffer — Isabella never skips it, because someone always brings a plus-one, a cousin, or a toddler who wants two. For a favor bar with several options, that buffer is applied to <i>each</i> type, so you're never short on the popular one. The Favor Math panel does the arithmetic the second you move the guest slider.</p>
+    </details>
+    <details>
+      <summary>What's the cheapest favor that still feels special?</summary>
+      <p>A personalized tag. At about a dollar and change, a custom tag on <i>any</i> favor turns “here's some candy” into “this was made for you.” It's the cheapest line on the whole bar and the one guests actually keep. Pair it with a bubble bottle or a glow stick and you've spent under two dollars to make someone smile in their car.</p>
+    </details>
+    <details>
+      <summary>Balloons as favors — won't they pop or float away?</summary>
+      <p>A mini balloon buddy is a single inflated latex mini on a stick, tied with your tag — it doesn't float away because it's on a stick, and it lives for days, not minutes. Isabella uses them as the signature favor because they're the one favor that walks out the door <b>at eye level</b>: every other guest sees it leaving and wants one too. Hand a kid a mini balloon at the door and you've ended the party on the highest possible note.</p>
+    </details>
+    <details>
+      <summary>Do favors work for a corporate or office party?</summary>
+      <p>They're quietly the best part of one. A desk-sized favor — a mini succulent, a cookie bag with a printed tag, a seed packet — turns an office gathering into something people keep on their desk and look at. Skip anything that needs explaining and skip anything that crinkles; a quiet, useful, name-tagged favor reads far more premium than another branded pen. The <a href="launch-pad.html">Launch Pad</a> runs the corporate side; the Favor Bar dresses the exit.</p>
+    </details>
+    <details>
+      <summary>Kid party vs grown-up party — does the bar change?</summary>
+      <p>Completely. Kids want volume and instant joy — bubbles, glow sticks, candy bags, mini balloons, and a tag with their name on it. Grown-ups want something that survives the car ride and the week after: seed packets, mini succulents, a really good cookie. Isabella's rule: <b>kid parties split the budget across more, smaller favors; grown-up parties give one beautiful thing.</b> If you're planning a baby shower or first birthday, the <a href="nest.html">Nest</a> and the <a href="smash.html">Smash Hit</a> handle the moment — the Favor Bar handles the goodbye.</p>
+    </details>
+    <details>
+      <summary>Can Isabella build the favors for me, or is this DIY?</summary>
+      <p>Both. Print the tag sheet and this becomes a lovely afternoon with a paper trimmer and a ribbon spool. Or send the brief through the form and Isabella assembles the whole bar — tags printed and cut, bags filled, minis inflated the morning of — so all you do is set them by the door. Most clients do the second one, and every one of them says the same thing at drop-off: <i>“I didn't realize how much of the party this was.”</i></p>
+    </details>
+  </div>
+
+  <!-- lead card -->
+  <div class="lead-card" id="leadCard">
+    <div class="kicker">The Favor Bar</div>
+    <h2>Want Isabella to build the bar?</h2>
+    <p class="hint">Tell her what you're throwing and she'll reply within 24 hours with a favor plan — and hold your date while you think.</p>
+    <form id="leadForm">
+      <div class="fg-row">
+        <div class="fg"><label for="fName">Your name</label><input id="fName" required placeholder="Alex"></div>
+        <div class="fg"><label for="fEmail">Email</label><input id="fEmail" type="email" required placeholder="you@email.com"></div>
+      </div>
+      <div class="fg-row">
+        <div class="fg"><label for="fPhone">Phone</label><input id="fPhone" type="tel" placeholder="(203) 555-0100"></div>
+        <div class="fg"><label for="fEvent">Occasion</label>
+          <select id="fEvent">
+            <option value="Birthday 🎂">Birthday 🎂</option>
+            <option value="Wedding 💍">Wedding 💍</option>
+            <option value="Baby Shower 🍼">Baby Shower 🍼</option>
+            <option value="Anniversary 💞">Anniversary 💞</option>
+            <option value="Graduation 🎓">Graduation 🎓</option>
+            <option value="Corporate / Office 🏢">Corporate / Office 🏢</option>
+            <option value="Just Because ✨">Just Because ✨</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg-row">
+        <div class="fg"><label for="fDate">Event date</label><input id="fDate" type="date"></div>
+        <div class="fg"><label for="fBudget">Budget</label>
+          <select id="fBudget">
+            <option value="">Not sure yet</option>
+            <option value="Under $200">Under $200</option>
+            <option value="$200–$500">$200–$500</option>
+            <option value="$500–$1,000">$500–$1,000</option>
+            <option value="$1,000+">$1,000+</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg"><label for="fMsg">Anything else? (guest count, ages, theme, anything you already have…)</label><textarea id="fMsg" placeholder="About 40 guests, mostly kids 4–9, dinosaur theme, want it to feel handmade…"></textarea></div>
+      <button class="btn btn-p" type="submit" style="width:100%;padding:14px;font-size:.95rem">🎈 Send Isabella the bar →</button>
+      <p class="fine">No spam, no list — just a reply from a real person within 24 hours. The tag sheet is yours to keep either way.</p>
+    </form>
+  </div>
+</div>
+
+<!-- print-only tag sheet -->
+<div class="print-only" id="printWrap">
+  <div style="text-align:center;margin-bottom:14px">
+    <div style="font-family:'Playfair Display',serif;font-size:1.4rem;color:#2e1065">🎈 The Favor Bar — Favor Tags</div>
+    <div style="font-size:.78rem;color:#6d6287" id="printMeta">Everlasting Memories · myeverlastingmemories.com</div>
+  </div>
+  <div class="tagsheet" id="tagSheetPrint"></div>
+</div>
+
+<footer>
+  <p class="strip">
+    <a href="favor-bar.html" style="color:#bef264;font-weight:600">The Favor Bar</a> ·
+    <a href="boo-bash.html" style="color:#d8b4fe;font-weight:600">The Boo Bash</a> ·
+    <a href="raised-glass.html" style="color:#eed9a6;font-weight:600">The Raised Glass</a> ·
+    <a href="launch-pad.html" style="color:#c7d2fe;font-weight:600">The Launch Pad</a> ·
+    <a href="smash.html" style="color:#ffcfa8;font-weight:600">The Smash Hit</a> ·
+    <a href="nest.html" style="color:#cfe0c4;font-weight:600">The Nest</a> ·
+    <a href="powder-pop.html" style="color:#f9a8d4;font-weight:600">The Powder Pop</a> ·
+    <a href="big-yes.html" style="color:#f2c6d2;font-weight:600">The Big Yes</a> ·
+    <a href="party-er.html" style="color:#a7f3d0;font-weight:600">The Party ER</a> ·
+    <a href="rain-plan.html" style="color:#7dd3fc;font-weight:600">The Rain Plan</a> ·
+    <a href="seating-chart.html" style="color:#f9a8d4;font-weight:600">Seating Chart Studio</a> ·
+    <a href="after-glow.html" style="color:#f9a8d4;font-weight:600">The After-Glow</a> ·
+    <a href="surprise-planner.html" style="color:#a5b4fc;font-weight:600">Operation: Surprise</a> ·
+    <a href="dessert-table.html" style="color:#f0c9a0;font-weight:600">Dessert Table Stylist</a> ·
+    <a href="golden-hour.html" style="color:#c4b5fd;font-weight:600">Golden Hour Finder</a> ·
+    <a href="party-timeline.html" style="color:#cbd5e1;font-weight:600">Party Day Timeline</a> ·
+    <a href="wedding-workshop.html" style="color:#f9a8d4;font-weight:600">Wedding Workshop</a> ·
+    <a href="cost-estimator.html" style="color:#fcd34d;font-weight:600">Cost Estimator</a> ·
+    <a href="guest-list.html" style="color:#93c5fd;font-weight:600">The Guest List</a> ·
+    <a href="playlist.html" style="color:#fca5a5;font-weight:600">Party Playlist Studio</a> ·
+    <a href="name-garland.html" style="color:#f9a8d4;font-weight:600">Balloon Letter Studio</a> ·
+    <a href="invitation-studio.html" style="color:#a5b4fc;font-weight:600">Invitation Studio</a> ·
+    <a href="party-roadmap.html" style="color:#5eead4;font-weight:600">Party Roadmap</a> ·
+    <a href="memory-wall.html" style="color:#fcd34d;font-weight:600">Memory Wall</a> ·
+    <a href="photo-booth.html" style="color:#7dd3fc;font-weight:600">Golden Hour Booth</a> ·
+    <a href="photo-hunt.html" style="color:#f0abfc;font-weight:600">Party Photo Hunt</a> ·
+    <a href="memory-capsule.html" style="color:#fca5a5;font-weight:600">Memory Capsule</a> ·
+    <a href="balloon-pop.html" style="color:#fdba74;font-weight:600">Pop Party</a> ·
+    <a href="transformations.html" style="color:#c4b5fd;font-weight:600">The Big Reveal</a> ·
+    <a href="budget-builder.html" style="color:#86efac;font-weight:600">Budget Balloonist</a> ·
+    <a href="referral.html" style="color:#fde68a;font-weight:600">Refer &amp; Earn</a> ·
+    <a href="gift-card.html" style="color:#f9a8d4;font-weight:600">Gift Card Studio</a> ·
+    <a href="reserve-date.html" style="color:#93c5fd;font-weight:600">Reserve Your Date</a> ·
+    <a href="diy-vs-pro.html" style="color:#fdba74;font-weight:600">DIY or Dazzle</a> ·
+    <a href="palette-snap.html" style="color:#f0abfc;font-weight:600">Palette Snap</a> ·
+    <a href="balloon-math.html" style="color:#86efac;font-weight:600">Balloon Math</a> ·
+    <a href="party-style-quiz.html" style="color:#f9a8d4;font-weight:600">Party Style Quiz</a> ·
+    <a href="countdown.html" style="color:#93c5fd;font-weight:600">Big Day Countdown</a> ·
+    <a href="lookbook.html" style="color:#c4b5fd;font-weight:600">Lookbook</a> ·
+    <a href="theme-generator.html" style="color:#fde68a;font-weight:600">Theme Generator</a> ·
+    <a href="faq.html" style="color:#f2c6d2;font-weight:600">FAQ</a>
+  </p>
+  <p class="foot-brand">Everlasting <span>Memories</span> — balloons &amp; moments that last</p>
+  <p class="copy">Isabella's favors page: one favor per guest plus 10%, one line per tag, one hole per ribbon — and never a bow, because a bow comes undone in a coat pocket. 🎈</p>
+</footer>
+
+<div class="toast" id="toast"></div>
+<script>
+(function(){
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function money(n){n=Math.round(n*100)/100;return '$'+(n%1===0?n:n.toFixed(2));}
+
+var OCCASIONS={
+  birthday:{id:'birthday',emoji:'🎂',name:'Birthday',tag:'Thanks for making my day!',sign:'— the birthday crew',pick:['buddy','candy','tag'],
+    desc:'The favor bar for a birthday: something to play with at the party, something sweet for the car ride, and a tag with your name on it.'},
+  wedding:{id:'wedding',emoji:'💍',name:'Wedding',tag:'Thank you for celebrating with us',sign:'— the newlyweds',pick:['tag','seed','candy'],
+    desc:'A wedding favor should survive the drive home and the week after — a tagged keepsake, something to plant, and something sweet for the road.'},
+  shower:{id:'shower',emoji:'🍼',name:'Baby Shower',tag:'Thanks for showering us with love',sign:'— the parents-to-be',pick:['candy','cookie','bubbles'],
+    desc:'Soft, sweet and easy — a baby shower bar rewards a room of people who came to ooh and ahh with something small and cheerful to take home.'},
+  anniversary:{id:'anniversary',emoji:'💞',name:'Anniversary',tag:'Thanks for celebrating our love',sign:'— the happy couple',pick:['tag','cookie','succulent'],
+    desc:'An anniversary favor echoes the toast: something that lasts — a tagged keepsake, a good cookie, and a little green thing for the windowsill.'},
+  graduation:{id:'graduation',emoji:'🎓',name:'Graduation',tag:'Thanks for celebrating with me!',sign:'— the graduate',pick:['candy','glow','seed'],
+    desc:'Graduation parties are loud and young — a favor that keeps the energy up, plus one to plant for the next chapter.'},
+  corporate:{id:'corporate',emoji:'🏢',name:'Corporate / Office',tag:'Thank you for being part of it',sign:'— the team',pick:['tag','cookie','succulent'],
+    desc:'Desk-sized and quiet: a name-tagged keepsake and something living or edible — the favors people actually take back to the office.'},
+  just:{id:'just',emoji:'✨',name:'Just Because',tag:'Thanks for coming!',sign:'— your host',pick:['buddy','bubbles','glow'],
+    desc:'No occasion required — a backyard gathering still deserves a bar. Mini balloons, bubbles, glow sticks, done.'}
+};
+
+var FAVORS={
+  buddy:{id:'buddy',emoji:'🎈',name:'Mini Balloon Buddy',price:4.00,kind:'keep',tier:'Keepsake',
+    note:'A single helium mini on a stick, tied with your tag — the signature favor. It walks out the door at eye level.'},
+  candy:{id:'candy',emoji:'🍬',name:'Candy Grab Bag',price:2.50,kind:'play',tier:'Classic',
+    note:'Cello bag, ribbon, tag. The workhorse — familiar, fast, and the kids find it first.'},
+  tag:{id:'tag',emoji:'🏷️',name:'Custom Balloon Tag',price:1.25,kind:'keep',tier:'Add-on',
+    note:'A personalized tag you tie onto ANY favor. The cheapest thing here and the one people keep.'},
+  seed:{id:'seed',emoji:'🌱',name:'Seed Packet',price:1.75,kind:'keep',tier:'Keepsake',
+    note:'“Plant these, think of us.” A favor that outlives the party on a windowsill.'},
+  bubbles:{id:'bubbles',emoji:'🫧',name:'Bubble Bottle',price:1.00,kind:'play',tier:'Classic',
+    note:'Mini bubbles — instant activity for the under-sixes and quietly hilarious for everyone else.'},
+  cookie:{id:'cookie',emoji:'🍪',name:'Cookie Treat Bag',price:3.00,kind:'play',tier:'Classic',
+    note:'Two cookies in a windowed bag. Eaten in the car, remembered forever.'},
+  glow:{id:'glow',emoji:'✨',name:'Glow Stick',price:0.75,kind:'play',tier:'Add-on',
+    note:'For evening parties — the cheapest way to turn a driveway into a dance floor.'},
+  succulent:{id:'succulent',emoji:'🪴',name:'Mini Succulent',price:3.50,kind:'keep',tier:'Keepsake',
+    note:'A living favor. Grown-ups actually take these home and keep them on a sill.'}
+};
+
+var PALETTES=[
+  {id:'grape',name:'Grape Soda',bg:'#7c3aed',ink:'#ecfccb'},
+  {id:'bubble',name:'Bubblegum',bg:'#ec4899',ink:'#ffffff'},
+  {id:'sunset',name:'Sunset Pop',bg:'#f97316',ink:'#2e1065'},
+  {id:'mint',name:'Mint Chip',bg:'#0f766e',ink:'#d9f99d'},
+  {id:'confetti',name:'Confetti',bg:'#e11d48',ink:'#ffffff'},
+  {id:'lilac',name:'Lilac Cream',bg:'#a855f7',ink:'#2e1065'}
+];
+function palById(id){for(var i=0;i<PALETTES.length;i++){if(PALETTES[i].id===id)return PALETTES[i];}return PALETTES[0];}
+function palName(id){return palById(id).name;}
+
+var state={occ:'birthday',guests:50,favors:{},tag:'',sign:'',pal:'grape'};
+
+/* ---------- engine ---------- */
+function bufferOf(g){return Math.ceil(g*0.10);}
+function qtyOf(g){return g+bufferOf(g);}
+function selectedIds(s){s=s||state;return Object.keys(FAVORS).filter(function(id){return !!s.favors[id];});}
+function barCost(g,ids){var q=qtyOf(g);return ids.reduce(function(a,id){return a+FAVORS[id].price*q;},0);}
+function perGuest(g,ids){return g>0?barCost(g,ids)/g:0;}
+function tagLine(s){s=s||state;var t=(s.tag||'').trim();return t||(OCCASIONS[s.occ]?OCCASIONS[s.occ].tag:'Thank you for coming!');}
+function verdictOf(per){
+  if(per<=0)return{key:'none',verdict:'Add a favor to the bar and Isabella will price the whole run.'};
+  if(per<2)return{key:'lean',verdict:'Lean and cheerful — a big, easy bar for a crowd that mostly came to see the decor. Kids’ parties live here.'};
+  if(per<=3.5)return{key:'sweet',verdict:'Right in the sweet spot — generous enough to feel like a real thank-you, small enough to never quietly become a line item.'};
+  if(per<=6)return{key:'rich',verdict:'A generous bar — the “every guest leaves with something lovely” tier. Milestone birthdays and grown-up weddings live here.'};
+  return{key:'lux',verdict:'Luxury tier — beautiful, and worth it only if the favors ARE the memory. Isabella will tell you honestly if it’s too much.'};
+}
+function tagFit(t){
+  var words=String(t||'').trim().split(/\s+/).filter(Boolean).length;
+  if(words===0)return{key:'empty',words:0,fit:'Write your tag line — it prints on every favor tag.'};
+  if(words<=8)return{key:'good',words:words,fit:'Great length ('+words+' words) — reads in one glance and stays in the memory.'};
+  if(words<=13)return{key:'ok',words:words,fit:words+' words — a touch long. It still fits the tag, but the best ones are shorter.'};
+  return{key:'warn',words:words,fit:words+' words — too long for a favor tag. Trim to one clear thought.'};
+}
+function buildTags(s,n){
+  s=s||state;var ids=selectedIds(s);var pal=palById(s.pal);
+  var line=tagLine(s),sign=(s.sign||'').trim();var out=[];
+  for(var i=0;i<n;i++){var id=ids.length?ids[i%ids.length]:null;
+    out.push({line:line,sign:sign,bg:pal.bg,ink:pal.ink,emoji:id?FAVORS[id].emoji:'🎈'});}
+  return out;
+}
+function summaryText(s){
+  s=s||state;var ids=selectedIds(s);var occ=OCCASIONS[s.occ];var q=qtyOf(s.guests);
+  var lines=['🎈 THE FAVOR BAR — '+occ.name.toUpperCase()+' ('+s.guests+' guests)'];
+  if(ids.length){ids.forEach(function(id){var f=FAVORS[id];lines.push('• '+f.emoji+' '+f.name+' × '+q+'  ('+money(f.price)+' ea)');});}
+  else{lines.push('• (no favors selected yet)');}
+  lines.push('• Tag: “'+tagLine(s)+'”'+(s.sign?'  '+s.sign:''));
+  lines.push('• '+q+' of each · ~'+money(barCost(s.guests,ids))+' total · '+money(perGuest(s.guests,ids))+'/guest');
+  lines.push('');lines.push('Build it: myeverlastingmemories.com/favor-bar.html');
+  return lines.join('\n');
+}
+function leadPayload(s){
+  s=s||state;var ids=selectedIds(s);var occ=OCCASIONS[s.occ];
+  return{source:'favor-bar',eventType:occ.emoji+' '+occ.name,eventDate:'',
+    message:'Occasion: '+occ.name+' · Guests: '+s.guests+' · Favors: '+(ids.map(function(id){return FAVORS[id].name;}).join(', ')||'none')+' · Tag: “'+tagLine(s)+'”'+(s.sign?' '+s.sign:'')+' · Qty: '+qtyOf(s.guests)+' of each · Est. '+money(barCost(s.guests,ids))+' ('+money(perGuest(s.guests,ids))+'/guest) · Tag color: '+palName(s.pal)};
+}
+function sampleState(){return{occ:'wedding',guests:80,favors:{tag:true,seed:true,candy:true},tag:'',sign:'— the newlyweds',pal:'bubble'};}
+
+/* ---------- render ---------- */
+function favGridHTML(){
+  return Object.keys(FAVORS).map(function(id){var f=FAVORS[id];var on=!!state.favors[id];
+    return '<button type="button" class="favp'+(on?' on':'')+'" data-fav="'+id+'" aria-pressed="'+on+'">'+
+      '<div class="fp-top"><span class="fp-emoji">'+f.emoji+'</span><span class="fp-name">'+esc(f.name)+'</span><span class="fp-price">'+money(f.price)+'</span></div>'+
+      '<div class="fp-note">'+esc(f.note)+'</div>'+
+      '<div class="fp-tier" style="margin-top:5px">'+esc(f.tier)+' · '+(f.kind==='keep'?'keep it':'enjoy')+'</div></button>';
+  }).join('');
+}
+function render(){
+  var ids=selectedIds(state);var occ=OCCASIONS[state.occ];
+  var q=qtyOf(state.guests);var buf=bufferOf(state.guests);
+  var cost=barCost(state.guests,ids);var per=ids.length?cost/state.guests:0;
+  var v=verdictOf(ids.length?per:0);
+
+  /* occasion chips */
+  $('occChips').innerHTML=Object.keys(OCCASIONS).map(function(k){var o=OCCASIONS[k];
+    return '<button type="button" class="chip'+(k===state.occ?' on':'')+'" data-occ="'+k+'">'+o.emoji+' '+esc(o.name)+'</button>';}).join('');
+  $('occNote').innerHTML='<b>'+occ.emoji+' '+esc(occ.name)+'</b> — '+esc(occ.desc);
+
+  /* guests */
+  $('guestRead').textContent=state.guests;$('guestNum').textContent=state.guests;
+  $('bufferNote').innerHTML='Isabella’s 10% buffer: <b>'+state.guests+' guests + '+buf+' spare = '+q+'</b> of every favor type. Someone always brings a plus-one — this is the number that makes sure nobody is left handing out apologizes.';
+
+  /* favor grid */
+  $('favGrid').innerHTML=favGridHTML();
+  var keep=ids.filter(function(id){return FAVORS[id].kind==='keep';}).length;
+  var play=ids.filter(function(id){return FAVORS[id].kind==='play';}).length;
+  $('mixNote').innerHTML=ids.length?('<b>'+ids.length+' favor'+(ids.length>1?'s':'')+' on the bar</b> — '+play+' to enjoy, '+keep+' to keep. ') +
+      (play&&keep?'That’s the balance Isabella builds for.':(play?'Add one keepsake (a tag, a seed packet, a succulent) so something survives the car ride.':'Add one thing to enjoy at the party — a favor bar should give, not just send home.'))
+    :'Nothing on the bar yet — tap a favor to start. Isabella always opens with a keepsake and a classic.';
+
+  /* tag + palette */
+  if($('inTag').value!==state.tag)$('inTag').value=state.tag;
+  if($('inSign').value!==state.sign)$('inSign').value=state.sign;
+  var fit=tagFit(state.tag);
+  $('tagFit').textContent=fit.fit;
+  $('tagFit').className='fit-note'+(fit.key==='good'?' good':(fit.key==='ok'||fit.key==='warn')?' warn':'');
+  $('palChips').innerHTML=PALETTES.map(function(p){
+    return '<button type="button" class="chip'+(p.id===state.pal?' on':'')+'" data-pal="'+p.id+'"><span style="display:inline-block;width:11px;height:11px;border-radius:50%;background:'+p.bg+';margin-right:5px;vertical-align:middle"></span>'+esc(p.name)+'</button>';}).join('');
+
+  /* output card */
+  $('ocOccasion').textContent=occ.emoji+' '+occ.name+' · '+palName(state.pal);
+  $('ocSub').textContent=state.guests+' guests · '+ids.length+' favor'+(ids.length===1?'':'s')+' on the table';
+  if(ids.length){
+    var pal=palById(state.pal);
+    $('shelf').innerHTML=ids.map(function(id){var f=FAVORS[id];
+      return '<div class="fav-card"><div class="fc-emoji">'+f.emoji+'</div><div class="fc-name">'+esc(f.name)+'</div>'+
+        '<div class="fc-tag" style="background:'+pal.bg+';color:'+pal.ink+'">'+esc(tagLine(state))+'</div>'+
+        (state.sign?'<div class="fc-sign">'+esc(state.sign)+'</div>':'')+'</div>';}).join('');
+  }else{
+    $('shelf').innerHTML='<div class="shelf-empty">The table’s set but empty — tap favors in step 3 and they’ll appear here with your tag on them.</div>';
+  }
+  $('mFavors').textContent=ids.length?q*ids.length:0;
+  $('mQty').textContent=ids.length?q:0;
+  $('mPer').textContent=money(per);
+  $('mTotal').textContent=money(cost);
+
+  /* math list */
+  $('mathTitle').textContent=occ.emoji+' What the '+occ.name+' Bar Costs';
+  $('mathHint').innerHTML='Every favor, sized to <b>'+state.guests+' guests + '+buf+' spare = '+q+'</b> of each. Prices are what Isabella charges when she builds and fills the bar for you.';
+  if(ids.length){
+    $('mathList').innerHTML=ids.map(function(id){var f=FAVORS[id];
+      return '<div class="price-item"><span class="pi-name">'+f.emoji+' '+esc(f.name)+'</span><span class="pi-qty">× '+q+'</span><span class="pi-price">'+money(f.price*q)+'</span><span class="pi-note">'+esc(f.note)+'</span></div>';}).join('')+
+      '<div class="price-item" style="border-top:1.5px solid var(--line);margin-top:6px"><span class="pi-name">The whole bar</span><span class="pi-qty">'+q*ids.length+' favors</span><span class="pi-price">'+money(cost)+'</span><span class="pi-note">'+money(per)+' per guest · roughly '+(per/1).toFixed(0)+'× the price of a single favor.</span></div>';
+  }else{
+    $('mathList').innerHTML='<div class="price-item"><span class="pi-name">Nothing on the bar yet</span><span class="pi-note">Pick a favor in step 3 and the math appears here.</span></div>';
+  }
+  $('mathVerdict').innerHTML='<b>'+v.key.toUpperCase()+' — </b>'+esc(v.verdict);
+
+  /* mix card */
+  $('mixStrip').innerHTML=ids.length?ids.map(function(id){var f=FAVORS[id];
+    return '<span class="value-pill">'+f.emoji+' '+esc(f.name)+' <b>'+(f.kind==='keep'?'keep':'enjoy')+'</b></span>';}).join('')
+    :'<span class="value-pill">No favors selected yet</span>';
+  $('mixVerdict').innerHTML=ids.length?('<b>'+play+' to enjoy · '+keep+' to keep.</b> '+(play&&keep?'Isabella’s bar philosophy in one line: give them something that ends with the party and something that outlives it.':(play?'Right now every favor ends when the party does — add one keepsake so the night has a souvenir.':'Right now every favor goes home — add something to enjoy in the moment so the bar feels like a party, not a package.')))
+    :'Tap a couple of favors above and Isabella will balance the bar for you.';
+
+  /* tag sheet (screen + print) */
+  var sheet=tagSheetHTML(buildTags(state,9));
+  $('tagSheet').innerHTML=sheet;$('tagSheetPrint').innerHTML=sheet;
+  $('printMeta').textContent='Everlasting Memories · '+occ.name+' · '+state.guests+' guests · myeverlastingmemories.com';
+}
+function tagSheetHTML(tags){
+  return tags.map(function(t){
+    return '<div class="tag"><span class="tg-hole"></span><div class="tg-emoji">'+t.emoji+'</div>'+
+      '<div class="tg-line" style="color:'+t.bg+'">'+esc(t.line)+'</div>'+
+      (t.sign?'<div class="tg-sign">'+esc(t.sign)+'</div>':'')+'</div>';}).join('');
+}
+
+/* ---------- actions ---------- */
+function toast(msg){var t=$('toast');t.textContent=msg;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove('show');},2600);}
+function applyOcc(k){var o=OCCASIONS[k];state.occ=k;state.favors={};o.pick.forEach(function(id){state.favors[id]=true;});state.tag=o.tag;state.sign=o.sign;}
+
+if(typeof document!=='undefined'){
+$('btnRebuild').addEventListener('click',function(){
+  var keys=Object.keys(OCCASIONS);var k=keys[Math.floor(Math.random()*keys.length)];applyOcc(k);
+  var extras=['buddy','candy','tag','seed','bubbles','cookie','glow','succulent'];
+  var extra=extras[Math.floor(Math.random()*extras.length)];state.favors[extra]=true;
+  state.pal=PALETTES[Math.floor(Math.random()*PALETTES.length)].id;
+  state.guests=15+Math.floor(Math.random()*22)*5;
+  $('inGuests').value=state.guests;
+  render();toast('🎲 Fresh bar for '+OCCASIONS[k].name+' — '+state.guests+' guests.');
+});
+$('btnCopy').addEventListener('click',function(){
+  var t=summaryText();
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){toast('📋 Favor plan copied!');});}
+  else{var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);toast('📋 Favor plan copied!');}
+});
+$('btnWa').addEventListener('click',function(){window.open('https://wa.me/?text='+encodeURIComponent(summaryText()),'_blank');});
+$('btnPrint').addEventListener('click',function(){window.print();});
+
+/* ---------- controls ---------- */
+$('occChips').addEventListener('click',function(e){var b=e.target.closest('button');if(!b||!b.dataset.occ)return;applyOcc(b.dataset.occ);render();});
+$('favGrid').addEventListener('click',function(e){var b=e.target.closest('button');if(!b||!b.dataset.fav)return;
+  var id=b.dataset.fav;if(state.favors[id])delete state.favors[id];else state.favors[id]=true;render();});
+$('palChips').addEventListener('click',function(e){var b=e.target.closest('button');if(!b||!b.dataset.pal)return;state.pal=b.dataset.pal;render();});
+$('inGuests').addEventListener('input',function(){state.guests=parseInt(this.value,10)||50;render();});
+$('inTag').addEventListener('input',function(){state.tag=this.value;render();});
+$('inSign').addEventListener('input',function(){state.sign=this.value;render();});
+
+/* ---------- nav dropdown ---------- */
+$('ddBtn').addEventListener('click',function(e){e.stopPropagation();$('ddMenu').classList.toggle('open');});
+document.addEventListener('click',function(){$('ddMenu').classList.remove('open');});
+
+/* ---------- secret #24 ---------- */
+var taps=0;
+$('secretBadge').addEventListener('click',function(){
+  taps++;if(taps<5)return;taps=0;
+  var html='<div class="fav-card" style="max-width:100%;flex-basis:100%"><div class="fc-name" style="font-size:.9rem">🤫 Isabella’s favors notebook — Secret #24</div>'+
+    '<div class="fc-note" style="font-size:.8rem;color:#3b0764;margin-top:6px;line-height:1.6">Three rules she’s never broken. One: <b>the tag beats the gift</b> — a dollar-and-change tag on a cheap favor out-keeps a ten-dollar tchotchke with no name on it, every single time, because it turns “here’s some candy” into “this was made for you.” Two: <b>never a bow</b> — a bow comes undone in a coat pocket before the guest reaches the car; one hole, one ribbon, one knot. Three: <b>count the plus-ones twice</b> — she adds the 10% buffer to every single favor type, because the night she ran out of the popular favor is the night she learned to never trust a guest list again. And her favorite note from a five-year-old at a first birthday: <i>“I kept the tag. I threw the balloon at my brother.”</i> 🎈</div></div>';
+  var sh=$('shelf');sh.innerHTML=html+sh.innerHTML;
+  toast('🕵️ Secret #24 unlocked');
+});
+
+/* ---------- lead form ---------- */
+$('leadForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var btn=this.querySelector('button[type=submit]');btn.disabled=true;btn.textContent='Sending…';
+  var payload=leadPayload(state);
+  payload.name=$('fName').value.trim();payload.email=$('fEmail').value.trim();payload.phone=$('fPhone').value.trim();
+  payload.eventDate=$('fDate').value||'';payload.budget=$('fBudget').value||'';
+  payload.message=($('fMsg').value.trim()?$('fMsg').value.trim()+' — ':'')+payload.message;
+  fetch('/api/leads.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+    .then(function(r){return r.json();})
+    .then(function(){toast('🎈 Sent! Isabella replies within 24h.');btn.disabled=false;btn.textContent='🎈 Send Isabella the bar →';$('leadForm').reset();})
+    .catch(function(){toast('⚠️ Couldn’t send — email hello@myeverlastingmemories.com');btn.disabled=false;btn.textContent='🎈 Send Isabella the bar →';});
+});
+
+applyOcc(state.occ);render();
+} /* end DOM guard */
+if(typeof module!=='undefined'&&module.exports){
+  module.exports={OCCASIONS:OCCASIONS,FAVORS:FAVORS,PALETTES:PALETTES,state:state,
+    bufferOf:bufferOf,qtyOf:qtyOf,selectedIds:selectedIds,barCost:barCost,perGuest:perGuest,
+    tagLine:tagLine,verdictOf:verdictOf,tagFit:tagFit,buildTags:buildTags,summaryText:summaryText,
+    leadPayload:leadPayload,sampleState:sampleState,palById:palById,palName:palName,money:money,esc:esc,applyOcc:applyOcc,render:render};
+}
+})();
+</script>
+</body>
+</html>
