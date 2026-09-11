@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Sip Station — Drink &amp; Signature-Cocktail Planner | Everlasting Memories</title>
+<meta name="description" content="Set your guests and hours and the Sip Station sizes the whole bar — cocktails, wine, bubbles, ice and glasses — then colors a signature drink to match your decor.">
+<meta name="theme-color" content="#3a1020">
+<meta property="og:title" content="The Sip Station — Drink &amp; Signature-Cocktail Planner | Everlasting Memories">
+<meta property="og:description" content="The site's first drink planner. Set guests + hours and get the real bar math — bottles, batches, ice and glasses — plus a signature cocktail colored to match your decor and a printable bar card.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--c1:#7b1f3a;--c2:#c9954a;--c3:#3a1020;--c3b:#521a30;--bg:#fdf8f3;--line:#efe3d8;--ink:#2a1620;--soft:#7a6155;--good:#1a7f4e;--bad:#b3261e}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.serif{font-family:'Playfair Display',Georgia,serif}
+a{color:var(--c1);text-decoration:none}
+a:hover{opacity:.85}
+/* nav */
+.em-nav{display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:14px 22px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.em-nav-brand{font-family:'Playfair Display',serif;font-weight:700;font-size:1.15rem;color:var(--ink);margin-right:auto}
+.em-nav-brand span{color:var(--c1)}
+.em-nav a.nav-link{font-size:.85rem;font-weight:600;color:var(--ink);padding:6px 8px;border-radius:8px}
+.em-nav a.nav-link:hover{background:var(--bg)}
+.em-nav-cta{background:linear-gradient(135deg,var(--c3),#7b1f3a);color:#fbe6cf!important;padding:9px 16px;border-radius:999px;font-weight:600;font-size:.85rem;box-shadow:0 4px 14px rgba(58,16,32,.35)}
+.dd-wrap{position:relative}
+.dd-btn{background:none;border:1px solid var(--line);border-radius:999px;padding:8px 16px;font:600 .85rem 'Inter',sans-serif;color:var(--ink);cursor:pointer;display:flex;align-items:center;gap:6px}
+.dd-btn:hover{background:var(--bg)}
+.dd-menu{display:none;position:absolute;top:calc(100% + 8px);left:0;min-width:230px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 18px 40px rgba(58,16,32,.16);padding:8px;z-index:60;max-height:70vh;overflow:auto}
+.dd-menu.open{display:block}
+.dd-menu a{display:block;padding:8px 12px;border-radius:9px;font-size:.84rem;font-weight:500;color:var(--ink)}
+.dd-menu a:hover{background:var(--bg)}
+.dd-menu a.styled{color:#fff!important;font-weight:600}
+.dd-menu .dd-tag{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);padding:8px 12px 4px}
+/* hero */
+.hero{max-width:1120px;margin:0 auto;padding:34px 22px 10px}
+.home-link{display:inline-block;font-size:.82rem;font-weight:600;color:var(--c1);margin-bottom:16px}
+.badge{display:inline-block;background:linear-gradient(135deg,var(--c3),#7b1f3a);color:#f6d9a8;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:14px;cursor:pointer;user-select:none}
+.hero h1{font-size:clamp(2.1rem,5vw,3.3rem);line-height:1.1;color:var(--c3)}
+.hero .sub{margin-top:12px;max-width:830px;color:var(--soft);font-size:1.02rem}
+.hero .sub b{color:var(--ink)}
+/* layout */
+.container{max-width:1120px;margin:0 auto;padding:22px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 10px 30px rgba(58,16,32,.05)}
+.card h2{font-size:1.35rem;color:var(--c3);margin-bottom:4px}
+.card .kicker{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c1);margin-bottom:2px}
+.card .hint{font-size:.82rem;color:var(--soft);margin-bottom:14px}
+.fg{margin-bottom:14px}
+.fg label{display:block;font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ink);margin-bottom:5px}
+.fg input,.fg select,.fg textarea{width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;font:500 .92rem 'Inter',sans-serif;background:#fff;color:var(--ink)}
+.fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:var(--c1)}
+.fg textarea{min-height:64px;resize:vertical}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:520px){.fg-row{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;font:600 .82rem 'Inter',sans-serif;color:var(--ink);cursor:pointer;transition:all .15s}
+.chip:hover{border-color:var(--c1);color:var(--c1)}
+.chip.on{background:linear-gradient(135deg,var(--c3),#7b1f3a);border-color:transparent;color:#fbe6cf;box-shadow:0 4px 12px rgba(58,16,32,.3)}
+.chip .px{display:block;font-size:.66rem;font-weight:600;opacity:.85}
+.chip.on .px{opacity:.8}
+/* station picker */
+.st-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:520px){.st-grid{grid-template-columns:1fr}}
+.stp{border:1.5px solid var(--line);background:#fff;border-radius:14px;padding:11px 13px;cursor:pointer;transition:all .15s;text-align:left}
+.stp:hover{border-color:var(--c1);transform:translateY(-1px)}
+.stp.on{border-color:var(--c1);background:linear-gradient(180deg,#fbf1e6,#fff);box-shadow:0 6px 18px rgba(123,31,58,.14)}
+.stp .sp-top{display:flex;align-items:center;gap:8px}
+.stp .sp-emoji{font-size:1.35rem}
+.stp .sp-name{font-weight:700;font-size:.86rem;color:var(--c3);flex:1}
+.stp .sp-price{font-weight:800;font-size:.78rem;color:var(--c1);white-space:nowrap}
+.stp .sp-note{font-size:.74rem;color:var(--soft);margin-top:5px}
+.stp .sp-unit{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--soft)}
+.stp.on .sp-unit{color:var(--c1)}
+.range-wrap{display:flex;align-items:center;gap:14px}
+.range-wrap input[type=range]{flex:1;accent-color:var(--c3);height:34px}
+.guest-read{min-width:104px;text-align:center;background:linear-gradient(135deg,var(--c3),#7b1f3a);color:#fbe6cf;border-radius:12px;padding:8px 10px;font-weight:700;font-size:.95rem}
+.guest-read small{display:block;font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;opacity:.85}
+.note-line{margin-top:10px;background:var(--bg);border:1px dashed var(--line);border-radius:12px;padding:10px 14px;font-size:.83rem}
+.note-line b{color:var(--c3)}
+.fit-note{margin-top:8px;font-size:.78rem;font-weight:600}
+.fit-note.good{color:var(--good)}
+.fit-note.warn{color:var(--bad)}
+/* glass preview */
+.glass-wrap{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.glass-stage{background:radial-gradient(circle at 50% 40%,#fff,#f4e9dd);border:1px solid var(--line);border-radius:16px;padding:8px;display:flex;align-items:center;justify-content:center;min-width:150px}
+.glass-cap{font-size:.78rem;color:var(--soft)}
+.glass-cap b{color:var(--c3)}
+/* output card */
+.out-card{background:linear-gradient(165deg,#3a1020,#521a30);color:#f7e6ee;border-radius:22px;padding:26px;box-shadow:0 16px 40px rgba(58,16,32,.3);position:sticky;top:84px}
+.out-card .oc-head{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:6px}
+.out-card .oc-occasion{display:inline-block;background:rgba(255,255,255,.12);color:#f6d9a8;border-radius:999px;padding:4px 12px;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.out-card h2{color:#fff;font-size:1.5rem}
+.out-card .oc-sub{color:#e3bccb;font-size:.8rem;margin-bottom:16px}
+.program{background:rgba(255,255,255,.06);border:1px dashed rgba(255,255,255,.22);border-radius:16px;padding:8px 14px}
+.prog-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px dashed rgba(255,255,255,.14)}
+.prog-row:last-child{border-bottom:none}
+.prog-row .pr-emoji{font-size:1.15rem}
+.prog-row .pr-name{font-weight:700;font-size:.82rem;color:#fff;flex:1}
+.prog-row .pr-qty{font-weight:700;font-size:.78rem;color:#f6d9a8;white-space:nowrap}
+.prog-row .pr-cost{font-weight:800;font-size:.8rem;color:#fff;white-space:nowrap;min-width:56px;text-align:right}
+.prog-empty{color:#e3bccb;font-size:.85rem;font-style:italic;padding:12px 4px}
+.sig-line{margin-top:14px;background:rgba(255,255,255,.08);border-radius:14px;padding:12px 14px}
+.sig-line .sl-name{font-family:'Playfair Display',serif;font-size:1.15rem;color:#fff;font-weight:700}
+.sig-line .sl-rec{font-size:.78rem;color:#f6d9a8;margin-top:3px}
+.meter{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.14)}
+.mstat{background:rgba(255,255,255,.08);border-radius:12px;padding:8px 12px;text-align:center;min-width:92px}
+.mstat b{display:block;font-size:1.05rem;color:#fff}
+.mstat small{font-size:.62rem;text-transform:uppercase;letter-spacing:.06em;color:#e3bccb}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.btn{border:none;border-radius:999px;padding:11px 18px;font:700 .85rem 'Inter',sans-serif;cursor:pointer;transition:all .15s;background:#fff;color:#3a1020}
+.btn:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(0,0,0,.18)}
+.btn.primary{background:linear-gradient(135deg,#f0c987,#c9954a);color:#3a1020}
+.btn.ghost{background:rgba(255,255,255,.1);color:#f7e6ee;border:1px solid rgba(255,255,255,.25)}
+.btn.ghost:hover{background:rgba(255,255,255,.18)}
+/* quote */
+.quote{background:#fff;border-left:4px solid var(--c2);border-radius:0 16px 16px 0;padding:18px 20px;margin:24px 0;font-style:italic;color:var(--soft);font-size:.92rem}
+.quote b{color:var(--c3);font-style:normal}
+/* wide cards */
+.wide{margin-top:22px}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:22px}
+@media(max-width:900px){.duo{grid-template-columns:1fr}}
+.price-item{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;padding:11px 0;border-bottom:1px dashed var(--line)}
+.price-item:last-child{border-bottom:none}
+.price-item .pi-name{font-weight:700;color:var(--ink);font-size:.92rem}
+.price-item .pi-qty{font-weight:800;color:var(--c3);font-size:.86rem;white-space:nowrap}
+.price-item .pi-price{font-weight:800;color:var(--c1);font-size:.88rem;white-space:nowrap;margin-left:auto}
+.price-item .pi-note{flex-basis:100%;font-size:.8rem;color:var(--soft)}
+.bignum{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;color:var(--c3);line-height:1.05}
+.bignum small{font-size:1rem;color:var(--soft);font-weight:600}
+.legend{font-size:.72rem;color:var(--soft);display:flex;gap:14px;flex-wrap:wrap;margin-top:4px}
+.legend span b{color:var(--ink)}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:26px 0}
+@media(max-width:800px){.facts{grid-template-columns:repeat(2,1fr)}}
+.fact{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px;text-align:center}
+.fact .f-num{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:700;color:var(--c3);display:block}
+.fact .f-txt{font-size:.76rem;color:var(--soft);margin-top:4px}
+.faq{margin:8px 0 26px}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin-bottom:10px}
+.faq summary{font-weight:700;font-size:.92rem;cursor:pointer;color:var(--c3)}
+.faq details p{font-size:.86rem;color:var(--soft);margin-top:8px}
+/* bar card (print) */
+.barcard{border:1.5px dashed var(--line);border-radius:14px;padding:18px 20px;background:#fff}
+.barcard h3{font-size:.95rem;color:var(--c3);margin-bottom:8px}
+.barcard ul{margin:2px 0 12px 18px;font-size:.86rem;color:var(--soft)}
+.barcard li{margin:3px 0}
+.barcard li b{color:var(--ink)}
+.value-strip{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.value-pill{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:.76rem;color:var(--soft)}
+.value-pill b{color:var(--c3)}
+/* lead card */
+.lead-card{background:linear-gradient(160deg,#3a1020,#521a30);color:#fff;border-radius:20px;padding:28px;margin-top:8px}
+.lead-card h2{color:#fff}
+.lead-card .kicker{color:#f0c987}
+.lead-card .hint{color:#e9c8d5}
+.lead-card label{color:#e9c8d5}
+.lead-card input,.lead-card select,.lead-card textarea{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#fff}
+.lead-card input::placeholder,.lead-card textarea::placeholder{color:rgba(255,255,255,.55)}
+.lead-card input:focus,.lead-card select:focus,.lead-card textarea:focus{border-color:#f0c987}
+.lead-card select option{color:var(--ink)}
+.lead-card .btn-p{background:#f0c987;color:#3a1020}
+.lead-card .fine{font-size:.74rem;color:#e9c8d5;margin-top:10px}
+/* footer */
+footer{background:var(--c3);color:#fff;margin-top:34px;padding:26px 22px 30px}
+footer .strip{font-size:.78rem;line-height:2;color:rgba(255,255,255,.75)}
+footer .strip a{color:#f0c987;font-weight:600;margin-right:2px}
+footer .foot-brand{font-family:'Playfair Display',serif;font-size:1.1rem;margin-top:14px}
+footer .foot-brand span{color:#f0c987}
+footer .copy{font-size:.72rem;color:rgba(255,255,255,.6);margin-top:6px}
+/* print */
+@media print{
+  .em-nav,.actions,.lead-card,.facts,.faq,.hero,.home-link,.badge,footer,.quote,.duo,.wide,.grid,.no-print,.value-strip,.toast{display:none!important}
+  body{background:#fff}
+  .print-only{display:block!important}
+}
+.print-only{display:none}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(120%);background:var(--ink);color:#fff;padding:12px 22px;border-radius:999px;font-size:.85rem;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.25);transition:transform .3s;z-index:99}
+.toast.show{transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<nav class="em-nav">
+  <div class="em-nav-brand"><a href="index.html" style="color:inherit">Everlasting <span>Memories</span></a></div>
+  <a class="nav-link" href="gallery.html">Gallery</a>
+  <a class="nav-link" href="services.html">Services</a>
+  <a class="nav-link" href="about.html">About</a>
+  <a class="nav-link" href="faq.html">FAQ</a>
+  <div class="dd-wrap">
+    <button class="dd-btn" id="ddBtn" aria-haspopup="true" aria-expanded="false">Tools ▾</button>
+    <div class="dd-menu" id="ddMenu">
+      <div class="dd-tag">Newest</div>
+      <a href="sip-station.html" class="styled" style="background:#3a1020">The Sip Station</a>
+      <a href="favor-bar.html" class="styled" style="background:#2e1065">The Favor Bar</a>
+      <a href="boo-bash.html" class="styled" style="background:#2e1065">The Boo Bash</a>
+      <a href="raised-glass.html" class="styled" style="background:#241b12">The Raised Glass</a>
+      <a href="launch-pad.html" class="styled" style="background:#1e3a8a">The Launch Pad</a>
+      <a href="smash.html" class="styled" style="background:#ff8c42">The Smash Hit</a>
+      <a href="nest.html" class="styled" style="background:#6b8f71">The Nest</a>
+      <a href="powder-pop.html" class="styled" style="background:#ec4899">The Powder Pop</a>
+      <a href="big-yes.html" class="styled" style="background:#a8526b">The Big Yes</a>
+      <a href="party-er.html" class="styled" style="background:#059669">The Party ER</a>
+      <a href="rain-plan.html" class="styled" style="background:#0284c7">The Rain Plan</a>
+      <div class="dd-tag">All tools</div>
+      <a href="after-glow.html">The After-Glow</a>
+      <a href="seating-chart.html">Seating Chart Studio</a>
+      <a href="surprise-planner.html">Operation: Surprise</a>
+      <a href="dessert-table.html">Dessert Table Stylist</a>
+      <a href="golden-hour.html">Golden Hour Finder</a>
+      <a href="party-timeline.html">Party Day Timeline</a>
+      <a href="memory-capsule.html">Memory Capsule</a>
+      <a href="playlist.html">Party Playlist Studio</a>
+      <a href="guest-list.html">The Guest List</a>
+      <a href="photo-hunt.html">Party Photo Hunt</a>
+      <a href="photo-booth.html">Golden Hour Booth</a>
+      <a href="memory-wall.html">Memory Wall</a>
+      <a href="party-roadmap.html">Party Roadmap</a>
+      <a href="invitation-studio.html">Invitation Studio</a>
+      <a href="balloon-pop.html">Pop Party</a>
+      <a href="wedding-workshop.html">Wedding Workshop</a>
+      <a href="transformations.html">The Big Reveal</a>
+      <a href="budget-builder.html">Budget Balloonist</a>
+      <a href="referral.html">Refer &amp; Earn</a>
+      <a href="cost-estimator.html">Cost Estimator</a>
+      <a href="theme-generator.html">Theme Generator</a>
+      <a href="lookbook.html">Lookbook</a>
+      <a href="countdown.html">Countdown</a>
+      <a href="party-style-quiz.html">Party Style Quiz</a>
+      <a href="balloon-math.html">Balloon Math</a>
+      <a href="name-garland.html">Balloon Letter Studio</a>
+      <a href="palette-snap.html">Palette Snap</a>
+      <a href="diy-vs-pro.html">DIY or Dazzle</a>
+      <a href="reserve-date.html">Reserve Your Date</a>
+      <a href="gift-card.html">Gift Card Studio</a>
+    </div>
+  </div>
+  <a class="em-nav-cta" href="contact.html">Get a Quote</a>
+</nav>
+
+<header class="hero">
+  <a class="home-link" href="index.html">← Back to Everlasting Memories</a><br>
+  <span class="badge" id="secretBadge" title="🥂">🥂 New Tonight — The Sip Station</span>
+  <h1>The Sip Station</h1>
+  <p class="sub">Every host gets the balloons right and then panics about the <b>bar</b>. The Sip Station is the site's first <b>drink planner</b>: set your guest count and how many hours the party runs, and it sizes the whole bar with real math — <b>how many bottles, batches, ice, and glasses</b> — then pours a <b>signature drink colored to match your decor</b> and prints a bar card you can hand to the caterer. Isabella's rule: nobody should ever be the host who runs out of ice. 🥂</p>
+</header>
+
+<div class="container">
+  <div class="grid">
+    <!-- LEFT: controls -->
+    <div>
+      <div class="card" style="margin-bottom:18px">
+        <div class="kicker">Step 1</div>
+        <h2>Set the occasion</h2>
+        <p class="hint">It loads a starter bar, a default run-time, and a signature-drink name you can rewrite.</p>
+        <div class="chips" id="occChips"></div>
+        <div class="note-line" id="occNote"></div>
+      </div>
+
+      <div class="card" style="margin-bottom:18px">
+        <div class="kicker">Step 2</div>
+        <h2>The crowd &amp; the clock</h2>
+        <p class="hint">Isabella's bar math starts here: drinks scale with <b>guests</b> and grow every <b>hour</b> the bar stays open.</p>
+        <div class="fg">
+          <label for="inGuests">Guest count — <span id="guestRead">100</span></label>
+          <div class="range-wrap">
+            <input type="range" id="inGuests" min="10" max="300" step="5" value="100" aria-label="Guest count">
+            <div class="guest-read"><span id="guestNum">100</span><small>guests</small></div>
+          </div>
+        </div>
+        <div class="fg">
+          <label>How long does the bar stay open?</label>
+          <div class="chips" id="hourChips"></div>
+        </div>
+        <div class="fg" style="margin-bottom:0">
+          <label>Weather at the bar</label>
+          <div class="chips" id="weatherChips"></div>
+        </div>
+        <div class="note-line" id="clockNote"></div>
+      </div>
+
+      <div class="card" style="margin-bottom:18px">
+        <div class="kicker">Step 3</div>
+        <h2>Build the bar</h2>
+        <p class="hint">Tap every station you want open. Isabella never opens a bar without a zero-proof and a water station — they're on by default.</p>
+        <div class="st-grid" id="stGrid"></div>
+        <div class="note-line" id="mixNote"></div>
+      </div>
+
+      <div class="card" style="margin-bottom:18px">
+        <div class="kicker">Step 4</div>
+        <h2>The signature drink</h2>
+        <p class="hint">Name one drink, choose a base and a color that matches your decor — this is the thing guests photograph and ask about.</p>
+        <div class="fg">
+          <label for="inName">Signature drink name</label>
+          <input id="inName" maxlength="40" placeholder="Something Blue Spritz">
+        </div>
+        <div class="fg">
+          <label>Base</label>
+          <div class="chips" id="baseChips" style="margin-bottom:0"></div>
+        </div>
+        <div class="fg" style="margin-top:14px">
+          <label>Color — match it to the decor</label>
+          <div class="chips" id="palChips" style="margin-bottom:0"></div>
+        </div>
+        <div class="fg" style="margin-top:14px;margin-bottom:0">
+          <label>Garnish</label>
+          <div class="chips" id="garChips" style="margin-bottom:0"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="kicker">Step 5</div>
+        <h2>The zero-proof split</h2>
+        <p class="hint">What share of your guests won't be drinking? Isabella treats the mocktail as a first-class drink, not a sad afterthought.</p>
+        <div class="fg" style="margin-bottom:0">
+          <label for="inMock">Zero-proof guests — <span id="mockRead">10%</span></label>
+          <div class="range-wrap">
+            <input type="range" id="inMock" min="0" max="100" step="5" value="10" aria-label="Percent of guests not drinking">
+            <div class="guest-read"><span id="mockNum">10%</span><small>zero-proof</small></div>
+          </div>
+        </div>
+        <div class="note-line" id="mockNote"></div>
+      </div>
+    </div>
+
+    <!-- RIGHT: live bar program -->
+    <div>
+      <div class="out-card">
+        <div class="oc-head">
+          <span class="oc-occasion" id="ocOccasion">💍 Wedding · 5 hours</span>
+        </div>
+        <h2 id="outTitle">The Bar Program</h2>
+        <p class="oc-sub" id="ocSub">100 guests · 4 stations open</p>
+        <div class="program" id="progList"></div>
+        <div class="sig-line">
+          <div class="sl-name" id="sigName">Something Blue Spritz</div>
+          <div class="sl-rec" id="sigRec">Gin · Modern Muse · citrus twist</div>
+        </div>
+        <div class="meter">
+          <div class="mstat"><b id="mServ">0</b><small>drinks stocked</small></div>
+          <div class="mstat"><b id="mUnits">0</b><small>units to buy</small></div>
+          <div class="mstat"><b id="mPer">$0</b><small>per guest</small></div>
+          <div class="mstat"><b id="mTotal">$0</b><small>bar total</small></div>
+        </div>
+        <div class="actions">
+          <button class="btn primary" id="btnRebuild" type="button">🎲 Surprise me</button>
+          <button class="btn ghost" id="btnCopy" type="button">📋 Copy</button>
+          <button class="btn ghost" id="btnWa" type="button">💬 WhatsApp</button>
+          <button class="btn ghost" id="btnPrint" type="button">🖨️ Bar card</button>
+        </div>
+      </div>
+
+      <div class="quote">
+        <b>Isabella's bar rule:</b> "I've decorated five hundred parties and the only thing that ever went wrong was the bar. Never the balloons — the bar. People forgive a crooked banner and a warm room, but they do not forgive running out of ice on a Saturday in July, and they do not forgive a party where the only drink for a pregnant guest or a sober friend is tap water. Set the station right and the night takes care of itself." — from her event notebook, bar page.
+      </div>
+    </div>
+  </div>
+
+  <!-- the bar math -->
+  <div class="card wide">
+    <div class="kicker">The Bar Math</div>
+    <h2 id="mathTitle">What the Bar Needs</h2>
+    <p class="hint" id="mathHint">Isabella's rule of thumb: two drinks per guest in the first hour, one for each hour after, plus a 20% buffer — because the last hour is always the thirstiest.</p>
+    <div id="mathList"></div>
+    <div class="note-line" id="mathVerdict" style="margin-top:14px"></div>
+  </div>
+
+  <!-- zero-proof + bar card -->
+  <div class="duo">
+    <div class="card">
+      <div class="kicker">The Zero-Proof Split</div>
+      <h2 id="zeroTitle">A Real Drink for Everyone</h2>
+      <p class="hint">The measure of a good bar isn't the cocktails — it's that nobody has to explain why they're holding water.</p>
+      <div class="value-strip" id="zeroStrip"></div>
+      <div class="note-line" id="zeroVerdict" style="margin-top:14px"></div>
+    </div>
+    <div class="card">
+      <div class="kicker">The Bar Card</div>
+      <h2 id="cardTitle">Hand This to the Caterer</h2>
+      <p class="hint">Everything on one card: the shopping list, the ice and glass counts, the signature recipe, and the safety rules Isabella tapes behind the bar.</p>
+      <div class="barcard" id="barCard"></div>
+      <div class="note-line">Isabella's behind-the-bar rules: <b>water within ten feet of the last bottle</b>, food on the table before the first pour, and a real (never drunk) ride plan for every single guest. Say the signature drink's name out loud once before you print — if it doesn't make you smile, keep going.</div>
+    </div>
+  </div>
+
+  <!-- facts -->
+  <div class="facts">
+    <div class="fact"><span class="f-num">2 → 1</span><span class="f-txt">drinks per guest in hour one, then one per hour after — Isabella's bar curve</span></div>
+    <div class="fact"><span class="f-num">20%</span><span class="f-txt">buffer on every drink station — the last hour is always the thirstiest</span></div>
+    <div class="fact"><span class="f-num">1 lb</span><span class="f-txt">of ice per guest (1.5 on a hot day) — the #1 thing hosts run out of</span></div>
+    <div class="fact"><span class="f-num">5 glasses</span><span class="f-txt">per bottle of wine, 8 flutes per bottle of bubbles, 10 drinks per cocktail batch</span></div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="faq">
+    <details>
+      <summary>How much alcohol do I actually need for a party?</summary>
+      <p>The honest answer is a formula, not a guess: <b>two drinks per guest in the first hour, one for every hour after</b>, then add a 20% buffer. So 100 guests over five hours is 100 × (2 + 4) = 600 drinks, and you stock 720 to be safe. The Sip Station runs that math per station the moment you move the sliders, so you walk into the store with numbers instead of vibes — which is the difference between over-buying three cases of wine and running out of the one everybody wanted.</p>
+    </details>
+    <details>
+      <summary>Why do I run out of ice every single time?</summary>
+      <p>Because ice is the only thing nobody adds a buffer to. The rule is <b>1 lb of ice per guest</b> — and 1.5 lb if it's hot or the drinks are mostly on the rocks. For 100 guests that's 100–150 lb, which is two or three big bags and one cooler more than you think. Buy it the morning of, keep the drinks cooler and the ice cooler <i>separate</i> (ice for the drinks, drinks for the guests), and never, ever use the drink cooler as a place to stash the ice. Isabella has seen a host cry over ice exactly once, and once was enough.</p>
+    </details>
+    <details>
+      <summary>How many bottles of wine or champagne is that?</summary>
+      <p>A standard bottle pours <b>5 glasses of wine</b> or <b>8 flutes of bubbles</b>. So if wine is half your bar for 100 guests over five hours, that's roughly 360 wine servings ÷ 5 = 72 bottles — the Sip Station does that arithmetic for you and rounds <i>up</i>, because you can always return an unopened case but you can't summon one at 9 p.m. For a toast, count one flute per guest, so 100 guests is about 13 bottles at 8 flutes each (plus a couple spare).</p>
+    </details>
+    <details>
+      <summary>What's a signature drink, and why name it after the couple?</summary>
+      <p>A signature drink is one cocktail that belongs to <i>this</i> party — usually named after the hosts and colored to match the decor. It gives guests something to ask about, photographers something to shoot, and the bar a focal point that's cheaper than a full craft-cocktail menu. Name it something personal ("Something Blue Spritz", "The Fifty-Year Fizz"), tint it to the balloon palette, pick a garnish, and you've turned a folding table of bottles into a moment. It's the one drink people remember the name of.</p>
+    </details>
+    <details>
+      <summary>What about guests who don't drink — is a mocktail enough?</summary>
+      <p>Not "a mocktail" — <b>a real drink with a real name, in a real glass, on the same table</b>. The failure mode isn't that there's no option; it's that the option looks like an apology, served last, in a plastic cup nobody can identify. Give the zero-proof drink its own station, its own garnish, and its own name, and the sober guest, the pregnant guest, the designated driver and the kid all stop feeling like a footnote. Isabella puts the mocktail pitcher <i>next to</i> the cocktail pitcher, same glassware, same garnish bowl.</p>
+    </details>
+    <details>
+      <summary>Should I hire a bartender, or is self-serve fine?</summary>
+      <p>Self-serve is perfect up to about 50 guests and a two-hour window — batch the signature drink, set out wine and beer in tubs, keep the water and mocktail stations full, and you'll never touch a shaker. Past 75 guests, or any party with a cocktail program, a bartender isn't about the drinks: it's about <b>pacing</b>, portioning, restocking ice, and keeping an eye on the room. A single bartender handles about 50–75 guests well; two make a 150-guest bar feel effortless. The Sip Station sizes the <i>shopping list</i>; a pro sizes the pour.</p>
+    </details>
+    <details>
+      <summary>Can Isabella set up the bar, or is this just a calculator?</summary>
+      <p>Both. Run the numbers, print the bar card, and hand it to your caterer or your uncle — it's a complete shopping list with ice, glass and garnish counts. Or send the brief through the form and Isabella will style and stock the whole station: batched signature drink matching your balloon palette, a garnished mocktail, water and ice set behind a dressed, themed bar, so the photos look as good as the party feels. Most clients do the second one, and the caterer always says the same thing: <i>"this is the best-organized host I've worked with."</i></p>
+    </details>
+  </div>
+
+  <!-- lead card -->
+  <div class="lead-card" id="leadCard">
+    <div class="kicker">The Sip Station</div>
+    <h2>Want Isabella to build the bar?</h2>
+    <p class="hint">Tell her what you're throwing and she'll reply within 24 hours with a bar plan — stations, signature drink, ice and garnish — and hold your date while you think.</p>
+    <form id="leadForm">
+      <div class="fg-row">
+        <div class="fg"><label for="fName">Your name</label><input id="fName" required placeholder="Alex"></div>
+        <div class="fg"><label for="fEmail">Email</label><input id="fEmail" type="email" required placeholder="you@email.com"></div>
+      </div>
+      <div class="fg-row">
+        <div class="fg"><label for="fPhone">Phone</label><input id="fPhone" type="tel" placeholder="(203) 555-0100"></div>
+        <div class="fg"><label for="fEvent">Occasion</label>
+          <select id="fEvent">
+            <option value="Birthday 🎂">Birthday 🎂</option>
+            <option value="Wedding 💍">Wedding 💍</option>
+            <option value="Baby Shower 🍼">Baby Shower 🍼</option>
+            <option value="Anniversary 💞">Anniversary 💞</option>
+            <option value="Graduation 🎓">Graduation 🎓</option>
+            <option value="Corporate / Office 🏢">Corporate / Office 🏢</option>
+            <option value="Backyard / Just Because ✨">Backyard / Just Because ✨</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg-row">
+        <div class="fg"><label for="fDate">Event date</label><input id="fDate" type="date"></div>
+        <div class="fg"><label for="fBudget">Bar budget</label>
+          <select id="fBudget">
+            <option value="">Not sure yet</option>
+            <option value="Under $300">Under $300</option>
+            <option value="$300–$750">$300–$750</option>
+            <option value="$750–$1,500">$750–$1,500</option>
+            <option value="$1,500+">$1,500+</option>
+          </select>
+        </div>
+      </div>
+      <div class="fg"><label for="fMsg">Anything else? (guest count, hours, theme, what you're serving, anything…)</label><textarea id="fMsg" placeholder="About 120 guests, 5 hours, summer evening, want a signature drink to match our blue-and-gold decor…"></textarea></div>
+      <button class="btn btn-p" type="submit" style="width:100%;padding:14px;font-size:.95rem">🥂 Send Isabella the bar →</button>
+      <p class="fine">No spam, no list — just a reply from a real person within 24 hours. Your bar card is yours to keep either way.</p>
+    </form>
+  </div>
+</div>
+
+<!-- print-only bar card -->
+<div class="print-only" id="printWrap">
+  <div style="text-align:center;margin-bottom:14px">
+    <div style="font-family:'Playfair Display',serif;font-size:1.4rem;color:#3a1020" id="printTitle">🥂 The Sip Station — Bar Card</div>
+    <div style="font-size:.78rem;color:#7a6155" id="printMeta">Everlasting Memories · myeverlastingmemories.com</div>
+  </div>
+  <div class="barcard" id="barCardPrint"></div>
+</div>
+
+<footer>
+  <p class="strip">
+    <a href="sip-station.html" style="color:#f0c987;font-weight:600;">The Sip Station</a> ·
+    <a href="favor-bar.html" style="color:#bef264;font-weight:600">The Favor Bar</a> ·
+    <a href="boo-bash.html" style="color:#d8b4fe;font-weight:600">The Boo Bash</a> ·
+    <a href="raised-glass.html" style="color:#eed9a6;font-weight:600">The Raised Glass</a> ·
+    <a href="launch-pad.html" style="color:#c7d2fe;font-weight:600">The Launch Pad</a> ·
+    <a href="smash.html" style="color:#ffcfa8;font-weight:600">The Smash Hit</a> ·
+    <a href="nest.html" style="color:#cfe0c4;font-weight:600">The Nest</a> ·
+    <a href="powder-pop.html" style="color:#f9a8d4;font-weight:600">The Powder Pop</a> ·
+    <a href="big-yes.html" style="color:#f2c6d2;font-weight:600">The Big Yes</a> ·
+    <a href="party-er.html" style="color:#a7f3d0;font-weight:600">The Party ER</a> ·
+    <a href="rain-plan.html" style="color:#7dd3fc;font-weight:600">The Rain Plan</a> ·
+    <a href="seating-chart.html" style="color:#f9a8d4;font-weight:600">Seating Chart Studio</a> ·
+    <a href="after-glow.html" style="color:#f9a8d4;font-weight:600">The After-Glow</a> ·
+    <a href="surprise-planner.html" style="color:#a5b4fc;font-weight:600">Operation: Surprise</a> ·
+    <a href="dessert-table.html" style="color:#f0c9a0;font-weight:600">Dessert Table Stylist</a> ·
+    <a href="golden-hour.html" style="color:#c4b5fd;font-weight:600">Golden Hour Finder</a> ·
+    <a href="party-timeline.html" style="color:#cbd5e1;font-weight:600">Party Day Timeline</a> ·
+    <a href="wedding-workshop.html" style="color:#f9a8d4;font-weight:600">Wedding Workshop</a> ·
+    <a href="cost-estimator.html" style="color:#fcd34d;font-weight:600">Cost Estimator</a> ·
+    <a href="guest-list.html" style="color:#93c5fd;font-weight:600">The Guest List</a> ·
+    <a href="playlist.html" style="color:#fca5a5;font-weight:600">Party Playlist Studio</a> ·
+    <a href="name-garland.html" style="color:#f9a8d4;font-weight:600">Balloon Letter Studio</a> ·
+    <a href="invitation-studio.html" style="color:#a5b4fc;font-weight:600">Invitation Studio</a> ·
+    <a href="party-roadmap.html" style="color:#5eead4;font-weight:600">Party Roadmap</a> ·
+    <a href="memory-wall.html" style="color:#fcd34d;font-weight:600">Memory Wall</a> ·
+    <a href="photo-booth.html" style="color:#7dd3fc;font-weight:600">Golden Hour Booth</a> ·
+    <a href="photo-hunt.html" style="color:#f0abfc;font-weight:600">Party Photo Hunt</a> ·
+    <a href="memory-capsule.html" style="color:#fca5a5;font-weight:600">Memory Capsule</a> ·
+    <a href="balloon-pop.html" style="color:#fdba74;font-weight:600">Pop Party</a> ·
+    <a href="transformations.html" style="color:#c4b5fd;font-weight:600">The Big Reveal</a> ·
+    <a href="budget-builder.html" style="color:#86efac;font-weight:600">Budget Balloonist</a> ·
+    <a href="referral.html" style="color:#fde68a;font-weight:600">Refer &amp; Earn</a> ·
+    <a href="gift-card.html" style="color:#f9a8d4;font-weight:600">Gift Card Studio</a> ·
+    <a href="reserve-date.html" style="color:#93c5fd;font-weight:600">Reserve Your Date</a> ·
+    <a href="diy-vs-pro.html" style="color:#fdba74;font-weight:600">DIY or Dazzle</a> ·
+    <a href="palette-snap.html" style="color:#f0abfc;font-weight:600">Palette Snap</a> ·
+    <a href="balloon-math.html" style="color:#86efac;font-weight:600">Balloon Math</a> ·
+    <a href="party-style-quiz.html" style="color:#f9a8d4;font-weight:600">Party Style Quiz</a> ·
+    <a href="countdown.html" style="color:#93c5fd;font-weight:600">Big Day Countdown</a> ·
+    <a href="lookbook.html" style="color:#c4b5fd;font-weight:600">Lookbook</a> ·
+    <a href="theme-generator.html" style="color:#fde68a;font-weight:600">Theme Generator</a> ·
+    <a href="faq.html" style="color:#f2c6d2;font-weight:600">FAQ</a>
+  </p>
+  <p class="foot-brand">Everlasting <span>Memories</span> — balloons &amp; moments that last</p>
+  <p class="copy">Isabella's bar page: two drinks the first hour, one every hour after, 20% buffer, 1 lb of ice per guest — and a zero-proof drink with a real name. 🥂</p>
+</footer>
+
+<div class="toast" id="toast"></div>
+<script>
+(function(){
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function money(n){n=Math.round(n*100)/100;return '$'+(n%1===0?n:n.toFixed(2));}
+
+var OCCASIONS={
+  birthday:{id:'birthday',emoji:'🎂',name:'Birthday',hours:4,base:'vodka',pal:'pop',gar:'cherry',sip:'Birthday Confetti Fizz',
+    pick:['cocktail','beer','punch','water'],
+    desc:'A birthday bar is loud and forgiving: one festive cocktail, a cold-beer tub, a punch bowl for the crowd, and water nobody has to ask for.'},
+  wedding:{id:'wedding',emoji:'💍',name:'Wedding',hours:5,base:'gin',pal:'muse',gar:'citrus',sip:'Something Blue Spritz',
+    pick:['cocktail','wine','bubbles','water'],
+    desc:'The wedding bar runs longest, so it gets a signature, a wine pour, bubbles for the toast, and — always — a water station within reach of the last bottle.'},
+  shower:{id:'shower',emoji:'🍼',name:'Baby Shower',hours:3,base:'zero',pal:'bloom',gar:'flower',sip:'Rosy Cheeks Punch',
+    pick:['mocktail','punch','lemonade','water'],
+    desc:'A shower is a daytime, all-ages bar: a pretty zero-proof signature, a punch bowl, lemonade, and plenty of water. Light, bright, done by four.'},
+  anniversary:{id:'anniversary',emoji:'💞',name:'Anniversary',hours:4,base:'whiskey',pal:'glam',gar:'cherry',sip:'The Fifty-Year Fizz',
+    pick:['cocktail','wine','bubbles','water'],
+    desc:'An anniversary bar echoes a toast: a stirred signature, a good wine, bubbles for the moment, and a mocktail so every generation at the table has a drink in hand.'},
+  graduation:{id:'graduation',emoji:'🎓',name:'Graduation',hours:4,base:'tequila',pal:'wonder',gar:'mint',sip:'Cap & Gown Cooler',
+    pick:['beer','punch','lemonade','water'],
+    desc:'Graduation parties are young, hot and fast: a beer tub, a big punch, lemonade for the crowd, and water by the case.'},
+  corporate:{id:'corporate',emoji:'🏢',name:'Corporate / Office',hours:3,base:'zero',pal:'muse',gar:'citrus',sip:'Nine-to-Five Spritz',
+    pick:['mocktail','coffee','water','lemonade'],
+    desc:'An office bar is a daytime bar: a sharp zero-proof signature, a coffee urn, sparkling water, and lemonade — so the room stays sharp and everyone can drive home.'},
+  just:{id:'just',emoji:'✨',name:'Backyard / Just Because',hours:4,base:'rum',pal:'boho',gar:'mint',sip:'Backyard Sunset Sipper',
+    pick:['beer','punch','water','lemonade'],
+    desc:'No occasion required — a backyard gathering still needs a bar. A beer tub, a rum punch, lemonade, and a cooler of water on the far side of the yard.'}
+};
+
+var STATIONS={
+  cocktail:{id:'cocktail',emoji:'🍸',name:'Signature Cocktail',per:10,price:34,weight:3,noun:'batch',unitLabel:'batch (10 drinks)',group:'cocktail',
+    note:'The named drink, batched and colored to match the decor. The station guests photograph.'},
+  mocktail:{id:'mocktail',emoji:'🍹',name:'Signature Mocktail',per:8,price:14,weight:2,noun:'batch',unitLabel:'batch (8 drinks)',group:'mocktail',
+    note:'Same glass, same garnish, same name treatment — a real drink for the zero-proof guest.'},
+  wine:{id:'wine',emoji:'🍷',name:'Wine Pour',per:5,price:18,weight:3,noun:'bottle',unitLabel:'bottle (~5 glasses)',group:'wine',
+    note:'Red and white, out of the bottle. Five glasses a bottle is the number to remember.'},
+  beer:{id:'beer',emoji:'🍺',name:'Beer & Hard Seltzer',per:24,price:46,weight:2,noun:'case',unitLabel:'case (24)',group:'beer',
+    note:'Tubs of ice, cans and bottles. Cheapest per drink and always the first to disappear.'},
+  bubbles:{id:'bubbles',emoji:'🥂',name:'Toast Bubbles',per:8,price:30,weight:1,noun:'bottle',unitLabel:'bottle (~8 flutes)',group:'bubbles',
+    note:'One flute per guest for the toast — about eight pours to a bottle. The sound of the moment.'},
+  punch:{id:'punch',emoji:'🥣',name:'Party Punch Bowl',per:16,price:24,weight:2,noun:'bowl',unitLabel:'bowl (16 cups)',group:'punch',
+    note:'A big self-serve bowl. Fast, forgiving, and the reason nobody waits in line.'},
+  water:{id:'water',emoji:'💧',name:'Water & Sparkling',per:24,price:12,weight:2,noun:'case',unitLabel:'case (24 bottles)',group:'water',
+    note:'Still and sparkling, by the case. Never optional. Runs out first, every time.'},
+  lemonade:{id:'lemonade',emoji:'🍋',name:'Lemonade / Iced Tea',per:10,price:9,weight:2,noun:'gallon',unitLabel:'gallon (10 cups)',group:'soft',
+    note:'A daytime soft station for the crowd, the kids and the drivers.'},
+  coffee:{id:'coffee',emoji:'☕',name:'Coffee & Cocoa Urn',per:12,price:12,weight:1,noun:'urn',unitLabel:'urn (12 cups)',group:'hot',
+    note:'The end-of-night drink — and the one that keeps the last hour people awake for the playlist.'},
+  cider:{id:'cider',emoji:'🍎',name:'Cider Station',per:8,price:16,weight:1,noun:'gallon',unitLabel:'gallon (8 cups)',group:'cider',
+    note:'Warm spiced cider for the fall and winter parties. Non-optional in October.'}
+};
+
+var PALETTES=[
+  {id:'bloom',name:'Romantic Bloom',hex:'#e0557e',ink:'#ffffff'},
+  {id:'glam',name:'Glam Gold',hex:'#d4a12f',ink:'#2b1a12'},
+  {id:'pop',name:'Party Pop',hex:'#ec4899',ink:'#ffffff'},
+  {id:'muse',name:'Modern Muse',hex:'#2f5d8a',ink:'#ffffff'},
+  {id:'boho',name:'Boho Earth',hex:'#b5703a',ink:'#ffffff'},
+  {id:'wonder',name:'Winter Wonder',hex:'#7fbcd9',ink:'#1b2b3a'}
+];
+var GARNISHES=[
+  {id:'citrus',emoji:'🍋',name:'Citrus twist'},
+  {id:'mint',emoji:'🌿',name:'Mint sprig'},
+  {id:'cherry',emoji:'🍒',name:'Brandied cherry'},
+  {id:'flower',emoji:'🌸',name:'Edible flower'},
+  {id:'sugar',emoji:'✨',name:'Sugar rim'},
+  {id:'olive',emoji:'🫒',name:'Olive'}
+];
+var BASES=[
+  {id:'vodka',name:'Vodka'},{id:'gin',name:'Gin'},{id:'tequila',name:'Tequila'},
+  {id:'rum',name:'Rum'},{id:'whiskey',name:'Whiskey'},{id:'zero',name:'Zero-Proof'}
+];
+var HOURS=[2,3,4,5,6];
+
+function palById(id){for(var i=0;i<PALETTES.length;i++){if(PALETTES[i].id===id)return PALETTES[i];}return PALETTES[0];}
+function garById(id){for(var i=0;i<GARNISHES.length;i++){if(GARNISHES[i].id===id)return GARNISHES[i];}return GARNISHES[0];}
+function baseById(id){for(var i=0;i<BASES.length;i++){if(BASES[i].id===id)return BASES[i];}return BASES[0];}
+function palName(id){return palById(id).name;}
+function baseName(id){return baseById(id).name;}
+function garName(id){return garById(id).name;}
+
+var state={occ:'wedding',guests:100,hours:5,hot:false,stations:{},name:'',base:'gin',pal:'muse',gar:'citrus',mocktailPct:10};
+
+/* ---------- engine ---------- */
+function drinksPerGuest(h){h=Math.max(1,Math.min(8,Math.round(h)||1));return 2+(h-1);}
+function totalServings(g,h){return g*drinksPerGuest(h);}
+function stockServings(g,h){return Math.ceil(totalServings(g,h)*1.20);}
+function mocktailGuests(g,pct){return Math.round(g*(Math.max(0,Math.min(100,pct||0))/100));}
+function iceLbs(g,hot){return Math.ceil(g*(hot?1.5:1));}
+function glasses(g){return Math.ceil((g*11)/10);}
+function selectedIds(s){s=s||state;return Object.keys(STATIONS).filter(function(id){return !!s.stations[id];});}
+function weightSum(ids){return ids.reduce(function(a,id){return a+STATIONS[id].weight;},0);}
+function servingsFor(id,g,h,ids){var sum=weightSum(ids)||1;return Math.round(stockServings(g,h)*STATIONS[id].weight/sum);}
+function unitsFor(id,g,h,ids){return Math.ceil(servingsFor(id,g,h,ids)/STATIONS[id].per);}
+function stationCost(id,g,h,ids){return unitsFor(id,g,h,ids)*STATIONS[id].price;}
+function barCost(g,h,ids){return ids.reduce(function(a,id){return a+stationCost(id,g,h,ids);},0);}
+function perGuest(g,h,ids){return g>0?barCost(g,h,ids)/g:0;}
+function totalUnits(g,h,ids){return ids.reduce(function(a,id){return a+unitsFor(id,g,h,ids);},0);}
+function verdictOf(per){
+  if(per<=0)return{key:'none',verdict:'Open a station and Isabella will price the whole bar.'};
+  if(per<4)return{key:'lean',verdict:'Lean and easy — a beer tub and a punch bowl for a crowd that mostly came for the people. Backyard parties live here.'};
+  if(per<=8)return{key:'sweet',verdict:'Right in the sweet spot — a signature, a wine pour and a stocked water station, at a per-guest number nobody winces at.'};
+  if(per<=14)return{key:'rich',verdict:'A generous bar — full signature program, wine and bubbles. Weddings and milestone birthdays live here, and it shows in the photos.'};
+  return{key:'lux',verdict:'Luxury tier — a batched cocktail program plus wine and bubbles for a big room. Beautiful, and worth it only if the bar is part of the memory.'};
+}
+function signatureName(s){s=s||state;var n=(s.name||'').trim();return n||(OCCASIONS[s.occ]?OCCASIONS[s.occ].sip:'The Signature Sip');}
+function buildProgram(s){
+  s=s||state;var ids=selectedIds(s);var g=s.guests,h=s.hours;
+  return ids.map(function(id){var st=STATIONS[id];return{id:id,emoji:st.emoji,name:st.name,noun:st.noun,unitLabel:st.unitLabel,
+    servings:servingsFor(id,g,h,ids),units:unitsFor(id,g,h,ids),cost:stationCost(id,g,h,ids)};});
+}
+function glassSVG(pal,gar){
+  var h=pal.hex,g=gar.emoji;
+  return '<svg viewBox="0 0 130 150" width="132" height="152" role="img" aria-label="Signature drink preview">'+
+    '<defs><linearGradient id="gs'+pal.id+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+h+'" stop-opacity="0.72"/><stop offset="1" stop-color="'+h+'"/></linearGradient></defs>'+
+    '<path d="M18 22 L112 22 L65 84 Z" fill="url(#gs'+pal.id+')" stroke="#e2cfbb" stroke-width="2.5" stroke-linejoin="round"/>'+
+    '<rect x="62" y="84" width="6" height="44" fill="#e2cfbb"/>'+
+    '<ellipse cx="65" cy="130" rx="30" ry="7" fill="#e2cfbb"/>'+
+    '<path d="M18 22 Q65 10 112 22" fill="none" stroke="#f3e7d9" stroke-width="2.5"/>'+
+    '<text x="82" y="18" font-size="26" text-anchor="middle">'+g+'</text>'+
+    '</svg>';
+}
+function summaryText(s){
+  s=s||state;var ids=selectedIds(s);var occ=OCCASIONS[s.occ];var g=s.guests,h=s.hours;
+  var lines=['🥂 THE SIP STATION — '+occ.name.toUpperCase()+' ('+g+' guests · '+h+' hrs)'];
+  lines.push('• Signature: “'+signatureName(s)+'” ('+baseName(s.base)+' · '+palName(s.pal)+' · '+garName(s.gar)+')');
+  if(ids.length){ids.forEach(function(id){var st=STATIONS[id];lines.push('• '+st.emoji+' '+st.name+' × '+unitsFor(id,g,h,ids)+' '+st.noun);});}
+  else{lines.push('• (no stations open yet)');}
+  lines.push('• '+stockServings(g,h)+' drinks stocked · '+money(barCost(g,h,ids))+' total · '+money(perGuest(g,h,ids))+'/guest');
+  lines.push('• Ice ~'+iceLbs(g,s.hot)+' lb · Glasses ~'+glasses(g)+' · Zero-proof ~'+mocktailGuests(g,s.mocktailPct));
+  lines.push('');lines.push('Build it: myeverlastingmemories.com/sip-station.html');
+  return lines.join('\n');
+}
+function leadPayload(s){
+  s=s||state;var ids=selectedIds(s);var occ=OCCASIONS[s.occ];
+  return{source:'sip-station',eventType:occ.emoji+' '+occ.name,eventDate:'',
+    message:'Occasion: '+occ.name+' · Guests: '+s.guests+' · Hours: '+s.hours+' · Stations: '+(ids.map(function(id){return STATIONS[id].name;}).join(', ')||'none')+
+      ' · Signature: “'+signatureName(s)+'” ('+baseName(s.base)+'/'+palName(s.pal)+'/'+garName(s.gar)+')'+
+      ' · Stocked: '+stockServings(s.guests,s.hours)+' drinks · Est. '+money(barCost(s.guests,s.hours,ids))+' ('+money(perGuest(s.guests,s.hours,ids))+'/guest)'+
+      ' · Ice: '+iceLbs(s.guests,s.hot)+' lb · Glasses: '+glasses(s.guests)+' · Zero-proof: '+mocktailGuests(s.guests,s.mocktailPct)};
+}
+function sampleState(){return{occ:'wedding',guests:100,hours:5,hot:false,stations:{cocktail:true,wine:true,bubbles:true,water:true},name:'Something Blue Spritz',base:'gin',pal:'muse',gar:'citrus',mocktailPct:10};}
+
+/* ---------- render ---------- */
+function render(){
+  var ids=selectedIds(state);var occ=OCCASIONS[state.occ];
+  var g=state.guests,h=state.hours;
+  var stock=stockServings(g,h);var cost=barCost(g,h,ids);var per=ids.length?cost/g:0;
+  var v=verdictOf(ids.length?per:0);
+  var prog=buildProgram(state);var pal=palById(state.pal);
+
+  /* occasion chips */
+  $('occChips').innerHTML=Object.keys(OCCASIONS).map(function(k){var o=OCCASIONS[k];
+    return '<button type="button" class="chip'+(k===state.occ?' on':'')+'" data-occ="'+k+'">'+o.emoji+' '+esc(o.name)+'</button>';}).join('');
+  $('occNote').innerHTML='<b>'+occ.emoji+' '+esc(occ.name)+'</b> — '+esc(occ.desc);
+
+  /* guests + clock */
+  $('guestRead').textContent=g;$('guestNum').textContent=g;
+  $('hourChips').innerHTML=HOURS.map(function(x){return '<button type="button" class="chip'+(x===state.hours?' on':'')+'" data-hour="'+x+'">'+x+' hour'+(x>1?'s':'')+'</button>';}).join('');
+  $('weatherChips').innerHTML=[{id:false,l:'Cool evening'},{id:true,l:'Hot day'}].map(function(w){
+    return '<button type="button" class="chip'+(w.id===state.hot?' on':'')+'" data-hot="'+(w.id?'1':'0')+'">'+(w.id?'🌞 ':'🌙 ')+w.l+'</button>';}).join('');
+  $('clockNote').innerHTML='Isabella’s bar curve: <b>'+g+' guests</b> × <b>'+drinksPerGuest(h)+' drinks each</b> ('+h+' hours) = <b>'+totalServings(g,h)+' drinks</b>, and with the 20% buffer you stock <b>'+stock+'</b>. Ice this crowd needs: <b>~'+iceLbs(g,state.hot)+' lb</b>.';
+
+  /* stations */
+  $('stGrid').innerHTML=Object.keys(STATIONS).map(function(id){var st=STATIONS[id];var on=!!state.stations[id];
+    return '<button type="button" class="stp'+(on?' on':'')+'" data-st="'+id+'" aria-pressed="'+on+'">'+
+      '<div class="sp-top"><span class="sp-emoji">'+st.emoji+'</span><span class="sp-name">'+esc(st.name)+'</span><span class="sp-price">'+money(st.price)+'</span></div>'+
+      '<div class="sp-note">'+esc(st.note)+'</div>'+
+      '<div class="sp-unit" style="margin-top:5px">per '+esc(st.unitLabel)+'</div></button>';}).join('');
+  var hasZero=!!(state.stations.mocktail||state.stations.water||state.stations.lemonade||state.stations.coffee);
+  var hasAlcohol=!!(state.stations.cocktail||state.stations.wine||state.stations.beer||state.stations.bubbles||state.stations.punch||state.stations.cider);
+  $('mixNote').innerHTML=ids.length?('<b>'+ids.length+' station'+(ids.length>1?'s':'')+' open</b> — '+
+      (hasAlcohol?'the pour is on':'no alcohol on the bar yet')+', '+(hasZero?'the zero-proof side is covered':'and no zero-proof station — add one so every guest has a drink.')+
+      (state.stations.water?'':' Isabella never opens a bar without water.'))
+    :'No stations open yet — tap a few. Start with a signature, a crowd drink, and water.';
+
+  /* signature builder */
+  if($('inName').value!==state.name)$('inName').value=state.name;
+  $('baseChips').innerHTML=BASES.map(function(b){return '<button type="button" class="chip'+(b.id===state.base?' on':'')+'" data-base="'+b.id+'">'+esc(b.name)+'</button>';}).join('');
+  $('palChips').innerHTML=PALETTES.map(function(p){return '<button type="button" class="chip'+(p.id===state.pal?' on':'')+'" data-pal="'+p.id+'"><span style="display:inline-block;width:11px;height:11px;border-radius:50%;background:'+p.hex+';margin-right:5px;vertical-align:middle"></span>'+esc(p.name)+'</button>';}).join('');
+  $('garChips').innerHTML=GARNISHES.map(function(x){return '<button type="button" class="chip'+(x.id===state.gar?' on':'')+'" data-gar="'+x.id+'">'+x.emoji+' '+esc(x.name)+'</button>';}).join('');
+
+  /* zero-proof slider */
+  $('mockRead').textContent=state.mocktailPct+'%';$('mockNum').textContent=state.mocktailPct+'%';
+  var mtg=mocktailGuests(g,state.mocktailPct);
+  $('mockNote').innerHTML='<b>'+mtg+' guest'+(mtg===1?'':'s')+'</b> won’t be drinking — that’s a real drink order, not an afterthought. Same glassware, same garnish bowl, same table: '+(state.stations.mocktail?'mocktail station is open.':'turn on the <b>Signature Mocktail</b> so they’re not holding tap water.');
+
+  /* output card */
+  $('ocOccasion').textContent=occ.emoji+' '+occ.name+' · '+h+' hours';
+  $('ocSub').textContent=g+' guests · '+ids.length+' station'+(ids.length===1?'':'s')+' open · '+stock+' drinks stocked';
+  $('progList').innerHTML=prog.length?prog.map(function(r){
+    return '<div class="prog-row"><span class="pr-emoji">'+r.emoji+'</span><span class="pr-name">'+esc(r.name)+'</span>'+
+      '<span class="pr-qty">'+r.units+' '+esc(r.noun)+'</span><span class="pr-cost">'+money(r.cost)+'</span></div>';}).join('')
+    :'<div class="prog-empty">The bar’s empty — tap stations in step 3 and they’ll appear here with real quantities.</div>';
+  $('sigName').textContent=signatureName(state);
+  $('sigRec').textContent=baseName(state.base)+' · '+palName(state.pal)+' · '+garName(state.gar);
+  $('mServ').textContent=ids.length?stock:0;
+  $('mUnits').textContent=ids.length?totalUnits(g,h,ids):0;
+  $('mPer').textContent=money(per);
+  $('mTotal').textContent=money(cost);
+
+  /* math card */
+  $('mathTitle').textContent=occ.emoji+' What the '+occ.name+' Bar Needs';
+  $('mathHint').innerHTML='Isabella’s rule: <b>'+drinksPerGuest(h)+' drinks per guest</b> over <b>'+h+' hours</b> ('+totalServings(g,h)+' drinks), plus a 20% buffer = <b>'+stock+'</b>, split across your '+ids.length+' station'+(ids.length===1?'':'s')+' by size.';
+  if(prog.length){
+    $('mathList').innerHTML=prog.map(function(r){var st=STATIONS[r.id];
+      return '<div class="price-item"><span class="pi-name">'+r.emoji+' '+esc(r.name)+'</span><span class="pi-qty">'+r.units+' '+esc(r.noun)+' ('+r.servings+' drinks)</span><span class="pi-price">'+money(r.cost)+'</span><span class="pi-note">'+money(st.price)+' per '+esc(st.unitLabel)+' · '+esc(st.note)+'</span></div>';}).join('')+
+      '<div class="price-item" style="border-top:1.5px solid var(--line);margin-top:6px"><span class="pi-name">The whole bar</span><span class="pi-qty">'+stock+' drinks · '+totalUnits(g,h,ids)+' units</span><span class="pi-price">'+money(cost)+'</span><span class="pi-note">'+money(per)+' per guest · plus ~'+iceLbs(g,state.hot)+' lb ice and ~'+glasses(g)+' glasses.</span></div>';
+  }else{
+    $('mathList').innerHTML='<div class="price-item"><span class="pi-name">No stations open yet</span><span class="pi-note">Open a station in step 3 and the math appears here.</span></div>';
+  }
+  $('mathVerdict').innerHTML='<b>'+v.key.toUpperCase()+' — </b>'+esc(v.verdict);
+
+  /* zero-proof card */
+  $('zeroStrip').innerHTML=
+    '<span class="value-pill">'+pal.hex+'</span>'+
+    '<span class="value-pill">🍹 Mocktail station <b>'+(state.stations.mocktail?'open':'closed')+'</b></span>'+
+    '<span class="value-pill">💧 Water <b>'+(state.stations.water?'open':'closed')+'</b></span>'+
+    '<span class="value-pill">🚗 Zero-proof guests <b>'+mtg+'</b></span>';
+  $('zeroVerdict').innerHTML=mocktailVerdict(state,mtg);
+
+  /* bar card (screen + print) */
+  var bc=buildBarCard(state,prog,stock,cost,per,pal);
+  $('barCard').innerHTML=bc;$('barCardPrint').innerHTML=bc;
+  $('printTitle').textContent='🥂 The Sip Station — '+occ.name+' Bar Card';
+  $('printMeta').textContent='Everlasting Memories · '+g+' guests · '+h+' hours · myeverlastingmemories.com';
+}
+function mocktailVerdict(s,mtg){
+  var hasMock=!!s.stations.mocktail,hasWater=!!s.stations.water;
+  if(mtg===0&&hasMock&&hasWater)return '<b>Full bar, fully covered.</b> Even with no zero-proof guests today, Isabella keeps the mocktail and water stations open — you never know who’s driving, expecting, or simply done.';
+  if(!hasMock)return '<b>Add the mocktail station.</b> '+mtg+' zero-proof guest'+(mtg===1?'':'s')+' with only water to hold is the fastest way to make someone feel like a footnote. Same glass, same garnish, own name.';
+  if(!hasWater)return '<b>Add water.</b> Isabella’s unbreakable bar rule: water sits within ten feet of the last bottle. It runs out first and it’s the one thing nobody wants to ask for.';
+  return '<b>A real drink for everyone.</b> '+mtg+' zero-proof guest'+(mtg===1?'':'s')+' will find a named mocktail in a proper glass, not a sad cup of ice water — and that’s the difference between a guest and a spectator.';
+}
+function buildBarCard(s,prog,stock,cost,per,pal){
+  var g=s.guests,h=s.hours,hot=s.hot;
+  var list=prog.length?prog.map(function(r){var st=STATIONS[r.id];return '<li><b>'+r.units+'</b> × '+esc(r.name)+' — '+esc(st.unitLabel)+' <span style="color:#7a6155">('+r.servings+' drinks)</span></li>';}).join(''):'<li>No stations open — add some in step 3.</li>';
+  return '<h3>🥂 Signature drink</h3><ul>'+
+    '<li><b>'+esc(signatureName(s))+'</b> — '+esc(baseName(s.base))+' · '+esc(palName(s.pal))+' · '+esc(garName(s.gar))+'</li>'+
+    '<li>Batch it: the cocktail station makes '+STATIONS.cocktail.per+' drinks per batch; stir ahead and keep it cold.</li>'+
+    '<li>Color on the card: <b>'+pal.hex+'</b> — matches the '+esc(palName(s.pal))+' palette.</li></ul>'+
+    '<h3>🛒 Shopping list</h3><ul>'+list+'</ul>'+
+    '<h3>🧊 Ice &amp; glassware</h3><ul>'+
+    '<li><b>~'+iceLbs(g,hot)+' lb</b> of ice'+(hot?' (hot day: 1.5 lb per guest)':' (cool day: 1 lb per guest)')+'</li>'+
+    '<li><b>~'+glasses(g)+' glasses</b> rented or borrowed ('+g+' guests + 10%)</li>'+
+    '<li>Water station within <b>10 feet</b> of the last bottle</li></ul>'+
+    '<h3>📋 Isabella’s bar rules</h3><ul>'+
+    '<li>Food on the table <b>before</b> the first pour.</li>'+
+    '<li>One signature, one crowd drink, one zero-proof — three is a full bar.</li>'+
+    '<li>A real, sober ride plan for every single guest.</li>'+
+    '<li>Total: <b>'+money(cost)+'</b> · '+money(per)+' per guest · '+stock+' drinks stocked.</li></ul>';
+}
+function toast(msg){var t=$('toast');t.textContent=msg;t.classList.add('show');clearTimeout(t._h);t._h=setTimeout(function(){t.classList.remove('show');},2600);}
+function applyOcc(k){
+  var o=OCCASIONS[k];state.occ=k;state.stations={};o.pick.forEach(function(id){state.stations[id]=true;});
+  state.name=o.sip;state.hours=o.hours;state.base=o.base;state.pal=o.pal;state.gar=o.gar;
+}
+
+if(typeof document!=='undefined'){
+$('btnRebuild').addEventListener('click',function(){
+  var keys=Object.keys(OCCASIONS);var k=keys[Math.floor(Math.random()*keys.length)];applyOcc(k);
+  var extras=Object.keys(STATIONS);var extra=extras[Math.floor(Math.random()*extras.length)];if(state.stations[extra]===undefined)state.stations[extra]=true;
+  state.pal=PALETTES[Math.floor(Math.random()*PALETTES.length)].id;
+  state.base=BASES[Math.floor(Math.random()*BASES.length)].id;
+  state.hot=Math.random()<0.5;
+  state.guests=20+Math.floor(Math.random()*41)*5;
+  state.hours=HOURS[Math.floor(Math.random()*HOURS.length)];
+  $('inGuests').value=state.guests;
+  render();toast('🎲 Fresh bar for '+OCCASIONS[k].name+' — '+state.guests+' guests, '+state.hours+' hours.');
+});
+$('btnCopy').addEventListener('click',function(){
+  var t=summaryText();
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){toast('📋 Bar plan copied!');});}
+  else{var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);toast('📋 Bar plan copied!');}
+});
+$('btnWa').addEventListener('click',function(){window.open('https://wa.me/?text='+encodeURIComponent(summaryText()),'_blank');});
+$('btnPrint').addEventListener('click',function(){window.print();});
+
+$('occChips').addEventListener('click',function(e){var b=e.target.closest('button');if(!b||!b.dataset.occ)return;applyOcc(b.dataset.occ);render();});
+$('stGrid').addEventListener('click',function(e){var b=e.target.closest('button');if(!b||!b.dataset.st)return;
+  var id=b.dataset.st;if(state.stations[id])delete state.stations[id];else state.stations[id]=true;render();});
+$('hourChips').addEventListener('click',function(e){var b=e.target.closest('button');if(!b||!b.dataset.hour)return;state.hours=parseInt(b.dataset.hour,10);render();});
+$('weatherChips').addEventListener('click',function(e){var b=e.target.closest('button');if(!b||b.dataset.hot===undefined)return;state.hot=b.dataset.hot==='1';render();});
+$('baseChips').addEventListener('click',function(e){var b=e.target.closest('button');if(!b||!b.dataset.base)return;state.base=b.dataset.base;render();});
+$('palChips').addEventListener('click',function(e){var b=e.target.closest('button');if(!b||!b.dataset.pal)return;state.pal=b.dataset.pal;render();});
+$('garChips').addEventListener('click',function(e){var b=e.target.closest('button');if(!b||!b.dataset.gar)return;state.gar=b.dataset.gar;render();});
+$('inGuests').addEventListener('input',function(){state.guests=parseInt(this.value,10)||100;render();});
+$('inMock').addEventListener('input',function(){state.mocktailPct=parseInt(this.value,10)||0;render();});
+$('inName').addEventListener('input',function(){state.name=this.value;render();});
+
+/* glass preview lives in the signature card via a small mount */
+var mount=document.createElement('div');mount.className='glass-wrap';
+mount.innerHTML='<div class="glass-stage" id="glassStage"></div><div class="glass-cap">This is your signature pour — <b id="gcName">—</b><br>Colored to the <b id="gcPal">—</b> palette; garnish: <b id="gcGar">—</b>.</div>';
+var sigCard=$('inName').closest('.card');sigCard.appendChild(mount);
+var _render=render;
+render=function(){_render();$('glassStage').innerHTML=glassSVG(palById(state.pal),garById(state.gar));
+  $('gcName').textContent=signatureName(state);$('gcPal').textContent=palName(state.pal);$('gcGar').textContent=garName(state.gar);};
+
+/* nav dropdown */
+$('ddBtn').addEventListener('click',function(e){e.stopPropagation();$('ddMenu').classList.toggle('open');});
+document.addEventListener('click',function(){$('ddMenu').classList.remove('open');});
+
+/* secret #25 */
+var taps=0;
+$('secretBadge').addEventListener('click',function(){
+  taps++;if(taps<5)return;taps=0;
+  var html='<div class="prog-row" style="display:block"><div class="pr-name" style="font-size:.9rem">🤫 Isabella’s bar notebook — Secret #25</div>'+
+    '<div style="font-size:.8rem;color:#f7e6ee;margin-top:6px;line-height:1.6">Four bar rules she’s never broken. One: <b>the ice rule</b> — 1 lb per guest, 1.5 if it’s hot, and the ice cooler is never the drink cooler, because the night she ran out of ice at a July wedding is the night she bought a second cooler and never looked back. Two: <b>the 4-hour rule</b> — two drinks the first hour, one every hour after, 20% buffer; the bar is a curve, not a count, and the last hour is always the thirstiest. Three: <b>one signature, one crowd, one zero-proof</b> — three good stations beat eight half-stocked ones, and the mocktail gets the same glass and the same garnish as the cocktail so nobody has to explain anything. Four: <b>water within ten feet of the last bottle</b>, and food before the first pour. And her favorite thing a guest ever said at the bar: <i>“I don’t drink, and this is the first party where nobody noticed.”</i> 🥂</div></div>';
+  var sh=$('progList');sh.innerHTML=html+sh.innerHTML;
+  toast('🕵️ Secret #25 unlocked');
+});
+
+/* lead form */
+$('leadForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var btn=this.querySelector('button[type=submit]');btn.disabled=true;btn.textContent='Sending…';
+  var payload=leadPayload(state);
+  payload.name=$('fName').value.trim();payload.email=$('fEmail').value.trim();payload.phone=$('fPhone').value.trim();
+  payload.eventDate=$('fDate').value||'';payload.budget=$('fBudget').value||'';
+  payload.message=($('fMsg').value.trim()?$('fMsg').value.trim()+' — ':'')+payload.message;
+  fetch('/api/leads.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+    .then(function(r){return r.json();})
+    .then(function(){toast('🥂 Sent! Isabella replies within 24h.');btn.disabled=false;btn.textContent='🥂 Send Isabella the bar →';$('leadForm').reset();})
+    .catch(function(){toast('⚠️ Couldn’t send — email hello@myeverlastingmemories.com');btn.disabled=false;btn.textContent='🥂 Send Isabella the bar →';});
+});
+
+applyOcc(state.occ);render();
+} /* end DOM guard */
+if(typeof module!=='undefined'&&module.exports){
+  module.exports={OCCASIONS:OCCASIONS,STATIONS:STATIONS,PALETTES:PALETTES,GARNISHES:GARNISHES,BASES:BASES,HOURS:HOURS,state:state,
+    drinksPerGuest:drinksPerGuest,totalServings:totalServings,stockServings:stockServings,mocktailGuests:mocktailGuests,
+    iceLbs:iceLbs,glasses:glasses,selectedIds:selectedIds,weightSum:weightSum,servingsFor:servingsFor,unitsFor:unitsFor,
+    stationCost:stationCost,barCost:barCost,perGuest:perGuest,totalUnits:totalUnits,verdictOf:verdictOf,
+    signatureName:signatureName,buildProgram:buildProgram,glassSVG:glassSVG,summaryText:summaryText,leadPayload:leadPayload,
+    sampleState:sampleState,palById:palById,palName:palName,baseName:baseName,garName:garName,applyOcc:applyOcc,render:render,
+    money:money,esc:esc};
+}
+})();
+</script>
+</body>
+</html>
