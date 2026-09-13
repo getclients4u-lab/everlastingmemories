@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Glow Up — Party Lighting &amp; Ambiance Designer | Everlasting Memories</title>
+<meta name="description" content="Design the light for your party: uplights, festoon strings, glow balloons and neon — with real fixture counts, wattage, circuits and a printable lighting plan.">
+<meta name="theme-color" content="#140b26">
+<meta property="og:title" content="The Glow Up — Party Lighting &amp; Ambiance Designer | Everlasting Memories">
+<meta property="og:description" content="The site's first lighting studio. Every other tool dressed the table, the wall or the ceiling — this one turns the lights on: uplights, festoon strings, glow balloons and neon, engineered with fixture counts, a wattage-and-circuits check, an ambiance meter and a live night-room render.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--c1:#c026d3;--c2:#06b6d4;--c3:#140b26;--c3b:#2a1740;--bg:#faf7ff;--line:#ece2f7;--ink:#1c1030;--soft:#6b6288;--good:#1a7f4e;--bad:#b3261e}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.serif{font-family:'Playfair Display',Georgia,serif}
+a{color:var(--c1);text-decoration:none}
+a:hover{opacity:.85}
+/* nav */
+.em-nav{display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:14px 22px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.em-nav-brand{font-family:'Playfair Display',serif;font-weight:700;font-size:1.15rem;color:var(--ink);margin-right:auto}
+.em-nav-brand span{color:var(--c1)}
+.em-nav a.nav-link{font-size:.85rem;font-weight:600;color:var(--ink);padding:6px 8px;border-radius:8px}
+.em-nav a.nav-link:hover{background:var(--bg)}
+.em-nav-cta{background:linear-gradient(135deg,var(--c3),#c026d3);color:#ffe6ff!important;padding:9px 16px;border-radius:999px;font-weight:600;font-size:.85rem;box-shadow:0 4px 14px rgba(20,11,38,.35)}
+.dd-wrap{position:relative}
+.dd-btn{background:none;border:1px solid var(--line);border-radius:999px;padding:8px 16px;font:600 .85rem 'Inter',sans-serif;color:var(--ink);cursor:pointer;display:flex;align-items:center;gap:6px}
+.dd-btn:hover{background:var(--bg)}
+.dd-menu{display:none;position:absolute;top:calc(100% + 8px);left:0;min-width:230px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 18px 40px rgba(20,11,38,.16);padding:8px;z-index:60;max-height:70vh;overflow:auto}
+.dd-menu.open{display:block}
+.dd-menu a{display:block;padding:8px 12px;border-radius:9px;font-size:.84rem;font-weight:500;color:var(--ink)}
+.dd-menu a:hover{background:var(--bg)}
+.dd-menu a.styled{color:#fff!important;font-weight:600}
+.dd-menu .dd-tag{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);padding:8px 12px 4px}
+/* hero */
+.hero{max-width:1120px;margin:0 auto;padding:34px 22px 10px}
+.home-link{display:inline-block;font-size:.82rem;font-weight:600;color:var(--c1);margin-bottom:16px}
+.badge{display:inline-block;background:linear-gradient(135deg,var(--c3),#c026d3);color:#ffe6ff;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:14px;cursor:pointer;user-select:none}
+.hero h1{font-size:clamp(2.1rem,5vw,3.3rem);line-height:1.1;color:var(--c3)}
+.hero .sub{margin-top:12px;max-width:830px;color:var(--soft);font-size:1.02rem}
+.hero .sub b{color:var(--ink)}
+/* layout */
+.container{max-width:1120px;margin:0 auto;padding:22px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 10px 30px rgba(20,11,38,.05)}
+.card h2{font-size:1.35rem;color:var(--c3);margin-bottom:4px}
+.card .kicker{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c1);margin-bottom:2px}
+.card .hint{font-size:.82rem;color:var(--soft);margin-bottom:14px}
+.fg{margin-bottom:14px}
+.fg label{display:block;font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ink);margin-bottom:5px}
+.fg input,.fg select,.fg textarea{width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;font:500 .92rem 'Inter',sans-serif;background:#fff;color:var(--ink)}
+.fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:var(--c1)}
+.fg textarea{min-height:64px;resize:vertical}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:520px){.fg-row{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;font:600 .82rem 'Inter',sans-serif;color:var(--ink);cursor:pointer;transition:all .15s}
+.chip:hover{border-color:var(--c1);color:var(--c1)}
+.chip.on{background:linear-gradient(135deg,var(--c3),#c026d3);border-color:transparent;color:#ffe6ff;box-shadow:0 4px 12px rgba(20,11,38,.3)}
+.chip .px{display:block;font-size:.66rem;font-weight:600;opacity:.85}
+.chip.on .px{opacity:.8}
+.fix-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:520px){.fix-grid{grid-template-columns:1fr}}
+.fix{border:1.5px solid var(--line);background:#fff;border-radius:14px;padding:11px 13px;cursor:pointer;transition:all .15s;text-align:left}
+.fix:hover{border-color:var(--c1);transform:translateY(-1px)}
+.fix.on{border-color:var(--c1);background:linear-gradient(180deg,#fdf0ff,#fff);box-shadow:0 6px 18px rgba(192,38,211,.16)}
+.fix .fx-top{display:flex;align-items:center;gap:8px}
+.fix .fx-emoji{font-size:1.35rem}
+.fix .fx-name{font-weight:700;font-size:.86rem;color:var(--c3);flex:1}
+.fix .fx-price{font-weight:800;font-size:.78rem;color:var(--c1);white-space:nowrap}
+.fix .fx-note{font-size:.74rem;color:var(--soft);margin-top:5px}
+.fix .fx-unit{font-size:.62rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--soft);margin-top:5px}
+.fix.on .fx-unit{color:var(--c1)}
+.range-wrap{display:flex;align-items:center;gap:14px}
+.range-wrap input[type=range]{flex:1;accent-color:var(--c3);height:34px}
+.big-read{min-width:118px;text-align:center;background:linear-gradient(135deg,var(--c3),#c026d3);color:#ffe6ff;border-radius:12px;padding:8px 10px;font-weight:700;font-size:.95rem}
+.big-read small{display:block;font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;opacity:.85}
+.note-line{margin-top:10px;background:var(--bg);border:1px dashed var(--line);border-radius:12px;padding:10px 14px;font-size:.83rem}
+.note-line b{color:var(--c3)}
+.fit-note{margin-top:8px;font-size:.78rem;font-weight:600}
+.fit-note.good{color:var(--good)}
+.fit-note.warn{color:var(--bad)}
+/* night stage */
+.room-wrap{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.room-stage{background:radial-gradient(circle at 50% 12%,#241540,#0b0718);border:1px solid #2a1740;border-radius:16px;padding:6px;flex:1;min-width:280px}
+.room-cap{font-size:.78rem;color:var(--soft)}
+.room-cap b{color:var(--c3)}
+/* output card */
+.out-card{background:linear-gradient(165deg,#140b26,#2a1740);color:#f0e9ff;border-radius:22px;padding:26px;box-shadow:0 16px 40px rgba(20,11,38,.34);position:sticky;top:84px}
+.out-card .oc-head{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:6px}
+.out-card .oc-occasion{display:inline-block;background:rgba(255,255,255,.12);color:#ffd9fb;border-radius:999px;padding:4px 12px;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.out-card h2{color:#fff;font-size:1.5rem}
+.out-card .oc-sub{color:#c8bce6;font-size:.8rem;margin-bottom:16px}
+.program{background:rgba(255,255,255,.06);border:1px dashed rgba(255,255,255,.22);border-radius:16px;padding:8px 14px}
+.prog-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px dashed rgba(255,255,255,.14)}
+.prog-row:last-child{border-bottom:none}
+.prog-row .pr-emoji{font-size:1.15rem}
+.prog-row .pr-name{font-weight:700;font-size:.82rem;color:#fff;flex:1}
+.prog-row .pr-qty{font-weight:700;font-size:.78rem;color:#ffd9fb;white-space:nowrap}
+.prog-row .pr-cost{font-weight:800;font-size:.8rem;color:#fff;white-space:nowrap;min-width:56px;text-align:right}
+.prog-empty{color:#c8bce6;font-size:.85rem;font-style:italic;padding:12px 4px}
+.meter{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.14)}
+.mstat{background:rgba(255,255,255,.08);border-radius:12px;padding:8px 12px;text-align:center;min-width:86px}
+.mstat b{display:block;font-size:1.05rem;color:#fff}
+.mstat small{font-size:.6rem;text-transform:uppercase;letter-spacing:.06em;color:#c8bce6}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.btn{border:none;border-radius:999px;padding:11px 18px;font:700 .85rem 'Inter',sans-serif;cursor:pointer;transition:all .15s;background:#fff;color:#140b26}
+.btn:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(0,0,0,.18)}
+.btn.primary{background:linear-gradient(135deg,#22d3ee,#c026d3);color:#140b26}
+.btn.ghost{background:rgba(255,255,255,.1);color:#f0e9ff;border:1px solid rgba(255,255,255,.25)}
+.btn.ghost:hover{background:rgba(255,255,255,.18)}
+/* quote */
+.quote{background:#fff;border-left:4px solid var(--c2);border-radius:0 16px 16px 0;padding:18px 20px;margin:24px 0;font-style:italic;color:var(--soft);font-size:.92rem}
+.quote b{color:var(--c3);font-style:normal}
+/* wide cards */
+.wide{margin-top:22px}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:22px}
+@media(max-width:900px){.duo{grid-template-columns:1fr}}
+.price-item{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;padding:11px 0;border-bottom:1px dashed var(--line)}
+.price-item:last-child{border-bottom:none}
+.price-item .pi-name{font-weight:700;color:var(--ink);font-size:.92rem}
+.price-item .pi-qty{font-weight:800;color:var(--c3);font-size:.86rem;white-space:nowrap}
+.price-item .pi-price{font-weight:800;color:var(--c1);font-size:.88rem;white-space:nowrap;margin-left:auto}
+.price-item .pi-note{flex-basis:100%;font-size:.8rem;color:var(--soft)}
+.bignum{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;color:var(--c3);line-height:1.05}
+.bignum small{font-size:1rem;color:var(--soft);font-weight:600}
+.legend{font-size:.72rem;color:var(--soft);display:flex;gap:14px;flex-wrap:wrap;margin-top:4px}
+.legend span b{color:var(--ink)}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:26px 0}
+@media(max-width:800px){.facts{grid-template-columns:repeat(2,1fr)}}
+.fact{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px;text-align:center}
+.fact .f-num{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:700;color:var(--c3);display:block}
+.fact .f-txt{font-size:.76rem;color:var(--soft);margin-top:4px}
+.faq{margin:8px 0 26px}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin-bottom:10px}
+.faq summary{font-weight:700;font-size:.92rem;cursor:pointer;color:var(--c3)}
+.faq details p{font-size:.86rem;color:var(--soft);margin-top:8px}
+/* plan card (print) */
+.barcard{border:1.5px dashed var(--line);border-radius:14px;padding:18px 20px;background:#fff}
+.barcard h3{font-size:.95rem;color:var(--c3);margin-bottom:8px}
+.barcard ul{margin:2px 0 12px 18px;font-size:.86rem;color:var(--soft)}
+.barcard li{margin:3px 0}
+.barcard li b{color:var(--ink)}
+.value-strip{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.value-pill{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:.76rem;color:var(--soft)}
+.value-pill b{color:var(--c3)}
+/* lead card */
+.lead-card{background:linear-gradient(160deg,#140b26,#2a1740);color:#fff;border-radius:20px;padding:28px;margin-top:8px}
+.lead-card h2{color:#fff}
+.lead-card .kicker{color:#22d3ee}
+.lead-card .hint{color:#c8bce6}
+.lead-card label{color:#c8bce6}
+.lead-card input,.lead-card select,.lead-card textarea{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#fff}
+.lead-card input::placeholder,.lead-card textarea::placeholder{color:rgba(255,255,255,.55)}
+.lead-card input:focus,.lead-card select:focus,.lead-card textarea:focus{border-color:#22d3ee}
+.lead-card select option{color:var(--ink)}
+.lead-card .btn-p{background:#22d3ee;color:#140b26}
+.lead-card .fine{font-size:.74rem;color:#c8bce6;margin-top:10px}
+/* footer */
+footer{background:var(--c3);color:#fff;margin-top:34px;padding:26px 22px 30px}
+footer .strip{font-size:.78rem;line-height:2;color:rgba(255,255,255,.75)}
+footer .strip a{color:#ffe6ff;font-weight:600;margin-right:2px}
+footer .foot-brand{font-family:'Playfair Display',serif;font-size:1.1rem;margin-top:14px}
+footer .foot-brand span{color:#ffe6ff}
+footer .copy{font-size:.72rem;color:rgba(255,255,255,.6);margin-top:6px}
+/* print */
+@media print{
+  .em-nav,.actions,.lead-card,.facts,.faq,.hero,.home-link,.badge,footer,.quote,.duo,.wide,.grid,.no-print,.value-strip,.toast{display:none!important}
+  body{background:#fff}
+  .print-only{display:block!important}
+}
+.print-only{display:none}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(120%);background:var(--ink);color:#fff;padding:12px 22px;border-radius:999px;font-size:.85rem;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.25);transition:transform .3s;z-index:99}
+.toast.show{transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<nav class="em-nav">
+  <div class="em-nav-brand"><a href="index.html" style="color:inherit">Everlasting <span>Memories</span></a></div>
+  <a class="nav-link" href="gallery.html">Gallery</a>
+  <a class="nav-link" href="services.html">Services</a>
+  <a class="nav-link" href="about.html">About</a>
+  <a class="nav-link" href="faq.html">FAQ</a>
+  <div class="dd-wrap">
+    <button class="dd-btn" id="ddBtn" aria-haspopup="true" aria-expanded="false">Tools ▾</button>
+    <div class="dd-menu" id="ddMenu">
+      <div class="dd-tag">Newest</div>
+      <a href="glow-up.html" class="styled" style="background:#140b26">The Glow Up</a>
+      <a href="sky-installer.html" class="styled" style="background:#1a1a2e">The Sky Installer</a>
+      <a href="sip-station.html" class="styled" style="background:#3a1020">The Sip Station</a>
+      <a href="favor-bar.html" class="styled" style="background:#2e1065">The Favor Bar</a>
+      <a href="boo-bash.html" class="styled" style="background:#2e1065">The Boo Bash</a>
+      <a href="raised-glass.html" class="styled" style="background:#241b12">The Raised Glass</a>
+      <a href="launch-pad.html" class="styled" style="background:#1e3a8a">The Launch Pad</a>
+      <a href="smash.html" class="styled" style="background:#ff8c42">The Smash Hit</a>
+      <a href="nest.html" class="styled" style="background:#6b8f71">The Nest</a>
+      <a href="powder-pop.html" class="styled" style="background:#ec4899">The Powder Pop</a>
+      <a href="big-yes.html" class="styled" style="background:#a8526b">The Big Yes</a>
+      <a href="party-er.html" class="styled" style="background:#059669">The Party ER</a>
+      <a href="rain-plan.html" class="styled" style="background:#0284c7">The Rain Plan</a>
+      <div class="dd-tag">All tools</div>
+      <a href="after-glow.html">The After-Glow</a>
+      <a href="seating-chart.html">Seating Chart Studio</a>
+      <a href="surprise-planner.html">Operation: Surprise</a>
+      <a href="dessert-table.html">Dessert Table Stylist</a>
+      <a href="golden-hour.html">Golden Hour Finder</a>
+      <a href="party-timeline.html">Party Day Timeline</a>
+      <a href="memory-capsule.html">Memory Capsule</a>
+      <a href="playlist.html">Party Playlist Studio</a>
+      <a href="guest-list.html">The Guest List</a>
+      <a href="photo-hunt.html">Party Photo Hunt</a>
+      <a href="photo-booth.html">Golden Hour Booth</a>
+      <a href="memory-wall.html">Memory Wall</a>
+      <a href="party-roadmap.html">Party Roadmap</a>
+      <a href="invitation-studio.html">Invitation Studio</a>
+      <a href="balloon-pop.html">Pop Party</a>
+      <a href="wedding-workshop.html">Wedding Workshop</a>
+      <a href="transformations.html">The Big Reveal</a>
+      <a href="budget-builder.html">Budget Balloonist</a>
+      <a href="referral.html">Refer &amp; Earn</a>
+      <a href="cost-estimator.html">Cost Estimator</a>
+      <a href="theme-generator.html">Theme Generator</a>
+      <a href="lookbook.html">Lookbook</a>
+      <a href="countdown.html">Countdown</a>
+      <a href="party-style-quiz.html">Party Style Quiz</a>
+      <a href="balloon-math.html">Balloon Math</a>
+      <a href="name-garland.html">Balloon Letter Studio</a>
+      <a href="palette-snap.html">Palette Snap</a>
+      <a href="diy-vs-pro.html">DIY or Dazzle</a>
+      <a href="reserve-date.html">Reserve Your Date</a>
+      <a href="gift-card.html">Gift Card Studio</a>
+    </div>
+  </div>
+  <a class="em-nav-cta" href="contact.html">Get a Quote</a>
+</nav>
+
+<header class="hero">
+  <a class="home-link" href="index.html">← Everlasting Memories</a>
+  <div><span class="badge" id="secretBadge" title="💡">💡 New Tonight — The Glow Up</span></div>
+  <h1>The Glow Up</h1>
+  <p class="sub"><b>Party lighting &amp; ambiance designer.</b> Every other tool on this site dressed the table, the wall or the ceiling — this one turns the lights on. Pick the room and the mood, choose your fixtures, and get the real fixture counts, the wattage and circuit math, an ambiance verdict, and a living picture of the room after dark — plus a printable lighting plan Isabella can set up tonight.</p>
+</header>
+
+<div class="container">
+  <div class="grid">
+
+    <!-- LEFT: inputs + stage -->
+    <div>
+      <div class="card" style="margin-bottom:22px">
+        <div class="kicker">Step 1</div>
+        <h2>Where the lights go</h2>
+        <p class="hint">The room decides the fixture count; the mood decides the color. Isabella never lights a room she hasn't measured.</p>
+        <div class="chips" id="roomChips"></div>
+        <div class="note-line" id="roomNote"></div>
+        <div class="fg-row" style="margin-top:16px">
+          <div class="fg" style="margin-bottom:0">
+            <label for="inGuests">Guests</label>
+            <div class="range-wrap">
+              <input type="range" id="inGuests" min="10" max="400" step="10" value="120">
+              <div class="big-read"><span id="guestNum">120</span><small>people</small></div>
+            </div>
+          </div>
+          <div class="fg" style="margin-bottom:0">
+            <label for="inGlow">Glow level</label>
+            <div class="range-wrap">
+              <input type="range" id="inGlow" min="0" max="100" step="5" value="60">
+              <div class="big-read"><span id="glowNum">60%</span><small>dressed in light</small></div>
+            </div>
+          </div>
+        </div>
+        <div class="fg" style="margin-top:18px;margin-bottom:4px">
+          <label>Mood</label>
+          <div class="chips" id="moodChips"></div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:22px">
+        <div class="kicker">Step 2</div>
+        <h2>What lights the room</h2>
+        <p class="hint">Tap the fixtures you want. Each one adds its own count, cost and wattage — and the power check below keeps you on the right side of the breaker.</p>
+        <div class="fix-grid" id="fixGrid"></div>
+        <div class="note-line" id="mixNote"></div>
+        <div class="fg" style="margin-top:16px;margin-bottom:4px">
+          <label>Uplight spacing</label>
+          <div class="chips" id="spacingChips"></div>
+          <div class="fit-note good" id="spacingNote" style="font-weight:500;color:var(--soft)"></div>
+        </div>
+        <div class="fg" style="margin-top:14px;margin-bottom:0">
+          <label for="neonWord">Neon sign word</label>
+          <input type="text" id="neonWord" maxlength="12" value="LOVE" placeholder="LOVE">
+          <div class="fit-note good" style="font-weight:500;color:var(--soft)">Up to 12 letters — what the sign spells when the neon fixture is on.</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="kicker">After dark</div>
+        <h2>See the room with the lights on</h2>
+        <p class="hint">A live render of your room at night — uplights washing the walls, festoon bulbs strung overhead, the neon and mirror ball doing their thing.</p>
+        <div class="room-wrap">
+          <div class="room-stage" id="nightStage"></div>
+        </div>
+        <div class="room-cap" id="nightCap" style="margin-top:12px"></div>
+      </div>
+    </div>
+
+    <!-- RIGHT: output card -->
+    <div>
+      <div class="out-card">
+        <div class="oc-head">
+          <span class="oc-occasion" id="ocRoom">Community Hall</span>
+        </div>
+        <h2>Your Lighting Plan</h2>
+        <div class="oc-sub" id="ocSub"></div>
+        <div class="program" id="planList"></div>
+        <div class="meter">
+          <div class="mstat"><b id="mWatts">0 W</b><small>total draw</small></div>
+          <div class="mstat"><b id="mCircuits">0</b><small>circuits</small></div>
+          <div class="mstat"><b id="mAmbiance">0</b><small>ambiance</small></div>
+          <div class="mstat"><b id="mPer">$0</b><small>per guest</small></div>
+          <div class="mstat"><b id="mTotal">$0</b><small>total</small></div>
+        </div>
+        <div class="note-line" id="verdictLine" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.22);color:#e9e0ff;margin-top:16px"></div>
+        <div class="actions">
+          <button class="btn primary" id="btnShuffle" type="button">🎲 Glow it up</button>
+          <button class="btn ghost" id="btnCopy" type="button">📋 Copy plan</button>
+          <button class="btn ghost" id="btnWa" type="button">💬 WhatsApp</button>
+          <button class="btn ghost" id="btnPrint" type="button">🖨️ Print plan</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="container wide">
+  <div class="quote">
+    “Anyone can buy balloons. <b>The light is what makes them look expensive.</b> I've seen a $400 garland look like a $4,000 install because two uplights were pointed at the right wall — and I've seen a $4,000 install look like a school dance because someone turned the ceiling lights on full.” <br>— <b>Isabella</b>, on why this page exists
+  </div>
+
+  <div class="duo">
+    <div class="card">
+      <div class="kicker">The math</div>
+      <h2 id="mathTitle">What Lights The Community Hall</h2>
+      <p class="hint" id="mathHint"></p>
+      <div id="mathList"></div>
+      <div class="note-line" id="mathVerdict" style="margin-top:14px"></div>
+    </div>
+    <div class="card">
+      <div class="kicker">Power &amp; ambiance</div>
+      <h2>Will it trip the breaker?</h2>
+      <p class="hint">Isabella's hard rule: <b>never load a circuit past 80%</b>. A 15-amp circuit at 120 volts is 1,800 watts — so she plans for <b>1,440 W per circuit</b> and treats anything above it as a second breaker, not a dare.</p>
+      <div id="powerList"></div>
+      <div class="note-line" id="powerVerdict" style="margin-top:14px"></div>
+      <div style="text-align:center;margin-top:18px">
+        <div class="bignum"><span id="powerWatts">0</span><small> W total draw</small></div>
+        <div class="legend" style="justify-content:center">
+          <span>🔌 <b id="powerCircuits">0</b> circuits</span>
+          <span>🧵 <b id="powerCords">0</b> extension runs</span>
+          <span>✨ <b id="powerAmbiance">0</b> ambiance</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="facts">
+    <div class="fact"><span class="f-num">8 ft</span><span class="f-txt">between uplights for an even wall wash — 12 ft if you want it dramatic</span></div>
+    <div class="fact"><span class="f-num">1,440 W</span><span class="f-txt">the most Isabella will ever load onto one 15-amp circuit (80% rule)</span></div>
+    <div class="fact"><span class="f-num">2800K</span><span class="f-txt">warm amber reads as love · 5600K cool reads as glamour — never in one frame</span></div>
+    <div class="fact"><span class="f-num">$28</span><span class="f-txt">one uplight — the cheapest wow in the whole business</span></div>
+  </div>
+
+  <div class="faq">
+    <details open><summary>Wait — the balloon company does lighting?</summary><p>Lighting is the other half of a balloon install. Isabella started carrying uplights because clients kept renting a beautiful ceiling and then lighting it with the room's fluorescent strips. The fixtures aren't a side business; they're the reason the balloons photograph the way they do.</p></details>
+    <details><summary>Is the wattage math real, or just for show?</summary><p>Real, but simple on purpose. Every fixture has a real draw; the total is compared against <b>1,440 W</b> — the 80% ceiling of a standard 15-amp / 120-volt circuit — and anything over that becomes another circuit. It's the same check Isabella does in the venue, on paper, before she loads the van.</p></details>
+    <details><summary>What's the difference between an uplight and a pinspot?</summary><p>An uplight washes a whole wall from the floor — it sets the room. A pinspot is a tight, focused beam that picks out one thing: the cake, the floral, the neon sign. You want <b>many</b> uplights and only a <b>few</b> pinspots, and you aim the pinspots last, once the room is glowing.</p></details>
+    <details><summary>Can't I just use some string lights and call it a mood?</summary><p>You can, and it'll look nice — soft and a little flat. Festoon strings give you warmth; they don't give you depth. The moment you add uplights to the walls behind them, the room stops being lit and starts being <i>designed</i>. That's the whole trick.</p></details>
+    <details><summary>How many uplights do I actually need?</summary><p>Measure the room's perimeter. One uplight every <b>8 ft</b> gives an even wash; every <b>12 ft</b> gives you dramatic, visible cones. The Glow Up does the perimeter math for you and lets you slide the glow level to trade budget for drama.</p></details>
+    <details><summary>How does this connect to my decor?</summary><p>Pick the mood here, then take the counts and the color to the <a href="cost-estimator.html">Cost Estimator</a> or straight to Isabella. She matches the light color to your balloon palette so the decor and the glow read as one design — not two vendors sharing a room.</p></details>
+  </div>
+
+  <div class="card" style="margin-top:22px">
+    <div class="kicker">Try these next</div>
+    <h2>Light it, then finish the room</h2>
+    <p class="hint">The Glow Up gives you the light. These finish the picture:</p>
+    <div class="value-strip">
+      <span class="value-pill">🌇 <b><a href="golden-hour.html">Golden Hour Finder</a></b> — when to flip the switch</span>
+      <span class="value-pill">🎈 <b><a href="sky-installer.html">The Sky Installer</a></b> — what's overhead</span>
+      <span class="value-pill">🍰 <b><a href="dessert-table.html">Dessert Table Stylist</a></b> — pinspot the cake</span>
+      <span class="value-pill">⏱️ <b><a href="party-timeline.html">Party Day Timeline</a></b> — the lighting cue</span>
+      <span class="value-pill">✨ <b><a href="transformations.html">The Big Reveal</a></b> — before &amp; after</span>
+      <span class="value-pill">📸 <b><a href="photo-booth.html">Golden Hour Booth</a></b> — lights for photos</span>
+      <span class="value-pill">🧮 <b><a href="cost-estimator.html">Cost Estimator</a></b> — full-party budget</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="lead-card">
+    <div class="kicker">Step 3</div>
+    <h2>Send Isabella the light plan</h2>
+    <p class="hint">She'll match the mood to your decor, confirm the fixture count and lock the date. Replies within 24 hours.</p>
+    <form id="leadForm">
+      <div class="fg-row">
+        <div class="fg"><label for="fName">Your name</label><input type="text" id="fName" placeholder="Jordan" required></div>
+        <div class="fg"><label for="fEmail">Email</label><input type="email" id="fEmail" placeholder="you@email.com" required></div>
+      </div>
+      <div class="fg-row">
+        <div class="fg"><label for="fPhone">Phone</label><input type="tel" id="fPhone" placeholder="(555) 123-4567"></div>
+        <div class="fg"><label for="fDate">Event date</label><input type="date" id="fDate"></div>
+      </div>
+      <div class="fg-row">
+        <div class="fg"><label for="fBudget">Budget</label>
+          <select id="fBudget">
+            <option value="">Pick a range…</option>
+            <option>Under $500</option><option>$500 – $1,500</option><option>$1,500 – $3,000</option><option>$3,000 – $6,000</option><option>$6,000+</option>
+          </select>
+        </div>
+        <div class="fg"><label for="fMsg">Anything else?</label><input type="text" id="fMsg" placeholder="Colors, venue, vibe…"></div>
+      </div>
+      <button class="btn btn-p" type="submit" style="padding:13px 28px;font-size:.9rem">💡 Send Isabella the light plan →</button>
+      <p class="fine">No spam, ever. Your plan details are attached automatically.</p>
+    </form>
+  </div>
+</div>
+
+<div class="print-only" id="printWrap">
+  <div style="text-align:center;margin-bottom:14px">
+    <div style="font-family:'Playfair Display',serif;font-size:1.4rem;color:#140b26" id="printTitle">💡 The Glow Up — Lighting Plan</div>
+    <div style="font-size:.78rem;color:#6b6288" id="printMeta">Everlasting Memories · myeverlastingmemories.com</div>
+  </div>
+  <div class="barcard" id="planCardPrint"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<footer>
+  <p class="strip">
+    <a href="glow-up.html" style="color:#e879f9;font-weight:600;">The Glow Up</a> ·
+    <a href="sky-installer.html" style="color:#ffdca6;font-weight:600;">The Sky Installer</a> ·
+    <a href="sip-station.html" style="color:#f0c987;font-weight:600;">The Sip Station</a> ·
+    <a href="favor-bar.html" style="color:#bef264;font-weight:600">The Favor Bar</a> ·
+    <a href="boo-bash.html" style="color:#d8b4fe;font-weight:600">The Boo Bash</a> ·
+    <a href="raised-glass.html" style="color:#eed9a6;font-weight:600">The Raised Glass</a> ·
+    <a href="launch-pad.html" style="color:#c7d2fe;font-weight:600">The Launch Pad</a> ·
+    <a href="smash.html" style="color:#ffcfa8;font-weight:600">The Smash Hit</a> ·
+    <a href="nest.html" style="color:#cfe0c4;font-weight:600">The Nest</a> ·
+    <a href="powder-pop.html" style="color:#f9a8d4;font-weight:600">The Powder Pop</a> ·
+    <a href="big-yes.html" style="color:#f2c6d2;font-weight:600">The Big Yes</a> ·
+    <a href="party-er.html" style="color:#a7f3d0;font-weight:600">The Party ER</a> ·
+    <a href="rain-plan.html" style="color:#7dd3fc;font-weight:600">The Rain Plan</a> ·
+    <a href="seating-chart.html" style="color:#f9a8d4;font-weight:600">Seating Chart Studio</a> ·
+    <a href="after-glow.html" style="color:#f9a8d4;font-weight:600">The After-Glow</a> ·
+    <a href="surprise-planner.html" style="color:#a5b4fc;font-weight:600">Operation: Surprise</a> ·
+    <a href="dessert-table.html" style="color:#f0c9a0;font-weight:600">Dessert Table Stylist</a> ·
+    <a href="golden-hour.html" style="color:#c4b5fd;font-weight:600">Golden Hour Finder</a> ·
+    <a href="party-timeline.html" style="color:#cbd5e1;font-weight:600">Party Day Timeline</a> ·
+    <a href="wedding-workshop.html" style="color:#f9a8d4;font-weight:600">Wedding Workshop</a> ·
+    <a href="cost-estimator.html" style="color:#fcd34d;font-weight:600">Cost Estimator</a> ·
+    <a href="guest-list.html" style="color:#93c5fd;font-weight:600">The Guest List</a> ·
+    <a href="playlist.html" style="color:#fca5a5;font-weight:600">Party Playlist Studio</a> ·
+    <a href="name-garland.html" style="color:#f9a8d4;font-weight:600">Balloon Letter Studio</a> ·
+    <a href="invitation-studio.html" style="color:#a5b4fc;font-weight:600">Invitation Studio</a> ·
+    <a href="party-roadmap.html" style="color:#5eead4;font-weight:600">Party Roadmap</a> ·
+    <a href="memory-wall.html" style="color:#fcd34d;font-weight:600">Memory Wall</a> ·
+    <a href="photo-booth.html" style="color:#7dd3fc;font-weight:600">Golden Hour Booth</a> ·
+    <a href="photo-hunt.html" style="color:#f0abfc;font-weight:600">Party Photo Hunt</a> ·
+    <a href="memory-capsule.html" style="color:#fca5a5;font-weight:600">Memory Capsule</a> ·
+    <a href="balloon-pop.html" style="color:#fdba74;font-weight:600">Pop Party</a> ·
+    <a href="transformations.html" style="color:#c4b5fd;font-weight:600">The Big Reveal</a> ·
+    <a href="budget-builder.html" style="color:#86efac;font-weight:600">Budget Balloonist</a> ·
+    <a href="referral.html" style="color:#fde68a;font-weight:600">Refer &amp; Earn</a> ·
+    <a href="gift-card.html" style="color:#f9a8d4;font-weight:600">Gift Card Studio</a> ·
+    <a href="reserve-date.html" style="color:#93c5fd;font-weight:600">Reserve Your Date</a> ·
+    <a href="diy-vs-pro.html" style="color:#fdba74;font-weight:600">DIY or Dazzle</a> ·
+    <a href="palette-snap.html" style="color:#f0abfc;font-weight:600">Palette Snap</a> ·
+    <a href="balloon-math.html" style="color:#86efac;font-weight:600">Balloon Math</a> ·
+    <a href="party-style-quiz.html" style="color:#f9a8d4;font-weight:600">Party Style Quiz</a> ·
+    <a href="countdown.html" style="color:#93c5fd;font-weight:600">Big Day Countdown</a> ·
+    <a href="lookbook.html" style="color:#c4b5fd;font-weight:600">Lookbook</a> ·
+    <a href="theme-generator.html" style="color:#fde68a;font-weight:600">Theme Generator</a> ·
+    <a href="faq.html" style="color:#f2c6d2;font-weight:600">FAQ</a>
+  </p>
+  <p class="foot-brand">Everlasting <span>Memories</span> — balloons &amp; moments that last</p>
+  <p class="copy">Isabella's light page: one uplight every eight feet, 1,440 watts to a circuit, warm for love and cool for glamour — and never two color temperatures in one photograph. 💡</p>
+</footer>
+
+<script>
+(function(){
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function money(n){n=Math.round(n||0);return '$'+String(n).replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+function money2(n){var v=Math.round((n||0)*100)/100;var s=(v%1===0)?String(v):v.toFixed(2);return '$'+s.replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+
+/* ---------- data ---------- */
+var ROOMS={
+  living:{id:'living',emoji:'🛋️',name:'Living Room',w:14,l:16,h:9,note:'Home-party scale — a single circuit and six or seven uplights will make a dinner feel like an event.'},
+  nursery:{id:'nursery',emoji:'🍼',name:'Nursery',w:12,l:14,h:9,note:'Soft and low — glow balloons and one warm lamp beat anything bright. Keep it dimmable and gentle.'},
+  restaurant:{id:'restaurant',emoji:'🍽️',name:'Restaurant Room',w:24,l:30,h:11,note:'Fussy and beloved — warm uplights on the walls, pinspots on the tables, and no color that fights the food.'},
+  hall:{id:'hall',emoji:'🏛️',name:'Community Hall',w:32,l:44,h:13,note:'The workhorse — a long perimeter, so the uplight count is real money. Wash the walls, then add the sparkle.'},
+  tent:{id:'tent',emoji:'⛺',name:'Backyard Tent',w:20,l:40,h:10,note:'No walls to bounce light — festoon strings carry the whole mood and the uplights go on the poles.'},
+  ballroom:{id:'ballroom',emoji:'🏨',name:'Ballroom',w:40,l:60,h:16,note:'Big, high and hungry for fixtures — this is where ambiance scores climb fast and the breaker math matters.'},
+  gym:{id:'gym',emoji:'🏫',name:'School Gym',w:50,l:70,h:22,note:'Vast and echoey — you cannot fill it, so you design it: a dance-floor wash, festoon runs and a mirror ball.'}
+};
+
+var MOODS=[
+  {id:'warm',name:'Warm Amber',hex:'#f59e0b',accent:'#fbbf24',k:'2800K',note:'Candlelit and romantic — the color of a first dance.'},
+  {id:'rose',name:'Rose Gold',hex:'#fb7185',accent:'#fda4af',k:'3000K',note:'Blush and metallic — beautiful with pink-and-gold balloon work.'},
+  {id:'pop',name:'Party Pop',hex:'#d946ef',accent:'#22d3ee',k:'RGB',note:'Magenta and cyan at once — the dance-floor setting that moves.'},
+  {id:'ice',name:'Ice Cool',hex:'#06b6d4',accent:'#a5f3fc',k:'5600K',note:'Crisp and glamorous — modern, editorial, and brilliant for photos.'},
+  {id:'candle',name:'Candlelight',hex:'#eab308',accent:'#fde68a',k:'2200K',note:'The lowest, warmest wash — intimacy you can almost touch.'},
+  {id:'violet',name:'Electric Violet',hex:'#a855f7',accent:'#e879f9',k:'RGB',note:'Bold and neon — birthday energy, glow balloons, a little chaos.'}
+];
+
+var FIX={
+  up:{id:'up',emoji:'🔺',name:'Wall Uplight',price:28,unit:'each',watts:18,basis:'perim',ac:true,impact:1.1,cap:24,
+    note:'A colored wash climbing the wall — the single biggest wow per dollar in the room.'},
+  festoon:{id:'festoon',emoji:'✨',name:'Festoon Strand (25 ft)',price:160,unit:'strand',watts:40,basis:'perim',ac:true,impact:2.0,cap:20,
+    note:'Warm bulbs looped across the ceiling like an Italian terrace — it sets the mood before anyone speaks.'},
+  glowball:{id:'glowball',emoji:'🎈',name:'Glow Balloon',price:12,unit:'each',watts:0.5,basis:'guests',ac:false,impact:0.05,cap:12,
+    note:'An LED inside the balloon — floating, battery-powered light that pulses on the beat and doubles as decor.'},
+  neon:{id:'neon',emoji:'🟣',name:'Neon Sign',price:240,unit:'flat',watts:24,basis:'flat',ac:true,impact:8,cap:8,
+    note:'One custom word in glowing tube — the photo everyone takes without being asked.'},
+  mirror:{id:'mirror',emoji:'🪩',name:'Mirror Ball + Pinspot',price:210,unit:'flat',watts:30,basis:'flat',ac:true,impact:9,cap:9,
+    note:'One spotlight, a thousand little suns crawling across the walls. Instantly a party.'},
+  lamp:{id:'lamp',emoji:'🕯️',name:'Table Glow Lamp',price:16,unit:'each',watts:6,basis:'tables',ac:true,impact:0.6,cap:10,
+    note:'A warm flicker at every centerpiece — keeps the tables romantic once the big lights drop.'},
+  spot:{id:'spot',emoji:'🔦',name:'Accent Pinspot',price:35,unit:'each',watts:12,basis:'guests',ac:true,impact:0.7,cap:10,
+    note:'A tight beam on the cake, the floral or the sign — it tells the eye exactly where to look.'},
+  wash:{id:'wash',emoji:'🟦',name:'Dance Floor Wash',price:320,unit:'flat',watts:200,basis:'flat',ac:true,impact:12,cap:12,
+    note:'A wide color wash across the floor that turns "a room" into "a dance floor."'}
+};
+var FIX_IDS=['up','festoon','glowball','neon','mirror','lamp','spot','wash'];
+
+var SPACINGS=[
+  {ft:8,label:'Even wash · 8 ft',note:'One uplight every 8 ft — a smooth, even wall wash. The elegant default.'},
+  {ft:12,label:'Dramatic · 12 ft',note:'One every 12 ft — fewer fixtures, visible cones of light. Bolder and cheaper.'}
+];
+
+var state={room:'hall',mood:'warm',guests:120,glow:60,spacing:8,neonWord:'LOVE',
+  fix:{up:true,festoon:true,glowball:true,neon:true,mirror:false,lamp:true,spot:false,wash:false}};
+
+/* ---------- engine ---------- */
+function roomById(id){return ROOMS[id]||ROOMS.hall;}
+function moodById(id){for(var i=0;i<MOODS.length;i++){if(MOODS[i].id===id)return MOODS[i];}return MOODS[0];}
+function roomPerim(r){return 2*(r.w+r.l);}
+function roomArea(r){return r.w*r.l;}
+function neonWord(st){st=st||state;var w=String(st.neonWord||'LOVE').toUpperCase().replace(/[^A-Z0-9 ]/g,'').replace(/\s+/g,' ').trim().slice(0,12);return w||'LOVE';}
+function fixQty(id,st){
+  var f=FIX[id];if(!f||!(st.fix&&st.fix[id]))return 0;
+  var g=Math.max(0,Math.min(100,st.glow||0))/100;if(g<=0)return 0;
+  var r=roomById(st.room),perim=roomPerim(r);
+  if(id==='up'){var full=Math.ceil(perim/(st.spacing||8));return Math.max(1,Math.round(full*g));}
+  if(id==='festoon'){return Math.max(1,Math.ceil(perim*0.9*g/25));}
+  if(id==='glowball'){return Math.round(st.guests*1.5*g);}
+  if(id==='spot'){return Math.round(Math.ceil(st.guests/15)*g);}
+  if(id==='lamp'){return Math.round(Math.ceil(st.guests/10)*g);}
+  if(f.basis==='flat')return 1;
+  return 0;
+}
+function fixLine(id,st){var f=FIX[id],q=fixQty(id,st);
+  return {id:id,emoji:f.emoji,name:f.name,unit:f.unit,qty:q,cost:q*f.price,watts:q*f.watts,note:f.note};}
+function activeIds(st){return FIX_IDS.filter(function(id){return fixQty(id,st)>0;});}
+function totals(st){
+  st=st||state;var r=roomById(st.room),mood=moodById(st.mood);
+  var ids=activeIds(st);var lines=ids.map(function(id){return fixLine(id,st);});
+  var cost=0,watts=0,ambiance=0,units=0;
+  lines.forEach(function(l){var f=FIX[l.id];cost+=l.cost;watts+=l.watts;ambiance+=Math.min(f.cap,l.qty*f.impact);
+    if(f.ac)units+=(f.basis==='flat'?1:l.qty);});
+  var circuits=watts>0?Math.ceil(watts/1440):0;
+  var cords=units>0?Math.ceil(units/8):0;
+  var perGuest=st.guests>0?cost/st.guests:0;
+  return {ids:ids,lines:lines,room:r,mood:mood,cost:cost,watts:Math.round(watts*10)/10,ambiance:ambiance,
+    circuits:circuits,cords:cords,units:units,perGuest:perGuest,has:ids.length>0,perim:roomPerim(r),area:roomArea(r),
+    uplightsFull:Math.ceil(roomPerim(r)/(st.spacing||8)),glow:st.glow};
+}
+function ambianceTier(a,has){
+  if(!has)return {key:'dark',label:'Lights Off',text:'Nothing is lit yet — tap a fixture and the room wakes up.'};
+  if(a<6)return {key:'bare',label:'Bare Bulbs',text:'A little light in a big room — start with uplights or a festoon run.'};
+  if(a<16)return {key:'soft',label:'Soft Glow',text:'The room is starting to glow — this is the warm-and-intimate setting.'};
+  if(a<30)return {key:'golden',label:'Golden Room',text:'A properly lit room — every table with its own little pool of light.'};
+  if(a<48)return {key:'film',label:'Lit Like a Film Set',text:'Full movie lighting — the balloons finally look like the photographs.'};
+  return {key:'isabella',label:'Full Isabella',text:'Every surface working, warm and cool in balance. This is the room she photographs last.'};
+}
+function powerTier(circuits,watts,has){
+  if(!has||watts<=0)return {key:'off',label:'No load yet',text:'Nothing is plugged in — the room is running on its own lights.'};
+  if(circuits<=1)return {key:'one',label:'One circuit is plenty',text:'Under 1,440 W — a single 15-amp circuit runs the whole look, uplights to neon.'};
+  if(circuits===2)return {key:'two',label:'Tap a second circuit',text:'Over 1,440 W — pull a second breaker, and remember the band already took one.'};
+  return {key:'many',label:'Bring the electrician',text:circuits+' circuits of lighting — tell the venue and split them across opposite walls.'};
+}
+
+/* ---------- night-room SVG ---------- */
+function nightRoomSVG(st){
+  st=st||state;var r=roomById(st.room),T=totals(st),mood=moodById(st.mood);
+  var W=760,H=420,left=58,right=702,top=64,floor=352;
+  var wallW=right-left,wallH=floor-top,cx=(left+right)/2;
+  var c=mood.hex,c2=mood.accent;
+  var q={};T.lines.forEach(function(l){q[l.id]=l.qty;});
+  var s='',i,j,t,n,k,m,ux,cw,x0,x1,mid,cy0,dip,mt,bx,by,my,a,tx,gx,gy;
+  s+='<svg viewBox="0 0 '+W+' '+H+'" width="100%" role="img" aria-label="Night room lighting preview" style="display:block">';
+  s+='<defs>';
+  s+='<linearGradient id="ng" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0b0718"/><stop offset="0.55" stop-color="#191030"/><stop offset="1" stop-color="#241540"/></linearGradient>';
+  s+='<radialGradient id="wash" cx="50%" cy="50%" r="50%"><stop offset="0" stop-color="'+c+'" stop-opacity="0.6"/><stop offset="1" stop-color="'+c+'" stop-opacity="0"/></radialGradient>';
+  s+='<filter id="glow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="3.2" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>';
+  s+='<filter id="soft" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="8"/></filter>';
+  s+='</defs>';
+  s+='<rect x="0" y="0" width="'+W+'" height="'+H+'" rx="16" fill="url(#ng)"/>';
+  s+='<rect x="'+left+'" y="'+top+'" width="'+wallW+'" height="'+wallH+'" fill="#150c26" opacity="0.5"/>';
+  if(q.wash){s+='<ellipse cx="'+cx+'" cy="'+floor+'" rx="'+(wallW*0.44).toFixed(0)+'" ry="30" fill="url(#wash)"/>';}
+  if(q.up){var nu=Math.min(10,q.up);for(i=0;i<nu;i++){ux=left+wallW*(i+1)/(nu+1);cw=wallW/(nu+1)*0.44;
+    s+='<polygon points="'+ux.toFixed(1)+','+floor+' '+(ux-cw).toFixed(1)+','+(top+8)+' '+(ux+cw).toFixed(1)+','+(top+8)+'" fill="'+c+'" opacity="0.13"/>';
+    s+='<polygon points="'+ux.toFixed(1)+','+floor+' '+(ux-cw*0.32).toFixed(1)+','+(top+8)+' '+(ux+cw*0.32).toFixed(1)+','+(top+8)+'" fill="'+c+'" opacity="0.22"/>';
+    s+='<ellipse cx="'+ux.toFixed(1)+'" cy="'+floor+'" rx="11" ry="4" fill="'+c+'" opacity="0.7" filter="url(#soft)"/>';}}
+  if(q.festoon){var nf=Math.min(8,Math.max(1,q.festoon));for(j=0;j<nf;j++){x0=left+wallW*j/nf;x1=left+wallW*(j+1)/nf;mid=(x0+x1)/2;cy0=top+9;dip=22;
+    s+='<path d="M '+x0.toFixed(1)+' '+cy0+' Q '+mid.toFixed(1)+' '+(cy0+dip)+' '+x1.toFixed(1)+' '+cy0+'" fill="none" stroke="'+c2+'" stroke-width="2" opacity="0.75"/>';
+    for(t=0.12;t<0.95;t+=0.17){mt=1-t;bx=mt*mt*x0+2*mt*t*mid+t*t*x1;by=mt*mt*cy0+2*mt*t*(cy0+dip)+t*t*cy0;
+      s+='<circle cx="'+bx.toFixed(1)+'" cy="'+by.toFixed(1)+'" r="3.4" fill="#ffcf6b" opacity="0.95" filter="url(#glow)"/>';}}}
+  if(q.neon){var word=neonWord(st);s+='<rect x="'+(cx-118)+'" y="'+(top+64)+'" width="236" height="64" rx="14" fill="#0f0a1e" opacity="0.72" stroke="'+c2+'" stroke-width="1.4"/>';
+    s+='<text x="'+cx+'" y="'+(top+106)+'" text-anchor="middle" font-family="Playfair Display,serif" font-weight="700" font-size="34" letter-spacing="4" fill="'+c2+'" filter="url(#glow)">'+esc(word)+'</text>';}
+  if(q.mirror){my=top+130;s+='<line x1="'+cx+'" y1="'+(top+6)+'" x2="'+cx+'" y2="'+(my-22)+'" stroke="#8b7bb0" stroke-width="1.6"/>';
+    s+='<circle cx="'+cx+'" cy="'+my+'" r="22" fill="#e8ecff" opacity="0.92" filter="url(#glow)"/>';
+    for(k=1;k<=6;k++){a=k*Math.PI/3;s+='<line x1="'+(cx+Math.cos(a)*22).toFixed(1)+'" y1="'+(my+Math.sin(a)*22).toFixed(1)+'" x2="'+(cx+Math.cos(a)*40).toFixed(1)+'" y2="'+(my+Math.sin(a)*40).toFixed(1)+'" stroke="#ffffff" stroke-width="2" opacity="0.75" filter="url(#glow)"/>';}
+    s+='<circle cx="'+(cx-6)+'" cy="'+(my-7)+'" r="4" fill="#ffffff" opacity="0.9"/>';}
+  if(q.lamp){var nl=Math.min(6,q.lamp);for(m=0;m<nl;m++){tx=left+wallW*(m+1)/(nl+1);
+    s+='<rect x="'+(tx-17)+'" y="'+(floor-34)+'" width="34" height="34" rx="3" fill="#2a1740" opacity="0.9"/>';
+    s+='<circle cx="'+tx.toFixed(1)+'" cy="'+(floor-44)+'" r="7" fill="#ffd98a" opacity="0.95" filter="url(#glow)"/>';}}
+  if(q.glowball){var ng=Math.min(12,q.glowball);for(n=0;n<ng;n++){gx=left+wallW*(n+1)/(ng+1);gy=top+170+((n%2)?44:-26);
+    s+='<circle cx="'+gx.toFixed(1)+'" cy="'+gy.toFixed(1)+'" r="12" fill="'+((n%2)?c2:c)+'" opacity="0.9" filter="url(#glow)"/>';
+    s+='<circle cx="'+(gx-4).toFixed(1)+'" cy="'+(gy-4).toFixed(1)+'" r="3.4" fill="#ffffff" opacity="0.6"/>';}}
+  s+='<line x1="'+left+'" y1="'+floor+'" x2="'+right+'" y2="'+floor+'" stroke="#3a2458" stroke-width="2"/>';
+  function person(px){var hh=96,hy=floor-hh;return '<circle cx="'+px.toFixed(1)+'" cy="'+(hy+9)+'" r="9" fill="#0a0614" opacity="0.82"/><rect x="'+(px-9).toFixed(1)+'" y="'+(hy+20)+'" width="18" height="46" rx="8" fill="#0a0614" opacity="0.82"/><rect x="'+(px-8).toFixed(1)+'" y="'+(hy+64)+'" width="7" height="32" fill="#0a0614" opacity="0.82"/><rect x="'+(px+1).toFixed(1)+'" y="'+(hy+64)+'" width="7" height="32" fill="#0a0614" opacity="0.82"/>';}
+  s+=person(left+wallW*0.68)+person(left+wallW*0.82);
+  s+='<text x="'+(left+4)+'" y="'+(top-22)+'" font-size="13" fill="#cbb8ea" font-weight="700">'+esc(r.name)+' · '+r.w+'×'+r.l+' ft · '+r.h+' ft ceiling</text>';
+  s+='<text x="'+(right-4)+'" y="'+(top-22)+'" font-size="12" fill="'+c2+'" text-anchor="end">'+esc(mood.name)+' '+mood.hex+' · '+mood.k+'</text>';
+  s+='<text x="'+(left+4)+'" y="'+(floor+22)+'" font-size="11" fill="#8b7bb0">Floor · '+st.glow+'% glow · '+Math.round(T.watts)+' W · '+T.circuits+' circuit'+(T.circuits===1?'':'s')+'</text>';
+  if(!T.has){s+='<text x="'+cx+'" y="'+(top+wallH/2)+'" font-size="16" text-anchor="middle" font-style="italic" fill="#8b7bb0">The lights are off — tap a fixture to light the room.</text>';}
+  s+='</svg>';
+  return s;
+}
+
+/* ---------- text builders ---------- */
+function summaryText(st){
+  st=st||state;var r=roomById(st.room),T=totals(st),mood=moodById(st.mood);
+  var lines=['💡 THE GLOW UP — '+r.name.toUpperCase()+' ('+r.w+'×'+r.l+' ft · '+r.h+' ft ceiling · '+T.perim+' ft perimeter)'];
+  lines.push('• Mood: '+mood.name+' '+mood.hex+' ('+mood.k+') · glow '+st.glow+'% · uplights every '+st.spacing+' ft');
+  if(T.lines.length){T.lines.forEach(function(l){lines.push('• '+l.emoji+' '+l.name+' × '+l.qty+' '+l.unit+' — '+Math.round(l.watts)+' W — '+money(l.cost));});}
+  else{lines.push('• (no fixtures yet)');}
+  lines.push('• Power: '+Math.round(T.watts)+' W across '+T.circuits+' circuit'+(T.circuits===1?'':'s')+' (max 1,440 W each) · '+T.cords+' extension run'+(T.cords===1?'':'s'));
+  lines.push('• Ambiance '+Math.round(T.ambiance)+' — '+ambianceTier(T.ambiance,T.has).label+' · '+money2(T.perGuest)+'/guest · '+money(T.cost)+' total');
+  lines.push('');lines.push('Build it: myeverlastingmemories.com/glow-up.html');
+  return lines.join('\n');
+}
+function leadPayload(st){
+  st=st||state;var r=roomById(st.room),T=totals(st),mood=moodById(st.mood);
+  return {source:'glow-up',eventType:'💡 '+r.name+' lighting',eventDate:'',
+    message:'Room: '+r.name+' ('+r.w+'×'+r.l+' ft, '+r.h+' ft ceiling, '+T.perim+' ft perimeter)'+
+      ' · Guests: '+st.guests+' · Mood: '+mood.name+' '+mood.hex+' ('+mood.k+') · Glow: '+st.glow+'% · Uplight spacing: '+st.spacing+' ft'+
+      ' · Fixtures: '+(T.lines.map(function(l){return l.name+' x'+l.qty;}).join(', ')||'none')+
+      ' · Power: '+Math.round(T.watts)+' W over '+T.circuits+' circuit'+(T.circuits===1?'':'s')+' · Ambiance: '+Math.round(T.ambiance)+
+      ' · Est: '+money(T.cost)+' ('+money2(T.perGuest)+'/guest)'};
+}
+function planCard(st){
+  st=st||state;var r=roomById(st.room),T=totals(st),mood=moodById(st.mood);
+  var am=ambianceTier(T.ambiance,T.has),pw=powerTier(T.circuits,T.watts,T.has);
+  var list=T.lines.length?T.lines.map(function(l){return '<li><b>'+esc(l.name)+'</b> — '+l.qty+' '+esc(l.unit)+' · '+Math.round(l.watts)+' W · '+money(l.cost)+'</li>';}).join(''):'<li>No fixtures selected yet.</li>';
+  return '<h3>💡 Lighting plan — '+esc(r.name)+'</h3><ul>'+
+    '<li>Room: '+r.w+' × '+r.l+' ft · '+r.h+' ft ceiling · '+T.area+' sq ft · perimeter '+T.perim+' ft</li>'+
+    '<li>Mood: <b>'+esc(mood.name)+'</b> ('+mood.k+') '+mood.hex+' · glow level '+st.glow+'%</li>'+
+    '<li>Guests: <b>'+st.guests+'</b> · total <b>'+money(T.cost)+'</b> ('+money2(T.perGuest)+'/guest)</li></ul>'+
+    '<h3>🔌 Fixtures</h3><ul>'+list+'</ul>'+
+    '<h3>⚡ Power</h3><ul>'+
+    '<li>Total draw: <b>'+Math.round(T.watts)+' W</b> across <b>'+T.circuits+'</b> circuit'+(T.circuits===1?'':'s')+' (max 1,440 W each — the 80% rule)</li>'+
+    '<li>Extension runs: <b>'+T.cords+'</b> · keep each run under 8 fixtures</li>'+
+    '<li>'+esc(pw.label)+' — '+esc(pw.text)+'</li></ul>'+
+    '<h3>🎬 Ambiance</h3><ul><li>'+esc(am.label)+' — '+esc(am.text)+'</li></ul>'+
+    '<h3>✅ Isabella\'s lighting rules</h3><ul>'+
+    '<li>Never load a breaker past 80% — 1,440 W to a 15-amp circuit, and the band always takes one.</li>'+
+    '<li>Warm (2800K) reads as love; cool (5600K) reads as glamour. Never mix them in one photo frame.</li>'+
+    '<li>Focus the room before you fill it: pinspot the cake, then wash the walls.</li>'+
+    '<li>Test everything before the first guest — and again after the band plugs in.</li></ul>';
+}
+function sampleState(){return {room:'hall',mood:'warm',guests:120,glow:60,spacing:8,neonWord:'LOVE',
+  fix:{up:true,festoon:true,glowball:true,neon:true,mirror:false,lamp:true,spot:false,wash:false}};}
+
+/* ---------- render ---------- */
+function render(){
+  var r=roomById(state.room),T=totals(state),mood=moodById(state.mood);
+  var am=ambianceTier(T.ambiance,T.has),pw=powerTier(T.circuits,T.watts,T.has);
+
+  $('roomChips').innerHTML=Object.keys(ROOMS).map(function(k){var o=ROOMS[k];
+    return '<button type="button" class="chip'+(k===state.room?' on':'')+'" data-room="'+k+'">'+o.emoji+' '+esc(o.name)+'<span class="px">'+o.w+'×'+o.l+' ft</span></button>';}).join('');
+  $('roomNote').innerHTML='<b>'+r.emoji+' '+esc(r.name)+'</b> — '+esc(r.note);
+
+  $('guestNum').textContent=state.guests;
+  if($('inGuests').value!==String(state.guests))$('inGuests').value=state.guests;
+  $('glowNum').textContent=state.glow+'%';
+  if($('inGlow').value!==String(state.glow))$('inGlow').value=state.glow;
+
+  $('moodChips').innerHTML=MOODS.map(function(m){
+    return '<button type="button" class="chip'+(m.id===state.mood?' on':'')+'" data-mood="'+m.id+'"><span style="display:inline-block;width:11px;height:11px;border-radius:50%;background:'+m.hex+';margin-right:5px;vertical-align:middle"></span>'+esc(m.name)+'<span class="px">'+m.k+'</span></button>';}).join('');
+
+  $('fixGrid').innerHTML=FIX_IDS.map(function(id){var f=FIX[id];var on=!!(state.fix&&state.fix[id]);
+    var unit=fixQty(id,state);
+    var priceTxt=f.basis==='flat'?money(f.price):money(f.price)+' / '+f.unit;
+    return '<button type="button" class="fix'+(on?' on':'')+'" data-fix="'+id+'" aria-pressed="'+on+'">'+
+      '<div class="fx-top"><span class="fx-emoji">'+f.emoji+'</span><span class="fx-name">'+esc(f.name)+'</span><span class="fx-price">'+priceTxt+'</span></div>'+
+      '<div class="fx-note">'+esc(f.note)+'</div>'+
+      '<div class="fx-unit">'+(f.watts+' W each · ')+(on?('this room: '+unit):'off')+'</div></button>';}).join('');
+
+  $('mixNote').innerHTML=T.lines.length
+    ?('<b>'+T.lines.length+' fixture group'+(T.lines.length>1?'s':'')+' on</b> — '+Math.round(T.watts)+' W across '+T.circuits+' circuit'+(T.circuits===1?'':'s')+'. '+esc(pw.label)+'.')
+    :'No fixtures on yet — start with <b>uplights</b> for the walls and a <b>festoon</b> run overhead.';
+
+  $('spacingChips').innerHTML=SPACINGS.map(function(sp){
+    return '<button type="button" class="chip'+(sp.ft===state.spacing?' on':'')+'" data-spacing="'+sp.ft+'">'+esc(sp.label)+'</button>';}).join('');
+  var spn=null;for(var z=0;z<SPACINGS.length;z++){if(SPACINGS[z].ft===state.spacing)spn=SPACINGS[z];}
+  $('spacingNote').textContent=(spn?spn.note+' ':'')+'Full perimeter wash needs '+T.uplightsFull+' uplight'+(T.uplightsFull===1?'':'s')+' before the glow level ('+T.perim+' ft perimeter).';
+
+  if(document.activeElement&&document.activeElement.id!=='neonWord'){$('neonWord').value=state.neonWord;}
+
+  $('nightStage').innerHTML=nightRoomSVG(state);
+  $('nightCap').innerHTML='Your <b>'+esc(r.name)+'</b> ('+r.w+'×'+r.l+' ft) at night in <b>'+esc(mood.name)+'</b>, <b>'+state.glow+'%</b> glow. '+(T.has?('Currently drawing <b>'+Math.round(T.watts)+' W</b> — <b>'+esc(am.label)+'</b>.'):'Add a fixture and the room lights up.');
+
+  $('ocRoom').textContent=r.emoji+' '+r.name+' · '+state.glow+'%';
+  $('ocSub').textContent=r.w+'×'+r.l+' ft · '+r.h+' ft ceiling · '+T.perim+' ft perimeter · '+state.guests+' guests · '+mood.name+' '+mood.hex;
+  $('planList').innerHTML=T.lines.length?T.lines.map(function(l){
+    return '<div class="prog-row"><span class="pr-emoji">'+l.emoji+'</span><span class="pr-name">'+esc(l.name)+'</span>'+
+      '<span class="pr-qty">'+l.qty+' '+esc(l.unit)+'</span><span class="pr-cost">'+money(l.cost)+'</span></div>';}).join('')
+    :'<div class="prog-empty">Nothing lit yet — tap fixtures in Step 2 and they land here with real counts and cost.</div>';
+  $('mWatts').textContent=Math.round(T.watts)+' W';
+  $('mCircuits').textContent=T.circuits;
+  $('mAmbiance').textContent=Math.round(T.ambiance);
+  $('mPer').textContent=money2(T.perGuest);
+  $('mTotal').textContent=money(T.cost);
+  $('verdictLine').innerHTML='<b style="color:#22d3ee">'+esc(am.label.toUpperCase())+'</b> — '+esc(am.text)+' <span style="color:#b9a9d6">('+Math.round(T.ambiance)+' ambiance)</span>';
+
+  $('mathTitle').textContent=r.emoji+' What Lights The '+r.name;
+  $('mathHint').innerHTML='Isabella\'s rule: <b>one uplight every '+state.spacing+' ft</b> of wall. The '+r.name+' has a <b>'+T.perim+' ft</b> perimeter, so a full wash is <b>'+T.uplightsFull+'</b> uplights — at your <b>'+state.glow+'%</b> glow level you light <b>'+(fixQty('up',state))+'</b>. Everything below is priced the way she quotes it: fixtures, plus what it costs to plug them in.';
+  if(T.lines.length){
+    $('mathList').innerHTML=T.lines.map(function(l){var f=FIX[l.id];
+      return '<div class="price-item"><span class="pi-name">'+l.emoji+' '+esc(l.name)+'</span><span class="pi-qty">'+l.qty+' '+esc(l.unit)+' · '+Math.round(l.watts)+' W</span><span class="pi-price">'+money(l.cost)+'</span><span class="pi-note">'+esc(f.note)+'</span></div>';}).join('')+
+      '<div class="price-item" style="border-top:1.5px solid var(--line);margin-top:6px"><span class="pi-name">The whole look</span><span class="pi-qty">'+Math.round(T.watts)+' W · '+T.circuits+' circuit'+(T.circuits===1?'':'s')+'</span><span class="pi-price">'+money(T.cost)+'</span><span class="pi-note">'+money2(T.perGuest)+' per guest · ambiance '+Math.round(T.ambiance)+' ('+esc(am.label)+')</span></div>';
+  }else{
+    $('mathList').innerHTML='<div class="price-item"><span class="pi-name">The room is dark</span><span class="pi-note">Pick a fixture in Step 2 and the numbers appear here.</span></div>';
+  }
+  $('mathVerdict').innerHTML='<b>'+esc(am.label.toUpperCase())+' — </b>'+esc(am.text);
+
+  $('powerList').innerHTML=T.lines.length?T.lines.map(function(l){var f=FIX[l.id];
+    return '<div class="price-item"><span class="pi-name">'+l.emoji+' '+esc(l.name)+'</span><span class="pi-qty">'+l.qty+' '+esc(l.unit)+'</span><span class="pi-price">'+Math.round(l.watts)+' W</span><span class="pi-note">'+(f.ac?'plug-in':'battery')+' · '+money(l.cost)+'</span></div>';}).join('')
+    :'<div class="price-item"><span class="pi-name">No load yet</span><span class="pi-note">Turn on a fixture to see its draw.</span></div>';
+  $('powerVerdict').innerHTML='<b>'+esc(pw.label.toUpperCase())+' — </b>'+esc(pw.text);
+  $('powerWatts').textContent=Math.round(T.watts);
+  $('powerCircuits').textContent=T.circuits;
+  $('powerCords').textContent=T.cords;
+  $('powerAmbiance').textContent=Math.round(T.ambiance);
+
+  $('planCardPrint').innerHTML=planCard(state);
+  $('printMeta').textContent='Everlasting Memories · '+r.name+' · '+state.guests+' guests · '+mood.name+' '+mood.hex;
+}
+
+/* ---------- DOM ---------- */
+if(typeof document!=='undefined'){
+function toast(msg){var el=$('toast');el.textContent=msg;el.classList.add('show');clearTimeout(toast._t);toast._t=setTimeout(function(){el.classList.remove('show');},2600);}
+
+$('roomChips').addEventListener('click',function(e){var b=e.target.closest('button');if(!b||!b.dataset.room)return;state.room=b.dataset.room;render();});
+$('moodChips').addEventListener('click',function(e){var b=e.target.closest('button');if(!b||!b.dataset.mood)return;state.mood=b.dataset.mood;render();});
+$('spacingChips').addEventListener('click',function(e){var b=e.target.closest('button');if(!b||!b.dataset.spacing)return;state.spacing=parseFloat(b.dataset.spacing);render();});
+$('fixGrid').addEventListener('click',function(e){var b=e.target.closest('button');if(!b||!b.dataset.fix)return;
+  var id=b.dataset.fix;state.fix[id]=!state.fix[id];render();});
+$('inGuests').addEventListener('input',function(){state.guests=parseInt(this.value,10)||120;render();});
+$('inGlow').addEventListener('input',function(){state.glow=parseInt(this.value,10)||0;render();});
+$('neonWord').addEventListener('input',function(){state.neonWord=this.value;render();});
+
+$('btnShuffle').addEventListener('click',function(){
+  var rk=Object.keys(ROOMS);state.room=rk[Math.floor(Math.random()*rk.length)];
+  state.mood=MOODS[Math.floor(Math.random()*MOODS.length)].id;
+  state.glow=[30,45,60,75,90][Math.floor(Math.random()*5)];
+  state.guests=[40,80,120,160,220][Math.floor(Math.random()*5)];
+  state.spacing=Math.random()<0.5?8:12;
+  var nf={};FIX_IDS.forEach(function(id){nf[id]=Math.random()<0.55;});nf.up=true;nf.festoon=Math.random()<0.7;
+  state.fix=nf;render();
+  toast('💡 '+ROOMS[state.room].name+' lit in '+moodById(state.mood).name+' at '+state.glow+'% glow.');
+});
+$('btnCopy').addEventListener('click',function(){
+  var t=summaryText();
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){toast('📋 Lighting plan copied!');});}
+  else{var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);toast('📋 Lighting plan copied!');}
+});
+$('btnWa').addEventListener('click',function(){window.open('https://wa.me/?text='+encodeURIComponent(summaryText()),'_blank');});
+$('btnPrint').addEventListener('click',function(){window.print();});
+
+/* nav dropdown */
+$('ddBtn').addEventListener('click',function(e){e.stopPropagation();$('ddMenu').classList.toggle('open');});
+document.addEventListener('click',function(){$('ddMenu').classList.remove('open');});
+
+/* secret #27 */
+var taps=0;
+$('secretBadge').addEventListener('click',function(){
+  taps++;if(taps<5)return;taps=0;
+  var html='<div class="prog-row" style="display:block"><div class="pr-name" style="font-size:.9rem">🤫 Isabella\'s lighting notebook — Secret #27</div>'+
+    '<div style="font-size:.8rem;color:#e6dcff;margin-top:6px;line-height:1.6">Four rules she lights by. One: <b>the 80% rule</b> — never load a breaker past 1,440 watts, because the band always takes a circuit and the year she didn\'t check is the year the first dance happened in the dark. Two: <b>gels are everything</b> — warm amber (2800K) is love, cool white (5600K) is glamour, and you never put both in one photograph or the album looks like two different parties. Three: <b>focus before fill</b> — pinspot the cake, the floral and the sign first, then wash the walls; if you light everything, you light nothing. Four: <b>test before the guests and again after the band plugs in</b> — the second test is the one everybody skips and the one that saves the night. And the compliment she keeps in her pocket, from a host mid-reception looking around the room: <i>"I don\'t know what you did, but everyone looks ten years younger."</i> 💡</div></div>';
+  var sh=$('planList');sh.innerHTML=html+sh.innerHTML;
+  toast('🕵️ Secret #27 unlocked');
+});
+
+/* lead form */
+$('leadForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var btn=this.querySelector('button[type=submit]');btn.disabled=true;btn.textContent='Sending…';
+  var payload=leadPayload(state);
+  payload.name=$('fName').value.trim();payload.email=$('fEmail').value.trim();payload.phone=$('fPhone').value.trim();
+  payload.eventDate=$('fDate').value||'';payload.budget=$('fBudget').value||'';
+  payload.message=($('fMsg').value.trim()?$('fMsg').value.trim()+' — ':'')+payload.message;
+  fetch('/api/leads.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+    .then(function(res){return res.json();})
+    .then(function(){toast('💡 Sent! Isabella replies within 24h.');btn.disabled=false;btn.textContent='💡 Send Isabella the light plan →';$('leadForm').reset();})
+    .catch(function(){toast('⚠️ Couldn\'t send — email hello@myeverlastingmemories.com');btn.disabled=false;btn.textContent='💡 Send Isabella the light plan →';});
+});
+
+render();
+} /* end DOM guard */
+if(typeof module!=='undefined'&&module.exports){
+  module.exports={ROOMS:ROOMS,MOODS:MOODS,FIX:FIX,FIX_IDS:FIX_IDS,SPACINGS:SPACINGS,state:state,
+    roomById:roomById,moodById:moodById,roomPerim:roomPerim,roomArea:roomArea,neonWord:neonWord,fixQty:fixQty,
+    fixLine:fixLine,activeIds:activeIds,totals:totals,ambianceTier:ambianceTier,powerTier:powerTier,
+    nightRoomSVG:nightRoomSVG,summaryText:summaryText,leadPayload:leadPayload,planCard:planCard,
+    sampleState:sampleState,render:render,money:money,money2:money2,esc:esc};
+}
+})();
+</script>
+</body>
+</html>
