@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Paper Trail — Printable Signage &amp; Stationery Studio | Everlasting Memories</title>
+<meta name="description" content="Design your party's signage and paper goods: welcome sign, table numbers, place cards, menus, bar signs and seating boards — live preview plus print-ready sheets.">
+<meta name="theme-color" content="#241a12">
+<meta property="og:title" content="The Paper Trail — Printable Signage &amp; Stationery Studio | Everlasting Memories">
+<meta property="og:description" content="The site's first paper-goods studio. Every other tool dressed the room, the table, the ceiling or the light — this one puts words on it: welcome signs, table numbers, place cards, menus, bar signs, hashtag signs and seating boards, with a live sign preview, honest paper math, and print-ready sheets.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--c1:#c65d3b;--c2:#1e3a5f;--c3:#241a12;--c3b:#3a2a1c;--bg:#faf6ef;--line:#e8ddc9;--ink:#241a12;--soft:#7c6f5f;--good:#1a7f4e;--bad:#b3261e}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.serif{font-family:'Playfair Display',Georgia,serif}
+a{color:var(--c1);text-decoration:none}
+a:hover{opacity:.85}
+/* nav */
+.em-nav{display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:14px 22px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.em-nav-brand{font-family:'Playfair Display',serif;font-weight:700;font-size:1.15rem;color:var(--ink);margin-right:auto}
+.em-nav-brand span{color:var(--c1)}
+.em-nav a.nav-link{font-size:.85rem;font-weight:600;color:var(--ink);padding:6px 8px;border-radius:8px}
+.em-nav a.nav-link:hover{background:var(--bg)}
+.em-nav-cta{background:linear-gradient(135deg,var(--c3),#c65d3b);color:#ffe9df!important;padding:9px 16px;border-radius:999px;font-weight:600;font-size:.85rem;box-shadow:0 4px 14px rgba(36,26,18,.35)}
+.dd-wrap{position:relative}
+.dd-btn{background:none;border:1px solid var(--line);border-radius:999px;padding:8px 16px;font:600 .85rem 'Inter',sans-serif;color:var(--ink);cursor:pointer;display:flex;align-items:center;gap:6px}
+.dd-btn:hover{background:var(--bg)}
+.dd-menu{display:none;position:absolute;top:calc(100% + 8px);left:0;min-width:230px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 18px 40px rgba(36,26,18,.16);padding:8px;z-index:60;max-height:70vh;overflow:auto}
+.dd-menu.open{display:block}
+.dd-menu a{display:block;padding:8px 12px;border-radius:9px;font-size:.84rem;font-weight:500;color:var(--ink)}
+.dd-menu a:hover{background:var(--bg)}
+.dd-menu a.styled{color:#fff!important;font-weight:600}
+.dd-menu .dd-tag{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);padding:8px 12px 4px}
+/* hero */
+.hero{max-width:1120px;margin:0 auto;padding:34px 22px 10px}
+.home-link{display:inline-block;font-size:.82rem;font-weight:600;color:var(--c1);margin-bottom:16px}
+.badge{display:inline-block;background:linear-gradient(135deg,var(--c3),#c65d3b);color:#ffe9df;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:14px;cursor:pointer;user-select:none}
+.hero h1{font-size:clamp(2.1rem,5vw,3.3rem);line-height:1.1;color:var(--c3)}
+.hero .sub{margin-top:12px;max-width:830px;color:var(--soft);font-size:1.02rem}
+.hero .sub b{color:var(--ink)}
+/* layout */
+.container{max-width:1120px;margin:0 auto;padding:22px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 10px 30px rgba(36,26,18,.05)}
+.card h2{font-size:1.35rem;color:var(--c3);margin-bottom:4px}
+.card .kicker{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c1);margin-bottom:2px}
+.card .hint{font-size:.82rem;color:var(--soft);margin-bottom:14px}
+.fg{margin-bottom:14px}
+.fg label{display:block;font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ink);margin-bottom:5px}
+.fg input,.fg select,.fg textarea{width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;font:500 .92rem 'Inter',sans-serif;background:#fff;color:var(--ink)}
+.fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:var(--c1)}
+.fg textarea{min-height:64px;resize:vertical}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:520px){.fg-row{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;font:600 .82rem 'Inter',sans-serif;color:var(--ink);cursor:pointer;transition:all .15s}
+.chip:hover{border-color:var(--c1);color:var(--c1)}
+.chip.on{background:linear-gradient(135deg,var(--c3),#c65d3b);border-color:transparent;color:#ffe9df;box-shadow:0 4px 12px rgba(36,26,18,.3)}
+.chip .px{display:block;font-size:.66rem;font-weight:600;opacity:.85}
+.chip.on .px{opacity:.8}
+.piece-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:520px){.piece-grid{grid-template-columns:1fr}}
+.piece{border:1.5px solid var(--line);background:#fff;border-radius:14px;padding:11px 13px;cursor:pointer;transition:all .15s;text-align:left}
+.piece:hover{border-color:var(--c1);transform:translateY(-1px)}
+.piece.on{border-color:var(--c1);background:linear-gradient(180deg,#fdf3ee,#fff);box-shadow:0 6px 18px rgba(198,93,59,.16)}
+.piece .pc-top{display:flex;align-items:center;gap:8px}
+.piece .pc-emoji{font-size:1.3rem}
+.piece .pc-name{font-weight:700;font-size:.84rem;color:var(--c3);flex:1}
+.piece .pc-price{font-weight:800;font-size:.76rem;color:var(--c1);white-space:nowrap}
+.piece .pc-note{font-size:.73rem;color:var(--soft);margin-top:5px}
+.piece .pc-unit{font-size:.61rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--soft);margin-top:5px}
+.piece.on .pc-unit{color:var(--c1)}
+.range-wrap{display:flex;align-items:center;gap:14px}
+.range-wrap input[type=range]{flex:1;accent-color:var(--c3);height:34px}
+.big-read{min-width:118px;text-align:center;background:linear-gradient(135deg,var(--c3),#c65d3b);color:#ffe9df;border-radius:12px;padding:8px 10px;font-weight:700;font-size:.95rem}
+.big-read small{display:block;font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;opacity:.85}
+.note-line{margin-top:10px;background:var(--bg);border:1px dashed var(--line);border-radius:12px;padding:10px 14px;font-size:.83rem}
+.note-line b{color:var(--c3)}
+.fit-note{margin-top:8px;font-size:.78rem;font-weight:600}
+.fit-note.good{color:var(--good)}
+.fit-note.warn{color:var(--bad)}
+/* sign stage */
+.sign-wrap{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.sign-stage{background:linear-gradient(160deg,#efe6d6,#e3d5bf);border:1px solid var(--line);border-radius:16px;padding:14px;flex:1;min-width:280px}
+.sign-cap{font-size:.78rem;color:var(--soft)}
+.sign-cap b{color:var(--c3)}
+.thumb-strip{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.thumb{background:#fff;border:1px solid var(--line);border-radius:12px;padding:9px 12px;min-width:104px;flex:1}
+.thumb .th-name{font-size:.72rem;font-weight:700;color:var(--c3)}
+.thumb .th-qty{font-size:.68rem;color:var(--soft);margin-top:2px}
+.thumb .th-bar{height:6px;border-radius:3px;margin-top:7px}
+/* output card */
+.out-card{background:linear-gradient(165deg,#241a12,#3a2a1c);color:#f6ede1;border-radius:22px;padding:26px;box-shadow:0 16px 40px rgba(36,26,18,.34);position:sticky;top:84px}
+.out-card .oc-head{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:6px}
+.out-card .oc-occasion{display:inline-block;background:rgba(255,255,255,.12);color:#ffdccb;border-radius:999px;padding:4px 12px;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.out-card h2{color:#fff;font-size:1.5rem}
+.out-card .oc-sub{color:#d6c4ae;font-size:.8rem;margin-bottom:16px}
+.program{background:rgba(255,255,255,.06);border:1px dashed rgba(255,255,255,.22);border-radius:16px;padding:8px 14px}
+.prog-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px dashed rgba(255,255,255,.14)}
+.prog-row:last-child{border-bottom:none}
+.prog-row .pr-emoji{font-size:1.1rem}
+.prog-row .pr-name{font-weight:700;font-size:.82rem;color:#fff;flex:1}
+.prog-row .pr-qty{font-weight:700;font-size:.77rem;color:#ffdccb;white-space:nowrap}
+.prog-row .pr-cost{font-weight:800;font-size:.8rem;color:#fff;white-space:nowrap;min-width:56px;text-align:right}
+.prog-empty{color:#d6c4ae;font-size:.85rem;font-style:italic;padding:12px 4px}
+.meter{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.14)}
+.mstat{background:rgba(255,255,255,.08);border-radius:12px;padding:8px 12px;text-align:center;min-width:82px}
+.mstat b{display:block;font-size:1.05rem;color:#fff}
+.mstat small{font-size:.6rem;text-transform:uppercase;letter-spacing:.06em;color:#d6c4ae}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.btn{border:none;border-radius:999px;padding:11px 18px;font:700 .85rem 'Inter',sans-serif;cursor:pointer;transition:all .15s;background:#fff;color:#241a12}
+.btn:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(0,0,0,.18)}
+.btn.primary{background:linear-gradient(135deg,#e8b17a,#c65d3b);color:#241a12}
+.btn.ghost{background:rgba(255,255,255,.1);color:#f6ede1;border:1px solid rgba(255,255,255,.25)}
+.btn.ghost:hover{background:rgba(255,255,255,.18)}
+/* quote */
+.quote{background:#fff;border-left:4px solid var(--c2);border-radius:0 16px 16px 0;padding:18px 20px;margin:24px 0;font-style:italic;color:var(--soft);font-size:.92rem}
+.quote b{color:var(--c3);font-style:normal}
+/* wide cards */
+.wide{margin-top:22px}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:22px}
+@media(max-width:900px){.duo{grid-template-columns:1fr}}
+.price-item{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;padding:11px 0;border-bottom:1px dashed var(--line)}
+.price-item:last-child{border-bottom:none}
+.price-item .pi-name{font-weight:700;color:var(--ink);font-size:.92rem}
+.price-item .pi-qty{font-weight:800;color:var(--c3);font-size:.85rem;white-space:nowrap}
+.price-item .pi-price{font-weight:800;color:var(--c1);font-size:.88rem;white-space:nowrap;margin-left:auto}
+.price-item .pi-note{flex-basis:100%;font-size:.79rem;color:var(--soft)}
+.bignum{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;color:var(--c3);line-height:1.05}
+.bignum small{font-size:1rem;color:var(--soft);font-weight:600}
+.legend{font-size:.72rem;color:var(--soft);display:flex;gap:14px;flex-wrap:wrap;margin-top:4px}
+.legend span b{color:var(--ink)}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:26px 0}
+@media(max-width:800px){.facts{grid-template-columns:repeat(2,1fr)}}
+.fact{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px;text-align:center}
+.fact .f-num{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:700;color:var(--c3);display:block}
+.fact .f-txt{font-size:.76rem;color:var(--soft);margin-top:4px}
+.faq{margin:8px 0 26px}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin-bottom:10px}
+.faq summary{font-weight:700;font-size:.92rem;cursor:pointer;color:var(--c3)}
+.faq details p{font-size:.86rem;color:var(--soft);margin-top:8px}
+.barcard{border:1.5px dashed var(--line);border-radius:14px;padding:18px 20px;background:#fff}
+.barcard h3{font-size:.95rem;color:var(--c3);margin-bottom:8px}
+.barcard ul{margin:2px 0 12px 18px;font-size:.86rem;color:var(--soft)}
+.barcard li{margin:3px 0}
+.barcard li b{color:var(--ink)}
+.value-strip{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.value-pill{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:.76rem;color:var(--soft)}
+.value-pill b{color:var(--c3)}
+/* lead card */
+.lead-card{background:linear-gradient(160deg,#241a12,#3a2a1c);color:#fff;border-radius:20px;padding:28px;margin-top:8px}
+.lead-card h2{color:#fff}
+.lead-card .kicker{color:#e8b17a}
+.lead-card .hint{color:#d6c4ae}
+.lead-card label{color:#d6c4ae}
+.lead-card input,.lead-card select,.lead-card textarea{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#fff}
+.lead-card input::placeholder,.lead-card textarea::placeholder{color:rgba(255,255,255,.55)}
+.lead-card input:focus,.lead-card select:focus,.lead-card textarea:focus{border-color:#e8b17a}
+.lead-card select option{color:var(--ink)}
+.lead-card .btn-p{background:#e8b17a;color:#241a12}
+.lead-card .fine{font-size:.74rem;color:#d6c4ae;margin-top:10px}
+/* footer */
+footer{background:var(--c3);color:#fff;margin-top:34px;padding:26px 22px 30px}
+footer .strip{font-size:.78rem;line-height:2;color:rgba(255,255,255,.75)}
+footer .strip a{color:#ffe9df;font-weight:600;margin-right:2px}
+footer .foot-brand{font-family:'Playfair Display',serif;font-size:1.1rem;margin-top:14px}
+footer .foot-brand span{color:#ffe9df}
+footer .copy{font-size:.72rem;color:rgba(255,255,255,.6);margin-top:6px}
+/* print */
+@media print{
+  .em-nav,.actions,.lead-card,.facts,.faq,.hero,.home-link,.badge,footer,.quote,.duo,.wide,.grid,.no-print,.value-strip,.toast{display:none!important}
+  body{background:#fff}
+  .print-only{display:block!important}
+}
+.print-only{display:none}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(120%);background:var(--ink);color:#fff;padding:12px 22px;border-radius:999px;font-size:.85rem;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.25);transition:transform .3s;z-index:99}
+.toast.show{transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<nav class="em-nav">
+  <div class="em-nav-brand"><a href="index.html" style="color:inherit">Everlasting <span>Memories</span></a></div>
+  <a class="nav-link" href="gallery.html">Gallery</a>
+  <a class="nav-link" href="services.html">Services</a>
+  <a class="nav-link" href="about.html">About</a>
+  <a class="nav-link" href="faq.html">FAQ</a>
+  <div class="dd-wrap">
+    <button class="dd-btn" id="ddBtn" aria-haspopup="true" aria-expanded="false">Tools ▾</button>
+    <div class="dd-menu" id="ddMenu">
+      <div class="dd-tag">Newest</div>
+      <a href="paper-trail.html" class="styled" style="background:#241a12">The Paper Trail</a>
+      <a href="glow-up.html" class="styled" style="background:#140b26">The Glow Up</a>
+      <a href="sky-installer.html" class="styled" style="background:#1a1a2e">The Sky Installer</a>
+      <a href="sip-station.html" class="styled" style="background:#3a1020">The Sip Station</a>
+      <a href="favor-bar.html" class="styled" style="background:#2e1065">The Favor Bar</a>
+      <a href="boo-bash.html" class="styled" style="background:#2e1065">The Boo Bash</a>
+      <a href="raised-glass.html" class="styled" style="background:#241b12">The Raised Glass</a>
+      <a href="launch-pad.html" class="styled" style="background:#1e3a8a">The Launch Pad</a>
+      <a href="smash.html" class="styled" style="background:#ff8c42">The Smash Hit</a>
+      <a href="nest.html" class="styled" style="background:#6b8f71">The Nest</a>
+      <a href="powder-pop.html" class="styled" style="background:#ec4899">The Powder Pop</a>
+      <a href="big-yes.html" class="styled" style="background:#a8526b">The Big Yes</a>
+      <a href="party-er.html" class="styled" style="background:#059669">The Party ER</a>
+      <a href="rain-plan.html" class="styled" style="background:#0284c7">The Rain Plan</a>
+      <div class="dd-tag">All tools</div>
+      <a href="after-glow.html">The After-Glow</a>
+      <a href="seating-chart.html">Seating Chart Studio</a>
+      <a href="surprise-planner.html">Operation: Surprise</a>
+      <a href="dessert-table.html">Dessert Table Stylist</a>
+      <a href="golden-hour.html">Golden Hour Finder</a>
+      <a href="party-timeline.html">Party Day Timeline</a>
+      <a href="memory-capsule.html">Memory Capsule</a>
+      <a href="playlist.html">Party Playlist Studio</a>
+      <a href="guest-list.html">The Guest List</a>
+      <a href="photo-hunt.html">Party Photo Hunt</a>
+      <a href="photo-booth.html">Golden Hour Booth</a>
+      <a href="memory-wall.html">Memory Wall</a>
+      <a href="party-roadmap.html">Party Roadmap</a>
+      <a href="invitation-studio.html">Invitation Studio</a>
+      <a href="balloon-pop.html">Pop Party</a>
+      <a href="wedding-workshop.html">Wedding Workshop</a>
+      <a href="transformations.html">The Big Reveal</a>
+      <a href="budget-builder.html">Budget Balloonist</a>
+      <a href="referral.html">Refer &amp; Earn</a>
+      <a href="cost-estimator.html">Cost Estimator</a>
+      <a href="theme-generator.html">Theme Generator</a>
+      <a href="lookbook.html">Lookbook</a>
+      <a href="countdown.html">Countdown</a>
+      <a href="party-style-quiz.html">Party Style Quiz</a>
+      <a href="balloon-math.html">Balloon Math</a>
+      <a href="name-garland.html">Balloon Letter Studio</a>
+      <a href="palette-snap.html">Palette Snap</a>
+      <a href="diy-vs-pro.html">DIY or Dazzle</a>
+      <a href="reserve-date.html">Reserve Your Date</a>
+      <a href="gift-card.html">Gift Card Studio</a>
+    </div>
+  </div>
+  <a class="em-nav-cta" href="contact.html">Get a Quote</a>
+</nav>
+
+<header class="hero">
+  <a class="home-link" href="index.html">← Everlasting Memories</a>
+  <div><span class="badge" id="secretBadge" title="🖋️">🖋️ New Tonight — The Paper Trail</span></div>
+  <h1>The Paper Trail</h1>
+  <p class="sub"><b>Printable signage &amp; stationery studio.</b> Every other tool on this site dressed the room, the table, the ceiling or the light — this one puts the words on it. Pick the occasion and the paper palette, choose your signs, and get a live preview of the welcome sign plus an honest paper-and-profit breakdown and print-ready sheets Isabella can trim and hand you tonight.</p>
+</header>
+
+<div class="container">
+  <div class="grid">
+
+    <!-- LEFT: inputs + sign stage -->
+    <div>
+      <div class="card" style="margin-bottom:22px">
+        <div class="kicker">Step 1</div>
+        <h2>The occasion &amp; the names</h2>
+        <p class="hint">The occasion sets the tone; the names set the type. Every sign below reads from these fields, so change one word and the whole suite updates.</p>
+        <div class="chips" id="occChips"></div>
+        <div class="note-line" id="occNote"></div>
+        <div class="fg-row" style="margin-top:16px">
+          <div class="fg" style="margin-bottom:0">
+            <label for="inEvent">Event name</label>
+            <input type="text" id="inEvent" maxlength="42" value="The Alvarez Wedding" placeholder="The Alvarez Wedding">
+          </div>
+          <div class="fg" style="margin-bottom:0">
+            <label for="inHost">Host / names on the sign</label>
+            <input type="text" id="inHost" maxlength="32" value="Ana &amp; Luis" placeholder="Ana &amp; Luis">
+          </div>
+        </div>
+        <div class="fg-row" style="margin-top:14px">
+          <div class="fg" style="margin-bottom:0">
+            <label for="inDate">Event date</label>
+            <input type="date" id="inDate" value="2026-06-20">
+          </div>
+          <div class="fg" style="margin-bottom:0">
+            <label for="inVenue">Venue</label>
+            <input type="text" id="inVenue" maxlength="40" value="The Willow Barn" placeholder="The Willow Barn">
+          </div>
+        </div>
+        <div class="fg" style="margin-top:14px;margin-bottom:4px">
+          <label for="inTag">Hashtag / social handle (for the social sign)</label>
+          <input type="text" id="inTag" maxlength="30" value="AlvarezEverAfter" placeholder="AlvarezEverAfter">
+        </div>
+        <div class="fg-row" style="margin-top:10px">
+          <div class="fg" style="margin-bottom:0">
+            <label for="inTables">Tables</label>
+            <div class="range-wrap">
+              <input type="range" id="inTables" min="4" max="40" step="1" value="12">
+              <div class="big-read"><span id="tableNum">12</span><small>tables</small></div>
+            </div>
+          </div>
+          <div class="fg" style="margin-bottom:0">
+            <label for="inGuests">Guests</label>
+            <div class="range-wrap">
+              <input type="range" id="inGuests" min="10" max="400" step="5" value="120">
+              <div class="big-read"><span id="guestNum">120</span><small>people</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:22px">
+        <div class="kicker">Step 2</div>
+        <h2>Paper palette &amp; pieces</h2>
+        <p class="hint">Pick the paper first — every sign inherits it. Then choose the pieces you want printed; each one prices itself by the table and guest counts above.</p>
+        <div class="fg" style="margin-bottom:14px">
+          <label>Paper palette</label>
+          <div class="chips" id="palChips"></div>
+        </div>
+        <div class="piece-grid" id="pieceGrid"></div>
+        <div class="note-line" id="mixNote"></div>
+      </div>
+
+      <div class="card">
+        <div class="kicker">The proof</div>
+        <h2>See the welcome sign</h2>
+        <p class="hint">A live proof of the welcome sign in your palette — with a thumbnail of every other piece you've chosen. What you see is what gets trimmed.</p>
+        <div class="sign-wrap">
+          <div class="sign-stage" id="signStage"></div>
+        </div>
+        <div class="sign-cap" id="signCap" style="margin-top:12px"></div>
+        <div class="thumb-strip" id="thumbStrip"></div>
+      </div>
+    </div>
+
+    <!-- RIGHT: output card -->
+    <div>
+      <div class="out-card">
+        <div class="oc-head">
+          <span class="oc-occasion" id="ocOccasion">Wedding</span>
+        </div>
+        <h2>The Signage Plan</h2>
+        <div class="oc-sub" id="ocSub"></div>
+        <div class="program" id="planList"></div>
+        <div class="meter">
+          <div class="mstat"><b id="mRevenue">$0</b><small>your price</small></div>
+          <div class="mstat"><b id="mSheets">0</b><small>sheets</small></div>
+          <div class="mstat"><b id="mCover">0%</b><small>coverage</small></div>
+          <div class="mstat"><b id="mMargin">0%</b><small>margin</small></div>
+          <div class="mstat"><b id="mPer">$0</b><small>per guest</small></div>
+        </div>
+        <div class="note-line" id="verdictLine" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.22);color:#efe2d2;margin-top:16px"></div>
+        <div class="actions">
+          <button class="btn primary" id="btnShuffle" type="button">🎲 Style it for me</button>
+          <button class="btn ghost" id="btnCopy" type="button">📋 Copy list</button>
+          <button class="btn ghost" id="btnWa" type="button">💬 WhatsApp</button>
+          <button class="btn ghost" id="btnPrint" type="button">🖨️ Print sheets</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="container wide">
+  <div class="quote">
+    “A beautiful room with no words in it is just a beautiful room. <b>A welcome sign is the first thing a guest reads and the last thing they photograph.</b> I've watched a $6,000 install get remembered as 'pretty' — and a $900 party get remembered by name, because the paper told everyone exactly where they were and why they were loved.” <br>— <b>Isabella</b>, on why words belong on the wall
+  </div>
+
+  <div class="duo">
+    <div class="card">
+      <div class="kicker">The list</div>
+      <h2 id="mathTitle">Every piece, priced</h2>
+      <p class="hint" id="mathHint"></p>
+      <div id="mathList"></div>
+      <div class="note-line" id="mathVerdict" style="margin-top:14px"></div>
+    </div>
+    <div class="card">
+      <div class="kicker">Paper &amp; profit</div>
+      <h2>What it costs to make</h2>
+      <p class="hint">Signage is the best margins in the whole business: <b>almost no helium, almost no labor, all design.</b> Here's the honest math — what the client pays, what the paper and ink cost, and what's left.</p>
+      <div id="costList"></div>
+      <div class="note-line" id="costVerdict" style="margin-top:14px"></div>
+      <div style="text-align:center;margin-top:18px">
+        <div class="bignum"><span id="costMargin">0</span><small>% gross margin</small></div>
+        <div class="legend" style="justify-content:center">
+          <span>💵 <b id="costRev">$0</b> client pays</span>
+          <span>📄 <b id="costMat">$0</b> paper &amp; ink</span>
+          <span>⏱️ <b id="costHours">0</b> design hours</span>
+          <span>💼 <b id="costHourly">$0</b>/hr effective</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="facts">
+    <div class="fact"><span class="f-num">3 fonts</span><span class="f-txt">one serif for names, one sans for details, one script for flourish — never more</span></div>
+    <div class="fact"><span class="f-num">18 in</span><span class="f-txt">eye-line for a welcome sign — measure from the floor, not the table</span></div>
+    <div class="fact"><span class="f-num">1 palette</span><span class="f-txt">every sign shares the decor palette; mismatched paper is the fastest way to look rented</span></div>
+    <div class="fact"><span class="f-num">$2.35</span><span class="f-txt">average paper cost per 12×18 metallic cardstock sheet — the whole margin story</span></div>
+  </div>
+
+  <div class="faq">
+    <details open><summary>Wait — the balloon company sells paper now?</summary><p>It sells <i>coherence</i>. A guest's eye follows words: the welcome sign at the door, the table number they hunt for, the place card with their name on it. If those are a mix of printable templates and a felt-tip marker, the room reads as assembled. The Paper Trail designs the whole paper suite in your decor palette so the last 10 feet of the party match the first.</p></details>
+    <details><summary>Is this print-ready, or just a picture?</summary><p>Print-ready. The <b>Print sheets</b> button lays out your chosen pieces as a clean sheet — welcome sign, table numbers, place cards, menu, bar sign, hashtag sign, seating board — sized and specified. Isabella prints on 12×18 metallic or matte cardstock and trims to size, which is why the paper math on this page counts real sheets, not vibes.</p></details>
+    <details><summary>Why does it show profit? Isn't that for the vendor?</summary><p>Because signage is where the margin lives — no helium, no delivery risk, just design and paper. Showing the margin isn't a gimmick; it's the reason Isabella can include a full paper suite in a quote for less than a client expects and still make it worth her afternoon. Same reason the site has a <a href="cost-estimator.html">Cost Estimator</a>.</p></details>
+    <details><summary>How many place cards do I actually need?</summary><p>One per guest — plus five spares, because someone always brings a plus-one you didn't know about. The tool prices place cards per guest; order a few extra and keep them blank on the corner of the welcome table for the last-minute guest.</p></details>
+    <details><summary>What's the difference between a welcome sign and a seating chart?</summary><p>A <b>welcome sign</b> greets and sets the mood at the door — it's emotion. A <b>seating chart board</b> tells guests where to go — it's logistics. You want both, and you want them in the same palette, because a guest reads them within thirty seconds of each other and will notice if they clash.</p></details>
+    <details><summary>Can I reuse this with the decor I already booked?</summary><p>Yes — pick the palette closest to your balloon work, drop your names in, and the pieces inherit it. Then take the whole list to the <a href="lookbook.html">Lookbook</a> or straight to Isabella. The paper and the balloons should look like they were designed on the same afternoon — because from here, they were.</p></details>
+  </div>
+
+  <div class="card" style="margin-top:22px">
+    <div class="kicker">Try these next</div>
+    <h2>Put words on it, then finish the party</h2>
+    <p class="hint">The Paper Trail gives you the paper. These fill in everything the paper points to:</p>
+    <div class="value-strip">
+      <span class="value-pill">🖋️ <b><a href="invitation-studio.html">Invitation Studio</a></b> — the paper that started it</span>
+      <span class="value-pill">🗺️ <b><a href="seating-chart.html">Seating Chart Studio</a></b> — who sits where</span>
+      <span class="value-pill">🍸 <b><a href="sip-station.html">The Sip Station</a></b> — the bar sign's menu</span>
+      <span class="value-pill">🍰 <b><a href="dessert-table.html">Dessert Table Stylist</a></b> — the table cards</span>
+      <span class="value-pill">💡 <b><a href="glow-up.html">The Glow Up</a></b> — light the sign</span>
+      <span class="value-pill">🎁 <b><a href="favor-bar.html">The Favor Bar</a></b> — the tag on the favor</span>
+      <span class="value-pill">🧮 <b><a href="cost-estimator.html">Cost Estimator</a></b> — full-party budget</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="lead-card">
+    <div class="kicker">Step 3</div>
+    <h2>Send Isabella the signage plan</h2>
+    <p class="hint">She'll match the paper to your decor, confirm the pieces and print them, and lock the date. Replies within 24 hours.</p>
+    <form id="leadForm">
+      <div class="fg-row">
+        <div class="fg"><label for="fName">Your name</label><input type="text" id="fName" placeholder="Jordan" required></div>
+        <div class="fg"><label for="fEmail">Email</label><input type="email" id="fEmail" placeholder="you@email.com" required></div>
+      </div>
+      <div class="fg-row">
+        <div class="fg"><label for="fPhone">Phone</label><input type="tel" id="fPhone" placeholder="(555) 123-4567"></div>
+        <div class="fg"><label for="fDate">Event date</label><input type="date" id="fDate"></div>
+      </div>
+      <div class="fg-row">
+        <div class="fg"><label for="fBudget">Budget</label>
+          <select id="fBudget">
+            <option value="">Pick a range…</option>
+            <option>Under $300</option><option>$300 – $700</option><option>$700 – $1,500</option><option>$1,500 – $3,000</option><option>$3,000+</option>
+          </select>
+        </div>
+        <div class="fg"><label for="fMsg">Anything else?</label><input type="text" id="fMsg" placeholder="Colors, venue, vibe…"></div>
+      </div>
+      <button class="btn btn-p" type="submit" style="padding:13px 28px;font-size:.9rem">🖋️ Send Isabella the signage plan →</button>
+      <p class="fine">No spam, ever. Your plan details are attached automatically.</p>
+    </form>
+  </div>
+</div>
+
+<div class="print-only" id="printWrap">
+  <div style="text-align:center;margin-bottom:14px">
+    <div style="font-family:'Playfair Display',serif;font-size:1.4rem;color:#241a12" id="printTitle">🖋️ The Paper Trail — Signage Suite</div>
+    <div style="font-size:.78rem;color:#7c6f5f" id="printMeta">Everlasting Memories · myeverlastingmemories.com</div>
+  </div>
+  <div class="barcard" id="planCardPrint"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<footer>
+  <p class="strip">
+    <a href="paper-trail.html" style="color:#e8b17a;font-weight:600;">The Paper Trail</a> ·
+    <a href="glow-up.html" style="color:#e879f9;font-weight:600;">The Glow Up</a> ·
+    <a href="sky-installer.html" style="color:#ffdca6;font-weight:600;">The Sky Installer</a> ·
+    <a href="sip-station.html" style="color:#f0c987;font-weight:600;">The Sip Station</a> ·
+    <a href="favor-bar.html" style="color:#bef264;font-weight:600">The Favor Bar</a> ·
+    <a href="boo-bash.html" style="color:#d8b4fe;font-weight:600">The Boo Bash</a> ·
+    <a href="raised-glass.html" style="color:#eed9a6;font-weight:600">The Raised Glass</a> ·
+    <a href="launch-pad.html" style="color:#c7d2fe;font-weight:600">The Launch Pad</a> ·
+    <a href="smash.html" style="color:#ffcfa8;font-weight:600">The Smash Hit</a> ·
+    <a href="nest.html" style="color:#cfe0c4;font-weight:600">The Nest</a> ·
+    <a href="powder-pop.html" style="color:#f9a8d4;font-weight:600">The Powder Pop</a> ·
+    <a href="big-yes.html" style="color:#f2c6d2;font-weight:600">The Big Yes</a> ·
+    <a href="party-er.html" style="color:#a7f3d0;font-weight:600">The Party ER</a> ·
+    <a href="rain-plan.html" style="color:#7dd3fc;font-weight:600">The Rain Plan</a> ·
+    <a href="seating-chart.html" style="color:#f9a8d4;font-weight:600">Seating Chart Studio</a> ·
+    <a href="after-glow.html" style="color:#f9a8d4;font-weight:600">The After-Glow</a> ·
+    <a href="surprise-planner.html" style="color:#a5b4fc;font-weight:600">Operation: Surprise</a> ·
+    <a href="dessert-table.html" style="color:#f0c9a0;font-weight:600">Dessert Table Stylist</a> ·
+    <a href="golden-hour.html" style="color:#c4b5fd;font-weight:600">Golden Hour Finder</a> ·
+    <a href="party-timeline.html" style="color:#cbd5e1;font-weight:600">Party Day Timeline</a> ·
+    <a href="wedding-workshop.html" style="color:#f9a8d4;font-weight:600">Wedding Workshop</a> ·
+    <a href="cost-estimator.html" style="color:#fcd34d;font-weight:600">Cost Estimator</a> ·
+    <a href="guest-list.html" style="color:#93c5fd;font-weight:600">The Guest List</a> ·
+    <a href="playlist.html" style="color:#fca5a5;font-weight:600">Party Playlist Studio</a> ·
+    <a href="name-garland.html" style="color:#f9a8d4;font-weight:600">Balloon Letter Studio</a> ·
+    <a href="invitation-studio.html" style="color:#a5b4fc;font-weight:600">Invitation Studio</a> ·
+    <a href="party-roadmap.html" style="color:#5eead4;font-weight:600">Party Roadmap</a> ·
+    <a href="memory-wall.html" style="color:#fcd34d;font-weight:600">Memory Wall</a> ·
+    <a href="photo-booth.html" style="color:#7dd3fc;font-weight:600">Golden Hour Booth</a> ·
+    <a href="photo-hunt.html" style="color:#f0abfc;font-weight:600">Party Photo Hunt</a> ·
+    <a href="memory-capsule.html" style="color:#fca5a5;font-weight:600">Memory Capsule</a> ·
+    <a href="balloon-pop.html" style="color:#fdba74;font-weight:600">Pop Party</a> ·
+    <a href="transformations.html" style="color:#c4b5fd;font-weight:600">The Big Reveal</a> ·
+    <a href="budget-builder.html" style="color:#86efac;font-weight:600">Budget Balloonist</a> ·
+    <a href="referral.html" style="color:#fde68a;font-weight:600">Refer &amp; Earn</a> ·
+    <a href="gift-card.html" style="color:#f9a8d4;font-weight:600">Gift Card Studio</a> ·
+    <a href="reserve-date.html" style="color:#93c5fd;font-weight:600">Reserve Your Date</a> ·
+    <a href="diy-vs-pro.html" style="color:#fdba74;font-weight:600">DIY or Dazzle</a> ·
+    <a href="palette-snap.html" style="color:#f0abfc;font-weight:600">Palette Snap</a> ·
+    <a href="balloon-math.html" style="color:#86efac;font-weight:600">Balloon Math</a> ·
+    <a href="party-style-quiz.html" style="color:#f9a8d4;font-weight:600">Party Style Quiz</a> ·
+    <a href="countdown.html" style="color:#93c5fd;font-weight:600">Big Day Countdown</a> ·
+    <a href="lookbook.html" style="color:#c4b5fd;font-weight:600">Lookbook</a> ·
+    <a href="theme-generator.html" style="color:#fde68a;font-weight:600">Theme Generator</a> ·
+    <a href="faq.html" style="color:#f2c6d2;font-weight:600">FAQ</a>
+  </p>
+  <p class="foot-brand">Everlasting <span>Memories</span> — balloons &amp; moments that last</p>
+  <p class="copy">Isabella's paper rule: one palette, three fonts, the name in the largest type on the page — and never a welcome sign you have to squint at from the door. 🖋️</p>
+</footer>
+
+<script>
+(function(){
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function money(n){n=Math.round(n||0);return '$'+String(n).replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+function money2(n){var v=Math.round((n||0)*100)/100;var s=(v%1===0)?String(v):v.toFixed(2);return '$'+s.replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+function priceTxt(p){return (p<1?money2(p):money(p));}
+var MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+function datePretty(iso){if(!iso)return '';var m=String(iso).match(/^(\d{4})-(\d{2})-(\d{2})$/);if(!m)return String(iso);
+  var mo=parseInt(m[2],10);if(mo<1||mo>12)return String(iso);return MONTHS[mo-1]+' '+parseInt(m[3],10)+', '+m[1];}
+
+/* ---------- data ---------- */
+var OCCASIONS=[
+  {id:'birthday',emoji:'🎂',name:'Birthday',tone:'Playful',note:'Bright, big type and a little confetti in the corners — the letters should smile.'},
+  {id:'wedding',emoji:'💍',name:'Wedding',tone:'Formal',note:'Serif names, wide spacing, almost no decoration — let the paper be the decoration.'},
+  {id:'babyshower',emoji:'🍼',name:'Baby Shower',tone:'Soft',note:'Round, gentle and pastel — nothing sharp anywhere near a newborn.'},
+  {id:'graduation',emoji:'🎓',name:'Graduation',tone:'Proud',note:'Bold caps and school colors — the year gets the biggest type after the name.'},
+  {id:'anniversary',emoji:'🥂',name:'Anniversary',tone:'Romantic',note:'Italic serif, a small vow line, and the number of years front and center.'},
+  {id:'corporate',emoji:'🏢',name:'Corporate',tone:'Polished',note:'Clean sans, logo room in the top corner, zero script — brand rules win every time.'},
+  {id:'holiday',emoji:'❄️',name:'Holiday Party',tone:'Festive',note:'One flourish and one chill accent — cozy, never cluttered.'}
+];
+
+var PALETTES=[
+  {id:'inkTerra',name:'Ink & Terracotta',paper:'#fbf7f0',ink:'#241a12',accent:'#c65d3b',accent2:'#7a8b6f'},
+  {id:'blushGold',name:'Blush & Gold',paper:'#fdf6f4',ink:'#4a2b2b',accent:'#d98c8c',accent2:'#c9a24b'},
+  {id:'sageKraft',name:'Sage & Kraft',paper:'#f6f4ec',ink:'#2f3b2f',accent:'#7d9b76',accent2:'#b08d5b'},
+  {id:'navyCream',name:'Navy & Cream',paper:'#f7f5ef',ink:'#1e3a5f',accent:'#c9a24b',accent2:'#8a9bb5'},
+  {id:'mono',name:'Modern Monochrome',paper:'#f7f7f7',ink:'#111111',accent:'#555555',accent2:'#9a9a9a'},
+  {id:'pop',name:'Bright Pop',paper:'#ffffff',ink:'#1b1b2f',accent:'#ff5d8f',accent2:'#22d3ee'}
+];
+
+var PIECES={
+  welcome:{id:'welcome',emoji:'🪧',name:'Welcome Sign',size:'18×24 in',price:45,mat:6,min:20,unit:'sign',basis:'flat',per:1,cards:1,perSheet:1,weight:3,
+    note:'The first thing a guest reads and the last thing they photograph — big type, no squinting.'},
+  tableNums:{id:'tableNums',emoji:'🔢',name:'Table Numbers',size:'5×7 in · set of 10',price:38,mat:9,min:15,unit:'set',basis:'tableset',per:10,cards:10,perSheet:4,weight:3,
+    note:'One per table so guests can find their seats without asking where table seven went.'},
+  place:{id:'place',emoji:'🏷️',name:'Place Cards',size:'2×3.5 in',price:0.8,mat:0.15,min:0.4,unit:'card',basis:'guests',per:1,cards:1,perSheet:8,weight:2.5,
+    note:'A name at every seat — the single most personal piece, and the cheapest to print.'},
+  menu:{id:'menu',emoji:'📋',name:'Menu / Program Card',size:'5×7 in',price:6,mat:0.9,min:2,unit:'card',basis:'tables',per:1,cards:1,perSheet:2,weight:2,
+    note:'One per table so nobody asks what the sauce is — the toast order and the courses, printed.'},
+  barSign:{id:'barSign',emoji:'🍸',name:'Bar & Signature Sign',size:'8×10 in',price:22,mat:3,min:10,unit:'sign',basis:'flat',per:1,cards:1,perSheet:2,weight:2,
+    note:'Names the signature drink and the zero-proof option — the busiest corner deserves signage.'},
+  hashtag:{id:'hashtag',emoji:'＃',name:'Hashtag / Social Sign',size:'8×10 in',price:20,mat:3,min:10,unit:'sign',basis:'flat',per:1,cards:1,perSheet:2,weight:2,
+    note:'One word that gathers every guest photo in one place — a quiet gift to the couple.'},
+  seating:{id:'seating',emoji:'🗺️',name:'Seating Chart Board',size:'24×36 in',price:65,mat:11,min:25,unit:'board',basis:'flat',per:1,cards:1,perSheet:1,weight:3,
+    note:'The logistics piece: every name, every table, in the same palette as the welcome sign.'},
+  photoSign:{id:'photoSign',emoji:'📸',name:'Photo-Op Sign',size:'16×20 in',price:28,mat:4,min:12,unit:'sign',basis:'flat',per:1,cards:1,perSheet:1,weight:1.5,
+    note:'A prop sign for the photo corner — one line, big type, guaranteed in every camera roll.'}
+};
+var PIECE_IDS=['welcome','tableNums','place','menu','barSign','hashtag','seating','photoSign'];
+
+var state={occasion:'wedding',palette:'inkTerra',
+  eventName:'The Alvarez Wedding',hostName:'Ana & Luis',date:'2026-06-20',venue:'The Willow Barn',tagWord:'AlvarezEverAfter',
+  tables:12,guests:120,
+  pieces:{welcome:true,tableNums:true,place:true,menu:true,barSign:false,hashtag:false,seating:true,photoSign:false}};
+
+/* ---------- engine ---------- */
+function occasionById(id){for(var i=0;i<OCCASIONS.length;i++){if(OCCASIONS[i].id===id)return OCCASIONS[i];}return OCCASIONS[1];}
+function paletteById(id){for(var i=0;i<PALETTES.length;i++){if(PALETTES[i].id===id)return PALETTES[i];}return PALETTES[0];}
+function pieceQty(id,st){
+  var p=PIECES[id];if(!p||!(st.pieces&&st.pieces[id]))return 0;
+  if(p.basis==='flat')return 1;
+  if(p.basis==='guests')return Math.max(1,Math.ceil((st.guests||0)/p.per));
+  if(p.basis==='tables')return Math.max(1,Math.ceil((st.tables||0)/p.per));
+  if(p.basis==='tableset')return Math.max(1,Math.ceil((st.tables||0)/p.per));
+  return 0;
+}
+function pieceLine(id,st){var p=PIECES[id],q=pieceQty(id,st);var cardCount=q*(p.cards||1);
+  return {id:id,emoji:p.emoji,name:p.name,size:p.size,unit:p.unit,qty:q,cardCount:cardCount,
+    price:q*p.price,mat:q*p.mat,min:q*p.min,sheets:Math.ceil(cardCount/p.perSheet),note:p.note};}
+function activeIds(st){return PIECE_IDS.filter(function(id){return pieceQty(id,st)>0;});}
+function totals(st){
+  st=st||state;var occ=occasionById(st.occasion),pal=paletteById(st.palette);
+  var ids=activeIds(st),lines=ids.map(function(id){return pieceLine(id,st);});
+  var weightAll=0;PIECE_IDS.forEach(function(id){weightAll+=PIECES[id].weight;});
+  var revenue=0,materials=0,minutes=0,sheets=0,weightOn=0,cards=0;
+  lines.forEach(function(l){revenue+=l.price;materials+=l.mat;minutes+=l.min;sheets+=l.sheets;cards+=l.cardCount;weightOn+=PIECES[l.id].weight;});
+  var margin=revenue>0?(revenue-materials)/revenue:0;
+  var hours=minutes/60;
+  var hourly=hours>0?(revenue-materials)/hours:0;
+  var coverage=weightAll>0?weightOn/weightAll*100:0;
+  var perGuest=(st.guests>0)?revenue/st.guests:0;
+  return {ids:ids,lines:lines,occ:occ,pal:pal,revenue:revenue,materials:materials,minutes:minutes,hours:hours,hourly:hourly,
+    sheets:sheets,cards:cards,weightOn:weightOn,weightAll:weightAll,coverage:coverage,margin:margin,perGuest:perGuest,has:ids.length>0};
+}
+function coverageTier(pct,has){
+  if(!has)return {key:'bare',label:'Bare Walls',text:'Nothing on the walls yet — start with a welcome sign; it is the one piece every party needs.'};
+  if(pct<25)return {key:'sparse',label:'One Lonely Sign',text:'A single sign at the door. Guests are greeted but not guided — add table numbers next.'};
+  if(pct<50)return {key:'labeled',label:'Nicely Labeled',text:'The essentials are covered: guests know where they are and where to sit.'};
+  if(pct<75)return {key:'journey',label:'Full Guest Journey',text:'Door to seat to menu to toast — the paper follows the guest through the whole night.'};
+  if(pct<100)return {key:'photo',label:'Photo-Ready',text:'Nearly every surface speaks in the same palette. This is what a styled party looks like up close.'};
+  return {key:'isabella',label:'Full Isabella',text:'Every piece in one palette, one type system, one voice. The paper and the balloons are the same design.'};
+}
+
+/* ---------- welcome-sign proof SVG ---------- */
+function signSVG(st){
+  st=st||state;var pal=paletteById(st.palette),occ=occasionById(st.occasion);
+  var name=st.eventName||'Your Event';
+  var fs=name.length>30?30:(name.length>22?38:(name.length>15?44:50));
+  var W=760,H=440,cx=W/2;
+  var dateStr=datePretty(st.date);
+  var s='';
+  s+='<svg viewBox="0 0 '+W+' '+H+'" width="100%" role="img" aria-label="Welcome sign proof" style="display:block;border-radius:10px;box-shadow:0 12px 30px rgba(36,26,18,.22)">';
+  s+='<rect x="0" y="0" width="'+W+'" height="'+H+'" rx="10" fill="'+pal.paper+'"/>';
+  s+='<rect x="24" y="24" width="'+(W-48)+'" height="'+(H-48)+'" fill="none" stroke="'+pal.accent+'" stroke-width="2"/>';
+  s+='<rect x="32" y="32" width="'+(W-64)+'" height="'+(H-64)+'" fill="none" stroke="'+pal.accent+'" stroke-opacity="0.4" stroke-width="1"/>';
+  /* corner marks */
+  s+='<path d="M24 56 L24 24 L56 24" fill="none" stroke="'+pal.accent2+'" stroke-width="3"/>';
+  s+='<path d="M'+(W-24)+' 56 L'+(W-24)+' 24 L'+(W-56)+' 24" fill="none" stroke="'+pal.accent2+'" stroke-width="3"/>';
+  s+='<path d="M24 '+(H-56)+' L24 '+(H-24)+' L56 '+(H-24)+'" fill="none" stroke="'+pal.accent2+'" stroke-width="3"/>';
+  s+='<path d="M'+(W-24)+' '+(H-56)+' L'+(W-24)+' '+(H-24)+' L'+(W-56)+' '+(H-24)+'" fill="none" stroke="'+pal.accent2+'" stroke-width="3"/>';
+  /* kicker */
+  s+='<text x="'+cx+'" y="96" text-anchor="middle" font-family="Inter,sans-serif" font-size="15" font-weight="700" letter-spacing="6" fill="'+pal.accent+'">'+esc(String(occ.name).toUpperCase())+'</text>';
+  /* name */
+  s+='<text x="'+cx+'" y="188" text-anchor="middle" font-family="Playfair Display,Georgia,serif" font-weight="700" font-size="'+fs+'" fill="'+pal.ink+'">'+esc(name)+'</text>';
+  /* divider */
+  s+='<line x1="'+(cx-124)+'" y1="224" x2="'+(cx-22)+'" y2="224" stroke="'+pal.accent+'" stroke-width="1.4"/>';
+  s+='<path d="M'+cx+' 214 L'+(cx+9)+' 224 L'+cx+' 234 L'+(cx-9)+' 224 Z" fill="'+pal.accent+'"/>';
+  s+='<line x1="'+(cx+22)+'" y1="224" x2="'+(cx+124)+'" y2="224" stroke="'+pal.accent+'" stroke-width="1.4"/>';
+  /* host */
+  if(st.hostName){s+='<text x="'+cx+'" y="276" text-anchor="middle" font-family="Playfair Display,Georgia,serif" font-style="italic" font-size="24" fill="'+pal.ink+'" fill-opacity="0.86">'+esc(st.hostName)+'</text>';}
+  /* date + venue */
+  var dl=[dateStr,st.venue].filter(function(x){return x;}).join('  ·  ');
+  s+='<text x="'+cx+'" y="322" text-anchor="middle" font-family="Inter,sans-serif" font-size="15" font-weight="600" letter-spacing="2" fill="'+pal.ink+'" fill-opacity="0.72">'+esc(dl)+'</text>';
+  /* palette dots */
+  s+='<circle cx="'+(cx-22)+'" cy="376" r="7" fill="'+pal.accent+'"/>';
+  s+='<circle cx="'+cx+'" cy="376" r="7" fill="'+pal.accent2+'"/>';
+  s+='<circle cx="'+(cx+22)+'" cy="376" r="7" fill="'+pal.ink+'"/>';
+  /* small footer word */
+  s+='<text x="'+cx+'" y="416" text-anchor="middle" font-family="Inter,sans-serif" font-size="10" font-weight="600" letter-spacing="3" fill="'+pal.ink+'" fill-opacity="0.5">EVERLASTING MEMORIES</text>';
+  s+='</svg>';
+  return s;
+}
+
+/* ---------- text builders ---------- */
+function summaryText(st){
+  st=st||state;var occ=occasionById(st.occasion),pal=paletteById(st.palette),T=totals(st);
+  var lines=['🖋️ THE PAPER TRAIL — '+String(st.eventName).toUpperCase()+' ('+occ.name+')'];
+  lines.push('• '+datePretty(st.date)+(st.venue?(' · '+st.venue):'')+' · '+st.tables+' tables · '+st.guests+' guests');
+  lines.push('• Palette: '+pal.name+' (paper '+pal.paper+' · ink '+pal.ink+' · accent '+pal.accent+')');
+  if(T.lines.length){T.lines.forEach(function(l){lines.push('• '+l.emoji+' '+l.name+' × '+l.qty+' '+l.unit+' ('+l.size+') — '+money(l.price));});}
+  else{lines.push('• (no pieces chosen yet)');}
+  lines.push('• Your price '+money(T.revenue)+' · '+money2(T.perGuest)+'/guest · '+T.sheets+' sheets · coverage '+Math.round(T.coverage)+'% ('+coverageTier(T.coverage,T.has).label+')');
+  lines.push('');lines.push('Build it: myeverlastingmemories.com/paper-trail.html');
+  return lines.join('\n');
+}
+function leadPayload(st){
+  st=st||state;var occ=occasionById(st.occasion),pal=paletteById(st.palette),T=totals(st);
+  return {source:'paper-trail',eventType:'🖋️ '+occ.name+' signage',eventDate:st.date||'',
+    message:'Event: '+(st.eventName||'')+' · Host: '+(st.hostName||'')+' · '+datePretty(st.date)+' · '+(st.venue||'')+
+      ' · Occasion: '+occ.name+' · Palette: '+pal.name+' · Tables: '+st.tables+' · Guests: '+st.guests+
+      ' · Pieces: '+(T.lines.map(function(l){return l.name+' x'+l.qty;}).join(', ')||'none')+
+      ' · Price: '+money(T.revenue)+' ('+money2(T.perGuest)+'/guest) · '+T.sheets+' sheets · coverage '+Math.round(T.coverage)+'%'};
+}
+function planCard(st){
+  st=st||state;var occ=occasionById(st.occasion),pal=paletteById(st.palette),T=totals(st);
+  var cov=coverageTier(T.coverage,T.has);
+  var list=T.lines.length?T.lines.map(function(l){return '<li><b>'+esc(l.name)+'</b> — '+l.qty+' '+esc(l.unit)+' throughout ('+esc(l.size)+') · '+money(l.price)+'</li>';}).join(''):'<li>No pieces selected yet.</li>';
+  return '<h3>🖋️ Signage suite — '+esc(st.eventName||'Your Event')+'</h3><ul>'+
+    '<li>Occasion: <b>'+esc(occ.name)+'</b> ('+esc(occ.tone)+') · '+datePretty(st.date)+(st.venue?(' · '+esc(st.venue)):'')+'</li>'+
+    '<li>Host / names: <b>'+esc(st.hostName||'')+'</b> · '+st.tables+' tables · '+st.guests+' guests</li>'+
+    '<li>Palette: <b>'+esc(pal.name)+'</b> — paper '+pal.paper+' · ink '+pal.ink+' · accent '+pal.accent+' · '+pal.accent2+'</li></ul>'+
+    '<h3>🧾 The pieces</h3><ul>'+list+'</ul>'+
+    '<h3>💵 What it costs &amp; earns</h3><ul>'+
+    '<li>Client price: <b>'+money(T.revenue)+'</b> ('+money2(T.perGuest)+'/guest)</li>'+
+    '<li>Paper &amp; ink: <b>'+money2(T.materials)+'</b> across <b>'+T.sheets+'</b> sheets (12×18 cardstock)</li>'+
+    '<li>Design + trim time: <b>'+(Math.round(T.hours*10)/10)+'</b> hours · effective <b>'+money2(T.hourly)+'/hr</b></li>'+
+    '<li>Gross margin: <b>'+Math.round(T.margin*100)+'%</b> — signage is the best margin on the menu</li></ul>'+
+    '<h3>✅ Isabella\'s paper rules</h3><ul>'+
+    '<li>One palette for every piece — a mismatched sign is the fastest way to look rented.</li>'+
+    '<li>Three fonts, maximum: one serif for names, one sans for details, one flourish if you must.</li>'+
+    '<li>Hang the welcome sign at 18 inches to the eye-line, measured from the floor, and check it from thirty feet.</li>'+
+    '<li>Print one spare of everything — the guest who arrives without a place card is the one who remembers it.</li></ul>'+
+    '<h3>🖨️ To print</h3><ul><li>'+esc(cov.label)+' — '+esc(cov.text)+'</li>'+
+    '<li>Print on 12×18 metallic or matte cardstock, trim to the sizes above, and keep one palette colour card in your bag to match any last-minute addition.</li></ul>';
+}
+function sampleState(){return {occasion:'wedding',palette:'inkTerra',
+  eventName:'The Alvarez Wedding',hostName:'Ana & Luis',date:'2026-06-20',venue:'The Willow Barn',tagWord:'AlvarezEverAfter',
+  tables:12,guests:120,
+  pieces:{welcome:true,tableNums:true,place:true,menu:true,barSign:false,hashtag:false,seating:true,photoSign:false}};}
+
+/* ---------- render ---------- */
+function render(){
+  var occ=occasionById(state.occasion),pal=paletteById(state.palette),T=totals(state);
+  var cov=coverageTier(T.coverage,T.has);
+
+  $('occChips').innerHTML=OCCASIONS.map(function(o){
+    return '<button type="button" class="chip'+(o.id===state.occasion?' on':'')+'" data-occ="'+o.id+'">'+o.emoji+' '+esc(o.name)+'<span class="px">'+esc(o.tone)+'</span></button>';}).join('');
+  $('occNote').innerHTML='<b>'+occ.emoji+' '+esc(occ.name)+'</b> — '+esc(occ.note);
+
+  if(document.activeElement!==$('inEvent'))$('inEvent').value=state.eventName;
+  if(document.activeElement!==$('inHost'))$('inHost').value=state.hostName;
+  if(document.activeElement!==$('inVenue'))$('inVenue').value=state.venue;
+  if(document.activeElement!==$('inTag'))$('inTag').value=state.tagWord;
+  if(document.activeElement!==$('inDate'))$('inDate').value=state.date;
+  $('tableNum').textContent=state.tables;
+  if($('inTables').value!==String(state.tables))$('inTables').value=state.tables;
+  $('guestNum').textContent=state.guests;
+  if($('inGuests').value!==String(state.guests))$('inGuests').value=state.guests;
+
+  $('palChips').innerHTML=PALETTES.map(function(p){
+    return '<button type="button" class="chip'+(p.id===state.palette?' on':'')+'" data-pal="'+p.id+'"><span style="display:inline-block;width:11px;height:11px;border-radius:50%;background:'+p.accent+';margin-right:5px;vertical-align:middle;box-shadow:0 0 0 2px '+p.paper+'"></span>'+esc(p.name)+'</button>';}).join('');
+
+  $('pieceGrid').innerHTML=PIECE_IDS.map(function(id){var p=PIECES[id];var on=!!(state.pieces&&state.pieces[id]);
+    var q=pieceQty(id,state);
+    var priceLabel=priceTxt(p.price)+(p.basis==='flat'?'':' / '+p.unit);
+    return '<button type="button" class="piece'+(on?' on':'')+'" data-piece="'+id+'" aria-pressed="'+on+'">'+
+      '<div class="pc-top"><span class="pc-emoji">'+p.emoji+'</span><span class="pc-name">'+esc(p.name)+'</span><span class="pc-price">'+priceLabel+'</span></div>'+
+      '<div class="pc-note">'+esc(p.note)+'</div>'+
+      '<div class="pc-unit">'+esc(p.size)+(on?(' · this event: '+q):'')+'</div></button>';}).join('');
+
+  $('mixNote').innerHTML=T.lines.length
+    ?('<b>'+T.lines.length+' piece'+(T.lines.length>1?'s':'')+' on</b> — '+money(T.revenue)+', '+T.sheets+' sheets, '+Math.round(T.coverage)+'% coverage. '+esc(cov.label)+'.')
+    :'Nothing chosen yet — start with the <b>welcome sign</b>, then add table numbers and place cards.';
+
+  $('signStage').innerHTML=signSVG(state);
+  $('signCap').innerHTML='Your <b>'+esc(state.eventName)+'</b> welcome sign in <b>'+esc(pal.name)+'</b> — '+esc(occ.name)+', '+esc(datePretty(state.date))+(state.venue?(', at '+esc(state.venue)):'')+'. '+(T.has?('Suite coverage <b>'+Math.round(T.coverage)+'%</b> — '+esc(cov.label)+'.'):'Add a piece below and the suite fills in.');
+
+  $('thumbStrip').innerHTML=T.lines.length?T.lines.map(function(l){var p=PIECES[l.id];
+    return '<div class="thumb"><div class="th-name">'+l.emoji+' '+esc(l.name)+'</div><div class="th-qty">'+l.qty+' '+esc(l.unit)+' · '+esc(l.size)+'</div><div class="th-bar" style="background:linear-gradient(90deg,'+pal.accent+','+pal.accent2+')"></div></div>';}).join('')
+    :'<div class="thumb" style="flex-basis:100%"><div class="th-name">No pieces yet</div><div class="th-qty">Tap a piece in Step 2 to preview it here.</div></div>';
+
+  $('ocOccasion').textContent=occ.emoji+' '+occ.name;
+  $('ocSub').textContent=(state.eventName||'')+' · '+esc(datePretty(state.date))+' · '+state.tables+' tables · '+state.guests+' guests · '+pal.name;
+  $('planList').innerHTML=T.lines.length?T.lines.map(function(l){
+    return '<div class="prog-row"><span class="pr-emoji">'+l.emoji+'</span><span class="pr-name">'+esc(l.name)+'</span>'+
+      '<span class="pr-qty">'+l.qty+' '+esc(l.unit)+'</span><span class="pr-cost">'+money(l.price)+'</span></div>';}).join('')
+    :'<div class="prog-empty">Nothing chosen yet — tap pieces in Step 2 and they land here with real counts and prices.</div>';
+  $('mRevenue').textContent=money(T.revenue);
+  $('mSheets').textContent=T.sheets;
+  $('mCover').textContent=Math.round(T.coverage)+'%';
+  $('mMargin').textContent=Math.round(T.margin*100)+'%';
+  $('mPer').textContent=money2(T.perGuest);
+  $('verdictLine').innerHTML='<b style="color:#e8b17a">'+esc(cov.label.toUpperCase())+'</b> — '+esc(cov.text)+' <span style="color:#c9b49a">('+Math.round(T.coverage)+'% coverage)</span>';
+
+  $('mathTitle').textContent=occ.emoji+' Every piece, priced';
+  $('mathHint').innerHTML='One line per piece. Prices scale with your <b>'+state.tables+'</b> tables and <b>'+state.guests+'</b> guests — place cards by guest, menus by table, table numbers by the set of ten.';
+  if(T.lines.length){
+    $('mathList').innerHTML=T.lines.map(function(l){
+      return '<div class="price-item"><span class="pi-name">'+l.emoji+' '+esc(l.name)+'</span><span class="pi-qty">'+l.qty+' '+esc(l.unit)+' · '+esc(l.size)+'</span><span class="pi-price">'+money(l.price)+'</span><span class="pi-note">'+esc(l.note)+'</span></div>';}).join('')+
+      '<div class="price-item" style="border-top:1.5px solid var(--line);margin-top:6px"><span class="pi-name">The whole suite</span><span class="pi-qty">'+T.sheets+' sheets · '+esc(pal.name)+'</span><span class="pi-price">'+money(T.revenue)+'</span><span class="pi-note">'+money2(T.perGuest)+' per guest · coverage '+Math.round(T.coverage)+'% ('+esc(cov.label)+')</span></div>';
+  }else{
+    $('mathList').innerHTML='<div class="price-item"><span class="pi-name">Nothing chosen</span><span class="pi-note">Pick a piece in Step 2 and the numbers appear here.</span></div>';
+  }
+  $('mathVerdict').innerHTML='<b>'+esc(cov.label.toUpperCase())+' — </b>'+esc(cov.text);
+
+  $('costList').innerHTML=T.lines.length?(
+    '<div class="price-item"><span class="pi-name">💵 Client pays</span><span class="pi-qty">'+T.lines.length+' pieces</span><span class="pi-price">'+money(T.revenue)+'</span><span class="pi-note">'+money2(T.perGuest)+' per guest for the whole paper suite.</span></div>'+
+    '<div class="price-item"><span class="pi-name">📄 Paper &amp; ink</span><span class="pi-qty">'+T.sheets+' sheets</span><span class="pi-price">'+money2(T.materials)+'</span><span class="pi-note">12×18 metallic or matte cardstock, roughly $2.35 a sheet after waste.</span></div>'+
+    '<div class="price-item"><span class="pi-name">⏱️ Design &amp; trim</span><span class="pi-qty">'+(Math.round(T.hours*10)/10)+' hrs</span><span class="pi-price">'+money2(T.hourly)+'/hr</span><span class="pi-note">Effective rate on the labor — no helium, no van, no risk.</span></div>'+
+    '<div class="price-item" style="border-top:1.5px solid var(--line);margin-top:6px"><span class="pi-name">Left after paper</span><span class="pi-qty">'+Math.round(T.margin*100)+'% margin</span><span class="pi-price">'+money(T.revenue-T.materials)+'</span><span class="pi-note">'+money(T.revenue-T.materials)+' of the '+money(T.revenue)+' is the design, not the paper.</span></div>'
+    ):'<div class="price-item"><span class="pi-name">No pieces yet</span><span class="pi-note">Choose a piece to see the paper-and-profit math.</span></div>';
+  $('costVerdict').innerHTML='<b>'+Math.round(T.margin*100)+'% GROSS MARGIN — </b>'+(T.has?('signage is the best margin on the menu: '+money(T.revenue)+' of client price, '+money2(T.materials)+' of paper and ink, and '+(Math.round(T.hours*10)/10)+' design hours at '+money2(T.hourly)+' an hour.'):'nothing chosen yet — pick a piece to see the margin.');
+  $('costMargin').textContent=Math.round(T.margin*100);
+  $('costRev').textContent=money(T.revenue);
+  $('costMat').textContent=money2(T.materials);
+  $('costHours').textContent=(Math.round(T.hours*10)/10);
+  $('costHourly').textContent=money2(T.hourly);
+
+  $('planCardPrint').innerHTML=planCard(state);
+  $('printMeta').textContent='Everlasting Memories · '+(state.eventName||'')+' · '+datePretty(state.date)+' · '+state.guests+' guests · '+pal.name;
+}
+
+/* ---------- DOM ---------- */
+if(typeof document!=='undefined'){
+function toast(msg){var el=$('toast');el.textContent=msg;el.classList.add('show');clearTimeout(toast._t);toast._t=setTimeout(function(){el.classList.remove('show');},2600);}
+
+$('occChips').addEventListener('click',function(e){var b=e.target.closest('button');if(!b||!b.dataset.occ)return;state.occasion=b.dataset.occ;render();});
+$('palChips').addEventListener('click',function(e){var b=e.target.closest('button');if(!b||!b.dataset.pal)return;state.palette=b.dataset.pal;render();});
+$('pieceGrid').addEventListener('click',function(e){var b=e.target.closest('button');if(!b||!b.dataset.piece)return;
+  var id=b.dataset.piece;state.pieces[id]=!state.pieces[id];render();
+  toast(state.pieces[id]?('🖋️ '+PIECES[id].name+' added'):(PIECES[id].name+' removed'));});
+
+$('inEvent').addEventListener('input',function(){state.eventName=this.value;render();});
+$('inHost').addEventListener('input',function(){state.hostName=this.value;render();});
+$('inVenue').addEventListener('input',function(){state.venue=this.value;render();});
+$('inTag').addEventListener('input',function(){state.tagWord=this.value;render();});
+$('inDate').addEventListener('input',function(){state.date=this.value;render();});
+$('inTables').addEventListener('input',function(){state.tables=parseInt(this.value,10)||1;render();});
+$('inGuests').addEventListener('input',function(){state.guests=parseInt(this.value,10)||1;render();});
+
+$('btnShuffle').addEventListener('click',function(){
+  state.occasion=OCCASIONS[Math.floor(Math.random()*OCCASIONS.length)].id;
+  state.palette=PALETTES[Math.floor(Math.random()*PALETTES.length)].id;
+  state.tables=[8,10,12,16,20,24][Math.floor(Math.random()*6)];
+  state.guests=[60,80,120,160,200,260][Math.floor(Math.random()*6)];
+  var np={};PIECE_IDS.forEach(function(id){np[id]=Math.random()<0.5;});
+  np.welcome=true;np.tableNums=true;np.place=Math.random()<0.8;
+  state.pieces=np;render();
+  toast('🖋️ '+occasionById(state.occasion).name+' suite in '+paletteById(state.palette).name+'.');
+});
+$('btnCopy').addEventListener('click',function(){
+  var t=summaryText();
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){toast('📋 Signage list copied!');});}
+  else{var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);toast('📋 Signage list copied!');}
+});
+$('btnWa').addEventListener('click',function(){window.open('https://wa.me/?text='+encodeURIComponent(summaryText()),'_blank');});
+$('btnPrint').addEventListener('click',function(){window.print();});
+
+/* nav dropdown */
+$('ddBtn').addEventListener('click',function(e){e.stopPropagation();$('ddMenu').classList.toggle('open');});
+document.addEventListener('click',function(){$('ddMenu').classList.remove('open');});
+
+/* secret #28 */
+var taps=0;
+$('secretBadge').addEventListener('click',function(){
+  taps++;if(taps<5)return;taps=0;
+  var html='<div class="prog-row" style="display:block"><div class="pr-name" style="font-size:.9rem">🤫 Isabella\'s paper notebook — Secret #28</div>'+
+    '<div style="font-size:.8rem;color:#efe2d2;margin-top:6px;line-height:1.6">Four rules she prints by. One: <b>one palette, always</b> — the welcome sign, the table numbers and the place cards are one design, and a single mismatched sheet makes the whole party look rented. Two: <b>three fonts, maximum</b> — a serif for the name, a sans for the details, and one script only if the occasion is romantic; more than that and the paper shouts. Three: <b>the name is the biggest type on the page</b> — never let a date, a logo or a hashtag out-weigh the person the party is for. Four: <b>hang it at eighteen inches and read it from thirty feet</b> — if you cannot read the welcome sign from the door, it is decoration, not a sign. And the thing she tells every couple: <i>"You will not remember the paper. But you will remember that your grandmother found her own name and sat down without asking anyone."</i> 🖋️</div></div>';
+  var sh=$('planList');sh.innerHTML=html+sh.innerHTML;
+  toast('🕵️ Secret #28 unlocked');
+});
+
+/* lead form */
+$('leadForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var btn=this.querySelector('button[type=submit]');btn.disabled=true;btn.textContent='Sending…';
+  var payload=leadPayload(state);
+  payload.name=$('fName').value.trim();payload.email=$('fEmail').value.trim();payload.phone=$('fPhone').value.trim();
+  payload.eventDate=$('fDate').value||payload.eventDate;payload.budget=$('fBudget').value||'';
+  payload.message=($('fMsg').value.trim()?$('fMsg').value.trim()+' — ':'')+payload.message;
+  fetch('/api/leads.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+    .then(function(res){return res.json();})
+    .then(function(){toast('🖋️ Sent! Isabella replies within 24h.');btn.disabled=false;btn.textContent='🖋️ Send Isabella the signage plan →';$('leadForm').reset();})
+    .catch(function(){toast('⚠️ Couldn\'t send — email hello@myeverlastingmemories.com');btn.disabled=false;btn.textContent='🖋️ Send Isabella the signage plan →';});
+});
+
+render();
+} /* end DOM guard */
+if(typeof module!=='undefined'&&module.exports){
+  module.exports={OCCASIONS:OCCASIONS,PALETTES:PALETTES,PIECES:PIECES,PIECE_IDS:PIECE_IDS,state:state,
+    occasionById:occasionById,paletteById:paletteById,pieceQty:pieceQty,pieceLine:pieceLine,activeIds:activeIds,
+    totals:totals,coverageTier:coverageTier,signSVG:signSVG,summaryText:summaryText,leadPayload:leadPayload,
+    planCard:planCard,sampleState:sampleState,render:render,datePretty:datePretty,priceTxt:priceTxt,money:money,money2:money2,esc:esc};
+}
+})();
+</script>
+</body>
+</html>
