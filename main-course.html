@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Main Course — Party Food &amp; Catering Planner | Everlasting Memories</title>
+<meta name="description" content="Plan the food for your party: pick the occasion and the stations, set your dietary mix, and get real portion math (ounces, pounds, seconds), server counts, per-guest cost, a live grazing-board preview and a printable caterer's brief.">
+<meta name="theme-color" content="#221c14">
+<meta property="og:title" content="The Main Course — Party Food &amp; Catering Planner | Everlasting Memories">
+<meta property="og:description" content="The site's first food planner. Every other tool on this site planned the balloons, the paper, the drinks, the dessert and the toasts — this one plans the actual meal: grazing boards, hot buffets, taco bars, sliders, pasta, brunch, BBQ, with honest portion math and a dietary mix that leaves nobody eating garnish.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--c1:#c25a2c;--c2:#3f6b3a;--c3:#221c14;--c3b:#3a2f22;--bg:#faf6ee;--line:#e7ddc8;--ink:#241c14;--soft:#7c6f5b;--good:#1a7f4e;--bad:#b3261e}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.serif{font-family:'Playfair Display',Georgia,serif}
+a{color:var(--c1);text-decoration:none}
+a:hover{opacity:.85}
+/* nav */
+.em-nav{display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:14px 22px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.em-nav-brand{font-family:'Playfair Display',serif;font-weight:700;font-size:1.15rem;color:var(--ink);margin-right:auto}
+.em-nav-brand span{color:var(--c1)}
+.em-nav a.nav-link{font-size:.85rem;font-weight:600;color:var(--ink);padding:6px 8px;border-radius:8px}
+.em-nav a.nav-link:hover{background:var(--bg)}
+.em-nav-cta{background:linear-gradient(135deg,var(--c3),#c25a2c);color:#ffe9df!important;padding:9px 16px;border-radius:999px;font-weight:600;font-size:.85rem;box-shadow:0 4px 14px rgba(34,28,20,.35)}
+.dd-wrap{position:relative}
+.dd-btn{background:none;border:1px solid var(--line);border-radius:999px;padding:8px 16px;font:600 .85rem 'Inter',sans-serif;color:var(--ink);cursor:pointer;display:flex;align-items:center;gap:6px}
+.dd-btn:hover{background:var(--bg)}
+.dd-menu{display:none;position:absolute;top:calc(100% + 8px);left:0;min-width:230px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 18px 40px rgba(34,28,20,.16);padding:8px;z-index:60;max-height:70vh;overflow:auto}
+.dd-menu.open{display:block}
+.dd-menu a{display:block;padding:8px 12px;border-radius:9px;font-size:.84rem;font-weight:500;color:var(--ink)}
+.dd-menu a:hover{background:var(--bg)}
+.dd-menu a.styled{color:#fff!important;font-weight:600}
+.dd-menu .dd-tag{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);padding:8px 12px 4px}
+/* hero */
+.hero{max-width:1120px;margin:0 auto;padding:34px 22px 10px}
+.home-link{display:inline-block;font-size:.82rem;font-weight:600;color:var(--c1);margin-bottom:16px}
+.badge{display:inline-block;background:linear-gradient(135deg,var(--c3),#c25a2c);color:#ffe9df;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:14px;cursor:pointer;user-select:none}
+.hero h1{font-size:clamp(2.1rem,5vw,3.3rem);line-height:1.1;color:var(--c3)}
+.hero .sub{margin-top:12px;max-width:840px;color:var(--soft);font-size:1.02rem}
+.hero .sub b{color:var(--ink)}
+/* layout */
+.container{max-width:1120px;margin:0 auto;padding:22px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 10px 30px rgba(34,28,20,.05)}
+.card h2{font-size:1.35rem;color:var(--c3);margin-bottom:4px}
+.card .kicker{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c1);margin-bottom:2px}
+.card .hint{font-size:.82rem;color:var(--soft);margin-bottom:14px}
+.fg{margin-bottom:14px}
+.fg label{display:block;font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ink);margin-bottom:5px}
+.fg input,.fg select,.fg textarea{width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;font:500 .92rem 'Inter',sans-serif;background:#fff;color:var(--ink)}
+.fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:var(--c1)}
+.fg textarea{min-height:64px;resize:vertical}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:520px){.fg-row{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;font:600 .82rem 'Inter',sans-serif;color:var(--ink);cursor:pointer;transition:all .15s}
+.chip:hover{border-color:var(--c1);color:var(--c1)}
+.chip.on{background:linear-gradient(135deg,var(--c3),#c25a2c);border-color:transparent;color:#ffe9df;box-shadow:0 4px 12px rgba(34,28,20,.3)}
+.chip .px{display:block;font-size:.66rem;font-weight:600;opacity:.85}
+.chip.on .px{opacity:.8}
+.station-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:520px){.station-grid{grid-template-columns:1fr}}
+.station{border:1.5px solid var(--line);background:#fff;border-radius:14px;padding:11px 13px;cursor:pointer;transition:all .15s;text-align:left}
+.station:hover{border-color:var(--c1);transform:translateY(-1px)}
+.station.on{border-color:var(--c1);background:linear-gradient(180deg,#fdf3ec,#fff);box-shadow:0 6px 18px rgba(194,90,44,.16)}
+.station .st-top{display:flex;align-items:center;gap:8px}
+.station .st-emoji{font-size:1.3rem}
+.station .st-name{font-weight:700;font-size:.84rem;color:var(--c3);flex:1}
+.station .st-price{font-weight:800;font-size:.76rem;color:var(--c1);white-space:nowrap}
+.station .st-note{font-size:.73rem;color:var(--soft);margin-top:5px}
+.station .st-unit{font-size:.61rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--soft);margin-top:5px}
+.station.on .st-unit{color:var(--c1)}
+.range-wrap{display:flex;align-items:center;gap:14px}
+.range-wrap input[type=range]{flex:1;accent-color:var(--c3);height:34px}
+.big-read{min-width:118px;text-align:center;background:linear-gradient(135deg,var(--c3),#c25a2c);color:#ffe9df;border-radius:12px;padding:8px 10px;font-weight:700;font-size:.95rem}
+.big-read small{display:block;font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;opacity:.85}
+.note-line{margin-top:10px;background:var(--bg);border:1px dashed var(--line);border-radius:12px;padding:10px 14px;font-size:.83rem}
+.note-line b{color:var(--c3)}
+.diet-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:520px){.diet-grid{grid-template-columns:1fr}}
+.diet{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.diet .d-top{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.diet .d-name{font-weight:700;font-size:.82rem;color:var(--c3)}
+.diet .d-pct{font-weight:800;font-size:.95rem;color:var(--c1)}
+.diet input[type=range]{width:100%;accent-color:var(--c2);margin-top:6px}
+.diet .d-count{font-size:.74rem;color:var(--soft);margin-top:2px}
+.diet .d-count b{color:var(--ink)}
+/* board stage */
+.board-wrap{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.board-stage{background:linear-gradient(160deg,#efe6d6,#e3d5bf);border:1px solid var(--line);border-radius:16px;padding:14px;flex:1;min-width:280px}
+.board-cap{font-size:.78rem;color:var(--soft)}
+.board-cap b{color:var(--c3)}
+.thumb-strip{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.thumb{background:#fff;border:1px solid var(--line);border-radius:12px;padding:9px 12px;min-width:104px;flex:1}
+.thumb .th-name{font-size:.72rem;font-weight:700;color:var(--c3)}
+.thumb .th-qty{font-size:.68rem;color:var(--soft);margin-top:2px}
+.thumb .th-bar{height:6px;border-radius:3px;margin-top:7px}
+/* output card */
+.out-card{background:linear-gradient(165deg,#221c14,#3a2f22);color:#f6ede1;border-radius:22px;padding:26px;box-shadow:0 16px 40px rgba(34,28,20,.34);position:sticky;top:84px}
+.out-card .oc-head{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:6px}
+.out-card .oc-occasion{display:inline-block;background:rgba(255,255,255,.12);color:#ffdccb;border-radius:999px;padding:4px 12px;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.out-card h2{color:#fff;font-size:1.5rem}
+.out-card .oc-sub{color:#d6c4ae;font-size:.8rem;margin-bottom:16px}
+.menu-list{background:rgba(255,255,255,.06);border:1px dashed rgba(255,255,255,.22);border-radius:16px;padding:8px 14px}
+.menu-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px dashed rgba(255,255,255,.14)}
+.menu-row:last-child{border-bottom:none}
+.menu-row .mr-emoji{font-size:1.1rem}
+.menu-row .mr-name{font-weight:700;font-size:.82rem;color:#fff;flex:1}
+.menu-row .mr-qty{font-weight:700;font-size:.77rem;color:#ffdccb;white-space:nowrap}
+.menu-row .mr-cost{font-weight:800;font-size:.8rem;color:#fff;white-space:nowrap;min-width:56px;text-align:right}
+.menu-empty{color:#d6c4ae;font-size:.85rem;font-style:italic;padding:12px 4px}
+.meter{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.14)}
+.mstat{background:rgba(255,255,255,.08);border-radius:12px;padding:8px 12px;text-align:center;min-width:82px}
+.mstat b{display:block;font-size:1.05rem;color:#fff}
+.mstat small{font-size:.6rem;text-transform:uppercase;letter-spacing:.06em;color:#d6c4ae}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.btn{border:none;border-radius:999px;padding:11px 18px;font:700 .85rem 'Inter',sans-serif;cursor:pointer;transition:all .15s;background:#fff;color:#221c14}
+.btn:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(0,0,0,.18)}
+.btn.primary{background:linear-gradient(135deg,#e8b17a,#c25a2c);color:#221c14}
+.btn.ghost{background:rgba(255,255,255,.1);color:#f6ede1;border:1px solid rgba(255,255,255,.25)}
+.btn.ghost:hover{background:rgba(255,255,255,.18)}
+/* quote */
+.quote{background:#fff;border-left:4px solid var(--c2);border-radius:0 16px 16px 0;padding:18px 20px;margin:24px 0;font-style:italic;color:var(--soft);font-size:.92rem}
+.quote b{color:var(--c3);font-style:normal}
+/* wide cards */
+.wide{margin-top:22px}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:22px}
+@media(max-width:900px){.duo{grid-template-columns:1fr}}
+.price-item{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;padding:11px 0;border-bottom:1px dashed var(--line)}
+.price-item:last-child{border-bottom:none}
+.price-item .pi-name{font-weight:700;color:var(--ink);font-size:.92rem}
+.price-item .pi-qty{font-weight:800;color:var(--c3);font-size:.85rem;white-space:nowrap}
+.price-item .pi-price{font-weight:800;color:var(--c1);font-size:.88rem;white-space:nowrap;margin-left:auto}
+.price-item .pi-note{flex-basis:100%;font-size:.79rem;color:var(--soft)}
+.bignum{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;color:var(--c3);line-height:1.05}
+.bignum small{font-size:1rem;color:var(--soft);font-weight:600}
+.legend{font-size:.72rem;color:var(--soft);display:flex;gap:14px;flex-wrap:wrap;margin-top:4px}
+.legend span b{color:var(--ink)}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:26px 0}
+@media(max-width:800px){.facts{grid-template-columns:repeat(2,1fr)}}
+.fact{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px;text-align:center}
+.fact .f-num{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:700;color:var(--c3);display:block}
+.fact .f-txt{font-size:.76rem;color:var(--soft);margin-top:4px}
+.faq{margin:8px 0 26px}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin-bottom:10px}
+.faq summary{font-weight:700;font-size:.92rem;cursor:pointer;color:var(--c3)}
+.faq details p{font-size:.86rem;color:var(--soft);margin-top:8px}
+.barcard{border:1.5px dashed var(--line);border-radius:14px;padding:18px 20px;background:#fff}
+.barcard h3{font-size:.95rem;color:var(--c3);margin-bottom:8px}
+.barcard ul{margin:2px 0 12px 18px;font-size:.86rem;color:var(--soft)}
+.barcard li{margin:3px 0}
+.barcard li b{color:var(--ink)}
+.value-strip{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.value-pill{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:.76rem;color:var(--soft)}
+.value-pill b{color:var(--c3)}
+/* lead card */
+.lead-card{background:linear-gradient(160deg,#221c14,#3a2f22);color:#fff;border-radius:20px;padding:28px;margin-top:8px}
+.lead-card h2{color:#fff}
+.lead-card .kicker{color:#e8b17a}
+.lead-card .hint{color:#d6c4ae}
+.lead-card label{color:#d6c4ae}
+.lead-card input,.lead-card select,.lead-card textarea{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#fff}
+.lead-card input::placeholder,.lead-card textarea::placeholder{color:rgba(255,255,255,.55)}
+.lead-card input:focus,.lead-card select:focus,.lead-card textarea:focus{border-color:#e8b17a}
+.lead-card select option{color:var(--ink)}
+.lead-card .btn-p{background:#e8b17a;color:#221c14}
+.lead-card .fine{font-size:.74rem;color:#d6c4ae;margin-top:10px}
+/* footer */
+footer{background:var(--c3);color:#fff;margin-top:34px;padding:26px 22px 30px}
+footer .strip{font-size:.78rem;line-height:2;color:rgba(255,255,255,.75)}
+footer .strip a{color:#ffe9df;font-weight:600;margin-right:2px}
+footer .foot-brand{font-family:'Playfair Display',serif;font-size:1.1rem;margin-top:14px}
+footer .foot-brand span{color:#ffe9df}
+footer .copy{font-size:.72rem;color:rgba(255,255,255,.6);margin-top:6px}
+/* print */
+@media print{
+  .em-nav,.actions,.lead-card,.facts,.faq,.hero,.home-link,.badge,footer,.quote,.duo,.wide,.grid,.no-print,.value-strip,.toast{display:none!important}
+  body{background:#fff}
+  .print-only{display:block!important}
+}
+.print-only{display:none}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(120%);background:var(--ink);color:#fff;padding:12px 22px;border-radius:999px;font-size:.85rem;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.25);transition:transform .3s;z-index:99}
+.toast.show{transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<nav class="em-nav">
+  <div class="em-nav-brand"><a href="index.html" style="color:inherit">Everlasting <span>Memories</span></a></div>
+  <a class="nav-link" href="gallery.html">Gallery</a>
+  <a class="nav-link" href="services.html">Services</a>
+  <a class="nav-link" href="about.html">About</a>
+  <a class="nav-link" href="faq.html">FAQ</a>
+  <div class="dd-wrap">
+    <button class="dd-btn" id="ddBtn" aria-haspopup="true" aria-expanded="false">Tools ▾</button>
+    <div class="dd-menu" id="ddMenu">
+      <div class="dd-tag">Newest</div>
+      <a href="main-course.html" class="styled" style="background:#221c14">The Main Course</a>
+      <a href="paper-trail.html" class="styled" style="background:#241a12">The Paper Trail</a>
+      <a href="glow-up.html" class="styled" style="background:#140b26">The Glow Up</a>
+      <a href="sky-installer.html" class="styled" style="background:#1a1a2e">The Sky Installer</a>
+      <a href="sip-station.html" class="styled" style="background:#3a1020">The Sip Station</a>
+      <a href="favor-bar.html" class="styled" style="background:#2e1065">The Favor Bar</a>
+      <a href="boo-bash.html" class="styled" style="background:#2e1065">The Boo Bash</a>
+      <a href="raised-glass.html" class="styled" style="background:#241b12">The Raised Glass</a>
+      <a href="launch-pad.html" class="styled" style="background:#1e3a8a">The Launch Pad</a>
+      <a href="smash.html" class="styled" style="background:#ff8c42">The Smash Hit</a>
+      <a href="nest.html" class="styled" style="background:#6b8f71">The Nest</a>
+      <a href="powder-pop.html" class="styled" style="background:#ec4899">The Powder Pop</a>
+      <a href="big-yes.html" class="styled" style="background:#a8526b">The Big Yes</a>
+      <a href="party-er.html" class="styled" style="background:#059669">The Party ER</a>
+      <a href="rain-plan.html" class="styled" style="background:#0284c7">The Rain Plan</a>
+      <div class="dd-tag">All tools</div>
+      <a href="after-glow.html">The After-Glow</a>
+      <a href="seating-chart.html">Seating Chart Studio</a>
+      <a href="surprise-planner.html">Operation: Surprise</a>
+      <a href="dessert-table.html">Dessert Table Stylist</a>
+      <a href="golden-hour.html">Golden Hour Finder</a>
+      <a href="party-timeline.html">Party Day Timeline</a>
+      <a href="memory-capsule.html">Memory Capsule</a>
+      <a href="playlist.html">Party Playlist Studio</a>
+      <a href="guest-list.html">The Guest List</a>
+      <a href="photo-hunt.html">Party Photo Hunt</a>
+      <a href="photo-booth.html">Golden Hour Booth</a>
+      <a href="memory-wall.html">Memory Wall</a>
+      <a href="party-roadmap.html">Party Roadmap</a>
+      <a href="invitation-studio.html">Invitation Studio</a>
+      <a href="balloon-pop.html">Pop Party</a>
+      <a href="wedding-workshop.html">Wedding Workshop</a>
+      <a href="transformations.html">The Big Reveal</a>
+      <a href="budget-builder.html">Budget Balloonist</a>
+      <a href="referral.html">Refer &amp; Earn</a>
+      <a href="cost-estimator.html">Cost Estimator</a>
+      <a href="theme-generator.html">Theme Generator</a>
+      <a href="lookbook.html">Lookbook</a>
+      <a href="countdown.html">Countdown</a>
+      <a href="party-style-quiz.html">Party Style Quiz</a>
+      <a href="balloon-math.html">Balloon Math</a>
+      <a href="name-garland.html">Balloon Letter Studio</a>
+      <a href="palette-snap.html">Palette Snap</a>
+      <a href="diy-vs-pro.html">DIY or Dazzle</a>
+      <a href="reserve-date.html">Reserve Your Date</a>
+      <a href="gift-card.html">Gift Card Studio</a>
+    </div>
+  </div>
+  <a class="em-nav-cta" href="contact.html">Get a Quote</a>
+</nav>
+
+<header class="hero">
+  <a class="home-link" href="index.html">← Everlasting Memories</a>
+  <div><span class="badge" id="secretBadge" title="🍽️">🍽️ New Tonight — The Main Course</span></div>
+  <h1>The Main Course</h1>
+  <p class="sub"><b>Party food &amp; catering planner.</b> This site has planned everything <i>around</i> the meal — the balloons, the paper, the drinks, the dessert, the toasts, the photos. Nobody planned the actual food. So here it is: pick the occasion and your stations, set the dietary mix, and get honest portion math (ounces, pounds and the seconds buffer), a real server count, per-guest cost, a live grazing-board preview, and a printable caterer's brief Isabella can hand straight to the kitchen.</p>
+</header>
+
+<div class="container">
+  <div class="grid">
+
+    <!-- LEFT: inputs + board stage -->
+    <div>
+      <div class="card" style="margin-bottom:22px">
+        <div class="kicker">Step 1</div>
+        <h2>The occasion, the table &amp; the mix</h2>
+        <p class="hint">The occasion sets the appetite and the seconds buffer; the guest count sets every portion on this page. Set the dietary mix and the tool tells you exactly how many real plates — not garnishes — to make.</p>
+        <div class="chips" id="occChips"></div>
+        <div class="note-line" id="occNote"></div>
+        <div class="fg-row" style="margin-top:16px">
+          <div class="fg" style="margin-bottom:0">
+            <label for="inEvent">Event name</label>
+            <input type="text" id="inEvent" maxlength="42" value="Ana &amp; Luis's Reception" placeholder="Ana &amp; Luis's Reception">
+          </div>
+          <div class="fg" style="margin-bottom:0">
+            <label for="inVenue">Venue</label>
+            <input type="text" id="inVenue" maxlength="40" value="The Willow Barn" placeholder="The Willow Barn">
+          </div>
+        </div>
+        <div class="fg-row" style="margin-top:14px">
+          <div class="fg" style="margin-bottom:0">
+            <label for="inDate">Event date</label>
+            <input type="date" id="inDate" value="2026-06-20">
+          </div>
+          <div class="fg" style="margin-bottom:0">
+            <label for="inGuests">Guests</label>
+            <div class="range-wrap">
+              <input type="range" id="inGuests" min="10" max="400" step="5" value="120">
+              <div class="big-read"><span id="guestNum">120</span><small>mouths</small></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:18px;border-top:1px dashed var(--line);padding-top:16px">
+          <label style="display:block;font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ink);margin-bottom:8px">The dietary mix — who eats what</label>
+          <p class="hint" style="margin-bottom:12px">Move these and the plate counts change live. Isabella's rule: <b>the dietary plate is cooked and plated with the same care as the main one</b> — it just arrives without anyone having to announce themselves.</p>
+          <div class="diet-grid">
+            <div class="diet">
+              <div class="d-top"><span class="d-name">🌱 Vegetarian</span><span class="d-pct" id="dPctVeg">20%</span></div>
+              <input type="range" id="inVeg" min="0" max="60" step="1" value="20">
+              <div class="d-count" id="dCountVeg"></div>
+            </div>
+            <div class="diet">
+              <div class="d-top"><span class="d-name">🥬 Vegan</span><span class="d-pct" id="dPctVegan">8%</span></div>
+              <input type="range" id="inVegan" min="0" max="40" step="1" value="8">
+              <div class="d-count" id="dCountVegan"></div>
+            </div>
+            <div class="diet">
+              <div class="d-top"><span class="d-name">🌾 Gluten-free</span><span class="d-pct" id="dPctGf">10%</span></div>
+              <input type="range" id="inGf" min="0" max="40" step="1" value="10">
+              <div class="d-count" id="dCountGf"></div>
+            </div>
+            <div class="diet">
+              <div class="d-top"><span class="d-name">🥜 Nut allergy</span><span class="d-pct" id="dPctNut">6%</span></div>
+              <input type="range" id="inNut" min="0" max="30" step="1" value="6">
+              <div class="d-count" id="dCountNut"></div>
+            </div>
+            <div class="diet">
+              <div class="d-top"><span class="d-name">🧒 Kids (½ portion)</span><span class="d-pct" id="dPctKids">15%</span></div>
+              <input type="range" id="inKids" min="0" max="50" step="1" value="15">
+              <div class="d-count" id="dCountKids"></div>
+            </div>
+            <div class="diet" style="background:linear-gradient(135deg,#fdf3ec,#fff);border-color:#eccdb8">
+              <div class="d-top"><span class="d-name">🍽️ Seconds buffer</span><span class="d-pct" id="dPctBuffer">12%</span></div>
+              <input type="range" id="inBuffer" min="0" max="30" step="1" value="12">
+              <div class="d-count" id="dCountBuffer"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:22px">
+        <div class="kicker">Step 2</div>
+        <h2>The table palette &amp; the stations</h2>
+        <p class="hint">Pick the linen palette first — every station inherits it. Then choose the stations you're serving; each one prices and portions itself by the guest count above.</p>
+        <div class="fg" style="margin-bottom:14px">
+          <label>Table palette</label>
+          <div class="chips" id="palChips"></div>
+        </div>
+        <div class="station-grid" id="stationGrid"></div>
+        <div class="note-line" id="mixNote"></div>
+      </div>
+
+      <div class="card">
+        <div class="kicker">The proof</div>
+        <h2>See the grazing table</h2>
+        <p class="hint">A live top-down proof of the table in your palette — every station laid out with its per-guest portion, plus the dietary cards that go on the board. What you see is what gets set.</p>
+        <div class="board-wrap">
+          <div class="board-stage" id="boardStage"></div>
+        </div>
+        <div class="board-cap" id="boardCap" style="margin-top:12px"></div>
+        <div class="thumb-strip" id="thumbStrip"></div>
+      </div>
+    </div>
+
+    <!-- RIGHT: output card -->
+    <div>
+      <div class="out-card">
+        <div class="oc-head">
+          <span class="oc-occasion" id="ocOccasion">Wedding</span>
+        </div>
+        <h2>The Menu Plan</h2>
+        <div class="oc-sub" id="ocSub"></div>
+        <div class="menu-list" id="planList"></div>
+        <div class="meter">
+          <div class="mstat"><b id="mRevenue">$0</b><small>your price</small></div>
+          <div class="mstat"><b id="mPounds">0 lb</b><small>food to buy</small></div>
+          <div class="mstat"><b id="mServers">0</b><small>servers</small></div>
+          <div class="mstat"><b id="mPlates">0</b><small>dietary plates</small></div>
+          <div class="mstat"><b id="mMargin">0%</b><small>margin</small></div>
+          <div class="mstat"><b id="mPer">$0</b><small>per guest</small></div>
+        </div>
+        <div class="note-line" id="verdictLine" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.22);color:#efe2d2;margin-top:16px"></div>
+        <div class="actions">
+          <button class="btn primary" id="btnShuffle" type="button">🎲 Feed them for me</button>
+          <button class="btn ghost" id="btnCopy" type="button">📋 Copy menu</button>
+          <button class="btn ghost" id="btnWa" type="button">💬 WhatsApp</button>
+          <button class="btn ghost" id="btnPrint" type="button">🖨️ Print brief</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="container wide">
+  <div class="quote">
+    “Everybody remembers the food and nobody remembers the centerpieces. <b>The fastest way to make a party feel cheap is to run out — the fastest way to make it feel generous is one plate left over and a guest still grazing at midnight.</b> I have never had a client complain that there was too much brisket. I have had a mother-of-the-bride cry because her celiac daughter was handed a real plate with her name on the card, instead of being pointed at the salad.” <br>— <b>Isabella</b>, on why the food is the whole party
+  </div>
+
+  <div class="duo">
+    <div class="card">
+      <div class="kicker">The list</div>
+      <h2 id="mathTitle">Every station, portioned</h2>
+      <p class="hint" id="mathHint"></p>
+      <div id="mathList"></div>
+      <div class="note-line" id="mathVerdict" style="margin-top:14px"></div>
+    </div>
+    <div class="card">
+      <div class="kicker">Food, labor &amp; profit</div>
+      <h2>What the table costs</h2>
+      <p class="hint">Food is a lower-margin game than balloons — but it's the reason clients book you at all. Here's the honest math: what the client pays, what the food and the servers cost, and what's left.</p>
+      <div id="costList"></div>
+      <div class="note-line" id="costVerdict" style="margin-top:14px"></div>
+      <div style="text-align:center;margin-top:18px">
+        <div class="bignum"><span id="costMargin">0</span><small>% gross margin</small></div>
+        <div class="legend" style="justify-content:center">
+          <span>💵 <b id="costRev">$0</b> client pays</span>
+          <span>🥘 <b id="costFood">$0</b> food</span>
+          <span>🧑‍🍳 <b id="costLabor">$0</b> labor</span>
+          <span>🍽️ <b id="costServe">$0</b> setup &amp; rentals</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="facts">
+    <div class="fact"><span class="f-num">12%</span><span class="f-txt">the seconds buffer — a grazing table empties faster than any buffet, so buy the extra now</span></div>
+    <div class="fact"><span class="f-num">1 : 25</span><span class="f-txt">one server per 25 guests on a hot station; grazing tables need half that</span></div>
+    <div class="fact"><span class="f-num">40 min</span><span class="f-txt">how long a full grazing board survives a hungry room — stage it, then refill</span></div>
+    <div class="fact"><span class="f-num">6 oz</span><span class="f-txt">grazing per guest as an appetizer; if it's the meal, that number doubles, not triples</span></div>
+  </div>
+
+  <div class="faq">
+    <details open><summary>Wait — the balloon company feeds people now?</summary><p>It always did the hard part of a party; it just never had a page for it. A guest walks in, reads the welcome sign, finds their seat, and then the single thing they judge the whole night on is the food. The Main Course plans the meal in the same palette and the same brain as the balloons, so the table looks like it belongs to the room — and nobody runs out.</p></details>
+    <details><summary>How do you know how much food to buy?</summary><p>Two numbers: <b>ounces per guest</b> (set by the station — a grazing board is ~6 oz, a BBQ spread is ~16) and a <b>seconds buffer</b> (default 12%) because the second pass at a grazing table is real and always underestimated. The tool multiplies it out, adds the occasion's appetite factor, and gives you pounds to buy, not vibes.</p></details>
+    <details><summary>Why does it make me count gluten-free and vegan plates?</summary><p>Because "there's a salad" is not a plate, and it's the fastest way to lose a guest's trust. The tool turns your dietary percentages into real counts — <b>N vegan, N gluten-free, N nut-aware</b> — and Isabella makes each one properly, labels it on a card, and hands it over without a scene. The card is the point: <i>a guest with an allergy should never have to play a game of questions at a buffet.</i></p></details>
+    <details><summary>What's the difference between a grazing table and a buffet?</summary><p>A <b>grazing table</b> is a feast for the eyes: boards, bowls, no heat, no queue — guests pick at it for hours. A <b>hot buffet</b> is a meal: two mains, two sides, chafing dishes and a line. Most parties want a grazing board first, then one hot station once people have had a drink. Pick both here and the tool prices them together.</p></details>
+    <details><summary>Do I really need servers?</summary><p>For a hot station, yes — one per 25 guests keeps a buffet moving and a chafing dish full. Grazing tables need about half that: mostly someone who refills and resets. Corporate parties need more than either, because nobody sits down and everything is eaten standing up, one hand free.</p></details>
+    <details><summary>Can I match this to the balloons and paper I already booked?</summary><p>Yes — choose the palette closest to your decor and the linen under the food echoes the rest of the room, so the table looks like it was designed on the same afternoon as the balloons. Then take the whole plan to Isabella with the <a href="lookbook.html">Lookbook</a> and the <a href="sip-station.html">Sip Station</a>, and the food and the drinks arrive as one menu.</p></details>
+  </div>
+
+  <div class="card" style="margin-top:22px">
+    <div class="kicker">Try these next</div>
+    <h2>Feed them, then finish the night</h2>
+    <p class="hint">The Main Course plans the meal. These fill in everything that happens around the table:</p>
+    <div class="value-strip">
+      <span class="value-pill">🍸 <b><a href="sip-station.html">The Sip Station</a></b> — what they drink</span>
+      <span class="value-pill">🍰 <b><a href="dessert-table.html">Dessert Table Stylist</a></b> — what comes after</span>
+      <span class="value-pill">🖋️ <b><a href="paper-trail.html">The Paper Trail</a></b> — the menu card &amp; dietary tags</span>
+      <span class="value-pill">🗺️ <b><a href="seating-chart.html">Seating Chart Studio</a></b> — who's at the table</span>
+      <span class="value-pill">⏱️ <b><a href="party-timeline.html">Party Day Timeline</a></b> — when to serve it</span>
+      <span class="value-pill">🧮 <b><a href="cost-estimator.html">Cost Estimator</a></b> — full-party budget</span>
+      <span class="value-pill">💼 <b><a href="launch-pad.html">The Launch Pad</a></b> — corporate catering flow</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="lead-card">
+    <div class="kicker">Step 3</div>
+    <h2>Send Isabella the menu plan</h2>
+    <p class="hint">She'll firm up the portions, confirm the dietary plates and lock the date. Replies within 24 hours.</p>
+    <form id="leadForm">
+      <div class="fg-row">
+        <div class="fg"><label for="fName">Your name</label><input type="text" id="fName" placeholder="Jordan" required></div>
+        <div class="fg"><label for="fEmail">Email</label><input type="email" id="fEmail" placeholder="you@email.com" required></div>
+      </div>
+      <div class="fg-row">
+        <div class="fg"><label for="fPhone">Phone</label><input type="tel" id="fPhone" placeholder="(555) 123-4567"></div>
+        <div class="fg"><label for="fDate">Event date</label><input type="date" id="fDate"></div>
+      </div>
+      <div class="fg-row">
+        <div class="fg"><label for="fBudget">Budget</label>
+          <select id="fBudget">
+            <option value="">Pick a range…</option>
+            <option>Under $500</option><option>$500 – $1,200</option><option>$1,200 – $2,500</option><option>$2,500 – $5,000</option><option>$5,000+</option>
+          </select>
+        </div>
+        <div class="fg"><label for="fMsg">Anything else?</label><input type="text" id="fMsg" placeholder="Allergies, venue, vibe…"></div>
+      </div>
+      <button class="btn btn-p" type="submit" style="padding:13px 28px;font-size:.9rem">🍽️ Send Isabella the menu plan →</button>
+      <p class="fine">No spam, ever. Your plan details are attached automatically.</p>
+    </form>
+  </div>
+</div>
+
+<div class="print-only" id="printWrap">
+  <div style="text-align:center;margin-bottom:14px">
+    <div style="font-family:'Playfair Display',serif;font-size:1.4rem;color:#221c14" id="printTitle">🍽️ The Main Course — Caterer's Brief</div>
+    <div style="font-size:.78rem;color:#7c6f5b" id="printMeta">Everlasting Memories · myeverlastingmemories.com</div>
+  </div>
+  <div class="barcard" id="planCardPrint"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<footer>
+  <p class="strip">
+    <a href="main-course.html" style="color:#e8b17a;font-weight:600;">The Main Course</a> ·
+    <a href="paper-trail.html" style="color:#e8b17a;font-weight:600;">The Paper Trail</a> ·
+    <a href="glow-up.html" style="color:#e879f9;font-weight:600;">The Glow Up</a> ·
+    <a href="sky-installer.html" style="color:#ffdca6;font-weight:600;">The Sky Installer</a> ·
+    <a href="sip-station.html" style="color:#f0c987;font-weight:600;">The Sip Station</a> ·
+    <a href="favor-bar.html" style="color:#bef264;font-weight:600">The Favor Bar</a> ·
+    <a href="boo-bash.html" style="color:#d8b4fe;font-weight:600">The Boo Bash</a> ·
+    <a href="raised-glass.html" style="color:#eed9a6;font-weight:600">The Raised Glass</a> ·
+    <a href="launch-pad.html" style="color:#c7d2fe;font-weight:600">The Launch Pad</a> ·
+    <a href="smash.html" style="color:#ffcfa8;font-weight:600">The Smash Hit</a> ·
+    <a href="nest.html" style="color:#cfe0c4;font-weight:600">The Nest</a> ·
+    <a href="powder-pop.html" style="color:#f9a8d4;font-weight:600">The Powder Pop</a> ·
+    <a href="big-yes.html" style="color:#f2c6d2;font-weight:600">The Big Yes</a> ·
+    <a href="party-er.html" style="color:#a7f3d0;font-weight:600">The Party ER</a> ·
+    <a href="rain-plan.html" style="color:#7dd3fc;font-weight:600">The Rain Plan</a> ·
+    <a href="seating-chart.html" style="color:#f9a8d4;font-weight:600">Seating Chart Studio</a> ·
+    <a href="after-glow.html" style="color:#f9a8d4;font-weight:600">The After-Glow</a> ·
+    <a href="surprise-planner.html" style="color:#a5b4fc;font-weight:600">Operation: Surprise</a> ·
+    <a href="dessert-table.html" style="color:#f0c9a0;font-weight:600">Dessert Table Stylist</a> ·
+    <a href="golden-hour.html" style="color:#c4b5fd;font-weight:600">Golden Hour Finder</a> ·
+    <a href="party-timeline.html" style="color:#cbd5e1;font-weight:600">Party Day Timeline</a> ·
+    <a href="wedding-workshop.html" style="color:#f9a8d4;font-weight:600">Wedding Workshop</a> ·
+    <a href="cost-estimator.html" style="color:#fcd34d;font-weight:600">Cost Estimator</a> ·
+    <a href="guest-list.html" style="color:#93c5fd;font-weight:600">The Guest List</a> ·
+    <a href="playlist.html" style="color:#fca5a5;font-weight:600">Party Playlist Studio</a> ·
+    <a href="name-garland.html" style="color:#f9a8d4;font-weight:600">Balloon Letter Studio</a> ·
+    <a href="invitation-studio.html" style="color:#a5b4fc;font-weight:600">Invitation Studio</a> ·
+    <a href="party-roadmap.html" style="color:#5eead4;font-weight:600">Party Roadmap</a> ·
+    <a href="memory-wall.html" style="color:#fcd34d;font-weight:600">Memory Wall</a> ·
+    <a href="photo-booth.html" style="color:#7dd3fc;font-weight:600">Golden Hour Booth</a> ·
+    <a href="photo-hunt.html" style="color:#f0abfc;font-weight:600">Party Photo Hunt</a> ·
+    <a href="memory-capsule.html" style="color:#fca5a5;font-weight:600">Memory Capsule</a> ·
+    <a href="balloon-pop.html" style="color:#fdba74;font-weight:600">Pop Party</a> ·
+    <a href="transformations.html" style="color:#c4b5fd;font-weight:600">The Big Reveal</a> ·
+    <a href="budget-builder.html" style="color:#86efac;font-weight:600">Budget Balloonist</a> ·
+    <a href="referral.html" style="color:#fde68a;font-weight:600">Refer &amp; Earn</a> ·
+    <a href="gift-card.html" style="color:#f9a8d4;font-weight:600">Gift Card Studio</a> ·
+    <a href="reserve-date.html" style="color:#93c5fd;font-weight:600">Reserve Your Date</a> ·
+    <a href="diy-vs-pro.html" style="color:#fdba74;font-weight:600">DIY or Dazzle</a> ·
+    <a href="palette-snap.html" style="color:#f0abfc;font-weight:600">Palette Snap</a> ·
+    <a href="balloon-math.html" style="color:#86efac;font-weight:600">Balloon Math</a> ·
+    <a href="party-style-quiz.html" style="color:#f9a8d4;font-weight:600">Party Style Quiz</a> ·
+    <a href="countdown.html" style="color:#93c5fd;font-weight:600">Big Day Countdown</a> ·
+    <a href="lookbook.html" style="color:#c4b5fd;font-weight:600">Lookbook</a> ·
+    <a href="theme-generator.html" style="color:#fde68a;font-weight:600">Theme Generator</a> ·
+    <a href="faq.html" style="color:#f2c6d2;font-weight:600">FAQ</a>
+  </p>
+  <p class="foot-brand">Everlasting <span>Memories</span> — balloons &amp; moments that last</p>
+  <p class="copy">Isabella's table rule: buy the extra pound, label every plate, and never let a guest with an allergy have to ask twice. 🍽️</p>
+</footer>
+<script>
+(function(){
+function $(id){return document.getElementById(id);}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function money(n){n=Math.round(n||0);return '$'+String(n).replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+function money2(n){var v=Math.round((n||0)*100)/100;var s=(v%1===0)?String(v):v.toFixed(2);return '$'+s.replace(/\B(?=(\d{3})+(?!\d))/g,',');}
+function priceTxt(p){return (p<1?money2(p):money(p));}
+var MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+function datePretty(iso){if(!iso)return '';var m=String(iso).match(/^(\d{4})-(\d{2})-(\d{2})$/);if(!m)return String(iso);
+  var mo=parseInt(m[2],10);if(mo<1||mo>12)return String(iso);return MONTHS[mo-1]+' '+parseInt(m[3],10)+', '+m[1];}
+function lb(n){return (Math.round((n||0)*10)/10)+' lb';}
+
+/* ---------- data ---------- */
+var OCCASIONS=[
+  {id:'birthday',emoji:'🎂',name:'Birthday',tone:'Playful',appetite:1.15,note:'Feed a crowd that keeps nibbling — grazing first, a hot station next, cake last.'},
+  {id:'wedding',emoji:'💍',name:'Wedding',tone:'Formal',appetite:1.0,note:'Two stations, generous grazing, and a dietary plate for every guest who needs one.'},
+  {id:'babyshower',emoji:'🍼',name:'Baby Shower',tone:'Soft',appetite:0.9,note:'Light bites and pretty little things — nothing that drips on silk.'},
+  {id:'graduation',emoji:'🎓',name:'Graduation',tone:'Proud',appetite:1.15,note:'An open house running five hours — hearty, self-serve and endless.'},
+  {id:'corporate',emoji:'💼',name:'Corporate',tone:'Polished',appetite:0.95,note:'Finger food that eats in one hand while the other holds a phone.'},
+  {id:'holiday',emoji:'❄️',name:'Holiday Party',tone:'Festive',appetite:1.2,note:'Warm, spiced and generous — the table people stand around for hours.'},
+  {id:'backyard',emoji:'🌿',name:'Backyard',tone:'Casual',appetite:1.15,note:'Grill-forward and paper-plate friendly — the yard is the dining room.'}
+];
+
+var PALETTES=[
+  {id:'harvest',name:'Harvest & Linen',cloth:'#efe6d3',ink:'#2a2018',a1:'#c25a2c',a2:'#6b8f4e',a3:'#d9a441'},
+  {id:'garden',name:'Garden Party',cloth:'#eef3e6',ink:'#243024',a1:'#5c8a3f',a2:'#d98c8c',a3:'#e0b84e'},
+  {id:'midnight',name:'Midnight Table',cloth:'#e9e7ef',ink:'#1e2242',a1:'#c9a24b',a2:'#5b6bb5',a3:'#8a6fb0'},
+  {id:'blush',name:'Blush Bistro',cloth:'#fbf1f0',ink:'#4a2b2b',a1:'#d98c8c',a2:'#c9a24b',a3:'#9aa87a'},
+  {id:'kraft',name:'Farmhouse Kraft',cloth:'#f2ece0',ink:'#3a2f22',a1:'#a9743f',a2:'#7d8c5a',a3:'#b8563a'},
+  {id:'neon',name:'Neon Snack',cloth:'#ffffff',ink:'#17172b',a1:'#ff5d8f',a2:'#22d3ee',a3:'#f5b301'}
+];
+
+var STATIONS={
+  grazing:{id:'grazing',emoji:'🧆',name:'Grazing Board',oz:6,cost:9,base:20,per:0.30,hot:false,
+    note:'Charcuterie, cheese, olives, fruit and nuts — the board people photograph and then destroy.'},
+  hotBuffet:{id:'hotBuffet',emoji:'🍲',name:'Hot Buffet',oz:14,cost:18,base:40,per:0.60,hot:true,
+    note:'Two mains and two sides in chafers — the proper meal, with a line.'},
+  tacoBar:{id:'tacoBar',emoji:'🌮',name:'Taco & Bowl Bar',oz:12,cost:14,base:35,per:0.50,hot:true,
+    note:'Protein, tortillas and fixings — always a vegan option so the plant eaters aren\'t stuck with rice.'},
+  pizzaBar:{id:'pizzaBar',emoji:'🍕',name:'Pizza Bar',oz:10,cost:8,base:15,per:0.35,hot:true,
+    note:'Three slices a guest and everyone is happy — the cheapest way to feed a crowd well.'},
+  sliderBar:{id:'sliderBar',emoji:'🍔',name:'Slider & Dog Bar',oz:11,cost:11,base:30,per:0.45,hot:true,
+    note:'Three sliders each, plus a veggie patty option — one-hand food for a standing party.'},
+  pastaBar:{id:'pastaBar',emoji:'🍝',name:'Pasta Bar',oz:13,cost:13,base:30,per:0.55,hot:true,
+    note:'Two pastas and sauces built to order — gluten-free pasta cooked in its own pot, never shared water.'},
+  brunch:{id:'brunch',emoji:'🥐',name:'Brunch Spread',oz:12,cost:12,base:30,per:0.45,hot:true,
+    note:'Eggs, pastry, fruit and a yogurt bowl — the shower-and-graduation workhorse.'},
+  bbq:{id:'bbq',emoji:'🍖',name:'Backyard BBQ',oz:16,cost:16,base:45,per:0.55,hot:true,
+    note:'Grilled mains, cornbread and sides — the most food per dollar, and the most second helpings.'}
+};
+var STATION_IDS=['grazing','hotBuffet','tacoBar','pizzaBar','sliderBar','pastaBar','brunch','bbq'];
+var RATE=30, SERVER_HOURS=6, TARGET_MARGIN=0.48;
+
+var state={occasion:'wedding',palette:'harvest',
+  eventName:"Ana & Luis's Reception",venue:'The Willow Barn',date:'2026-06-20',guests:120,
+  veg:20,vegan:8,gf:10,nut:6,kids:15,buffer:12,
+  stations:{grazing:true,hotBuffet:true,pastaBar:true,tacoBar:false,pizzaBar:false,sliderBar:false,brunch:false,bbq:false}};
+
+/* ---------- engine ---------- */
+function occasionById(id){for(var i=0;i<OCCASIONS.length;i++){if(OCCASIONS[i].id===id)return OCCASIONS[i];}return OCCASIONS[1];}
+function paletteById(id){for(var i=0;i<PALETTES.length;i++){if(PALETTES[i].id===id)return PALETTES[i];}return PALETTES[0];}
+function stationsOn(st){return STATION_IDS.filter(function(id){return !!(st.stations&&st.stations[id]);});}
+function diet(st){
+  var g=st.guests||0;
+  var veg=Math.round(g*(st.veg||0)/100);
+  var vegan=Math.min(veg,Math.round(g*(st.vegan||0)/100));
+  var gf=Math.round(g*(st.gf||0)/100);
+  var nut=Math.round(g*(st.nut||0)/100);
+  var kids=Math.round(g*(st.kids||0)/100);
+  var portionGuests=Math.max(0,g-Math.round(kids*0.5));
+  return {veg:veg,vegan:vegan,gf:gf,nut:nut,kids:kids,portionGuests:portionGuests,all:veg+gf+nut};
+}
+function stationLine(id,st){
+  var s=STATIONS[id],occ=occasionById(st.occasion),D=diet(st);
+  var ozEach=s.oz, buffet=1+(st.buffer||0)/100;
+  var ozTotal=ozEach*D.portionGuests*occ.appetite*buffet;
+  var pounds=ozTotal/16;
+  var cost=s.cost*(st.guests||0);
+  var prep=s.base+s.per*(st.guests||0);
+  return {id:id,emoji:s.emoji,name:s.name,hot:s.hot,oz:ozEach,buffet:buffet,
+    ozTotal:ozTotal,pounds:pounds,cost:cost,prep:prep,note:s.note};
+}
+function totals(st){
+  st=st||state;var occ=occasionById(st.occasion),pal=paletteById(st.palette);
+  var ids=stationsOn(st),lines=ids.map(function(id){return stationLine(id,st);});
+  var D=diet(st);
+  var dietaryCost=ids.length?(D.vegan*1.5 + D.gf*1.0 + D.nut*0.75):0;
+  var foodCost=0,ozTotal=0,pounds=0,prepAll=0,anyHot=false;
+  lines.forEach(function(l){foodCost+=l.cost;ozTotal+=l.ozTotal;pounds+=l.pounds;prepAll+=l.prep;if(l.hot)anyHot=true;});
+  foodCost+=dietaryCost;
+  var servers=0;
+  if(ids.length){servers=anyHot?Math.ceil((st.guests||0)/25):Math.ceil((st.guests||0)/40);servers=Math.max(1,servers);}
+  var labor=servers*SERVER_HOURS*RATE;
+  var rentals=anyHot?(3*(st.guests||0)):(ids.length?1.5*(st.guests||0):0);
+  var cost=foodCost+labor+rentals;
+  var price=cost>0?(cost/(1-TARGET_MARGIN)):0;
+  var margin=price>0?(price-cost)/price:0;
+  var perGuest=(st.guests||0)>0?price/(st.guests||0):0;
+  var onCount=ids.length, allCount=STATION_IDS.length;
+  var spread=allCount>0?onCount/allCount*100:0;
+  var bbqish = lines.filter(function(l){return l.id==='bbq'||l.id==='hotBuffet';}).length>0;
+  return {ids:ids,lines:lines,occ:occ,pal:pal,D:D,anyHot:anyHot,foodCost:foodCost,dietaryCost:dietaryCost,
+    ozTotal:ozTotal,pounds:pounds,prepAll:prepAll,servers:servers,labor:labor,rentals:rentals,cost:cost,
+    price:price,margin:margin,perGuest:perGuest,spread:spread,has:onCount>0,bbqish:bbqish};
+}
+function spreadTier(pct,has){
+  if(!has)return{key:'empty',label:'Empty Table',text:'No stations yet — start with a grazing board: it feeds more eyes than mouths and buys you time.'};
+  if(pct<35)return{key:'cocktail',label:'Cocktail Hour',text:'Enough to hold a room before dinner — but not dinner. Add one hot station and it becomes a meal.'};
+  if(pct<60)return{key:'spread',label:'A Proper Spread',text:'A grazing board plus a hot station — guests eat, linger and come back. The classic party shape.'};
+  if(pct<85)return{key:'feast',label:'Full Feast',text:'Several hot stations and plenty to graze. No queue, no hunger, no rush — the table does the work.'};
+  return{key:'kitchen',label:'The Whole Kitchen',text:'Every station on the board. Nobody leaves hungry, and the leftovers go home with the guests.'};
+}
+
+/* ---------- grazing-table proof SVG ---------- */
+function boardSVG(st){
+  st=st||state;var pal=paletteById(st.palette),occ=occasionById(st.occasion),T=totals(st),D=T.D;
+  var W=760,H=470;
+  var s='';
+  s+='<svg viewBox="0 0 '+W+' '+H+'" width="100%" role="img" aria-label="Grazing table proof" style="display:block;border-radius:10px;box-shadow:0 12px 30px rgba(34,28,20,.22)">';
+  s+='<rect x="0" y="0" width="'+W+'" height="'+H+'" rx="12" fill="'+pal.cloth+'"/>';
+  /* linen weave */
+  var i;
+  for(i=40;i<W-20;i+=46){s+='<line x1="'+i+'" y1="0" x2="'+i+'" y2="'+H+'" stroke="'+pal.ink+'" stroke-opacity="0.05" stroke-width="1"/>';}
+  for(i=40;i<H-20;i+=46){s+='<line x1="0" y1="'+i+'" x2="'+W+'" y2="'+i+'" stroke="'+pal.ink+'" stroke-opacity="0.05" stroke-width="1"/>';}
+  s+='<rect x="14" y="14" width="'+(W-28)+'" height="'+(H-28)+'" rx="8" fill="none" stroke="'+pal.a1+'" stroke-opacity="0.5" stroke-width="1.5"/>';
+  /* header */
+  s+='<text x="'+(W/2)+'" y="58" text-anchor="middle" font-family="Playfair Display,Georgia,serif" font-weight="700" font-size="28" fill="'+pal.ink+'">'+esc(st.eventName||'Your Table')+'</text>';
+  s+='<text x="'+(W/2)+'" y="84" text-anchor="middle" font-family="Inter,sans-serif" font-size="12" font-weight="700" letter-spacing="4" fill="'+pal.a1+'">'+esc(String(occ.name).toUpperCase())+' · '+(st.guests||0)+' GUESTS · '+esc(lb(T.pounds)).toUpperCase()+' TO BUY</text>';
+  /* platters */
+  var ids=T.ids,n=ids.length;
+  var cols=n<=1?1:(n<=2?2:(n<=4?2:3));
+  var rows=Math.ceil(n/cols)||1;
+  var areaX=70,areaY=110,areaW=W-140,areaH=n>0?300:220;
+  var slotW=areaW/cols, slotH=Math.min(96,areaH/rows);
+  if(!n){
+    s+='<ellipse cx="'+(W/2)+'" cy="270" rx="150" ry="70" fill="'+pal.a2+'" fill-opacity="0.12" stroke="'+pal.a2+'" stroke-dasharray="6 6" stroke-width="1.5"/>';
+    s+='<text x="'+(W/2)+'" y="266" text-anchor="middle" font-family="Inter,sans-serif" font-size="14" font-weight="700" fill="'+pal.ink+'" fill-opacity="0.7">Set the table</text>';
+    s+='<text x="'+(W/2)+'" y="288" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" fill="'+pal.ink+'" fill-opacity="0.55">Choose a station in Step 2 — a grazing board is the best first move.</text>';
+  }
+  var cyc=[pal.a1,pal.a2,pal.a3];
+  ids.forEach(function(id,idx){
+    var stn=STATIONS[id];var r=Math.floor(idx/cols),c=idx%cols;
+    var cx=areaX+slotW*(c+0.5), cy2=areaY+slotH*(r+0.5)+14;
+    var rx=Math.min(96,slotW/2-12), ry=Math.min(46,slotH/2-6);
+    var col=cyc[idx%3];
+    s+='<ellipse cx="'+cx+'" cy="'+cy2+'" rx="'+rx+'" ry="'+ry+'" fill="'+col+'" fill-opacity="0.20" stroke="'+col+'" stroke-width="2"/>';
+    s+='<ellipse cx="'+cx+'" cy="'+cy2+'" rx="'+(rx-8)+'" ry="'+(ry-6)+'" fill="#fff" fill-opacity="0.65"/>';
+    s+='<text x="'+cx+'" y="'+(cy2-6)+'" text-anchor="middle" font-family="Inter,sans-serif" font-size="20">'+stn.emoji+'</text>';
+    s+='<text x="'+cx+'" y="'+(cy2+13)+'" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" font-weight="700" fill="'+pal.ink+'">'+esc(stn.name)+'</text>';
+    s+='<text x="'+cx+'" y="'+(cy2+27)+'" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" font-weight="600" fill="'+pal.ink+'" fill-opacity="0.7">'+stn.oz+' oz / guest · '+esc(lb(stationLine(id,st).pounds))+'</text>';
+  });
+  /* dietary cards */
+  var cards=[];
+  if(D.veg>0)cards.push({c:'#5c8a3f',t:'🌱 Veg '+D.veg});
+  if(D.vegan>0)cards.push({c:'#2f6b3a',t:'🥬 Vegan '+D.vegan});
+  if(D.gf>0)cards.push({c:'#c9a24b',t:'🌾 GF '+D.gf});
+  if(D.nut>0)cards.push({c:'#b8563a',t:'🥜 Nut-free '+D.nut});
+  if(cards.length){
+    var cw=112,gap=10,totalW=cards.length*cw+(cards.length-1)*gap;
+    var startX=(W-totalW)/2, cardY=H-58;
+    s+='<text x="'+(W/2)+'" y="'+(cardY-10)+'" text-anchor="middle" font-family="Inter,sans-serif" font-size="9.5" font-weight="700" letter-spacing="3" fill="'+pal.ink+'" fill-opacity="0.5">DIETARY CARDS ON THE BOARD</text>';
+    cards.forEach(function(cd,ix){
+      var x=startX+ix*(cw+gap);
+      s+='<rect x="'+x+'" y="'+cardY+'" width="'+cw+'" height="26" rx="13" fill="#fff" stroke="'+cd.c+'" stroke-width="1.6"/>';
+      s+='<text x="'+(x+cw/2)+'" y="'+(cardY+17)+'" text-anchor="middle" font-family="Inter,sans-serif" font-size="11" font-weight="700" fill="'+cd.c+'">'+cd.t+'</text>';
+    });
+  } else {
+    s+='<text x="'+(W/2)+'" y="'+(H-30)+'" text-anchor="middle" font-family="Inter,sans-serif" font-size="10.5" fill="'+pal.ink+'" fill-opacity="0.55">No dietary cards yet — set the mix in Step 1 and they appear here.</text>';
+  }
+  s+='</svg>';
+  return s;
+}
+
+/* ---------- text builders ---------- */
+function summaryText(st){
+  st=st||state;var occ=occasionById(st.occasion),pal=paletteById(st.palette),T=totals(st),D=T.D;
+  var lines=['🍽️ THE MAIN COURSE — '+String(st.eventName).toUpperCase()+' ('+occ.name+')'];
+  lines.push('• '+datePretty(st.date)+(st.venue?(' · '+st.venue):'')+' · '+st.guests+' guests · '+(T.ids.length)+' stations · '+pal.name+' linen');
+  if(T.lines.length){T.lines.forEach(function(l){lines.push('• '+l.emoji+' '+l.name+' — '+l.oz+' oz/guest · '+lb(l.pounds)+' to buy · '+money(l.cost));});}
+  else{lines.push('• (no stations chosen yet)');}
+  lines.push('• Dietary plates: '+D.veg+' veg ('+D.vegan+' vegan) · '+D.gf+' gluten-free · '+D.nut+' nut-aware');
+  lines.push('• Servers: '+T.servers+' · food '+money(T.foodCost)+' · labor '+money(T.labor)+' · client price '+money(T.price)+' ('+money2(T.perGuest)+'/guest)');
+  lines.push('');lines.push('Build it: myeverlastingmemories.com/main-course.html');
+  return lines.join('\n');
+}
+function leadPayload(st){
+  st=st||state;var occ=occasionById(st.occasion),pal=paletteById(st.palette),T=totals(st),D=T.D;
+  return {source:'main-course',eventType:'🍽️ '+occ.name+' catering',eventDate:st.date||'',
+    message:'Event: '+(st.eventName||'')+' · '+datePretty(st.date)+' · '+(st.venue||'')+
+      ' · Occasion: '+occ.name+' · Guests: '+st.guests+' · Linen: '+pal.name+
+      ' · Stations: '+(T.lines.map(function(l){return l.name+' ('+l.oz+'oz)';}).join(', ')||'none')+
+      ' · Dietary: '+D.veg+' veg / '+D.vegan+' vegan / '+D.gf+' GF / '+D.nut+' nut-free'+
+      ' · Food: '+money(T.foodCost)+' · Servers: '+T.servers+' · Price: '+money(T.price)+' ('+money2(T.perGuest)+'/guest)'};
+}
+function planCard(st){
+  st=st||state;var occ=occasionById(st.occasion),pal=paletteById(st.palette),T=totals(st),D=T.D;
+  var cov=spreadTier(T.spread,T.has);
+  var list=T.lines.length?T.lines.map(function(l){return '<li><b>'+esc(l.name)+'</b> — '+l.oz+' oz/guest · <b>'+lb(l.pounds)+'</b> to buy · '+money(l.cost)+' food'+(l.hot?' · hot/holds in chafer':'')+'</li>';}).join(''):'<li>No stations selected yet.</li>';
+  return '<h3>🍽️ Caterer\'s brief — '+esc(st.eventName||'Your Table')+'</h3><ul>'+
+    '<li>Occasion: <b>'+esc(occ.name)+'</b> ('+esc(occ.tone)+') · '+datePretty(st.date)+(st.venue?(' · '+esc(st.venue)):'')+'</li>'+
+    '<li>Guests: <b>'+st.guests+'</b> ('+D.kids+' kids eating half) · Linen palette: <b>'+esc(pal.name)+'</b></li>'+
+    '<li>Spread: <b>'+esc(cov.label)+'</b> — '+T.ids.length+' of '+STATION_IDS.length+' stations on</li></ul>'+
+    '<h3>🥘 The stations &amp; the portions</h3><ul>'+list+'</ul>'+
+    '<h3>🍽️ Buy this much</h3><ul>'+
+    '<li>Total food: <b>'+lb(T.pounds)+'</b> ('+Math.round(T.ozTotal)+' oz) at a '+state_secondsPct(st)+'% seconds buffer — grazing empties faster than you think.</li>'+
+    '<li>Setup &amp; service: <b>'+T.servers+'</b> server'+(T.servers===1?'':'s')+' for '+SERVER_HOURS+' hours at '+money(RATE)+'/hr = '+money(T.labor)+'</li>'+
+    '<li>Catering &amp; rentals: '+money(T.rentals)+' (chafers, fuel, linen where needed)</li>'+
+    '<li>Client price: <b>'+money(T.price)+'</b> ('+money2(T.perGuest)+'/guest) · food cost '+money(T.foodCost)+' · gross margin '+Math.round(T.margin*100)+'%</li></ul>'+
+    '<h3>🌱 Dietary plates — one for every guest, labeled</h3><ul>'+
+    '<li><b>'+D.veg+'</b> vegetarian plates (<b>'+D.vegan+'</b> of them fully vegan) — a real portion, never a garnish plate.</li>'+
+    '<li><b>'+D.gf+'</b> gluten-free plates — cooked with separate utensils and its own pot of water, always.</li>'+
+    '<li><b>'+D.nut+'</b> nut-aware plates — prepared on a wiped-down surface, away from the nut board.</li>'+
+    '<li>Write each guest\'s name on a card at the buffet — the label is the courtesy.</li></ul>'+
+    '<h3>✅ Isabella\'s table rules</h3><ul>'+
+    '<li>Buy the extra pound. Running out is the one memory a party cannot undo.</li>'+
+    '<li>Stage the grazing board in waves — never set it all at once; a full board is a photographed board, and it lasts 40 minutes.</li>'+
+    '<li>The dietary plate gets plated with the same care as the main. Nobody plays a game of questions at the buffet.</li>'+
+    '<li>One server per 25 on a hot station keeps the line moving and the chafers full.</li></ul>';
+}
+function state_secondsPct(st){return (st&&st.buffer!=null)?st.buffer:12;}
+function sampleState(){return {occasion:'wedding',palette:'harvest',
+  eventName:"Ana & Luis's Reception",venue:'The Willow Barn',date:'2026-06-20',guests:120,
+  veg:20,vegan:8,gf:10,nut:6,kids:15,buffer:12,
+  stations:{grazing:true,hotBuffet:true,pastaBar:true,tacoBar:false,pizzaBar:false,sliderBar:false,brunch:false,bbq:false}};}
+
+/* ---------- render ---------- */
+function render(){
+  var occ=occasionById(state.occasion),pal=paletteById(state.palette),T=totals(state),D=T.D;
+  var cov=spreadTier(T.spread,T.has);
+
+  $('occChips').innerHTML=OCCASIONS.map(function(o){
+    return '<button type="button" class="chip'+(o.id===state.occasion?' on':'')+'" data-occ="'+o.id+'">'+o.emoji+' '+esc(o.name)+'<span class="px">'+esc(o.tone)+'</span></button>';}).join('');
+  $('occNote').innerHTML='<b>'+occ.emoji+' '+esc(occ.name)+'</b> — '+esc(occ.note)+' <b>Appetite ×'+occ.appetite.toFixed(2)+'</b>';
+
+  if(document.activeElement!==$('inEvent'))$('inEvent').value=state.eventName;
+  if(document.activeElement!==$('inVenue'))$('inVenue').value=state.venue;
+  if(document.activeElement!==$('inDate'))$('inDate').value=state.date;
+  $('guestNum').textContent=state.guests;
+  if($('inGuests').value!==String(state.guests))$('inGuests').value=state.guests;
+
+  /* dietary */
+  var dib=[[ 'inVeg','dPctVeg','dCountVeg',state.veg,D.veg,'vegetarian plates including the vegans'],
+    ['inVegan','dPctVegan','dCountVegan',state.vegan,D.vegan,'fully plant-based plates'],
+    ['inGf','dPctGf','dCountGf',state.gf,D.gf,'gluten-free plates, own pot &amp; utensils'],
+    ['inNut','dPctNut','dCountNut',state.nut,D.nut,'nut-aware plates, wiped surface'],
+    ['inKids','dPctKids','dCountKids',state.kids,D.kids,'kids eating a half portion'],
+    ['inBuffer','dPctBuffer','dCountBuffer',state.buffer,null,'seconds buffer on every station']];
+  dib.forEach(function(x){
+    var rid=x[0],pid=x[1],cid=x[2],val=x[3],cnt=x[4],txt=x[5];
+    if($(rid).value!==String(val))$(rid).value=val;
+    $(pid).textContent=val+'%';
+    if(cnt==null){$(cid).innerHTML='Buy <b>'+val+'%</b> extra — '+txt+'.';}
+    else{$(cid).innerHTML='<b>'+cnt+'</b> '+txt+'.';}
+  });
+
+  $('palChips').innerHTML=PALETTES.map(function(p){
+    return '<button type="button" class="chip'+(p.id===state.palette?' on':'')+'" data-pal="'+p.id+'"><span style="display:inline-block;width:11px;height:11px;border-radius:50%;background:'+p.a1+';margin-right:5px;vertical-align:middle;box-shadow:0 0 0 2px '+p.cloth+'"></span>'+esc(p.name)+'</button>';}).join('');
+
+  $('stationGrid').innerHTML=STATION_IDS.map(function(id){var s=STATIONS[id];var on=!!(state.stations&&state.stations[id]);
+    var priceLabel=priceTxt(s.cost)+' / guest';
+    return '<button type="button" class="station'+(on?' on':'')+'" data-station="'+id+'" aria-pressed="'+on+'">'+
+      '<div class="st-top"><span class="st-emoji">'+s.emoji+'</span><span class="st-name">'+esc(s.name)+'</span><span class="st-price">'+priceLabel+'</span></div>'+
+      '<div class="st-note">'+esc(s.note)+'</div>'+
+      '<div class="st-unit">'+s.oz+' oz / guest'+(on?(' · '+esc(lb(stationLine(id,state).pounds))+' to buy'):'')+'</div></button>';}).join('');
+
+  $('mixNote').innerHTML=T.lines.length
+    ?('<b>'+T.lines.length+' station'+(T.lines.length>1?'s':'')+' on</b> — '+esc(lb(T.pounds))+' of food, '+T.servers+' server'+(T.servers===1?'':'s')+', '+money(T.price)+' for the table. '+esc(cov.label)+'.')
+    :'Nothing chosen yet — start with the <b>grazing board</b>, then add one hot station.';
+
+  $('boardStage').innerHTML=boardSVG(state);
+  $('boardCap').innerHTML='Your <b>'+esc(state.eventName)+'</b> table in <b>'+esc(pal.name)+'</b> — '+esc(occ.name)+', '+esc(datePretty(state.date))+(state.venue?(', at '+esc(state.venue)):'')+'. '+(T.has?('Buy <b>'+esc(lb(T.pounds))+'</b> of food and make <b>'+(D.all)+'</b> labeled dietary plates.'):'Add a station below and the table sets itself.');
+
+  $('thumbStrip').innerHTML=T.lines.length?T.lines.map(function(l){
+    return '<div class="thumb"><div class="th-name">'+l.emoji+' '+esc(l.name)+'</div><div class="th-qty">'+l.oz+' oz/guest · '+esc(lb(l.pounds))+'</div><div class="th-bar" style="background:linear-gradient(90deg,'+pal.a1+','+pal.a2+')"></div></div>';}).join('')
+    :'<div class="thumb" style="flex-basis:100%"><div class="th-name">No stations yet</div><div class="th-qty">Tap a station in Step 2 to set the table here.</div></div>';
+
+  $('ocOccasion').textContent=occ.emoji+' '+occ.name;
+  $('ocSub').textContent=(state.eventName||'')+' · '+esc(datePretty(state.date))+' · '+state.guests+' guests · '+pal.name+' linen';
+  $('planList').innerHTML=T.lines.length?T.lines.map(function(l){
+    return '<div class="menu-row"><span class="mr-emoji">'+l.emoji+'</span><span class="mr-name">'+esc(l.name)+'</span>'+
+      '<span class="mr-qty">'+l.oz+' oz · '+esc(lb(l.pounds))+'</span><span class="mr-cost">'+money(l.cost)+'</span></div>';}).join('')
+    :'<div class="menu-empty">Nothing on the table yet — tap stations in Step 2 and they land here with real portions and prices.</div>';
+  $('mRevenue').textContent=money(T.price);
+  $('mPounds').textContent=lb(T.pounds);
+  $('mServers').textContent=T.servers;
+  $('mPlates').textContent=D.all;
+  $('mMargin').textContent=Math.round(T.margin*100)+'%';
+  $('mPer').textContent=money2(T.perGuest);
+  $('verdictLine').innerHTML='<b style="color:#e8b17a">'+esc(cov.label.toUpperCase())+'</b> — '+esc(cov.text)+' <span style="color:#c9b49a">('+T.ids.length+'/'+STATION_IDS.length+' stations)</span>';
+
+  $('mathTitle').textContent=occ.emoji+' Every station, portioned';
+  $('mathHint').innerHTML='One line per station. Portions scale with your <b>'+state.guests+'</b> guests, a <b>'+Math.round(occ.appetite*100)+'%</b> appetite factor for a '+esc(occ.name.toLowerCase())+', and your <b>'+state.buffer+'%</b> seconds buffer.';
+  if(T.lines.length){
+    $('mathList').innerHTML=T.lines.map(function(l){
+      return '<div class="price-item"><span class="pi-name">'+l.emoji+' '+esc(l.name)+'</span><span class="pi-qty">'+l.oz+' oz/guest · '+esc(lb(l.pounds))+'</span><span class="pi-price">'+money(l.cost)+'</span><span class="pi-note">'+esc(l.note)+'</span></div>';}).join('')+
+      '<div class="price-item" style="border-top:1.5px solid var(--line);margin-top:6px"><span class="pi-name">The whole table</span><span class="pi-qty">'+esc(lb(T.pounds))+' · '+T.ids.length+' stations</span><span class="pi-price">'+money(T.price)+'</span><span class="pi-note">'+money2(T.perGuest)+' per guest · '+T.servers+' server'+(T.servers===1?'':'s')+' · '+D.all+' labeled dietary plates</span></div>';
+  }else{
+    $('mathList').innerHTML='<div class="price-item"><span class="pi-name">Nothing on the table</span><span class="pi-note">Pick a station in Step 2 and the portions appear here.</span></div>';
+  }
+  $('mathVerdict').innerHTML='<b>'+esc(cov.label.toUpperCase())+' — </b>'+esc(cov.text);
+
+  $('costList').innerHTML=T.lines.length?(
+    '<div class="price-item"><span class="pi-name">💵 Client pays</span><span class="pi-qty">'+state.guests+' guests</span><span class="pi-price">'+money(T.price)+'</span><span class="pi-note">'+money2(T.perGuest)+' per guest for the whole table — food, servers and setup.</span></div>'+
+    '<div class="price-item"><span class="pi-name">🥘 Food &amp; ingredients</span><span class="pi-qty">'+esc(lb(T.pounds))+'</span><span class="pi-price">'+money(T.foodCost)+'</span><span class="pi-note">Including '+money2(T.dietaryCost)+' of dietary-plate premium — the plant and GF plates cost a little more, on purpose.</span></div>'+
+    '<div class="price-item"><span class="pi-name">🧑‍🍳 Service labor</span><span class="pi-qty">'+T.servers+' × '+SERVER_HOURS+'h</span><span class="pi-price">'+money(T.labor)+'</span><span class="pi-note">One server per 25 guests on a hot station, at '+money(RATE)+' an hour, setup to breakdown.</span></div>'+
+    '<div class="price-item"><span class="pi-name">🍽️ Setup &amp; rentals</span><span class="pi-qty">chafers, fuel, linen</span><span class="pi-price">'+money(T.rentals)+'</span><span class="pi-note">The hidden line everyone forgets: a hot table needs heat, fuel and something under it.</span></div>'+
+    '<div class="price-item" style="border-top:1.5px solid var(--line);margin-top:6px"><span class="pi-name">Left after costs</span><span class="pi-qty">'+Math.round(T.margin*100)+'% margin</span><span class="pi-price">'+money(T.price-T.cost)+'</span><span class="pi-note">'+money(T.price-T.cost)+' of the '+money(T.price)+' is your work, not the groceries.</span></div>'
+    ):'<div class="price-item"><span class="pi-name">No stations yet</span><span class="pi-note">Choose a station to see the food-and-profit math.</span></div>';
+  $('costVerdict').innerHTML='<b>'+Math.round(T.margin*100)+'% GROSS MARGIN — </b>'+(T.has?('food is a thinner margin than balloons, but it is the reason clients book you: '+money(T.price)+' of client price, '+money(T.foodCost)+' of food, '+money(T.labor)+' of servers, and '+money(T.rentals)+' of heat and linen.'):'nothing on the table yet — pick a station to see the margin.');
+  $('costMargin').textContent=Math.round(T.margin*100);
+  $('costRev').textContent=money(T.price);
+  $('costFood').textContent=money(T.foodCost);
+  $('costLabor').textContent=money(T.labor);
+  $('costServe').textContent=money(T.rentals);
+
+  $('planCardPrint').innerHTML=planCard(state);
+  $('printMeta').textContent='Everlasting Memories · '+(state.eventName||'')+' · '+datePretty(state.date)+' · '+state.guests+' guests · '+pal.name;
+}
+
+/* ---------- DOM ---------- */
+if(typeof document!=='undefined'){
+function toast(msg){var el=$('toast');el.textContent=msg;el.classList.add('show');clearTimeout(toast._t);toast._t=setTimeout(function(){el.classList.remove('show');},2600);}
+
+$('occChips').addEventListener('click',function(e){var b=e.target.closest('button');if(!b||!b.dataset.occ)return;state.occasion=b.dataset.occ;render();});
+$('palChips').addEventListener('click',function(e){var b=e.target.closest('button');if(!b||!b.dataset.pal)return;state.palette=b.dataset.pal;render();});
+$('stationGrid').addEventListener('click',function(e){var b=e.target.closest('button');if(!b||!b.dataset.station)return;
+  var id=b.dataset.station;state.stations[id]=!state.stations[id];render();
+  toast(state.stations[id]?('🍽️ '+STATIONS[id].name+' on the table'):(STATIONS[id].name+' removed'));});
+
+$('inEvent').addEventListener('input',function(){state.eventName=this.value;render();});
+$('inVenue').addEventListener('input',function(){state.venue=this.value;render();});
+$('inDate').addEventListener('input',function(){state.date=this.value;render();});
+$('inGuests').addEventListener('input',function(){state.guests=parseInt(this.value,10)||1;render();});
+[['inVeg','veg'],['inVegan','vegan'],['inGf','gf'],['inNut','nut'],['inKids','kids'],['inBuffer','buffer']].forEach(function(pair){
+  $(pair[0]).addEventListener('input',function(){state[pair[1]]=parseInt(this.value,10)||0;render();});
+});
+
+$('btnShuffle').addEventListener('click',function(){
+  state.occasion=OCCASIONS[Math.floor(Math.random()*OCCASIONS.length)].id;
+  state.palette=PALETTES[Math.floor(Math.random()*PALETTES.length)].id;
+  state.guests=[40,60,80,100,120,160,200][Math.floor(Math.random()*7)];
+  var ns={};STATION_IDS.forEach(function(id){ns[id]=false;});
+  ns.grazing=true;ns.hotBuffet=Math.random()<0.6;
+  STATION_IDS.forEach(function(id){if(Math.random()<0.3)ns[id]=true;});
+  state.stations=ns;
+  state.veg=[10,15,20,25][Math.floor(Math.random()*4)];
+  state.vegan=[5,8,10,12][Math.floor(Math.random()*4)];
+  state.gf=[5,8,10,15][Math.floor(Math.random()*4)];
+  state.nut=[4,6,8][Math.floor(Math.random()*3)];
+  state.kids=[8,12,15,20][Math.floor(Math.random()*4)];
+  render();
+  toast('🍽️ '+occasionById(state.occasion).name+' in '+paletteById(state.palette).name+'.');
+});
+$('btnCopy').addEventListener('click',function(){
+  var t=summaryText();
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){toast('📋 Menu copied!');});}
+  else{var ta=document.createElement('textarea');ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand('copy');document.body.removeChild(ta);toast('📋 Menu copied!');}
+});
+$('btnWa').addEventListener('click',function(){window.open('https://wa.me/?text='+encodeURIComponent(summaryText()),'_blank');});
+$('btnPrint').addEventListener('click',function(){window.print();});
+
+/* nav dropdown */
+$('ddBtn').addEventListener('click',function(e){e.stopPropagation();$('ddMenu').classList.toggle('open');});
+document.addEventListener('click',function(){$('ddMenu').classList.remove('open');});
+
+/* secret #29 */
+var taps=0;
+$('secretBadge').addEventListener('click',function(){
+  taps++;if(taps<5)return;taps=0;
+  var html='<div class="menu-row" style="display:block"><div class="mr-name" style="font-size:.9rem">🤫 Isabella\'s table notebook — Secret #29</div>'+
+    '<div style="font-size:.8rem;color:#efe2d2;margin-top:6px;line-height:1.6">Four rules she feeds by. One: <b>buy the extra pound</b> — a party remembers running out long after it forgets the playlist, and leftovers are a gift, not a mistake. Two: <b>label every plate</b>, because the guest with a real allergy should never have to play a game of questions at the buffet; a card with their name on it is the whole courtesy. Three: <b>the dietary plate gets the same care as the main</b> — if the vegan option is a sad plate of garnish, you have told that guest exactly what you think of them. Four: <b>stage the grazing board in waves</b> — a full board is a photographed board, and it will be gone in forty minutes, so keep a second set of boards in the back. And the line she says to every host staring at the grocery list: <i>"You cannot make people feel welcome with a centerpiece. You can with the third helping they didn\'t expect."</i> 🍽️</div></div>';
+  var sh=$('planList');sh.innerHTML=html+sh.innerHTML;
+  toast('🕵️ Secret #29 unlocked');
+});
+
+/* lead form */
+$('leadForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var btn=this.querySelector('button[type=submit]');btn.disabled=true;btn.textContent='Sending…';
+  var payload=leadPayload(state);
+  payload.name=$('fName').value.trim();payload.email=$('fEmail').value.trim();payload.phone=$('fPhone').value.trim();
+  payload.eventDate=$('fDate').value||payload.eventDate;payload.budget=$('fBudget').value||'';
+  payload.message=($('fMsg').value.trim()?$('fMsg').value.trim()+' — ':'')+payload.message;
+  fetch('/api/leads.js',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+    .then(function(res){return res.json();})
+    .then(function(){toast('🍽️ Sent! Isabella replies within 24h.');btn.disabled=false;btn.textContent='🍽️ Send Isabella the menu plan →';$('leadForm').reset();})
+    .catch(function(){toast('⚠️ Couldn\'t send — email hello@myeverlastingmemories.com');btn.disabled=false;btn.textContent='🍽️ Send Isabella the menu plan →';});
+});
+
+render();
+} /* end DOM guard */
+if(typeof module!=='undefined'&&module.exports){
+  module.exports={OCCASIONS:OCCASIONS,PALETTES:PALETTES,STATIONS:STATIONS,STATION_IDS:STATION_IDS,state:state,
+    occasionById:occasionById,paletteById:paletteById,stationsOn:stationsOn,diet:diet,stationLine:stationLine,
+    totals:totals,spreadTier:spreadTier,boardSVG:boardSVG,summaryText:summaryText,leadPayload:leadPayload,
+    planCard:planCard,sampleState:sampleState,render:render,datePretty:datePretty,priceTxt:priceTxt,money:money,money2:money2,esc:esc};
+}
+})();
+</script>
+</body>
+</html>
