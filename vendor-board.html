@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Vendor Board — Party Vendor &amp; Payment Tracker | Everlasting Memories</title>
+<meta name="description" content="Manage every party vendor in one place: contacts, quotes, deposits, balances and arrival times. The site's first vendor-coordination board — with a live load-in timeline, a cashflow ledger, gap warnings for the vendors you forgot, and a printable contact sheet.">
+<meta name="theme-color" content="#14232b">
+<meta property="og:title" content="The Vendor Board — Party Vendor &amp; Payment Tracker | Everlasting Memories">
+<meta property="og:description" content="The site's first vendor board. Every other tool planned a thing — the balloons, the food, the paper, the drinks. This one runs the people who deliver it: ten vendors, one board, one load-in timeline, one ledger of deposits and balances.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--c1:#cf7d3a;--c2:#2f8b74;--c3:#14232b;--c3b:#22414d;--bg:#f4f6f4;--line:#dce6e2;--ink:#152026;--soft:#5f7373;--good:#1a7f4e;--bad:#b3261e}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.serif{font-family:'Playfair Display',Georgia,serif}
+a{color:var(--c1);text-decoration:none}
+a:hover{opacity:.85}
+/* nav */
+.em-nav{display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:14px 22px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.em-nav-brand{font-family:'Playfair Display',serif;font-weight:700;font-size:1.15rem;color:var(--ink);margin-right:auto}
+.em-nav-brand span{color:var(--c1)}
+.em-nav a.nav-link{font-size:.85rem;font-weight:600;color:var(--ink);padding:6px 8px;border-radius:8px}
+.em-nav a.nav-link:hover{background:var(--bg)}
+.em-nav-cta{background:linear-gradient(135deg,var(--c3),#b06a2a);color:#ffefdd!important;padding:9px 16px;border-radius:999px;font-weight:600;font-size:.85rem;box-shadow:0 4px 14px rgba(20,35,43,.35)}
+.dd-wrap{position:relative}
+.dd-btn{background:none;border:1px solid var(--line);border-radius:999px;padding:8px 16px;font:600 .85rem 'Inter',sans-serif;color:var(--ink);cursor:pointer;display:flex;align-items:center;gap:6px}
+.dd-btn:hover{background:var(--bg)}
+.dd-menu{display:none;position:absolute;top:calc(100% + 8px);left:0;min-width:230px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 18px 40px rgba(20,35,43,.16);padding:8px;z-index:60;max-height:70vh;overflow:auto}
+.dd-menu.open{display:block}
+.dd-menu a{display:block;padding:8px 12px;border-radius:9px;font-size:.84rem;font-weight:500;color:var(--ink)}
+.dd-menu a:hover{background:var(--bg)}
+.dd-menu a.styled{color:#fff!important;font-weight:600}
+.dd-menu .dd-tag{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);padding:8px 12px 4px}
+/* hero */
+.hero{max-width:1120px;margin:0 auto;padding:34px 22px 10px}
+.home-link{display:inline-block;font-size:.82rem;font-weight:600;color:var(--c1);margin-bottom:16px}
+.badge{display:inline-block;background:linear-gradient(135deg,var(--c3),#b06a2a);color:#ffefdd;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:14px;cursor:pointer;user-select:none}
+.hero h1{font-size:clamp(2.1rem,5vw,3.3rem);line-height:1.1;color:var(--c3)}
+.hero .sub{margin-top:12px;max-width:840px;color:var(--soft);font-size:1.02rem}
+.hero .sub b{color:var(--ink)}
+/* layout */
+.container{max-width:1120px;margin:0 auto;padding:22px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 10px 30px rgba(20,35,43,.05)}
+.card h2{font-size:1.35rem;color:var(--c3);margin-bottom:4px}
+.card .kicker{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c1);margin-bottom:2px}
+.card .hint{font-size:.82rem;color:var(--soft);margin-bottom:14px}
+.fg{margin-bottom:14px}
+.fg label{display:block;font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ink);margin-bottom:5px}
+.fg input,.fg select,.fg textarea{width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;font:500 .92rem 'Inter',sans-serif;background:#fff;color:var(--ink)}
+.fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:var(--c1)}
+.fg textarea{min-height:64px;resize:vertical}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:520px){.fg-row{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;font:600 .82rem 'Inter',sans-serif;color:var(--ink);cursor:pointer;transition:all .15s}
+.chip:hover{border-color:var(--c1);color:var(--c1)}
+.chip.on{background:linear-gradient(135deg,var(--c3),#b06a2a);border-color:transparent;color:#ffefdd;box-shadow:0 4px 12px rgba(20,35,43,.3)}
+.chip .px{display:block;font-size:.66rem;font-weight:600;opacity:.85}
+.chip.on .px{opacity:.8}
+.station-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:520px){.station-grid{grid-template-columns:1fr}}
+.station{border:1.5px solid var(--line);background:#fff;border-radius:14px;padding:11px 13px;cursor:pointer;transition:all .15s;text-align:left}
+.station:hover{border-color:var(--c1);transform:translateY(-1px)}
+.station.on{border-color:var(--c1);background:linear-gradient(180deg,#eef4f2,#fff);box-shadow:0 6px 18px rgba(176,106,42,.16)}
+.station .st-top{display:flex;align-items:center;gap:8px}
+.station .st-emoji{font-size:1.3rem}
+.station .st-name{font-weight:700;font-size:.84rem;color:var(--c3);flex:1}
+.station .st-price{font-weight:800;font-size:.76rem;color:var(--c1);white-space:nowrap}
+.station .st-note{font-size:.73rem;color:var(--soft);margin-top:5px}
+.station .st-unit{font-size:.61rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--soft);margin-top:5px}
+.station.on .st-unit{color:var(--c1)}
+.range-wrap{display:flex;align-items:center;gap:14px}
+.range-wrap input[type=range]{flex:1;accent-color:var(--c3);height:34px}
+.big-read{min-width:118px;text-align:center;background:linear-gradient(135deg,var(--c3),#b06a2a);color:#ffefdd;border-radius:12px;padding:8px 10px;font-weight:700;font-size:.95rem}
+.big-read small{display:block;font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;opacity:.85}
+.note-line{margin-top:10px;background:var(--bg);border:1px dashed var(--line);border-radius:12px;padding:10px 14px;font-size:.83rem}
+.note-line b{color:var(--c3)}
+.diet-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:520px){.diet-grid{grid-template-columns:1fr}}
+.diet{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.diet .d-top{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.diet .d-name{font-weight:700;font-size:.82rem;color:var(--c3)}
+.diet .d-pct{font-weight:800;font-size:.95rem;color:var(--c1)}
+.diet input[type=range]{width:100%;accent-color:var(--c2);margin-top:6px}
+.diet .d-count{font-size:.74rem;color:var(--soft);margin-top:2px}
+.diet .d-count b{color:var(--ink)}
+/* board stage */
+.board-wrap{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.board-stage{background:linear-gradient(160deg,#e6efeb,#d6e4df);border:1px solid var(--line);border-radius:16px;padding:14px;flex:1;min-width:280px}
+.board-cap{font-size:.78rem;color:var(--soft)}
+.board-cap b{color:var(--c3)}
+.thumb-strip{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.thumb{background:#fff;border:1px solid var(--line);border-radius:12px;padding:9px 12px;min-width:104px;flex:1}
+.thumb .th-name{font-size:.72rem;font-weight:700;color:var(--c3)}
+.thumb .th-qty{font-size:.68rem;color:var(--soft);margin-top:2px}
+.thumb .th-bar{height:6px;border-radius:3px;margin-top:7px}
+/* output card */
+.out-card{background:linear-gradient(165deg,#14232b,#22414d);color:#eaf2ef;border-radius:22px;padding:26px;box-shadow:0 16px 40px rgba(20,35,43,.34);position:sticky;top:84px}
+.out-card .oc-head{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:6px}
+.out-card .oc-occasion{display:inline-block;background:rgba(255,255,255,.12);color:#ffd9bd;border-radius:999px;padding:4px 12px;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.out-card h2{color:#fff;font-size:1.5rem}
+.out-card .oc-sub{color:#bfcec9;font-size:.8rem;margin-bottom:16px}
+.menu-list{background:rgba(255,255,255,.06);border:1px dashed rgba(255,255,255,.22);border-radius:16px;padding:8px 14px}
+.menu-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px dashed rgba(255,255,255,.14)}
+.menu-row:last-child{border-bottom:none}
+.menu-row .mr-emoji{font-size:1.1rem}
+.menu-row .mr-name{font-weight:700;font-size:.82rem;color:#fff;flex:1}
+.menu-row .mr-qty{font-weight:700;font-size:.77rem;color:#ffd9bd;white-space:nowrap}
+.menu-row .mr-cost{font-weight:800;font-size:.8rem;color:#fff;white-space:nowrap;min-width:56px;text-align:right}
+.menu-empty{color:#bfcec9;font-size:.85rem;font-style:italic;padding:12px 4px}
+.meter{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.14)}
+.mstat{background:rgba(255,255,255,.08);border-radius:12px;padding:8px 12px;text-align:center;min-width:82px}
+.mstat b{display:block;font-size:1.05rem;color:#fff}
+.mstat small{font-size:.6rem;text-transform:uppercase;letter-spacing:.06em;color:#bfcec9}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.btn{border:none;border-radius:999px;padding:11px 18px;font:700 .85rem 'Inter',sans-serif;cursor:pointer;transition:all .15s;background:#fff;color:#14232b}
+.btn:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(0,0,0,.18)}
+.btn.primary{background:linear-gradient(135deg,#e2b273,#b06a2a);color:#14232b}
+.btn.ghost{background:rgba(255,255,255,.1);color:#eaf2ef;border:1px solid rgba(255,255,255,.25)}
+.btn.ghost:hover{background:rgba(255,255,255,.18)}
+/* quote */
+.quote{background:#fff;border-left:4px solid var(--c2);border-radius:0 16px 16px 0;padding:18px 20px;margin:24px 0;font-style:italic;color:var(--soft);font-size:.92rem}
+.quote b{color:var(--c3);font-style:normal}
+/* wide cards */
+.wide{margin-top:22px}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:22px}
+@media(max-width:900px){.duo{grid-template-columns:1fr}}
+.price-item{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;padding:11px 0;border-bottom:1px dashed var(--line)}
+.price-item:last-child{border-bottom:none}
+.price-item .pi-name{font-weight:700;color:var(--ink);font-size:.92rem}
+.price-item .pi-qty{font-weight:800;color:var(--c3);font-size:.85rem;white-space:nowrap}
+.price-item .pi-price{font-weight:800;color:var(--c1);font-size:.88rem;white-space:nowrap;margin-left:auto}
+.price-item .pi-note{flex-basis:100%;font-size:.79rem;color:var(--soft)}
+.bignum{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;color:var(--c3);line-height:1.05}
+.bignum small{font-size:1rem;color:var(--soft);font-weight:600}
+.legend{font-size:.72rem;color:var(--soft);display:flex;gap:14px;flex-wrap:wrap;margin-top:4px}
+.legend span b{color:var(--ink)}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:26px 0}
+@media(max-width:800px){.facts{grid-template-columns:repeat(2,1fr)}}
+.fact{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px;text-align:center}
+.fact .f-num{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:700;color:var(--c3);display:block}
+.fact .f-txt{font-size:.76rem;color:var(--soft);margin-top:4px}
+.faq{margin:8px 0 26px}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin-bottom:10px}
+.faq summary{font-weight:700;font-size:.92rem;cursor:pointer;color:var(--c3)}
+.faq details p{font-size:.86rem;color:var(--soft);margin-top:8px}
+.barcard{border:1.5px dashed var(--line);border-radius:14px;padding:18px 20px;background:#fff}
+.barcard h3{font-size:.95rem;color:var(--c3);margin-bottom:8px}
+.barcard ul{margin:2px 0 12px 18px;font-size:.86rem;color:var(--soft)}
+.barcard li{margin:3px 0}
+.barcard li b{color:var(--ink)}
+.value-strip{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.value-pill{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:.76rem;color:var(--soft)}
+.value-pill b{color:var(--c3)}
+/* lead card */
+.lead-card{background:linear-gradient(160deg,#14232b,#22414d);color:#fff;border-radius:20px;padding:28px;margin-top:8px}
+.lead-card h2{color:#fff}
+.lead-card .kicker{color:#e2b273}
+.lead-card .hint{color:#bfcec9}
+.lead-card label{color:#bfcec9}
+.lead-card input,.lead-card select,.lead-card textarea{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#fff}
+.lead-card input::placeholder,.lead-card textarea::placeholder{color:rgba(255,255,255,.55)}
+.lead-card input:focus,.lead-card select:focus,.lead-card textarea:focus{border-color:#e2b273}
+.lead-card select option{color:var(--ink)}
+.lead-card .btn-p{background:#e2b273;color:#14232b}
+.lead-card .fine{font-size:.74rem;color:#bfcec9;margin-top:10px}
+/* footer */
+footer{background:var(--c3);color:#fff;margin-top:34px;padding:26px 22px 30px}
+footer .strip{font-size:.78rem;line-height:2;color:rgba(255,255,255,.75)}
+footer .strip a{color:#ffefdd;font-weight:600;margin-right:2px}
+footer .foot-brand{font-family:'Playfair Display',serif;font-size:1.1rem;margin-top:14px}
+footer .foot-brand span{color:#ffefdd}
+footer .copy{font-size:.72rem;color:rgba(255,255,255,.6);margin-top:6px}
+/* print */
+@media print{
+  .em-nav,.actions,.lead-card,.facts,.faq,.hero,.home-link,.badge,footer,.quote,.duo,.wide,.grid,.no-print,.value-strip,.toast{display:none!important}
+  body{background:#fff}
+  .print-only{display:block!important}
+}
+.print-only{display:none}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(120%);background:var(--ink);color:#fff;padding:12px 22px;border-radius:999px;font-size:.85rem;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.25);transition:transform .3s;z-index:99}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+/* ---- Night 53: The Vendor Board ---- */
+.vrows{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+.vrow{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end;padding:11px 12px;border-bottom:1px dashed var(--line)}
+.vrow:last-child{border-bottom:none}
+.vrow .vr-name{font-weight:700;font-size:.82rem;color:var(--c3);min-width:116px;display:flex;align-items:center;gap:6px;padding-bottom:8px}
+.vrow .vr-arr{font-size:.7rem;font-weight:700;color:var(--c1);background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:5px 9px;white-space:nowrap;margin-bottom:4px}
+.vrow label.vr-lbl{display:block;font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--soft)}
+.vrow label.vr-lbl input,.vrow label.vr-lbl select{margin-top:3px;padding:6px 8px;border:1.5px solid var(--line);border-radius:9px;font:600 .78rem 'Inter',sans-serif;color:var(--ink);background:#fff}
+.vrow label.vr-lbl input:focus,.vrow label.vr-lbl select:focus{outline:none;border-color:var(--c1)}
+.vrow .vr-co{width:150px}
+.vrow .vr-num{width:88px}
+.vrow .vr-date{width:142px}
+.vrow .vr-st{width:142px}
+.vrow .vr-x{background:none;border:none;color:var(--soft);font-size:.95rem;cursor:pointer;padding:6px 9px;border-radius:9px;margin-bottom:2px}
+.vrow .vr-x:hover{background:var(--bg);color:var(--bad)}
+.tl-wrap{background:linear-gradient(160deg,#e6efeb,#d6e4df);border:1px solid var(--line);border-radius:16px;padding:10px;overflow-x:auto}
+.tl-wrap svg{display:block;width:100%;height:auto;min-width:660px}
+</style>
+</head>
+<body>
+<nav class="em-nav">
+  <div class="em-nav-brand"><a href="index.html" style="color:inherit">Everlasting <span>Memories</span></a></div>
+  <a class="nav-link" href="gallery.html">Gallery</a>
+  <a class="nav-link" href="services.html">Services</a>
+  <a class="nav-link" href="about.html">About</a>
+  <a class="nav-link" href="faq.html">FAQ</a>
+  <div class="dd-wrap">
+    <button class="dd-btn" id="ddBtn" aria-haspopup="true" aria-expanded="false">Tools ▾</button>
+    <div class="dd-menu" id="ddMenu">
+      <div class="dd-tag">Newest</div>
+      <a href="vendor-board.html" class="styled" style="background:#14232b">The Vendor Board</a>
+      <a href="main-course.html" class="styled" style="background:#221c14">The Main Course</a>
+      <a href="paper-trail.html" class="styled" style="background:#241a12">The Paper Trail</a>
+      <a href="glow-up.html" class="styled" style="background:#140b26">The Glow Up</a>
+      <a href="sky-installer.html" class="styled" style="background:#1a1a2e">The Sky Installer</a>
+      <a href="sip-station.html" class="styled" style="background:#3a1020">The Sip Station</a>
+      <a href="favor-bar.html" class="styled" style="background:#2e1065">The Favor Bar</a>
+      <a href="boo-bash.html" class="styled" style="background:#2e1065">The Boo Bash</a>
+      <a href="raised-glass.html" class="styled" style="background:#241b12">The Raised Glass</a>
+      <a href="launch-pad.html" class="styled" style="background:#1e3a8a">The Launch Pad</a>
+      <a href="smash.html" class="styled" style="background:#ff8c42">The Smash Hit</a>
+      <a href="nest.html" class="styled" style="background:#6b8f71">The Nest</a>
+      <a href="powder-pop.html" class="styled" style="background:#ec4899">The Powder Pop</a>
+      <a href="big-yes.html" class="styled" style="background:#a8526b">The Big Yes</a>
+      <a href="party-er.html" class="styled" style="background:#059669">The Party ER</a>
+      <a href="rain-plan.html" class="styled" style="background:#0284c7">The Rain Plan</a>
+      <div class="dd-tag">All tools</div>
+      <a href="after-glow.html">The After-Glow</a>
+      <a href="seating-chart.html">Seating Chart Studio</a>
+      <a href="surprise-planner.html">Operation: Surprise</a>
+      <a href="dessert-table.html">Dessert Table Stylist</a>
+      <a href="golden-hour.html">Golden Hour Finder</a>
+      <a href="party-timeline.html">Party Day Timeline</a>
+      <a href="memory-capsule.html">Memory Capsule</a>
+      <a href="playlist.html">Party Playlist Studio</a>
+      <a href="guest-list.html">The Guest List</a>
+      <a href="photo-hunt.html">Party Photo Hunt</a>
+      <a href="photo-booth.html">Golden Hour Booth</a>
+      <a href="memory-wall.html">Memory Wall</a>
+      <a href="party-roadmap.html">Party Roadmap</a>
+      <a href="invitation-studio.html">Invitation Studio</a>
+      <a href="balloon-pop.html">Pop Party</a>
+      <a href="wedding-workshop.html">Wedding Workshop</a>
+      <a href="transformations.html">The Big Reveal</a>
+      <a href="budget-builder.html">Budget Balloonist</a>
+      <a href="referral.html">Refer &amp; Earn</a>
+      <a href="cost-estimator.html">Cost Estimator</a>
+      <a href="theme-generator.html">Theme Generator</a>
+      <a href="lookbook.html">Lookbook</a>
+      <a href="countdown.html">Countdown</a>
+      <a href="party-style-quiz.html">Party Style Quiz</a>
+      <a href="balloon-math.html">Balloon Math</a>
+      <a href="name-garland.html">Balloon Letter Studio</a>
+      <a href="palette-snap.html">Palette Snap</a>
+      <a href="diy-vs-pro.html">DIY or Dazzle</a>
+      <a href="reserve-date.html">Reserve Your Date</a>
+      <a href="gift-card.html">Gift Card Studio</a>
+    </div>
+  </div>
+  <a class="em-nav-cta" href="contact.html">Get a Quote</a>
+</nav>
+<div class="hero">
+  <a class="home-link" href="index.html">&larr; Everlasting Memories</a>
+  <div class="badge" id="secretBadge" title="psst — tap me">🗂️ New Tonight — The Vendor Board</div>
+  <h1>The Vendor Board</h1>
+  <p class="sub">Every other tool on this site planned a <b>thing</b> — the balloons, the food, the paper, the drinks, the dessert. Not one of them managed the <b>people</b> who deliver it. A real party is six to twelve vendors, each with a contact, a quote, a deposit, a balance and an arrival window. The Vendor Board puts the whole cast on one board — then tells you the truth: <b>who&rsquo;s confirmed, who still needs paying, who arrives when, and whether your load-in is about to become a traffic jam.</b></p>
+</div>
+
+<div class="container">
+  <div class="grid">
+    <!-- LEFT -->
+    <div>
+      <div class="card" style="margin-bottom:22px">
+        <div class="kicker">Step 1</div>
+        <h2>The occasion, the date &amp; the doors</h2>
+        <p class="hint">The occasion decides which vendors you actually need. The start time is what every arrival on the board counts backwards from.</p>
+        <div class="fg">
+          <label>Occasion</label>
+          <div class="chips" id="occChips"></div>
+          <div class="note-line" id="occNote"></div>
+        </div>
+        <div class="fg-row">
+          <div class="fg"><label for="inEvent">Event name</label><input type="text" id="inEvent" placeholder="Ana &amp; Luis&rsquo;s Wedding"></div>
+          <div class="fg"><label for="inVenue">Venue</label><input type="text" id="inVenue" placeholder="The Willow Barn"></div>
+        </div>
+        <div class="fg-row">
+          <div class="fg"><label for="inDate">Event date</label><input type="date" id="inDate"></div>
+          <div class="fg"><label for="inStart">Guests arrive (doors)</label><input type="time" id="inStart" value="17:00"></div>
+        </div>
+        <div class="fg" style="margin-bottom:0">
+          <label for="inGuests">Guests</label>
+          <div class="range-wrap">
+            <input type="range" id="inGuests" min="10" max="400" step="5" value="120">
+            <div class="big-read"><span id="guestsOut">120</span><small>guests</small></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="kicker">Step 2</div>
+        <h2>The cast</h2>
+        <p class="hint">Tap a vendor to put them on the board. The occasion&rsquo;s must-haves are pre-loaded; add the rest if you&rsquo;re going all in. Each one shows what it usually costs and how early it turns up.</p>
+        <div class="station-grid" id="vendorGrid"></div>
+        <div class="note-line" id="mixNote"></div>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div>
+      <div class="out-card">
+        <div class="oc-head">
+          <span class="oc-occasion" id="ocOccasion">Wedding</span>
+        </div>
+        <h2>The Vendor Ledger</h2>
+        <div class="oc-sub" id="ocSub"></div>
+        <div class="menu-list" id="boardList"></div>
+        <div class="meter">
+          <div class="mstat"><b id="mQuoted">$0</b><small>quoted</small></div>
+          <div class="mstat"><b id="mPaid">$0</b><small>deposits paid</small></div>
+          <div class="mstat"><b id="mDue">$0</b><small>still to pay</small></div>
+          <div class="mstat"><b id="mCount">0</b><small>vendors</small></div>
+          <div class="mstat"><b id="mPct">0%</b><small>paid</small></div>
+          <div class="mstat"><b id="mPer">$0</b><small>per guest</small></div>
+        </div>
+        <div class="note-line" id="verdictLine" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.22);color:#eaf2ef;margin-top:16px"></div>
+        <div class="actions">
+          <button class="btn primary" id="btnShuffle" type="button">🎲 Build my board</button>
+          <button class="btn ghost" id="btnCopy" type="button">📋 Copy board</button>
+          <button class="btn ghost" id="btnWa" type="button">💬 WhatsApp</button>
+          <button class="btn ghost" id="btnPrint" type="button">🖨️ Print sheet</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="container wide">
+  <div class="card" style="margin-bottom:22px">
+    <div class="kicker">Step 3 &mdash; the live board</div>
+    <h2>Every vendor, one row</h2>
+    <p class="hint">This is the part no other page on the site does. Edit a vendor&rsquo;s company, fee, deposit or due date and the ledger on the right updates as you type. The <b>arrival</b> badge is the time they must be on site, counted back from your doors.</p>
+    <div class="vrows" id="boardRows"></div>
+    <div class="note-line" id="boardNote" style="margin-top:12px"></div>
+  </div>
+
+  <div class="card" style="margin-bottom:22px">
+    <div class="kicker">The proof</div>
+    <h2>Load-in, hour by hour</h2>
+    <p class="hint">Vendors don&rsquo;t arrive on the hour &mdash; they arrive in a wedge. Here is every truck, in the order it hits your venue, from the five-hours-early setup crew to the forty-five-minutes-early cake. The dashed line is doors.</p>
+    <div class="tl-wrap"><div id="tlStage"></div></div>
+    <div class="board-cap" id="tlCap" style="margin-top:12px"></div>
+  </div>
+
+  <div class="quote">
+    &ldquo;The party doesn&rsquo;t fail on the day. It fails in the <b>thread of text messages between ten vendors who have never spoken to each other.</b> The florist doesn&rsquo;t know the caterer needs the loading dock at two; the DJ doesn&rsquo;t know the photographer&rsquo;s second shooter is parked where the shuttle turns around. Put them on one board, give every one of them a time and a contact, and the day runs itself &mdash; and when it does, the guests never once see you check your phone.&rdquo; <br>&mdash; <b>Isabella</b>, on why the vendors, not the balloons, are the real party
+  </div>
+
+  <div class="duo">
+    <div class="card">
+      <div class="kicker">The load-in order</div>
+      <h2 id="orderTitle">Who arrives when</h2>
+      <p class="hint" id="orderHint"></p>
+      <div id="orderList"></div>
+      <div class="note-line" id="orderVerdict" style="margin-top:14px"></div>
+    </div>
+    <div class="card">
+      <div class="kicker">The money still moving</div>
+      <h2>Quoted, paid &amp; left to pay</h2>
+      <p class="hint">A party is a pile of deposits and a lump of final payments. This is the honest cashflow: what the whole cast quotes, what you have already floated, and what still has to leave your account &mdash; plus whose balance is due next.</p>
+      <div id="cashList"></div>
+      <div class="note-line" id="cashVerdict" style="margin-top:14px"></div>
+      <div style="text-align:center;margin-top:18px">
+        <div class="bignum"><span id="cashPct">0</span><small>% paid of quoted</small></div>
+        <div class="legend" style="justify-content:center">
+          <span>💵 <b id="cashQuoted">$0</b> quoted</span>
+          <span>✅ <b id="cashPaid">$0</b> paid</span>
+          <span>⏳ <b id="cashDue">$0</b> to pay</span>
+          <span>📅 <b id="cashSoon">0</b> due soon</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="facts">
+    <div class="fact"><span class="f-num">5 hrs</span><span class="f-txt">the venue and rentals need to be on site before doors &mdash; earlier than any host believes</span></div>
+    <div class="fact"><span class="f-num">1 : 10</span><span class="f-txt">a wedding runs on ten vendors; name fewer than six and someone is doing two jobs badly</span></div>
+    <div class="fact"><span class="f-num">50%</span><span class="f-txt">what a venue and a florist will ask as a deposit &mdash; budget it the day you book, not the week before</span></div>
+    <div class="fact"><span class="f-num">15 min</span><span class="f-txt">the window before two trucks become a traffic jam; stagger arrivals by more than that</span></div>
+  </div>
+
+  <div class="faq">
+    <details open><summary>Wait &mdash; a vendor board? The balloon company?</summary><p>The balloons are the part you <i>see</i>. The vendors are the part that decides whether you see them on time. Isabella has stood in enough parking lots at 2pm waiting on a tent crew to know the decor is only as good as the load-in. This page is the board she keeps on her clipboard: the whole cast, one time, one contact, one balance.</p></details>
+    <details><summary>Which vendors do I actually need?</summary><p>It depends on the occasion and the tool loads the must-haves for you. A <b>wedding</b> runs on ten: venue, caterer, DJ, photographer, videographer, florist, cake, balloons, officiant, hair &amp; makeup. A <b>birthday</b> needs six. A <b>corporate</b> night leans on the caterer and the bar. Tap any extra vendor and it prices itself onto the board.</p></details>
+    <details><summary>Why does it care about arrival times?</summary><p>Because a party is a logistics problem wearing a pretty dress. A caterer needs three hours before doors, a band ninety minutes, the cake forty-five. If three of them land in the same fifteen-minute window you get a jam at the loading dock &mdash; so the board counts every arrival back from your doors and flags the collisions before they happen.</p></details>
+    <details><summary>What&rsquo;s a &ldquo;deposit&rdquo; versus a &ldquo;balance&rdquo;?</summary><p>Almost every vendor takes a <b>deposit</b> to hold your date &mdash; often 30&ndash;50% &mdash; and the <b>balance</b> is due somewhere between two weeks before and the day of. The board tracks both, so you always know what you have floated and what is still coming out of your account. <i>&ldquo;The date you book is a deposit; the day you remember it is a surprise.&rdquo;</i></p></details>
+    <details><summary>Can Isabella just be one of the vendors?</summary><p>She usually is &mdash; balloons &amp; decor. Drop your other vendors on the board, keep her as one line, and send it over. She will coordinate her install around your load-in window so the decor goes up after the tent and before the catering, which is the only order that works.</p></details>
+    <details><summary>Is this a real quote?</summary><p>No &mdash; the prices are realistic ranges so the board starts somewhere honest, not a bid. Type in what each vendor actually quoted (or charged) you and the ledger becomes real. Then take it to the <a href="cost-estimator.html">Cost Estimator</a> and the <a href="budget-builder.html">Budget Balloonist</a> to square it against the rest of the party.</p></details>
+  </div>
+
+  <div class="card" style="margin-top:22px">
+    <div class="kicker">Try these next</div>
+    <h2>Run the vendors, then run the day</h2>
+    <p class="hint">The Vendor Board manages the cast. These run everything they deliver:</p>
+    <div class="value-strip">
+      <span class="value-pill">⏱️ <b><a href="party-timeline.html">Party Day Timeline</a></b> &mdash; the hour-by-hour</span>
+      <span class="value-pill">🧮 <b><a href="cost-estimator.html">Cost Estimator</a></b> &mdash; the whole-party budget</span>
+      <span class="value-pill">🍽️ <b><a href="main-course.html">The Main Course</a></b> &mdash; the caterer&rsquo;s brief</span>
+      <span class="value-pill">🎈 <b><a href="glow-up.html">The Glow Up</a></b> &mdash; the decor plan</span>
+      <span class="value-pill">🖋️ <b><a href="paper-trail.html">The Paper Trail</a></b> &mdash; signs &amp; stationery</span>
+      <span class="value-pill">🗺️ <b><a href="seating-chart.html">Seating Chart Studio</a></b> &mdash; who sits where</span>
+      <span class="value-pill">🚨 <b><a href="party-er.html">The Party ER</a></b> &mdash; the day-of rescue kit</span>
+      <span class="value-pill">💼 <b><a href="launch-pad.html">The Launch Pad</a></b> &mdash; the corporate flow</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="lead-card">
+    <div class="kicker">Step 4</div>
+    <h2>Send Isabella the board</h2>
+    <p class="hint">She&rsquo;ll read your load-in, slot her decor install into the right gap, and flag any vendor the board is missing. Replies within 24 hours.</p>
+    <form id="leadForm">
+      <div class="fg-row">
+        <div class="fg"><label for="fName">Your name</label><input type="text" id="fName" placeholder="Jordan" required></div>
+        <div class="fg"><label for="fEmail">Email</label><input type="email" id="fEmail" placeholder="you@email.com" required></div>
+      </div>
+      <div class="fg-row">
+        <div class="fg"><label for="fPhone">Phone</label><input type="tel" id="fPhone" placeholder="(555) 123-4567"></div>
+        <div class="fg"><label for="fDate">Event date</label><input type="date" id="fDate"></div>
+      </div>
+      <div class="fg-row">
+        <div class="fg"><label for="fBudget">Vendor budget</label>
+          <select id="fBudget">
+            <option value="">Pick a range&hellip;</option>
+            <option>Under $2,500</option><option>$2,500 &ndash; $6,000</option><option>$6,000 &ndash; $12,000</option><option>$12,000 &ndash; $25,000</option><option>$25,000+</option>
+          </select>
+        </div>
+        <div class="fg"><label for="fMsg">Anything else?</label><input type="text" id="fMsg" placeholder="Venue, missing vendor, timing&hellip;"></div>
+      </div>
+      <button class="btn btn-p" type="submit" style="padding:13px 28px;font-size:.9rem">🗂️ Send Isabella the board &rarr;</button>
+      <p class="fine">No spam, ever. Your board and load-in are attached automatically.</p>
+    </form>
+  </div>
+</div>
+
+<div class="print-only" id="printWrap">
+  <div style="text-align:center;margin-bottom:14px">
+    <div style="font-family:'Playfair Display',serif;font-size:1.4rem;color:#152026" id="printTitle">🗂️ The Vendor Board &mdash; Vendor Sheet</div>
+    <div style="font-size:.78rem;color:#5f7373" id="printMeta">Everlasting Memories &middot; myeverlastingmemories.com</div>
+  </div>
+  <div class="barcard" id="planCardPrint"></div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+
+<footer>
+  <p class="strip">
+    <a href="vendor-board.html" style="color:#cf7d3a;font-weight:600;">The Vendor Board</a> ·
+    <a href="main-course.html" style="color:#e8b17a;font-weight:600;">The Main Course</a> ·
+    <a href="paper-trail.html" style="color:#e8b17a;font-weight:600;">The Paper Trail</a> ·
+    <a href="glow-up.html" style="color:#e879f9;font-weight:600;">The Glow Up</a> ·
+    <a href="sky-installer.html" style="color:#ffdca6;font-weight:600;">The Sky Installer</a> ·
+    <a href="sip-station.html" style="color:#f0c987;font-weight:600;">The Sip Station</a> ·
+    <a href="favor-bar.html" style="color:#bef264;font-weight:600">The Favor Bar</a> ·
+    <a href="boo-bash.html" style="color:#d8b4fe;font-weight:600">The Boo Bash</a> ·
+    <a href="raised-glass.html" style="color:#eed9a6;font-weight:600">The Raised Glass</a> ·
+    <a href="launch-pad.html" style="color:#c7d2fe;font-weight:600">The Launch Pad</a> ·
+    <a href="smash.html" style="color:#ffcfa8;font-weight:600">The Smash Hit</a> ·
+    <a href="nest.html" style="color:#cfe0c4;font-weight:600">The Nest</a> ·
+    <a href="powder-pop.html" style="color:#f9a8d4;font-weight:600">The Powder Pop</a> ·
+    <a href="big-yes.html" style="color:#f2c6d2;font-weight:600">The Big Yes</a> ·
+    <a href="party-er.html" style="color:#a7f3d0;font-weight:600">The Party ER</a> ·
+    <a href="rain-plan.html" style="color:#7dd3fc;font-weight:600">The Rain Plan</a> ·
+    <a href="seating-chart.html" style="color:#f9a8d4;font-weight:600">Seating Chart Studio</a> ·
+    <a href="after-glow.html" style="color:#f9a8d4;font-weight:600">The After-Glow</a> ·
+    <a href="surprise-planner.html" style="color:#a5b4fc;font-weight:600">Operation: Surprise</a> ·
+    <a href="dessert-table.html" style="color:#f0c9a0;font-weight:600">Dessert Table Stylist</a> ·
+    <a href="golden-hour.html" style="color:#c4b5fd;font-weight:600">Golden Hour Finder</a> ·
+    <a href="party-timeline.html" style="color:#cbd5e1;font-weight:600">Party Day Timeline</a> ·
+    <a href="wedding-workshop.html" style="color:#f9a8d4;font-weight:600">Wedding Workshop</a> ·
+    <a href="cost-estimator.html" style="color:#fcd34d;font-weight:600">Cost Estimator</a> ·
+    <a href="guest-list.html" style="color:#93c5fd;font-weight:600">The Guest List</a> ·
+    <a href="playlist.html" style="color:#fca5a5;font-weight:600">Party Playlist Studio</a> ·
+    <a href="name-garland.html" style="color:#f9a8d4;font-weight:600">Balloon Letter Studio</a> ·
+    <a href="invitation-studio.html" style="color:#a5b4fc;font-weight:600">Invitation Studio</a> ·
+    <a href="party-roadmap.html" style="color:#5eead4;font-weight:600">Party Roadmap</a> ·
+    <a href="memory-wall.html" style="color:#fcd34d;font-weight:600">Memory Wall</a> ·
+    <a href="photo-booth.html" style="color:#7dd3fc;font-weight:600">Golden Hour Booth</a> ·
+    <a href="photo-hunt.html" style="color:#f0abfc;font-weight:600">Party Photo Hunt</a> ·
+    <a href="memory-capsule.html" style="color:#fca5a5;font-weight:600">Memory Capsule</a> ·
+    <a href="balloon-pop.html" style="color:#fdba74;font-weight:600">Pop Party</a> ·
+    <a href="transformations.html" style="color:#c4b5fd;font-weight:600">The Big Reveal</a> ·
+    <a href="budget-builder.html" style="color:#86efac;font-weight:600">Budget Balloonist</a> ·
+    <a href="referral.html" style="color:#fde68a;font-weight:600">Refer &amp; Earn</a> ·
+    <a href="gift-card.html" style="color:#f9a8d4;font-weight:600">Gift Card Studio</a> ·
+    <a href="reserve-date.html" style="color:#93c5fd;font-weight:600">Reserve Your Date</a> ·
+    <a href="diy-vs-pro.html" style="color:#fdba74;font-weight:600">DIY or Dazzle</a> ·
+    <a href="palette-snap.html" style="color:#f0abfc;font-weight:600">Palette Snap</a> ·
+    <a href="balloon-math.html" style="color:#86efac;font-weight:600">Balloon Math</a> ·
+    <a href="party-style-quiz.html" style="color:#f9a8d4;font-weight:600">Party Style Quiz</a> ·
+    <a href="countdown.html" style="color:#93c5fd;font-weight:600">Big Day Countdown</a> ·
+    <a href="lookbook.html" style="color:#c4b5fd;font-weight:600">Lookbook</a> ·
+    <a href="theme-generator.html" style="color:#fde68a;font-weight:600">Theme Generator</a> ·
+    <a href="faq.html" style="color:#f2c6d2;font-weight:600">FAQ</a>
+  </p>
+  <p class="foot-brand">Everlasting <span>Memories</span> — balloons &amp; moments that last</p>
+  <p class="copy">Isabella's vendor rule: text every vendor 48 hours before, confirm the arrival time, and never be the first to lose your cool at a loading dock. 🗂️</p>
+</footer>
+<script>
+(function(){
+'use strict';
+
+/* ===================================================================
+   THE VENDOR BOARD — engine
+   Night 53. Vendors of a party: contacts, quotes, deposits, balances,
+   arrivals. New mechanic on the site: an editable ledger + load-in timeline.
+   =================================================================== */
+
+/* ------------------------------ data ------------------------------ */
+var VENDORS = {
+  venue:{emoji:'🏛️',name:'Venue',lo:1500,hi:6000,lead:26,arrive:300,dep:0.5,note:'Book it first — every other vendor is a phone call to this address.'},
+  caterer:{emoji:'🍽️',name:'Caterer',lo:900,hi:4500,lead:16,arrive:180,dep:0.3,note:'The one vendor your guests will rate the whole party by.'},
+  dj:{emoji:'🎚️',name:'DJ / Band',lo:600,hi:2500,lead:20,arrive:90,dep:0.35,note:'Pay for the extra hour — the last 60 minutes are the ones people remember.'},
+  photographer:{emoji:'📸',name:'Photographer',lo:800,hi:3500,lead:24,arrive:60,dep:0.4,note:'Feed your photographer — it buys 200 better frames than any lens.'},
+  videographer:{emoji:'🎥',name:'Videographer',lo:1000,hi:4000,lead:24,arrive:60,dep:0.4,note:'Only worth it if the day has sound — toasts and vows. Mute video is a slideshow.'},
+  florist:{emoji:'💐',name:'Florist',lo:400,hi:2500,lead:12,arrive:150,dep:0.5,note:'One statement arch beats ten small arrangements nobody photographs.'},
+  cake:{emoji:'🎂',name:'Cake & Dessert',lo:200,hi:900,lead:6,arrive:45,dep:0.5,note:'Cake is theatre first, dessert second. Order a tier more than the headcount says.'},
+  balloons:{emoji:'🎈',name:'Balloons & Decor',lo:300,hi:1800,lead:4,arrive:120,dep:0.5,note:'That is us. Book decor before rentals so the room is designed around it.'},
+  rentals:{emoji:'🪑',name:'Rentals',lo:300,hi:1600,lead:8,arrive:240,dep:0.4,note:'Count the chairs twice — the stragglers who never RSVP always find a seat.'},
+  officiant:{emoji:'⛪',name:'Officiant',lo:200,hi:800,lead:20,arrive:30,dep:0.5,note:'Give them every guest name phonetically. Nobody wants theirs butchered.'},
+  hair_makeup:{emoji:'💄',name:'Hair & Makeup',lo:250,hi:900,lead:16,arrive:300,dep:0.5,note:'Book a trial — hair behaves differently at 4pm than at 9am in a salon.'},
+  photobooth:{emoji:'📷',name:'Photo Booth',lo:500,hi:1400,lead:10,arrive:60,dep:0.4,note:'The cheapest way to make a room talk to each other. Put it near the bar.'},
+  bartender:{emoji:'🍸',name:'Bar & Bartender',lo:400,hi:1500,lead:10,arrive:75,dep:0.35,note:'Pay by the hour, not by the drink — otherwise you are paying someone to be slow.'},
+  music:{emoji:'🎻',name:'Live Music',lo:400,hi:2000,lead:16,arrive:60,dep:0.4,note:'Live for the ceremony, a playlist for the party. Do not mix the two bills.'},
+  transportation:{emoji:'🚐',name:'Transportation',lo:350,hi:1800,lead:12,arrive:30,dep:0.5,note:'The last vendor anyone books — and the first a late guest blames.'}
+};
+var VENDOR_IDS = ['venue','caterer','dj','photographer','videographer','florist','cake','balloons','rentals','officiant','hair_makeup','photobooth','bartender','music','transportation'];
+
+var OCCASIONS = [
+  {id:'wedding',emoji:'🕊️',name:'Wedding',tone:'ten specialists, one flawless hour',essential:['venue','caterer','dj','photographer','videographer','florist','cake','balloons','officiant','hair_makeup'],note:'A wedding is the one party where a committee is a feature: ten specialists, each responsible for a single flawless thing.'},
+  {id:'birthday',emoji:'🎂',name:'Milestone Birthday',tone:'six vendors, one big night',essential:['venue','caterer','dj','photographer','cake','balloons'],note:'Birthdays reward the music, the cake and the photos. Skip the videographer; keep the photographer on until the cake is cut.'},
+  {id:'shower',emoji:'🍼',name:'Baby Shower',tone:'daytime, pretty, calm',essential:['venue','caterer','florist','cake','balloons','photobooth'],note:'Daylight and florals do the work. A photo booth turns a polite tea into an actual party.'},
+  {id:'graduation',emoji:'🎓',name:'Graduation',tone:'feed a crowd, keep it moving',essential:['venue','caterer','dj','photographer','balloons','rentals'],note:'A graduation is a feeding problem with photos attached. Rentals and a caterer matter more than the decor.'},
+  {id:'anniversary',emoji:'💞',name:'Anniversary',tone:'intimate, live, unhurried',essential:['venue','caterer','florist','cake','music','photographer','balloons'],note:'Live music and flowers say more than a DJ at an anniversary. Keep the whole night warm and slow.'},
+  {id:'corporate',emoji:'💼',name:'Corporate',tone:'standing room, one free hand',essential:['venue','caterer','dj','florist','bartender','transportation'],note:'Everyone stands and everyone holds a drink. The bar and the caterer ARE the party; the rest is polish.'},
+  {id:'holiday',emoji:'❄️',name:'Holiday Party',tone:'the whole office, one night off',essential:['venue','caterer','dj','florist','bartender','balloons'],note:'A holiday party is a corporate party with better decor and worse judgment about the open bar.'}
+];
+
+var STATUSES = [
+  {id:'researched',emoji:'🔍',label:'Researched',w:0},
+  {id:'quoted',emoji:'📨',label:'Quoted',w:0.15},
+  {id:'booked',emoji:'📌',label:'Booked',w:0.4},
+  {id:'deposit',emoji:'💳',label:'Deposit paid',w:0.65},
+  {id:'confirmed',emoji:'✅',label:'Confirmed',w:0.85},
+  {id:'paid',emoji:'🏁',label:'Paid in full',w:1}
+];
+
+var COLORS = ['#cf7d3a','#2f8b74','#3f6fa0','#a8526b','#7c6f5b','#6b8f71','#b06a2a','#8a4f9e','#c2562c','#0f766e','#b8860b','#c026d3','#2563eb','#15803d','#9333ea'];
+
+var MONTHS = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+/* ---------------------------- helpers ---------------------------- */
+function money(n){ n = Math.round(+n || 0); return '$' + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ','); }
+function money2(n){ n = +n || 0; var s = Math.abs(n).toFixed(2).split('.'); var sign = n < 0 ? '-' : ''; return sign + '$' + s[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',') + '.' + s[1]; }
+function priceTxt(v){ return money(v.lo) + '–' + money(v.hi); }
+function esc(s){ return String(s == null ? '' : s).replace(/[&<>"']/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+function occById(id){ for (var i=0;i<OCCASIONS.length;i++){ if (OCCASIONS[i].id===id) return OCCASIONS[i]; } return OCCASIONS[0]; }
+function stById(id){ for (var i=0;i<STATUSES.length;i++){ if (STATUSES[i].id===id) return STATUSES[i]; } return STATUSES[0]; }
+function vById(id){ return VENDORS[id]; }
+function mid(v){ return Math.round((v.lo + v.hi) / 2); }
+function toMin(t){ var p = String(t == null ? '00:00' : t).split(':'); return (parseInt(p[0],10)||0)*60 + (parseInt(p[1],10)||0); }
+function fmtMin(m){ m = ((Math.round(m) % 1440) + 1440) % 1440; var h = Math.floor(m/60), mm = m % 60; return (h<10?'0':'') + h + ':' + (mm<10?'0':'') + mm; }
+function datePretty(s){ if (!s) return ''; var p = String(s).split('-'); if (p.length !== 3) return s; var mi = parseInt(p[1],10) - 1; if (mi < 0 || mi > 11) return s; return MONTHS[mi] + ' ' + (parseInt(p[2],10)||0) + ', ' + p[0]; }
+function addDays(iso, d){ var parts = String(iso).split('-'); var dt = new Date(+parts[0], (+parts[1])-1, +parts[2]); dt.setDate(dt.getDate() + d); var y = dt.getFullYear(), m = dt.getMonth()+1, dd = dt.getDate(); return y + '-' + (m<10?'0':'') + m + '-' + (dd<10?'0':'') + dd; }
+function todayISO(){ var d = new Date(); var y = d.getFullYear(), m = d.getMonth()+1, dd = d.getDate(); return y + '-' + (m<10?'0':'') + m + '-' + (dd<10?'0':'') + dd; }
+
+/* ----------------------------- state ----------------------------- */
+function blankRow(id, on){
+  var v = VENDORS[id];
+  return { id:id, on:!!on, company:'', fee:mid(v), depositPaid:Math.round(mid(v) * v.dep), due:'', status:'booked' };
+}
+function applyOccasion(st, occId){
+  var occ = occById(occId);
+  st.occasion = occ.id;
+  st.vendors = {};
+  VENDOR_IDS.forEach(function(id){ st.vendors[id] = blankRow(id, occ.essential.indexOf(id) !== -1); });
+  return st;
+}
+function sampleState(){
+  var st = { occasion:'wedding', startTime:'17:00', eventName:"Ana & Luis's Wedding", venue:'The Willow Barn', date:'2026-06-20', guests:120, vendors:{} };
+  applyOccasion(st, 'wedding');
+  st.vendors.venue.company = 'Willow Barn Events';
+  Object.keys(st.vendors).forEach(function(id){ if (st.vendors[id].on) st.vendors[id].due = '2026-06-13'; });
+  return st;
+}
+
+/* ---------------------------- engines ---------------------------- */
+function onIds(st){ return VENDOR_IDS.filter(function(id){ return st.vendors[id] && st.vendors[id].on; }); }
+
+function ledger(st){
+  var ids = onIds(st), quoted = 0, paid = 0;
+  ids.forEach(function(id){ var r = st.vendors[id]; var f = Math.max(0, +r.fee || 0); var d = Math.min(Math.max(0, +r.depositPaid || 0), f); quoted += f; paid += d; });
+  var balance = quoted - paid;
+  var pct = quoted ? paid / quoted : 0;
+  var perGuest = st.guests ? quoted / st.guests : 0;
+  return { ids:ids, count:ids.length, quoted:quoted, paid:paid, balance:balance, pct:pct, perGuest:perGuest };
+}
+
+function progress(st){
+  var ids = onIds(st); if (!ids.length) return 0;
+  var s = 0; ids.forEach(function(id){ s += stById(st.vendors[id].status).w; });
+  return s / ids.length;
+}
+
+function arrivals(st){
+  var start = toMin(st.startTime);
+  var list = onIds(st).map(function(id){ var v = VENDORS[id]; var a = start - v.arrive; return { id:id, arrive:a, label:fmtMin(a), off:v.arrive }; });
+  list.sort(function(x, y){ return (x.arrive - y.arrive) || (VENDOR_IDS.indexOf(x.id) - VENDOR_IDS.indexOf(y.id)); });
+  return list;
+}
+
+function loadWindow(st){
+  var arr = arrivals(st); if (!arr.length) return null;
+  var first = arr[0].arrive, last = arr[arr.length-1].arrive, doors = toMin(st.startTime);
+  var span = doors - first;
+  return { first:fmtMin(first), last:fmtMin(last), doors:fmtMin(doors), spanMin:span, hours:Math.round(span / 6) / 10 };
+}
+
+function collisions(st){
+  var arr = arrivals(st); var buckets = {};
+  arr.forEach(function(a){ var k = Math.floor(a.arrive / 15); (buckets[k] = buckets[k] || []).push(a); });
+  var out = [];
+  Object.keys(buckets).forEach(function(k){ if (buckets[k].length >= 3) out.push({ slot:fmtMin(buckets[k][0].arrive), count:buckets[k].length, ids:buckets[k].map(function(a){ return a.id; }) }); });
+  out.sort(function(a,b){ return toMin(a.slot) - toMin(b.slot); });
+  return out;
+}
+
+function gaps(st){
+  var occ = occById(st.occasion);
+  return occ.essential.filter(function(id){ return !(st.vendors[id] && st.vendors[id].on); }).map(function(id){ return VENDORS[id].name; });
+}
+
+function dueFlags(st, today){
+  var t = today || todayISO(); var soon = [], overdue = [];
+  onIds(st).forEach(function(id){
+    var r = st.vendors[id];
+    var f = Math.max(0, +r.fee || 0), d = Math.min(Math.max(0, +r.depositPaid || 0), f);
+    var bal = f - d;
+    if (bal > 0 && r.due){ if (r.due < t) overdue.push(id); else if (r.due <= addDays(t, 14)) soon.push(id); }
+  });
+  return { soon:soon, overdue:overdue, today:t };
+}
+
+/* ------------------------- text / payload ------------------------- */
+function summaryText(st){
+  var L = ledger(st), o = occById(st.occasion), w = loadWindow(st), g = gaps(st), lines = [];
+  lines.push('🗂️ THE VENDOR BOARD — ' + o.name + (st.eventName ? ' · ' + st.eventName : ''));
+  if (st.date) lines.push('📅 ' + datePretty(st.date) + (st.venue ? ' · ' + st.venue : '') + ' · doors ' + fmtMin(toMin(st.startTime)) + ' · ' + st.guests + ' guests');
+  lines.push('');
+  lines.push('THE CAST (' + L.count + '):');
+  L.ids.forEach(function(id){
+    var v = VENDORS[id], r = st.vendors[id], a = fmtMin(toMin(st.startTime) - v.arrive);
+    lines.push('• ' + v.emoji + ' ' + v.name + (r.company ? ' (' + r.company + ')' : '') + ' — on site ' + a + ' · ' + money(r.fee) + ' fee · ' + money(Math.min(Math.max(0,+r.depositPaid||0), +r.fee||0)) + ' paid' + (r.due ? ' · balance ' + r.due : ''));
+  });
+  lines.push('');
+  lines.push('💵 Quoted ' + money(L.quoted) + ' · ✅ Paid ' + money(L.paid) + ' · ⏳ To pay ' + money(L.balance) + ' (' + Math.round(L.pct*100) + '%)');
+  if (w) lines.push('🚚 Load-in ' + w.first + ' → doors ' + w.doors + ' (' + w.hours + 'h before)');
+  lines.push(g.length ? ('⚠️ Missing: ' + g.join(', ')) : '✅ Every essential vendor is on the board.');
+  lines.push('');
+  lines.push('Planned with The Vendor Board — myeverlastingmemories.com/vendor-board.html');
+  return lines.join('\n');
+}
+
+function leadPayload(st){
+  var L = ledger(st), o = occById(st.occasion), w = loadWindow(st), g = gaps(st);
+  return {
+    source:'vendor-board',
+    eventType:o.name + ' — vendor board',
+    guests:st.guests,
+    eventDate:st.date,
+    venue:st.venue,
+    doors:st.startTime,
+    vendorCount:L.count,
+    vendors:L.ids.map(function(id){ return VENDORS[id].name; }),
+    quoted:L.quoted,
+    paid:L.paid,
+    balance:L.balance,
+    missing:g,
+    loadIn:w ? w.first : '',
+    message:'Vendor board for a ' + o.name.toLowerCase() + ' of ' + st.guests + ' guests.'
+  };
+}
+
+function planCard(st){
+  var o = occById(st.occasion), L = ledger(st), w = loadWindow(st), g = gaps(st);
+  var h = '<h3>' + o.emoji + ' ' + esc(o.name) + ' — vendor contact sheet</h3>';
+  if (st.eventName || st.date) h += '<div style="font-size:.8rem;color:var(--soft);margin-bottom:8px">' + esc(st.eventName || '') + (st.date ? ' · ' + datePretty(st.date) : '') + (st.venue ? ' · ' + esc(st.venue) : '') + ' · doors ' + fmtMin(toMin(st.startTime)) + '</div>';
+  if (!L.count){ return h + '<div style="font-size:.84rem;color:var(--soft)">No vendors on the board yet.</div>'; }
+  h += '<ul>';
+  L.ids.forEach(function(id){
+    var v = VENDORS[id], r = st.vendors[id], a = fmtMin(toMin(st.startTime) - v.arrive);
+    h += '<li><b>' + v.emoji + ' ' + esc(v.name) + '</b> — ' + esc(r.company || 'TBC') + ' · on site <b>' + a + '</b> · ' + money(r.fee) + ' (' + money(Math.min(Math.max(0,+r.depositPaid||0), +r.fee||0)) + ' paid)' + (r.due ? ' · balance due ' + esc(r.due) : '') + ' · ' + stById(r.status).label + '</li>';
+  });
+  h += '</ul>';
+  h += '<div style="font-size:.84rem"><b>Quoted ' + money(L.quoted) + '</b> · paid ' + money(L.paid) + ' · balance ' + money(L.balance) + ' (' + Math.round(L.pct*100) + '%)' + (w ? ' · load-in from ' + w.first : '') + '</div>';
+  if (g.length) h += '<div style="font-size:.8rem;color:var(--bad);margin-top:6px">⚠️ Missing essential vendors: ' + esc(g.join(', ')) + '</div>';
+  return h;
+}
+
+/* ------------------------------ SVG ------------------------------ */
+function tlSVG(st){
+  var arr = arrivals(st), start = toMin(st.startTime);
+  if (!arr.length) return '<div style="padding:34px;text-align:center;color:var(--soft);font-size:.86rem">Put a vendor on the board and every arrival shows up here, counted back from your doors.</div>';
+  var first = Math.min(arr[0].arrive, start - 360);
+  var last = Math.max(start + 60, arr[arr.length-1].arrive + 30);
+  if (last - first < 60) last = first + 60;
+  var padL = 190, padR = 40, top = 42, W = 940, rowH = 30;
+  var H = top + arr.length * rowH + 34;
+  var scale = function(m){ return padL + (m - first) / (last - first) * (W - padL - padR); };
+  var s = '<svg viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="Vendor load-in timeline" font-family="Inter,sans-serif">';
+  s += '<text x="8" y="18" font-size="12" font-weight="700" fill="#3b4b4b">Load-in order — counted back from doors</text>';
+  /* hour gridlines */
+  var hStart = Math.ceil(first / 60) * 60, hEnd = Math.floor(last / 60) * 60;
+  for (var m = hStart; m <= hEnd; m += 60){
+    var x = scale(m);
+    s += '<line x1="' + x + '" y1="' + (top - 8) + '" x2="' + x + '" y2="' + (H - 16) + '" stroke="#cfdcd7" stroke-width="1"/>';
+    s += '<text x="' + x + '" y="' + (top - 12) + '" font-size="10" fill="#7c8a88" text-anchor="middle">' + fmtMin(m) + '</text>';
+  }
+  /* doors line */
+  var xd = scale(start);
+  s += '<line x1="' + xd + '" y1="' + (top - 8) + '" x2="' + xd + '" y2="' + (H - 16) + '" stroke="#14232b" stroke-width="2" stroke-dasharray="5 4"/>';
+  s += '<text x="' + xd + '" y="' + (top - 24) + '" font-size="10.5" font-weight="700" fill="#14232b" text-anchor="middle">DOORS</text>';
+  /* rows */
+  arr.forEach(function(a, i){
+    var v = VENDORS[a.id], col = COLORS[i % COLORS.length];
+    var y = top + i * rowH;
+    var x0 = scale(a.arrive), x1 = xd;
+    if (x1 < x0) x1 = x0 + 6;
+    s += '<text x="' + (padL - 12) + '" y="' + (y + 13) + '" font-size="11.5" font-weight="700" fill="#3b4b4b" text-anchor="end">' + a.label + '  ' + esc(v.name) + '</text>';
+    s += '<rect x="' + x0 + '" y="' + (y + 2) + '" width="' + (x1 - x0) + '" height="16" rx="8" fill="' + col + '" opacity="0.9"/>';
+    s += '<circle cx="' + x0 + '" cy="' + (y + 10) + '" r="4" fill="#14232b"/>';
+    s += '<text x="' + (x0 + 9) + '" y="' + (y + 14) + '" font-size="10" fill="#ffffff" font-weight="700">' + v.emoji + ' ' + v.arrive + 'm</text>';
+  });
+  s += '</svg>';
+  return s;
+}
+
+/* ============================== DOM ============================== */
+function $(id){ return document.getElementById(id); }
+
+var state = null;
+
+function syncRow(t){
+  var rowEl = t.closest ? t.closest('.vrow') : null;
+  if (!rowEl) return false;
+  var id = rowEl.getAttribute('data-id'); var r = state.vendors[id];
+  if (!r) return false;
+  var cls = t.className || '';
+  if (cls.indexOf('vr-co') !== -1) r.company = t.value;
+  else if (cls.indexOf('vr-fee') !== -1) r.fee = Math.max(0, parseFloat(t.value) || 0);
+  else if (cls.indexOf('vr-dep') !== -1) r.depositPaid = Math.max(0, parseFloat(t.value) || 0);
+  else if (cls.indexOf('vr-due') !== -1) r.due = t.value;
+  else if (cls.indexOf('vr-st') !== -1) r.status = t.value;
+  else return false;
+  return true;
+}
+
+function renderStatic(){
+  /* occasion chips */
+  $('occChips').innerHTML = OCCASIONS.map(function(o){
+    return '<button type="button" class="chip' + (o.id === state.occasion ? ' on' : '') + '" data-occ="' + o.id + '">' + o.emoji + ' ' + esc(o.name) + '<span class="px">' + esc(o.tone) + '</span></button>';
+  }).join('');
+  $('occNote').innerHTML = '<b>' + occById(state.occasion).emoji + ' ' + esc(occById(state.occasion).name) + ':</b> ' + esc(occById(state.occasion).note);
+
+  /* vendor grid */
+  $('vendorGrid').innerHTML = VENDOR_IDS.map(function(id){
+    var v = VENDORS[id], on = state.vendors[id].on;
+    return '<button type="button" class="station' + (on ? ' on' : '') + '" data-vendor="' + id + '">' +
+      '<div class="st-top"><span class="st-emoji">' + v.emoji + '</span><span class="st-name">' + esc(v.name) + '</span><span class="st-price">' + priceTxt(v) + '</span></div>' +
+      '<div class="st-note">' + esc(v.note) + '</div>' +
+      '<div class="st-unit">book ' + v.lead + ' wks out · on site ' + v.arrive + ' min early</div>' +
+      '</button>';
+  }).join('');
+
+  var on = onIds(state);
+  var ess = occById(state.occasion).essential.length;
+  var have = occById(state.occasion).essential.filter(function(id){ return state.vendors[id].on; }).length;
+  $('mixNote').innerHTML = '<b>' + on.length + ' on the board.</b> The ' + esc(occById(state.occasion).name) + ' needs ' + ess + ' essentials — you have ' + have + '. Tap any card to add it; tap again to drop it.';
+}
+
+function renderRows(){
+  var ids = onIds(state);
+  if (!ids.length){
+    $('boardRows').innerHTML = '<div class="vr-empty" style="padding:20px;text-align:center;color:var(--soft);font-size:.86rem">No vendors yet. Tap a card above and they land here as an editable row.</div>';
+    return;
+  }
+  $('boardRows').innerHTML = ids.map(function(id){
+    var v = VENDORS[id], r = state.vendors[id];
+    var a = fmtMin(toMin(state.startTime) - v.arrive);
+    var opts = STATUSES.map(function(s){ return '<option value="' + s.id + '"' + (s.id === r.status ? ' selected' : '') + '>' + s.emoji + ' ' + s.label + '</option>'; }).join('');
+    return '<div class="vrow" data-id="' + id + '">' +
+      '<span class="vr-name">' + v.emoji + ' ' + esc(v.name) + '</span>' +
+      '<span class="vr-arr" title="on site by">🕒 ' + a + '</span>' +
+      '<label class="vr-lbl" style="flex:1;min-width:130px">Company / contact<input class="vr-co" type="text" value="' + esc(r.company) + '" placeholder="' + esc(v.name) + '"></label>' +
+      '<label class="vr-lbl">Fee<input class="vr-num vr-fee" type="number" min="0" step="25" value="' + (r.fee|0) + '"></label>' +
+      '<label class="vr-lbl">Deposit<input class="vr-num vr-dep" type="number" min="0" step="25" value="' + (r.depositPaid|0) + '"></label>' +
+      '<label class="vr-lbl">Balance due<input class="vr-date vr-due" type="date" value="' + esc(r.due) + '"></label>' +
+      '<label class="vr-lbl">Status<select class="vr-st">' + opts + '</select></label>' +
+      '<button class="vr-x" type="button" title="Remove from board" data-id="' + id + '">✕</button>' +
+      '</div>';
+  }).join('');
+}
+
+function renderOut(){
+  var L = ledger(state), o = occById(state.occasion), g = gaps(state), w = loadWindow(state), coll = collisions(state);
+  var startMin = toMin(state.startTime);
+
+  /* output card head */
+  $('ocOccasion').textContent = o.emoji + ' ' + o.name;
+  var subBits = [];
+  if (state.eventName) subBits.push(esc(state.eventName));
+  if (state.date) subBits.push(datePretty(state.date));
+  if (state.venue) subBits.push(esc(state.venue));
+  subBits.push('doors ' + fmtMin(startMin));
+  subBits.push(state.guests + ' guests');
+  $('ocSub').innerHTML = subBits.join(' · ');
+
+  /* board list */
+  if (!L.count){
+    $('boardList').innerHTML = '<div class="menu-empty">No vendors yet — tap a card in Step 2 and each one lands here with a fee, a deposit and an arrival time.</div>';
+  } else {
+    $('boardList').innerHTML = L.ids.map(function(id){
+      var v = VENDORS[id], r = state.vendors[id], a = fmtMin(startMin - v.arrive);
+      return '<div class="menu-row"><span class="mr-emoji">' + v.emoji + '</span><span class="mr-name">' + esc(v.name) + '</span><span class="mr-qty">🕒 ' + a + '</span><span class="mr-cost">' + money(r.fee) + '</span></div>';
+    }).join('') + '<div class="menu-row" style="border-top:1px solid rgba(255,255,255,.2)"><span class="mr-emoji">🗂️</span><span class="mr-name">The whole cast</span><span class="mr-qty">' + L.count + ' vendors</span><span class="mr-cost">' + money(L.quoted) + '</span></div>';
+  }
+
+  $('mQuoted').textContent = money(L.quoted);
+  $('mPaid').textContent = money(L.paid);
+  $('mDue').textContent = money(L.balance);
+  $('mCount').textContent = L.count;
+  $('mPct').textContent = Math.round(L.pct * 100) + '%';
+  $('mPer').textContent = money(Math.round(L.perGuest));
+
+  var conf = Math.round(progress(state) * 100);
+  $('verdictLine').innerHTML = '<b>' + conf + '% CONFIRMED</b> — ' +
+    (g.length ? (g.length + ' essential vendor' + (g.length > 1 ? 's' : '') + ' still missing: <b>' + esc(g.join(', ')) + '</b>.') : 'every essential vendor is on the board.') +
+    ' <b>' + esc(o.name) + '</b> running on ' + L.count + ' vendors, <b>' + money(L.quoted) + '</b> quoted, <b>' + money(L.balance) + '</b> still to pay.';
+
+  /* order list (duo left) */
+  $('orderTitle').textContent = L.count ? ('Who arrives when — ' + L.count + ' vendors') : 'Who arrives when';
+  $('orderHint').innerHTML = 'Doors at <b>' + fmtMin(startMin) + '</b>. The board counts every truck backwards from that. The one who needs the longest runway goes first — almost always the venue.';
+  if (!L.count){
+    $('orderList').innerHTML = '<div class="price-item"><span class="pi-name">Nothing booked</span><span class="pi-note">Put a vendor on the board to build the load-in order.</span></div>';
+  } else {
+    $('orderList').innerHTML = arrivals(state).map(function(a){
+      var v = VENDORS[a.id], r = state.vendors[a.id];
+      return '<div class="price-item"><span class="pi-name">' + v.emoji + ' ' + esc(v.name) + '</span><span class="pi-qty">' + a.label + '</span><span class="pi-price">' + money(r.fee) + '</span><span class="pi-note">' + (r.company ? esc(r.company) + ' · ' : '') + 'on site ' + a.label + ' — ' + v.arrive + ' min before doors · ' + stById(r.status).label + '</span></div>';
+    }).join('');
+  }
+  var ow = '';
+  if (w) ow = 'Load-in runs <b>' + w.first + ' → ' + w.doors + '</b> — a ' + w.hours + '-hour runway for ' + L.count + ' vendors.';
+  if (coll.length) ow += ' ⚠️ ' + coll.map(function(c){ return c.count + ' vendors land in the ' + c.slot + ' slot'; }).join('; ') + ' — stagger them or the loading dock jams.';
+  $('orderVerdict').innerHTML = ow || 'Add a vendor to see the runway.';
+
+  /* cash list (duo right) */
+  if (!L.count){
+    $('cashList').innerHTML = '<div class="price-item"><span class="pi-name">No money yet</span><span class="pi-note">Every vendor carries a fee, a deposit and a balance. Put one on the board and the cashflow appears.</span></div>';
+  } else {
+    $('cashList').innerHTML = L.ids.map(function(id){
+      var v = VENDORS[id], r = state.vendors[id];
+      var f = Math.max(0, +r.fee || 0), d = Math.min(Math.max(0, +r.depositPaid || 0), f), bal = f - d;
+      return '<div class="price-item"><span class="pi-name">' + v.emoji + ' ' + esc(v.name) + '</span><span class="pi-qty">' + money(d) + ' / ' + money(f) + '</span><span class="pi-price" style="color:' + (bal > 0 ? 'var(--bad)' : 'var(--good)') + '">' + money(bal) + '</span><span class="pi-note">' + (bal > 0 ? ('balance ' + (r.due ? 'due ' + esc(r.due) : 'date not set')) : 'paid in full') + '</span></div>';
+    }).join('') + '<div class="price-item" style="border-top:1.5px solid var(--line);margin-top:6px"><span class="pi-name">The whole cast</span><span class="pi-qty">' + money(L.paid) + ' paid</span><span class="pi-price">' + money(L.balance) + '</span><span class="pi-note">' + money(L.quoted) + ' quoted across ' + L.count + ' vendors · ' + money2(L.perGuest) + ' per guest</span></div>';
+  }
+  $('cashPct').textContent = Math.round(L.pct * 100);
+  $('cashQuoted').textContent = money(L.quoted);
+  $('cashPaid').textContent = money(L.paid);
+  $('cashDue').textContent = money(L.balance);
+
+  var f = dueFlags(state);
+  $('cashSoon').textContent = f.soon.length + f.overdue.length;
+  var cv = money(L.quoted) + ' quoted across ' + L.count + ' vendors. ' + money(L.paid) + ' already floated (' + Math.round(L.pct * 100) + '%), ' + money(L.balance) + ' still to leave your account.';
+  if (f.overdue.length) cv += ' ⚠️ ' + f.overdue.length + ' balance' + (f.overdue.length > 1 ? 's are' : ' is') + ' overdue.';
+  else if (f.soon.length) cv += ' 📅 ' + f.soon.length + ' balance' + (f.soon.length > 1 ? 's are' : ' is') + ' due within two weeks.';
+  else cv += ' No balance date falls inside the next two weeks.';
+  $('cashVerdict').innerHTML = cv;
+
+  /* timeline */
+  $('tlStage').innerHTML = tlSVG(state);
+  var tc = 'Every vendor in arrival order against <b>doors ' + fmtMin(startMin) + '</b>.';
+  if (w) tc += ' First truck in at <b>' + w.first + '</b> — ' + w.hours + ' hours before anyone walks in.';
+  $('tlCap').innerHTML = tc;
+
+  /* board note (Step 3) */
+  var bn = 'Edit any field and the ledger updates as you type.';
+  if (g.length) bn += ' ⚠️ Missing essentials: <b>' + esc(g.join(', ')) + '</b>.';
+  if (coll.length) bn += ' 🚚 ' + coll.length + ' collision' + (coll.length > 1 ? 's' : '') + ' on the load-in — check the timeline below.';
+  $('boardNote').innerHTML = bn;
+
+  /* print */
+  $('planCardPrint').innerHTML = planCard(state);
+  $('printTitle').textContent = '🗂️ The Vendor Board — ' + o.name + ' vendor sheet';
+  var pm = [];
+  if (state.eventName) pm.push(esc(state.eventName));
+  if (state.date) pm.push(datePretty(state.date));
+  if (state.venue) pm.push(esc(state.venue));
+  pm.push('doors ' + fmtMin(startMin));
+  $('printMeta').innerHTML = pm.join(' · ') + ' · Everlasting Memories';
+}
+
+function renderAll(){ renderStatic(); renderRows(); renderOut(); }
+
+/* ----------------------------- toast ----------------------------- */
+var toastTimer = null;
+function toast(msg){
+  var el = $('toast'); if (!el) return;
+  el.textContent = msg; el.classList.add('show');
+  if (toastTimer) clearTimeout(toastTimer);
+  toastTimer = setTimeout(function(){ el.classList.remove('show'); }, 2200);
+}
+
+/* ---------------------------- random ---------------------------- */
+function buildRandom(){
+  var occ = OCCASIONS[Math.floor(Math.random() * OCCASIONS.length)];
+  applyOccasion(state, occ.id);
+  state.guests = [40, 60, 80, 100, 120, 150, 200][Math.floor(Math.random() * 7)];
+  state.startTime = ['13:00','16:00','17:00','18:00','19:00'][Math.floor(Math.random() * 5)];
+  var extras = VENDOR_IDS.filter(function(id){ return occ.essential.indexOf(id) === -1; });
+  var n = Math.floor(Math.random() * 3);
+  for (var i = 0; i < n && extras.length; i++){ var pick = extras.splice(Math.floor(Math.random() * extras.length), 1)[0]; state.vendors[pick].on = true; }
+  onIds(state).forEach(function(id){
+    var r = state.vendors[id]; var v = VENDORS[id];
+    r.fee = Math.round((v.lo + Math.random() * (v.hi - v.lo)) / 25) * 25;
+    r.depositPaid = Math.round(r.fee * v.dep / 25) * 25;
+    r.status = STATUSES[Math.floor(Math.random() * STATUSES.length)].id;
+    r.due = addDays(todayISO(), 7 + Math.floor(Math.random() * 60));
+  });
+  $('inGuests').value = state.guests; $('guestsOut').textContent = state.guests;
+  $('inStart').value = state.startTime;
+  if (occ.id === 'wedding'){ state.eventName = state.eventName || 'Ana & Luis’s Wedding'; }
+  renderAll();
+}
+
+/* --------------------------- wire up --------------------------- */
+function wire(){
+  state = sampleState();
+  $('inEvent').value = state.eventName;
+  $('inVenue').value = state.venue;
+  $('inDate').value = state.date;
+  $('inStart').value = state.startTime;
+  $('inGuests').value = state.guests;
+  $('guestsOut').textContent = state.guests;
+
+  $('occChips').addEventListener('click', function(e){
+    var b = e.target.closest('[data-occ]'); if (!b) return;
+    applyOccasion(state, b.getAttribute('data-occ'));
+    state.vendors && onIds(state).forEach(function(id){ state.vendors[id].due = ''; });
+    renderAll();
+  });
+
+  $('vendorGrid').addEventListener('click', function(e){
+    var b = e.target.closest('[data-vendor]'); if (!b) return;
+    var id = b.getAttribute('data-vendor');
+    state.vendors[id].on = !state.vendors[id].on;
+    renderStatic(); renderRows(); renderOut();
+  });
+
+  $('boardRows').addEventListener('input', function(e){ if (syncRow(e.target)) renderOut(); });
+  $('boardRows').addEventListener('change', function(e){ if (syncRow(e.target)) renderOut(); });
+  $('boardRows').addEventListener('click', function(e){
+    var x = e.target.closest('.vr-x'); if (!x) return;
+    state.vendors[x.getAttribute('data-id')].on = false;
+    renderStatic(); renderRows(); renderOut();
+  });
+
+  $('inEvent').addEventListener('input', function(e){ state.eventName = e.target.value; renderOut(); });
+  $('inVenue').addEventListener('input', function(e){ state.venue = e.target.value; renderOut(); });
+  $('inDate').addEventListener('change', function(e){ state.date = e.target.value; renderOut(); });
+  $('inStart').addEventListener('change', function(e){ state.startTime = e.target.value || '17:00'; renderRows(); renderOut(); });
+  $('inGuests').addEventListener('input', function(e){ state.guests = parseInt(e.target.value,10) || 0; $('guestsOut').textContent = state.guests; renderOut(); });
+
+  $('btnShuffle').addEventListener('click', buildRandom);
+  $('btnCopy').addEventListener('click', function(){
+    var txt = summaryText(state);
+    navigator.clipboard && navigator.clipboard.writeText(txt).then(function(){ toast('Board copied — paste it to your planner'); }, function(){ toast('Copy failed — select and copy manually'); });
+  });
+  $('btnWa').addEventListener('click', function(){
+    var txt = summaryText(state);
+    window.open('https://wa.me/?text=' + encodeURIComponent(txt), '_blank');
+  });
+  $('btnPrint').addEventListener('click', function(){ window.print(); });
+
+  $('secretBadge').addEventListener('click', function(){
+    toast('Isabella’s rule: text every vendor 48 hours before. Confirm the time. Never be the first to lose your cool at a loading dock.');
+  });
+
+  var lf = $('leadForm');
+  if (lf) lf.addEventListener('submit', function(e){
+    e.preventDefault();
+    var payload = leadPayload(state);
+    payload.name = ($('fName') || {}).value || '';
+    payload.email = ($('fEmail') || {}).value || '';
+    payload.phone = ($('fPhone') || {}).value || '';
+    payload.preferredDate = ($('fDate') || {}).value || '';
+    payload.budget = ($('fBudget') || {}).value || '';
+    payload.notes = ($('fMsg') || {}).value || '';
+    try {
+      fetch('/api/leads', { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload) }).catch(function(){});
+    } catch (err) {}
+    toast('Sent to Isabella — she replies within 24 hours 🗂️');
+    lf.reset();
+  });
+
+  renderAll();
+}
+
+if (typeof document !== 'undefined' && document.getElementById) wire();
+
+/* ---------------------------- exports ---------------------------- */
+if (typeof module !== 'undefined' && module.exports){
+  module.exports = {
+    VENDORS:VENDORS, VENDOR_IDS:VENDOR_IDS, OCCASIONS:OCCASIONS, STATUSES:STATUSES, COLORS:COLORS,
+    money:money, money2:money2, priceTxt:priceTxt, esc:esc,
+    occById:occById, stById:stById, vById:vById, mid:mid,
+    toMin:toMin, fmtMin:fmtMin, datePretty:datePretty, addDays:addDays, todayISO:todayISO,
+    blankRow:blankRow, applyOccasion:applyOccasion, sampleState:sampleState,
+    onIds:onIds, ledger:ledger, progress:progress, arrivals:arrivals, loadWindow:loadWindow,
+    collisions:collisions, gaps:gaps, dueFlags:dueFlags,
+    summaryText:summaryText, leadPayload:leadPayload, planCard:planCard, tlSVG:tlSVG
+  };
+}
+
+})();
+
+</script>
+</body>
+</html>
