@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Day-Of Card — Party Vendor &amp; Payment Tracker | Everlasting Memories</title>
+<meta name="description" content="Your whole party on one printable card: who to call, who arrives when, what must happen before the doors open, and the three numbers you need. The site's first day-of card — print two, keep one in your pocket and give one to the person who answers when you cannot.">
+<meta name="theme-color" content="#14232b">
+<meta property="og:title" content="The Day-Of Card — Party Vendor &amp; Payment Tracker | Everlasting Memories">
+<meta property="og:description" content="The first day-of tool on the site. Fifty-three prior tools produced something you use before the party. The Day-Of Card is the one page you hold during it: call list, pre-doors run sheet, and a printable card.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+:root{--c1:#c2410c;--c2:#0f766e;--c3:#1c1917;--c3b:#3f3f46;--bg:#faf7f2;--line:#e7e0d5;--ink:#1c1917;--soft:#78716c;--good:#15803d;--bad:#b91c1c}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.serif{font-family:'Playfair Display',Georgia,serif}
+a{color:var(--c1);text-decoration:none}
+a:hover{opacity:.85}
+/* nav */
+.em-nav{display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:14px 22px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.em-nav-brand{font-family:'Playfair Display',serif;font-weight:700;font-size:1.15rem;color:var(--ink);margin-right:auto}
+.em-nav-brand span{color:var(--c1)}
+.em-nav a.nav-link{font-size:.85rem;font-weight:600;color:var(--ink);padding:6px 8px;border-radius:8px}
+.em-nav a.nav-link:hover{background:var(--bg)}
+.em-nav-cta{background:linear-gradient(135deg,var(--c3),#9a3412);color:#fff5ec!important;padding:9px 16px;border-radius:999px;font-weight:600;font-size:.85rem;box-shadow:0 4px 14px rgba(20,35,43,.35)}
+.dd-wrap{position:relative}
+.dd-btn{background:none;border:1px solid var(--line);border-radius:999px;padding:8px 16px;font:600 .85rem 'Inter',sans-serif;color:var(--ink);cursor:pointer;display:flex;align-items:center;gap:6px}
+.dd-btn:hover{background:var(--bg)}
+.dd-menu{display:none;position:absolute;top:calc(100% + 8px);left:0;min-width:230px;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 18px 40px rgba(20,35,43,.16);padding:8px;z-index:60;max-height:70vh;overflow:auto}
+.dd-menu.open{display:block}
+.dd-menu a{display:block;padding:8px 12px;border-radius:9px;font-size:.84rem;font-weight:500;color:var(--ink)}
+.dd-menu a:hover{background:var(--bg)}
+.dd-menu a.styled{color:#fff!important;font-weight:600}
+.dd-menu .dd-tag{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--soft);padding:8px 12px 4px}
+/* hero */
+.hero{max-width:1120px;margin:0 auto;padding:34px 22px 10px}
+.home-link{display:inline-block;font-size:.82rem;font-weight:600;color:var(--c1);margin-bottom:16px}
+.badge{display:inline-block;background:linear-gradient(135deg,var(--c3),#9a3412);color:#fff5ec;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:14px;cursor:pointer;user-select:none}
+.hero h1{font-size:clamp(2.1rem,5vw,3.3rem);line-height:1.1;color:var(--c3)}
+.hero .sub{margin-top:12px;max-width:840px;color:var(--soft);font-size:1.02rem}
+.hero .sub b{color:var(--ink)}
+/* layout */
+.container{max-width:1120px;margin:0 auto;padding:22px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 10px 30px rgba(20,35,43,.05)}
+.card h2{font-size:1.35rem;color:var(--c3);margin-bottom:4px}
+.card .kicker{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c1);margin-bottom:2px}
+.card .hint{font-size:.82rem;color:var(--soft);margin-bottom:14px}
+.fg{margin-bottom:14px}
+.fg label{display:block;font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ink);margin-bottom:5px}
+.fg input,.fg select,.fg textarea{width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;font:500 .92rem 'Inter',sans-serif;background:#fff;color:var(--ink)}
+.fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:var(--c1)}
+.fg textarea{min-height:64px;resize:vertical}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:520px){.fg-row{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;font:600 .82rem 'Inter',sans-serif;color:var(--ink);cursor:pointer;transition:all .15s}
+.chip:hover{border-color:var(--c1);color:var(--c1)}
+.chip.on{background:linear-gradient(135deg,var(--c3),#9a3412);border-color:transparent;color:#fff5ec;box-shadow:0 4px 12px rgba(20,35,43,.3)}
+.chip .px{display:block;font-size:.66rem;font-weight:600;opacity:.85}
+.chip.on .px{opacity:.8}
+.station-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:520px){.station-grid{grid-template-columns:1fr}}
+.station{border:1.5px solid var(--line);background:#fff;border-radius:14px;padding:11px 13px;cursor:pointer;transition:all .15s;text-align:left}
+.station:hover{border-color:var(--c1);transform:translateY(-1px)}
+.station.on{border-color:var(--c1);background:linear-gradient(180deg,#eef4f2,#fff);box-shadow:0 6px 18px rgba(176,106,42,.16)}
+.station .st-top{display:flex;align-items:center;gap:8px}
+.station .st-emoji{font-size:1.3rem}
+.station .st-name{font-weight:700;font-size:.84rem;color:var(--c3);flex:1}
+.station .st-price{font-weight:800;font-size:.76rem;color:var(--c1);white-space:nowrap}
+.station .st-note{font-size:.73rem;color:var(--soft);margin-top:5px}
+.station .st-unit{font-size:.61rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--soft);margin-top:5px}
+.station.on .st-unit{color:var(--c1)}
+.range-wrap{display:flex;align-items:center;gap:14px}
+.range-wrap input[type=range]{flex:1;accent-color:var(--c3);height:34px}
+.big-read{min-width:118px;text-align:center;background:linear-gradient(135deg,var(--c3),#9a3412);color:#fff5ec;border-radius:12px;padding:8px 10px;font-weight:700;font-size:.95rem}
+.big-read small{display:block;font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;opacity:.85}
+.note-line{margin-top:10px;background:var(--bg);border:1px dashed var(--line);border-radius:12px;padding:10px 14px;font-size:.83rem}
+.note-line b{color:var(--c3)}
+.diet-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:520px){.diet-grid{grid-template-columns:1fr}}
+.diet{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.diet .d-top{display:flex;align-items:baseline;justify-content:space-between;gap:8px}
+.diet .d-name{font-weight:700;font-size:.82rem;color:var(--c3)}
+.diet .d-pct{font-weight:800;font-size:.95rem;color:var(--c1)}
+.diet input[type=range]{width:100%;accent-color:var(--c2);margin-top:6px}
+.diet .d-count{font-size:.74rem;color:var(--soft);margin-top:2px}
+.diet .d-count b{color:var(--ink)}
+/* board stage */
+.board-wrap{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.board-stage{background:linear-gradient(160deg,#e6efeb,#d6e4df);border:1px solid var(--line);border-radius:16px;padding:14px;flex:1;min-width:280px}
+.board-cap{font-size:.78rem;color:var(--soft)}
+.board-cap b{color:var(--c3)}
+.thumb-strip{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.thumb{background:#fff;border:1px solid var(--line);border-radius:12px;padding:9px 12px;min-width:104px;flex:1}
+.thumb .th-name{font-size:.72rem;font-weight:700;color:var(--c3)}
+.thumb .th-qty{font-size:.68rem;color:var(--soft);margin-top:2px}
+.thumb .th-bar{height:6px;border-radius:3px;margin-top:7px}
+/* output card */
+.out-card{background:linear-gradient(165deg,#14232b,#22414d);color:#eaf2ef;border-radius:22px;padding:26px;box-shadow:0 16px 40px rgba(20,35,43,.34);position:sticky;top:84px}
+.out-card .oc-head{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-bottom:6px}
+.out-card .oc-occasion{display:inline-block;background:rgba(255,255,255,.12);color:#ffd9bd;border-radius:999px;padding:4px 12px;font-size:.72rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.out-card h2{color:#fff;font-size:1.5rem}
+.out-card .oc-sub{color:#bfcec9;font-size:.8rem;margin-bottom:16px}
+.menu-list{background:rgba(255,255,255,.06);border:1px dashed rgba(255,255,255,.22);border-radius:16px;padding:8px 14px}
+.menu-row{display:flex;align-items:center;gap:10px;padding:9px 0;border-bottom:1px dashed rgba(255,255,255,.14)}
+.menu-row:last-child{border-bottom:none}
+.menu-row .mr-emoji{font-size:1.1rem}
+.menu-row .mr-name{font-weight:700;font-size:.82rem;color:#fff;flex:1}
+.menu-row .mr-qty{font-weight:700;font-size:.77rem;color:#ffd9bd;white-space:nowrap}
+.menu-row .mr-cost{font-weight:800;font-size:.8rem;color:#fff;white-space:nowrap;min-width:56px;text-align:right}
+.menu-empty{color:#bfcec9;font-size:.85rem;font-style:italic;padding:12px 4px}
+.meter{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-top:18px;padding-top:16px;border-top:1px solid rgba(255,255,255,.14)}
+.mstat{background:rgba(255,255,255,.08);border-radius:12px;padding:8px 12px;text-align:center;min-width:82px}
+.mstat b{display:block;font-size:1.05rem;color:#fff}
+.mstat small{font-size:.6rem;text-transform:uppercase;letter-spacing:.06em;color:#bfcec9}
+.actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.btn{border:none;border-radius:999px;padding:11px 18px;font:700 .85rem 'Inter',sans-serif;cursor:pointer;transition:all .15s;background:#fff;color:#14232b}
+.btn:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(0,0,0,.18)}
+.btn.primary{background:linear-gradient(135deg,#e2b273,#9a3412);color:#14232b}
+.btn.ghost{background:rgba(255,255,255,.1);color:#eaf2ef;border:1px solid rgba(255,255,255,.25)}
+.btn.ghost:hover{background:rgba(255,255,255,.18)}
+/* quote */
+.quote{background:#fff;border-left:4px solid var(--c2);border-radius:0 16px 16px 0;padding:18px 20px;margin:24px 0;font-style:italic;color:var(--soft);font-size:.92rem}
+.quote b{color:var(--c3);font-style:normal}
+/* wide cards */
+.wide{margin-top:22px}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:22px}
+@media(max-width:900px){.duo{grid-template-columns:1fr}}
+.price-item{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;padding:11px 0;border-bottom:1px dashed var(--line)}
+.price-item:last-child{border-bottom:none}
+.price-item .pi-name{font-weight:700;color:var(--ink);font-size:.92rem}
+.price-item .pi-qty{font-weight:800;color:var(--c3);font-size:.85rem;white-space:nowrap}
+.price-item .pi-price{font-weight:800;color:var(--c1);font-size:.88rem;white-space:nowrap;margin-left:auto}
+.price-item .pi-note{flex-basis:100%;font-size:.79rem;color:var(--soft)}
+.bignum{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;color:var(--c3);line-height:1.05}
+.bignum small{font-size:1rem;color:var(--soft);font-weight:600}
+.legend{font-size:.72rem;color:var(--soft);display:flex;gap:14px;flex-wrap:wrap;margin-top:4px}
+.legend span b{color:var(--ink)}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:26px 0}
+@media(max-width:800px){.facts{grid-template-columns:repeat(2,1fr)}}
+.fact{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px;text-align:center}
+.fact .f-num{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:700;color:var(--c3);display:block}
+.fact .f-txt{font-size:.76rem;color:var(--soft);margin-top:4px}
+.faq{margin:8px 0 26px}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin-bottom:10px}
+.faq summary{font-weight:700;font-size:.92rem;cursor:pointer;color:var(--c3)}
+.faq details p{font-size:.86rem;color:var(--soft);margin-top:8px}
+.barcard{border:1.5px dashed var(--line);border-radius:14px;padding:18px 20px;background:#fff}
+.barcard h3{font-size:.95rem;color:var(--c3);margin-bottom:8px}
+.barcard ul{margin:2px 0 12px 18px;font-size:.86rem;color:var(--soft)}
+.barcard li{margin:3px 0}
+.barcard li b{color:var(--ink)}
+.value-strip{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.value-pill{background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:.76rem;color:var(--soft)}
+.value-pill b{color:var(--c3)}
+/* lead card */
+.lead-card{background:linear-gradient(160deg,#14232b,#22414d);color:#fff;border-radius:20px;padding:28px;margin-top:8px}
+.lead-card h2{color:#fff}
+.lead-card .kicker{color:#e2b273}
+.lead-card .hint{color:#bfcec9}
+.lead-card label{color:#bfcec9}
+.lead-card input,.lead-card select,.lead-card textarea{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#fff}
+.lead-card input::placeholder,.lead-card textarea::placeholder{color:rgba(255,255,255,.55)}
+.lead-card input:focus,.lead-card select:focus,.lead-card textarea:focus{border-color:#e2b273}
+.lead-card select option{color:var(--ink)}
+.lead-card .btn-p{background:#e2b273;color:#14232b}
+.lead-card .fine{font-size:.74rem;color:#bfcec9;margin-top:10px}
+/* footer */
+footer{background:var(--c3);color:#fff;margin-top:34px;padding:26px 22px 30px}
+footer .strip{font-size:.78rem;line-height:2;color:rgba(255,255,255,.75)}
+footer .strip a{color:#fff5ec;font-weight:600;margin-right:2px}
+footer .foot-brand{font-family:'Playfair Display',serif;font-size:1.1rem;margin-top:14px}
+footer .foot-brand span{color:#fff5ec}
+footer .copy{font-size:.72rem;color:rgba(255,255,255,.6);margin-top:6px}
+/* print */
+@media print{
+  .em-nav,.actions,.lead-card,.facts,.faq,.hero,.home-link,.badge,footer,.quote,.duo,.wide,.grid,.no-print,.value-strip,.toast{display:none!important}
+  body{background:#fff}
+  .print-only{display:block!important}
+}
+.print-only{display:none}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(120%);background:var(--ink);color:#fff;padding:12px 22px;border-radius:999px;font-size:.85rem;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.25);transition:transform .3s;z-index:99}
+.toast.show{transform:translateX(-50%) translateY(0)}
+
+/* ---- Night 53: The Day-Of Card ---- */
+.vrows{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:#fff}
+.vrow{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end;padding:11px 12px;border-bottom:1px dashed var(--line)}
+.vrow:last-child{border-bottom:none}
+.vrow .vr-name{font-weight:700;font-size:.82rem;color:var(--c3);min-width:116px;display:flex;align-items:center;gap:6px;padding-bottom:8px}
+.vrow .vr-arr{font-size:.7rem;font-weight:700;color:var(--c1);background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:5px 9px;white-space:nowrap;margin-bottom:4px}
+.vrow label.vr-lbl{display:block;font-size:.58rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--soft)}
+.vrow label.vr-lbl input,.vrow label.vr-lbl select{margin-top:3px;padding:6px 8px;border:1.5px solid var(--line);border-radius:9px;font:600 .78rem 'Inter',sans-serif;color:var(--ink);background:#fff}
+.vrow label.vr-lbl input:focus,.vrow label.vr-lbl select:focus{outline:none;border-color:var(--c1)}
+.vrow .vr-co{width:150px}
+.vrow .vr-num{width:88px}
+.vrow .vr-date{width:142px}
+.vrow .vr-st{width:142px}
+.vrow .vr-x{background:none;border:none;color:var(--soft);font-size:.95rem;cursor:pointer;padding:6px 9px;border-radius:9px;margin-bottom:2px}
+.vrow .vr-x:hover{background:var(--bg);color:var(--bad)}
+.tl-wrap{background:linear-gradient(160deg,#e6efeb,#d6e4df);border:1px solid var(--line);border-radius:16px;padding:10px;overflow-x:auto}
+.tl-wrap svg{display:block;width:100%;height:auto;min-width:660px}
+
+/* ---------- Night 54 — Day-Of Card engine ---------- */
+.chip.sm{font-size:.72rem;padding:5px 10px}
+.vrow{display:grid;grid-template-columns:26px 108px 1fr 104px 28px;gap:8px;align-items:center;padding:7px 0;border-bottom:1px solid var(--line)}
+.vrow:last-child{border-bottom:0}
+.vchk{display:flex;align-items:center;justify-content:center}
+.vname{font-size:.8rem;font-weight:600;color:var(--c3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.vin{width:100%;font:400 .82rem 'Inter',sans-serif;padding:7px 9px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--ink)}
+.vin.sm{padding:6px 6px;font-size:.76rem}
+.vin:focus{outline:none;border-color:var(--c1);box-shadow:0 0 0 3px rgba(194,65,12,.10)}
+.xbtn{border:0;background:none;color:var(--soft);font-size:1.15rem;line-height:1;cursor:pointer;border-radius:6px}
+.xbtn:hover{color:var(--bad);background:var(--bg)}
+.rsrow{display:grid;grid-template-columns:22px 86px 1fr;gap:10px;align-items:start;padding:9px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.rsrow:last-child{border-bottom:0}
+.rsrow.done{opacity:.45}
+.rsrow.done .rstext b{text-decoration:line-through}
+.rstime{font-size:.76rem;font-weight:700;color:var(--c1);padding-top:1px;white-space:nowrap}
+.rstext b{display:block;font-size:.84rem;font-weight:600;color:var(--ink)}
+.rstext em{display:block;font-style:normal;font-size:.74rem;color:var(--soft);margin-top:2px}
+
+/* the printable card */
+.card-preview{background:#fff;border:1px solid var(--line);border-radius:14px;padding:6px}
+.dcard{border:1px solid #ddd3c4;border-radius:10px;overflow:hidden;background:#fff}
+.dhead{background:linear-gradient(135deg,var(--c3),#3f3f46);color:#fff5ec;padding:16px 18px}
+.dkick{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;opacity:.8;margin-bottom:5px}
+.dname{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;line-height:1.2}
+.dsub{font-size:.76rem;opacity:.88;margin-top:5px}
+.dthree{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}
+.dthree>div{padding:11px 12px;text-align:center;border-right:1px solid var(--line)}
+.dthree>div:last-child{border-right:0}
+.dthree b{display:block;font-size:.86rem;color:var(--c3);font-weight:700}
+.dthree span{display:block;font-size:.64rem;text-transform:uppercase;letter-spacing:.07em;color:var(--soft);margin-top:3px}
+.dsec{padding:12px 16px 4px}
+.dsec-h{font-size:.66rem;text-transform:uppercase;letter-spacing:.09em;color:var(--soft);font-weight:700;margin-bottom:6px}
+.ctable{width:100%;border-collapse:collapse}
+.ctable td{padding:5px 0;font-size:.79rem;vertical-align:top;border-bottom:1px dotted var(--line)}
+.ctable tr:last-child td{border-bottom:0}
+.c-role{width:34%;font-weight:600;color:var(--c3)}
+.c-who{color:var(--ink)}
+.c-when{width:24%;text-align:right;color:var(--c1);font-weight:600;white-space:nowrap}
+.ctable.sched .c-t{width:27%;color:var(--c1);font-weight:700;white-space:nowrap}
+.ctable.sched .c-txt{color:var(--ink)}
+.ctable.sched tr.t-done .c-txt{text-decoration:line-through;opacity:.5}
+.miss{color:var(--bad);font-style:italic;font-size:.75rem}
+.demerg{margin:10px 16px;padding:10px 12px;background:#fef3ea;border-left:3px solid var(--c1);border-radius:6px;font-size:.78rem;color:var(--c3)}
+.dfoot{padding:10px 16px 13px;font-size:.7rem;color:var(--soft);border-top:1px solid var(--line);margin-top:8px}
+
+/* readiness meter */
+.meter{height:11px;background:var(--line);border-radius:999px;overflow:hidden}
+.meterfill{height:100%;border-radius:999px;transition:width .25s}
+.meterlbl{margin-top:8px;font-size:.86rem;color:var(--ink)}
+.meterlbl b{font-size:1.05rem;color:var(--c3)}
+.mmstat{font-size:.74rem;color:var(--soft);margin-top:5px}
+.notes{margin:10px 0 0 18px;font-size:.8rem;color:var(--c3)}
+.notes li{margin-bottom:5px}
+.ok{font-size:.82rem;color:var(--good);font-weight:600;margin-top:10px}
+.fact{display:flex;gap:12px;align-items:baseline;padding:8px 0;border-bottom:1px solid var(--line)}
+.fact:last-child{border-bottom:0}
+.fn{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--c1);min-width:72px}
+.ft{font-size:.8rem;color:var(--ink)}
+.cross{display:flex;flex-wrap:wrap;gap:9px}
+.xlink{font-size:.8rem;font-weight:600;padding:7px 13px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--c3)}
+.xlink:hover{border-color:var(--c1);color:var(--c1)}
+.toast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,14px);background:var(--c3);color:#fff5ec;padding:11px 18px;border-radius:999px;font-size:.82rem;max-width:88vw;opacity:0;transition:all .25s;z-index:200;box-shadow:0 10px 30px rgba(28,25,23,.3)}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+/* print: card only */
+@media print{
+  .em-nav,footer,.hero,.card-preview .btn-row,.toast{display:none!important}
+  body{background:#fff}
+  .container,.grid{display:block!important}
+  .card-preview{border:0;padding:0}
+  .dcard{border:1px solid #999;page-break-inside:avoid}
+}
+@media (max-width:760px){
+  .vrow{grid-template-columns:24px 1fr 26px}
+  .vrow .vin{grid-column:2/-1}
+  .vrow .vin.sm{grid-column:2/3}
+}
+
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<nav class="em-nav">
+  <div class="em-nav-brand"><a href="index.html" style="color:inherit">Everlasting <span>Memories</span></a></div>
+  <a class="nav-link" href="gallery.html">Gallery</a>
+  <a class="nav-link" href="services.html">Services</a>
+  <a class="nav-link" href="about.html">About</a>
+  <a class="nav-link" href="faq.html">FAQ</a>
+  <div class="dd-wrap">
+    <button class="dd-btn" id="ddBtn" aria-haspopup="true" aria-expanded="false">Tools ▾</button>
+    <div class="dd-menu" id="ddMenu">
+      <div class="dd-tag">Newest</div>
+      <a href="day-of-card.html" class="styled" style="background:#14232b">The Day-Of Card</a>
+      <a href="main-course.html" class="styled" style="background:#221c14">The Main Course</a>
+      <a href="paper-trail.html" class="styled" style="background:#241a12">The Paper Trail</a>
+      <a href="glow-up.html" class="styled" style="background:#140b26">The Glow Up</a>
+      <a href="sky-installer.html" class="styled" style="background:#1a1a2e">The Sky Installer</a>
+      <a href="sip-station.html" class="styled" style="background:#3a1020">The Sip Station</a>
+      <a href="favor-bar.html" class="styled" style="background:#2e1065">The Favor Bar</a>
+      <a href="boo-bash.html" class="styled" style="background:#2e1065">The Boo Bash</a>
+      <a href="raised-glass.html" class="styled" style="background:#241b12">The Raised Glass</a>
+      <a href="launch-pad.html" class="styled" style="background:#1e3a8a">The Launch Pad</a>
+      <a href="smash.html" class="styled" style="background:#ff8c42">The Smash Hit</a>
+      <a href="nest.html" class="styled" style="background:#6b8f71">The Nest</a>
+      <a href="powder-pop.html" class="styled" style="background:#ec4899">The Powder Pop</a>
+      <a href="big-yes.html" class="styled" style="background:#a8526b">The Big Yes</a>
+      <a href="party-er.html" class="styled" style="background:#059669">The Party ER</a>
+      <a href="rain-plan.html" class="styled" style="background:#0284c7">The Rain Plan</a>
+      <div class="dd-tag">All tools</div>
+      <a href="after-glow.html">The After-Glow</a>
+      <a href="seating-chart.html">Seating Chart Studio</a>
+      <a href="surprise-planner.html">Operation: Surprise</a>
+      <a href="dessert-table.html">Dessert Table Stylist</a>
+      <a href="golden-hour.html">Golden Hour Finder</a>
+      <a href="party-timeline.html">Party Day Timeline</a>
+      <a href="memory-capsule.html">Memory Capsule</a>
+      <a href="playlist.html">Party Playlist Studio</a>
+      <a href="guest-list.html">The Guest List</a>
+      <a href="photo-hunt.html">Party Photo Hunt</a>
+      <a href="photo-booth.html">Golden Hour Booth</a>
+      <a href="memory-wall.html">Memory Wall</a>
+      <a href="party-roadmap.html">Party Roadmap</a>
+      <a href="invitation-studio.html">Invitation Studio</a>
+      <a href="balloon-pop.html">Pop Party</a>
+      <a href="wedding-workshop.html">Wedding Workshop</a>
+      <a href="transformations.html">The Big Reveal</a>
+      <a href="budget-builder.html">Budget Balloonist</a>
+      <a href="referral.html">Refer &amp; Earn</a>
+      <a href="cost-estimator.html">Cost Estimator</a>
+      <a href="theme-generator.html">Theme Generator</a>
+      <a href="lookbook.html">Lookbook</a>
+      <a href="countdown.html">Countdown</a>
+      <a href="party-style-quiz.html">Party Style Quiz</a>
+      <a href="balloon-math.html">Balloon Math</a>
+      <a href="name-garland.html">Balloon Letter Studio</a>
+      <a href="palette-snap.html">Palette Snap</a>
+      <a href="diy-vs-pro.html">DIY or Dazzle</a>
+      <a href="reserve-date.html">Reserve Your Date</a>
+      <a href="gift-card.html">Gift Card Studio</a>
+    </div>
+  </div>
+  <a class="em-nav-cta" href="contact.html">Get a Quote</a>
+</nav>
+<div class="hero">
+  <a class="home-link" href="index.html">&larr; Everlasting Memories</a>
+  <div class="badge" id="secretBadge" title="psst — tap me">🎫 New Tonight — The Day-Of Card</div>
+  <h1>The Day-Of Card</h1>
+  <p class="sub">Fifty-three tools on this site produced something you use <b>before</b> the party — a plan, a budget, a timeline, a shopping list, a seating chart, a quote. Not one of them produced the single thing you hold <b>on the day</b>, when you have no free hands and no time to open a laptop. The Day-Of Card condenses the whole party onto one card: who arrives when, who to call, what still has to happen before the doors open, and the three numbers you actually need if something goes wrong. <b>Print it. Fold it. Put it in your pocket.</b></p>
+</div>
+
+<div class="container">
+  <div class="grid">
+    <!-- LEFT -->
+    <div>
+      <div class="card" style="margin-bottom:22px">
+        <div class="kicker">Step 1</div>
+        <h2>The party in one line</h2>
+        <p class="hint">This is what prints at the top of the card — the details you would otherwise be re-reading off your phone with one hand.</p>
+        <div class="fg">
+          <label>Occasion</label>
+          <div class="chips" id="occChips"></div>
+          <div class="note-line" id="occNote"></div>
+        </div>
+        <div class="fg-row">
+          <div class="fg"><label for="inEvent">Event name</label><input type="text" id="inEvent" placeholder="Ana &amp; Luis&rsquo;s Wedding"></div>
+          <div class="fg"><label for="inVenue">Venue</label><input type="text" id="inVenue" placeholder="The Willow Barn"></div>
+        </div>
+        <div class="fg-row">
+          <div class="fg"><label for="inDate">Event date</label><input type="date" id="inDate"></div>
+          <div class="fg"><label for="inDoors">Doors open (guests arrive)</label><input type="time" id="inDoors" value="17:00"></div>
+        </div>
+        <div class="fg-row">
+          <div class="fg"><label for="inGuests">Guests</label><input type="number" id="inGuests" min="1" max="1000" value="100"></div>
+          <div class="fg"><label for="inHost">You (the host on the card)</label><input type="text" id="inHost" placeholder="Ana"></div>
+        </div>
+        <div class="fg" style="margin-bottom:0">
+          <label for="inHelper">Your second-in-command (day-of contact)</label>
+          <input type="text" id="inHelper" placeholder="Name &amp; number — the person who answers when you can&rsquo;t">
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:22px">
+        <div class="kicker">Step 2</div>
+        <h2>The call list</h2>
+        <p class="hint">Six lines maximum. On the day you will not scroll — you will want one column of numbers, biggest problem first. Pre-filled with the roles a real party needs.</p>
+        <div class="chips" id="roleChips" style="margin-bottom:12px"></div>
+        <div id="callList"></div>
+        <button class="btn ghost" id="btnAddRole" style="margin-top:12px">+ Add a line</button>
+      </div>
+
+      <div class="card" style="margin-bottom:22px">
+        <div class="kicker">Step 3</div>
+        <h2>What must happen before the doors open</h2>
+        <p class="hint">Tick these as you go. Each one is counted backwards from your doors time, so the card tells you what is already late.</p>
+        <div id="runSheet"></div>
+      </div>
+
+      <div class="card" style="margin-bottom:22px">
+        <div class="kicker">Step 4</div>
+        <h2>The three numbers</h2>
+        <p class="hint">The three figures Isabella says decide whether a party day goes smoothly: how many people, how much food, and how long until the doors. The card prints them big so you can answer without thinking.</p>
+        <div class="fg-row">
+          <div class="fg"><label for="inFoodMode">Catering</label>
+            <select id="inFoodMode">
+              <option value="full">Full catering (drop-off or staffed)</option>
+              <option value="partial">Partial — mains catered, sides homemade</option>
+              <option value="diy">All homemade</option>
+            </select>
+          </div>
+          <div class="fg"><label for="inBar">Drinks</label>
+            <select id="inBar">
+              <option value="full">Full bar</option>
+              <option value="wine">Wine, beer &amp; bubbles</option>
+              <option value="dry">Dry / zero-proof house</option>
+            </select>
+          </div>
+        </div>
+        <div class="fg" style="margin-bottom:0">
+          <label for="inEmergency">One line for the worst case</label>
+          <input type="text" id="inEmergency" placeholder="If the caterer is late: call Marco on the mobile, not the office.">
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div>
+      <div class="card" style="margin-bottom:22px">
+        <div class="kicker">The card</div>
+        <h2>Your day-of card</h2>
+        <p class="hint">Exactly what prints. Nothing on this card exists anywhere else in one place.</p>
+        <div id="cardPreview" class="card-preview"></div>
+        <div class="btn-row" style="margin-top:16px">
+          <button class="btn" id="btnPrint">🖨️ Print the card</button>
+          <button class="btn ghost" id="btnCopy">Copy as text</button>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:22px">
+        <div class="kicker">Readout</div>
+        <h2>How ready is this card?</h2>
+        <div id="readyMeter"></div>
+        <div id="readyNotes" style="margin-top:12px"></div>
+      </div>
+
+      <div class="card">
+        <div class="kicker">Isabella&rsquo;s day-of rules</div>
+        <h2>The four things that go wrong</h2>
+        <div class="facts" id="factList"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="card" style="margin-bottom:22px">
+    <div class="kicker">More from Everlasting Memories</div>
+    <h2>The rest of the toolbox</h2>
+    <p class="hint">The Day-Of Card is the last ten minutes. These are the weeks before it.</p>
+    <div class="cross" id="crossLinks"></div>
+  </div>
+</div>
+
+<footer>
+  <p class="strip">
+    <a href="day-of-card.html" style="color:#c2410c;font-weight:600;">The Day-Of Card</a> ·
+    <a href="vendor-board.html" style="color:#e8b17a;font-weight:600;">The Vendor Board</a> ·
+    <a href="main-course.html" style="color:#e8b17a;font-weight:600;">The Main Course</a> ·
+    <a href="paper-trail.html" style="color:#e8b17a;font-weight:600;">The Paper Trail</a> ·
+    <a href="glow-up.html" style="color:#e879f9;font-weight:600;">The Glow Up</a> ·
+    <a href="sky-installer.html" style="color:#ffdca6;font-weight:600;">The Sky Installer</a> ·
+    <a href="sip-station.html" style="color:#f0c987;font-weight:600;">The Sip Station</a> ·
+    <a href="favor-bar.html" style="color:#bef264;font-weight:600;">The Favor Bar</a> ·
+    <a href="party-timeline.html" style="color:#eed9a6;font-weight:600;">The Party Timeline</a> ·
+    <a href="cost-estimator.html" style="color:#eed9a6;font-weight:600;">The Cost Estimator</a>
+  </p>
+</footer>
+<script>
+/* ---------------- Night 54 — The Day-Of Card engine ---------------- */
+var $ = function(id){ return document.getElementById(id); };
+function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g, function(c){
+  return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+
+/* ---- occasions ---- */
+var OCCASIONS = [
+  {id:'wedding',   emoji:'💍', name:'Wedding',          tone:'the full cast',   note:'Every vendor matters and the timeline is unforgiving. Print two cards — one for you, one for the helper.'},
+  {id:'birthday',  emoji:'🎂', name:'Milestone Birthday',tone:'music, cake, photos', note:'Three vendors carry a birthday: the food, the cake and whoever runs the music. Guard the cake-cutting time.'},
+  {id:'baby',      emoji:'🍼', name:'Baby Shower',      tone:'calm and pretty',  note:'Short party, few vendors. The risk is the room being ready before guests arrive — not the run sheet.'},
+  {id:'graduation',emoji:'🎓', name:'Graduation',       tone:'crowd control',    note:'Guests arrive in waves and leave in waves. Parking and overflow seating are your real vendors.'},
+  {id:'anniversary',emoji:'🥂',name:'Anniversary',      tone:'intimate, small',  note:'Fewer moving parts, so every one is visible. The toast and the music cue are the whole evening.'},
+  {id:'corporate', emoji:'🏢', name:'Corporate',        tone:'on the clock',     note:'A hard start time and an AV vendor. If the room is not set 90 minutes early, the event starts late in public.'},
+  {id:'holiday',   emoji:'🎄', name:'Holiday Party',    tone:'the room carries it', note:'Decor does more work than any vendor. Heat and cost per head are the two numbers to watch.'}
+];
+
+/* ---- call-list roles (defaults pre-filled) ---- */
+var ROLES = [
+  {id:'venue',     emoji:'🏛️', name:'Venue',            hint:'Opens the doors. Ask for the site contact, not the office.'},
+  {id:'caterer',   emoji:'🍽️', name:'Caterer',          hint:'The vendor your guests will judge the whole party by.'},
+  {id:'music',     emoji:'🎧', name:'DJ / Band',        hint:'Confirm the first-song cue and the last-song time.'},
+  {id:'photographer',emoji:'📸',name:'Photographer',    hint:'Confirm how long they stay past the cake.'},
+  {id:'cake',      emoji:'🎂', name:'Cake & Dessert',   hint:'Confirm delivery time AND whether they set it up.'},
+  {id:'decor',     emoji:'🎈', name:'Decor / Balloons', hint:'Ask exactly when they arrive — decor eats the room early.'},
+  {id:'officiant', emoji:'📜', name:'Officiant',        hint:'The one contact who cannot be late.'},
+  {id:'bar',       emoji:'🍸', name:'Bar / Bartender',  hint:'Confirm ice delivery separately from the drinks.'},
+  {id:'rentals',   emoji:'🪑', name:'Rentals',          hint:'Tables and chairs arrive first and leave last.'},
+  {id:'transport', emoji:'🚐', name:'Transportation',   hint:'The last thing booked and the first thing blamed.'}
+];
+
+/* ---- pre-doors run sheet: minutes BEFORE doors ---- */
+var RUNSHEET = [
+  {min:240, label:'Venue access — you are on site',              why:'You cannot fix a room you have not stood in.'},
+  {min:180, label:'Rentals delivered and placed',                why:'Tables and chairs set before anything is dressed.'},
+  {min:150, label:'Decor / balloons installed',                  why:'Decor needs the empty room, not the finished one.'},
+  {min:120, label:'Caterer arrives and sets the kitchen',        why:'The caterer needs a working kitchen before guests, not after.'},
+  {min:90,  label:'Bar set and ice in the cooler',               why:'Ice is the first thing a party runs out of.'},
+  {min:60,  label:'Music set up and soundchecked',               why:'A band testing levels while guests arrive kills the entrance.'},
+  {min:45,  label:'Cake delivered and staged out of sight',      why:'A cake on display early is a cake someone touches.'},
+  {min:30,  label:'Yourself dressed, phone charged, card in pocket', why:'This is the item hosts skip and regret.'},
+  {min:15,  label:'Lights on, candles lit, doors unlatched',     why:'The last fifteen minutes decide the first impression.'}
+];
+
+var FACTS = [
+  {n:'2',      t:'cards — one for the host, one for the second-in-command'},
+  {n:'90 min', t:'before the doors when you stop taking new problems'},
+  {n:'1',      t:'number per role — never a switchboard'},
+  {n:'48 h',   t:'before the party when every vendor gets a text'}
+];
+
+var CROSS = [
+  ['vendor-board.html','The Vendor Board'],
+  ['party-timeline.html','The Party Timeline'],
+  ['cost-estimator.html','The Cost Estimator'],
+  ['main-course.html','The Main Course'],
+  ['paper-trail.html','The Paper Trail'],
+  ['party-er.html','The Party ER']
+];
+
+/* ---------------- state ---------------- */
+function blankLine(role){
+  return {role:role.id, emoji:role.emoji, name:role.name, contact:'', arrive:'', on:false};
+}
+
+function freshState(){
+  var st = {
+    occasion:'wedding',
+    eventName:"Ana & Luis's Wedding",
+    venue:'The Willow Barn',
+    date:'2026-06-20',
+    doors:'17:00',
+    guests:120,
+    host:'Ana',
+    helper:'',
+    foodMode:'full',
+    bar:'wine',
+    emergency:'If the caterer is late: call Marco on the mobile, not the office.',
+    lines:[], done:{}
+  };
+  st.lines = ROLES.slice(0,6).map(function(r,i){
+    var l = blankLine(r);
+    l.on = true;
+    if (i===0){ l.contact='Willow Barn Events'; l.arrive='12:00'; }
+    if (i===1){ l.contact=''; l.arrive='14:00'; }
+    return l;
+  });
+  return st;
+}
+
+var state = freshState();
+
+/* ---------------- time helpers ---------------- */
+function toMin(hhmm){
+  var p = String(hhmm||'').split(':');
+  var h = parseInt(p[0],10), m = parseInt(p[1],10);
+  if (isNaN(h) || isNaN(m)) return null;
+  return h*60+m;
+}
+function toHHMM(min){
+  if (min==null) return '';
+  min = ((min % 1440) + 1440) % 1440;
+  var h = Math.floor(min/60), m = min%60;
+  return (h<10?'0':'')+h+':'+(m<10?'0':'')+m;
+}
+function prettyTime(hhmm){
+  var m = toMin(hhmm); if (m==null) return '';
+  var h = Math.floor(m/60), mm = m%60;
+  var ap = h>=12 ? 'PM' : 'AM';
+  var h12 = h%12; if (h12===0) h12 = 12;
+  return h12 + (mm ? ':'+(mm<10?'0':'')+mm : ':00') + ' ' + ap;
+}
+var DAY = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+var MON = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+function prettyDate(iso){
+  if (!iso) return '';
+  var p = String(iso).split('-');
+  var y = parseInt(p[0],10), mo = parseInt(p[1],10), d = parseInt(p[2],10);
+  if (isNaN(y)||isNaN(mo)||isNaN(d)) return String(iso);
+  var dt = new Date(Date.UTC(y, mo-1, d));
+  return DAY[dt.getUTCDay()] + ', ' + MON[mo-1] + ' ' + d;
+}
+function hoursToDoors(){
+  var d = toMin(state.doors);
+  if (d==null) return null;
+  return d;
+}
+
+/* ---------------- readiness ---------------- */
+function readiness(){
+  var on = activeLines();
+  var withContact = on.filter(function(l){ return String(l.contact||'').trim(); });
+  var withArrive  = on.filter(function(l){ return String(l.arrive||'').trim(); });
+  var tasks = RUNSHEET.length;
+  var ticked = RUNSHEET.filter(function(t,i){ return state.done[i]; }).length;
+
+  var score = 0;
+  var notes = [];
+  if (on.length){ score += Math.round(30 * withContact.length / on.length); }
+  if (on.length){ score += Math.round(25 * withArrive.length / on.length); }
+  score += Math.round(25 * ticked / tasks);
+  if (String(state.helper||'').trim()) score += 10; else notes.push('No second-in-command named — on the day you are the only person who knows anything.');
+  if (String(state.emergency||'').trim()) score += 10; else notes.push('No worst-case line — write one before you print.');
+  score = Math.max(0, Math.min(100, score));
+
+  if (!withContact.length) notes.push('No vendor has a number yet. A call list without numbers is a list of regrets.');
+  else if (withContact.length < on.length) notes.push((on.length - withContact.length) + ' vendor(s) still have no contact on the card.');
+  if (!withArrive.length) notes.push('No arrival times set — the run sheet cannot warn you what is late.');
+
+  var tier = score>=90 ? 'Full Isabella' : score>=75 ? 'Print-ready' :
+             score>=55 ? 'Mostly there' : score>=30 ? 'Still a draft' : 'Barely started';
+  return {score:score, tier:tier, notes:notes, on:on.length, withContact:withContact.length, withArrive:withArrive.length, ticked:ticked, tasks:tasks};
+}
+
+function activeLines(){ return state.lines.filter(function(l){ return l.on; }); }
+
+/* ---------------- SVG / DOM build ---------------- */
+function renderChips(){
+  $('occChips').innerHTML = OCCASIONS.map(function(o){
+    var sel = o.id===state.occasion ? ' sel' : '';
+    return '<button class="chip'+sel+'" data-occ="'+o.id+'">'+o.emoji+' '+esc(o.name)+'</button>';
+  }).join('');
+  var occ = OCCASIONS.filter(function(o){ return o.id===state.occasion; })[0];
+  $('occNote').textContent = occ ? occ.note : '';
+
+  $('roleChips').innerHTML = ROLES.map(function(r){
+    var used = state.lines.some(function(l){ return l.role===r.id; });
+    return '<button class="chip sm'+(used?' sel':'')+'" data-add="'+r.id+'">'+r.emoji+' '+esc(r.name)+'</button>';
+  }).join('');
+}
+
+function renderCallList(){
+  $('callList').innerHTML = state.lines.map(function(l,i){
+    return ''+
+    '<div class="vrow" data-i="'+i+'">'+
+      '<label class="vchk"><input type="checkbox" data-on="'+i+'"'+(l.on?' checked':'')+'></label>'+
+      '<div class="vname">'+esc(l.emoji)+' '+esc(l.name)+'</div>'+
+      '<input class="vin" type="text" placeholder="Name &amp; number" data-f="contact" data-i="'+i+'" value="'+esc(l.contact)+'">'+
+      '<input class="vin sm" type="time" data-f="arrive" data-i="'+i+'" value="'+esc(l.arrive)+'">'+
+      '<button class="xbtn" data-del="'+i+'" title="Remove">&times;</button>'+
+    '</div>';
+  }).join('') || '<p class="hint">No lines yet — add one below.</p>';
+}
+
+function renderRunSheet(){
+  $('runSheet').innerHTML = RUNSHEET.map(function(t,i){
+    var at = null; var doors = toMin(state.doors);
+    if (doors!=null) at = doors - t.min;
+    var late = at!=null && at < 0;
+    return ''+
+    '<label class="rsrow'+(state.done[i]?' done':'')+'">'+
+      '<input type="checkbox" data-task="'+i+'"'+(state.done[i]?' checked':'')+'>'+
+      '<span class="rstime">'+(at==null?'—':esc(prettyTime(toHHMM(at))))+'</span>'+
+      '<span class="rstext"><b>'+esc(t.label)+'</b><em>'+esc(t.why)+'</em></span>'+
+    '</label>';
+  }).join('');
+}
+
+function renderFacts(){
+  $('factList').innerHTML = FACTS.map(function(f){
+    return '<div class="fact"><div class="fn">'+esc(f.n)+'</div><div class="ft">'+esc(f.t)+'</div></div>';
+  }).join('');
+  $('crossLinks').innerHTML = CROSS.map(function(c){
+    return '<a class="xlink" href="'+c[0]+'">'+esc(c[1])+'</a>';
+  }).join('');
+}
+
+function renderMeter(){
+  var r = readiness();
+  var col = r.score>=75 ? 'var(--good)' : r.score>=50 ? 'var(--c1)' : 'var(--bad)';
+  $('readyMeter').innerHTML =
+    '<div class="meter"><div class="meterfill" style="width:'+r.score+'%;background:'+col+'"></div></div>'+
+    '<div class="meterlbl"><b>'+r.score+'%</b> · '+esc(r.tier)+'</div>'+
+    '<div class="mmstat">'+r.withContact+'/'+r.on+' vendors have a number · '+r.withArrive+'/'+r.on+' have an arrival · '+r.ticked+'/'+r.tasks+' pre-doors jobs ticked</div>';
+  $('readyNotes').innerHTML = r.notes.length
+    ? '<ul class="notes">'+r.notes.map(function(n){ return '<li>'+esc(n)+'</li>'; }).join('')+'</ul>'
+    : '<p class="ok">Nothing missing. Print it and stop working.</p>';
+}
+
+function renderCard(){
+  var r = readiness();
+  var on = activeLines();
+  var doors = toMin(state.doors);
+  var occ = OCCASIONS.filter(function(o){ return o.id===state.occasion; })[0];
+  var occName = occ ? occ.name : '';
+
+  var callRows = on.map(function(l){
+    var at = l.arrive ? prettyTime(l.arrive) : 'arrival not set';
+    return '<tr><td class="c-role">'+esc(l.emoji)+' '+esc(l.name)+'</td>'+
+           '<td class="c-who">'+(String(l.contact).trim()?esc(l.contact):'<span class="miss">add number</span>')+'</td>'+
+           '<td class="c-when">'+esc(at)+'</td></tr>';
+  }).join('');
+
+  var sched = RUNSHEET.map(function(t,i){
+    var at = doors!=null ? toHHMM(doors - t.min) : null;
+    return '<tr class="'+(state.done[i]?'t-done':'')+'"><td class="c-t">'+(at?esc(prettyTime(at)):'—')+'</td>'+
+           '<td class="c-txt">'+esc(t.label)+'</td></tr>';
+  }).join('');
+
+  var foodLbl = {full:'Full catering', partial:'Mains catered, sides homemade', diy:'All homemade'}[state.foodMode] || '';
+  var barLbl  = {full:'Full bar', wine:'Wine, beer & bubbles', dry:'Dry / zero-proof'}[state.bar] || '';
+
+  $('cardPreview').innerHTML = ''+
+  '<div class="dcard" id="dcard">'+
+    '<div class="dhead">'+
+      '<div class="dkick">'+esc(occ ? occ.emoji+' '+occName : 'Day of')+'</div>'+
+      '<div class="dname">'+esc(state.eventName || 'Your party')+'</div>'+
+      '<div class="dsub">'+esc(prettyDate(state.date))+' · doors '+esc(prettyTime(state.doors))+' · at '+esc(state.venue || 'venue TBC')+'</div>'+
+    '</div>'+
+    '<div class="dthree">'+
+      '<div><b>'+esc(String(state.guests||0))+'</b><span>guests</span></div>'+
+      '<div><b>'+esc(foodLbl)+'</b><span>food</span></div>'+
+      '<div><b>'+esc(barLbl)+'</b><span>drinks</span></div>'+
+    '</div>'+
+    '<div class="dsec"><div class="dsec-h">Call list</div>'+
+      '<table class="ctable">'+callRows+'</table></div>'+
+    '<div class="dsec"><div class="dsec-h">Before the doors</div>'+
+      '<table class="ctable sched">'+sched+'</table></div>'+
+    (String(state.emergency||'').trim()
+      ? '<div class="demerg"><b>If it goes wrong</b><br>'+esc(state.emergency)+'</div>' : '')+
+    '<div class="dfoot">Second in command: '+esc(String(state.helper||'').trim()||'—')+' · Card ready '+esc(r.score+'%')+'</div>'+
+  '</div>';
+}
+
+function renderAll(){ renderChips(); renderCallList(); renderRunSheet(); renderFacts(); renderMeter(); renderCard(); }
+
+/* ---------------- events ---------------- */
+$('occChips').addEventListener('click', function(e){
+  var b = e.target.closest('[data-occ]'); if (!b) return;
+  state.occasion = b.getAttribute('data-occ'); renderAll();
+});
+$('roleChips').addEventListener('click', function(e){
+  var b = e.target.closest('[data-add]'); if (!b) return;
+  var id = b.getAttribute('data-add');
+  if (state.lines.some(function(l){ return l.role===id; })) return;
+  var r = ROLES.filter(function(x){ return x.id===id; })[0];
+  var l = blankLine(r); l.on = true;
+  state.lines.push(l); renderAll();
+});
+$('btnAddRole').addEventListener('click', function(){
+  var free = ROLES.filter(function(r){ return !state.lines.some(function(l){ return l.role===r.id; }); })[0];
+  if (!free) return;
+  var l = blankLine(free); l.on = true;
+  state.lines.push(l); renderAll();
+});
+$('callList').addEventListener('input', function(e){
+  var i = e.target.getAttribute('data-i'), f = e.target.getAttribute('data-f');
+  if (i==null || !f) return;
+  state.lines[+i][f] = e.target.value;
+  renderMeter(); renderCard();
+});
+$('callList').addEventListener('change', function(e){
+  var i = e.target.getAttribute('data-on');
+  if (i==null) return;
+  state.lines[+i].on = e.target.checked; renderAll();
+});
+$('callList').addEventListener('click', function(e){
+  var d = e.target.closest('[data-del]'); if (!d) return;
+  state.lines.splice(+d.getAttribute('data-del'),1); renderAll();
+});
+$('runSheet').addEventListener('change', function(e){
+  var t = e.target.getAttribute('data-task'); if (t==null) return;
+  state.done[+t] = e.target.checked;
+  e.target.closest('.rsrow').classList.toggle('done', e.target.checked);
+  renderMeter(); renderCard();
+});
+
+['inEvent','inVenue','inHost','inHelper','inEmergency'].forEach(function(id){
+  $(id).addEventListener('input', function(){
+    var map = {inEvent:'eventName', inVenue:'venue', inHost:'host', inHelper:'helper', inEmergency:'emergency'};
+    state[map[id]] = $(id).value; renderMeter(); renderCard();
+  });
+});
+$('inDate').addEventListener('input', function(){ state.date = $('inDate').value; renderCard(); });
+$('inDoors').addEventListener('input', function(){ state.doors = $('inDoors').value; renderRunSheet(); renderMeter(); renderCard(); });
+$('inGuests').addEventListener('input', function(){ state.guests = parseInt($('inGuests').value,10)||0; renderCard(); });
+$('inFoodMode').addEventListener('change', function(){ state.foodMode = $('inFoodMode').value; renderCard(); });
+$('inBar').addEventListener('change', function(){ state.bar = $('inBar').value; renderCard(); });
+
+/* ---- print: isolate the card ---- */
+$('btnPrint').addEventListener('click', function(){
+  var card = $('dcard');
+});
+$('btnPrint').addEventListener('click', function(){ window.print(); });
+
+/* ---- copy as text ---- */
+$('btnCopy').addEventListener('click', function(){
+  var on = activeLines();
+  var doors = toMin(state.doors);
+  var L = [];
+  L.push(state.eventName + ' — ' + prettyDate(state.date));
+  L.push('Doors ' + prettyTime(state.doors) + ' · ' + state.guests + ' guests · ' + (state.venue||''));
+  L.push('');
+  L.push('CALL LIST');
+  on.forEach(function(l){
+    L.push('  ' + l.emoji + ' ' + l.name + ': ' + (l.contact||'—') + (l.arrive ? ' (arrives '+prettyTime(l.arrive)+')' : ''));
+  });
+  L.push('');
+  L.push('BEFORE THE DOORS');
+  RUNSHEET.forEach(function(t,i){
+    var at = doors!=null ? prettyTime(toHHMM(doors - t.min)) : '—';
+    L.push('  [' + (state.done[i]?'x':' ') + '] ' + at + '  ' + t.label);
+  });
+  if (String(state.emergency||'').trim()){ L.push(''); L.push('IF IT GOES WRONG: ' + state.emergency); }
+  L.push('');
+  L.push('Second in command: ' + (state.helper||'—'));
+  var txt = L.join('\n');
+  if (navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt).then(function(){ toast('Card copied as text'); },
+      function(){ toast('Copy blocked — select the card manually'); });
+  } else { toast('Copy not available in this browser'); }
+});
+
+/* ---- toast + secret ---- */
+function toast(msg){
+  var t = document.createElement('div');
+  t.className = 'toast'; t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(function(){ t.classList.add('show'); }, 10);
+  setTimeout(function(){ t.classList.remove('show'); }, 2600);
+  setTimeout(function(){ t.remove(); }, 3000);
+}
+$('secretBadge').addEventListener('click', function(){
+  toast('Isabella’s day-of rule: the card is not a plan, it is an amnesia cure. Print two — one for you, one for the person who answers when you cannot.');
+});
+
+/* ---- lead POST ---- */
+function leadPayload(){
+  var r = readiness();
+  return {
+    name: state.host || 'Day-Of Card user',
+    email: '',
+    source: 'day-of-card',
+    eventType: (OCCASIONS.filter(function(o){return o.id===state.occasion;})[0]||{}).name || '',
+    message: 'Day-Of Card — ' + state.eventName + ' · ' + state.guests + ' guests · readiness ' + r.score + '% · ' + r.on + ' vendors, ' + r.withContact + ' with contact'
+  };
+}
+var lf = $('leadForm');
+if (lf) lf.addEventListener('submit', function(e){
+  e.preventDefault();
+  fetch('/api/leads', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(leadPayload())})
+    .then(function(){ toast('Saved — we will follow up.'); })
+    .catch(function(){ toast('Saved locally (offline).'); });
+});
+
+/* ---------------- boot ---------------- */
+(function boot(){
+  $('inEvent').value = state.eventName;
+  $('inVenue').value = state.venue;
+  $('inDate').value = state.date;
+  $('inDoors').value = state.doors;
+  $('inGuests').value = state.guests;
+  $('inHost').value = state.host;
+  $('inHelper').value = state.helper;
+  $('inEmergency').value = state.emergency;
+  $('inFoodMode').value = state.foodMode;
+  $('inBar').value = state.bar;
+  renderAll();
+})();
+</script>
+</body>
+</html>
