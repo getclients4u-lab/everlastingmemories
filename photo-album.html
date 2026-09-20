@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Photo Album — Party Photo Curation &amp; Album Planner | Everlasting Memories</title>
+<meta name="description" content="The first post-party tool on the site: turn 900 phone photos into the twelve-page album nobody ever makes. Shot-sort engine, print-size math, a spread builder, and a printable album plan.">
+<meta name="theme-color" content="#3d2b1f">
+<meta name="theme-color" content="#eef0f6">
+<meta property="og:title" content="The Photo Album — Party Photo Curation &amp; Album Planner | Everlasting Memories">
+<meta property="og:description" content="Fifty-four tools on this site produced something for before or during the party. The Photo Album is the first one for after it: what to do with 900 photos, which twelve matter, and how to print them.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+:root{--c1:#b45309;--c2:#4f46e5;--c3:#292524;--c3b:#57534e;--bg:#f7f6f3;--line:#e6e2d9;--ink:#292524;--soft:#78716c;--good:#15803d;--bad:#b91c1c}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.serif{font-family:'Playfair Display',Georgia,serif}
+a{color:var(--c1);text-decoration:none}
+a:hover{opacity:.85}
+.em-nav{display:flex;flex-wrap:wrap;align-items:center;gap:14px;padding:14px 22px;background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.em-nav-brand{font-family:'Playfair Display',serif;font-weight:700;font-size:1.15rem;color:var(--ink);margin-right:auto}
+.em-nav-brand span{color:var(--c1)}
+.em-nav a.nav-link{font-size:.85rem;font-weight:600;color:var(--ink);padding:6px 8px;border-radius:8px}
+.em-nav a.nav-link:hover{background:var(--bg)}
+.em-nav-cta{background:linear-gradient(135deg,var(--c3),#7c2d12);color:#fff8f0!important;padding:9px 16px;border-radius:999px;font-weight:600;font-size:.85rem;box-shadow:0 4px 14px rgba(41,37,36,.35)}
+.hero{max-width:1120px;margin:0 auto;padding:34px 22px 10px}
+.home-link{display:inline-block;font-size:.82rem;font-weight:600;color:var(--c1);margin-bottom:16px}
+.badge{display:inline-block;background:linear-gradient(135deg,var(--c3),#7c2d12);color:#fff8f0;font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:14px;cursor:pointer;user-select:none}
+.hero h1{font-size:clamp(2.1rem,5vw,3.3rem);line-height:1.1;color:var(--c3)}
+.hero .sub{margin-top:12px;max-width:860px;color:var(--soft);font-size:1.02rem}
+.hero .sub b{color:var(--ink)}
+.container{max-width:1120px;margin:0 auto;padding:22px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+@media(max-width:900px){.grid{grid-template-columns:1fr}}
+.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:0 10px 30px rgba(41,37,36,.05)}
+.card h2{font-size:1.35rem;color:var(--c3);margin-bottom:4px}
+.card .kicker{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c2);margin-bottom:2px}
+.card .hint{font-size:.82rem;color:var(--soft);margin-bottom:14px}
+.fg{margin-bottom:14px}
+.fg label{display:block;font-size:.76rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--ink);margin-bottom:5px}
+.fg input,.fg select,.fg textarea{width:100%;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;font:500 .92rem 'Inter',sans-serif;background:#fff;color:var(--ink)}
+.fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:var(--c1)}
+.fg textarea{min-height:64px;resize:vertical}
+.fg-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:520px){.fg-row{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+.chip{border:1.5px solid var(--line);background:#fff;border-radius:999px;padding:8px 14px;font:600 .82rem 'Inter',sans-serif;color:var(--ink);cursor:pointer;transition:all .15s}
+.chip:hover{border-color:var(--c1);color:var(--c1)}
+.chip.on{background:linear-gradient(135deg,var(--c3),#7c2d12);border-color:transparent;color:#fff8f0;box-shadow:0 4px 12px rgba(41,37,36,.3)}
+.chip .px{display:block;font-size:.66rem;font-weight:600;opacity:.85}
+.chip.on .px{opacity:.8}
+.range-wrap{display:flex;align-items:center;gap:14px}
+.range-wrap input[type=range]{flex:1;accent-color:var(--c2);height:34px}
+.big-read{min-width:118px;text-align:center;background:linear-gradient(135deg,var(--c3),#7c2d12);color:#fff8f0;border-radius:12px;padding:8px 10px;font-weight:700;font-size:.95rem}
+.big-read small{display:block;font-size:.6rem;font-weight:600;text-transform:uppercase;letter-spacing:.06em;opacity:.85}
+.note-line{margin-top:10px;background:var(--bg);border:1px dashed var(--line);border-radius:12px;padding:10px 14px;font-size:.83rem}
+.note-line b{color:var(--c3)}
+.btn{border:none;border-radius:999px;padding:11px 18px;font:700 .85rem 'Inter',sans-serif;cursor:pointer;transition:all .15s;background:#fff;color:#292524;border:1px solid var(--line)}
+.btn:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(0,0,0,.12)}
+.btn.primary{background:linear-gradient(135deg,#b45309,#7c2d12);color:#fff;border:none}
+.btn.ghost{background:var(--bg);color:var(--ink)}
+.btn-row{display:flex;flex-wrap:wrap;gap:10px}
+.quote{background:#fff;border-left:4px solid var(--c2);border-radius:0 16px 16px 0;padding:18px 20px;margin:24px 0;font-style:italic;color:var(--soft);font-size:.92rem}
+.quote b{color:var(--c3);font-style:normal}
+.bignum{font-family:'Playfair Display',serif;font-size:2.6rem;font-weight:700;color:var(--c3);line-height:1.05}
+.bignum small{font-size:1rem;color:var(--soft);font-weight:600}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:26px 0}
+@media(max-width:800px){.facts{grid-template-columns:repeat(2,1fr)}}
+.fact{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px 18px;text-align:center}
+.fact .f-num{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:700;color:var(--c3);display:block}
+.fact .f-txt{font-size:.76rem;color:var(--soft);margin-top:4px}
+.faq{margin:8px 0 26px}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin-bottom:10px}
+.faq summary{font-weight:700;font-size:.92rem;cursor:pointer;color:var(--c3)}
+.faq details p{font-size:.86rem;color:var(--soft);margin-top:8px}
+.cross{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.cross a{background:var(--bg);border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:.8rem;font-weight:600;color:var(--ink)}
+.cross a:hover{border-color:var(--c1);color:var(--c1)}
+/* shot sorter */
+.shot-bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:12px}
+.shot-bar .sb{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:8px 12px;font-size:.78rem;text-align:center;flex:1;min-width:96px}
+.shot-bar .sb b{display:block;font-family:'Playfair Display',serif;font-size:1.25rem;color:var(--c3)}
+.shot-bar .sb small{font-size:.62rem;text-transform:uppercase;letter-spacing:.06em;color:var(--soft)}
+.slot{margin-bottom:12px}
+.slot-top{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:5px}
+.slot-name{font-weight:700;font-size:.86rem;color:var(--c3)}
+.slot-name em{font-style:normal;color:var(--soft);font-weight:500;font-size:.76rem}
+.slot-keep{font-size:.72rem;color:var(--soft);white-space:nowrap}
+.slot-keep b{color:var(--c2)}
+.slot input[type=range]{width:100%;accent-color:var(--c1)}
+.slot .s-hint{font-size:.74rem;color:var(--soft);margin-top:3px}
+.slot.over .s-hint{color:var(--bad);font-weight:600}
+/* coverage meter */
+.meter{height:12px;background:var(--line);border-radius:999px;overflow:hidden;margin-top:8px}
+.meterfill{height:100%;border-radius:999px;transition:width .25s;background:linear-gradient(90deg,#b45309,#4f46e5)}
+.meterlbl{margin-top:8px;font-size:.86rem;color:var(--ink)}
+.meterlbl b{font-size:1.05rem;color:var(--c3)}
+.mmstat{font-size:.74rem;color:var(--soft);margin-top:5px}
+/* spread preview */
+.spread-stage{background:linear-gradient(160deg,#e9e6df,#dcd8cd);border:1px solid var(--line);border-radius:16px;padding:14px;overflow-x:auto}
+.spread-stage svg{display:block;width:100%;height:auto;min-width:600px}
+/* print plan */
+.plan{border:1.5px dashed var(--line);border-radius:14px;padding:18px 20px;background:#fff}
+.plan h3{font-size:.95rem;color:var(--c3);margin-bottom:8px}
+.plan table{width:100%;border-collapse:collapse;margin:6px 0 12px}
+.plan th{font-size:.66rem;text-transform:uppercase;letter-spacing:.07em;color:var(--soft);text-align:left;padding:5px 6px;border-bottom:1px solid var(--line)}
+.plan td{font-size:.8rem;padding:6px;border-bottom:1px dotted var(--line);color:var(--ink)}
+.plan td.r{text-align:right;font-weight:700;color:var(--c3);white-space:nowrap}
+.plan .tot td{border-top:1.5px solid var(--c3);border-bottom:none;font-weight:800;color:var(--c3)}
+.plan ul{margin:2px 0 12px 18px;font-size:.84rem;color:var(--soft)}
+.plan li{margin:3px 0}
+.plan li b{color:var(--ink)}
+.lead-card{background:linear-gradient(160deg,#292524,#4f46e5);color:#fff;border-radius:20px;padding:28px;margin-top:8px}
+.lead-card h2{color:#fff}
+.lead-card .kicker{color:#fcd9a5}
+.lead-card .hint{color:#d8d4f0}
+.lead-card label{color:#d8d4f0}
+.lead-card input,.lead-card select,.lead-card textarea{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.25);color:#fff}
+.lead-card input::placeholder,.lead-card textarea::placeholder{color:rgba(255,255,255,.55)}
+.lead-card input:focus,.lead-card select:focus,.lead-card textarea:focus{border-color:#fcd9a5}
+.lead-card select option{color:var(--ink)}
+.lead-card .btn-p{background:#fcd9a5;color:#292524;border:none}
+.lead-card .fine{font-size:.74rem;color:#d8d4f0;margin-top:10px}
+footer{background:var(--c3);color:#fff;margin-top:34px;padding:26px 22px 30px}
+footer .strip{font-size:.78rem;line-height:2;color:rgba(255,255,255,.75)}
+footer .strip a{color:#fff8f0;font-weight:600;margin-right:2px}
+footer .foot-brand{font-family:'Playfair Display',serif;font-size:1.1rem;margin-top:14px}
+footer .foot-brand span{color:#fff8f0}
+footer .copy{font-size:.72rem;color:rgba(255,255,255,.6);margin-top:6px}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(120%);background:var(--ink);color:#fff;padding:12px 22px;border-radius:999px;font-size:.85rem;font-weight:600;box-shadow:0 10px 30px rgba(0,0,0,.25);transition:transform .3s;z-index:99}
+.toast.show{transform:translateX(-50%) translateY(0)}
+.print-only{display:none}
+@media print{
+  .em-nav,.actions,.lead-card,.facts,.faq,.hero,.home-link,.badge,footer,.quote,.grid,.no-print,.toast,.cross{display:none!important}
+  body{background:#fff}
+  .print-only{display:block!important}
+}
+</style>
+</head>
+<body>
+<nav class="em-nav">
+  <span class="em-nav-brand">Everlasting <span>Memories</span></span>
+  <a class="nav-link" href="index.html">Home</a>
+  <a class="nav-link" href="services.html">Services</a>
+  <a class="nav-link" href="gallery.html">Gallery</a>
+  <div style="position:relative">
+    <a class="nav-link" href="after-glow.html">After-Glow</a>
+  </div>
+  <a class="em-nav-cta" href="contact.html">Get a Quote</a>
+</nav>
+<div class="hero">
+  <a class="home-link" href="index.html">&larr; Everlasting Memories</a>
+  <div class="badge" id="secretBadge" title="psst — tap me">🎞️ New Tonight — The Photo Album</div>
+  <h1>The Photo Album</h1>
+  <p class="sub">Fifty-four tools on this site produced something you use <b>before</b> the party or <b>during</b> it — a plan, a budget, a timeline, a seating chart, a card for your pocket. Not one of them has ever dealt with the thing you are left holding the morning after: <b>nine hundred photos</b>, spread across four phones, two group chats and a photographer&rsquo;s download link. The Photo Album is the site&rsquo;s first <b>post-party</b> tool. It sorts the pile into the twelve moments that actually matter, tells you which six to print big, and lays out a real twelve-page album you can order tonight instead of &ldquo;someday.&rdquo;</p>
+</div>
+<div class="container">
+  <div class="grid">
+    <!-- LEFT -->
+    <div>
+      <div class="card" style="margin-bottom:22px">
+        <div class="kicker">Step 1</div>
+        <h2>The pile</h2>
+        <p class="hint">How many photos came back, and in what kind of condition? This sets how hard the album has to work.</p>
+        <div class="fg">
+          <label>Occasion</label>
+          <div class="chips" id="occChips"></div>
+          <div class="note-line" id="occNote"></div>
+        </div>
+        <div class="fg-row">
+          <div class="fg"><label for="inEvent">Event name</label><input type="text" id="inEvent" placeholder="Ana &amp; Luis&rsquo;s Wedding"></div>
+          <div class="fg"><label for="inDate">Event date</label><input type="date" id="inDate"></div>
+        </div>
+        <div class="fg">
+          <label for="inTotal">Total photos in the pile</label>
+          <div class="range-wrap">
+            <input type="range" id="inTotal" min="100" max="3000" step="50" value="900">
+            <div class="big-read"><span id="outTotal">900</span><small>photos</small></div>
+          </div>
+          <div class="note-line" id="pileNote"></div>
+        </div>
+        <div class="fg" style="margin-bottom:0">
+          <label for="inSources">Where they came from</label>
+          <select id="inSources">
+            <option value="pro">Photographer + guests (900+)</option>
+            <option value="guest">Guests only (phone cameras)</option>
+            <option value="mixed">A mix — some pro, lots of phones</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:22px">
+        <div class="kicker">Step 2</div>
+        <h2>Sort the pile into twelve moments</h2>
+        <p class="hint">Isabella&rsquo;s rule: an album is not a photo dump, it is <b>twelve moments you would tell someone about</b>. Set how many shots survive from each. The engine shows you the keeps and warns you when a moment is stealing the album.</p>
+        <div id="slotList"></div>
+      </div>
+
+      <div class="card" style="margin-bottom:22px">
+        <div class="kicker">Step 3</div>
+        <h2>How the album lives</h2>
+        <p class="hint">Print size drives the spread count. Six big prints and the rest small is how a real album breathes — every photo the same size is a slideshow, not an album.</p>
+        <div class="fg-row">
+          <div class="fg"><label for="inBig">Big prints (8&times;10 or larger)</label>
+            <select id="inBig">
+              <option value="0">None — all uniform</option>
+              <option value="4">4 hero prints</option>
+              <option value="6" selected>6 hero prints</option>
+              <option value="8">8 hero prints</option>
+            </select>
+          </div>
+          <div class="fg"><label for="inPages">Album pages</label>
+            <select id="inPages">
+              <option value="8">8 pages (lean)</option>
+              <option value="12" selected>12 pages (standard)</option>
+              <option value="20">20 pages (keepsake)</option>
+              <option value="30">30 pages (heirloom)</option>
+            </select>
+          </div>
+        </div>
+        <div class="fg" style="margin-bottom:0">
+          <label for="inBleed">Photo style</label>
+          <select id="inBleed">
+            <option value="border">Bordered prints (classic)</option>
+            <option value="full">Full-bleed spreads (modern)</option>
+            <option value="grid">Tight grid (many per spread)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div>
+      <div class="card" style="margin-bottom:22px">
+        <div class="kicker">The album</div>
+        <h2>A twelve-page album, from your pile</h2>
+        <p class="hint">A live preview of the spreads your choices produce. Nothing here exists anywhere else in one place.</p>
+        <div class="spread-stage"><div id="spreadSvg"></div></div>
+        <div class="shot-bar" id="shotBar" style="margin-top:14px"></div>
+        <div class="btn-row" style="margin-top:6px">
+          <button class="btn primary" id="btnPrint">🖨️ Print the album plan</button>
+          <button class="btn ghost" id="btnCopy">Copy as text</button>
+        </div>
+      </div>
+
+      <div class="card" style="margin-bottom:22px">
+        <div class="kicker">Readout</div>
+        <h2>How well does this album hold together?</h2>
+        <div id="meterBox"></div>
+        <div id="meterNotes" style="margin-top:12px"></div>
+      </div>
+
+      <div class="card">
+        <div class="kicker">The plan</div>
+        <h2>Print order &amp; Isabella&rsquo;s rules</h2>
+        <div id="planBox"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="facts" id="factList"></div>
+</div>
+
+<div class="container">
+  <div class="card" style="margin-bottom:22px">
+    <div class="kicker">Then what?</div>
+    <h2>Hand it off</h2>
+    <p class="hint">Once the album is planned, story it with the words and the paper that came before.</p>
+    <div class="cross" id="crossLinks"></div>
+  </div>
+
+  <div class="card lead-card">
+    <div class="kicker">Get help finishing it</div>
+    <h2>Send me my album plan</h2>
+    <p class="hint">We will reply with your spread list, print order and a print-ready check. No spam, ever.</p>
+    <form id="leadForm">
+      <div class="fg-row">
+        <div class="fg"><label for="lfName">Your name</label><input type="text" id="lfName" placeholder="Ana"></div>
+        <div class="fg"><label for="lfEmail">Email</label><input type="email" id="lfEmail" placeholder="you@email.com"></div>
+      </div>
+      <div class="fg" style="margin-bottom:0">
+        <label for="lfNote">Anything about the pile we should know? <span style="text-transform:none;font-weight:500">(optional)</span></label>
+        <textarea id="lfNote" placeholder="Two photographers, one of them got everyone eating..."></textarea>
+      </div>
+      <button class="btn btn-p" type="submit" style="margin-top:14px">Send my album plan</button>
+      <p class="fine">Your pile stays yours — we never post anything without asking.</p>
+    </form>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <p class="strip">
+      <a href="photo-album.html" style="color:#fcd9a5;font-weight:600;">The Photo Album</a> ·
+      <a href="day-of-card.html" style="color:#e8b17a;font-weight:600;">The Day-Of Card</a> ·
+      <a href="vendor-board.html" style="color:#e8b17a;font-weight:600;">The Vendor Board</a> ·
+      <a href="after-glow.html" style="color:#e8b17a;font-weight:600;">The After-Glow</a> ·
+      <a href="paper-trail.html" style="color:#e8b17a;font-weight:600;">The Paper Trail</a> ·
+      <a href="memory-wall.html" style="color:#e8b17a;font-weight:600;">The Memory Wall</a> ·
+      <a href="memory-capsule.html" style="color:#e8b17a;font-weight:600;">The Memory Capsule</a> ·
+      <a href="photo-booth.html" style="color:#e8b17a;font-weight:600;">The Golden Hour Booth</a> ·
+      <a href="transformations.html" style="color:#e8b17a;font-weight:600;">The Big Reveal</a>
+    </p>
+    <p class="foot-brand">Everlasting <span>Memories</span></p>
+    <p class="copy">&copy; 2026 Everlasting Memories · Handmade balloons &amp; events, Connecticut</p>
+  </div>
+</footer>
+
+<script>
+/* ---------------- Night 55 — The Photo Album engine ---------------- */
+var $ = function(id){ return document.getElementById(id); };
+function esc(s){ return String(s==null?'':s).replace(/[&<>"']/g, function(c){
+  return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]; }); }
+
+/* ---- occasions ---- */
+var OCCASIONS = [
+  {id:'wedding',    emoji:'💍', name:'Wedding',        note:'The pile is huge and the day was long. Twelve moments still covers it — ceremony, first look, first dance, the two grandmothers.'},
+  {id:'birthday',   emoji:'🎂', name:'Milestone Birthday', note:'Fewer photos, more feeling. The cake moment and the guests-of-honour faces are the whole album.'},
+  {id:'baby',       emoji:'🍼', name:'Baby Shower',    note:'A short party with soft light. Pick the moments where the guest of honour is actually in frame.'},
+  {id:'graduation', emoji:'🎓', name:'Graduation',     note:'Crowd shots kill graduation albums. One wide for scale, then faces, faces, faces.'},
+  {id:'anniversary',emoji:'🥂', name:'Anniversary',    note:'Intimate and dark-roomed. The two of them together, twice, beats forty table shots.'},
+  {id:'corporate',  emoji:'🏢', name:'Corporate',      note:'A record, not a romance. Name tags, the speaker, the handshake, the team — in that order.'},
+  {id:'holiday',    emoji:'🎄', name:'Holiday Party',  note:'The room does most of the work. Shoot the decor early while it is still clean and lit.'}
+];
+
+/* ---- twelve moments (slots) ---- */
+var SLOTS = [
+  {id:'arrival',   emoji:'🚪', name:'The Arrival',        hint:'Empty room, first guests, the doors opening.'},
+  {id:'details',   emoji:'✨', name:'The Details',        hint:'Place cards, the cake before it is cut, the flowers.'},
+  {id:'portraits', emoji:'🤝', name:'The Portraits',      hint:'The two of them, then family groups, standing still.'},
+  {id:'candid',    emoji:'😄', name:'The Candids',        hint:'Nobody looking at the camera. This is where albums live.'},
+  {id:'ceremony',  emoji:'📜', name:'The Ceremony',       hint:'The vows, the ring, the moment it actually happened.'},
+  {id:'feast',     emoji:'🍽️', name:'The Feast',          hint:'The table, the first bite, the toast being raised.'},
+  {id:'speech',    emoji:'🎤', name:'The Speeches',       hint:'Whoever is holding the mic — and the faces listening.'},
+  {id:'cake',      emoji:'🎂', name:'The Cake',           hint:'Cut, feed, laugh. Three frames minimum, no more than eight.'},
+  {id:'dance',     emoji:'💃', name:'The First Dance',    hint:'The floor is full and the lights are low. Shoot wide, then close.'},
+  {id:'party',     emoji:'🎉', name:'The Party',          hint:'Late night, shoes off, the real party underneath the party.'},
+  {id:'guestbook', emoji:'✍️', name:'The Guestbook',      hint:'Signatures, notes, the wall of names for years from now.'},
+  {id:'departure', emoji:'🌙', name:'The Departure',      hint:'The last goodbyes, the sparkler line, the car pulling away.'}
+];
+
+var FACTS = [
+  {n:'12',     t:'moments — the number Isabella says an album can actually carry'},
+  {n:'1 in 60',t:'how many of the pile actually earns a page'},
+  {n:'6',      t:'hero prints — the difference between an album and a slideshow'},
+  {n:'36 h',   t:'after the party when the pile is still small enough to face'}
+];
+
+var CROSS = [
+  ['after-glow.html','The After-Glow'],
+  ['paper-trail.html','The Paper Trail'],
+  ['memory-wall.html','The Memory Wall'],
+  ['memory-capsule.html','The Memory Capsule'],
+  ['photo-booth.html','The Golden Hour Booth'],
+  ['day-of-card.html','The Day-Of Card']
+];
+
+/* ---------------- state ---------------- */
+function freshState(){
+  var st = {
+    occasion:'wedding',
+    eventName:"Ana & Luis's Wedding",
+    date:'2026-06-20',
+    total:900,
+    sources:'pro',
+    big:6,
+    pages:12,
+    bleed:'border',
+    keeps:{}
+  };
+  SLOTS.forEach(function(s){ st.keeps[s.id] = 4; });
+  st.keeps.candid = 8;
+  st.keeps.details = 6;
+  st.keeps.dance = 6;
+  return st;
+}
+var state = freshState();
+var MAXPER = 10;
+
+/* ---------------- math ---------------- */
+function totalKeeps(){
+  return SLOTS.reduce(function(a,s){ return a + (state.keeps[s.id]||0); }, 0);
+}
+function capacityPerPage(){
+  if (state.bleed === 'grid') return 6;
+  if (state.bleed === 'full') return 2;
+  return 3;
+}
+function capacity(){ return state.pages * capacityPerPage(); }
+function coverageTier(pct){
+  if (pct >= 92) return {t:'Full album — nothing important left out', c:'#15803d'};
+  if (pct >= 75) return {t:'A real album — reads like the day', c:'#4f46e5'};
+  if (pct >= 55) return {t:'Thin — add a page or two', c:'#b45309'};
+  if (pct >= 30) return {t:'A highlight reel, not an album', c:'#b45309'};
+  return {t:'A postcard set', c:'#b91c1c'};
+}
+function verdict(){
+  var keeps = totalKeeps();
+  var cap = capacity();
+  var pct = cap ? Math.round(keeps / cap * 100) : 100;
+  var perThousand = state.total ? (1000 / state.total) : 0;
+  return {keeps:keeps, cap:cap, pct:pct, keepRate:Math.round(keeps)/state.total, perThousand:perThousand};
+}
+
+/* ---------------- render: chips + note ---------------- */
+function renderChips(){
+  var box = $('occChips'); box.innerHTML = '';
+  OCCASIONS.forEach(function(o){
+    var b = document.createElement('button');
+    b.className = 'chip' + (o.id === state.occasion ? ' on' : '');
+    b.innerHTML = '<span>' + o.emoji + ' ' + esc(o.name) + '</span>';
+    b.addEventListener('click', function(){ state.occasion = o.id; renderAll(); });
+    box.appendChild(b);
+  });
+  var o = OCCASIONS.filter(function(x){ return x.id === state.occasion; })[0] || OCCASIONS[0];
+  $('occNote').innerHTML = '<b>' + esc(o.name) + ':</b> ' + esc(o.note);
+}
+
+/* ---------------- render: slots ---------------- */
+function renderSlots(){
+  var box = $('slotList'); box.innerHTML = '';
+  SLOTS.forEach(function(s){
+    var val = state.keeps[s.id] || 0;
+    var over = val > MAXPER;
+    var d = document.createElement('div');
+    d.className = 'slot' + (over ? ' over' : '');
+    d.innerHTML = '<div class="slot-top"><span class="slot-name">' + s.emoji + ' ' + esc(s.name) + ' <em>' + esc(s.hint) + '</em></span>' +
+      '<span class="slot-keep">keep <b>' + val + '</b></span></div>' +
+      '<input type="range" min="0" max="' + MAXPER + '" step="1" value="' + val + '" data-slot="' + s.id + '">' +
+      '<div class="s-hint">' + (over ? 'That is a lot for one moment — ten is already generous.' : 'Up to ' + MAXPER + ' shots. Four to six is the sweet spot.') + '</div>';
+    box.appendChild(d);
+  });
+  box.querySelectorAll('input[type=range]').forEach(function(inp){
+    inp.addEventListener('input', function(){
+      state.keeps[inp.getAttribute('data-slot')] = parseInt(inp.value, 10);
+      renderAll();
+    });
+  });
+}
+
+/* ---------------- render: spread SVG ---------------- */
+function renderSpread(){
+  var v = verdict();
+  var pages = state.pages;
+  var cols = 3, PW = 150, PH = 180, GAP = 14, PAD = 10;
+  var rows = Math.ceil(pages / cols);
+  var W = PAD * 2 + cols * PW + (cols - 1) * GAP;
+  var H = PAD * 2 + rows * (PH + 66) + (rows - 1) * GAP;
+  var svg = ['<svg viewBox="0 0 ' + W + ' ' + H + '" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Album spread preview">'];
+  svg.push('<rect x="0" y="0" width="' + W + '" height="' + H + '" fill="#f7f6f3" rx="10"/>');
+  var perPage = capacityPerPage();
+  var placed = 0;
+  for (var p = 0; p < pages; p++){
+    var cx = PAD + (p % cols) * (PW + GAP);
+    var cy = PAD + Math.floor(p / cols) * (PH + 66 + GAP);
+    svg.push('<rect x="' + cx + '" y="' + cy + '" width="' + PW + '" height="' + PH + '" fill="#ffffff" stroke="#e6e2d9" rx="4"/>');
+    svg.push('<rect x="' + cx + '" y="' + (cy + PH) + '" width="' + PW + '" height="58" fill="#ffffff" stroke="#e6e2d9" rx="4"/>');
+    /* photo frames */
+    var layout;
+    if (perPage === 2) layout = [[8,8,PW-16,PH*0.55],[8,PH*0.55+12,PW-16,PH*0.37]];
+    else if (perPage === 3) layout = [[8,8,PW-16,PH*0.46],[8,PH*0.46+10,PW-16,0.22*PH],[8,PH*0.68+12,PW-16,0.24*PH]];
+    else { layout = []; for (var i=0;i<6;i++){ var c=i%2, r=Math.floor(i/2); layout.push([8+c*(PW/2-6), 8+r*(PH/3+2), PW/2-14, PH/3-12]); } }
+    layout.forEach(function(fr){
+      var isBig = (p === 0 && fr[1] === 8);
+      svg.push('<rect x="' + (cx+fr[0]) + '" y="' + (cy+fr[1]) + '" width="' + fr[2] + '" height="' + fr[3] + '" fill="' + (isBig ? '#f6e3c4' : '#ece9e2') + '" stroke="#d9d4c8" rx="3"/>');
+      svg.push('<circle cx="' + (cx+fr[0]+fr[2]/2 - 8) + '" cy="' + (cy+fr[1]+fr[3]/2) + '" r="3" fill="#c9c2b4"/>');
+      svg.push('<circle cx="' + (cx+fr[0]+fr[2]/2 + 4) + '" cy="' + (cy+fr[1]+fr[3]/2-4) + '" r="4.5" fill="#b6ae9e"/>');
+    });
+    placed += perPage;
+    /* caption line */
+    svg.push('<line x1="' + (cx+10) + '" y1="' + (cy+PH+16) + '" x2="' + (cx+PW*0.6) + '" y2="' + (cy+PH+16) + '" stroke="#d9d4c8" stroke-width="4" stroke-linecap="round"/>');
+    svg.push('<line x1="' + (cx+10) + '" y1="' + (cy+PH+28) + '" x2="' + (cx+PW*0.4) + '" y2="' + (cy+PH+28) + '" stroke="#e6e2d9" stroke-width="3" stroke-linecap="round"/>');
+    svg.push('<text x="' + (cx+10) + '" y="' + (cy+PH+50) + '" font-family="Inter,sans-serif" font-size="9" fill="#9a938a">p.' + (p+1) + '</text>');
+  }
+  svg.push('</svg>');
+  $('spreadSvg').innerHTML = svg.join('');
+}
+
+/* ---------------- render: shot bar ---------------- */
+function renderShotBar(){
+  var v = verdict();
+  var momentsFilled = SLOTS.filter(function(s){ return (state.keeps[s.id]||0) > 0; }).length;
+  var keeps = v.keeps;
+  var cap = v.cap;
+  var cut = state.total - keeps;
+  var bar = [
+    ['var(--c3)','#292524', keeps, 'photos kept'],
+    ['#c2410c','#c2410c', cut < 0 ? 0 : cut, 'left behind'],
+    ['#4f46e5','#4f46e5', momentsFilled + '/12', 'moments filled'],
+    ['#b45309','#b45309', cap, 'page capacity']
+  ];
+  $('shotBar').innerHTML = bar.map(function(b){
+    return '<div class="sb"><b style="color:' + b[2] + '">' + b[2] + '</b><small>' + b[3] + '</small></div>'.replace('style="color:'+b[2]+'"','') ;
+  }).join('');
+  /* simpler + correct: rebuild */
+  $('shotBar').innerHTML = bar.map(function(b){
+    return '<div class="sb"><b>' + b[2] + '</b><small>' + b[3] + '</small></div>';
+  }).join('');
+}
+
+/* ---------------- render: meter ---------------- */
+function renderMeter(){
+  var v = verdict();
+  var pct = Math.max(0, Math.min(100, v.pct));
+  var tier = coverageTier(pct);
+  $('meterBox').innerHTML =
+    '<div class="meter"><div class="meterfill" style="width:' + pct + '%"></div></div>' +
+    '<div class="meterlbl"><b>' + pct + '%</b> of the album is filled — ' + esc(tier.t) + '</div>' +
+    '<div class="mmstat">' + v.keeps + ' keeps across ' + SLOTS.filter(function(s){return (state.keeps[s.id]||0)>0;}).length + ' of 12 moments, ' +
+    capacityPerPage() + ' photos per page, ' + state.pages + ' pages.</div>';
+
+  var notes = [];
+  var over = SLOTS.filter(function(s){ return (state.keeps[s.id]||0) > MAXPER; });
+  if (over.length) notes.push('Trim <b>' + over.map(function(s){return esc(s.name);}).join(', ') + '</b> — a single moment should not run past ten.');
+  var empty = SLOTS.filter(function(s){ return (state.keeps[s.id]||0) === 0; });
+  if (empty.length > 3) notes.push('<b>' + empty.length + ' moments are empty.</b> An album missing the cake and the guestbook will feel incomplete in five years.');
+  else if (empty.length) notes.push('No shots yet for <b>' + empty.map(function(s){return esc(s.name);}).join(', ') + '</b>.');
+  if (pct > 100) notes.push('The album is <b>over capacity</b> — add pages or trim ' + (v.keeps - v.cap) + ' keeps.');
+  if (pct >= 75 && pct <= 100) notes.push('This is the sweet spot: <b>full enough to remember, tight enough to actually print.</b>');
+  if (state.big === 0) notes.push('<b>No hero prints.</b> Isabella: every photo the same size is a slideshow. Give six moments a big frame.');
+  if (state.sources === 'guest') notes.push('Phone-only piles are <b>grainy in low light.</b> Lean on the wide shots and skip the dark dance-floor frames.');
+  if (String(state.eventName||'').trim() === '') notes.push('Give the album a <b>title</b> — a plain "Album 2026" never gets opened.');
+  $('meterNotes').innerHTML = '<ul class="notes">' + notes.map(function(n){ return '<li>' + n + '</li>'; }).join('') + '</ul>';
+  if (!notes.length) $('meterNotes').innerHTML = '<div class="note-line"><b>Beautiful.</b> Twelve moments, a full album, six hero prints — this is the one that gets opened in twenty years.</div>';
+}
+
+/* ---------------- render: plan ---------------- */
+function renderPlan(){
+  var v = verdict();
+  var pricePerPage = state.bleed === 'full' ? 9 : (state.bleed === 'grid' ? 6 : 7);
+  var heroCost = state.big * 3.5;
+  var pageCost = state.pages * pricePerPage;
+  var total = heroCost + pageCost;
+  var rows = SLOTS.filter(function(s){ return (state.keeps[s.id]||0) > 0; }).map(function(s){
+    return '<tr><td>' + s.emoji + ' ' + esc(s.name) + '</td><td class="r">' + (state.keeps[s.id]||0) + '</td><td class="r">' + (state.big > 0 && ['cake','dance','portraits','ceremony'].indexOf(s.id) >= 0 ? '★' : '') + '</td></tr>';
+  }).join('');
+  if (!rows) rows = '<tr><td colspan="3" style="color:#b91c1c">Nothing kept yet — move a slider.</td></tr>';
+
+  var html = '';
+  html += '<div class="plan">';
+  html += '<h3>' + esc(state.eventName || 'Your album') + '</h3>';
+  html += '<table><thead><tr><th>Moment</th><th class="r">Keeps</th><th class="r">Hero</th></tr></thead><tbody>' + rows + '</tbody>' +
+    '<tr class="tot"><td>Album total</td><td class="r">' + v.keeps + '</td><td class="r">' + state.big + '</td></tr></table>';
+  html += '<h3 style="margin-top:14px">Print order</h3>';
+  html += '<table><tbody>' +
+    '<tr><td>' + state.pages + ' album pages (' + esc(state.bleed) + ')</td><td class="r">$' + pageCost + '</td></tr>' +
+    '<tr><td>' + state.big + ' hero prints (8&times;10)</td><td class="r">$' + heroCost.toFixed(2) + '</td></tr>' +
+    '<tr class="tot"><td>Estimated print cost</td><td class="r">$' + total.toFixed(2) + '</td></tr>' +
+    '</tbody></table>';
+  html += '<h3 style="margin-top:14px">The rules that make it hold</h3><ul>' +
+    '<li><b>Twelve moments, not twelve hundred photos.</b> An album is a story you would tell out loud — every photo the same weight tells nothing.</li>' +
+    '<li><b>Six hero prints.</b> Blow up the kiss, the cake, the first dance. The contrast is what makes a page feel like a moment.</li>' +
+    '<li><b>Print within six weeks.</b> The pile only gets heavier and the codes to download it only get more expired.</li>' +
+    '<li><b>Caption the candids.</b> In five years you will know every face — but you will have forgotten why everyone was laughing.</li>' +
+    '</ul>';
+  /* secret #31 */
+  html += '<p style="font-size:.84rem;color:#78716c;font-style:italic">The Photo Album — Isabella&rsquo;s rule #31: the album you never make is the party you slowly forget. Order the twelve pages and the six big prints tonight; the shoebox never opens.</p>';
+  html += '</div>';
+  $('planBox').innerHTML = html;
+}
+
+/* ---------------- render all ---------------- */
+function renderAll(){
+  renderChips(); renderSlots(); renderSpread(); renderShotBar(); renderMeter(); renderPlan(); renderFacts(); renderCross();
+}
+
+function renderFacts(){
+  var box = $('factList');
+  if (!box) return;
+  box.innerHTML = FACTS.map(function(f){
+    return '<div class="fact"><span class="f-num">' + esc(f.n) + '</span><span class="f-txt">' + esc(f.t) + '</span></div>';
+  }).join('');
+}
+function renderCross(){
+  var box = $('crossLinks');
+  if (!box) return;
+  box.innerHTML = CROSS.map(function(c){ return '<a href="' + c[0] + '">' + esc(c[1]) + '</a>'; }).join('');
+}
+
+/* ---------------- copy + print ---------------- */
+$('btnCopy').addEventListener('click', function(){
+  var v = verdict();
+  var L = [];
+  L.push('THE PHOTO ALBUM — ' + (state.eventName || 'our album'));
+  L.push('');
+  L.push(v.keeps + ' keeps from a pile of ' + state.total + ' photos (' + Math.round(v.keeps/state.total*1000)/10 + '%)');
+  L.push('');
+  SLOTS.forEach(function(s){
+    var k = state.keeps[s.id] || 0;
+    if (k > 0) L.push('  ' + s.emoji + ' ' + s.name + ': ' + k);
+  });
+  L.push('');
+  L.push('Album: ' + state.pages + ' pages, ' + state.big + ' hero prints, ' + state.bleed + ' style.');
+  L.push('Capacity: ' + v.cap + ' photos across the pages.');
+  L.push('');
+  L.push('Isabella: print within six weeks or the pile wins.');
+  var txt = L.join('\n');
+  if (navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt).then(function(){ toast('Album plan copied'); },
+      function(){ toast('Copy blocked — select the plan manually'); });
+  } else { toast('Copy not available in this browser'); }
+});
+$('btnPrint').addEventListener('click', function(){
+  $('planBox').classList.add('print-only');
+  window.print();
+  setTimeout(function(){ $('planBox').classList.remove('print-only'); }, 600);
+});
+
+/* ---- toast + secret ---- */
+function toast(msg){
+  var t = document.createElement('div');
+  t.className = 'toast'; t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(function(){ t.classList.add('show'); }, 10);
+  setTimeout(function(){ t.classList.remove('show'); }, 2600);
+  setTimeout(function(){ t.remove(); }, 3000);
+}
+$('secretBadge').addEventListener('click', function(){
+  toast('Isabella\u2019s rule #31: the album you never make is the party you slowly forget. Twelve pages, six big prints, order tonight.');
+});
+
+/* ---- lead POST ---- */
+function leadPayload(){
+  var v = verdict();
+  return {
+    name: $('lfName') ? $('lfName').value : 'Photo Album user',
+    email: $('lfEmail') ? $('lfEmail').value : '',
+    source: 'photo-album',
+    eventType: (OCCASIONS.filter(function(o){return o.id===state.occasion;})[0]||{}).name || '',
+    message: 'Photo Album — ' + state.eventName + ' · pile ' + state.total + ' · keeps ' + v.keeps + ' · ' + state.pages + 'pp / ' + state.big + ' hero · ' + state.bleed
+  };
+}
+var lf = $('leadForm');
+if (lf) lf.addEventListener('submit', function(e){
+  e.preventDefault();
+  fetch('/api/leads', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(leadPayload())})
+    .then(function(){ toast('Saved — we will follow up.'); })
+    .catch(function(){ toast('Saved locally (offline).'); });
+});
+
+/* ---------------- wired inputs ---------------- */
+$('inEvent').addEventListener('input', function(){ state.eventName = this.value; renderPlan(); });
+$('inDate').addEventListener('input', function(){ state.date = this.value; });
+$('inTotal').addEventListener('input', function(){ state.total = parseInt(this.value,10); $('outTotal').textContent = state.total; renderAll(); });
+$('inSources').addEventListener('change', function(){ state.sources = this.value; renderAll(); });
+$('inBig').addEventListener('change', function(){ state.big = parseInt(this.value,10); renderAll(); });
+$('inPages').addEventListener('change', function(){ state.pages = parseInt(this.value,10); renderAll(); });
+$('inBleed').addEventListener('change', function(){ state.bleed = this.value; renderAll(); });
+
+/* ---------------- boot ---------------- */
+(function boot(){
+  $('inEvent').value = state.eventName;
+  $('inDate').value = state.date;
+  $('inTotal').value = state.total;
+  $('outTotal').textContent = state.total;
+  $('inSources').value = state.sources;
+  $('inBig').value = state.big;
+  $('inPages').value = state.pages;
+  $('inBleed').value = state.bleed;
+  renderAll();
+})();
+</script>
+</body>
+</html>
