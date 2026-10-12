@@ -285,22 +285,22 @@
 <script>
 // --- Look data: name, traits, image, short description, hero tag ---
 const LOOKS = [
-  { id:'w1', name:'Fairytale Arch', cat:'Weddings', tags:['wedding','arch'], img:'images/portfolio/thumbs/mothers-day-clear-balloon.jpg', desc:'Clear balloon gift with gold lettering & fresh blooms' },
-  { id:'w2', name:'Romantic Garden', cat:'Weddings', tags:['wedding'], img:'images/portfolio/thumbs/butterfly-hoop-install.jpg', desc:'Cream & pink hoop installation with butterfly accents' },
-  { id:'w3', name:'Golden Hour', cat:'Weddings', tags:['wedding','table'], img:'images/portfolio/thumbs/ballet-13-arch.jpg', desc:'Green, gold & pink arch for a milestone celebration' },
-  { id:'b1', name:'Pink Pop', cat:'Birthdays', tags:['birthday'], img:'images/portfolio/thumbs/emma-9-rainbow-arch.jpg', desc:'Rainbow arch with custom name balloons for a 9th birthday' },
-  { id:'b2', name:'Unicorn Dream', cat:'Birthdays', tags:['birthday'], img:'images/portfolio/thumbs/bluey-birthday-tower.jpg', desc:'Character-themed balloon tower with a number topper' },
-  { id:'b3', name:'Navy & Gold', cat:'Birthdays', tags:['birthday','table'], img:'images/portfolio/thumbs/mdc-season-one-pillar.jpg', desc:'Lavender & white pillar topped with a silver number' },
-  { id:'bb1', name:'Sweet Little One', cat:'Baby showers', tags:['baby'], img:'images/portfolio/thumbs/mothers-day-clear-balloon.jpg', desc:'Soft pastel clear balloon with fresh flowers' },
-  { id:'bb2', name:'Teddy Tea', cat:'Baby showers', tags:['baby','table'], img:'images/portfolio/thumbs/butterfly-hoop-install.jpg', desc:'Pastel hoop installation for a welcome moment' },
-  { id:'c1', name:'Brand Bloom', cat:'Corporate', tags:['corporate','arch'], img:'images/portfolio/thumbs/mdc-season-one-pillar.jpg', desc:'Brand-colour pillar for a studio opening' },
-  { id:'c2', name:'Stage Ready', cat:'Corporate', tags:['corporate'], img:'images/portfolio/thumbs/nmyb-season-12-columns.jpg', desc:'Twin branded columns with custom printed toppers' },
-  { id:'s1', name:'Winter Wonder', cat:'Holidays', tags:['seasonal'], img:'images/portfolio/thumbs/butterfly-hoop-install.jpg', desc:'Cream & blush installation for a holiday setting' },
-  { id:'s2', name:'Holiday Cheer', cat:'Holidays', tags:['seasonal','table'], img:'images/portfolio/thumbs/pumpkin-candy-bucket.jpg', desc:'Seasonal pumpkin prop filled with balloon candy' },
-  { id:'a1', name:'Organic Arch', cat:'Arches', tags:['arch','wedding'], img:'images/portfolio/thumbs/butterfly-hoop-install.jpg', desc:'Our signature organic hoop installation' },
-  { id:'a2', name:'Pastel Pillars', cat:'Arches', tags:['arch','birthday'], img:'images/portfolio/thumbs/nmyb-season-12-columns.jpg', desc:'Double-pillar entrance with custom branding' },
-  { id:'t1', name:'Blush Tablescape', cat:'Tablescapes', tags:['table','baby'], img:'images/portfolio/thumbs/mothers-day-clear-balloon.jpg', desc:'Intimate tabletop arrangement with fresh blooms' },
-  { id:'t2', name:'Dessert Bar', cat:'Tablescapes', tags:['table','birthday'], img:'images/portfolio/thumbs/halloween-cauldron.jpg', desc:'Statement prop styling for a themed celebration' }
+  { id:'w1', name:'Fairytale Arch', cat:'Weddings', tags:['wedding','arch'], img:'mothers-day-clear-balloon.jpg', desc:'Clear balloon gift with gold lettering & fresh blooms' },
+  { id:'w2', name:'Romantic Garden', cat:'Weddings', tags:['wedding'], img:'butterfly-hoop-install.jpg', desc:'Cream & pink hoop installation with butterfly accents' },
+  { id:'w3', name:'Golden Hour', cat:'Weddings', tags:['wedding','table'], img:'ballet-13-arch.jpg', desc:'Green, gold & pink arch for a milestone celebration' },
+  { id:'b1', name:'Pink Pop', cat:'Birthdays', tags:['birthday'], img:'emma-9-rainbow-arch.jpg', desc:'Rainbow arch with custom name balloons for a 9th birthday' },
+  { id:'b2', name:'Unicorn Dream', cat:'Birthdays', tags:['birthday'], img:'bluey-birthday-tower.jpg', desc:'Character-themed balloon tower with a number topper' },
+  { id:'b3', name:'Navy & Gold', cat:'Birthdays', tags:['birthday','table'], img:'mdc-season-one-pillar.jpg', desc:'Lavender & white pillar topped with a silver number' },
+  { id:'bb1', name:'Sweet Little One', cat:'Baby showers', tags:['baby'], img:'mothers-day-clear-balloon.jpg', desc:'Soft pastel clear balloon with fresh flowers' },
+  { id:'bb2', name:'Teddy Tea', cat:'Baby showers', tags:['baby','table'], img:'butterfly-hoop-install.jpg', desc:'Pastel hoop installation for a welcome moment' },
+  { id:'c1', name:'Brand Bloom', cat:'Corporate', tags:['corporate','arch'], img:'mdc-season-one-pillar.jpg', desc:'Brand-colour pillar for a studio opening' },
+  { id:'c2', name:'Stage Ready', cat:'Corporate', tags:['corporate'], img:'nmyb-season-12-columns.jpg', desc:'Twin branded columns with custom printed toppers' },
+  { id:'s1', name:'Winter Wonder', cat:'Holidays', tags:['seasonal'], img:'butterfly-hoop-install.jpg', desc:'Cream & blush installation for a holiday setting' },
+  { id:'s2', name:'Holiday Cheer', cat:'Holidays', tags:['seasonal','table'], img:'pumpkin-candy-bucket.jpg', desc:'Seasonal pumpkin prop filled with balloon candy' },
+  { id:'a1', name:'Organic Arch', cat:'Arches', tags:['arch','wedding'], img:'butterfly-hoop-install.jpg', desc:'Our signature organic hoop installation' },
+  { id:'a2', name:'Pastel Pillars', cat:'Arches', tags:['arch','birthday'], img:'nmyb-season-12-columns.jpg', desc:'Double-pillar entrance with custom branding' },
+  { id:'t1', name:'Blush Tablescape', cat:'Tablescapes', tags:['table','baby'], img:'mothers-day-clear-balloon.jpg', desc:'Intimate tabletop arrangement with fresh blooms' },
+  { id:'t2', name:'Dessert Bar', cat:'Tablescapes', tags:['table','birthday'], img:'halloween-cauldron.jpg', desc:'Statement prop styling for a themed celebration' }
 ];
 
 let saved = new Set();
